@@ -77,3 +77,24 @@ export class DnD5eAdapter implements SystemAdapter {
         return null;
     }
 }
+const dexMod = actor.system?.abilities?.dex?.mod ?? 0;
+const sign = dexMod >= 0 ? '+' : '';
+return `1d20${sign}${Math.abs(dexMod)}`;
+    }
+
+getRollData(actor: any, type: string, key: string, _options: any = {}): { formula: string; type: string; label: string } | null {
+    if (type === 'ability') {
+        const abilities = actor.system.abilities;
+        if (abilities && abilities[key]) {
+            const mod = abilities[key].mod;
+            const sign = mod >= 0 ? '+' : '';
+            return {
+                formula: `1d20 ${sign} ${mod}`,
+                type: 'ability',
+                label: `${key.toUpperCase()} Check`
+            };
+        }
+    }
+    return null;
+}
+}
