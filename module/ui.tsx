@@ -1,11 +1,10 @@
-import React from 'react';
-import { UIModuleManifest } from '@modules/registry/types';
+import type { UIModuleManifest } from '@sheet-delver/sdk';
 import info from '../info.json';
 
 const uiManifest: UIModuleManifest = {
     info,
-    sheet: () => import('@client/ui/components/GenericSheet'),
-    actorPage: () => import('@client/ui/pages/GenericActorPage'),
+    sheet: () => import('../src/ui/DnD5eSheet'),
+    actorPage: () => import('../src/ui/DnD5eActorPage'),
 };
 
 export default uiManifest;

@@ -17,18 +17,6 @@
     "discovery": {
         "packs": [
             {
-                "id": "dnd5e.heroes",
-                "type": "Actor",
-                "hydrate": true,
-                "description": "SRD Content"
-            },
-            {
-                "id": "dnd5e.monsters",
-                "type": "Actor",
-                "hydrate": false,
-                "description": "SRD Content"
-            },
-            {
                 "id": "dnd5e.items",
                 "type": "Item",
                 "hydrate": true,
@@ -77,28 +65,10 @@
                 "description": "SRD Content"
             },
             {
-                "id": "dnd5e.monsterfeatures",
-                "type": "Item",
-                "hydrate": false,
-                "description": "SRD Content"
-            },
-            {
-                "id": "dnd5e.rules",
-                "type": "JournalEntry",
-                "hydrate": true,
-                "description": "SRD Content"
-            },
-            {
                 "id": "dnd5e.tables",
                 "type": "RollTable",
                 "hydrate": true,
                 "description": "SRD Content"
-            },
-            {
-                "id": "dnd5e.content24",
-                "type": "JournalEntry",
-                "hydrate": true,
-                "description": "Paid Content for DND 5.5e 2024"
             },
             {
                 "id": "dnd5e.classes24",
@@ -133,12 +103,6 @@
             {
                 "id": "dnd5e.tables24",
                 "type": "RollTable",
-                "hydrate": true,
-                "description": "Paid Content for DND 5.5e 2024"
-            },
-            {
-                "id": "dnd5e.actors24",
-                "type": "Actor",
                 "hydrate": true,
                 "description": "Paid Content for DND 5.5e 2024"
             },
