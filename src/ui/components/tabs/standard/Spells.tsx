@@ -11,7 +11,7 @@ interface Props {
     foundryUrl?: string;
 }
 
-export default function SpellsTab({ spells, foundryUrl }: Props) {
+export default function Spells({ spells, foundryUrl }: Props) {
     if (spells.length === 0) {
         return <p className="text-center text-stone-400 text-sm py-12">No spells prepared</p>;
     }

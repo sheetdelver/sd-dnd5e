@@ -9,7 +9,7 @@ interface Props {
     foundryUrl?: string;
 }
 
-export default function FeaturesTab({ features, foundryUrl }: Props) {
+export default function Features({ features, foundryUrl }: Props) {
     if (features.length === 0) {
         return <p className="text-center text-stone-400 text-sm py-12">No features</p>;
     }

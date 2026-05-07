@@ -1,0 +1,190 @@
+/**
+ * DnD5e Module — Theme & Design Token Foundation
+ *
+ * CSS custom properties for the class-themed character sheet.
+ * Blocks and layout components reference these variables so that
+ * switching themes is a single data-attribute toggle on the root.
+ *
+ * Usage: set data-theme="paladin" (or any class) on a parent element.
+ * Default (no attribute) falls back to Paladin Gold.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Base tokens (default: Paladin Gold)                                 */
+/* ------------------------------------------------------------------ */
+
+:root {
+    /* Theme colors — overridden per class below */
+    --theme-primary: #c8a44e;
+    --theme-border: #c8a44e;
+    --theme-accent: #e8d48b;
+    --theme-glow: rgba(200, 164, 78, 0.15);
+
+    /* Background surfaces */
+    --surface-bg: #1a1a2e;
+    --surface-card: #222236;
+    --surface-elevated: #2a2a42;
+    --surface-header: #16162a;
+
+    /* Text */
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0b8;
+    --text-muted: #6a6a82;
+    --text-on-accent: #1a1a2e;
+
+    /* Typography */
+    --font-heading: 'Roboto Slab', serif;
+    --font-body: 'Roboto', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+
+    /* Block card tokens */
+    --block-radius: 8px;
+    --block-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --block-padding: 12px;
+    --block-border-width: 2px;
+
+    /* Layout breakpoints (reference values — used in media queries) */
+    --breakpoint-mobile: 768px;
+    --breakpoint-tablet: 1024px;
+
+    /* Spacing scale */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+
+    /* Proficiency indicators */
+    --prof-none: #555566;
+    --prof-half: #d4a017;
+    --prof-full: #2ecc71;
+    --prof-expert: #3498db;
+}
+
+/* ------------------------------------------------------------------ */
+/* Class Theme Overrides                                               */
+/* Applied via data-theme attribute: <div data-theme="barbarian">      */
+/* ------------------------------------------------------------------ */
+
+[data-theme="barbarian"] {
+    --theme-primary: #e74c3c;
+    --theme-border: #c0392b;
+    --theme-accent: #f1948a;
+    --theme-glow: rgba(231, 76, 60, 0.15);
+}
+
+[data-theme="bard"] {
+    --theme-primary: #ab47bc;
+    --theme-border: #8e24aa;
+    --theme-accent: #ce93d8;
+    --theme-glow: rgba(171, 71, 188, 0.15);
+}
+
+[data-theme="cleric"] {
+    --theme-primary: #bdc3c7;
+    --theme-border: #95a5a6;
+    --theme-accent: #ecf0f1;
+    --theme-glow: rgba(189, 195, 199, 0.15);
+}
+
+[data-theme="druid"] {
+    --theme-primary: #6d8f4e;
+    --theme-border: #5a7a3e;
+    --theme-accent: #a9c47f;
+    --theme-glow: rgba(109, 143, 78, 0.15);
+}
+
+[data-theme="fighter"] {
+    --theme-primary: #a0522d;
+    --theme-border: #8b4513;
+    --theme-accent: #cd853f;
+    --theme-glow: rgba(160, 82, 45, 0.15);
+}
+
+[data-theme="monk"] {
+    --theme-primary: #5dade2;
+    --theme-border: #2e86c1;
+    --theme-accent: #aed6f1;
+    --theme-glow: rgba(93, 173, 226, 0.15);
+}
+
+[data-theme="paladin"] {
+    --theme-primary: #c8a44e;
+    --theme-border: #c8a44e;
+    --theme-accent: #e8d48b;
+    --theme-glow: rgba(200, 164, 78, 0.15);
+}
+
+[data-theme="ranger"] {
+    --theme-primary: #27ae60;
+    --theme-border: #1e8449;
+    --theme-accent: #82e0aa;
+    --theme-glow: rgba(39, 174, 96, 0.15);
+}
+
+[data-theme="rogue"] {
+    --theme-primary: #5d6d7e;
+    --theme-border: #4a5a6a;
+    --theme-accent: #aab7c4;
+    --theme-glow: rgba(93, 109, 126, 0.15);
+}
+
+[data-theme="sorcerer"] {
+    --theme-primary: #e74c3c;
+    --theme-border: #cb4335;
+    --theme-accent: #f1948a;
+    --theme-glow: rgba(231, 76, 60, 0.15);
+}
+
+[data-theme="warlock"] {
+    --theme-primary: #8e44ad;
+    --theme-border: #7d3c98;
+    --theme-accent: #bb8fce;
+    --theme-glow: rgba(142, 68, 173, 0.15);
+}
+
+[data-theme="wizard"] {
+    --theme-primary: #2980b9;
+    --theme-border: #2471a3;
+    --theme-accent: #85c1e9;
+    --theme-glow: rgba(41, 128, 185, 0.15);
+}
+
+/* ------------------------------------------------------------------ */
+/* Shared utility classes                                              */
+/* ------------------------------------------------------------------ */
+
+/* Block card wrapper — used by all block components */
+.block-card {
+    background: var(--surface-card);
+    border: var(--block-border-width) solid var(--theme-border);
+    border-radius: var(--block-radius);
+    box-shadow: var(--block-shadow);
+    padding: var(--block-padding);
+}
+
+/* Block section heading */
+.block-heading {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+/* Placeholder / STUB indicator — visible during scaffolding */
+.stub-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-style: italic;
+    border: 1px dashed var(--text-muted);
+    border-radius: var(--block-radius);
+}

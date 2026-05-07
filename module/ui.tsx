@@ -3,8 +3,8 @@ import info from '../info.json';
 
 const uiManifest: UIModuleManifest = {
     info,
-    sheet: () => import('../src/ui/DnD5eSheet'),
-    actorPage: () => import('../src/ui/DnD5eActorPage'),
+    sheet: () => import('../src/ui/Sheet'),
+    actorPage: () => import('../src/ui/ActorPage'),
 };
 
 export default uiManifest;

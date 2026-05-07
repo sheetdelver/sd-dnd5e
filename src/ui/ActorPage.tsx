@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSDK, useSDKComponents, processHtmlContent } from '@sheet-delver/sdk';
-import DnD5eSheet from './DnD5eSheet';
+import Sheet from './Sheet';
 
 interface Props {
     actorId: string;
@@ -96,7 +96,7 @@ export default function DnD5eActorPage({ actorId }: Props) {
     if (!actor) return null;
 
     return (
-        <DnD5eSheet
+        <Sheet
             actor={actor}
             onRoll={handleRoll}
             onUpdate={handleUpdate}

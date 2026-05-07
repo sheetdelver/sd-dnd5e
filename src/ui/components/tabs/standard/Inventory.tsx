@@ -10,7 +10,7 @@ interface Props {
     isOwner?: boolean;
 }
 
-export default function GearTab({ gear, foundryUrl }: Props) {
+export default function Inventory({ gear, foundryUrl }: Props) {
     if (gear.length === 0) {
         return <p className="text-center text-stone-400 text-sm py-12">No equipment</p>;
     }
