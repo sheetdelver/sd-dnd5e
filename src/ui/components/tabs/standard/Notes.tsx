@@ -1,27 +1,30 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import { NOTE_FILTERS, FilterBar } from '../../shared/filters';
 
 /**
- * Notes tab (standard view) — renders note sections for
- * Organizations, Allies, Enemies, Backstory, and Other.
+ * Notes tab (standard view) — note sections for Organizations, Allies,
+ * Enemies, Backstory, and Other.
+ * Includes sub-filter bar for note categories.
  *
- * STUB — static placeholder, no data wiring.
+ * STUB — static placeholder with functional filter switching.
  */
-
-// STUB: Note section categories
-const NOTE_SECTIONS = ['Organizations', 'Allies', 'Enemies', 'Backstory', 'Other'];
-
 export default function Notes() {
+    const [activeFilter, setActiveFilter] = useState(NOTE_FILTERS[0]);
+
     return (
-        <div style={{ padding: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-            {NOTE_SECTIONS.map(section => (
-                <div key={section} className="block-card">
-                    <h2 className="block-heading">{section}</h2>
-                    {/* STUB: Empty note area */}
-                    <div className="stub-placeholder">No {section.toLowerCase()} notes</div>
-                </div>
-            ))}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+            <FilterBar
+                filterMap={NOTE_FILTERS}
+                activeFilter={activeFilter}
+                onFilterChange={setActiveFilter}
+            />
+
+            {/* STUB: Filtered notes content placeholder */}
+            <div className="stub-placeholder" style={{ minHeight: '200px' }}>
+                Showing: {activeFilter}
+            </div>
         </div>
     );
 }

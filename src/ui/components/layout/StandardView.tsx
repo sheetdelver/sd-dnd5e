@@ -79,13 +79,8 @@ export interface StandardViewProps {
 export default function StandardView({
     actor,
     derived,
-    weapons,
-    spells,
-    features,
-    gear,
     onRoll,
     foundryUrl,
-    isOwner,
 }: StandardViewProps) {
     const [activeTab, setActiveTab] = useState<StandardTab>('actions');
 
@@ -203,15 +198,9 @@ export default function StandardView({
                     {/* Active tab content */}
                     <div style={{ flex: 1, padding: 'var(--space-sm) 0' }}>
                         {activeTab === 'actions' && <ActionsTab />}
-                        {activeTab === 'spells' && (
-                            <SpellsTab spells={spells} foundryUrl={foundryUrl} />
-                        )}
-                        {activeTab === 'inventory' && (
-                            <InventoryTab gear={gear} foundryUrl={foundryUrl} isOwner={isOwner} />
-                        )}
-                        {activeTab === 'features' && (
-                            <FeaturesTab features={features} foundryUrl={foundryUrl} />
-                        )}
+                        {activeTab === 'spells' && <SpellsTab />}
+                        {activeTab === 'inventory' && <InventoryTab />}
+                        {activeTab === 'features' && <FeaturesTab />}
                         {activeTab === 'background' && <BackgroundTab />}
                         {activeTab === 'notes' && <NotesTab />}
                         {activeTab === 'extras' && <ExtrasTab />}

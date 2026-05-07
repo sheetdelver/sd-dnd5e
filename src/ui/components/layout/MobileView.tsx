@@ -3,9 +3,8 @@
 import React, { useState } from 'react';
 import type { FoundryItem } from '@sheet-delver/sdk';
 
-// Page chrome
-import Header from '../page/Header';
-import BottomNav from '../page/BottomNav';
+// Page chrome — mobile-specific header
+import MobileHeader from '../page/MobileHeader';
 
 // Blocks (already wired)
 import Abilities from '../blocks/Abilities';
@@ -14,20 +13,12 @@ import Skills from '../blocks/Skills';
 // Blocks (stubs — no actor data yet)
 import SavingThrows from '../blocks/SavingThrows';
 import PassiveSenses from '../blocks/PassiveSenses';
-import ProficiencyBonus from '../blocks/ProficiencyBonus';
-import WalkingSpeed from '../blocks/WalkingSpeed';
-import ArmorClass from '../blocks/ArmorClass';
-import Initiative from '../blocks/Initiative';
-import Defenses from '../blocks/Defenses';
-import Conditions from '../blocks/Conditions';
 
-// Standard tabs (already wired — reused in mobile for shared content)
+// Tabs — use mobile stubs for all tabs in mobile view
 import ActionsTab from '../tabs/mobile/Actions';
-import SpellsTab from '../tabs/standard/Spells';
-import FeaturesTab from '../tabs/standard/Features';
-import InventoryTab from '../tabs/standard/Inventory';
-
-// Mobile tabs (stubs — for tabs with no standard equivalent)
+import SpellsTab from '../tabs/mobile/Spells';
+import InventoryTab from '../tabs/mobile/Inventory';
+import FeaturesTab from '../tabs/mobile/Features';
 import ProficienciesTab from '../tabs/mobile/Proficiencies';
 import BackgroundTab from '../tabs/mobile/Background';
 import NotesTab from '../tabs/mobile/Notes';
@@ -35,11 +26,13 @@ import ExtrasTab from '../tabs/mobile/Extras';
 
 /**
  * MobileView — mobile/tablet layout for the DnD5e character sheet.
- * Single-column layout with sticky header, core stats strip,
- * scrollable body, and bottom navigation with popup tab menu.
+ * Single-column layout:
+ * - MobileHeader (portrait, stats, campaign)
+ * - Scrollable body with active tab content
+ * - Bottom navigation with popup tab menu
  *
- * Receives actor data from Sheet.tsx and distributes to wired blocks/tabs.
- * Stub blocks/tabs render with static placeholders.
+ * All blocks render full-width within bounds. Fonts are scaled up
+ * for touch-friendly readability.
  */
 
 // Mobile tab identifiers
@@ -47,16 +40,16 @@ type MobileTab = 'abilities' | 'skills' | 'actions' | 'inventory' | 'spells' | '
 
 // Tab definitions for the popup menu grid
 const MOBILE_TABS: { id: MobileTab; label: string; icon: string }[] = [
-    { id: 'abilities',     label: 'Abilities, Saves, Senses', icon: '🛡' },
-    { id: 'skills',        label: 'Skills',                   icon: '✦' },
-    { id: 'actions',       label: 'Actions',                  icon: '⚔' },
-    { id: 'inventory',     label: 'Inventory',                icon: '🎒' },
-    { id: 'spells',        label: 'Spells',                   icon: '🔮' },
-    { id: 'features',      label: 'Features & Traits',        icon: '⊙' },
-    { id: 'proficiencies', label: 'Proficiencies & Training', icon: '🔍' },
-    { id: 'background',    label: 'Background',               icon: '📜' },
-    { id: 'notes',         label: 'Notes',                    icon: '📝' },
-    { id: 'extras',        label: '••• Extras',               icon: '•••' },
+    { id: 'abilities',     label: 'Abilities',     icon: '🛡' },
+    { id: 'skills',        label: 'Skills',        icon: '✦' },
+    { id: 'actions',       label: 'Actions',       icon: '⚔' },
+    { id: 'inventory',     label: 'Inventory',     icon: '🎒' },
+    { id: 'spells',        label: 'Spells',        icon: '🔮' },
+    { id: 'features',      label: 'Features',      icon: '⊙' },
+    { id: 'proficiencies', label: 'Proficiencies', icon: '🔍' },
+    { id: 'background',    label: 'Background',    icon: '📜' },
+    { id: 'notes',         label: 'Notes',         icon: '📝' },
+    { id: 'extras',        label: 'Extras',        icon: '•••' },
 ];
 
 export interface MobileViewProps {
@@ -76,48 +69,42 @@ export interface MobileViewProps {
 export default function MobileView({
     actor,
     derived,
-    weapons,
-    spells,
-    features,
-    gear,
     onRoll,
     foundryUrl,
-    isOwner,
 }: MobileViewProps) {
     const [activeTab, setActiveTab] = useState<MobileTab>('abilities');
     const [menuOpen, setMenuOpen] = useState(false);
 
     /**
      * Renders the content for the currently active mobile tab.
-     * Wired tabs pass through existing actor data; stub tabs render placeholders.
+     * Wired blocks pass existing actor data; stubs render placeholders.
      */
     const renderTabContent = () => {
         switch (activeTab) {
             case 'abilities':
                 return (
-                    <div style={{ padding: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-                        {/* Wired block: ability scores */}
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '16px',
+                    }}>
+                        {/* Ability scores — 3×2 grid for mobile readability */}
                         <Abilities abilities={derived.abilities} onRoll={onRoll} />
-                        {/* Stub blocks: saves and senses */}
+                        {/* Saving throws + Passive senses */}
                         <SavingThrows />
                         <PassiveSenses />
                     </div>
                 );
             case 'skills':
-                return (
-                    <div style={{ padding: 'var(--space-lg)' }}>
-                        {/* Wired block: skills list */}
-                        <Skills skills={derived.skills} onRoll={onRoll} />
-                    </div>
-                );
+                return <Skills skills={derived.skills} onRoll={onRoll} />;
             case 'actions':
                 return <ActionsTab />;
             case 'spells':
-                return <SpellsTab spells={spells} foundryUrl={foundryUrl} />;
+                return <SpellsTab />;
             case 'inventory':
-                return <InventoryTab gear={gear} foundryUrl={foundryUrl} isOwner={isOwner} />;
+                return <InventoryTab />;
             case 'features':
-                return <FeaturesTab features={features} foundryUrl={foundryUrl} />;
+                return <FeaturesTab />;
             case 'proficiencies':
                 return <ProficienciesTab />;
             case 'background':
@@ -137,34 +124,18 @@ export default function MobileView({
             background: 'var(--surface-bg)',
             color: 'var(--text-primary)',
             minHeight: '100vh',
-            paddingBottom: '72px', /* Space for BottomNav */
+            paddingBottom: '64px', /* Space for bottom nav */
+            fontSize: '14px', /* Base font bump for mobile */
         }}>
-            {/* ---- Sticky header (existing wired component) ---- */}
-            <Header actor={actor} derived={derived} foundryUrl={foundryUrl} />
-
-            {/* ---- Core stats strip (stub blocks, compact) ---- */}
-            <div style={{
-                background: 'var(--surface-card)',
-                borderBottom: '1px solid var(--theme-border)',
-                padding: 'var(--space-sm) var(--space-lg)',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr) auto',
-                gap: 'var(--space-xs)',
-                alignItems: 'center',
-            }}>
-                <ProficiencyBonus />
-                <WalkingSpeed />
-                <Initiative />
-                <ArmorClass />
-                {/* Defenses & Conditions stacked */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                    <Defenses />
-                    <Conditions />
-                </div>
-            </div>
+            {/* ---- Mobile-specific header ---- */}
+            <MobileHeader actor={actor} derived={derived} foundryUrl={foundryUrl} />
 
             {/* ---- Scrollable body: active tab content ---- */}
-            <main>
+            <main style={{
+                padding: '16px',
+                maxWidth: '100%',
+                overflow: 'hidden', /* Prevent horizontal overflow */
+            }}>
                 {renderTabContent()}
             </main>
 
@@ -179,55 +150,75 @@ export default function MobileView({
                         display: 'flex',
                         alignItems: 'flex-end',
                         justifyContent: 'center',
-                        paddingBottom: '72px', /* Above the BottomNav */
+                        paddingBottom: '64px', /* Above bottom nav */
                     }}
                     onClick={() => setMenuOpen(false)}
                 >
                     <div
                         style={{
-                            background: 'var(--surface-bg)',
-                            borderRadius: '12px 12px 0 0',
-                            padding: 'var(--space-lg)',
+                            background: 'var(--surface-card)',
+                            borderRadius: '16px 16px 0 0',
+                            padding: '16px',
                             width: '100%',
                             maxWidth: '420px',
+                            border: '1px solid var(--theme-border)',
+                            borderBottom: 'none',
                         }}
                         onClick={e => e.stopPropagation()}
                     >
+                        {/* Current tab label */}
+                        <div style={{
+                            textAlign: 'center',
+                            fontSize: '10px',
+                            color: 'var(--text-muted)',
+                            textTransform: 'uppercase' as const,
+                            letterSpacing: '0.08em',
+                            marginBottom: '12px',
+                        }}>
+                            Current: {MOBILE_TABS.find(t => t.id === activeTab)?.label}
+                        </div>
+
+                        {/* Tab grid */}
                         <div style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(2, 1fr)',
-                            gap: 'var(--space-sm)',
+                            gap: '8px',
                         }}>
-                            {MOBILE_TABS.map(tab => (
-                                <button
-                                    key={tab.id}
-                                    onClick={() => { setActiveTab(tab.id); setMenuOpen(false); }}
-                                    style={{
-                                        padding: '12px 8px',
-                                        textAlign: 'center',
-                                        background: activeTab === tab.id ? 'var(--theme-glow)' : 'var(--surface-elevated)',
-                                        border: activeTab === tab.id
-                                            ? '2px solid var(--theme-primary)'
-                                            : '1px solid var(--theme-border)',
-                                        borderRadius: 'var(--block-radius)',
-                                        fontSize: '11px',
-                                        fontWeight: 600,
-                                        color: activeTab === tab.id ? 'var(--theme-primary)' : 'var(--text-primary)',
-                                        textTransform: 'uppercase' as const,
-                                        letterSpacing: '0.03em',
-                                        cursor: 'pointer',
-                                    }}
-                                >
-                                    <span style={{ marginRight: '4px' }}>{tab.icon}</span>
-                                    {tab.label}
-                                </button>
-                            ))}
+                            {MOBILE_TABS.map(tab => {
+                                const isActive = activeTab === tab.id;
+                                return (
+                                    <button
+                                        key={tab.id}
+                                        onClick={() => { setActiveTab(tab.id); setMenuOpen(false); }}
+                                        style={{
+                                            padding: '14px 10px',
+                                            textAlign: 'center',
+                                            background: isActive ? 'var(--theme-glow)' : 'var(--surface-elevated)',
+                                            border: isActive
+                                                ? '2px solid var(--theme-primary)'
+                                                : '1px solid var(--theme-border)',
+                                            borderRadius: '8px',
+                                            fontSize: '12px',
+                                            fontWeight: 600,
+                                            color: isActive ? 'var(--theme-primary)' : 'var(--text-primary)',
+                                            cursor: 'pointer',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '6px',
+                                        }}
+                                    >
+                                        <span style={{ fontSize: '16px' }}>{tab.icon}</span>
+                                        {tab.label}
+                                    </button>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* ---- Bottom Nav (with functional tab menu trigger) ---- */}
+            {/* ---- Bottom Navigation ---- */}
             <nav style={{
                 position: 'fixed',
                 bottom: 0,
@@ -239,16 +230,16 @@ export default function MobileView({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-around',
-                padding: '0 16px',
+                padding: '0 24px',
                 zIndex: 50,
             }}>
                 {/* Settings placeholder */}
                 <button
                     style={{
-                        width: '40px', height: '40px', borderRadius: '50%',
+                        width: '36px', height: '36px', borderRadius: '50%',
                         border: '1px solid var(--theme-border)',
                         background: 'transparent', color: 'var(--text-secondary)',
-                        fontSize: '18px', cursor: 'pointer',
+                        fontSize: '16px', cursor: 'pointer',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}
                     disabled
@@ -256,28 +247,30 @@ export default function MobileView({
                     ⚙
                 </button>
 
-                {/* Tab menu trigger — functional */}
+                {/* Tab menu trigger — center, larger for touch */}
                 <button
                     onClick={() => setMenuOpen(o => !o)}
                     style={{
-                        width: '40px', height: '40px', borderRadius: '50%',
-                        border: '1px solid var(--theme-border)',
+                        width: '44px', height: '44px', borderRadius: '50%',
+                        border: '2px solid var(--theme-border)',
                         background: menuOpen ? 'var(--theme-primary)' : 'var(--theme-glow)',
                         color: menuOpen ? 'var(--text-on-accent)' : 'var(--theme-primary)',
-                        fontSize: '18px', cursor: 'pointer',
+                        fontSize: '20px', cursor: 'pointer',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        boxShadow: menuOpen ? '0 0 12px var(--theme-glow)' : 'none',
+                        transition: 'all 0.2s ease',
                     }}
                 >
-                    ▦
+                    {menuOpen ? '▼' : '▲'}
                 </button>
 
                 {/* Back/collapse placeholder */}
                 <button
                     style={{
-                        width: '40px', height: '40px', borderRadius: '50%',
+                        width: '36px', height: '36px', borderRadius: '50%',
                         border: '1px solid var(--theme-border)',
                         background: 'transparent', color: 'var(--text-secondary)',
-                        fontSize: '18px', cursor: 'pointer',
+                        fontSize: '16px', cursor: 'pointer',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}
                     disabled

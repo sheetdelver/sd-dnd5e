@@ -39,7 +39,7 @@ export default function Abilities({ abilities, onRoll }: Props) {
     return (
         <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(6, 1fr)',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))',
             gap: 'var(--space-sm)',
         }}>
             {ABILITY_ORDER.map(key => {
