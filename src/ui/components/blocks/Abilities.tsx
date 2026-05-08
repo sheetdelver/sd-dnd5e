@@ -3,11 +3,14 @@
 import React from 'react';
 
 /**
- * Abilities block — displays the 6 ability scores in a single horizontal row.
- * Each card shows: ability label, modifier, and base score.
- * Styled with dark background and themed border colors.
+ * Convention for `components/blocks/*`:
+ *   Blocks are atomic, individual widgets (one block = one self-contained
+ *   piece of UI). They accept props from a parent and stay reusable across
+ *   StandardView (placed directly in the layout) and mobile tabs (composed
+ *   together inside `tabs/mobile/*`). Blocks should NOT compose other blocks.
  *
- * Used in the StandardView ability strip alongside stat chips.
+ * Abilities block — 6 ability score cards. Default 6 columns; pass `columns={3}`
+ * for a 3×2 mobile grid.
  */
 
 // Ability order and label mapping
@@ -31,15 +34,17 @@ interface AbilityData {
 interface Props {
     abilities?: Record<string, AbilityData>;
     onRoll?: (type: string, key: string, options?: Record<string, unknown>) => Promise<void>;
+    /** Number of columns in the grid. Default 6 (single row). Pass 3 for mobile. */
+    columns?: number;
 }
 
-export default function Abilities({ abilities, onRoll }: Props) {
+export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
     if (!abilities) return null;
 
     return (
         <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))',
+            gridTemplateColumns: `repeat(${columns}, 1fr)`,
             gap: 'var(--space-sm)',
         }}>
             {ABILITY_ORDER.map(key => {

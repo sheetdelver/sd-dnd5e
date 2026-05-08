@@ -2,15 +2,13 @@
 
 import React from 'react';
 
-/**
- * HeroicInspiration block — heroic inspiration toggle.
- *
- * STUB — static placeholder, no data wiring.
- */
-export default function HeroicInspiration() {
+interface Props {
+    active?: boolean;
+}
+
+export default function HeroicInspiration({ active = false }: Props) {
     return (
         <div className="block-card" style={{ textAlign: 'center' }}>
-            {/* STUB: Inspiration toggle placeholder */}
             <div style={{
                 width: '28px',
                 height: '28px',
@@ -20,10 +18,11 @@ export default function HeroicInspiration() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--text-muted)',
+                color: active ? 'var(--theme-primary)' : 'var(--text-muted)',
                 fontSize: '14px',
+                background: active ? 'var(--theme-glow)' : 'transparent',
             }}>
-                ○
+                {active ? '★' : '○'}
             </div>
             <div className="block-heading" style={{ marginBottom: 0 }}>Heroic Inspiration</div>
         </div>

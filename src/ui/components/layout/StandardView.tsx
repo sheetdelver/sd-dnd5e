@@ -119,10 +119,10 @@ export default function StandardView({
                         gridTemplateColumns: 'repeat(4, 1fr)',
                         gap: 'var(--space-sm)',
                     }}>
-                        <ProficiencyBonus />
-                        <WalkingSpeed />
-                        <HeroicInspiration />
-                        <HitPoints />
+                        <ProficiencyBonus value={derived.profBonus} />
+                        <WalkingSpeed walk={derived.speed?.walk} />
+                        <HeroicInspiration active={derived.inspiration} />
+                        <HitPoints hp={derived.hp} />
                     </div>
                 </div>
             </div>
@@ -139,8 +139,13 @@ export default function StandardView({
             }}>
                 {/* Left column: Saves, Senses, Proficiencies */}
                 <aside style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-                    <SavingThrows />
-                    <PassiveSenses />
+                    <SavingThrows abilities={derived.abilities} onRoll={onRoll} />
+                    <PassiveSenses
+                        perception={derived.passivePerception}
+                        investigation={derived.passiveInvestigation}
+                        insight={derived.passiveInsight}
+                        senses={derived.senses}
+                    />
                     <Proficiencies />
                 </aside>
 
@@ -157,8 +162,8 @@ export default function StandardView({
                         gridTemplateColumns: 'repeat(4, 1fr)',
                         gap: 'var(--space-sm)',
                     }}>
-                        <Initiative />
-                        <ArmorClass />
+                        <Initiative value={derived.initiative} />
+                        <ArmorClass value={derived.ac} />
                         <Defenses />
                         <Conditions />
                     </div>

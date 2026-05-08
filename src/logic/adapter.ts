@@ -40,6 +40,8 @@ interface D5eSystem {
         init?: { value?: number; mod?: number; bonus?: number };
         prof?: number;
         movement?: { walk?: number; fly?: number; swim?: number; climb?: number; burrow?: number };
+        senses?: { darkvision?: number; blindsight?: number; tremorsense?: number; truesight?: number; special?: string };
+        inspiration?: boolean;
         spellcasting?: string;
         spelldc?: number;
     };
@@ -119,7 +121,11 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 classes: this.buildClassString(actor.items),
                 spellAttackBonus: this.buildSpellAttackBonus(s, prof),
                 spellSaveDC: attrs.spelldc ?? 8 + prof,
-                passivePerception: 10 + (s?.skills?.prc?.value ?? s?.abilities?.wis?.mod ?? Math.floor(((s?.abilities?.wis?.value ?? 10) - 10) / 2)),
+                passivePerception: this.buildPassive(s, 'prc', 'wis'),
+                passiveInvestigation: this.buildPassive(s, 'inv', 'int'),
+                passiveInsight: this.buildPassive(s, 'ins', 'wis'),
+                senses: attrs.senses ?? {},
+                inspiration: attrs.inspiration ?? false,
                 currency: s?.currency ?? {},
             },
         };
@@ -270,5 +276,13 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const castingAbility = s?.attributes?.spellcasting;
         if (!castingAbility) return profBonus;
         return profBonus + (s?.abilities?.[castingAbility]?.mod ?? 0);
+    }
+
+    private buildPassive(s: Partial<D5eSystem>, skillKey: string, fallbackAbility: string): number {
+        const skillTotal = s?.skills?.[skillKey]?.value ?? s?.skills?.[skillKey]?.total;
+        if (typeof skillTotal === 'number') return 10 + skillTotal;
+        const ab = s?.abilities?.[fallbackAbility];
+        const mod = ab?.mod ?? Math.floor(((ab?.value ?? 10) - 10) / 2);
+        return 10 + mod;
     }
 }

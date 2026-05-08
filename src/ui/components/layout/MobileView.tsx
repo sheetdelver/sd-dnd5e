@@ -6,15 +6,9 @@ import type { FoundryItem } from '@sheet-delver/sdk';
 // Page chrome — mobile-specific header
 import MobileHeader from '../page/MobileHeader';
 
-// Blocks (already wired)
-import Abilities from '../blocks/Abilities';
-import Skills from '../blocks/Skills';
-
-// Blocks (stubs — no actor data yet)
-import SavingThrows from '../blocks/SavingThrows';
-import PassiveSenses from '../blocks/PassiveSenses';
-
-// Tabs — use mobile stubs for all tabs in mobile view
+// Mobile tabs — each tab composes its own blocks. MobileView only delegates.
+import AbilitiesTab from '../tabs/mobile/Abilities';
+import SkillsTab from '../tabs/mobile/Skills';
 import ActionsTab from '../tabs/mobile/Actions';
 import SpellsTab from '../tabs/mobile/Spells';
 import InventoryTab from '../tabs/mobile/Inventory';
@@ -77,26 +71,14 @@ export default function MobileView({
 
     /**
      * Renders the content for the currently active mobile tab.
-     * Wired blocks pass existing actor data; stubs render placeholders.
+     * Each mobile tab composes its own blocks — MobileView only delegates.
      */
     const renderTabContent = () => {
         switch (activeTab) {
             case 'abilities':
-                return (
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '16px',
-                    }}>
-                        {/* Ability scores — 3×2 grid for mobile readability */}
-                        <Abilities abilities={derived.abilities} onRoll={onRoll} />
-                        {/* Saving throws + Passive senses */}
-                        <SavingThrows />
-                        <PassiveSenses />
-                    </div>
-                );
+                return <AbilitiesTab derived={derived} onRoll={onRoll} />;
             case 'skills':
-                return <Skills skills={derived.skills} onRoll={onRoll} />;
+                return <SkillsTab derived={derived} onRoll={onRoll} />;
             case 'actions':
                 return <ActionsTab />;
             case 'spells':

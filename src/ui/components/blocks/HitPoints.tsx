@@ -2,19 +2,25 @@
 
 import React from 'react';
 
-/**
- * HitPoints block — current/max/temp HP display.
- * Includes heal and damage button placeholders.
- * Extracted from the monolithic header so layouts can position independently.
- *
- * STUB — static placeholder, no data wiring.
- */
-export default function HitPoints() {
+interface HpData {
+    value?: number;
+    max?: number;
+    temp?: number;
+}
+
+interface Props {
+    hp?: HpData;
+}
+
+export default function HitPoints({ hp }: Props) {
+    const value = hp?.value ?? 0;
+    const max = hp?.max ?? 0;
+    const temp = hp?.temp ?? 0;
+
     return (
         <div className="block-card">
             <h2 className="block-heading">Hit Points</h2>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                {/* STUB: Heal button placeholder */}
                 <button
                     style={{
                         fontSize: '10px',
@@ -30,18 +36,17 @@ export default function HitPoints() {
                     HEAL
                 </button>
 
-                {/* STUB: HP values */}
                 <div style={{ flex: 1, textAlign: 'center' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', gap: '4px' }}>
-                        <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--text-primary)' }}>30</span>
+                        <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--text-primary)' }}>{value}</span>
                         <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>/</span>
-                        <span style={{ fontSize: '16px', fontWeight: 'bold', color: 'var(--text-primary)' }}>30</span>
+                        <span style={{ fontSize: '16px', fontWeight: 'bold', color: 'var(--text-primary)' }}>{max}</span>
                     </div>
-                    {/* STUB: Temp HP */}
-                    <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>TEMP: --</div>
+                    <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>
+                        TEMP: {temp > 0 ? temp : '--'}
+                    </div>
                 </div>
 
-                {/* STUB: Damage button placeholder */}
                 <button
                     style={{
                         fontSize: '10px',

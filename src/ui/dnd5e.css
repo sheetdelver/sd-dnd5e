@@ -188,3 +188,34 @@
     border: 1px dashed var(--text-muted);
     border-radius: var(--block-radius);
 }
+
+/* ------------------------------------------------------------------ */
+/* Responsive — mobile / narrow viewports                              */
+/* MobileView is rendered below 1024px; below 768px we further bump    */
+/* font sizes and tap targets so the dense Skills/SavingThrows blocks  */
+/* stay readable on phones.                                            */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+    .block-card {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .block-heading {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 768px) {
+    .block-heading {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+    }
+
+    /* Ensure all block-card descendants respect the container */
+    .block-card * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}

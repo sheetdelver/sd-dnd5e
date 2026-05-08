@@ -2,40 +2,35 @@
 
 import React from 'react';
 
+import Abilities from '../../blocks/Abilities';
+import SavingThrows from '../../blocks/SavingThrows';
+import PassiveSenses from '../../blocks/PassiveSenses';
+
 /**
- * Abilities tab (mobile view) — composes Abilities, SavingThrows, and
- * PassiveSenses block placeholders into a single scrollable mobile tab.
+ * Convention for `components/tabs/mobile/*`:
+ *   Mobile tabs COMPOSE blocks. Mobile shows one tab at a time, so each tab
+ *   stacks the related blocks vertically. `layout/MobileView.tsx` delegates
+ *   to these tab components — it must NEVER render blocks inline.
  *
- * STUB — static placeholder, no data wiring.
+ * Abilities tab — composes Abilities + SavingThrows + PassiveSenses.
  */
-export default function Abilities() {
+
+interface Props {
+    derived: Record<string, any>;
+    onRoll?: (type: string, key: string, options?: Record<string, unknown>) => Promise<void>;
+}
+
+export default function AbilitiesTab({ derived, onRoll }: Props) {
     return (
-        <div style={{ padding: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-            {/* STUB: Ability scores placeholder */}
-            <div className="block-card">
-                <h2 className="block-heading">Ability Scores</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
-                    {['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA'].map(ab => (
-                        <div key={ab} style={{ textAlign: 'center', padding: '12px 4px', border: '1px solid var(--theme-border)', borderRadius: 'var(--block-radius)' }}>
-                            <div style={{ fontSize: '10px', color: 'var(--text-secondary)', textTransform: 'uppercase' as const }}>{ab}</div>
-                            <div style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--text-primary)' }}>+0</div>
-                            <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>10</div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* STUB: Saving Throws placeholder */}
-            <div className="block-card">
-                <h2 className="block-heading">Saving Throws</h2>
-                <div className="stub-placeholder">Saving throw modifiers</div>
-            </div>
-
-            {/* STUB: Passive Senses placeholder */}
-            <div className="block-card">
-                <h2 className="block-heading">Passive Senses</h2>
-                <div className="stub-placeholder">Perception, Investigation, Insight</div>
-            </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <Abilities abilities={derived.abilities} onRoll={onRoll} columns={3} />
+            <SavingThrows abilities={derived.abilities} onRoll={onRoll} />
+            <PassiveSenses
+                perception={derived.passivePerception}
+                investigation={derived.passiveInvestigation}
+                insight={derived.passiveInsight}
+                senses={derived.senses}
+            />
         </div>
     );
 }

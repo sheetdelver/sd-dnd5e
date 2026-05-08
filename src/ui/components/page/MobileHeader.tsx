@@ -28,6 +28,14 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
     const subtitle = [derived.race, derived.classes].filter(Boolean).join(' · ');
     const level = derived.level ?? 0;
+    const hp = derived.hp ?? { value: 0, max: 0 };
+    const profBonus = derived.profBonus ?? 2;
+    const walk = derived.speed?.walk ?? 30;
+    const initiative = derived.initiative ?? 0;
+    const ac = derived.ac ?? 10;
+    const inspiration = derived.inspiration ?? false;
+    const profFmt = profBonus >= 0 ? `+${profBonus}` : `${profBonus}`;
+    const initFmt = initiative >= 0 ? `+${initiative}` : `${initiative}`;
 
     return (
         <header style={{ background: 'var(--surface-header)' }}>
@@ -110,7 +118,7 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                     ⚙
                 </div>
 
-                {/* STUB: Hit Points compact display */}
+                {/* Hit Points compact display */}
                 <div style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -132,15 +140,15 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         lineHeight: 1.1,
                         fontVariantNumeric: 'tabular-nums',
                     }}>
-                        30<span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '14px' }}>/</span>30
+                        {hp.value}<span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '14px' }}>/</span>{hp.max}
                     </span>
                     <span style={{
                         fontSize: '8px',
-                        color: 'var(--theme-primary)',
+                        color: inspiration ? 'var(--theme-primary)' : 'var(--text-muted)',
                         textTransform: 'uppercase' as const,
                         letterSpacing: '0.05em',
                     }}>
-                        HEROIC INSPIRATION
+                        {inspiration ? '★ HEROIC INSPIRATION' : 'NO INSPIRATION'}
                     </span>
                 </div>
             </div>
@@ -155,13 +163,13 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                 overflowX: 'auto',
             }}>
                 {/* Stat chip: Proficiency Bonus */}
-                <StatChip label="BONUS" title="PROFICIENCY" value="+2" />
+                <StatChip label="BONUS" title="PROFICIENCY" value={profFmt} />
                 {/* Stat chip: Walking Speed */}
-                <StatChip label="SPEED" title="WALKING" value="30 ft." />
+                <StatChip label="SPEED" title="WALKING" value={`${walk} ft.`} />
                 {/* Stat chip: Initiative */}
-                <StatChip label="INITIATIVE" value="-1" bordered />
+                <StatChip label="INITIATIVE" value={initFmt} bordered />
                 {/* Stat chip: Armor Class */}
-                <StatChip label="CLASS" title="ARMOR" value="17" />
+                <StatChip label="CLASS" title="ARMOR" value={String(ac)} />
 
                 {/* Defenses + Conditions buttons */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: 'auto', flexShrink: 0 }}>
