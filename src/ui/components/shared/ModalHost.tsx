@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useModal } from './useModal';
+import ThemeModal, { type ThemeModalProps } from '../modals/ThemeModal';
 
 /**
  * ModalHost — single mount point for the active modal.
@@ -11,19 +12,21 @@ import { useModal } from './useModal';
  * case here. The host returns `null` when no modal is open, so it costs
  * nothing in the idle state.
  *
- * Phase 1 ships with the registry empty — Phase 2 (ThemeModal) is the first
- * concrete entry. Add new entries here as each modal is built; keep modal
- * components themselves in `components/modals/`.
+ * Phase 2 adds the first concrete entry: `theme` → ThemeModal.
  */
 export default function ModalHost() {
     const { activeId, activeProps, closeModal } = useModal();
 
     if (activeId === null) return null;
 
-    // Registry — extend in later phases. Each case forwards `activeProps` and
-    // `closeModal` to the concrete modal component.
     switch (activeId) {
-        // case 'theme': return <ThemeModal {...activeProps} onClose={closeModal} />;
+        case 'theme':
+            return (
+                <ThemeModal
+                    {...(activeProps as Omit<ThemeModalProps, 'onClose'>)}
+                    onClose={closeModal}
+                />
+            );
         // case 'roll':  return <RollModal {...activeProps} onClose={closeModal} />;
         // case 'hp':    return <HPModal {...activeProps} onClose={closeModal} />;
         // case 'rest':  return <RestModal {...activeProps} onClose={closeModal} />;
@@ -32,7 +35,6 @@ export default function ModalHost() {
         // case 'richtext': return <RichTextModal {...activeProps} onClose={closeModal} />;
         default:
             // Unknown id — close so we don't get stuck in a no-op state.
-            void activeProps;
             queueMicrotask(closeModal);
             return null;
     }

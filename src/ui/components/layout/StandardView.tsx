@@ -35,6 +35,7 @@ import ExtrasTab from '../tabs/standard/Extras';
 // Modal infrastructure (Phase 1 — ui-refinement-02)
 import { ModalProvider } from '../shared/useModal';
 import ModalHost from '../shared/ModalHost';
+import { useSheetSetting } from '../shared/useSheetSetting';
 
 /**
  * StandardView — desktop/wide layout for the DnD5e character sheet.
@@ -91,10 +92,11 @@ export default function StandardView({
     foundryUrl,
 }: StandardViewProps) {
     const [activeTab, setActiveTab] = useState<StandardTab>('actions');
+    const [theme] = useSheetSetting<string>('theme', 'paladin');
 
     return (
         <ModalProvider>
-        <div data-theme="paladin" style={{
+        <div data-theme={theme} style={{
             fontFamily: 'var(--font-body)',
             background: 'var(--surface-bg)',
             color: 'var(--text-primary)',

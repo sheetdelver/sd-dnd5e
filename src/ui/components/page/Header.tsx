@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { resolveImage } from '@sheet-delver/sdk';
+import { useModal } from '../shared/useModal';
+import { useSheetSetting } from '../shared/useSheetSetting';
 
 /**
  * Header — top-level character identity and utility bar.
@@ -19,6 +21,8 @@ export default function Header({ actor, derived, foundryUrl }: Props) {
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
     const subtitle = [derived.race, derived.classes].filter(Boolean).join(' • ');
     const level = derived.level ?? 0;
+    const { openModal } = useModal();
+    const [theme, setTheme] = useSheetSetting<string>('theme', 'paladin');
 
     return (
         <header style={{
@@ -66,19 +70,26 @@ export default function Header({ actor, derived, foundryUrl }: Props) {
                         }}>
                             {actor.name}
                         </h1>
-                        {/* STUB: Manage button placeholder */}
-                        <span style={{
-                            fontSize: '9px',
-                            padding: '2px 8px',
-                            border: '1px solid var(--text-muted)',
-                            borderRadius: '3px',
-                            color: 'var(--text-muted)',
-                            textTransform: 'uppercase' as const,
-                            letterSpacing: '0.05em',
-                            flexShrink: 0,
-                        }}>
-                            MANAGE
-                        </span>
+                        {/* THEME button — opens ThemeModal */}
+                        <button
+                            type="button"
+                            onClick={() => openModal('theme', { current: theme, onSelect: setTheme })}
+                            style={{
+                                fontSize: '9px',
+                                padding: '2px 8px',
+                                border: '1px solid var(--theme-border)',
+                                borderRadius: '3px',
+                                background: 'transparent',
+                                color: 'var(--theme-primary)',
+                                textTransform: 'uppercase' as const,
+                                letterSpacing: '0.05em',
+                                flexShrink: 0,
+                                cursor: 'pointer',
+                                fontWeight: 600,
+                            }}
+                        >
+                            THEME
+                        </button>
                     </div>
                     <p style={{
                         fontSize: '12px',

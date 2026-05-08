@@ -9,6 +9,7 @@ import MobileHeader from '../page/MobileHeader';
 // Modal infrastructure (Phase 1 — ui-refinement-02)
 import { ModalProvider } from '../shared/useModal';
 import ModalHost from '../shared/ModalHost';
+import { useSheetSetting } from '../shared/useSheetSetting';
 
 // Mobile tabs — each tab composes its own blocks. MobileView only delegates.
 import AbilitiesTab from '../tabs/mobile/Abilities';
@@ -72,6 +73,7 @@ export default function MobileView({
 }: MobileViewProps) {
     const [activeTab, setActiveTab] = useState<MobileTab>('abilities');
     const [menuOpen, setMenuOpen] = useState(false);
+    const [theme] = useSheetSetting<string>('theme', 'paladin');
 
     /**
      * Renders the content for the currently active mobile tab.
@@ -106,7 +108,7 @@ export default function MobileView({
 
     return (
         <ModalProvider>
-        <div data-theme="paladin" style={{
+        <div data-theme={theme} style={{
             fontFamily: 'var(--font-body)',
             background: 'var(--surface-bg)',
             color: 'var(--text-primary)',

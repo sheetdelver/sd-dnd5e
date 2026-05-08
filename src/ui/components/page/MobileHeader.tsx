@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { resolveImage } from '@sheet-delver/sdk';
+import { useModal } from '../shared/useModal';
+import { useSheetSetting } from '../shared/useSheetSetting';
 
 /**
  * MobileHeader — compact header for the mobile character sheet view.
@@ -36,6 +38,8 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
     const inspiration = derived.inspiration ?? false;
     const profFmt = profBonus >= 0 ? `+${profBonus}` : `${profBonus}`;
     const initFmt = initiative >= 0 ? `+${initiative}` : `${initiative}`;
+    const { openModal } = useModal();
+    const [theme, setTheme] = useSheetSetting<string>('theme', 'paladin');
 
     return (
         <header style={{ background: 'var(--surface-header)' }}>
@@ -80,19 +84,26 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         }}>
                             {actor.name}
                         </h1>
-                        {/* STUB: Manage badge */}
-                        <span style={{
-                            fontSize: '8px',
-                            padding: '1px 6px',
-                            border: '1px solid var(--text-muted)',
-                            borderRadius: '3px',
-                            color: 'var(--text-muted)',
-                            textTransform: 'uppercase' as const,
-                            letterSpacing: '0.05em',
-                            flexShrink: 0,
-                        }}>
-                            MANAGE
-                        </span>
+                        {/* THEME button — opens ThemeModal */}
+                        <button
+                            type="button"
+                            onClick={() => openModal('theme', { current: theme, onSelect: setTheme })}
+                            style={{
+                                fontSize: '8px',
+                                padding: '1px 6px',
+                                border: '1px solid var(--theme-border)',
+                                borderRadius: '3px',
+                                background: 'transparent',
+                                color: 'var(--theme-primary)',
+                                textTransform: 'uppercase' as const,
+                                letterSpacing: '0.05em',
+                                flexShrink: 0,
+                                cursor: 'pointer',
+                                fontWeight: 600,
+                            }}
+                        >
+                            THEME
+                        </button>
                     </div>
                     <p style={{
                         fontSize: '11px',

@@ -8,6 +8,9 @@ import './dnd5e.css';
 import StandardView from './components/layout/StandardView';
 import MobileView from './components/layout/MobileView';
 
+// Sheet-level context (actor + onUpdate)
+import { SheetProvider } from './components/shared/SheetContext';
+
 /**
  * Sheet — top-level character sheet component for D&D 5e.
  * Receives actor data from ActorPage, derives computed values,
@@ -71,9 +74,14 @@ export default function Sheet({ actor, onRoll, onUpdate, foundryUrl, isOwner }: 
     };
 
     // --- Render the appropriate layout ---
-    if (isMobile) {
-        return <MobileView {...viewProps} />;
-    }
-
-    return <StandardView {...viewProps} />;
+    return (
+        <SheetProvider
+            actor={actor}
+            onUpdate={onUpdate}
+            isOwner={isOwner}
+            foundryUrl={foundryUrl}
+        >
+            {isMobile ? <MobileView {...viewProps} /> : <StandardView {...viewProps} />}
+        </SheetProvider>
+    );
 }
