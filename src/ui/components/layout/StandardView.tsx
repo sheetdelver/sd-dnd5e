@@ -32,6 +32,10 @@ import BackgroundTab from '../tabs/standard/Background';
 import NotesTab from '../tabs/standard/Notes';
 import ExtrasTab from '../tabs/standard/Extras';
 
+// Modal infrastructure (Phase 1 — ui-refinement-02)
+import { ModalProvider } from '../shared/useModal';
+import ModalHost from '../shared/ModalHost';
+
 /**
  * StandardView — desktop/wide layout for the DnD5e character sheet.
  * Layout structure (matching D&D Beyond standard view):
@@ -89,6 +93,7 @@ export default function StandardView({
     const [activeTab, setActiveTab] = useState<StandardTab>('actions');
 
     return (
+        <ModalProvider>
         <div data-theme="paladin" style={{
             fontFamily: 'var(--font-body)',
             background: 'var(--surface-bg)',
@@ -216,6 +221,8 @@ export default function StandardView({
                     </div>
                 </div>
             </div>
+            <ModalHost />
         </div>
+        </ModalProvider>
     );
 }

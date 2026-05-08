@@ -46,11 +46,24 @@ export interface SpellRow {
 }
 
 export type InventoryCategory =
+    | 'weapon'
+    | 'consumable'
+    | 'loot'
+    | 'tool'
     | 'equipment'
+    | 'container'
     | 'backpack'
-    | 'pouch'
-    | 'attunement'
     | 'other';
+
+export const INVENTORY_FOUNDRY_TYPE_FILTERS_MAP: Record<string, string> = {
+    "weapon": 'EQUIPMENT',
+    "equipment": "EQUIPMENT",
+    "consumable": "EQUIPMENT",
+    "tool": "EQUIPMENT",
+    "loot": "EQUIPMENT",
+    "container": "BOX",
+    "backpack": "BACKPACK"
+};
 
 export interface InventoryRow {
     key: string;

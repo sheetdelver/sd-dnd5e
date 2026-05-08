@@ -1,6 +1,7 @@
 import {
     BaseSystemAdapter,
     resolveImage,
+    fetchByUiid,
     type FoundryActor,
     type FoundryItem,
     type ActorSheetData,
@@ -73,6 +74,13 @@ export const SKILL_LABELS: Record<string, string> = {
     slt: 'Sleight of Hand', ste: 'Stealth',        sur: 'Survival',
 };
 
+type RaceRecord = {
+    name: string;
+    img: string;
+    description?: string;
+    source?: string;
+}
+
 function signBonus(n: number): string {
     return n >= 0 ? `1d20+${n}` : `1d20${n}`;
 }
@@ -88,12 +96,27 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         return actor._stats?.systemId === this.systemId;
     }
 
+    getRaceData(uuid: string): Promise<RaceRecord> {
+        return fetchByUiid(uuid, this.foundryUrl).then((item: FoundryItem) => {
+            const sys = item.system as Record<string, any>;
+            return {
+                name: item.name,
+                img: resolveImage(item.img ?? '', this.foundryUrl),
+                description: typeof sys?.description?.value === 'string'
+                    ? sys.description.value.replace(/<[^>]+>/g, '').trim()
+                    : undefined,
+                source: sys?.source ?? undefined,
+            };
+        }).catch(() => null);
+    }
+
     normalizeActorData(actor: FoundryActor): ActorSheetData {
         const base = super.normalizeActorData(actor);
         const s = actor.system as Partial<D5eSystem>;
         base.img = resolveImage(actor.img ?? '', this.foundryUrl);
         const attrs = s?.attributes ?? {};
         const prof = attrs.prof ?? 2;
+        const race = this.getRaceData(s?.details?.race ?? '');
 
         return {
             ...base,
@@ -115,7 +138,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 abilities: this.buildAbilities(s),
                 skills: this.buildSkills(s),
                 level: s?.details?.level ?? 0,
-                race: s?.details?.race ?? '',
+                race: race?.name,
                 background: s?.details?.background ?? '',
                 alignment: s?.details?.alignment ?? '',
                 classes: this.buildClassString(actor.items),
@@ -199,7 +222,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             })
             .join(' / ');
 
-        const race = s?.details?.race ?? '';
+        const race = this.getRaceData(s?.details?.race ?? '').then(r => r?.name ?? s?.details);
         const subtext = [level > 0 ? `Level ${level}` : null, race, classes]
             .filter(Boolean)
             .join(' • ');

@@ -91,12 +91,12 @@ export function toSpellRows(items: FoundryItem[]): SpellRow[] {
     });
 }
 
+const VALID_INVENTORY_TYPES: ReadonlySet<string> = new Set([
+    'weapon', 'consumable', 'loot', 'tool', 'equipment', 'container', 'backpack',
+]);
+
 function getInventoryCategory(item: FoundryItem): InventoryCategory {
-    const sys = item.system as Record<string, any>;
-    if (sys?.attuned || sys?.attunement === 2) return 'attunement';
-    if (item.type === 'equipment' || sys?.equipped) return 'equipment';
-    if (item.type === 'consumable') return 'pouch';
-    if (sys?.container) return 'backpack';
+    if (VALID_INVENTORY_TYPES.has(item.type)) return item.type as InventoryCategory;
     return 'other';
 }
 

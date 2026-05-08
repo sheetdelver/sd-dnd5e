@@ -6,6 +6,10 @@ import type { FoundryItem } from '@sheet-delver/sdk';
 // Page chrome — mobile-specific header
 import MobileHeader from '../page/MobileHeader';
 
+// Modal infrastructure (Phase 1 — ui-refinement-02)
+import { ModalProvider } from '../shared/useModal';
+import ModalHost from '../shared/ModalHost';
+
 // Mobile tabs — each tab composes its own blocks. MobileView only delegates.
 import AbilitiesTab from '../tabs/mobile/Abilities';
 import SkillsTab from '../tabs/mobile/Skills';
@@ -101,6 +105,7 @@ export default function MobileView({
     };
 
     return (
+        <ModalProvider>
         <div data-theme="paladin" style={{
             fontFamily: 'var(--font-body)',
             background: 'var(--surface-bg)',
@@ -260,6 +265,8 @@ export default function MobileView({
                     ◀◀
                 </button>
             </nav>
+            <ModalHost />
         </div>
+        </ModalProvider>
     );
 }
