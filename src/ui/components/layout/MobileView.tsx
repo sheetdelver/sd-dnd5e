@@ -94,7 +94,7 @@ export default function MobileView({
             case 'spells':
                 return <SpellsTab spells={spells} onRoll={onRoll} />;
             case 'inventory':
-                return <InventoryTab gear={gear} />;
+                return <InventoryTab weapons={weapons} gear={gear} />;
             case 'features':
                 return <FeaturesTab features={features} />;
             case 'proficiencies':

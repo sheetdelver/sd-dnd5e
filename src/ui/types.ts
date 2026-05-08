@@ -56,7 +56,7 @@ export type InventoryCategory =
     | 'other';
 
 export const INVENTORY_FOUNDRY_TYPE_FILTERS_MAP: Record<string, string> = {
-    "weapon": 'EQUIPMENT',
+    "weapon": 'WEAPONS',
     "equipment": "EQUIPMENT",
     "consumable": "EQUIPMENT",
     "tool": "EQUIPMENT",

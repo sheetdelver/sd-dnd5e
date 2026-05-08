@@ -215,7 +215,7 @@ export default function StandardView({
                     <div style={{ flex: 1, padding: 'var(--space-sm) 0' }}>
                         {activeTab === 'actions' && <ActionsTab weapons={weapons} onRoll={onRoll} />}
                         {activeTab === 'spells' && <SpellsTab spells={spells} onRoll={onRoll} />}
-                        {activeTab === 'inventory' && <InventoryTab gear={gear} />}
+                        {activeTab === 'inventory' && <InventoryTab weapons={weapons} gear={gear} />}
                         {activeTab === 'features' && <FeaturesTab features={features} />}
                         {activeTab === 'background' && <BackgroundTab />}
                         {activeTab === 'notes' && <NotesTab />}

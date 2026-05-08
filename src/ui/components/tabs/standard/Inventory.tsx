@@ -8,13 +8,18 @@ import InventoryBlock from '../../blocks/Inventory';
 import { INVENTORY_FOUNDRY_TYPE_FILTERS_MAP } from '../../../types';
 
 interface Props {
+    /** Weapons live in their own slice in Sheet.tsx (so the Actions tab can use them too). */
+    weapons: FoundryItem[];
     gear: FoundryItem[];
 }
 
-export default function Inventory({ gear }: Props) {
+export default function Inventory({ weapons, gear }: Props) {
     const [activeFilter, setActiveFilter] = useState(INVENTORY_FILTERS[0]);
 
-    const allRows = useMemo(() => toInventoryRows(gear), [gear]);
+    const allRows = useMemo(
+        () => toInventoryRows([...weapons, ...gear]),
+        [weapons, gear],
+    );
 
     const filtered = useMemo(() => {
         if (activeFilter === 'ALL') return allRows;

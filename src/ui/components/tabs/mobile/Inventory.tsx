@@ -5,6 +5,7 @@ import type { FoundryItem } from '@sheet-delver/sdk';
 import StandardInventory from '../standard/Inventory';
 
 interface Props {
+    weapons: FoundryItem[];
     gear: FoundryItem[];
 }
 
