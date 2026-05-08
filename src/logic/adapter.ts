@@ -9,6 +9,8 @@ import {
     type RollDataOptions,
 } from '@sheet-delver/sdk';
 
+import info from '../../info.json';
+
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
 // ---------------------------------------------------------------------------
@@ -78,10 +80,10 @@ function signBonus(n: number): string {
 // ---------------------------------------------------------------------------
 
 export class DnD5eAdapter extends BaseSystemAdapter {
-    systemId = 'dnd5e';
+    systemId = info.id;
 
     match(actor: FoundryActor): boolean {
-        return actor._stats?.systemId === 'dnd5e';
+        return actor._stats?.systemId === this.systemId;
     }
 
     normalizeActorData(actor: FoundryActor): ActorSheetData {
