@@ -79,6 +79,10 @@ export interface StandardViewProps {
 export default function StandardView({
     actor,
     derived,
+    weapons,
+    spells,
+    features,
+    gear,
     onRoll,
     foundryUrl,
 }: StandardViewProps) {
@@ -202,10 +206,10 @@ export default function StandardView({
 
                     {/* Active tab content */}
                     <div style={{ flex: 1, padding: 'var(--space-sm) 0' }}>
-                        {activeTab === 'actions' && <ActionsTab />}
-                        {activeTab === 'spells' && <SpellsTab />}
-                        {activeTab === 'inventory' && <InventoryTab />}
-                        {activeTab === 'features' && <FeaturesTab />}
+                        {activeTab === 'actions' && <ActionsTab weapons={weapons} onRoll={onRoll} />}
+                        {activeTab === 'spells' && <SpellsTab spells={spells} onRoll={onRoll} />}
+                        {activeTab === 'inventory' && <InventoryTab gear={gear} />}
+                        {activeTab === 'features' && <FeaturesTab features={features} />}
                         {activeTab === 'background' && <BackgroundTab />}
                         {activeTab === 'notes' && <NotesTab />}
                         {activeTab === 'extras' && <ExtrasTab />}

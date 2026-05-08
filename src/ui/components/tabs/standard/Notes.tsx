@@ -2,14 +2,24 @@
 
 import React, { useState } from 'react';
 import { NOTE_FILTERS, FilterBar } from '../../shared/filters';
+import NotesBlock from '../../blocks/Notes';
 
 /**
- * Notes tab (standard view) — note sections for Organizations, Allies,
- * Enemies, Backstory, and Other.
- * Includes sub-filter bar for note categories.
- *
- * STUB — static placeholder with functional filter switching.
+ * Notes tab — renders the Notes block with the active section as title.
+ * Each filter selects one section (ORGS, ALLIES, ENEMIES, BACKSTORY, OTHER);
+ * ALL shows every section stacked.
  */
+
+const SECTION_TITLE: Record<string, string> = {
+    'ORGS': 'Organizations',
+    'ALLIES': 'Allies',
+    'ENEMIES': 'Enemies',
+    'BACKSTORY': 'Backstory',
+    'OTHER': 'Other Notes',
+};
+
+const ALL_SECTIONS = ['ORGS', 'ALLIES', 'ENEMIES', 'BACKSTORY', 'OTHER'] as const;
+
 export default function Notes() {
     const [activeFilter, setActiveFilter] = useState(NOTE_FILTERS[0]);
 
@@ -20,11 +30,12 @@ export default function Notes() {
                 activeFilter={activeFilter}
                 onFilterChange={setActiveFilter}
             />
-
-            {/* STUB: Filtered notes content placeholder */}
-            <div className="stub-placeholder" style={{ minHeight: '200px' }}>
-                Showing: {activeFilter}
-            </div>
+            {activeFilter === 'ALL'
+                ? ALL_SECTIONS.map(section => (
+                    <NotesBlock key={section} title={SECTION_TITLE[section]} />
+                ))
+                : <NotesBlock title={SECTION_TITLE[activeFilter] ?? 'Notes'} />
+            }
         </div>
     );
 }

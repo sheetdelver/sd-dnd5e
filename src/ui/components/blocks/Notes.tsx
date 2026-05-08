@@ -2,21 +2,23 @@
 
 import React from 'react';
 
-/**
- * Notes block — generic notes renderer.
- * Can be used to render Organizations, Allies, Enemies, Backstory, and other notes.
- *
- * STUB — static placeholder, no data wiring.
- * TODO: Accept a category prop (organizations, allies, enemies, backstory, other)
- */
-export default function Notes() {
+interface Props {
+    title?: string;
+    /** Free-form content for the section. When omitted, an empty-state placeholder shows. */
+    body?: string;
+}
+
+export default function Notes({ title = 'Notes', body }: Props) {
     return (
         <div className="block-card">
-            <h2 className="block-heading">Notes</h2>
-            {/* STUB: Empty notes area */}
-            <div className="stub-placeholder">
-                No notes to display
-            </div>
+            <h2 className="block-heading">{title}</h2>
+            {body ? (
+                <div style={{ fontSize: '12px', color: 'var(--text-primary)', lineHeight: 1.5 }}>
+                    {body}
+                </div>
+            ) : (
+                <div className="stub-placeholder">No notes to display</div>
+            )}
         </div>
     );
 }

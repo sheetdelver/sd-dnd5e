@@ -2,16 +2,22 @@
 
 import React, { useState } from 'react';
 import { BACKGROUND_FILTERS, FilterBar } from '../../shared/filters';
+import BackgroundBlock from '../../blocks/Background';
+import CharacteristicsBlock from '../../blocks/Characteristics';
+import AppearanceBlock from '../../blocks/Appearance';
 
 /**
- * Background tab (standard view) — background details, characteristics,
- * and appearance sections.
- * Includes sub-filter bar for background categories.
- *
- * STUB — static placeholder with functional filter switching.
+ * Background tab — composes Background, Characteristics, and Appearance blocks.
+ * The filter selects which block(s) to show: ALL shows all three, individual
+ * filters show one.
  */
 export default function Background() {
     const [activeFilter, setActiveFilter] = useState(BACKGROUND_FILTERS[0]);
+
+    const showAll = activeFilter === 'ALL';
+    const showBackground = showAll || activeFilter === 'BACKGROUND';
+    const showCharacteristics = showAll || activeFilter === 'CHARACTERISTICS';
+    const showAppearance = showAll || activeFilter === 'APPEARANCE';
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
@@ -20,11 +26,9 @@ export default function Background() {
                 activeFilter={activeFilter}
                 onFilterChange={setActiveFilter}
             />
-
-            {/* STUB: Filtered background content placeholder */}
-            <div className="stub-placeholder" style={{ minHeight: '200px' }}>
-                Showing: {activeFilter}
-            </div>
+            {showBackground && <BackgroundBlock />}
+            {showCharacteristics && <CharacteristicsBlock />}
+            {showAppearance && <AppearanceBlock />}
         </div>
     );
 }

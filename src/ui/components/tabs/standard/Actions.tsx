@@ -1,19 +1,42 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import type { FoundryItem } from '@sheet-delver/sdk';
 import { ACTION_FILTERS, FilterBar } from '../../shared/filters';
+import { toActionRows } from '../../../itemRows';
+import ActionsBlock from '../../blocks/Actions';
+import type { ActionCategory } from '../../../types';
 
-/**
- * Actions tab (standard view) — actions content with sub-filter bar.
- * Displays attacks, actions, bonus actions, reactions, and other entries.
- * Saving throws are NOT rendered here — they live in blocks/SavingThrows
- * (left sidebar in the standard view layout).
- *
- * STUB — static placeholder with functional filter switching.
- * TODO: Accept items and filter by active category.
- */
-export default function Actions() {
+interface Props {
+    weapons: FoundryItem[];
+    /** Optional: gear with activations could feed in here too, e.g. consumables. */
+    extra?: FoundryItem[];
+    onRoll?: (type: string, key: string, options?: Record<string, unknown>) => Promise<void>;
+}
+
+const FILTER_TO_CATEGORY: Record<string, ActionCategory | 'ALL'> = {
+    'ALL': 'ALL',
+    'ATTACK': 'attack',
+    'ACTION': 'action',
+    'BONUS ACTION': 'bonus',
+    'REACTION': 'reaction',
+    'OTHER': 'other',
+    'LIMITED USE': 'limited',
+};
+
+export default function Actions({ weapons, extra = [], onRoll }: Props) {
     const [activeFilter, setActiveFilter] = useState(ACTION_FILTERS[0]);
+
+    const allRows = useMemo(
+        () => toActionRows([...weapons, ...extra]),
+        [weapons, extra],
+    );
+
+    const filtered = useMemo(() => {
+        const cat = FILTER_TO_CATEGORY[activeFilter];
+        if (!cat || cat === 'ALL') return allRows;
+        return allRows.filter(r => r.category === cat);
+    }, [allRows, activeFilter]);
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
@@ -22,11 +45,7 @@ export default function Actions() {
                 activeFilter={activeFilter}
                 onFilterChange={setActiveFilter}
             />
-
-            {/* STUB: Filtered actions content placeholder */}
-            <div className="stub-placeholder" style={{ minHeight: '200px' }}>
-                Showing: {activeFilter}
-            </div>
+            <ActionsBlock rows={filtered} onRoll={onRoll} />
         </div>
     );
 }

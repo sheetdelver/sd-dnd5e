@@ -1,17 +1,33 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import type { FoundryItem } from '@sheet-delver/sdk';
 import { FEATURE_FILTERS, FilterBar } from '../../shared/filters';
+import { toFeatureRows } from '../../../itemRows';
+import FeaturesBlock from '../../blocks/Features';
+import type { FeatureSource } from '../../../types';
 
-/**
- * Features tab (standard view) — class features, species traits, and feats.
- * Includes sub-filter bar for feature categories.
- *
- * STUB — static placeholder with functional filter switching.
- * TODO: Accept features array and filter by active category.
- */
-export default function Features() {
+interface Props {
+    features: FoundryItem[];
+}
+
+const FILTER_TO_SOURCES: Record<string, FeatureSource[] | 'ALL'> = {
+    'ALL': 'ALL',
+    'CLASS_FEATURES': ['class', 'subclass'],
+    'SPECIES_TRAITS': ['species'],
+    'FEATS': ['feat'],
+};
+
+export default function Features({ features }: Props) {
     const [activeFilter, setActiveFilter] = useState(FEATURE_FILTERS[0]);
+
+    const allRows = useMemo(() => toFeatureRows(features), [features]);
+
+    const filtered = useMemo(() => {
+        const sources = FILTER_TO_SOURCES[activeFilter];
+        if (!sources || sources === 'ALL') return allRows;
+        return allRows.filter(r => sources.includes(r.source));
+    }, [allRows, activeFilter]);
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
@@ -20,11 +36,7 @@ export default function Features() {
                 activeFilter={activeFilter}
                 onFilterChange={setActiveFilter}
             />
-
-            {/* STUB: Filtered features list placeholder */}
-            <div className="stub-placeholder" style={{ minHeight: '200px' }}>
-                Showing: {activeFilter}
-            </div>
+            <FeaturesBlock rows={filtered} />
         </div>
     );
 }
