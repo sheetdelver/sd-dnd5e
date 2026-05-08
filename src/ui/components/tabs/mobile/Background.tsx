@@ -1,33 +1,8 @@
 'use client';
 
 import React from 'react';
+import StandardBackground from '../standard/Background';
 
-/**
- * Background tab (mobile view) — background details, characteristics,
- * and appearance in a scrollable mobile view.
- *
- * STUB — static placeholder, no data wiring.
- */
 export default function Background() {
-    return (
-        <div style={{ padding: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-            {/* STUB: Background section */}
-            <div className="block-card">
-                <h2 className="block-heading">Background</h2>
-                <div className="stub-placeholder">Background details</div>
-            </div>
-
-            {/* STUB: Characteristics section */}
-            <div className="block-card">
-                <h2 className="block-heading">Characteristics</h2>
-                <div className="stub-placeholder">Personality, Ideals, Bonds, Flaws</div>
-            </div>
-
-            {/* STUB: Appearance section */}
-            <div className="block-card">
-                <h2 className="block-heading">Appearance</h2>
-                <div className="stub-placeholder">Character appearance details</div>
-            </div>
-        </div>
-    );
+    return <StandardBackground />;
 }

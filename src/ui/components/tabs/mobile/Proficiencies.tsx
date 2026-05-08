@@ -1,20 +1,13 @@
 'use client';
 
 import React from 'react';
+import ProficienciesBlock from '../../blocks/Proficiencies';
 
 /**
- * Proficiencies tab (mobile view) — proficiencies and training
- * rendered in a single scrollable mobile view.
- *
- * STUB — static placeholder, no data wiring.
+ * Proficiencies tab (mobile) — composes the Proficiencies block. No standard
+ * counterpart: in StandardView, Proficiencies lives directly in the sidebar
+ * rather than as a tab.
  */
 export default function Proficiencies() {
-    return (
-        <div style={{ padding: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-            <div className="block-card">
-                <h2 className="block-heading">Proficiencies & Training</h2>
-                <div className="stub-placeholder">Proficiency details</div>
-            </div>
-        </div>
-    );
+    return <ProficienciesBlock />;
 }

@@ -68,6 +68,10 @@ export interface MobileViewProps {
 export default function MobileView({
     actor,
     derived,
+    weapons,
+    spells,
+    features,
+    gear,
     onRoll,
     foundryUrl,
 }: MobileViewProps) {
@@ -86,13 +90,13 @@ export default function MobileView({
             case 'skills':
                 return <SkillsTab derived={derived} onRoll={onRoll} />;
             case 'actions':
-                return <ActionsTab />;
+                return <ActionsTab weapons={weapons} onRoll={onRoll} />;
             case 'spells':
-                return <SpellsTab />;
+                return <SpellsTab spells={spells} onRoll={onRoll} />;
             case 'inventory':
-                return <InventoryTab />;
+                return <InventoryTab gear={gear} />;
             case 'features':
-                return <FeaturesTab />;
+                return <FeaturesTab features={features} />;
             case 'proficiencies':
                 return <ProficienciesTab />;
             case 'background':

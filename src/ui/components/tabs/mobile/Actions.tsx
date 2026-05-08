@@ -1,20 +1,21 @@
 'use client';
 
 import React from 'react';
+import type { FoundryItem } from '@sheet-delver/sdk';
+import StandardActions from '../standard/Actions';
 
 /**
- * Actions tab (mobile view) — actions, attacks, bonus actions, reactions
- * rendered in a single scrollable mobile view.
- *
- * STUB — static placeholder, no data wiring.
+ * Actions tab (mobile) — same slice + render pattern as the standard Actions
+ * tab. Mobile-specific spacing/sizing comes from CSS media queries on the
+ * shared block, so this tab delegates to keep the filter logic single-sourced.
  */
-export default function Actions() {
-    return (
-        <div style={{ padding: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-            <div className="block-card">
-                <h2 className="block-heading">Actions</h2>
-                <div className="stub-placeholder">No actions to display</div>
-            </div>
-        </div>
-    );
+
+interface Props {
+    weapons: FoundryItem[];
+    extra?: FoundryItem[];
+    onRoll?: (type: string, key: string, options?: Record<string, unknown>) => Promise<void>;
+}
+
+export default function Actions(props: Props) {
+    return <StandardActions {...props} />;
 }
