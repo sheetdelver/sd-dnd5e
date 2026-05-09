@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import type { ActorSheetData, FoundryItem } from '@sheet-delver/sdk';
-import './dnd5e.css';
+import '../../assets/dnd5e.css';
 
 // Layout views
 import StandardView from './components/layout/StandardView';
