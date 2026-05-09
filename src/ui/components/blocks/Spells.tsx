@@ -3,6 +3,7 @@
 import React from 'react';
 import type { SpellRow } from '../../types';
 import { SPELL_FILTERS } from '../shared/filters';
+import { useModal } from '../shared/useModal';
 
 interface Props {
     rows?: SpellRow[];
@@ -15,6 +16,23 @@ interface Props {
 const levelLabel = (level: number): string => SPELL_FILTERS[level + 1] ?? `Level ${level}`;
 
 export default function Spells({ rows = [], onRoll, title }: Props) {
+    const { openModal } = useModal();
+
+    const handleClick = (e: React.MouseEvent, row: SpellRow) => {
+        if (!onRoll) return;
+        if (e.shiftKey) {
+            void onRoll('item', row.key);
+            return;
+        }
+        openModal('roll', {
+            rollType: 'item',
+            rollKey: row.key,
+            label: 'Spell Roll',
+            subtitle: row.name,
+            onConfirm: (opts: Record<string, unknown>) => onRoll('item', row.key, opts),
+        });
+    };
+
     if (rows.length === 0) {
         return (
             <div className="block-card">
@@ -53,7 +71,7 @@ export default function Spells({ rows = [], onRoll, title }: Props) {
                     {byLevel.get(level)!.map(row => (
                         <button
                             key={row.key}
-                            onClick={() => onRoll?.('item', row.key)}
+                            onClick={(e) => handleClick(e, row)}
                             disabled={!onRoll}
                             style={{
                                 display: 'flex',

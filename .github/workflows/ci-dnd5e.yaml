@@ -1,0 +1,65 @@
+name: Build Module
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/local/modules/dnd5e/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/local/modules/dnd5e/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - name: Checkout Sheet Delver Repository
+        uses: actions/checkout@v3
+        with:
+            repo: sheetdelver/sheet-delver
+            path: ./
+
+      - name: Set up Node.js
+      - name: Checkout code
+        uses: actions/checkout@v3
+        working-directory: ./data/local/modules/%SYSTEM_ID%/
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+        
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate config
+        run: |
+          cat > settings.yaml << EOF
+          app:
+              host: localhost
+              port: 3000
+              api-port: 3001
+              protocol: http
+              chat-history: 100
+          foundry:
+              host: localhost
+              port: 30000
+              protocol: http
+              connector: socket
+              username: gamemaster
+              password: gamemaster
+              foundryDataDirectory: foundryData
+          debug:
+              enabled: true
+              level: 3
+          EOF
+
+      - name: Build module
+        run: npm run build

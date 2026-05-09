@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useModal } from '../shared/useModal';
+import { useSheet } from '../shared/SheetContext';
+import { ABILITY_FULL_NAME, ABILITY_OPTIONS } from '../shared/abilityNames';
 
 /**
  * Skills block — full skill list with columnar layout.
@@ -37,9 +40,51 @@ interface Props {
 
 export default function Skills({ skills, onRoll }: Props) {
     const [expanded, setExpanded] = useState(true); // default expanded in standard view
+    const { openModal } = useModal();
+    const { actor } = useSheet();
     if (!skills) return null;
 
     const ordered = SKILL_ORDER.filter(k => skills[k]);
+
+    const handleClick = (e: React.MouseEvent, key: string) => {
+        if (!onRoll) return;
+        if (e.shiftKey) {
+            void onRoll('skill', key);
+            return;
+        }
+        const skill = skills[key];
+        const abilityName = ABILITY_FULL_NAME[skill.ability] ?? skill.ability;
+
+        // Reactive formula — recomputes when the user changes the Abilities
+        // dropdown or types a situational bonus. Reads ability mods + prof
+        // bonus from the actor's derived data via SheetContext.
+        const abilitiesData = (actor?.derived?.abilities ?? {}) as Record<string, { mod: number }>;
+        const profBonus = (actor?.derived?.profBonus ?? 2) as number;
+        const computeFormula = ({ ability, situationalBonus }: Record<string, string>) => {
+            const chosen = ability ?? skill.ability;
+            const mod = abilitiesData[chosen]?.mod ?? 0;
+            const profPart = Math.floor((skill.prof || 0) * profBonus);
+            const total = mod + profPart;
+            const base = `1d20${total >= 0 ? '+' : ''}${total}`;
+            const trimmed = (situationalBonus ?? '').trim();
+            return trimmed ? `${base} + ${trimmed}` : base;
+        };
+
+        openModal('roll', {
+            rollType: 'skill',
+            rollKey: key,
+            label: `${abilityName} (${skill.label}) Check`,
+            subtitle: actor?.name,
+            computeFormula,
+            configFields: [{
+                key: 'ability',
+                label: 'Abilities',
+                initialValue: skill.ability,
+                options: ABILITY_OPTIONS,
+            }],
+            onConfirm: (opts: Record<string, unknown>) => onRoll('skill', key, opts),
+        });
+    };
 
     return (
         <div className="block-card" style={{ padding: 0, overflow: 'hidden' }}>
@@ -80,7 +125,7 @@ export default function Skills({ skills, onRoll }: Props) {
                 return (
                     <button
                         key={key}
-                        onClick={() => onRoll?.('skill', key)}
+                        onClick={(e) => handleClick(e, key)}
                         style={{
                             display: 'grid',
                             gridTemplateColumns: '28px 40px 1fr 48px',

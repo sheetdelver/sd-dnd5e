@@ -34,17 +34,131 @@ function getActionCategory(item: FoundryItem): ActionCategory {
     }
 }
 
-export function toActionRows(items: FoundryItem[]): ActionRow[] {
+/**
+ * Derived data needed to compute realistic attack-roll bonuses for weapons.
+ * If omitted, only the magic `system.attackBonus` (when present) is shown.
+ */
+export interface ActionRowsContext {
+    abilities?: Record<string, { mod: number }>;
+    profBonus?: number;
+}
+
+/** Foundry dnd5e `CONFIG.DND5E.weaponTypeMap` — weapon class → attack type. */
+const WEAPON_TYPE_MAP: Record<string, 'melee' | 'ranged'> = {
+    simpleM: 'melee',
+    simpleR: 'ranged',
+    martialM: 'melee',
+    martialR: 'ranged',
+    siege: 'ranged',
+};
+
+/** Read an item's `system.properties` as a string set, regardless of whether
+ *  the system stores it as an array or an object of booleans. */
+function getProps(sys: Record<string, any>): Set<string> {
+    const raw = sys?.properties;
+    if (Array.isArray(raw)) return new Set(raw.map(String));
+    if (raw && typeof raw === 'object') {
+        return new Set(Object.keys(raw).filter(k => Boolean(raw[k])));
+    }
+    return new Set();
+}
+
+/**
+ * Pick the ability key used for a weapon attack. Honors an explicit
+ * `system.ability`; otherwise falls back to a property-based heuristic
+ * (finesse → higher of STR/DEX; ranged/thrown → DEX; else STR).
+ */
+function pickAttackAbility(item: FoundryItem, abilities?: Record<string, { mod: number }>): string {
+    const sys = item.system as Record<string, any>;
+    if (sys?.ability) return String(sys.ability);
+    const props = getProps(sys);
+    const isFinesse = props.has('fin') || props.has('finesse');
+    const weaponType = sys?.type?.value;
+    const attackType = (weaponType && WEAPON_TYPE_MAP[weaponType])
+        ?? (sys?.actionType === 'rwak' ? 'ranged' : null);
+    if (isFinesse) {
+        const str = abilities?.str?.mod ?? 0;
+        const dex = abilities?.dex?.mod ?? 0;
+        return dex >= str ? 'dex' : 'str';
+    }
+    return attackType === 'ranged' ? 'dex' : 'str';
+}
+
+/**
+ * Compute the valid attack modes for a weapon, mirroring Foundry's
+ * `weapon.mjs#attackModes` getter. Returns the option values used by
+ * `ATTACK_MODE_OPTIONS`; non-weapons return an empty array.
+ */
+function getWeaponAttackModes(item: FoundryItem): string[] {
+    if (item.type !== 'weapon') return [];
+    const sys = item.system as Record<string, any>;
+    const props = getProps(sys);
+    const weaponType = sys?.type?.value;
+    const attackType = weaponType ? WEAPON_TYPE_MAP[weaponType] ?? null : null;
+    const isVersatile = props.has('ver') || Boolean(sys?.damage?.versatile);
+    const isThrown = props.has('thr');
+    const isLight = props.has('lgt');
+
+    const modes: string[] = [];
+
+    // Thrown ranged weapons (dart, etc.) skip the one/two-handed pair —
+    // they only get the "Thrown" mode below.
+    const isThrownRanged = isThrown && attackType === 'ranged';
+    if (!isThrownRanged) {
+        if (isVersatile || !props.has('two')) modes.push('oneHanded');
+        if (isVersatile || props.has('two')) modes.push('twoHanded');
+    }
+
+    if (isLight) modes.push('offhand');
+
+    if (isThrown) {
+        modes.push('thrown');
+        if (isLight) modes.push('thrown-offhand');
+    } else if (!attackType && ((sys?.range?.value ?? 0) > (sys?.range?.reach ?? 0))) {
+        // Untyped weapon with explicit range > reach (rare edge case).
+        modes.push('ranged');
+    }
+
+    return modes;
+}
+
+function computeAttackBonus(item: FoundryItem, ctx?: ActionRowsContext): string | undefined {
+    if (item.type !== 'weapon') return undefined;
+    const sys = item.system as Record<string, any>;
+
+    const abilityKey = pickAttackAbility(item, ctx?.abilities);
+    const abilityMod = ctx?.abilities?.[abilityKey]?.mod ?? 0;
+
+    // Magic / item-level bonus — sometimes a number, sometimes a parsed string.
+    const magicRaw = sys?.attackBonus;
+    let magicBonus = 0;
+    if (typeof magicRaw === 'number') magicBonus = magicRaw;
+    else if (typeof magicRaw === 'string') {
+        const n = parseInt(magicRaw, 10);
+        if (Number.isFinite(n)) magicBonus = n;
+    }
+
+    // Proficiency: assume proficient unless explicitly false.
+    const isProf = sys?.proficient !== false;
+    const profPart = isProf ? (ctx?.profBonus ?? 0) : 0;
+
+    const total = abilityMod + magicBonus + profPart;
+    return formatBonus(total);
+}
+
+export function toActionRows(items: FoundryItem[], ctx?: ActionRowsContext): ActionRow[] {
     return items.map(item => {
         const sys = item.system as Record<string, any>;
         const uses = sys?.uses;
         const hasLimitedUses = typeof uses?.max === 'number' && uses.max > 0;
-        const baseCategory = getActionCategory(item);
-        const category: ActionCategory = hasLimitedUses ? 'limited' : baseCategory;
+        // Category reflects how the item is *categorized*, not its limit state.
+        // Limited-use items still show under their natural category (e.g. an
+        // attack stays an attack); the LIMITED USE filter narrows by `uses`.
+        const category = getActionCategory(item);
 
-        const attackBonus = typeof sys?.attackBonus === 'number'
-            ? formatBonus(sys.attackBonus)
-            : undefined;
+        const attackBonus = item.type === 'weapon'
+            ? computeAttackBonus(item, ctx)
+            : (typeof sys?.attackBonus === 'number' ? formatBonus(sys.attackBonus) : undefined);
         const damageParts: string[] = (sys?.damage?.parts ?? [])
             .map((p: unknown[]) => p?.[0])
             .filter(Boolean) as string[];
@@ -59,6 +173,8 @@ export function toActionRows(items: FoundryItem[]): ActionRow[] {
             ? `DC ${sys.save.dc} ${String(sys.save.ability).toUpperCase()}`
             : undefined;
 
+        const attackModes = item.type === 'weapon' ? getWeaponAttackModes(item) : undefined;
+
         return {
             key: item._id,
             name: item.name,
@@ -68,6 +184,7 @@ export function toActionRows(items: FoundryItem[]): ActionRow[] {
             range,
             save,
             uses: hasLimitedUses ? { value: uses.value ?? 0, max: uses.max } : undefined,
+            attackModes: attackModes && attackModes.length > 0 ? attackModes : undefined,
         };
     });
 }

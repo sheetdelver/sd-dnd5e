@@ -2,6 +2,8 @@
 
 import React from 'react';
 import type { ActionRow } from '../../types';
+import { useModal } from '../shared/useModal';
+import { ATTACK_MODE_OPTIONS } from '../shared/rollOptions';
 
 interface Props {
     rows?: ActionRow[];
@@ -20,6 +22,50 @@ const CATEGORY_LABEL: Record<string, string> = {
 };
 
 export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props) {
+    const { openModal } = useModal();
+
+    const handleClick = (e: React.MouseEvent, row: ActionRow) => {
+        if (!onRoll) return;
+        if (e.shiftKey) {
+            void onRoll('item', row.key);
+            return;
+        }
+        // Attack rolls are gated by category, not by whether `attackBonus` is
+        // present — `attackBonus` is computed best-effort but a weapon is
+        // still an attack even if we couldn't derive a bonus.
+        const isAttack = row.category === 'attack';
+        const formula = isAttack
+            ? `1d20${row.attackBonus ?? ''}`
+            : row.damage;
+
+        // Attack Mode dropdown is filtered to the weapon's valid modes (e.g.
+        // a Longbow gets only Two-Handed; a Dagger gets one-handed/off-hand/
+        // thrown/thrown-offhand). Only emit the configField when the weapon
+        // has at least one valid mode — single-mode rows still show the
+        // dropdown for visibility/consistency with the Foundry version.
+        const validModes = isAttack && row.attackModes
+            ? ATTACK_MODE_OPTIONS.filter(opt => row.attackModes!.includes(opt.value))
+            : [];
+        const configFields = validModes.length > 0
+            ? [{
+                key: 'attackMode',
+                label: 'Attack Mode',
+                initialValue: validModes[0].value,
+                options: validModes,
+            }]
+            : undefined;
+
+        openModal('roll', {
+            rollType: 'item',
+            rollKey: row.key,
+            label: isAttack ? 'Attack Roll' : row.name,
+            subtitle: row.name,
+            formula,
+            configFields,
+            onConfirm: (opts: Record<string, unknown>) => onRoll('item', row.key, opts),
+        });
+    };
+
     return (
         <div className="block-card">
             <h2 className="block-heading">{title}</h2>
@@ -30,7 +76,7 @@ export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props)
                     {rows.map((row, i) => (
                         <button
                             key={row.key}
-                            onClick={() => onRoll?.('item', row.key)}
+                            onClick={(e) => handleClick(e, row)}
                             disabled={!onRoll}
                             style={{
                                 display: 'grid',

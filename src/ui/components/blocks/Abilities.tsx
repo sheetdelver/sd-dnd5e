@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+import { useModal } from '../shared/useModal';
+import { useSheet } from '../shared/SheetContext';
+import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 
 /**
  * Convention for `components/blocks/*`:
@@ -39,7 +42,27 @@ interface Props {
 }
 
 export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
+    const { openModal } = useModal();
+    const { actor } = useSheet();
     if (!abilities) return null;
+
+    const handleClick = (e: React.MouseEvent, key: string) => {
+        if (!onRoll) return;
+        if (e.shiftKey) {
+            void onRoll('ability', key);
+            return;
+        }
+        const mod = abilities[key].mod;
+        const formula = `1d20${mod >= 0 ? '+' : ''}${mod}`;
+        openModal('roll', {
+            rollType: 'ability',
+            rollKey: key,
+            label: `${ABILITY_FULL_NAME[key] ?? key} Check`,
+            subtitle: actor?.name,
+            formula,
+            onConfirm: (opts: Record<string, unknown>) => onRoll('ability', key, opts),
+        });
+    };
 
     return (
         <div style={{
@@ -54,7 +77,7 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                 return (
                     <button
                         key={key}
-                        onClick={() => onRoll?.('ability', key)}
+                        onClick={(e) => handleClick(e, key)}
                         style={{
                             background: 'var(--surface-card)',
                             border: 'var(--block-border-width) solid var(--theme-border)',

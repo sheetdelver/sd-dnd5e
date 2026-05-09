@@ -30,6 +30,14 @@ export interface ActionRow {
     save?: string;
     /** Uses remaining / max, when limited. */
     uses?: { value: number; max: number };
+    /**
+     * Valid attack modes for this row, matching the value side of
+     * `ATTACK_MODE_OPTIONS` (oneHanded / twoHanded / offhand / ranged /
+     * thrown / thrown-offhand). Computed for weapons via the same algorithm
+     * as Foundry dnd5e's `weapon.mjs#attackModes` getter. Empty / undefined
+     * for non-weapon actions, in which case the modal omits the dropdown.
+     */
+    attackModes?: string[];
 }
 
 export interface SpellRow {

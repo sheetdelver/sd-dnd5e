@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+import { useModal } from '../shared/useModal';
+import { useSheet } from '../shared/SheetContext';
+import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 
 const SAVE_ORDER = ['str', 'dex', 'con', 'int', 'wis', 'cha'] as const;
 const SAVE_LABEL: Record<string, string> = {
@@ -20,6 +23,27 @@ interface Props {
 }
 
 export default function SavingThrows({ abilities, onRoll }: Props) {
+    const { openModal } = useModal();
+    const { actor } = useSheet();
+
+    const handleClick = (e: React.MouseEvent, key: string) => {
+        if (!onRoll) return;
+        if (e.shiftKey) {
+            void onRoll('save', key);
+            return;
+        }
+        const save = abilities?.[key]?.save ?? 0;
+        const formula = `1d20${save >= 0 ? '+' : ''}${save}`;
+        openModal('roll', {
+            rollType: 'save',
+            rollKey: key,
+            label: `${ABILITY_FULL_NAME[key] ?? key} Saving Throw`,
+            subtitle: actor?.name,
+            formula,
+            onConfirm: (opts: Record<string, unknown>) => onRoll('save', key, opts),
+        });
+    };
+
     return (
         <div className="block-card">
             <h2 className="block-heading">Saving Throws</h2>
@@ -32,7 +56,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                     return (
                         <button
                             key={key}
-                            onClick={() => onRoll?.('save', key)}
+                            onClick={(e) => handleClick(e, key)}
                             disabled={!ab}
                             style={{
                                 textAlign: 'center',
