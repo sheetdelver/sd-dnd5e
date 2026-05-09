@@ -4,6 +4,7 @@ import React from 'react';
 import type { SpellRow } from '../../types';
 import { SPELL_FILTERS } from '../shared/filters';
 import { useModal } from '../shared/useModal';
+import { useSheet } from '../shared/SheetContext';
 
 interface Props {
     rows?: SpellRow[];
@@ -17,20 +18,18 @@ const levelLabel = (level: number): string => SPELL_FILTERS[level + 1] ?? `Level
 
 export default function Spells({ rows = [], onRoll, title }: Props) {
     const { openModal } = useModal();
+    const { actor } = useSheet();
 
     const handleClick = (e: React.MouseEvent, row: SpellRow) => {
-        if (!onRoll) return;
+        // Shift-click: skip both detail and roll dialogs and fire the roll
+        // straight through.
         if (e.shiftKey) {
-            void onRoll('item', row.key);
+            if (onRoll) void onRoll('item', row.key);
             return;
         }
-        openModal('roll', {
-            rollType: 'item',
-            rollKey: row.key,
-            label: 'Spell Roll',
-            subtitle: row.name,
-            onConfirm: (opts: Record<string, unknown>) => onRoll('item', row.key, opts),
-        });
+        const item = (actor?.items ?? []).find((i: { _id: string }) => i._id === row.key);
+        if (!item) return;
+        openModal('spell', { item, onRoll });
     };
 
     if (rows.length === 0) {

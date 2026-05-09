@@ -2,6 +2,8 @@
 
 import React from 'react';
 import type { InventoryRow, InventoryCategory } from '../../types';
+import { useModal } from '../shared/useModal';
+import { useSheet } from '../shared/SheetContext';
 
 /**
  * Inventory block — list of inventory rows. When the rows span multiple
@@ -31,6 +33,15 @@ const CATEGORY_LABEL: Record<InventoryCategory, string> = {
 };
 
 export default function Inventory({ rows = [], title = 'Inventory' }: Props) {
+    const { openModal } = useModal();
+    const { actor } = useSheet();
+
+    const handleRowClick = (row: InventoryRow) => {
+        const item = (actor?.items ?? []).find((i: { _id: string }) => i._id === row.key);
+        if (!item) return;
+        openModal('item', { item });
+    };
+
     if (rows.length === 0) {
         return (
             <div className="block-card">
@@ -71,8 +82,10 @@ export default function Inventory({ rows = [], title = 'Inventory' }: Props) {
                     )}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         {groups.get(category)!.map((row, i, arr) => (
-                            <div
+                            <button
                                 key={row.key}
+                                type="button"
+                                onClick={() => handleRowClick(row)}
                                 style={{
                                     display: 'grid',
                                     gridTemplateColumns: '1fr auto auto auto',
@@ -81,7 +94,14 @@ export default function Inventory({ rows = [], title = 'Inventory' }: Props) {
                                     padding: '6px 4px',
                                     borderBottom: i < arr.length - 1 ? '1px solid var(--theme-border)' : 'none',
                                     color: 'var(--text-primary)',
+                                    background: 'transparent',
+                                    border: 'none',
+                                    textAlign: 'left' as const,
+                                    cursor: 'pointer',
+                                    transition: 'background 0.15s',
                                 }}
+                                onMouseEnter={e => { e.currentTarget.style.background = 'var(--surface-elevated)'; }}
+                                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                             >
                                 <span style={{ fontSize: '12px' }}>{row.name}</span>
                                 {row.equipped && (
@@ -95,7 +115,7 @@ export default function Inventory({ rows = [], title = 'Inventory' }: Props) {
                                         ×{row.quantity}
                                     </span>
                                 )}
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
