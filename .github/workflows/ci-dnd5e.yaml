@@ -5,12 +5,18 @@ on:
     branches:
       - main
     paths:
-      - 'data/local/modules/dnd5e/**'
+      - 'src/**'
+      - 'module/**'
+      - 'info.json'
+      - 'package.json'
   pull_request:
     branches:
       - main
     paths:
-      - 'data/local/modules/dnd5e/**'
+      - 'src/**'
+      - 'module/**'
+      - 'info.json'
+      - 'package.json'
   workflow_dispatch:
 
 jobs:
