@@ -25,7 +25,11 @@ export default function DnD5eActorPage({ actorId }: Props) {
     const fetchActor = useCallback(async (silent = false) => {
         if (!silent) setLoading(true);
         try {
-            const res = await fetchWithAuth(`/api/actors/${actorId}`);
+            // `cache: 'no-store'` bypasses the browser's HTTP cache so a
+            // navigate-away-and-back actually re-fetches the actor (otherwise
+            // mid-session writes to flags / system fields look stale because
+            // the cached response is reused).
+            const res = await fetchWithAuth(`/api/actors/${actorId}`, { cache: 'no-store' });
             if (res.status === 404) { setNotFound(true); return; }
             if (!res.ok) return;
             const data = await res.json();

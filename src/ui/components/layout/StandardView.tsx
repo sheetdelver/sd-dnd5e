@@ -191,6 +191,7 @@ export default function StandardView({
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
+                                className={`tab-bar-button${activeTab === tab.id ? ' active' : ''}`}
                                 style={{
                                     padding: '6px 10px',
                                     fontSize: '11px',

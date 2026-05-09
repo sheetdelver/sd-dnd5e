@@ -135,6 +135,7 @@ export default function MobileView({
             {/* ---- Tab menu popup (overlay grid) ---- */}
             {menuOpen && (
                 <div
+                    className="mobile-tab-backdrop"
                     style={{
                         position: 'fixed',
                         inset: 0,
@@ -148,6 +149,7 @@ export default function MobileView({
                     onClick={() => setMenuOpen(false)}
                 >
                     <div
+                        className="mobile-tab-menu"
                         style={{
                             background: 'var(--surface-card)',
                             borderRadius: '16px 16px 0 0',
@@ -242,6 +244,7 @@ export default function MobileView({
 
                 {/* Tab menu trigger — center, larger for touch */}
                 <button
+                    className={menuOpen ? '' : 'mobile-nav-pulse'}
                     onClick={() => setMenuOpen(o => !o)}
                     style={{
                         width: '44px', height: '44px', borderRadius: '50%',

@@ -1,7 +1,6 @@
 import {
     BaseSystemAdapter,
     resolveImage,
-    fetchByUiid,
     type FoundryActor,
     type FoundryItem,
     type ActorSheetData,
@@ -77,8 +76,11 @@ export const SKILL_LABELS: Record<string, string> = {
 type RaceRecord = {
     name: string;
     img: string;
-    description?: string;
-    source?: string;
+    system:{
+        description: string;
+    }
+    _id: string;
+    type: string;
 }
 
 function signBonus(n: number): string {
@@ -96,18 +98,18 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         return actor._stats?.systemId === this.systemId;
     }
 
-    getRaceData(uuid: string): Promise<RaceRecord> {
-        return fetchByUiid(uuid, this.foundryUrl).then((item: FoundryItem) => {
-            const sys = item.system as Record<string, any>;
-            return {
-                name: item.name,
-                img: resolveImage(item.img ?? '', this.foundryUrl),
-                description: typeof sys?.description?.value === 'string'
-                    ? sys.description.value.replace(/<[^>]+>/g, '').trim()
-                    : undefined,
-                source: sys?.source ?? undefined,
-            };
-        }).catch(() => null);
+    getRaceData(actor: FoundryActor): RaceRecord {
+        const race = actor.items.filter((i: FoundryItem) => i.type === 'race');
+
+        return {
+            name: race[0]?.name ?? '',
+            img: resolveImage(race[0]?.img ?? '', this.foundryUrl),
+            system: {
+                description: race[0]?.system?.description ?? '',
+            },
+            _id: race[0]?._id ?? '',
+            type: race[0]?.type ?? '',
+        }
     }
 
     normalizeActorData(actor: FoundryActor): ActorSheetData {
@@ -116,10 +118,14 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         base.img = resolveImage(actor.img ?? '', this.foundryUrl);
         const attrs = s?.attributes ?? {};
         const prof = attrs.prof ?? 2;
-        const race = this.getRaceData(s?.details?.race ?? '');
+        const race = this.getRaceData(actor);
 
         return {
             ...base,
+            // Preserve `flags` — the platform's base projection drops it,
+            // but the sheet UI uses it for per-character settings (theme,
+            // notes sections, …) via the `_sheet_delver` namespace.
+            flags: (actor as { flags?: Record<string, unknown> }).flags ?? {},
             derived: {
                 hp: {
                     value: attrs.hp?.value ?? 0,
@@ -210,7 +216,13 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const s = actor.system as Partial<D5eSystem>;
         const hp = s?.attributes?.hp;
         const ac = s?.attributes?.ac?.value ?? 10;
-        const level = s?.details?.level ?? 0;
+        const level = actor.items.filter((i: FoundryItem) => i.type === 'class')
+                    .map((c: FoundryItem) => {
+                        const sys = c.system as Record<string, any>;
+                        const lvl = sys?.levels ?? sys?.level ?? '';
+                        return lvl;
+                    })
+                    .join(' / ') || '—';      
         const prof = s?.attributes?.prof ?? 2;
 
         const classes = actor.items
@@ -222,7 +234,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             })
             .join(' / ');
 
-        const race = this.getRaceData(s?.details?.race ?? '').then(r => r?.name ?? s?.details);
+        const race = this.getRaceData(actor)?.name;
         const subtext = [level > 0 ? `Level ${level}` : null, race, classes]
             .filter(Boolean)
             .join(' • ');

@@ -9,6 +9,10 @@
  * Default (no attribute) falls back to Paladin Gold.
  */
 
+/* Google Fonts — Roboto family powers the heading/body/mono tokens below.
+ * @import has to come before any other rules per CSS spec. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
+
 /* ------------------------------------------------------------------ */
 /* Base tokens (default: Paladin Gold)                                 */
 /* ------------------------------------------------------------------ */
@@ -67,11 +71,29 @@
 /* Applied via data-theme attribute: <div data-theme="barbarian">      */
 /* ------------------------------------------------------------------ */
 
+/* Each theme tints the dark base palette with the class's primary hue so
+ * switching theme isn't just an accent-color swap — Barbarian feels redder,
+ * Druid greener, Wizard bluer. Cleric flips to a light palette for variety
+ * (silver/holy aesthetic), with text colors flipped to maintain contrast.
+ *
+ * Surface tokens (overridden per theme):
+ *   --surface-bg        page background
+ *   --surface-card      block cards
+ *   --surface-elevated  raised surfaces (config boxes, hover states)
+ *   --surface-header    top header bar
+ *
+ * Light themes (cleric) ALSO override the four --text-* tokens so the dark
+ * base text stays readable on light surfaces. */
+
 [data-theme="barbarian"] {
     --theme-primary: #e74c3c;
     --theme-border: #c0392b;
     --theme-accent: #f1948a;
     --theme-glow: rgba(231, 76, 60, 0.15);
+    --surface-bg: #1f1414;
+    --surface-card: #2a1a1a;
+    --surface-elevated: #382020;
+    --surface-header: #150a0a;
 }
 
 [data-theme="bard"] {
@@ -79,13 +101,27 @@
     --theme-border: #8e24aa;
     --theme-accent: #ce93d8;
     --theme-glow: rgba(171, 71, 188, 0.15);
+    --surface-bg: #1d152a;
+    --surface-card: #271d38;
+    --surface-elevated: #322648;
+    --surface-header: #150e1d;
 }
 
+/* Cleric — LIGHT theme. Silver/holy palette with darker primary for contrast
+ * against the off-white surfaces. */
 [data-theme="cleric"] {
-    --theme-primary: #bdc3c7;
+    --theme-primary: #5d6d7e;
     --theme-border: #95a5a6;
-    --theme-accent: #ecf0f1;
-    --theme-glow: rgba(189, 195, 199, 0.15);
+    --theme-accent: #34495e;
+    --theme-glow: rgba(149, 165, 166, 0.20);
+    --surface-bg: #f0f1f4;
+    --surface-card: #ffffff;
+    --surface-elevated: #e6e8ee;
+    --surface-header: #d8dce4;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a5c;
+    --text-muted: #88889a;
+    --text-on-accent: #ffffff;
 }
 
 [data-theme="druid"] {
@@ -93,27 +129,45 @@
     --theme-border: #5a7a3e;
     --theme-accent: #a9c47f;
     --theme-glow: rgba(109, 143, 78, 0.15);
+    --surface-bg: #161e15;
+    --surface-card: #1e271c;
+    --surface-elevated: #2a3525;
+    --surface-header: #0f150e;
 }
 
 [data-theme="fighter"] {
-    --theme-primary: #a0522d;
+    --theme-primary: #c08658;
     --theme-border: #8b4513;
     --theme-accent: #cd853f;
     --theme-glow: rgba(160, 82, 45, 0.15);
+    --surface-bg: #1f1813;
+    --surface-card: #2a2118;
+    --surface-elevated: #382b1f;
+    --surface-header: #15100b;
 }
 
+/* Monk — slightly lighter dark theme with cool blue undertones. */
 [data-theme="monk"] {
     --theme-primary: #5dade2;
     --theme-border: #2e86c1;
     --theme-accent: #aed6f1;
-    --theme-glow: rgba(93, 173, 226, 0.15);
+    --theme-glow: rgba(93, 173, 226, 0.18);
+    --surface-bg: #1a2030;
+    --surface-card: #232a3c;
+    --surface-elevated: #2d3550;
+    --surface-header: #131826;
 }
 
+/* Paladin — gold default. Slightly warm-tinted dark surfaces. */
 [data-theme="paladin"] {
     --theme-primary: #c8a44e;
     --theme-border: #c8a44e;
     --theme-accent: #e8d48b;
     --theme-glow: rgba(200, 164, 78, 0.15);
+    --surface-bg: #1d1a14;
+    --surface-card: #26221a;
+    --surface-elevated: #322c20;
+    --surface-header: #14110b;
 }
 
 [data-theme="ranger"] {
@@ -121,34 +175,56 @@
     --theme-border: #1e8449;
     --theme-accent: #82e0aa;
     --theme-glow: rgba(39, 174, 96, 0.15);
+    --surface-bg: #131e18;
+    --surface-card: #1c2820;
+    --surface-elevated: #25362c;
+    --surface-header: #0c1410;
 }
 
+/* Rogue — darkest theme, almost pure shadow. */
 [data-theme="rogue"] {
-    --theme-primary: #5d6d7e;
-    --theme-border: #4a5a6a;
-    --theme-accent: #aab7c4;
-    --theme-glow: rgba(93, 109, 126, 0.15);
+    --theme-primary: #aab7c4;
+    --theme-border: #5d6d7e;
+    --theme-accent: #d5dbdb;
+    --theme-glow: rgba(170, 183, 196, 0.12);
+    --surface-bg: #0e1117;
+    --surface-card: #161a22;
+    --surface-elevated: #20252f;
+    --surface-header: #080a0e;
 }
 
 [data-theme="sorcerer"] {
-    --theme-primary: #e74c3c;
+    --theme-primary: #ff6b6b;
     --theme-border: #cb4335;
-    --theme-accent: #f1948a;
-    --theme-glow: rgba(231, 76, 60, 0.15);
+    --theme-accent: #ffb3b3;
+    --theme-glow: rgba(255, 107, 107, 0.18);
+    --surface-bg: #1f1316;
+    --surface-card: #2a1a1d;
+    --surface-elevated: #382227;
+    --surface-header: #160a0d;
 }
 
+/* Warlock — deepest purple, eldritch dark. */
 [data-theme="warlock"] {
-    --theme-primary: #8e44ad;
+    --theme-primary: #b67ad6;
     --theme-border: #7d3c98;
-    --theme-accent: #bb8fce;
-    --theme-glow: rgba(142, 68, 173, 0.15);
+    --theme-accent: #d5b3e6;
+    --theme-glow: rgba(182, 122, 214, 0.18);
+    --surface-bg: #16101e;
+    --surface-card: #1f172a;
+    --surface-elevated: #2a2038;
+    --surface-header: #0f0a16;
 }
 
 [data-theme="wizard"] {
-    --theme-primary: #2980b9;
+    --theme-primary: #5dade2;
     --theme-border: #2471a3;
     --theme-accent: #85c1e9;
-    --theme-glow: rgba(41, 128, 185, 0.15);
+    --theme-glow: rgba(93, 173, 226, 0.16);
+    --surface-bg: #131a2a;
+    --surface-card: #1c2438;
+    --surface-elevated: #263050;
+    --surface-header: #0c121e;
 }
 
 /* ------------------------------------------------------------------ */
@@ -162,6 +238,19 @@
     border-radius: var(--block-radius);
     box-shadow: var(--block-shadow);
     padding: var(--block-padding);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Ornate variant — opt-in via `class="block-card block-card-ornate"`.
+ * Layered double-line border via outline + the existing border, with a soft
+ * theme-tinted glow. Matches the reference screenshots' chrome without
+ * forcing every block to adopt the heavier look. */
+.block-card-ornate {
+    border-style: double;
+    border-width: 4px;
+    outline: 1px solid var(--theme-border);
+    outline-offset: 2px;
+    box-shadow: 0 0 12px var(--theme-glow), var(--block-shadow);
 }
 
 /* Block section heading */
@@ -218,4 +307,85 @@
         max-width: 100%;
         box-sizing: border-box;
     }
+}
+
+/* ------------------------------------------------------------------ */
+/* Animations                                                          */
+/* ------------------------------------------------------------------ */
+
+/* Mobile tab menu — slide-up from the bottom with a fade.
+ * Applied to the popup grid in MobileView; the backdrop fades in alongside. */
+@keyframes dnd5e-slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes dnd5e-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.mobile-tab-backdrop {
+    animation: dnd5e-fade-in 0.18s ease-out;
+}
+
+.mobile-tab-menu {
+    animation: dnd5e-slide-up 0.22s cubic-bezier(0.2, 0.9, 0.3, 1);
+    transform-origin: bottom center;
+}
+
+/* Tab bar buttons — color/border transition on hover and active state.
+ * The underline can't slide between tabs without DOM measurement, so we
+ * fade the active border in/out instead. */
+.tab-bar-button {
+    transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.tab-bar-button:hover:not(.active) {
+    color: var(--text-primary);
+    border-bottom-color: var(--theme-glow);
+}
+
+/* Block card hover glow — surfaces the theme color on interactive cards. */
+.block-card-hoverable:hover {
+    box-shadow: 0 0 14px var(--theme-glow), var(--block-shadow);
+    border-color: var(--theme-primary);
+}
+
+/* Mobile bottom-nav center button — pulse ring to draw attention. */
+@keyframes dnd5e-pulse {
+    0%   { box-shadow: 0 0 0 0 var(--theme-glow); }
+    70%  { box-shadow: 0 0 0 8px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.mobile-nav-pulse {
+    animation: dnd5e-pulse 2s ease-out infinite;
+}
+
+/* Modal entrance — gentle fade+lift so the dialog doesn't pop. */
+@keyframes dnd5e-modal-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+dialog.dnd5e-modal[open] {
+    animation: dnd5e-modal-in 0.18s ease-out;
+}
+
+dialog.dnd5e-modal[open]::backdrop {
+    animation: dnd5e-fade-in 0.18s ease-out;
+    background: rgba(0, 0, 0, 0.6);
 }
