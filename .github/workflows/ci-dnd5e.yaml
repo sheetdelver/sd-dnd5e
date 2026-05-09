@@ -20,22 +20,26 @@ jobs:
       run:
         working-directory: ./
     steps:
+      # Checkout the main Sheet Delver platform into the workspace root
       - name: Checkout Sheet Delver Repository
         uses: actions/checkout@v3
         with:
-            repo: sheetdelver/sheet-delver
-            path: ./
+          repository: juvinious/sheet-delver
+          ref: lifecycle-improvements
+          path: ./
 
-      - name: Set up Node.js
-      - name: Checkout code
+      # Checkout the dnd5e module into the expected data directory
+      - name: Checkout DnD5e Module
         uses: actions/checkout@v3
-        working-directory: ./data/local/modules/%SYSTEM_ID%/
+        with:
+          repository: sheetdelver/dnd5e
+          path: ./data/local/modules/dnd5e
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-        
+
       - name: Install dependencies
         run: npm install
 
