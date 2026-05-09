@@ -4,6 +4,7 @@ import React from 'react';
 import { resolveImage } from '@sheet-delver/sdk';
 import { useModal } from '../shared/useModal';
 import { useSheetSetting } from '../shared/useSheetSetting';
+import Rest from '../blocks/Rest';
 
 /**
  * Header — top-level character identity and utility bar.
@@ -101,49 +102,8 @@ export default function Header({ actor, derived, foundryUrl }: Props) {
                     </p>
                 </div>
 
-                {/* Rest buttons */}
-                <div style={{ display: 'flex', gap: 'var(--space-sm)', flexShrink: 0 }}>
-                    <button
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '4px',
-                            padding: '8px 16px',
-                            borderRadius: 'var(--block-radius)',
-                            border: '1px solid var(--theme-border)',
-                            background: 'transparent',
-                            color: 'var(--text-primary)',
-                            fontSize: '11px',
-                            fontWeight: 600,
-                            textTransform: 'uppercase' as const,
-                            letterSpacing: '0.05em',
-                            cursor: 'pointer',
-                        }}
-                        disabled
-                    >
-                        ☾ SHORT REST
-                    </button>
-                    <button
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '4px',
-                            padding: '8px 16px',
-                            borderRadius: 'var(--block-radius)',
-                            border: '1px solid var(--theme-border)',
-                            background: 'transparent',
-                            color: 'var(--text-primary)',
-                            fontSize: '11px',
-                            fontWeight: 600,
-                            textTransform: 'uppercase' as const,
-                            letterSpacing: '0.05em',
-                            cursor: 'pointer',
-                        }}
-                        disabled
-                    >
-                        ◯ LONG REST
-                    </button>
-                </div>
+                {/* Rest buttons — opens RestModal preset to short or long. */}
+                <Rest variant="bar" subtitle={actor.name} />
 
                 {/* STUB: Campaign info */}
                 <div style={{

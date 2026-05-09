@@ -4,6 +4,7 @@ import React from 'react';
 import { resolveImage } from '@sheet-delver/sdk';
 import { useModal } from '../shared/useModal';
 import { useSheetSetting } from '../shared/useSheetSetting';
+import Rest from '../blocks/Rest';
 
 /**
  * MobileHeader — compact header for the mobile character sheet view.
@@ -182,8 +183,8 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                 {/* Stat chip: Armor Class */}
                 <StatChip label="CLASS" title="ARMOR" value={String(ac)} />
 
-                {/* Defenses + Conditions buttons */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: 'auto', flexShrink: 0 }}>
+                {/* Defenses + Conditions + Rest — stacked on the right edge */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: 'auto', flexShrink: 0, alignItems: 'flex-end' }}>
                     <button style={{
                         padding: '3px 8px',
                         fontSize: '9px',
@@ -212,6 +213,8 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                     }} disabled>
                         CONDITIONS
                     </button>
+                    {/* Campfire Rest button — mobile-only, opens RestModal. */}
+                    <Rest variant="icon" subtitle={actor.name} />
                 </div>
             </div>
 
