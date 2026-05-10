@@ -113,5 +113,8 @@
                 "description": "Paid Content for DND 5.5e 2024"
             }
         ]
+    },
+    "package": {
+        "include": []
     }
 }
