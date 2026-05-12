@@ -76,11 +76,20 @@ export const SKILL_LABELS: Record<string, string> = {
 type RaceRecord = {
     name: string;
     img: string;
-    system:{
-        description: string;
-    }
+    description: string;
     _id: string;
     type: string;
+}
+
+function getDescriptionValue(system: unknown): string {
+    if (!system || typeof system !== 'object') return '';
+    const description = (system as { description?: unknown }).description;
+    if (typeof description === 'string') return description;
+    if (description && typeof description === 'object') {
+        const value = (description as { value?: unknown }).value;
+        return typeof value === 'string' ? value : '';
+    }
+    return '';
 }
 
 function signBonus(n: number): string {
@@ -100,16 +109,15 @@ export class DnD5eAdapter extends BaseSystemAdapter {
 
     getRaceData(actor: FoundryActor): RaceRecord {
         const race = actor.items.filter((i: FoundryItem) => i.type === 'race');
+        const description = getDescriptionValue(race[0]?.system);
 
         return {
             name: race[0]?.name ?? '',
             img: resolveImage(race[0]?.img ?? '', this.foundryUrl),
-            system: {
-                description: race[0]?.system?.description ?? '',
-            },
+            description: description,
             _id: race[0]?._id ?? '',
             type: race[0]?.type ?? '',
-        }
+        } as RaceRecord;
     }
 
     normalizeActorData(actor: FoundryActor): ActorSheetData {
@@ -235,7 +243,8 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             .join(' / ');
 
         const race = this.getRaceData(actor)?.name;
-        const subtext = [level > 0 ? `Level ${level}` : null, race, classes]
+        const numericLevel = Number.parseInt(level, 10);
+        const subtext = [Number.isFinite(numericLevel) && numericLevel > 0 ? `Level ${level}` : null, race, classes]
             .filter(Boolean)
             .join(' • ');
 
