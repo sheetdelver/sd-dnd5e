@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import type { ActorSheetData, FoundryItem } from '@sheet-delver/sdk';
+import type { ActorSheetProps, ActorSheetData, FoundryItem } from '@sheet-delver/sdk';
 import '../../assets/dnd5e.css';
 
 // Layout views
@@ -24,15 +24,10 @@ import { SheetProvider } from './components/shared/SheetContext';
 // Breakpoint for switching between standard and mobile layouts
 const LAYOUT_BREAKPOINT = 1024;
 
-interface Props {
-    actor: ActorSheetData & Record<string, any>;
-    onRoll?: (type: string, key: string, options?: Record<string, unknown>) => Promise<void>;
-    onUpdate?: (path: string, value: unknown) => Promise<void>;
-    foundryUrl?: string;
-    isOwner?: boolean;
-    // accept but ignore SheetRouter-specific props
-    [key: string]: unknown;
-}
+// The presentational sheet is the only thing this module ships for the actor surface.
+// The platform supplies the controller props (ADR-0027 decision 16): the actor, the
+// owner flag, the resolved Foundry URL, and host-owned roll/update handlers.
+type Props = ActorSheetProps<ActorSheetData & Record<string, any>>;
 
 export default function Sheet({ actor, onRoll, onUpdate, foundryUrl, isOwner }: Props) {
     // --- Viewport detection ---
