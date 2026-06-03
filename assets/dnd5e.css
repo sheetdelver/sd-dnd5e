@@ -7,6 +7,12 @@
  *
  * Usage: set data-theme="paladin" (or any class) on a parent element.
  * Default (no attribute) falls back to Paladin Gold.
+ *
+ * Style isolation (ADR-0027 decision 28): every selector is scoped under the
+ * host-generated `.sdk-module--dnd5e` root that SurfaceHost renders. The `:root`
+ * design tokens live on that root; theme overrides and component classes are
+ * descendants of it. `@import` and `@keyframes` stay global by necessity (the
+ * import must come first; keyframe names are global identifiers).
  */
 
 /* Google Fonts — Roboto family powers the heading/body/mono tokens below.
@@ -15,9 +21,10 @@
 
 /* ------------------------------------------------------------------ */
 /* Base tokens (default: Paladin Gold)                                 */
+/* Defined on the module scope root so all descendants inherit them.   */
 /* ------------------------------------------------------------------ */
 
-:root {
+.sdk-module--dnd5e {
     /* Theme colors — overridden per class below */
     --theme-primary: #c8a44e;
     --theme-border: #c8a44e;
@@ -68,7 +75,8 @@
 
 /* ------------------------------------------------------------------ */
 /* Class Theme Overrides                                               */
-/* Applied via data-theme attribute: <div data-theme="barbarian">      */
+/* Applied via data-theme attribute on a descendant layout root:       */
+/*   <div data-theme="barbarian"> inside .sdk-module--dnd5e            */
 /* ------------------------------------------------------------------ */
 
 /* Each theme tints the dark base palette with the class's primary hue so
@@ -85,7 +93,7 @@
  * Light themes (cleric) ALSO override the four --text-* tokens so the dark
  * base text stays readable on light surfaces. */
 
-[data-theme="barbarian"] {
+.sdk-module--dnd5e [data-theme="barbarian"] {
     --theme-primary: #e74c3c;
     --theme-border: #c0392b;
     --theme-accent: #f1948a;
@@ -96,7 +104,7 @@
     --surface-header: #150a0a;
 }
 
-[data-theme="bard"] {
+.sdk-module--dnd5e [data-theme="bard"] {
     --theme-primary: #ab47bc;
     --theme-border: #8e24aa;
     --theme-accent: #ce93d8;
@@ -109,7 +117,7 @@
 
 /* Cleric — LIGHT theme. Silver/holy palette with darker primary for contrast
  * against the off-white surfaces. */
-[data-theme="cleric"] {
+.sdk-module--dnd5e [data-theme="cleric"] {
     --theme-primary: #5d6d7e;
     --theme-border: #95a5a6;
     --theme-accent: #34495e;
@@ -124,7 +132,7 @@
     --text-on-accent: #ffffff;
 }
 
-[data-theme="druid"] {
+.sdk-module--dnd5e [data-theme="druid"] {
     --theme-primary: #6d8f4e;
     --theme-border: #5a7a3e;
     --theme-accent: #a9c47f;
@@ -135,7 +143,7 @@
     --surface-header: #0f150e;
 }
 
-[data-theme="fighter"] {
+.sdk-module--dnd5e [data-theme="fighter"] {
     --theme-primary: #c08658;
     --theme-border: #8b4513;
     --theme-accent: #cd853f;
@@ -147,7 +155,7 @@
 }
 
 /* Monk — slightly lighter dark theme with cool blue undertones. */
-[data-theme="monk"] {
+.sdk-module--dnd5e [data-theme="monk"] {
     --theme-primary: #5dade2;
     --theme-border: #2e86c1;
     --theme-accent: #aed6f1;
@@ -159,7 +167,7 @@
 }
 
 /* Paladin — gold default. Slightly warm-tinted dark surfaces. */
-[data-theme="paladin"] {
+.sdk-module--dnd5e [data-theme="paladin"] {
     --theme-primary: #c8a44e;
     --theme-border: #c8a44e;
     --theme-accent: #e8d48b;
@@ -170,7 +178,7 @@
     --surface-header: #14110b;
 }
 
-[data-theme="ranger"] {
+.sdk-module--dnd5e [data-theme="ranger"] {
     --theme-primary: #27ae60;
     --theme-border: #1e8449;
     --theme-accent: #82e0aa;
@@ -182,7 +190,7 @@
 }
 
 /* Rogue — darkest theme, almost pure shadow. */
-[data-theme="rogue"] {
+.sdk-module--dnd5e [data-theme="rogue"] {
     --theme-primary: #aab7c4;
     --theme-border: #5d6d7e;
     --theme-accent: #d5dbdb;
@@ -193,7 +201,7 @@
     --surface-header: #080a0e;
 }
 
-[data-theme="sorcerer"] {
+.sdk-module--dnd5e [data-theme="sorcerer"] {
     --theme-primary: #ff6b6b;
     --theme-border: #cb4335;
     --theme-accent: #ffb3b3;
@@ -205,7 +213,7 @@
 }
 
 /* Warlock — deepest purple, eldritch dark. */
-[data-theme="warlock"] {
+.sdk-module--dnd5e [data-theme="warlock"] {
     --theme-primary: #b67ad6;
     --theme-border: #7d3c98;
     --theme-accent: #d5b3e6;
@@ -216,7 +224,7 @@
     --surface-header: #0f0a16;
 }
 
-[data-theme="wizard"] {
+.sdk-module--dnd5e [data-theme="wizard"] {
     --theme-primary: #5dade2;
     --theme-border: #2471a3;
     --theme-accent: #85c1e9;
@@ -232,7 +240,7 @@
 /* ------------------------------------------------------------------ */
 
 /* Block card wrapper — used by all block components */
-.block-card {
+.sdk-module--dnd5e .block-card {
     background: var(--surface-card);
     border: var(--block-border-width) solid var(--theme-border);
     border-radius: var(--block-radius);
@@ -245,7 +253,7 @@
  * Layered double-line border via outline + the existing border, with a soft
  * theme-tinted glow. Matches the reference screenshots' chrome without
  * forcing every block to adopt the heavier look. */
-.block-card-ornate {
+.sdk-module--dnd5e .block-card-ornate {
     border-style: double;
     border-width: 4px;
     outline: 1px solid var(--theme-border);
@@ -254,7 +262,7 @@
 }
 
 /* Block section heading */
-.block-heading {
+.sdk-module--dnd5e .block-heading {
     font-family: var(--font-heading);
     font-size: 10px;
     font-weight: 600;
@@ -265,7 +273,7 @@
 }
 
 /* Placeholder / STUB indicator — visible during scaffolding */
-.stub-placeholder {
+.sdk-module--dnd5e .stub-placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -286,24 +294,24 @@
 /* ------------------------------------------------------------------ */
 
 @media (max-width: 1024px) {
-    .block-card {
+    .sdk-module--dnd5e .block-card {
         max-width: 100%;
         box-sizing: border-box;
     }
 
-    .block-heading {
+    .sdk-module--dnd5e .block-heading {
         font-size: 11px;
     }
 }
 
 @media (max-width: 768px) {
-    .block-heading {
+    .sdk-module--dnd5e .block-heading {
         font-size: 12px;
         letter-spacing: 0.08em;
     }
 
     /* Ensure all block-card descendants respect the container */
-    .block-card * {
+    .sdk-module--dnd5e .block-card * {
         max-width: 100%;
         box-sizing: border-box;
     }
@@ -311,6 +319,8 @@
 
 /* ------------------------------------------------------------------ */
 /* Animations                                                          */
+/* @keyframes are global identifiers; the rules that consume them are  */
+/* scoped under .sdk-module--dnd5e above/below.                        */
 /* ------------------------------------------------------------------ */
 
 /* Mobile tab menu — slide-up from the bottom with a fade.
@@ -331,11 +341,11 @@
     to   { opacity: 1; }
 }
 
-.mobile-tab-backdrop {
+.sdk-module--dnd5e .mobile-tab-backdrop {
     animation: dnd5e-fade-in 0.18s ease-out;
 }
 
-.mobile-tab-menu {
+.sdk-module--dnd5e .mobile-tab-menu {
     animation: dnd5e-slide-up 0.22s cubic-bezier(0.2, 0.9, 0.3, 1);
     transform-origin: bottom center;
 }
@@ -343,17 +353,17 @@
 /* Tab bar buttons — color/border transition on hover and active state.
  * The underline can't slide between tabs without DOM measurement, so we
  * fade the active border in/out instead. */
-.tab-bar-button {
+.sdk-module--dnd5e .tab-bar-button {
     transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
-.tab-bar-button:hover:not(.active) {
+.sdk-module--dnd5e .tab-bar-button:hover:not(.active) {
     color: var(--text-primary);
     border-bottom-color: var(--theme-glow);
 }
 
 /* Block card hover glow — surfaces the theme color on interactive cards. */
-.block-card-hoverable:hover {
+.sdk-module--dnd5e .block-card-hoverable:hover {
     box-shadow: 0 0 14px var(--theme-glow), var(--block-shadow);
     border-color: var(--theme-primary);
 }
@@ -365,7 +375,7 @@
     100% { box-shadow: 0 0 0 0 transparent; }
 }
 
-.mobile-nav-pulse {
+.sdk-module--dnd5e .mobile-nav-pulse {
     animation: dnd5e-pulse 2s ease-out infinite;
 }
 
@@ -381,11 +391,11 @@
     }
 }
 
-dialog.dnd5e-modal[open] {
+.sdk-module--dnd5e dialog.dnd5e-modal[open] {
     animation: dnd5e-modal-in 0.18s ease-out;
 }
 
-dialog.dnd5e-modal[open]::backdrop {
+.sdk-module--dnd5e dialog.dnd5e-modal[open]::backdrop {
     animation: dnd5e-fade-in 0.18s ease-out;
     background: rgba(0, 0, 0, 0.6);
 }
