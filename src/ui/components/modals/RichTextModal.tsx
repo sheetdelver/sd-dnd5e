@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useSDKComponents } from '@sheet-delver/sdk';
+import { useSDKComponents } from '@sheet-delver/sdk/react';
 import BaseModal from '../shared/BaseModal';
 
 /**

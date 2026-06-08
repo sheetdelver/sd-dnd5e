@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import type { ActorSheetProps, ActorSheetData, FoundryItem } from '@sheet-delver/sdk';
+import type { ActorSheetData, FoundryItem } from '@sheet-delver/sdk';
+import type { ActorSheetProps } from '@sheet-delver/sdk/react';
 // The platform injects the declared `stylesheet` (info.json manifest) via a <link> to
 // /api/modules/dnd5e/assets/... (ADR-0027 decision 27) — no bundler CSS import needed.
 
