@@ -1,0 +1,13 @@
+/*
+ * D&D 5e Tailwind entry — compiled at package time into assets/dnd5e.tailwind.css, scoped
+ * under .sdk-module--dnd5e (ADR-0027 decisions 37, 38). dnd5e uses Tailwind utilities for
+ * layout AND ships hand-authored semantic CSS (assets/dnd5e.css); the two compose as
+ * separate stylesheets under the same scope root (decision 36). In local dev this file is
+ * dormant — the host scans the module's source directly (decision 33, layer 1).
+ *
+ * Preflight is intentionally omitted (theme + utilities layers only); the host supplies a
+ * global reset (decision 34).
+ */
+@import "tailwindcss/theme.css" layer(theme);
+@import "@sheet-delver/sdk/theme.css";          /* platform design tokens */
+@import "tailwindcss/utilities.css" layer(utilities);
