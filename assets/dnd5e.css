@@ -11,13 +11,35 @@
  * Style isolation (ADR-0027 decision 28): every selector is scoped under the
  * host-generated `.sdk-module--dnd5e` root that SurfaceHost renders. The `:root`
  * design tokens live on that root; theme overrides and component classes are
- * descendants of it. `@import` and `@keyframes` stay global by necessity (the
- * import must come first; keyframe names are global identifiers).
+ * descendants of it. `@font-face` and `@keyframes` stay global by necessity;
+ * font-family and keyframe names are global identifiers.
  */
 
-/* Google Fonts — Roboto family powers the heading/body/mono tokens below.
- * @import has to come before any other rules per CSS spec. */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
+/* Self-hosted variable fonts keep module rendering within Core's `self` CSP.
+ * Upstream revisions, checksums, and licenses live under assets/fonts/. */
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/roboto/Roboto-Variable.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('./fonts/roboto-slab/RobotoSlab-Variable.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('./fonts/roboto-mono/RobotoMono-Variable.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: swap;
+}
 
 /* ------------------------------------------------------------------ */
 /* Base tokens (default: Paladin Gold)                                 */
