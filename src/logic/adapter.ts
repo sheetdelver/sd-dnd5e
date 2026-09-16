@@ -2,6 +2,8 @@ import {
     BaseSystemAdapter,
     resolveImage,
     type FoundryActor,
+    type ActorPreparationContext,
+    type PreparedActorData,
     type FoundryItem,
     type ActorSheetData,
     type ActorCardData,
@@ -105,6 +107,13 @@ export class DnD5eAdapter extends BaseSystemAdapter {
 
     match(actor: FoundryActor): boolean {
         return actor._stats?.systemId === this.systemId;
+    }
+
+    prepareActorData(
+        actor: FoundryActor,
+        context: Readonly<ActorPreparationContext>,
+    ): PreparedActorData {
+        return super.prepareActorData(actor, context);
     }
 
     getRaceData(actor: FoundryActor): RaceRecord {
