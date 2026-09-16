@@ -2,6 +2,8 @@ import {
     BaseSystemAdapter,
     resolveImage,
     type FoundryActor,
+    type ActorPreparationContext,
+    type PreparedActorData,
     type FoundryItem,
     type ActorSheetData,
     type ActorCardData,
@@ -107,6 +109,13 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         return actor._stats?.systemId === this.systemId;
     }
 
+    prepareActorData(
+        actor: FoundryActor,
+        context: Readonly<ActorPreparationContext>,
+    ): PreparedActorData {
+        return super.prepareActorData(actor, context);
+    }
+
     getRaceData(actor: FoundryActor): RaceRecord {
         const race = actor.items.filter((i: FoundryItem) => i.type === 'race');
         const description = getDescriptionValue(race[0]?.system);
@@ -180,7 +189,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
     }
 
     getRollData(
-        actor: FoundryActor,
+        actor: PreparedActorData,
         type: string,
         key: string,
         _options?: RollDataOptions,
@@ -214,13 +223,13 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         return null;
     }
 
-    getInitiativeFormula(actor: FoundryActor): string {
+    getInitiativeFormula(actor: PreparedActorData): string {
         const s = actor.system as Partial<D5eSystem>;
         const init = s?.attributes?.init?.value ?? s?.attributes?.init?.mod ?? 0;
         return signBonus(init);
     }
 
-    getActorCardData(actor: FoundryActor): ActorCardData {
+    getActorCardData(actor: PreparedActorData): ActorCardData {
         const s = actor.system as Partial<D5eSystem>;
         const hp = s?.attributes?.hp;
         const ac = s?.attributes?.ac?.value ?? 10;
