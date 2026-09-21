@@ -36,3 +36,9 @@ TODO
 - Connect actor data to sheets
 - Character sheet creator
 - Future -> Import from PDF or DND Beyond
+
+## SDK Feedback Compatibility
+
+CI and release packaging use the pinned Core `v0.13.0` toolchain. Existing API
+contract minimums are unchanged; these fixes do not adopt notification progress
+or lifecycle methods. CI now runs the module regression tests before packaging.
