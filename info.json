@@ -1,6 +1,6 @@
 {
     "id": "dnd5e",
-    "version": "0.3",
+    "version": "0.4",
     "title": "D&D 5th Edition",
     "experimental": true,
     "manifest": {
@@ -8,9 +8,10 @@
         "logic": "module/logic"
     },
     "compatibility": {
+        "coreVersion": ">=0.14.2",
         "apiContracts": {
             "module-api": ">=1.1.0 <2.0.0",
-            "ui-extension-api": ">=1.0.0 <2.0.0",
+            "ui-extension-api": ">=2.0.0 <3.0.0",
             "roll-engine-api": ">=1.0.0 <2.0.0"
         }
     },
