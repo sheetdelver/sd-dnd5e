@@ -39,6 +39,7 @@ TODO
 
 ## SDK Feedback Compatibility
 
-CI and release packaging use the pinned Core `v0.13.0` toolchain. Existing API
-contract minimums are unchanged; these fixes do not adopt notification progress
-or lifecycle methods. CI now runs the module regression tests before packaging.
+The module requires SheetDelver Core `>=0.14.2` and
+`ui-extension-api >=2.0.0 <3.0.0` (SDK 2.0.0). It declares no dashboard
+actions. CI and release packaging use the pinned Core `v0.14.2` toolchain;
+the server and roll API contract requirements are unchanged.
