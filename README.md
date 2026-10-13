@@ -39,7 +39,11 @@ TODO
 
 ## SDK Feedback Compatibility
 
-The module requires SheetDelver Core `>=0.14.2` and
-`ui-extension-api >=2.0.0 <3.0.0` (SDK 2.0.0). It declares no dashboard
-actions. CI and release packaging use the pinned Core `v0.14.2` toolchain;
-the server and roll API contract requirements are unchanged.
+The development checkout requires SheetDelver Core `>=0.17.0` and
+`ui-extension-api >=3.0.0 <4.0.0` (SDK 3.0.0). The UI API gate keeps it
+incompatible with released Core 0.17.0. Before module release, raise the
+Core minimum to `>=0.18.0` after Core 0.18.0 is published. It declares no
+dashboard actions or combat-HUD modal override; Core supplies the initiative
+dialog.
+CI and release packaging target Core `v0.18.0`; publish Core first.
+The server and roll API contract requirements are unchanged.
