@@ -1,0 +1,24 @@
+# Releases
+
+Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
+
+## 0.4
+
+- Adopted UI API 2
+- Required Core 0.14.2
+- Added module presentation checks
+- Refreshed release validation tooling
+
+## 0.3
+
+- Adopted prepared Actor lifecycle
+- Typed prepared Actor consumers
+- Added Actor preparation regressions
+
+## 0.2
+
+- Initial experimental module release
+- Added themed character sheets
+- Added rest and resource dialogs
+- Bundled CSP-compatible local fonts
+- Added validated release packaging
