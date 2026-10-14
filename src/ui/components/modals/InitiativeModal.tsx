@@ -20,10 +20,10 @@ export default function InitiativeModal(props: InitiativeRollModalProps) {
         <div style={{ padding: 'var(--space-sm) var(--space-md)', border: '1px solid var(--theme-border)',
             borderRadius: 'var(--block-radius)', background: 'var(--surface-elevated)', marginBottom: 'var(--space-md)' }}>
             <ConfigRow label="Roll Mode"><span style={{ fontSize: '12px', color: 'var(--text-primary)' }}>{props.audience === 'gm' ? 'Private GM Roll' : 'Public Roll'}</span></ConfigRow>
-            <ConfigRow label="Source"><span style={{ fontSize: '12px', color: 'var(--text-primary)' }}>{props.source === 'module' ? 'System module' : props.source === 'gm' ? 'GM setting' : 'Core fallback'}</span></ConfigRow>
+            <ConfigRow label="Source"><span style={{ fontSize: '12px', color: 'var(--text-primary)' }}>{props.source === 'module' ? 'System module' : props.source === 'gm' ? 'GM override' : 'Core fallback'}</span></ConfigRow>
         </div>
         {props.manualAvailable && <div style={{ marginBottom: 'var(--space-md)' }}>
-            <AdvantageButton onClick={() => setManual(!manual)}>{manual ? 'Revert to Roll' : 'Manual total'}</AdvantageButton>
+            <AdvantageButton onClick={() => setManual(!manual)}>{manual ? 'Revert to Roll' : 'Input Manually'}</AdvantageButton>
         </div>}
         {manual && props.manualAvailable ? <>
             <label htmlFor={inputId} style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>Final initiative total</label>

@@ -16,6 +16,7 @@ assert.match(html, /dnd5e-modal/);
 assert.match(html, /2d20kh1\+2/);
 assert.match(html, /aria-label="Roll initiative"/);
 assert.match(html, /Public Roll/);
+assert.match(html, /Input Manually/);
 assert.doesNotMatch(html, /<select|Situational Bonus/);
 const manual = renderToStaticMarkup(createElement(InitiativeModal, { ...initiative, rollAvailable: false }));
 assert.match(manual, /Final initiative total/);

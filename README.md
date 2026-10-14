@@ -45,8 +45,9 @@ incompatible with released Core 0.17.0. Before module release, raise the
 Core minimum to `>=0.18.0` after Core 0.18.0 is published. It declares no
 dashboard actions. The combat-HUD initiative adapter shares the sheet roller's
 native dialog, fields and buttons, under the module's scoped stylesheet. Core
-supplies a read-only formula/audience; the adapter returns only a roll choice
-or final manual total. It does not expose sheet bonus/configuration fields or
+supplies a read-only formula/audience under explicit GM override → module
+formula → Core fallback precedence. The adapter returns only a roll choice
+or final manual total via **Input Manually**. It does not expose sheet bonus/configuration fields or
 recalculate the formula. Default preserves the module-supplied expression;
 Advantage/Disadvantage are explicit permitted choices. Zero/fractions are valid
 manual final totals. Narrow layouts stack buttons; dialog centering/scrolling
