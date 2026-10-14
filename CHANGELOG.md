@@ -4,7 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
-- Adopted HUD initiative contract
+- Reused native HUD roller
+- Centered native roll dialogs
 
 ## 0.4
 
