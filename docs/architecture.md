@@ -1,6 +1,4 @@
-# D&D 5e module development
-
-## Contracts and ownership
+# D&D 5e module architecture
 
 `info.json` is the compatibility authority. The module requires Core 0.18.0
 and UI API 3.1; the remaining API ranges are declared there. Its experimental
@@ -26,29 +24,22 @@ Sheet bonus/configuration fields do not recalculate the HUD formula. Centering,
 scrolling and narrow-screen button layout belong to the shared module frame.
 This integration does not provide native Foundry browser-hook/effect parity.
 
-## Validation
+## Preparation limits
 
-From the Core checkout with this module in `data/local/modules/dnd5e`:
+Experimental status includes known differences between module-prepared and native
+values. The existing prepared-actor tests preserve bounded behavior; they do not
+prove complete native rule parity. Native preparation-runtime research remains
+separate from shipping functionality. No connected native frontend or backend
+browser is required for normal module operation.
 
-```sh
-npx tsx data/local/modules/dnd5e/src/tests/prepared-actor.test.ts
-npx tsx data/local/modules/dnd5e/src/tests/presentation.test.ts
-npm run module:check -- dnd5e
-```
+## Distribution and verification
 
-Core's root TypeScript check excludes module source. Include module sources
-explicitly for interface changes, and use isolated package output for release
-validation. Preserve parked research/stashes; those are not shipping features.
+`info.json` declares the module version and API compatibility. CI/release
+workflows currently use the released Core `v0.18.0` toolchain. Release assets
+include the package archive, checksum, catalog manifest and release history.
+A module release tag identifies the matching manifest version.
 
-## Distribution
-
-CI and release workflows pin Core `v0.18.0`. Keep their toolchain references
-aligned with the tested minimum and update compatibility before publication.
-The module tag must match `info.json.version`; published tags are immutable.
-Release CI publishes the archive, checksum, catalog manifest and release history.
-Keep user-facing notes concise in [CHANGELOG.md](../CHANGELOG.md).
-
-See Core's [module authoring guide](https://github.com/sheetdelver/sheetdelver/blob/v0.18.0/docs/MODULE_AUTHORING.md)
-and [release process](https://github.com/sheetdelver/sheetdelver/blob/v0.18.0/docs/RELEASING.md)
-for the shared workflow. Verification history belongs in audits/ADRs, not the
-module overview.
+Repository workflow and verification commands live in [AGENTS.md](../AGENTS.md).
+The shared contracts are described in Core's
+[module authoring guide](https://github.com/sheetdelver/sheetdelver/blob/v0.18.0/docs/MODULE_AUTHORING.md)
+and [release process](https://github.com/sheetdelver/sheetdelver/blob/v0.18.0/docs/RELEASING.md).

@@ -12,7 +12,8 @@ Support is still in development.
 Requires **SheetDelver Core 0.18.0 or later**.
 
 See the [releases](https://github.com/sheetdelver/sd-dnd5e/releases),
-[changelog](CHANGELOG.md) and [developer guide](docs/DEVELOPMENT.md).
+[changelog](CHANGELOG.md), [module architecture](docs/architecture.md) and
+[working guidance](AGENTS.md).
 
 ## Font licenses
 
