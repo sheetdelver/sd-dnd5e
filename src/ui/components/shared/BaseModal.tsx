@@ -20,9 +20,10 @@ interface Props {
     children: React.ReactNode;
     /** Optional max-width override; defaults to 480px for typical settings. */
     maxWidth?: number | string;
+    labelledBy?: string;
 }
 
-export default function BaseModal({ open, onClose, title, children, maxWidth = 480 }: Props) {
+export default function BaseModal({ open, onClose, title, children, maxWidth = 480, labelledBy }: Props) {
     const ref = useRef<HTMLDialogElement | null>(null);
 
     useEffect(() => {
@@ -33,6 +34,7 @@ export default function BaseModal({ open, onClose, title, children, maxWidth = 4
         } else if (!open && dialog.open) {
             dialog.close();
         }
+        return () => { if (dialog.open) dialog.close(); };
     }, [open]);
 
     // Native `cancel` event fires on Esc; mirror it into onClose.
@@ -55,11 +57,15 @@ export default function BaseModal({ open, onClose, title, children, maxWidth = 4
     return (
         <dialog
             ref={ref}
+            aria-labelledby={labelledBy}
             onClick={handleClick}
             className="dnd5e-modal"
             style={{
                 maxWidth: typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth,
                 width: '90vw',
+                margin: 'auto',
+                maxHeight: '90dvh',
+                overflowY: 'auto',
                 padding: 0,
                 border: '2px solid var(--theme-border)',
                 borderRadius: 'var(--block-radius)',

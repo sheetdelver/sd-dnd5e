@@ -2,6 +2,14 @@
 
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
+## Unreleased
+
+## 0.4.1
+
+- Reused native HUD roller
+- Centered native roll dialogs
+- Required Core 0.18.0
+
 ## 0.4
 
 - Adopted UI API 2

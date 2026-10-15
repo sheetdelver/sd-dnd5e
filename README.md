@@ -39,7 +39,27 @@ TODO
 
 ## SDK Feedback Compatibility
 
-The module requires SheetDelver Core `>=0.14.2` and
-`ui-extension-api >=2.0.0 <3.0.0` (SDK 2.0.0). It declares no dashboard
-actions. CI and release packaging use the pinned Core `v0.14.2` toolchain;
-the server and roll API contract requirements are unchanged.
+This release requires SheetDelver Core `>=0.18.0` and
+`ui-extension-api >=3.1.0 <4.0.0` (SDK 3.x), including the initiative choice
+that preserves Core's resolved formula by default. Core 0.17.x is incompatible.
+It declares no
+dashboard actions. The combat-HUD initiative adapter shares the sheet roller's
+native dialog, fields and buttons, under the module's scoped stylesheet. Core
+supplies a read-only formula/audience under explicit GM override → module
+formula → Core fallback precedence. The adapter returns only a roll choice
+or final manual total via **Input Manually**. It does not expose sheet bonus/configuration fields or
+recalculate the formula. Default preserves the module-supplied expression;
+Advantage/Disadvantage are explicit permitted choices. Zero/fractions are valid
+manual final totals. Narrow layouts stack buttons; dialog centering/scrolling
+is explicit rather than dependent on browser reset styles.
+CI and release packaging target Core `v0.18.0`; publish Core first.
+The server and roll API contract requirements are unchanged.
+ADR-0061 hardening verification (October 14): module tests, explicit source
+typing and isolated packaging pass on the integrated SDK3.2/UI3.1 host. Approved
+local Foundry 14.367 / D&D 5e 6.0.2 owner initiative and turn HTTP/browser
+checks passed before the subsequent presentation correction. The native adapter
+now has offline rendered checks at320/375/1280, both Core appearances and
+bounded default/manual submissions; the user accepts its native-themed roller.
+Core's final v13.351 owner-write proof used Shadowdark, not D&D: no native D&D
+v13 or full feature/effect parity is inferred. Core0.18.0 released-host validation
+remains a release gate.

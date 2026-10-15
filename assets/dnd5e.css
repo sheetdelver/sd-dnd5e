@@ -421,3 +421,15 @@
     animation: dnd5e-fade-in 0.18s ease-out;
     background: rgba(0, 0, 0, 0.6);
 }
+
+.sdk-module--dnd5e .dnd5e-initiative-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-sm);
+}
+
+@media (max-width: 400px) {
+    .sdk-module--dnd5e .dnd5e-initiative-options {
+        grid-template-columns: 1fr;
+    }
+}

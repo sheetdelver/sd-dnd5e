@@ -9,6 +9,7 @@ const info = infoJson as ModuleInfo;
 const uiManifest: UIModuleManifest = {
     info,
     sheet: () => import('../src/ui/Sheet'),
+    rollModal: () => import('../src/ui/components/modals/InitiativeModal'),
     stylesheet: 'assets/dnd5e.css',
 };
 
