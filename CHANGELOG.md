@@ -4,8 +4,11 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+## 0.4.1
+
 - Reused native HUD roller
 - Centered native roll dialogs
+- Required Core 0.18.0
 
 ## 0.4
 

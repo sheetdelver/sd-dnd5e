@@ -39,10 +39,10 @@ TODO
 
 ## SDK Feedback Compatibility
 
-The development checkout requires SheetDelver Core `>=0.17.0` and
-`ui-extension-api >=3.0.0 <4.0.0` (SDK 3.0.0). The UI API gate keeps it
-incompatible with released Core 0.17.0. Before module release, raise the
-Core minimum to `>=0.18.0` after Core 0.18.0 is published. It declares no
+This release requires SheetDelver Core `>=0.18.0` and
+`ui-extension-api >=3.1.0 <4.0.0` (SDK 3.x), including the initiative choice
+that preserves Core's resolved formula by default. Core 0.17.x is incompatible.
+It declares no
 dashboard actions. The combat-HUD initiative adapter shares the sheet roller's
 native dialog, fields and buttons, under the module's scoped stylesheet. Core
 supplies a read-only formula/audience under explicit GM override → module
