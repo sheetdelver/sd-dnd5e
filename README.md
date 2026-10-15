@@ -55,9 +55,11 @@ is explicit rather than dependent on browser reset styles.
 CI and release packaging target Core `v0.18.0`; publish Core first.
 The server and roll API contract requirements are unchanged.
 ADR-0061 hardening verification (October 14): module tests, explicit source
-typing and isolated packaging pass on the integrated SDK/UI 3.1 host. Approved
+typing and isolated packaging pass on the integrated SDK3.2/UI3.1 host. Approved
 local Foundry 14.367 / D&D 5e 6.0.2 owner initiative and turn HTTP/browser
 checks passed before the subsequent presentation correction. The native adapter
 now has offline rendered checks at320/375/1280, both Core appearances and
-bounded default/manual submissions; v13, full native feature/effect parity and operator acceptance
-are not inferred. Core 0.18.0 released-host validation remains a release gate.
+bounded default/manual submissions; the user accepts its native-themed roller.
+Core's final v13.351 owner-write proof used Shadowdark, not D&D: no native D&D
+v13 or full feature/effect parity is inferred. Core0.18.0 released-host validation
+remains a release gate.
