@@ -19,3 +19,9 @@ See the [releases](https://github.com/sheetdelver/sd-dnd5e/releases),
 
 The module includes Roboto, Roboto Slab and Roboto Mono.
 License details are in [assets/fonts/README.md](assets/fonts/README.md).
+
+## Release tooling
+
+Use this repository’s independent `npm run release:tag` command. It prepares the
+numbered changelog release, pushes its tag for validation, and asks separately
+before publication. See [module release instructions](docs/RELEASING.md).
