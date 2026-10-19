@@ -4,10 +4,43 @@
 and UI API 3.1; the remaining API ranges are declared there. Its experimental
 designation is intentional and must not be removed as release housekeeping.
 
-The adapter prepares Actors deterministically without writing derived values
-back to Foundry. Sheets, cards and rolls consume the shared prepared model.
+The adapter enters Core's deterministic preparation pipeline without writing
+derived values back to Foundry. Current normalization still depends on some
+prepared-looking inputs and fallback values. Sheets, cards, item rows and modals
+also contain overlapping raw reads and calculations; they do not yet implement
+one complete native rule interpretation.
 Core owns authorization, world/session lifecycle, roll execution and shared
 chat/media/dice presentation. Use public SDK contracts, not private host APIs.
+
+The active discovery and proposed replacement architecture are
+[ADR-0001: complete character lifecycle](adr/0001-complete-character-lifecycle.md)
+and the [current audit](audits/2026-10-19-character-lifecycle.md). The planning
+reference is the current Foundry-installable D&D system **6.0.6**, requiring
+Foundry **14.367+**, with 2024 rules primary. This is a future implementation
+target, not a new compatibility claim for module 0.4.1. See the
+[native source map](reference/native-6.0.6.md) for exact release provenance and
+[verification matrix](plans/0001-verification.md) for completion evidence.
+
+## Current executable boundaries
+
+- The UI manifest registers the sheet, initiative modal and stylesheet. It has
+  no builder/tool/dashboard action, and the module has no server action entry.
+- Basic ability/save/skill roll formulas are available, with known parity gaps.
+  Weapon/spell controls currently request `item` rolls that the adapter does not
+  resolve. They are not complete native activity execution.
+- Rest controls currently perform partial HP/temp-HP changes only. Hit-dice,
+  slot, resource and item-use recovery remain unimplemented.
+- Conditions, defenses, proficiencies and appearance include placeholder
+  presentation. Modern spell preparation/properties and physical Item weight
+  schemas are incompletely read. The active audit records reproducible examples.
+- No native world settings or maintenance migration contract is declared.
+  Correcting a projection does not itself require a world-data migration.
+
+The proposed architecture separates versioned pure rules/preparation, caller
+projections, server action/receipt orchestration and UI intent. Dynamic optional
+content needs the external host capability documented as E01; other host limits
+have bounded qualification tasks. No Core or sibling changes are authorized by
+that plan. Native-runtime research remains parked.
 
 The self-hosted fonts and their provenance/licenses are documented in
 [assets/fonts/README.md](../assets/fonts/README.md).
@@ -28,7 +61,8 @@ This integration does not provide native Foundry browser-hook/effect parity.
 
 Experimental status includes known differences between module-prepared and native
 values. The existing prepared-actor tests preserve bounded behavior; they do not
-prove complete native rule parity. Native preparation-runtime research remains
+prove complete native rule parity. ADR-0001 selects investigation and planning
+for complete lifecycle support, not implementation. Native preparation-runtime research remains
 separate from shipping functionality. No connected native frontend or backend
 browser is required for normal module operation.
 

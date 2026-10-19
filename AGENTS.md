@@ -4,6 +4,14 @@ Read this file, then `temp/AGENT-HANDOFF.md` when present and its current task
 references. Read [module architecture](docs/architecture.md) for technical context.
 Do not inherit another module's active audit. This module remains experimental.
 
+Current planning context: [ADR-0001](docs/adr/0001-complete-character-lifecycle.md),
+[active audit](docs/audits/README.md), [native release map](docs/reference/native-6.0.6.md)
+and [verification matrix](docs/plans/0001-verification.md). The target is the
+current Foundry-installable D&D system 6.0.6, primarily 2024 rules. These are
+proposed implementation documents, not current support claims or authorization
+to implement, change branches, commit or contact a live world. Record actual
+progress against their stable DD/A/M IDs when implementation is selected.
+
 ## Scope and repository ownership
 
 This is an independent SheetDelver system-module repository. Keep its code,

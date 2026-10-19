@@ -1,0 +1,166 @@
+# Native reference: D&D 5e 6.0.6
+
+Investigation date: 2026-10-19. Supporting evidence for [ADR-0001](../adr/0001-complete-character-lifecycle.md), not a second implementation plan. Paths beginning `module/`, `packs/` or `system.json` in this document refer to **Foundry's D&D system**, not SheetDelver's module.
+
+## Version authority
+
+The [Foundry package listing](https://foundryvtt.com/packages/dnd5e) identifies **6.0.6** as the current installable release, requiring **Foundry 14.367+**, verified generation 14. The [release](https://github.com/foundryvtt/dnd5e/releases/tag/release-6.0.6) points to `87e94dbd9f930135e0694cd7e7d49f210603cd2c`. This is the selected oracle, following the user's clarification to use the current Foundry release. It is not a claim about the operator's deployed system.
+
+The local `temp/dnd5e` checkout is clean on `6.0.x`, HEAD `28f35531021bb07609c79c4cbbb9b7e7c2744bf9`, described as `release-6.0.6-2-g28f355310`. The complete release-to-HEAD diff is four changed lines in `module/applications/api/application-v2-mixin.mjs`. All models, rules, settings, packs and document methods cited below are identical to the release. No checkout, fetch, reset or branch change was performed. Read exact release files with `git -C temp/dnd5e show release-6.0.6:<path>`; do not treat future branch changes as release evidence.
+
+Foundry's listing also offers system **5.3.3** for Foundry **13.351+**. That is a separate older schema/runtime profile, not evidence that 6.0.6 runs on v13. It is outside the primary implementation qualification. The existing module test's `systemVersion: '5.3.3'` does not establish support for either profile.
+
+Temporary Foundry core source copies were available, without independently established build identities:
+
+| File under Core `temp/` | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `foundry-v13.mjs` | 6249998 | `ffe2756dda6aeae453a57d53d6bd87c0a14747beffce093fae9b21fc776af073` |
+| `foundry-v14.mjs` | 7709341 | `d34e6bc53a26f794b41b89b51e27c7a5c899318cf2632d2c8a6c39f8434afdfb` |
+
+These copies help identify runtime coupling; they do not establish native acceptance on a specific build. The parked native preparation-runtime experiment remains parked.
+
+## Data and execution map
+
+Use the [versioned upstream tree](https://github.com/foundryvtt/dnd5e/tree/release-6.0.6) with the exact paths and symbols below. Preparation outputs must remain distinct from persisted source. The server receives JSON documents, not instances of these classes.
+
+| Domain | Authoritative source and native symbols | Consequence for SheetDelver |
+| --- | --- | --- |
+| PC model | `module/data/actor/character.mjs`: `CharacterData.defineSchema`, `prepareBaseData`, `prepareEmbeddedData`, `prepareDerivedData` | Class Item levels produce total level and proficiency. HP max may be null in source and derive from HitPoints advancements plus bonuses. Background is a local Item reference, not necessarily a display string. |
+| Core actor preparation | `module/documents/actor/actor.mjs`: `Actor5e.prepareEmbeddedDocuments`, `applyActiveEffects`, `_prepareSpellcasting`; Foundry core `ClientDocumentMixin.prepareData`, `Actor.prepareData` | Model base preparation, embedded preparation, initial effects, model derived preparation, final Item attributes/spellcasting and final effects have ordered dependencies. A flat loop adding effects after all formulas is insufficient. |
+| Attributes | `module/data/actor/templates/attributes.mjs`: `prepareArmorClass`, `prepareInitiative`, `prepareMovement`, `prepareHitPoints`, `prepareConcentration`; `module/documents/actor/proficiency.mjs` | Implement actual armor calculations, equipped/attuned effects, caps, alternate formulas, HP advancement, proficiency bonus/dice and initiative options. Preserve explicit overrides distinctly from derived defaults. |
+| Skills and saves | `module/data/actor/templates/creature.mjs`: `prepareSkills`, `prepareSkill`, `prepareTools`; `module/data/actor/templates/common.mjs` | `skills.*.value` is proficiency multiplier, **not** total. `total` and `passive` incorporate ability, proficiency, bonuses, conditions and applicable rules. Support expertise, half proficiency, advantage and proficiency dice. |
+| Movement/senses | `module/data/shared/movement-field.mjs`, `senses-field.mjs`; attribute preparation | New structured fields and units have migration shims. Read source schema explicitly; old `.walk` or assumed feet cannot be the universal representation. |
+| Effects/rules | `module/documents/actor/actor.mjs:applyActiveEffects`, `module/documents/applied-rules.mjs`, `module/data/active-effect/` | Effects include statuses, conditions, phases, transfers, suppression, enchantment and applied rule filters. Do not equate a numeric ADD/MULTIPLY/OVERRIDE loop with complete 6.0.6 behavior. |
+| Physical inventory | `module/data/item/templates/physical-item.mjs:defineSchema`, `module/data/item/container.mjs` | Weight is `{value, units}`, with quantity/container/currency relationships. Preserve owned IDs and container links, prevent cycles; aggregate only once. |
+| Equipment | `module/data/item/templates/equippable-item.mjs`: `canAttune`, `magicAvailable`; `module/data/item/weapon.mjs`: `masteryOptions`, `attackModes` | `attuned` is a boolean in this version; that toggle's type is not itself a defect. Eligibility, limits, effects and owner-aware persistence still need implementation. Native `attunement` is a string. |
+| Activity source | `module/data/item/templates/activities.mjs`, `module/data/activity/base-activity.mjs:defineSchema`, `prepareFinalData`, `_processDamagePart` | Items can have multiple activities. Select by owned Item ID + activity ID, not Item name. Damage parts, scaling, activation, targets and consumption are activity-specific. |
+| Activity execution | `module/documents/activity/mixin.mjs`: `use`, `consume`, `_prepareUsageConfig`, `_prepareUsageUpdates`, `_createUsageMessage`, `refund` | Owner/canUse checks → configuration → scaling → consumption → concentration → message → final steps. SDK dice evaluation or `chat.useItem` alone does not run this machinery. Record ordered effects, not just a final total. |
+| Attack/damage | `module/documents/activity/attack.mjs`, `module/data/activity/attack.mjs`, `module/data/item/weapon.mjs` | Ability choices, proficiency, ammunition, attack modes, criticals, mastery and applied bonuses must come from the selected native rule profile. Never `parseInt` a formula or assume proficiency when absent. |
+| Spell Item | `module/data/item/spell.mjs:defineSchema` | Source uses `method`, numeric `prepared`, `sourceItem`, `properties` set serialized as an array, materials, activation, duration, target and activities. Old `preparation.prepared`/`components.*` reads do not cover it. |
+| Spellcasting | `module/data/item/fields/spellcasting-field.mjs:prepareData`, `module/data/spellcasting/spellcasting-model.mjs`, `module/documents/actor/actor.mjs:_prepareSpellcasting`, `module/registry.mjs` | Class/subclass progression, preparation formula, multiple casting abilities, spell-list registry, shared slots and pact slots must remain distinguishable. A class label is not a casting capability. |
+| Uses/recharge | `module/data/shared/uses-field.mjs`: `prepareData`, recovery and recharge methods | Source `spent`, formula-valued `max`, and recovery profiles produce available `value`. Item and activity uses are separate. A numeric `uses.max` check misses valid resources. |
+| Health/rest | `module/documents/actor/actor.mjs`: `applyDamage`, `rollHitDie`, `initiateRest`, `_rest`, `_getRestHitDiceRecovery`, `_getRestHitPointRecovery`, `_getRestResourceRecovery`, `_getRestSpellRecovery`, `_getRestItemUsesRecovery`; `module/documents/actor/hit-dice.mjs` | Rest can update Actor, class Items, other Items and effects. Modern long-rest HD fraction is 1, legacy 0.5 before overrides. New-day/calendar settings affect recovery. HP fill is not a complete long rest. |
+| Advancement | `module/applications/advancement/advancement-manager.mjs`: `forNewItem`, `createLevelChangeSteps`, completion; `module/documents/advancement/` | Native workflows operate on a clone, gather choices, then calculate Actor and embedded-document changes. Browser applications are not reusable server runtime. Adapt choice/plan semantics, not application classes. |
+| Grant identity | `module/documents/advancement/advancement.mjs:createItemData`; ItemGrant/ItemChoice/Subclass handlers | Preserve `_stats.compendiumSource`, `flags.dnd5e.sourceId`, `advancementOrigin` (`itemId.advancementId`), `advancementRoot`, advancement IDs and selected values. IDs must be allocated/remapped consistently before persistence. |
+| Equipment choices | `module/data/item/templates/starting-equipment.mjs`, `module/data/item/class.mjs`, `background.mjs` | Interpret native equipment groups, AND/OR choices, counts, currency alternatives and canonical references. Avoid hardcoded class kits or name substitution. |
+| Source/edition | `module/data/shared/source-field.mjs:SourceField`, `module/data/item/templates/item-description.mjs:prepareDescriptionData` | `source.rules`, book/page/license/revision/custom and canonical source UUID serve different purposes. New-document default edition follows world settings; that does not authorize rewriting existing documents. |
+
+### Native activity and advancement coverage inventory
+
+`module/documents/activity/_module.mjs` exports **13 activity types**: attack, cast, check, damage, enchant, forward, heal, order, save, summon, teleport, transform and utility. The implementation must keep a disposition for every one:
+
+- Attack/check/damage/heal/save/utility: portable character rules, consumption, typed rolls/cards and appropriate owner-authorized updates.
+- Cast/forward: resolve exact linked activity/spell, retain scaling/consumption identity, detect cycles and missing/inaccessible references.
+- Enchant: select an eligible owned target, create/remove dependent effects, preserve duration and origin; cross-owner targets require their own authorization.
+- Summon/transform: character-facing choice, resources, linked Actor lifecycle and reversion remain part of the target. Canvas placement, tokens and templates are an explicit external boundary, not silently simulated.
+- Teleport: character action and native targeting/destination intent; actual scene movement requires a separately approved host capability.
+- Order: principally Bastion/facility behavior. Preserve/read and explicitly mark unsupported execution unless the broader Bastion scope is selected. It is not a missing attack implementation.
+
+`module/documents/advancement/_module.mjs` exports **nine concrete advancement types**: AbilityScoreImprovement, HitPoints, ItemChoice, ItemGrant, ModifyItem, ScaleValue, Size, Subclass and Trait. Base Advancement is abstract. Nested spell configuration is data, not a tenth interchangeable advancement type. `system.advancement` is an object keyed by ID in 6.0.6; the native migration from arrays is in `module/data/item/templates/advancement.mjs`.
+
+The release's pack YAML still contains advancement **arrays** (for example
+`packs/_source/classes24/fighter/fighter.yml`). A versioned model schema is not
+proof that every persisted/catalog payload already has its normalized shape.
+Decode both the documented migration input and current model form on detached
+data, preserve IDs, and capture actual backend versus native prepared shapes.
+Do not rewrite a system pack or fabricate a world migration just to normalize a
+catalog projection.
+
+| Advancement | Observed configuration/value and mutation boundary | Implementation work / required comparison |
+| --- | --- | --- |
+| AbilityScoreImprovement | `ability-score-improvement.mjs:apply/reverse`; fixed/points/max and `value.type`, `assignments`, `feat`; updates source abilities or grants selected feat | Exact point allocation, ability limits, fixed origin changes, ASI versus feat, reversal and retained IDs; preserve source baseline rather than subtracting from unrelated later edits |
+| HitPoints | `hit-points.mjs:apply/valueForLevel/getAdjustedTotal`; per-level value numeric, `max` or `avg`; original-class first level gets max; average is half die + 1 | Class HD comes from native `system.hd`; per-level CON/minimum and bonuses, multiclass first level, stored roll/average choice, current HP consequences and later CON changes |
+| ItemGrant | `item-grant.mjs:apply/storagePath/restore`; configured UUIDs/optional and spell config; stored owned-ID→UUID mapping plus casting ability | Fixed versus optional counts; create exact owned copies with grant origin/root, preserve spell modifications and selected ability, reuse only the exact grant record on retry |
+| ItemChoice | `item-choice.mjs:apply/getCounts/reverse`; configured per-level counts/replacements; `value.added[level]`, `value.replaced[level]` with original/replacement level/ID | Choice pools/prerequisites, old/new grant identity, recursive effects, replacement versus new allowance, reversal restoring the original owned data |
+| ModifyItem | `modify-item.mjs:apply`; configured change identifiers plus local/UUID effect; `value.modified` records change/effect/item IDs | Select native eligible Items, create dependent transferred effects with source/origin, skip already-applied exact change+Item pairs, reverse only those effects; native source explicitly defers riders, so do not promise them |
+| ScaleValue | `scale-value.mjs:valueForLevel`; configured type/identifier and level-keyed scale | Resolve effective value at the appropriate class level, retain typed die/number/usage semantics and `@scale` dependencies; no extra persisted total merely for presentation |
+| Size | `size.mjs:apply/reverse`; configured sizes and `value.size`; updates Actor trait size | Exact valid selection, automatic single choice, native reversal behavior and consequences for dependent calculations; no token resize transport in this handler |
+| Subclass | `subclass.mjs:apply/reverse`; selected UUID, `value.document/uuid`; sets subclass Item `system.classIdentifier` | Correct class match, timing/catch-up, exact owned subclass ID and nested grants, replacement/removal review |
+| Trait | `trait.mjs:apply/changeKeyPath/availableChoices`; grants/choice pools, default/upgrade/expertise/mastery modes, `value.chosen` | Set-valued traits versus numeric proficiency, mastery target path, configured tool ability, duplicate upgrades/replacements and exact choice counts |
+
+These methods mutate a native detached clone via `updateSource`; they are not
+SDK persistence operations. `AdvancementManager.#complete` computes toCreate,
+toUpdate and toDelete, then calls native `performBulkUpdate` with Actor changes.
+The module must produce its own reviewed delta plan and use the public receipt
+protocol. Native code sometimes skips unresolved content during clone assembly;
+the planned module should report incomplete required dependencies before any
+write, rather than create an incomplete character and call it success.
+
+Map each type's apply/reverse/restore behavior and stored `value` into fixtures before implementing it. Cover multiclass restrictions, recursive grants, class catch-up, duplicate proficiency choices, spell grants/replacements and level changes. Ordinary character creation must not require native Foundry sheet applications.
+
+## World settings to declare and consume
+
+Evidence: `module/settings.mjs:registerSystemSettings`, `applyLegacyRules`, and `disableExhaustionAutomation`. The following are observed registered defaults at 6.0.6, not values read from a deployed world. Declare exact `dnd5e.<key>` with proven default provenance and exact system-version applicability through SDK `worldSettings`; read `runtime.world`, and revalidate context revision before actions. Do not copy a global `game.settings` object into the client.
+
+| Settings | Observed defaults / meaning | Intended consumers |
+| --- | --- | --- |
+| `rulesVersion` | `modern`; choices modern/legacy; native requires reload | All preparation, builders and actions; show current world rule profile |
+| `disableAdvancements`, `disableConcentration`, `disableExhaustion` | false each | Gate automation explicitly; preserve source and allow documented manual management |
+| `allowRests` | true | Rest permission in addition to Actor ownership |
+| `allowPolymorphing`, `allowSummoning` | false each | Actor transformation/summon permissions; GM policy remains authoritative |
+| `metricLengthUnits`, `metricVolumeUnits`, `metricWeightUnits` | false each | Unit-aware displays/choices, no unitless calculations |
+| `strictValidation` | true | Do not use a relaxed native setting to bypass module validation |
+| `packSourceConfiguration` | `{}` | Native browser source inclusion policy, intersected with caller access and workflow selection |
+| `allowFeats` | true | Choice availability appropriate to rules profile |
+| `currencyWeight` | true | Encumbrance |
+| `encumbrance` | `none`; none/normal/variant | Carrying capacity/penalties |
+| `honorScore`, `sanityScore` | false each | Optional ability schema/rolls |
+| `levelingMode` | `xpBoons`; noxp/xp/xpBoons | XP display, level validation and post-level-20 boon workflow |
+| `proficiencyModifier` | `bonus`; bonus/dice | Rules must retain a roll term when proficiency is dice |
+| `restVariant` | `normal`; normal/gritty/epic | Rest duration/recovery choices |
+
+Also trace and declare the settings actually read by selected domains: `calendarConfig` (structured `CalendarSetting`, including `manualRecovery`), `autoRecharge`, critical damage options, `initiativeDexTiebreaker`, `autoApplyDowned`, `allowPlayerDamageTray`, `allowPlayerEffectsTray`, and visibility settings including `concealItemDescriptions`. Their defaults must be extracted from each registration/type schema in milestone M1; do not invent them from the table above. Calendar-dependent automatic passage of time is a separate host dependency. Client preferences such as `transformationSettings` are **client scope**, so they cannot be declared as native world settings.
+
+`applyLegacyRules` changes half-caster rounding, transformation presets, languages, condition behavior, exhaustion, rules references, base item identities and spell lists. Document `source.rules` also influences item-specific behavior (for example starting-equipment presentation). An edition badge alone cannot implement mixed-edition rules; fixtures need both world policy and document metadata.
+
+## Bundled content and discovery
+
+All current module declarations match real pack IDs at this release. Their **classification** is wrong: the `*24` entries are described as paid content, but the system manifest identifies the applicable packs as **SRD 5.2**. No premium purchase is required for these bundled packs. Prefix every name below with `dnd5e.` for its canonical pack ID.
+
+| Pack(s) | Native type / purpose | Current module declaration |
+| --- | --- | --- |
+| `items`, `tradegoods`, `spells`, `backgrounds`, `classes`, `subclasses`, `classfeatures`, `races` | Item; bundled SRD 5.1 options | Hydrated |
+| `tables` | RollTable | Hydrated |
+| `heroes`, `monsters` | Actor, legacy sample characters/monsters | Absent |
+| `monsterfeatures` | Item | Absent |
+| `rules` | JournalEntry | Absent |
+| `classes24` | Item: class, subclass, feat | Hydrated, mislabeled paid |
+| `origins24` | Item: race (species), background, feat | Hydrated, mislabeled paid |
+| `feats24`, `spells24` | Item | Hydrated, mislabeled paid |
+| `equipment24` | Item: weapon/equipment/consumable/tool/loot/feat/container | Hydrated, mislabeled paid |
+| `tables24` | RollTable | Hydrated, mislabeled paid |
+| `monsterfeatures24` | Item | Declared, not hydrated, mislabeled paid |
+| `content24` | JournalEntry, rules/content links | Absent |
+| `actors24` | Actor | Absent |
+| `effects` | ActiveEffect | Absent |
+
+The modern manifest grants PLAYER:OBSERVER and ASSISTANT:OWNER to most modern packs. `monsterfeatures24` declares ASSISTANT:OWNER only. Legacy packs often omit an explicit ownership declaration. These are package defaults, **not current player authorization**. Use Core's current caller access, including world overrides. Neither a full-GM service account nor server hydration grants a player access.
+
+Native browser evidence: `module/applications/compendium-browser.mjs:fetch` uses pack document class, visibility, configured sources, subtype hints and index fields. `module/applications/settings/compendium-browser-settings.mjs:collateSources` reads native source policy. `SourceField` uses pack/package provenance and document metadata. The SDK currently exposes caller-visible pack `id/label/type`, but not this full metadata/hydration negotiation (external dependency E01 in the ADR).
+
+An offline parse of all 2,242 non-folder YAML files under `packs/_source/*24`
+completed without parse failures. It found 12 classes, 12 subclasses, 14 species
+records, four backgrounds, 340 Spell records and 17 records in `feats24`.
+The species count includes separate lineage records, not 14 distinct umbrella
+species. The backgrounds are Acolyte, Criminal, Sage and Soldier. Each class has
+one bundled subclass. These are source inventory counts, not installed-world
+availability or proof that every graph of grants resolves.
+
+The actual content also includes three Weapon records in `classes24` and one
+Consumable in `spells24`; pack subtype hints are not an exhaustive record schema.
+Classify full records by their actual type and preserve cross-type grant links.
+The activity/advancement inventory must also cover supported built-in types
+absent from current bundled samples through independently constructed fixtures.
+
+Plan source defaults as accessible, compatible bundled 2024 SRD options plus explicitly selected available books/homebrew; preserve previous user selections. Premium and third-party packs are discovered dynamically and may contain 2014, 2024 or mixed content. A package name, same-name Item, or `24` suffix is not enough to classify an individual document. Unknown edition is visible as unknown and requires an explicit compatible choice. World Items can be options when the caller can read sufficient detail and the workflow accepts their type.
+
+## Reuse, assets and licensing
+
+- System software: `LICENSE.txt` is MIT. A narrowly adapted pure rule helper can retain attribution/license and a versioned source map. Its dependencies must be audited; importing a class that expects `foundry`, `game`, `CONFIG`, `Hooks`, `fromUuid`, canvas, Document collections or native dialogs is not direct reuse of an available runtime.
+- Bundled rules text: upstream `README.md` and manifest distinguish SRD 5.1 and SRD 5.2 under CC BY 4.0. Preserve their attribution if any allowed content is redistributed. Runtime selection from an installed pack does not authorize copying a purchased book into the SheetDelver archive or public fixtures.
+- `icons/LICENSE` contains multiple licenses, including CC BY 3.0, CC0 and CC BY-NC-SA 4.0; no blanket MIT asset assumption.
+- `tokens/LICENSE` restricts Forgotten Adventures tokens to their licensed Foundry use, with separate permission needed for redistribution or other use. `ui/official/LICENSE` restricts official artwork to running the D&D system within Foundry. An accessible URL is not proof that external SheetDelver presentation is licensed. Use neutral module-owned artwork when applicable rights are unresolved; do not bundle these assets.
+- Existing module fonts have their own retained provenance in [assets/fonts/README.md](../../assets/fonts/README.md). Keep those licenses with packaged fonts.
+- D&D Beyond informs information organization, not permission to copy branding, layouts verbatim, proprietary content or services. Marketplace/accounts/campaign hosting/import from D&D Beyond are outside this plan.
+
+Native captures must use redistributable SRD/synthetic records in tracked tests. Private purchased-content acceptance may retain only permitted minimal/redacted evidence and hashes in the durable ledger.

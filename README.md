@@ -6,7 +6,7 @@ Support is still in development.
 ## Features
 
 - Character sheets with abilities, equipment and spells.
-- Roll dialogs and styled chat cards.
+- Basic check dialogs and initiative integration.
 - Combat HUD initiative rolling.
 
 Requires **SheetDelver Core 0.18.0 or later**.
@@ -14,6 +14,13 @@ Requires **SheetDelver Core 0.18.0 or later**.
 See the [releases](https://github.com/sheetdelver/sd-dnd5e/releases),
 [changelog](CHANGELOG.md), [module architecture](docs/architecture.md) and
 [working guidance](AGENTS.md).
+
+The module is not yet a complete character lifecycle implementation. Weapon and
+spell execution, resting, advancement and several sheet sections have confirmed
+gaps. The current [audit](docs/audits/2026-10-19-character-lifecycle.md) and
+[proposed ADR-0001](docs/adr/0001-complete-character-lifecycle.md) define the work
+for complete 2024 support against Foundry's released D&D system 6.0.6. Its
+6.0.6/Foundry 14.367 target is a plan, not a present native-parity claim.
 
 ## Font licenses
 
