@@ -12,7 +12,7 @@ one complete native rule interpretation.
 Core owns authorization, world/session lifecycle, roll execution and shared
 chat/media/dice presentation. Use public SDK contracts, not private host APIs.
 
-The active discovery and proposed replacement architecture are
+The active implementation architecture are
 [ADR-0001: complete character lifecycle](adr/0001-complete-character-lifecycle.md)
 and the [current audit](audits/2026-10-19-character-lifecycle.md). The planning
 reference is the current Foundry-installable D&D system **6.0.6**, requiring
@@ -61,8 +61,7 @@ This integration does not provide native Foundry browser-hook/effect parity.
 
 Experimental status includes known differences between module-prepared and native
 values. The existing prepared-actor tests preserve bounded behavior; they do not
-prove complete native rule parity. ADR-0001 selects investigation and planning
-for complete lifecycle support, not implementation. Native preparation-runtime research remains
+prove complete native rule parity. ADR-0001 implementation is in progress; its complete-lifecycle acceptance remains open. Native preparation-runtime research remains
 separate from shipping functionality. No connected native frontend or backend
 browser is required for normal module operation.
 
@@ -77,3 +76,16 @@ Repository workflow and verification commands live in [AGENTS.md](../AGENTS.md).
 The shared contracts are described in Core's
 [module authoring guide](https://github.com/sheetdelver/sheetdelver/blob/v0.18.0/docs/MODULE_AUTHORING.md)
 and [release process](https://github.com/sheetdelver/sheetdelver/blob/v0.18.0/docs/RELEASING.md).
+
+## ADR-0001 verification foundation
+
+Module-owned `npm test` enumerates tooling and module suites. `npm run typecheck`
+explicitly includes every source/UI/server/test/migration hook file, independent
+of Core's root exclusions. Both accept `-- --core /path/to/core`. No host files
+are generated. `npm run check:package` uses retained temporary data/output and
+read-only toolchain aliases; it starts no service.
+
+`npm run test:native-source -- --native /path/to/dnd5e` reads pinned Git objects,
+not HEAD. The versioned fixture index distinguishes source, manually independent
+expectations and absent native captures. Static inventories do not establish
+formula support, grant closure, runtime behavior or native/operator acceptance.

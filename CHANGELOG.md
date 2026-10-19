@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Added exact-release character-lifecycle fixtures and maintained verification tools.
+
 ## 0.4.1
 
 - Reused native HUD roller

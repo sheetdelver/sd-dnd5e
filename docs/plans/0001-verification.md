@@ -124,3 +124,32 @@ To remove `experimental`, require:
 - Native/operator ledger with exact versions/hashes, cleanup evidence and remaining limitations; user approval of scope and removal of the badge.
 
 No commit, version change, tag, push, PR, release or live service is authorized by these checklists. Those operations follow the current user task and repository working agreement.
+
+## Checkpoint evidence ledger
+
+### C01 — M0 verification foundation (2026-10-19)
+
+- Planning checkpoint: `e0fd608`, branch `feat/adr-0001-character-lifecycle`.
+  Module 0.4.1 remains experimental; no version/compatibility changes.
+- R: `npm test`: 31 tooling assertions plus both existing module suites pass.
+  Their labels explicitly distinguish synthetic behavior from native parity.
+- Typing: `npm run typecheck`: all 69 module TS/TSX files pass, including UI.
+  CI now invokes the maintained runner and explicit typing; its Core v0.18.0
+  and Node22 pins remain unchanged. Local run: Core0.19.3/90c13e5, Node24.21.0,
+  npm11.19.0. The pinned CI profile has not been executed locally.
+- S: `npm run test:native-source -- --native temp/dnd5e`: matches exact
+  87e94db release inventory: 2,242 modern records, 591 candidate expression
+  strings, setting registrations, references and all module-source hashes.
+  Missing oracle/wrong tag/hash mismatch fail; no native module execution.
+  Fixture byte identities are in `tests/fixtures/native-6.0.6/index.json`.
+- Boundaries/package: isolated check/package on Core0.19.3; output identity
+  recorded in the local handoff. Initial alias/cwd and CLI logging failures
+  were corrected before the successful run. This is packaging evidence only,
+  not installed I/U/N/O acceptance. No service or native connection.
+- Completed subrequirements: maintained test enumeration, explicit module
+  typing/CI invocation, exact-release comparison and provenance/source separation
+  (DD-30 foundation; DD-01/33/36 evidence foundation). No DD or A row is closed.
+- Open: Q00 formula/filter/distribution qualification, executable native rule
+  domain oracles, live captures, installed/browser harnesses and all M0–M9 gates.
+  Next executable step: M1 detached decoding/context and caller-bound declared
+  SRD catalog tests; E01 dynamic reads remain an external dependency.

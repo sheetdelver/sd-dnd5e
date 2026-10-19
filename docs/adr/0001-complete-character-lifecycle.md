@@ -1,6 +1,6 @@
 # ADR-0001: Complete D&D character lifecycle on the current native system
 
-- Status: **Proposed — investigation and planning complete; implementation not authorized by this document**
+- Status: **Accepted for implementation — in progress; acceptance gates remain open**
 - Date: 2026-10-19
 - Owner: SheetDelver D&D module
 - Primary native target: **D&D 5e 6.0.6 / Foundry 14.367**, 2024 rules
@@ -224,13 +224,13 @@ Current module `_sheet_delver` flags/localStorage need a preservation decision. 
 
 ## Dependency-ordered implementation roadmap
 
-Every milestone produces a reviewable checkpoint: updated DD status with paths/symbols, acceptance evidence, command outputs with versions, unresolved qualifications, and the current handoff. Future agents need explicit branch/commit authority; this planning task grants neither. A milestone is complete only when its listed outcomes are evidenced. No version bump is part of ordinary implementation.
+Every milestone produces a reviewable checkpoint: updated DD status with paths/symbols, acceptance evidence, command outputs with versions, unresolved qualifications, and the current handoff. Current branch and local implementation commit authority are recorded in the handoff; remote writes and releases remain separate. A milestone is complete only when its listed outcomes are evidenced. No version bump is part of ordinary implementation.
 
 ### M0 — Reference fixtures and test foundation
 
 **Goal:** DD-01/30/33/36; stop extending synthetic assumptions.
 
-- Establish an approved implementation branch later. Record Core/module/native versions and clean/dirty state; preserve parked work.
+- Use the authorized `feat/adr-0001-character-lifecycle` implementation branch. Record Core/module/native versions and clean/dirty state; preserve parked work.
 - Add `tests/fixtures/native-6.0.6/` provenance/index and an independent oracle capture/comparison specification. Include source JSON, prepared snapshots and action before/after expectations separately; do not derive expected totals with module code.
 - Add module-owned explicit type-check entry/config, test runner and source-oracle comparisons. Adjust CI deliberately after chosen public contracts are available; do not equate root typecheck or bundle success with module typing.
 - Inventory all activity/advancement/setting/effect/schema features used by bundled modern content, including grant/reference closure and cycles. Q00: enumerate formula operators/roll terms/filters and dependencies not implementable by existing SDK utilities; resolve each to adaptation or a bounded external decision.
@@ -344,7 +344,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 
 | Gate | State at planning checkpoint | Required evidence location |
 | --- | --- | --- |
-| M0 | Not started | Versioned fixtures/test inventory and audit updates |
+| M0 | In progress: C01 verification foundation/source inventory; Q00 and executable rule-domain oracles open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01 |
 | M1 | Not started; E01 proposal needed | Settings/catalog/source tests |
 | M2 | Not started | Native preparation comparisons |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
@@ -357,17 +357,17 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 
 ## Decision register
 
-Recommendations below make the next implementation task bounded. Only D01 is directly confirmed by the user's current-release clarification; the rest are proposed architecture/scope decisions for review, not permission to implement.
+Recommendations below make the next implementation task bounded. The implementation task accepts the recommended 2024-first architecture and boundaries; decisions do not authorize work outside the module.
 
 | ID | Recommendation | Alternatives / tradeoff | Disposition |
 | --- | --- | --- | --- |
 | D01 | Exact current Foundry-installable 6.0.6 as oracle; primary v14.367 | Development HEAD changes unreviewed behavior; v13 needs older system profile | Confirmed target; preserve checkout beyond tag |
-| D02 | Complete modern 2024 lifecycle first; shared 2014 document compatibility where proven, full legacy-world/v13 qualification separate | Full dual-profile delivery substantially increases fixtures, rule branches and support; no legacy preservation exemption either way | User scope decision before promising full legacy support |
+| D02 | Complete modern 2024 lifecycle first; shared 2014 document compatibility where proven, full legacy-world/v13 qualification separate | Full dual-profile delivery substantially increases fixtures, rule branches and support; no legacy preservation exemption either way | Accepted 2024-first; full legacy qualification separate |
 | D03 | Pure versioned module interpreter with public Core primitives | Native runtime/browser bridge violates current parked decision; naive fallback formulas cannot satisfy parity | Recommended; experiment remains parked |
 | D04 | Dynamic caller-authorized content, SRD sufficient, E01 generic Core extension | Static premium lists miss arbitrary installations; privileged preload leaks data; diagnostic live reads are not contract | Recommended; requires separate Core task for E01 |
 | D05 | Durable intent/receipt/status, reject zero-write stale attempts, reconcile uncertain outcomes | Blind retry duplicates writes; rollback is not guaranteed; global maintenance for ordinary play is inappropriate | Recommended; E02 qualification may require narrowly scoped host work |
-| D06 | Native choice editing and level-up replacements; unrestricted respec/edition conversion deferred | Full respec requires reversible dependency closure, policies for manual grants and extensive native comparison | User scope decision; conservative boundary recommended |
-| D07 | PC-linked companions/summons/transforms included; canvas/Bastions/GM authoring separate | Full virtual tabletop management expands Core/SDK scope beyond character sheets | User scope decision for broader automation only; ordinary PC rules remain required |
+| D06 | Native choice editing and level-up replacements; unrestricted respec/edition conversion deferred | Full respec requires reversible dependency closure, policies for manual grants and extensive native comparison | Accepted bounded choice editing; unrestricted respec/conversion separate |
+| D07 | PC-linked companions/summons/transforms included; canvas/Bastions/GM authoring separate | Full virtual tabletop management expands Core/SDK scope beyond character sheets | Accepted PC-facing target; broader automation separate |
 | D08 | Supported native optional rules enumerated and tested, unknown extensions explicitly unsupported | Claim arbitrary hook/module compatibility would require unavailable runtime and weaken evidence | Recommended |
 | D09 | Runtime authorized content references with per-asset rights review and neutral fallback | Bundling all native art/content conflicts with mixed licenses; URL access alone is insufficient | Recommended; seek asset permission if restricted art is desired |
 | D10 | Keep experimental until M9; choose version floors from actual released contract dependencies | Early badge removal or speculative minimums hide incomplete behavior | Recommended; no metadata edits in planning |
@@ -376,4 +376,4 @@ Recommendations below make the next implementation task bounded. Only D01 is dir
 
 This is a substantial implementation with a rules foundation on the critical path. Existing visual work and public host contracts remain useful, but their presence cannot close the missing behavior. The plan allows intermediate reviewable delivery while retaining the complete 2024 target. Discovery work is module-owned; new Core capabilities require their own approved task and release before this module relies on them.
 
-Next recommended task: authorize an implementation branch and M0/M1 foundation work, alongside a separate Core E01 proposal. Resolve D02/D06/D07 scope choices before claiming legacy/respec/canvas coverage. Keep this ADR, the DD matrix, acceptance ledger and module handoff current at each implementation checkpoint. Do not reopen completed Core ADR-0064 merely because this document references its mechanisms.
+Implementation has begun with the C01 foundation checkpoint. Continue M0/Q00 and dependency-ready M1 work; E01 remains external. D02/D06/D07 follow the user-selected recommended scope. Keep this ADR, the DD matrix, acceptance ledger and module handoff current at each implementation checkpoint. Do not reopen completed Core ADR-0064 merely because this document references its mechanisms.

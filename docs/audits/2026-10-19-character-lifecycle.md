@@ -1,6 +1,6 @@
 # D&D module: complete character-lifecycle discovery audit
 
-Status: **active investigation complete; implementation not started**. Date: 2026-10-19.
+Status: **active implementation; investigation retained, acceptance open**. Date: 2026-10-19.
 
 Owning plan: [proposed module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
 
@@ -143,3 +143,14 @@ handling without inventing an automatic native resource-consumption behavior.
 First establish versioned fixtures, source/derived schemas, world settings and caller-safe content boundaries. Then implement shared preparation and strict action outcomes, followed by activity/rest/spell semantics and creation/advancement. UI completion consumes those results. E01 dynamic authorized content is a confirmed external dependency; E02 exact write/recovery guarantees and E04 scene/time capabilities require bounded qualification or separate Core proposals. Neither permits modifying Core in this phase.
 
 No feature is marked native-verified here. The experimental designation remains. Acceptance, branch/commit authority, release changes and live tests are subsequent tasks.
+
+## Implementation dispositions
+
+C01 establishes maintained tests, explicit all-module typing and exact-tag static
+source inventory (DD-30 foundation). The separate fixture source/expectations
+and missing-native-capture marker address DD-01/33/36 evidence discipline.
+`source-inventory.json` covers all 2,242 modern records and hashes native source;
+its candidate expressions and reference cycles are investigation inputs, not
+claims of executable parity. All DD workflows and A acceptance gates remain open.
+See the verification ledger for commands and limits. E01 remains confirmed and
+external; E02–E05 have no new defect claim from this checkpoint.

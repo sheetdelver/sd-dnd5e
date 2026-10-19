@@ -12,6 +12,7 @@ on:
       - 'scripts/**'
       - 'assets/**'
       - '.github/workflows/**'
+      - 'tests/**'
       - 'info.json'
       - 'package.json'
       - 'CHANGELOG.md'
@@ -24,6 +25,7 @@ on:
       - 'scripts/**'
       - 'assets/**'
       - '.github/workflows/**'
+      - 'tests/**'
       - 'info.json'
       - 'package.json'
       - 'CHANGELOG.md'
@@ -75,9 +77,10 @@ jobs:
         run: npm run module:check -- 'dnd5e'
 
       - name: Run module regression tests
-        run: |
-          npx tsx ".module-ci-data/local/modules/dnd5e/src/tests/prepared-actor.test.ts"
-          npx tsx ".module-ci-data/local/modules/dnd5e/src/tests/presentation.test.ts"
+        run: node ".module-ci-data/local/modules/dnd5e/scripts/test.mjs" --core "$PWD"
+
+      - name: Explicitly type-check module source and UI
+        run: node ".module-ci-data/local/modules/dnd5e/scripts/typecheck.mjs" --core "$PWD"
 
       - name: Verify distributable package
         run: npm run module:package -- 'dnd5e'

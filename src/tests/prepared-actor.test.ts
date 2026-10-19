@@ -47,7 +47,7 @@ export function run(): void {
     assert.deepEqual(prepared.categorizedItems?.features.map(item => item.name), ['Wizard', 'Human']);
     assert.equal(source.items[0].name, 'Wizard');
 
-    console.log('dnd5e prepared Actor parity: PASS');
+    console.log('R: dnd5e existing synthetic prepared-Actor behavior: PASS (not native parity)');
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) run();
