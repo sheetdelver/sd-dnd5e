@@ -8,7 +8,7 @@
 
 ## Context and outcome
 
-The experimental 0.4.1 module has a substantial sheet layout but incomplete rules and persistence. Basic check rendering does not establish a usable character lifecycle. Modern spells, activities, source identity, effects, resting and advancement require integrated behavior, not isolated UI patches. This plan uses the current **Foundry-installable** release, not upstream development HEAD. It does not change existing version requirements or release metadata.
+The experimental 0.4.1 module has a substantial sheet layout but incomplete rules and persistence. Basic check rendering does not establish a usable character lifecycle. Modern spells, activities, source identity, effects, resting and advancement require integrated behavior, not isolated UI patches. This plan uses the current **Foundry-installable** release, not upstream development HEAD. C02 adopted the documented Core0.19.3/module-api1.5 floors; module release metadata remains0.4.1/experimental.
 
 The end state is a complete **player-character experience** for the selected native rules profile: discover authorized content, build a character, edit it, advance it through all supported levels and multiclass choices, play it with correct actions/resources, recover from failures, and converge with Foundry edits. D&D Beyond is an information-design reference. Its accounts, marketplace, campaign hosting and content importer are not part of the work.
 
@@ -346,7 +346,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 verification foundation/source inventory; Q00 and executable rule-domain oracles open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C03 bounded numeric skills and truthful unavailable states; other domains/Q00/effect phases open | Independent source regression and proficiency table; verification C03 |
+| M2 | In progress: C03 baseline passes; DD-R01/DD-R02 correction required before extending skills; other domains/Q00/effect phases open | Independent review RV01, source regression and proficiency table |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -377,3 +377,29 @@ Recommendations below make the next implementation task bounded. The implementat
 This is a substantial implementation with a rules foundation on the critical path. Existing visual work and public host contracts remain useful, but their presence cannot close the missing behavior. The plan allows intermediate reviewable delivery while retaining the complete 2024 target. Discovery work is module-owned; new Core capabilities require their own approved task and release before this module relies on them.
 
 Implementation has begun with the C01 foundation checkpoint. Continue M0/Q00 and dependency-ready M1 work; E01 remains external. D02/D06/D07 follow the user-selected recommended scope. Keep this ADR, the DD matrix, acceptance ledger and module handoff current at each implementation checkpoint. Do not reopen completed Core ADR-0064 merely because this document references its mechanisms.
+
+
+## Independent C01–C03 review addendum — 2026-10-19
+
+The [review report](../audits/evidence/2026-10-19-c01-c03-review.md) and
+[portable results](../audits/evidence/2026-10-19-c01-c03-review.json) independently
+verify the reported 31 tooling assertions, seven module suites,82-file typing,
+exact-release inventory and isolated package at `6189dcd`. All15 packaged regular
+files match the implementer's archive. These remain R/S/static-render/package
+results, not I/U/N/O acceptance.
+
+Two module corrections qualify C03's availability claims:
+
+| ID | Required correction | Gate / evidence |
+| --- | --- | --- |
+| DD-R01 | Native skill/ability/global-check/global-skill `roll.min` and `roll.max` cannot be silently ignored. Until equivalent SDK execution is qualified, give a precise unavailable state for affected rolls. Preserve independently known static/passive values where separable. | DD-02/24/34,A02,M2/Q00. Eight same-input failures plus eight controlled exact-native range comparisons. |
+| DD-R02 | An unavailable setting, absent world snapshot or unsupported native version must not fall through to the old multiplier-as-total skill calculation. Return consistent unavailable controls and reject direct skill execution; explicitly selected legacy scope remains separate. | DD-01/02/24/31/34,A02/A18,M1/M2. Three cases reproduce +1/passive11 and an enabled control where the supported baseline is +5/passive15. |
+
+Resolve these two bounded corrections with failing-before/passing-after source,
+static and mounted consumer evidence, then continue Q00 and remaining M2 phases.
+Restore supported context and verify correct results return without stale intent.
+This does not select a new dice engine, data migration or Core change. E01 stays
+the existing external content dependency; other E cases remain conditional.
+M0/M1/M2,all full DD/A workflows and ADR closeout remain open. No version bump,
+live acceptance or release follows from this checkpoint. The ADR was saved locally
+before annotation; no application changes or Git writes were made by the review.

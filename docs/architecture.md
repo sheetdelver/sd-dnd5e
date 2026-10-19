@@ -119,7 +119,12 @@ the complete native skill/ability/save/tool interpreter. Active effects,
 conditions, equipped equipment/encumbrance, active native Actor flags,
 proficiency dice, optional abilities, nonzero source roll
 modes and missing inputs yield explicit unavailable checks. UI disables them
-and passives render an unavailable state instead of a guessed10. Other numeric
+and passives render an unavailable state instead of a guessed10 within that
+tested branch. The [independent review](audits/evidence/2026-10-19-c01-c03-review.md)
+records two open exceptions: native die ranges are ignored (DD-R01),and absent/
+unsupported context falls back to old executable skills (DD-R02). Lifecycle
+diagnostics alone currently do not gate sheet controls. These require correction
+before broadening availability claims. Other numeric
 domains and the legacy compatibility projection remain unqualified.
 
 `getSystemDataForUser` and GET `content` / `content/detail` under

@@ -15,7 +15,7 @@ Keep these separate in every checkpoint:
 | N — native comparison | Exact supported Foundry/system build, real source/prepared data and native action behavior independently observed | Arbitrary untested extensions, releases or configurations |
 | O — operator acceptance | User can complete intended workflows and understand failures/recovery/boundaries | Exhaustive rules parity by visual approval alone |
 
-Current R/S and packaging evidence is recorded in C01/C02 below. No milestone has native acceptance yet. Don't backfill an N result from an R/S/I run or a sibling module's acceptance.
+Current R/S and packaging evidence is recorded in C01–C03 and independent RV01 below. No milestone has native acceptance yet. Don't backfill an N result from an R/S/I run or a sibling module's acceptance.
 
 ## Fixture format and acquisition
 
@@ -227,3 +227,26 @@ No commit, version change, tag, push, PR, release or live service is authorized 
 - Next: Q00 formula/filter/distribution qualification, remaining proficiency and
   skill flag/mode semantics, source ability/save/tool preparation and native
   effect phases. E01 remains external; M0/M1/M2 and all A gates stay open.
+
+
+### RV01 — independent C01–C03 review (2026-10-19)
+
+Reviewed `6189dcd` with no source edits or live access. See the
+[report](../audits/evidence/2026-10-19-c01-c03-review.md) and
+[portable evidence](../audits/evidence/2026-10-19-c01-c03-review.json).
+
+- Fresh passes:31 tooling assertions,7 module suites,82-file explicit typing,
+  exact6.0.6 inventory (2,242 records/591 candidate expressions),host check and
+  isolated package. Node24.21.0; Node22 CI not executed here.
+- Fresh archive SHA-256:
+  `13fb02734430e2561ba0cb19da7c882c987e4b07f0acc819d1283de1653490bb`.
+  All15 regular file contents equal C03's archive,including the three bundles.
+- DD-R01:8 min/max scope inputs incorrectly remain executable;8 controlled exact
+  native method comparisons confirm the range must be retained. S/R only.
+- DD-R02:3 context failures yield+1/passive11/`1d20+1`,and static rendering leaves
+  the control enabled. Supported baseline+5/passive15 remains passing. R/static
+  rendering only; no mounted/native lifecycle claim.
+- No I/U/N/O acceptance,no source mutation,new Core finding,Git or remote write.
+  These are required corrections to C03's availability boundary,not closure of
+  M2 or a reason to repeat the entire investigation. Next checkpoint fixes both,
+  then resumes Q00 and dependency-ready preparation work.

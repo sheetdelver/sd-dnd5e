@@ -2,7 +2,24 @@
 
 Status: **active implementation; investigation retained, acceptance open**. Date: 2026-10-19.
 
-Owning plan: [proposed module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
+Owning plan: [accepted module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
+
+## Current independent review — C01–C03
+
+The [October 19 review](evidence/2026-10-19-c01-c03-review.md) at `6189dcd`
+independently passes the reported foundation checks, but records two required
+module corrections. Their reproductions and native-source references are in that
+report and its [portable ledger](evidence/2026-10-19-c01-c03-review.json).
+
+| ID | Finding | Disposition |
+| --- | --- | --- |
+| DD-R01 | Configured native skill die min/max values are ignored in all four applicable roll scopes. | Open; qualify equivalent execution or mark the affected roll unavailable. Eight reproduced inputs. |
+| DD-R02 | Missing/unavailable/unsupported context restores old +1/passive11 skills and permits `1d20+1`, despite lifecycle diagnostics; supported baseline is +5/passive15. | Open; explicit preparation/execution gating and recovery required. Three reproduced inputs, including enabled static controls. |
+
+Correct these before extending C03. No new Core dependency is established;
+E01 and existing Q00/Q01 work retain their prior scope. M0/M1/M2 and full
+acceptance remain open. Earlier baseline observations below are historical;
+current compatibility is Core>=0.19.3/module-api>=1.5 and module0.4.1 experimental.
 
 ## Finding
 
@@ -10,7 +27,7 @@ The module is a partially wired character-sheet presentation, not a complete D&D
 
 The target is the **current Foundry-installable D&D system 6.0.6**, with 2024 rules primary. This is a larger rules/data integration than repairing individual labels. It needs a deterministic module rules layer, shared projections, explicit caller-bound action plans, source discovery and complete lifecycle verification. Core already supplies authorization, stores, world context, maintenance migrations, dice and presentation primitives; it does not supply native D&D browser document methods.
 
-## Provenance and limitations
+## Provenance and limitations at discovery
 
 | Repository | Branch / commit at inspection | Version / state |
 | --- | --- | --- |
@@ -20,7 +37,7 @@ The target is the **current Foundry-installable D&D system 6.0.6**, with 2024 ru
 | Mörk Borg reference | `fix/adr-0001-native-alignment`, `33d329185a69bd55fbc661e428c2e37f563947b6` | 0.8.3, Core >=0.19.3/module-api >=1.5/UI >=3.2/roll >=1 (each API below its next major); dirty, separate active corrections; timestamped reference, not acceptance |
 | Native D&D checkout | `6.0.x`, `28f35531021bb07609c79c4cbbb9b7e7c2744bf9` | Clean, two commits beyond release; selected oracle is exact `release-6.0.6`, `87e94dbd9f930135e0694cd7e7d49f210603cd2c` |
 
-D&D `info.json` declares Core `>=0.18.0`, module-api `>=1.1.0 <2.0.0`, UI `>=3.1.0 <4.0.0`, roll `>=1.0.0 <2.0.0`. CI and release use Core `v0.18.0`. There is no native-version compatibility declaration, world-settings declaration, migration catalog or server entry in the module. None was changed here.
+At discovery, D&D `info.json` declared Core `>=0.18.0`, module-api `>=1.1.0 <2.0.0`, UI `>=3.1.0 <4.0.0`, roll `>=1.0.0 <2.0.0`. CI and release use Core `v0.18.0`. There is no native-version compatibility declaration, world-settings declaration, migration catalog or server entry in the module. None was changed here.
 
 The upstream release manifest requires Foundry 14.367+, verified 14. The deployed world/system/version and installed premium content were **not inspected**. No live service, native session, browser or production configuration was used. Source conclusions are not native runtime acceptance. Temporary Foundry core files have hashes but unverified build identities; see the reference map.
 
@@ -169,6 +186,8 @@ source-only numeric skill profile. The same input failed before correction
 (`actual1, expected5`) and passes +5/passive15 after; independent level/proficiency
 expectations and unchanged-source checks are retained. Sheets/dialog defaults
 and skill execution use one prepared result. Unqualified formulas/effects/dice
-and missing inputs become unavailable rather than guessed. This partially
+and missing inputs become unavailable within its tested supported branch.
+DD-R01/DD-R02 above identify missed range handling and context fallthrough, so
+this is not a general fail-closed readiness guarantee. This partially
 addresses DD-02/24/34 and A02; complete skill/native acceptance and the rest of
 M2 remain open. Static render checks do not establish mounted U acceptance.
