@@ -23,7 +23,7 @@ export function walk(root, predicate) {
             : entry.isFile() && predicate(entry.name) ? [join(root, entry.name)] : []);
 }
 export function moduleTypeFiles(root = moduleRoot) {
-    return ['src', 'module', 'migrations'].flatMap(dir => walk(join(root, dir), name => /\.(?:ts|tsx|mts)$/.test(name)));
+    return ['src', 'module', 'migrations', 'tests/browser'].flatMap(dir => walk(join(root, dir), name => /\.(?:ts|tsx|mts)$/.test(name)));
 }
 export function typecheckConfig(core, root = moduleRoot) {
     const files = moduleTypeFiles(root);

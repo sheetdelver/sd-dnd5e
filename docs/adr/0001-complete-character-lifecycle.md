@@ -346,7 +346,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 verification foundation/source inventory; Q00 and executable rule-domain oracles open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C03 baseline passes; DD-R01/DD-R02 correction required before extending skills; other domains/Q00/effect phases open | Independent review RV01, source regression and proficiency table |
+| M2 | In progress: C04 corrects DD-R01/DD-R02; die-range execution, other domains/Q00/effect phases open | RV01 retained; C04 source/static/mounted correction evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -403,3 +403,16 @@ the existing external content dependency; other E cases remain conditional.
 M0/M1/M2,all full DD/A workflows and ADR closeout remain open. No version bump,
 live acceptance or release follows from this checkpoint. The ADR was saved locally
 before annotation; no application changes or Git writes were made by the review.
+
+### C04 correction disposition
+
+DD-R01/DD-R02 are corrected as module readiness defects: configured/malformed
+native min/max fields block execution, while independently known static skill
+totals/passives remain separate. Unknown/unsupported context produces unavailable
+values and cannot select legacy by absence of prepared checks. Explicitly selected
+legacy compatibility remains unqualified and distinct. Mounted desktop/mobile
+consumers retire open intent and fence retained callbacks through loss/recovery.
+See verification C04 and its portable evidence. Native die-range execution still
+requires Q00 qualification; temporary unavailable states do not close M2/A02.
+Next, continue bounded Q00/M2 shared ability/check/save preparation using the
+same source-context and execution-readiness separation. No new Core requirement.

@@ -8,7 +8,7 @@ import { typecheckConfig, option } from './lib/toolchain.mjs';
 test('explicit typing includes nested UI, server, migrations and tests despite host exclusions', () => {
     const root = mkdtempSync(join(tmpdir(), 'dnd5e-type-fixture-'));
     try {
-        const expected = ['src/ui/Sheet.tsx', 'src/server/routes/command.ts', 'src/tests/rules.test.ts', 'module/logic.ts', 'migrations/6.0.6/hooks.ts'];
+        const expected = ['src/ui/Sheet.tsx', 'src/server/routes/command.ts', 'src/tests/rules.test.ts', 'module/logic.ts', 'migrations/6.0.6/hooks.ts', 'tests/browser/interaction.tsx'];
         for (const path of expected) {
             mkdirSync(join(root, path, '..'), { recursive: true });
             writeFileSync(join(root, path), '');

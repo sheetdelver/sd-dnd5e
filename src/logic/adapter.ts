@@ -16,7 +16,8 @@ import info from '../../info.json';
 import { resolveRulesContext } from './rules-context';
 import { callerCatalog } from '../server/content/catalog';
 import { decodeActor606 } from './native/6.0.6/source';
-import { prepareNumericSkills606, numericSkillRoll, type PreparedSkill } from './preparation/skills';
+import { prepareNumericSkills606, numericSkillRoll, unavailableSkillChecks, type PreparedSkill } from './preparation/skills';
+import { d20RangeReason, skillRollScopes } from './preparation/d20-configuration';
 
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
@@ -123,17 +124,28 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const decoded = rules.status === 'supported' ? decodeActor606(actor) : null;
         prepared.derived.lifecycle = { status: rules.status, reason: rules.reason,
             profile: rules.profile, identity: rules.identity,
+            sourceRevision: context.sourceRevision, worldEpoch: context.worldEpoch,
             actorCapability: decoded?.capability ?? 'unavailable',
             sourceDiagnostics: decoded?.diagnostics ?? [],
             // Schema context readiness does not qualify the old numeric projection.
             preparation: 'legacy-projection-unqualified' };
-        if (rules.status === 'supported' && rules.profile === '2024') {
-            const skills = prepareNumericSkills606(actor, rules);
+        const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
+        if (!selectedLegacy) {
+            const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules)
+                : unavailableSkillChecks(actor, `Skill rules context unavailable: ${rules.reason ?? 'unknown profile'}`);
             prepared.derived.skillChecks = skills;
             prepared.derived.skills = Object.fromEntries(Object.entries(skills).map(([key, skill]) => [key, { ...skill, label: SKILL_LABELS[key] ?? key }]));
             prepared.derived.passivePerception = skills.prc?.passive ?? null;
             prepared.derived.passiveInvestigation = skills.inv?.passive ?? null;
             prepared.derived.passiveInsight = skills.ins?.passive ?? null;
+        } else {
+            // Explicitly selected historical compatibility projection only.
+            // Its math remains unqualified; bounds still cannot be discarded.
+            const skills = prepared.derived.skills as Record<string, Record<string, unknown>>;
+            for (const [key, skill] of Object.entries(skills)) {
+                const reason = d20RangeReason(skillRollScopes(actor, key));
+                if (reason) { skill.formula = null; skill.unavailableReason = reason; }
+            }
         }
         return prepared;
     }
@@ -245,6 +257,9 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 const formula = numericSkillRoll(preparedSkills[key], _options);
                 return formula ? { formula, label: `${SKILL_LABELS[key] ?? key} Check` } : null;
             }
+            const lifecycle = actor.derived.lifecycle as { status?: string; profile?: string } | undefined;
+            if (lifecycle?.status !== 'supported' || lifecycle.profile !== 'legacy-limited'
+                || d20RangeReason(skillRollScopes(actor, key))) return null;
             const skill = s?.skills?.[key];
             if (!skill) return null;
             const total = skill.value ?? skill.total ?? 0;

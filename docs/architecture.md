@@ -121,10 +121,13 @@ proficiency dice, optional abilities, nonzero source roll
 modes and missing inputs yield explicit unavailable checks. UI disables them
 and passives render an unavailable state instead of a guessed10 within that
 tested branch. The [independent review](audits/evidence/2026-10-19-c01-c03-review.md)
-records two open exceptions: native die ranges are ignored (DD-R01),and absent/
-unsupported context falls back to old executable skills (DD-R02). Lifecycle
-diagnostics alone currently do not gate sheet controls. These require correction
-before broadening availability claims. Other numeric
+identified two exceptions corrected by C04: all four native die-range scopes now
+block unqualified execution without altering known totals/passives (DD-R01), and
+unknown/unsupported context produces unavailable values and rejects direct rolls
+(DD-R02). Legacy fallback requires an explicitly supported `legacy-limited`
+profile, never missing prepared checks. Configured bounds, malformed bounds and
+combined ranges remain unavailable until Q00 qualifies equivalent execution.
+Other numeric
 domains and the legacy compatibility projection remain unqualified.
 
 `getSystemDataForUser` and GET `content` / `content/detail` under
@@ -147,3 +150,17 @@ optional pools and description/provenance backlinks are not required grants.
 Core0.18 lacks world context and caller-safe projection. These contracts are
 released in module-api1.5 (Core0.19.0); Core0.19.3 is the selected tested baseline.
 The manifest floor and CI/release pins align with that actual dependency.
+
+Skill intents bind to Actor identity, host world/epoch/context/source revisions
+and the current prepared skill projection. Both layouts use the same controller.
+ModalHost hides stale skill controls immediately and retires the slot; mounted
+callbacks also carry a transition token and an unmount fence so recovery cannot
+revive prior intent. This is consumer intent state, not a world cache or a write
+receipt protocol. Core still validates the current prepared revision at execution.
+
+`npm run test:mounted -- --browser-tools /path/to/test-tools [--chromium /path/to/executable]`
+runs maintained isolated React/Chromium fixtures with fresh contexts and all
+requests intercepted. No fixture service is started. Playwright stays outside
+module/runtime dependencies; missing tools fail instead of skipping. Explicit
+typing includes `tests/browser`. These mounted module tests use a test SDK
+presentation seam and do not establish installed Core I/U or native N/O parity.

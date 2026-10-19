@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
 import { ABILITY_FULL_NAME, ABILITY_OPTIONS } from '../shared/abilityNames';
+import { skillIntentSignature } from '../shared/skillIntent';
 
 /**
  * Skills block — full skill list with columnar layout.
@@ -41,18 +42,30 @@ interface Props {
 }
 
 export default function Skills({ skills, onRoll }: Props) {
-    const [expanded, setExpanded] = useState(true); // default expanded in standard view
     const { openModal } = useModal();
     const { actor } = useSheet();
+    const signature = skillIntentSignature(actor);
+    const latest = useRef({ signature, token: {}, onRoll, skills, alive: true });
+    // A fresh token on each observed transition prevents a retained callback
+    // reviving when context returns to the exact same values after a failure.
+    latest.current = { signature, token: latest.current.signature === signature ? latest.current.token : {}, onRoll, skills, alive: latest.current.alive };
+    useEffect(() => { latest.current.alive = true; return () => { latest.current.alive = false; latest.current.token = {}; }; }, []);
     if (!skills) return null;
 
     const ordered = SKILL_ORDER.filter(k => skills[k]);
 
     const handleClick = (e: React.MouseEvent, key: string) => {
         const skill = skills[key];
-        if (!onRoll || skill.total === null || skill.unavailableReason) return;
+        if (!onRoll || skill.total === null || skill.unavailableReason || !signature) return;
+        const reviewed = latest.current;
+        const confirm = async (options?: Record<string, unknown>) => {
+            const current = latest.current, currentSkill = current.skills?.[key];
+            if (!current.alive || current.token !== reviewed.token || !current.signature || !current.onRoll || !currentSkill
+                || currentSkill.total === null || currentSkill.unavailableReason) throw new Error('Skill roll intent changed; review current values');
+            await current.onRoll('skill', key, options);
+        };
         if (e.shiftKey) {
-            void onRoll('skill', key);
+            void confirm();
             return;
         }
         const abilityName = ABILITY_FULL_NAME[skill.ability] ?? skill.ability;
@@ -62,7 +75,8 @@ export default function Skills({ skills, onRoll }: Props) {
                 rollType: 'skill', rollKey: key,
                 label: `${abilityName} (${skill.label}) Check`, subtitle: actor?.name,
                 formula: skill.formula,
-                onConfirm: (opts: Record<string, unknown>) => onRoll('skill', key, opts),
+                skillIntentSignature: signature,
+                onConfirm: confirm,
             });
             return;
         }
@@ -94,7 +108,8 @@ export default function Skills({ skills, onRoll }: Props) {
                 initialValue: skill.ability,
                 options: ABILITY_OPTIONS,
             }],
-            onConfirm: (opts: Record<string, unknown>) => onRoll('skill', key, opts),
+            skillIntentSignature: signature,
+            onConfirm: confirm,
         });
     };
 
@@ -137,7 +152,7 @@ export default function Skills({ skills, onRoll }: Props) {
                 return (
                     <button
                         key={key}
-                        disabled={skill.total === null || Boolean(skill.unavailableReason)}
+                        disabled={skill.total === null || Boolean(skill.unavailableReason) || !signature}
                         title={skill.unavailableReason}
                         onClick={(e) => handleClick(e, key)}
                         style={{

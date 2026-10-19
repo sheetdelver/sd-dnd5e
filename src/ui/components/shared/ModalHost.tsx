@@ -1,7 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useModal } from './useModal';
+import { useSheet } from './SheetContext';
+import { skillIntentSignature } from './skillIntent';
 import ThemeModal, { type ThemeModalProps } from '../modals/ThemeModal';
 import RollModal, { type RollModalProps } from '../modals/RollModal';
 import HPModal, { type HPModalProps } from '../modals/HPModal';
@@ -19,6 +21,13 @@ import RichTextModal, { type RichTextModalProps } from '../modals/RichTextModal'
  */
 export default function ModalHost() {
     const { activeId, activeProps, closeModal } = useModal();
+    const { actor } = useSheet();
+    const currentSignature = skillIntentSignature(actor);
+    const staleSkill = activeId === 'roll' && activeProps.rollType === 'skill'
+        && (!currentSignature || activeProps.skillIntentSignature !== currentSignature);
+    useEffect(() => { if (staleSkill) closeModal(); }, [staleSkill, closeModal]);
+    // Hide stale controls in this render, before effect-driven slot cleanup.
+    if (staleSkill) return null;
 
     if (activeId === null) return null;
 

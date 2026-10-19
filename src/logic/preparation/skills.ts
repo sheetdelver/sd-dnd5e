@@ -1,12 +1,13 @@
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
+import { d20RangeReason, skillRollScopes } from './d20-configuration';
 
 export interface PreparedSkill {
     ability: string; prof: number | null; total: number | null; passive: number | null;
     formula: string | null; unavailableReason?: string;
 }
 export function numericSkillRoll(skill: PreparedSkill | undefined, options: Record<string, unknown> = {}): string | null {
-    if (!skill?.formula || skill.total === null) return null;
+    if (!skill?.formula || skill.total === null || skill.unavailableReason) return null;
     if (options.ability !== undefined && options.ability !== skill.ability) return null;
     const advantage = options.advantage ?? 'normal';
     const die = advantage === 'normal' ? '1d20' : advantage === 'adv' ? '2d20kh1' : advantage === 'dis' ? '2d20kl1' : null;
@@ -16,12 +17,20 @@ export function numericSkillRoll(skill: PreparedSkill | undefined, options: Reco
     const base = `${die}${skill.total < 0 ? '' : '+'}${skill.total}`;
     return bonus === undefined ? base : `${base}+(${String(bonus).trim()})`;
 }
+export function unavailableSkillChecks(actor: unknown, reason: string): Record<string, PreparedSkill> {
+    const skills = record(record(record(actor)?.system)?.skills) ?? {};
+    return Object.fromEntries(Object.entries(skills).map(([key, value]) => [key, {
+        ability: typeof record(value)?.ability === 'string' ? record(value)!.ability as string : '',
+        prof: null, total: null, passive: null, formula: null, unavailableReason: reason,
+    }]));
+}
 /** Source-only numeric subset of CharacterData.prepareEmbeddedData,
  * CreatureTemplate.prepareSkill and Proficiency at exact release-6.0.6.
  * Effects, transformed skills, proficiency dice and expressions await Q00/M2.
  * Never read source.total/passive/mod as independent prepared results.
  */
 export function prepareNumericSkills606(actor: unknown, context: RulesContext): Record<string, PreparedSkill> {
+    if (context.status !== 'supported' || context.profile !== '2024') return unavailableSkillChecks(actor, `Skill rules context unavailable: ${context.reason ?? context.profile ?? 'unknown profile'}`);
     const source = record(actor) ?? {}, system = record(source.system) ?? {};
     const skills = record(system.skills) ?? {}, abilities = record(system.abilities) ?? {};
     const attributes = record(system.attributes) ?? {}, flags = record(record(source.flags)?.dnd5e) ?? {};
@@ -86,7 +95,9 @@ export function prepareNumericSkills606(actor: unknown, context: RulesContext): 
             result[key] = { ability, prof: multiplier, total: null, passive: null, formula: null, unavailableReason: 'Numeric skill result outside qualified roll representation' };
             continue;
         }
-        result[key] = { ability, prof: multiplier, total, passive: 10 + total + passiveBonus, formula: `1d20${total < 0 ? '' : '+'}${total}` };
+        const unavailableReason = d20RangeReason(skillRollScopes(actor, key));
+        result[key] = { ability, prof: multiplier, total, passive: 10 + total + passiveBonus,
+            formula: unavailableReason ? null : `1d20${total < 0 ? '' : '+'}${total}`, ...(unavailableReason ? { unavailableReason } : {}) };
     }
     return result;
 }

@@ -250,3 +250,37 @@ Reviewed `6189dcd` with no source edits or live access. See the
   These are required corrections to C03's availability boundary,not closure of
   M2 or a reason to repeat the entire investigation. Next checkpoint fixes both,
   then resumes Q00 and dependency-ready preparation work.
+
+### C04 — DD-R01/DD-R02 corrections (2026-10-19)
+
+- Review-only checkpoint `1163db4` preserves RV01 separately. Maintained
+  `skill-review.test.ts` first reproduced all eleven unchanged review inputs:
+  eight unrestricted bounded rolls and three +1/passive11 context fallthroughs.
+  After correction all pass; source is deeply unchanged through transitions.
+- DD-R01: all four scopes, min/max, absent/null defaults, neutral/combined/
+  contradictory ranges and malformed values are covered. Configured/malformed
+  bounds reject normal/adv/dis execution and previews, retaining known +5/15.
+  This closes silent range loss, not native die-range execution support (Q00).
+- DD-R02: unsupported/missing context returns null totals/passives/formula with
+  reasons. No missing `skillChecks` selects legacy. Explicit supported legacy
+  compatibility is retained with its documented unqualified math; bounds also
+  gate that path. Supported → unavailable → supported restores +5/15.
+- R: `npm test` passes31 tooling assertions/eight suites; `npm run typecheck`
+  explicitly checks88 module/UI/server/test/browser files. Exact-release source
+  verification matches2242 records/591 candidate expressions at87e94db.
+- Mounted R is separate: the first browser run reproduced an open stale dialog
+  (retirement timeout). `npm run test:mounted -- --browser-tools <test-tools>
+  --chromium <installed-executable>` now passes22 actual module desktop/mobile
+  transitions at1440/390px, blocked shortcuts, fresh recovery and retained-
+  callback fences after recovery. Chromium143.0.7499.4/Playwright1.56.1; fresh
+  browser contexts and intercepted requests, no service. SDK presentation is a
+  test seam, not installed Core I/U. Missing tools fail; Node22 CI not run here.
+- Isolated `npm run check:package` passes on released Core0.19.3; SHA-256
+  `a319f71833355e9d5845743af547302408b22e7d0db4117f9a6b52e06d57aee6`.
+  Fifteen regular files, no test/native-reference fixtures. Module remains
+  experimental0.4.1; no metadata version/floor changes or data migration.
+- [Portable correction record](../audits/evidence/2026-10-19-c04-corrections.json)
+  contains exact cases, artifact identity and mounted results. No N/O or release
+  readiness claim. E01 unchanged; no additional Core requirement. Next execute
+  bounded Q00 native roll configuration comparisons and shared M2 ability/save
+  preparation with independent expected values and the same execution gates.

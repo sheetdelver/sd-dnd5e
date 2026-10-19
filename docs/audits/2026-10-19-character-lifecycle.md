@@ -13,10 +13,10 @@ report and its [portable ledger](evidence/2026-10-19-c01-c03-review.json).
 
 | ID | Finding | Disposition |
 | --- | --- | --- |
-| DD-R01 | Configured native skill die min/max values are ignored in all four applicable roll scopes. | Open; qualify equivalent execution or mark the affected roll unavailable. Eight reproduced inputs. |
-| DD-R02 | Missing/unavailable/unsupported context restores old +1/passive11 skills and permits `1d20+1`, despite lifecycle diagnostics; supported baseline is +5/passive15. | Open; explicit preparation/execution gating and recovery required. Three reproduced inputs, including enabled static controls. |
+| DD-R01 | Configured native skill die min/max values are ignored in all four applicable roll scopes. | Corrected C04 via explicit execution-unavailable state, with static totals/passives preserved; native range execution remains Q00 work. |
+| DD-R02 | Missing/unavailable/unsupported context restores old +1/passive11 skills and permits `1d20+1`, despite lifecycle diagnostics; supported baseline is +5/passive15. | Corrected C04: explicit unavailable preparation/execution, separate legacy selection, mounted intent retirement and recovery. |
 
-Correct these before extending C03. No new Core dependency is established;
+C04 evidence is in the verification ledger and [portable correction record](evidence/2026-10-19-c04-corrections.json). No new Core dependency is established;
 E01 and existing Q00/Q01 work retain their prior scope. M0/M1/M2 and full
 acceptance remain open. Earlier baseline observations below are historical;
 current compatibility is Core>=0.19.3/module-api>=1.5 and module0.4.1 experimental.
