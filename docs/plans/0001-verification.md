@@ -156,8 +156,8 @@ No commit, version change, tag, push, PR, release or live service is authorized 
 
 ### C02 — M1 schema/context and caller metadata foundation (2026-10-19)
 
-- Prior implementation checkpoint `801a417`; current commit is recorded in the
-  local handoff. Module version0.4.1/experimental retained. No native writes.
+- Implementation commit `0958d83`, following C01 `801a417`.
+  Module version0.4.1/experimental retained. No native writes.
 - Completed subrequirements: detached Actor/Item and advancement-array/object
   decoding; canonical owned/catalog identities; source edition/provenance;
   29 versioned world-setting declarations and immutable context fences;
@@ -196,3 +196,34 @@ No commit, version change, tag, push, PR, release or live service is authorized 
 - Next executable step: Q00 controlled formula/filter comparisons and M2's
   shared source-derived preparation, beginning with the recorded +5 Perception
   defect and explicit unsupported states. Continue independently of E01.
+
+### C03 — M2 bounded numeric skill preparation (2026-10-19)
+
+- DD-02 confirmed defect: `skills-source.test.ts` first failed `1 !== 5` on
+  unchanged C01 source-before/expected fixtures. The same input now returns
+  skill+5, passive15 and formula1d20+5. Independent class-level/multiplier cases
+  include levels1/5/9/13/17/20, no/half/full/expert proficiency and missing ability.
+  Poisoned source `total99/passive109` does not affect the prepared result.
+- Exact S sources: `CharacterData.prepareEmbeddedData`, `Proficiency.calculateMod`
+  and `flat`, `CommonTemplate.calculateAbilityCheckProficiency`,
+  `CreatureTemplate.prepareSkill`, `AdvantageModeField._defaults` and
+  `simplifyBonus` at87e94db. Absent bonuses are proven zero by simplifyBonus;
+  unknown expressions are unavailable, not truncated or replaced with zero.
+- Shared modern numeric result drives adapter skills/passives, both layouts,
+  fixed-ability dialog defaults and getRollData. Normal/manual adv/dis plus
+  numeric situational choices compile to public Core roll formulas; no second
+  dice evaluator. Arbitrary expressions/ability changes are rejected. Effects,
+  conditions, equipped equipment/encumbrance, active native flags, optional
+  abilities, proficiency dice/source roll modes and missing
+  prerequisites disable checks with reasons. These exclusions remain ordinary
+  rule obligations; this is a bounded checkpoint, not M2/A02 completion.
+- R/S: `npm test`:31 tooling assertions +7 module suites pass. Static rendering
+  confirms unavailable skill controls are disabled and missing passives do not
+  display10. `npm run typecheck`:82 explicit files pass. Isolated check/package
+  on Core0.19.3 passes; archive SHA-256 is
+  `e316f716bb64d6a757702f7bcbf21c6039d8a9960f2166ae9297d5400e372997`.
+  The retained path/commit is in the handoff. No mounted U, installed
+  I, native N or operator O acceptance; no write/migration/live service.
+- Next: Q00 formula/filter/distribution qualification, remaining proficiency and
+  skill flag/mode semantics, source ability/save/tool preparation and native
+  effect phases. E01 remains external; M0/M1/M2 and all A gates stay open.

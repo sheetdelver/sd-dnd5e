@@ -27,10 +27,12 @@ const PROF_DOT_COLOR: Record<string, string> = {
 };
 
 interface SkillData {
-    total: number;
-    prof: number;
+    total: number | null;
+    prof: number | null;
     ability: string;
     label: string;
+    formula?: string | null;
+    unavailableReason?: string;
 }
 
 interface Props {
@@ -47,13 +49,23 @@ export default function Skills({ skills, onRoll }: Props) {
     const ordered = SKILL_ORDER.filter(k => skills[k]);
 
     const handleClick = (e: React.MouseEvent, key: string) => {
-        if (!onRoll) return;
+        const skill = skills[key];
+        if (!onRoll || skill.total === null || skill.unavailableReason) return;
         if (e.shiftKey) {
             void onRoll('skill', key);
             return;
         }
-        const skill = skills[key];
         const abilityName = ABILITY_FULL_NAME[skill.ability] ?? skill.ability;
+
+        if (skill.formula) {
+            openModal('roll', {
+                rollType: 'skill', rollKey: key,
+                label: `${abilityName} (${skill.label}) Check`, subtitle: actor?.name,
+                formula: skill.formula,
+                onConfirm: (opts: Record<string, unknown>) => onRoll('skill', key, opts),
+            });
+            return;
+        }
 
         // Reactive formula — recomputes when the user changes the Abilities
         // dropdown or types a situational bonus. Reads ability mods + prof
@@ -125,6 +137,8 @@ export default function Skills({ skills, onRoll }: Props) {
                 return (
                     <button
                         key={key}
+                        disabled={skill.total === null || Boolean(skill.unavailableReason)}
+                        title={skill.unavailableReason}
                         onClick={(e) => handleClick(e, key)}
                         style={{
                             display: 'grid',
@@ -156,6 +170,7 @@ export default function Skills({ skills, onRoll }: Props) {
                         {/* Skill name */}
                         <span style={{ fontSize: '12px', color: 'var(--text-primary)' }}>
                             {skill.label}
+                            {skill.unavailableReason && <small style={{ display: 'block', color: 'var(--text-muted)' }}>{skill.unavailableReason}</small>}
                         </span>
                         {/* Bonus value */}
                         <span style={{
@@ -165,7 +180,7 @@ export default function Skills({ skills, onRoll }: Props) {
                             textAlign: 'right',
                             fontVariantNumeric: 'tabular-nums',
                         }}>
-                            {skill.total >= 0 ? `+${skill.total}` : skill.total}
+                            {skill.total === null ? '—' : skill.total >= 0 ? `+${skill.total}` : skill.total}
                         </span>
                     </button>
                 );

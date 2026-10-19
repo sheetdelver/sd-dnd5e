@@ -16,6 +16,7 @@ import info from '../../info.json';
 import { resolveRulesContext } from './rules-context';
 import { callerCatalog } from '../server/content/catalog';
 import { decodeActor606 } from './native/6.0.6/source';
+import { prepareNumericSkills606, numericSkillRoll, type PreparedSkill } from './preparation/skills';
 
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
@@ -126,6 +127,14 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             sourceDiagnostics: decoded?.diagnostics ?? [],
             // Schema context readiness does not qualify the old numeric projection.
             preparation: 'legacy-projection-unqualified' };
+        if (rules.status === 'supported' && rules.profile === '2024') {
+            const skills = prepareNumericSkills606(actor, rules);
+            prepared.derived.skillChecks = skills;
+            prepared.derived.skills = Object.fromEntries(Object.entries(skills).map(([key, skill]) => [key, { ...skill, label: SKILL_LABELS[key] ?? key }]));
+            prepared.derived.passivePerception = skills.prc?.passive ?? null;
+            prepared.derived.passiveInvestigation = skills.inv?.passive ?? null;
+            prepared.derived.passiveInsight = skills.ins?.passive ?? null;
+        }
         return prepared;
     }
 
@@ -231,6 +240,11 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         }
 
         if (type === 'skill') {
+            const preparedSkills = actor.derived.skillChecks as Record<string, PreparedSkill> | undefined;
+            if (preparedSkills) {
+                const formula = numericSkillRoll(preparedSkills[key], _options);
+                return formula ? { formula, label: `${SKILL_LABELS[key] ?? key} Check` } : null;
+            }
             const skill = s?.skills?.[key];
             if (!skill) return null;
             const total = skill.value ?? skill.total ?? 0;

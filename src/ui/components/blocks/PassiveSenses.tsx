@@ -11,13 +11,13 @@ interface SensesData {
 }
 
 interface Props {
-    perception?: number;
-    investigation?: number;
-    insight?: number;
+    perception?: number | null;
+    investigation?: number | null;
+    insight?: number | null;
     senses?: SensesData;
 }
 
-export default function PassiveSenses({ perception = 10, investigation = 10, insight = 10, senses }: Props) {
+export default function PassiveSenses({ perception, investigation, insight, senses }: Props) {
     const items = [
         { label: 'Perception', value: perception },
         { label: 'Investigation', value: investigation },
@@ -50,7 +50,7 @@ export default function PassiveSenses({ perception = 10, investigation = 10, ins
                             fontSize: '14px',
                             color: 'var(--text-primary)',
                         }}>
-                            {sense.value}
+                            {sense.value ?? '—'}
                         </div>
                         <div style={{ fontSize: '9px', color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }}>
                             {sense.label}
@@ -58,6 +58,7 @@ export default function PassiveSenses({ perception = 10, investigation = 10, ins
                     </div>
                 ))}
             </div>
+            {items.some(sense => sense.value == null) && <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Unavailable passive checks require supported preparation inputs.</p>}
             {specialSenses.length > 0 && (
                 <div style={{
                     marginTop: '8px',

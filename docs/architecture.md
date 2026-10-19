@@ -108,6 +108,20 @@ collisions, mismatched IDs and unknown types are diagnosed. No decoded value is
 written back. The adapter publishes context/capability readiness separately from
 its old numeric projection, which remains explicitly unqualified pending M2.
 
+M2's first bounded replacement is `src/logic/preparation/skills.ts`: modern PC
+numeric skill checks/passives derive from class levels, source ability scores,
+proficiency multipliers, constant bonuses and global proficiency overrides.
+Source `total/passive/mod` are never reused as an oracle. Adapter roll execution
+and both sheet layouts consume the same result/formula. This subset supports
+normal/manual advantage/disadvantage requests and numeric situational bonuses;
+alternate abilities and unqualified bonus expressions are rejected. It is not
+the complete native skill/ability/save/tool interpreter. Active effects,
+conditions, equipped equipment/encumbrance, active native Actor flags,
+proficiency dice, optional abilities, nonzero source roll
+modes and missing inputs yield explicit unavailable checks. UI disables them
+and passives render an unavailable state instead of a guessed10. Other numeric
+domains and the legacy compatibility projection remain unqualified.
+
 `getSystemDataForUser` and GET `content` / `content/detail` under
 `/api/modules/dnd5e/` use only the supplied caller runtime. Catalog supports
 `page`, `pageSize` (1–100) and optional `packId`; detail takes a typed canonical

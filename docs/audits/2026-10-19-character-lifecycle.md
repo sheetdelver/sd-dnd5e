@@ -163,3 +163,12 @@ ItemGrant closure detects missing references/cycles without same-name lookup.
 No DD workflow or A acceptance row is closed by these R/S results. Actual SDK
 contract adoption requires the selected released Core0.19.3 baseline; module
 version0.4.1 and experimental status remain unchanged. No data repair is needed.
+
+C03 corrects the recorded DD-02 +1 versus +5 defect for the bounded modern
+source-only numeric skill profile. The same input failed before correction
+(`actual1, expected5`) and passes +5/passive15 after; independent level/proficiency
+expectations and unchanged-source checks are retained. Sheets/dialog defaults
+and skill execution use one prepared result. Unqualified formulas/effects/dice
+and missing inputs become unavailable rather than guessed. This partially
+addresses DD-02/24/34 and A02; complete skill/native acceptance and the rest of
+M2 remain open. Static render checks do not establish mounted U acceptance.

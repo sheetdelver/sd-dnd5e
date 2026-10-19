@@ -7,6 +7,7 @@ Historical entries are reconstructed from [published releases](https://github.co
 - Added exact-release character-lifecycle fixtures and maintained verification tools.
 - Added versioned rule context, source decoding and caller-safe content metadata.
 - Corrected bundled SRD labels; required Core 0.19.3 public world/content contracts.
+- Corrected source-derived numeric skills; exposed unsupported checks and passives.
 
 ## 0.4.1
 
