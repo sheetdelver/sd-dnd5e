@@ -164,3 +164,31 @@ Plan source defaults as accessible, compatible bundled 2024 SRD options plus exp
 - D&D Beyond informs information organization, not permission to copy branding, layouts verbatim, proprietary content or services. Marketplace/accounts/campaign hosting/import from D&D Beyond are outside this plan.
 
 Native captures must use redistributable SRD/synthetic records in tracked tests. Private purchased-content acceptance may retain only permitted minimal/redacted evidence and hashes in the durable ledger.
+
+## M1/Q01 qualification update
+
+C02 corrects the module's bundled SRD labels; the pack-declaration table above
+records the planning baseline. No extra pack was hydrated as an E01 workaround.
+29 relevant native world settings now have exact-version declarations. Scalar
+and pack-source defaults match static `registerSystemSettings` syntax in the
+versioned inventory. `calendarConfig` deliberately has no default: its schema
+only declares `BooleanField({required:true})` and a StringField with choices;
+the exact Foundry14 field initialization remains unqualified. Its getter
+`manualRecovery` is `(dailyRecovery === "manual") || (!dailyRecovery && !enabled)`;
+it is not a separately persisted field. Missing/invalid structured settings stay
+unavailable. Client/user preferences were not declared as world settings.
+
+`CompendiumBrowserSettingsConfig.collateSources` excludes only exact pack keys
+whose value is false. This policy is independent of caller authorization and
+does not remove owned Items. C02 checks both and rechecks context/access after
+reads. Current public pack metadata has no content revision; no module revision
+or cross-document invalidation guarantee has been invented. E01 remains open.
+
+`SpellListRegistry.register` resolves a JournalEntryPage of type `spells`, merges
+by `page.system.type`/`identifier`, and contributes `system.spells` and
+`unlinkedSpells.source.uuid`. `SpellList.has` keys owned spells by
+`_stats.compendiumSource` or their own UUID. These are selection/list membership
+dependencies; `SpellcastingField.prepareData` calculates preparation/attack/save
+from embedded class/Actor data without that registry. Selection refresh and any
+numeric cross-document dependency still need executable M5/Q05 qualification.
+No global registry or privileged pack cache is copied into the module.

@@ -34,7 +34,7 @@ jobs:
     needs: verify
     permissions:
       contents: write
-    uses: sheetdelver/sheetdelver/.github/workflows/module-release.yml@v0.18.0
+    uses: sheetdelver/sheetdelver/.github/workflows/module-release.yml@v0.19.3
     with:
       module_id: 'dnd5e'
-      core_ref: 'v0.18.0'
+      core_ref: 'v0.19.3'

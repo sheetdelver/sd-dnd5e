@@ -38,7 +38,7 @@ This table is the **recommended implementation target**, not a manifest change o
 | Same native version, world `rulesVersion=legacy` | Reuse source adapters and rule interpreter with a distinct rule profile for the branches identified in `applyLegacyRules`. Preservation/read access and explicit unsupported reasons are mandatory. Full creation/advancement/play parity for the legacy profile is a separately estimated scope decision, not silently claimed by modern completion. |
 | Foundry 13.351 + D&D 5.3.3 | Separate older schema/version profile. Do not include in primary 6.0.6 qualification or reuse 6.0.6 effects/spell assumptions. Preserve existing data; unsupported-version gating must precede mutation. User may select this follow-up after 2024. |
 | Older or future D&D versions | Unknown until versioned schema/oracle review. Clear unsupported state; no broad semver promise or automatic migration of native data. |
-| Core | Develop/qualify initially against released **0.19.3** and public SDK 3.4/module-api 1.6/UI 3.2/roll 1.0. This is the investigated baseline, not a new minimum written today. E01/E02/E04 may require a later released host contract; choose floors and CI pins only when that dependency exists and is validated. |
+| Core | C02 adopts released **0.19.3** as the application/CI baseline for public native world context and caller-safe projection (module-api floor1.5). SDK3.4/module-api1.6/UI3.2/roll1.0 are supplied by that tested host. E01/E02/E04 may require a later released contract; do not speculate about its floor. |
 | Optional native rules | Modern defaults plus normal/gritty/epic rests, XP/milestone/xpBoons, encumbrance, units, proficiency dice, optional abilities, feats and concentration/exhaustion policy need explicit fixtures. Unsupported selected variants disable the affected automation with a reason until implemented; they remain visible roadmap obligations. |
 | Homebrew / third-party documents | Support compatible native data models, formula grammar, built-in activities/advancements and authorized sources. Preserve unknown fields. Unsupported custom activity types, executable macros, hooks and model extensions are diagnosed; no arbitrary JavaScript execution or claimed plugin compatibility. |
 
@@ -242,7 +242,7 @@ Every milestone produces a reviewable checkpoint: updated DD status with paths/s
 
 **Goal:** DD-01/12/15/16/17/25/26/29/31/34; prerequisites M0, E01 for full dynamic scope.
 
-- Implement versioned source decoding, unsupported-version/type states, identity helpers and world-settings declarations/refresh in adapter. Likely files: `info.json` (only later authorized compatibility/declarations), `src/logic/rules-context.ts`, `src/logic/native/6.0.6`, adapter.
+- Implement versioned source decoding, unsupported-version/type states, identity helpers and world-settings declarations/refresh in adapter. Files: `info.json`, `src/logic/rules-context.ts`, `src/logic/native/6.0.6`, adapter.
 - Implement caller-safe content index/detail routes and `getSystemDataForUser`; classify native pack IDs correctly, source provenance and edition by data. Add missing declared SRD dependencies as justified; do not hydrate every book as a workaround for E01.
 - Model owned versus catalog data separately. Resolve dependency closure by exact UUID; support readable world Items and selection-specific sources. Wire request/current-user/world/context invalidation without a second world cache.
 - Q01: extract structured calendar/source-configuration/visibility defaults and native spell-list registry inputs; add fixtures for default and changed settings, including missing/invalid values. Confirm data-revision signals used by the future E01 contract.
@@ -345,7 +345,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | Gate | State at planning checkpoint | Required evidence location |
 | --- | --- | --- |
 | M0 | In progress: C01 verification foundation/source inventory; Q00 and executable rule-domain oracles open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01 |
-| M1 | Not started; E01 proposal needed | Settings/catalog/source tests |
+| M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
 | M2 | Not started | Native preparation comparisons |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |

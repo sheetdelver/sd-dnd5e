@@ -5,12 +5,13 @@
     "experimental": true,
     "manifest": {
         "ui": "module/ui",
-        "logic": "module/logic"
+        "logic": "module/logic",
+        "server": "module/server"
     },
     "compatibility": {
-        "coreVersion": ">=0.18.0",
+        "coreVersion": ">=0.19.3",
         "apiContracts": {
-            "module-api": ">=1.1.0 <2.0.0",
+            "module-api": ">=1.5.0 <2.0.0",
             "ui-extension-api": ">=3.1.0 <4.0.0",
             "roll-engine-api": ">=1.0.0 <2.0.0"
         }
@@ -21,101 +22,567 @@
                 "id": "dnd5e.items",
                 "type": "Item",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.tradegoods",
                 "type": "Item",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.spells",
                 "type": "Item",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.backgrounds",
                 "type": "Item",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.classes",
                 "type": "Item",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.subclasses",
                 "type": "Item",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.classfeatures",
                 "type": "Item",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.races",
                 "type": "Item",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.tables",
                 "type": "RollTable",
                 "hydrate": true,
-                "description": "SRD Content"
+                "description": "Bundled SRD 5.1"
             },
             {
                 "id": "dnd5e.classes24",
                 "type": "Item",
                 "hydrate": true,
-                "description": "Paid Content for DND 5.5e 2024"
+                "description": "Bundled SRD 5.2"
             },
             {
                 "id": "dnd5e.origins24",
                 "type": "Item",
                 "hydrate": true,
-                "description": "Paid Content for DND 5.5e 2024"
+                "description": "Bundled SRD 5.2"
             },
             {
                 "id": "dnd5e.feats24",
                 "type": "Item",
                 "hydrate": true,
-                "description": "Paid Content for DND 5.5e 2024"
+                "description": "Bundled SRD 5.2"
             },
             {
                 "id": "dnd5e.spells24",
                 "type": "Item",
                 "hydrate": true,
-                "description": "Paid Content for DND 5.5e 2024"
+                "description": "Bundled SRD 5.2"
             },
             {
                 "id": "dnd5e.equipment24",
                 "type": "Item",
                 "hydrate": true,
-                "description": "Paid Content for DND 5.5e 2024"
+                "description": "Bundled SRD 5.2"
             },
             {
                 "id": "dnd5e.tables24",
                 "type": "RollTable",
                 "hydrate": true,
-                "description": "Paid Content for DND 5.5e 2024"
+                "description": "Bundled SRD 5.2"
             },
             {
                 "id": "dnd5e.monsterfeatures24",
                 "type": "Item",
                 "hydrate": false,
-                "description": "Paid Content for DND 5.5e 2024"
+                "description": "Bundled SRD 5.2"
             }
         ]
     },
     "package": {
         "include": []
-    }
+    },
+    "worldSettings": [
+        {
+            "key": "dnd5e.rulesVersion",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "modern",
+                    "legacy"
+                ]
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": "modern",
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings rulesVersion",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.disableAdvancements",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings disableAdvancements",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.disableConcentration",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings disableConcentration",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.disableExhaustion",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings disableExhaustion",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.allowRests",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": true,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings allowRests",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.allowPolymorphing",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings allowPolymorphing",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.allowSummoning",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings allowSummoning",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.metricLengthUnits",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings metricLengthUnits",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.metricVolumeUnits",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings metricVolumeUnits",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.metricWeightUnits",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings metricWeightUnits",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.strictValidation",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": true,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings strictValidation",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.packSourceConfiguration",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "object"
+            },
+            "affectsPreparation": false,
+            "exposure": "server",
+            "default": {
+                "value": {},
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings packSourceConfiguration",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.allowFeats",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": true,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings allowFeats",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.currencyWeight",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": true,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings currencyWeight",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.encumbrance",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "normal",
+                    "variant"
+                ]
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": "none",
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings encumbrance",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.honorScore",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings honorScore",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.sanityScore",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings sanityScore",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.levelingMode",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "noxp",
+                    "xp",
+                    "xpBoons"
+                ]
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": "xpBoons",
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings levelingMode",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.proficiencyModifier",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "bonus",
+                    "dice"
+                ]
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": "bonus",
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings proficiencyModifier",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.restVariant",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "normal",
+                    "gritty",
+                    "epic"
+                ]
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": "normal",
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings restVariant",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.calendarConfig",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "object"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated"
+        },
+        {
+            "key": "dnd5e.autoRecharge",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "no",
+                    "silent",
+                    "yes"
+                ]
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": "no",
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings autoRecharge",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.criticalDamageModifiers",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings criticalDamageModifiers",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.criticalDamageMaxDice",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings criticalDamageMaxDice",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.initiativeDexTiebreaker",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings initiativeDexTiebreaker",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.autoApplyDowned",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "deadOnly",
+                    "npcs",
+                    "all"
+                ]
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": "none",
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings autoApplyDowned",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.allowPlayerDamageTray",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings allowPlayerDamageTray",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.allowPlayerEffectsTray",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings allowPlayerEffectsTray",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
+            "key": "dnd5e.concealItemDescriptions",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "boolean"
+            },
+            "affectsPreparation": false,
+            "exposure": "authenticated",
+            "default": {
+                "value": false,
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings concealItemDescriptions",
+                "systemVersion": "=6.0.6"
+            }
+        }
+    ]
 }

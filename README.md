@@ -9,7 +9,7 @@ Support is still in development.
 - Basic check dialogs and initiative integration.
 - Combat HUD initiative rolling.
 
-Requires **SheetDelver Core 0.18.0 or later**.
+Requires **SheetDelver Core 0.19.3 or later** (native world context and caller-safe content contracts).
 
 See the [releases](https://github.com/sheetdelver/sd-dnd5e/releases),
 [changelog](CHANGELOG.md), [module architecture](docs/architecture.md) and
@@ -18,9 +18,14 @@ See the [releases](https://github.com/sheetdelver/sd-dnd5e/releases),
 The module is not yet a complete character lifecycle implementation. Weapon and
 spell execution, resting, advancement and several sheet sections have confirmed
 gaps. The current [audit](docs/audits/2026-10-19-character-lifecycle.md) and
-[proposed ADR-0001](docs/adr/0001-complete-character-lifecycle.md) define the work
+[ADR-0001](docs/adr/0001-complete-character-lifecycle.md) define the work
 for complete 2024 support against Foundry's released D&D system 6.0.6. Its
 6.0.6/Foundry 14.367 target is a plan, not a present native-parity claim.
+
+Implementation includes exact-release fixtures, explicit module typing,
+immutable rule context and a caller-bound metadata catalog. Dynamic optional
+content still requires Core dependency E01. These foundations do not implement
+character creation, advancement or native activity execution.
 
 ## Font licenses
 

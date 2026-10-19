@@ -9,9 +9,13 @@ import {
     type ActorCardData,
     type RollData,
     type RollDataOptions,
+    type SystemAdapter,
 } from '@sheet-delver/sdk';
 
 import info from '../../info.json';
+import { resolveRulesContext } from './rules-context';
+import { callerCatalog } from '../server/content/catalog';
+import { decodeActor606 } from './native/6.0.6/source';
 
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
@@ -113,7 +117,20 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         actor: FoundryActor,
         context: Readonly<ActorPreparationContext>,
     ): PreparedActorData {
-        return super.prepareActorData(actor, context);
+        const prepared = super.prepareActorData(actor, context);
+        const rules = resolveRulesContext(context.world);
+        const decoded = rules.status === 'supported' ? decodeActor606(actor) : null;
+        prepared.derived.lifecycle = { status: rules.status, reason: rules.reason,
+            profile: rules.profile, identity: rules.identity,
+            actorCapability: decoded?.capability ?? 'unavailable',
+            sourceDiagnostics: decoded?.diagnostics ?? [],
+            // Schema context readiness does not qualify the old numeric projection.
+            preparation: 'legacy-projection-unqualified' };
+        return prepared;
+    }
+
+    async getSystemDataForUser(context: Parameters<NonNullable<SystemAdapter['getSystemDataForUser']>>[0]): Promise<unknown> {
+        return callerCatalog(context);
     }
 
     getRaceData(actor: FoundryActor): RaceRecord {

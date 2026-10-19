@@ -1,6 +1,6 @@
 # D&D 5e module architecture
 
-`info.json` is the compatibility authority. The module requires Core 0.18.0
+`info.json` is the compatibility authority. The module requires Core 0.19.3
 and UI API 3.1; the remaining API ranges are declared there. Its experimental
 designation is intentional and must not be removed as release housekeeping.
 
@@ -12,7 +12,7 @@ one complete native rule interpretation.
 Core owns authorization, world/session lifecycle, roll execution and shared
 chat/media/dice presentation. Use public SDK contracts, not private host APIs.
 
-The active implementation architecture are
+The active implementation architecture is defined by
 [ADR-0001: complete character lifecycle](adr/0001-complete-character-lifecycle.md)
 and the [current audit](audits/2026-10-19-character-lifecycle.md). The planning
 reference is the current Foundry-installable D&D system **6.0.6**, requiring
@@ -24,7 +24,8 @@ target, not a new compatibility claim for module 0.4.1. See the
 ## Current executable boundaries
 
 - The UI manifest registers the sheet, initiative modal and stylesheet. It has
-  no builder/tool/dashboard action, and the module has no server action entry.
+  no builder/tool/dashboard action. The server entry exposes read-only D&D content
+  metadata routes; rules-bearing write commands remain unimplemented.
 - Basic ability/save/skill roll formulas are available, with known parity gaps.
   Weapon/spell controls currently request `item` rolls that the adapter does not
   resolve. They are not complete native activity execution.
@@ -33,8 +34,8 @@ target, not a new compatibility claim for module 0.4.1. See the
 - Conditions, defenses, proficiencies and appearance include placeholder
   presentation. Modern spell preparation/properties and physical Item weight
   schemas are incompletely read. The active audit records reproducible examples.
-- No native world settings or maintenance migration contract is declared.
-  Correcting a projection does not itself require a world-data migration.
+- Versioned native world settings are declared and decoded from immutable public
+  host snapshots. No maintenance migration is needed for these pure projections.
 
 The proposed architecture separates versioned pure rules/preparation, caller
 projections, server action/receipt orchestration and UI intent. Dynamic optional
@@ -68,14 +69,14 @@ browser is required for normal module operation.
 ## Distribution and verification
 
 `info.json` declares the module version and API compatibility. CI/release
-workflows currently use the released Core `v0.18.0` toolchain. Release assets
+workflows use the released Core `v0.19.3` toolchain. Release assets
 include the package archive, checksum, catalog manifest and release history.
 A module release tag identifies the matching manifest version.
 
 Repository workflow and verification commands live in [AGENTS.md](../AGENTS.md).
 The shared contracts are described in Core's
-[module authoring guide](https://github.com/sheetdelver/sheetdelver/blob/v0.18.0/docs/MODULE_AUTHORING.md)
-and [release process](https://github.com/sheetdelver/sheetdelver/blob/v0.18.0/docs/RELEASING.md).
+[module authoring guide](https://github.com/sheetdelver/sheetdelver/blob/v0.19.3/docs/MODULE_AUTHORING.md)
+and [release process](https://github.com/sheetdelver/sheetdelver/blob/v0.19.3/docs/RELEASING.md).
 
 ## ADR-0001 verification foundation
 
@@ -89,3 +90,41 @@ read-only toolchain aliases; it starts no service.
 not HEAD. The versioned fixture index distinguishes source, manually independent
 expectations and absent native captures. Static inventories do not establish
 formula support, grant closure, runtime behavior or native/operator acceptance.
+
+## Rule context and content foundation
+
+`src/logic/rules-context.ts` accepts the host's immutable world snapshot. Exact
+system6.0.6 / Foundry14 build367+ is the selected schema boundary; legacy worlds
+are labeled `legacy-limited`. This is context readiness, not completed rules
+automation or later-build native acceptance. Missing/invalid settings remain
+unavailable; the module never applies a local default to an unreadable setting.
+CalendarConfig has no declared default because its Foundry field initialization
+has not been independently qualified. Consumers must require their own inputs.
+
+`src/logic/native/6.0.6/source.ts` decodes detached Actor/Item identity and
+advancement/activity collections. It preserves source fields, editions,
+origin/root links and owned IDs. Arrays and keyed advancements are accepted;
+collisions, mismatched IDs and unknown types are diagnosed. No decoded value is
+written back. The adapter publishes context/capability readiness separately from
+its old numeric projection, which remains explicitly unqualified pending M2.
+
+`getSystemDataForUser` and GET `content` / `content/detail` under
+`/api/modules/dnd5e/` use only the supplied caller runtime. Catalog supports
+`page`, `pageSize` (1–100) and optional `packId`; detail takes a typed canonical
+Item `uuid`. The static declared reader cannot page its underlying read; result
+paging is module-local and transient. No additional world/content cache exists.
+Caller access, native source exclusions and current world identity/revision are
+checked around reads. World/owned detail requires observer access. Optional
+undeclared packs expose E01 availability only; full reads fail before dispatch.
+Owned Items can still be inspected when their original catalog is gone.
+
+Responses allowlist metadata; they omit raw source, flags, ownership and
+descriptions. Unidentified names/provenance are concealed. Description rendering
+remains an explicit Q03 unavailable state. This endpoint is not a complete
+builder catalog/choice validator. Required ItemGrant closure uses exact UUIDs
+on caller-authorized supplied sources, with missing/cyclic/limit failures;
+optional pools and description/provenance backlinks are not required grants.
+
+Core0.18 lacks world context and caller-safe projection. These contracts are
+released in module-api1.5 (Core0.19.0); Core0.19.3 is the selected tested baseline.
+The manifest floor and CI/release pins align with that actual dependency.

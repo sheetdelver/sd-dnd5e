@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import InitiativeModal from '../ui/components/modals/InitiativeModal';
 import manifest from '../../module/ui';
 
-assert.equal(manifest.info.compatibility?.coreVersion, '>=0.18.0');
+assert.equal(manifest.info.compatibility?.coreVersion, '>=0.19.3');
 assert.equal(manifest.info.compatibility?.apiContracts?.['ui-extension-api'], '>=3.1.0 <4.0.0');
 assert.equal(manifest.dashboardActions, undefined, 'D&D 5e has no dashboard tools to migrate');
 assert.equal(typeof manifest.rollModal, 'function', 'HUD uses the module-owned native roll frame');

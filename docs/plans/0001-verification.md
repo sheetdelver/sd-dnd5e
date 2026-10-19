@@ -1,6 +1,6 @@
 # ADR-0001 verification and completion evidence
 
-Status: plan, 2026-10-19. Governed by [ADR-0001](../adr/0001-complete-character-lifecycle.md); requirement definitions are [DD-01–36 in the audit](../audits/2026-10-19-character-lifecycle.md). Native oracle and source paths are in [the 6.0.6 map](../reference/native-6.0.6.md). No live acceptance is claimed here.
+Status: implementation in progress, 2026-10-19. Governed by [ADR-0001](../adr/0001-complete-character-lifecycle.md); requirement definitions are [DD-01–36 in the audit](../audits/2026-10-19-character-lifecycle.md). Native oracle and source paths are in [the 6.0.6 map](../reference/native-6.0.6.md). No live acceptance is claimed here.
 
 ## Evidence classes
 
@@ -15,7 +15,7 @@ Keep these separate in every checkpoint:
 | N — native comparison | Exact supported Foundry/system build, real source/prepared data and native action behavior independently observed | Arbitrary untested extensions, releases or configurations |
 | O — operator acceptance | User can complete intended workflows and understand failures/recovery/boundaries | Exhaustive rules parity by visual approval alone |
 
-Current evidence is only the audit's two existing passing tests, explicit module typing, source inspection and synthetic direct-function probes. No milestone has native acceptance yet. Don't backfill an N result from an R/S/I run or a sibling module's acceptance.
+Current R/S and packaging evidence is recorded in C01/C02 below. No milestone has native acceptance yet. Don't backfill an N result from an R/S/I run or a sibling module's acceptance.
 
 ## Fixture format and acquisition
 
@@ -153,3 +153,46 @@ No commit, version change, tag, push, PR, release or live service is authorized 
   domain oracles, live captures, installed/browser harnesses and all M0–M9 gates.
   Next executable step: M1 detached decoding/context and caller-bound declared
   SRD catalog tests; E01 dynamic reads remain an external dependency.
+
+### C02 — M1 schema/context and caller metadata foundation (2026-10-19)
+
+- Prior implementation checkpoint `801a417`; current commit is recorded in the
+  local handoff. Module version0.4.1/experimental retained. No native writes.
+- Completed subrequirements: detached Actor/Item and advancement-array/object
+  decoding; canonical owned/catalog identities; source edition/provenance;
+  29 versioned world-setting declarations and immutable context fences;
+  observer-level caller metadata routes/projection and bounded fixed ItemGrant
+  closure. Links: DD-01/12/15/16/17/25/26/29/31/34, A14/A17/A23 foundations.
+  Full DD workflows, all A rows and M1 completion remain open.
+- R/S: `npm test`: 31 tooling assertions and six module suites pass. New suites
+  exercise source deep preservation, unknown types/edition, duplicate IDs/names,
+  denied/missing/unfamiliar packs, native exclusions, owned data after source
+  removal, limited/none detail refusal, changed context and access revocation.
+  Context defaults compare against independent exact-release registration data.
+  Catalog tests use a mock caller runtime; they are R, not public-host I or N.
+- `npm run typecheck`: explicitly includes 80 TS/TSX module/UI/server/test files.
+  `npm run test:native-source -- --native temp/dnd5e`: exact inventory matches.
+  `npm run check:package`: isolated boundary/type/bundle/package checks on
+  released Core0.19.3, including the new server entry. Final archive identity is
+  SHA-256 `a005c7502d8080070effb418c8d77fff5cdc0e986bf4619a7cb7d438c48ed689`.
+  Its 21 entries include all three compiled entries, module/font licenses and
+  experimental0.4.1 metadata, with no test/native-reference fixtures. The local
+  path is in the handoff. Managed installation/browser/native acceptance is
+  unexecuted.
+- Necessary compatibility adoption: released Core0.18 has no world/caller-safe
+  contracts; Core0.19.0 introduces module-api1.5. Selected/tested Core0.19.3
+  (90c13e5) supplies them. Core floor and both workflow pins are now0.19.3;
+  module-api>=1.5, UI/roll ranges unchanged. Node24.21/npm11.19 locally; Node22
+  CI has not run here. Core SDK files match v0.19.3; unrelated host edits retained.
+- Q01 partial: source-policy semantics and static scalar defaults qualified.
+  Calendar default and spell-list dependency refresh remain open; see the native
+  reference update. Description bytes are unavailable pending Q03, not sent and
+  hidden client-side. No migration is needed for detached pure decoding.
+- E01 minimal contract remains the ADR's caller-bound paged discovery/query/read,
+  authorized metadata and host-owned dynamic hydration/revisions. A01/A14–A17
+  optional-content/full lifecycle gates and A24 remain open until it is released
+  and tested. E02/E05 still require executable qualifications; E03/E04 retain
+  bounded investigations. No additional Core defect is asserted.
+- Next executable step: Q00 controlled formula/filter comparisons and M2's
+  shared source-derived preparation, beginning with the recorded +5 Perception
+  defect and explicit unsupported states. Continue independently of E01.

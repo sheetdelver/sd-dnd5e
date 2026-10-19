@@ -64,9 +64,9 @@ Independent probe inputs/results (synthetic, not captured native Actors):
 5. **Refresh:** Core's Actor hook supplies current data, but `useModal` retains Item/intent props and local derived/UI state; changing Actor data does not prove an open detail/roll modal refreshes. Layout switches at 1024px replace separate modal providers. Test identity-bound live dialogs, permission loss, external edits and breakpoint changes independently of initial rendering.
 6. **Creation:** `module/ui.tsx` has only sheet, initiative modal and stylesheet. No `tools`, `dashboardActions`, creation server route or advancement interpreter exists. The presentation test explicitly asserts the absence of dashboard tools. Updating that assertion is part of implementing the new behavior, not deleting useful coverage arbitrarily.
 
-## Requirement and feature-gap matrix
+## Baseline requirement and feature-gap matrix
 
-IDs remain stable through implementation. Status describes the **workflow**, not whether a similarly named component exists. P = presentation/interaction; R = rules; A = authorization; W = persistence; S = synchronization. “Unverified” is not a confirmed exploit or native failure. Native paths below are expanded in the reference map. Milestones M0–M9 and external dependencies E01–E05 are defined in the ADR.
+IDs remain stable through implementation. Baseline status describes the **workflow**, not whether a similarly named component exists; checkpoint changes are recorded under Implementation dispositions below. P = presentation/interaction; R = rules; A = authorization; W = persistence; S = synchronization. “Unverified” is not a confirmed exploit or native failure. Native paths below are expanded in the reference map. Milestones M0–M9 and external dependencies E01–E05 are defined in the ADR.
 
 | ID | Feature / workflow and current status | Evidence and missing behavior / impact | Owning layer; dependency; observable acceptance |
 | --- | --- | --- | --- |
@@ -154,3 +154,12 @@ its candidate expressions and reference cycles are investigation inputs, not
 claims of executable parity. All DD workflows and A acceptance gates remain open.
 See the verification ledger for commands and limits. E01 remains confirmed and
 external; E02–E05 have no new defect claim from this checkpoint.
+
+C02 implements foundations for DD-01/12/15/16/17/25/26/29/31/34: detached source
+decoding, exact identities/edition, setting declarations/context fences and
+caller-bound metadata routes. Bundled SRD labels are corrected. Full dynamic
+catalog access, descriptions, choice validation and UI remain open. Fixed
+ItemGrant closure detects missing references/cycles without same-name lookup.
+No DD workflow or A acceptance row is closed by these R/S results. Actual SDK
+contract adoption requires the selected released Core0.19.3 baseline; module
+version0.4.1 and experimental status remain unchanged. No data repair is needed.

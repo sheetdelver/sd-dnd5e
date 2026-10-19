@@ -8,9 +8,9 @@ Current planning context: [ADR-0001](docs/adr/0001-complete-character-lifecycle.
 [active audit](docs/audits/README.md), [native release map](docs/reference/native-6.0.6.md)
 and [verification matrix](docs/plans/0001-verification.md). The target is the
 current Foundry-installable D&D system 6.0.6, primarily 2024 rules. These are
-proposed implementation documents, not current support claims or authorization
-to implement, change branches, commit or contact a live world. Record actual
-progress against their stable DD/A/M IDs when implementation is selected.
+active implementation documents, not current support claims. Record actual
+progress against their stable DD/A/M IDs; current task authority and checkpoints
+belong in the handoff. No live world authority follows from these documents.
 
 ## Scope and repository ownership
 
