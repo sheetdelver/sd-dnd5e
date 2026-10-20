@@ -71,7 +71,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -230,6 +230,27 @@ try {
         await render(tools.supported); await tab('Skills');
         const toolControl=page.getByRole('button',{name:"Thieves' tools Tool Check",exact:true});
         await verifyOptions(toolControl,'tool',5);
+        // RV04/DD-R06: pointer exit must not erase a still-focused action.
+        await toolControl.click();
+        const focusDialog=page.locator('dialog[open]'), advantage=focusDialog.getByRole('button',{name:'Advantage',exact:true});
+        const preview=async()=>((await focusDialog.innerText()).match(/(?:1d20|2d20k[hl]1)[+-]5/) ?? [])[0];
+        await advantage.focus();await advantage.hover();const beforePointerLeaves=await preview();
+        await page.mouse.move(0,0);const afterPointerLeaves=await preview();
+        const retainedFocus=await advantage.evaluate(element=>element===document.activeElement);
+        await page.keyboard.press('Enter');const submitted=(await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0]?.formula;
+        focusRows.push({width,beforePointerLeaves,afterPointerLeaves,retainedFocus,submitted});
+        assert.equal(retainedFocus,true);assert.equal(submitted,'2d20kh1+5');
+        await toolControl.click();
+        await advantage.focus();await focusDialog.getByRole('button',{name:'Disadvantage',exact:true}).hover();
+        assert.equal(await preview(),'2d20kh1+5','Focus takes precedence over a different hovered action');
+        await focusDialog.getByRole('button',{name:'Normal',exact:true}).focus();
+        assert.equal(await preview(),'1d20+5','Focus transfer previews its action');
+        await focusDialog.getByRole('textbox',{name:'Situational bonus'}).focus();
+        assert.equal(await preview(),'2d20kl1+5','Blur falls back to remaining hover');
+        await page.mouse.move(0,0);assert.equal(await preview(),'1d20+5','Neither interaction restores source default');
+        await focusDialog.getByRole('button',{name:'Close',exact:true}).click();
+
+
         for(const [id,actor] of Object.entries(tools).filter(([id])=>id!=='supported')) {
             await render(tools.supported);await toolControl.click();await page.locator('dialog[open]').waitFor();
             await render(actor);await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
@@ -274,7 +295,9 @@ try {
         assert.deepEqual(errors, []);
         await context.close();
     }
+    writeFileSync(join(artifacts, 'focus.json'),JSON.stringify(focusRows,null,2));
+    for(const row of focusRows)assert.equal(row.afterPointerLeaves,'2d20kh1+5','DD-R06/'+row.width+'; artifacts '+artifacts);
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows }, null, 2));
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows }, null, 2));
     process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }

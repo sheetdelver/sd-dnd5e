@@ -27,7 +27,7 @@ export function ConfigRow({ label, children }: { label: string; children: React.
     </div>;
 }
 
-export function AdvantageButton({ onClick, primary, children, disabled = false, label, onPreview, onPreviewEnd }: {
+export function AdvantageButton({ onClick, primary, children, disabled = false, label, onPreview, onPreviewEnd, onPreviewFocus, onPreviewBlur }: {
     onClick: () => void;
     primary?: boolean;
     children: React.ReactNode;
@@ -35,8 +35,10 @@ export function AdvantageButton({ onClick, primary, children, disabled = false, 
     label?: string;
     onPreview?: () => void;
     onPreviewEnd?: () => void;
+    onPreviewFocus?: () => void;
+    onPreviewBlur?: () => void;
 }) {
-    return <button type="button" onClick={onClick} disabled={disabled} aria-label={label} onFocus={onPreview} onBlur={onPreviewEnd}
+    return <button type="button" onClick={onClick} disabled={disabled} aria-label={label} onFocus={onPreviewFocus} onBlur={onPreviewBlur}
         style={{ padding: '10px 4px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase',
             letterSpacing: '0.05em', background: primary ? 'var(--theme-glow)' : 'var(--surface-elevated)',
             color: primary ? 'var(--theme-primary)' : 'var(--text-primary)',

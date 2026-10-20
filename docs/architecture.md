@@ -259,3 +259,9 @@ Range blockers preserve independently known totals; they add no passive bonus.
 No tool passive score is invented. The visible boundary and stale-intent fencing
 apply to both layouts. C09 evidence is R/S plus isolated mounted/public-host
 fixtures, not installed UI or native/operator qualification.
+
+C10 corrects DD-R06: shared numeric roll previews track focus and hover separately.
+A focused action takes precedence over hover on another action; blur restores
+hover, and neither restores the configured source default. Execution and host
+serialization are unchanged. Maintained mounted tests cover pointer exit with
+focus retained, keyboard submit, focus transfer, blur and default restoration.

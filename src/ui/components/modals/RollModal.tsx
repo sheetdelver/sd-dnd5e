@@ -99,7 +99,10 @@ export default function RollModal({
     onClose,
 }: RollModalProps) {
     const [rollMode, setRollMode] = useState<RollMode>('publicroll');
-    const [previewMode, setPreviewMode] = useState<Advantage>();
+    const [hoverMode, setHoverMode] = useState<Advantage>();
+    const [focusMode, setFocusMode] = useState<Advantage>();
+    // Keyboard activation follows focus; hover previews only in its absence.
+    const previewMode = focusMode ?? hoverMode;
     const [bonus, setBonus] = useState<string>('');
     const [configValues, setConfigValues] = useState<Record<string, string>>(() =>
         Object.fromEntries(configFields.map(f => [f.key, f.initialValue]))
@@ -231,9 +234,9 @@ export default function RollModal({
             {resolveFormula && displayedFormula !== null && !modeAvailable('adv') && <p>Advantage/disadvantage unavailable: native die selection is not yet supported.</p>}
             {/* Advantage / Normal / Disadvantage — each submits the roll */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-sm)' }}>
-                <AdvantageButton primary={preparedDefaultMode === 1} disabled={displayedFormula === null || !modeAvailable('adv')} onPreview={() => setPreviewMode('adv')} onPreviewEnd={() => setPreviewMode(undefined)} onClick={() => submit('adv')}>Advantage</AdvantageButton>
-                <AdvantageButton disabled={displayedFormula === null || !modeAvailable('normal')} onPreview={() => setPreviewMode('normal')} onPreviewEnd={() => setPreviewMode(undefined)} onClick={() => submit('normal')} primary={preparedDefaultMode === 0}>Normal</AdvantageButton>
-                <AdvantageButton primary={preparedDefaultMode === -1} disabled={displayedFormula === null || !modeAvailable('dis')} onPreview={() => setPreviewMode('dis')} onPreviewEnd={() => setPreviewMode(undefined)} onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
+                <AdvantageButton primary={preparedDefaultMode === 1} disabled={displayedFormula === null || !modeAvailable('adv')} onPreview={() => setHoverMode('adv')} onPreviewEnd={() => setHoverMode(undefined)} onPreviewFocus={() => setFocusMode('adv')} onPreviewBlur={() => setFocusMode(undefined)} onClick={() => submit('adv')}>Advantage</AdvantageButton>
+                <AdvantageButton disabled={displayedFormula === null || !modeAvailable('normal')} onPreview={() => setHoverMode('normal')} onPreviewEnd={() => setHoverMode(undefined)} onPreviewFocus={() => setFocusMode('normal')} onPreviewBlur={() => setFocusMode(undefined)} onClick={() => submit('normal')} primary={preparedDefaultMode === 0}>Normal</AdvantageButton>
+                <AdvantageButton primary={preparedDefaultMode === -1} disabled={displayedFormula === null || !modeAvailable('dis')} onPreview={() => setHoverMode('dis')} onPreviewEnd={() => setHoverMode(undefined)} onPreviewFocus={() => setFocusMode('dis')} onPreviewBlur={() => setFocusMode(undefined)} onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
             </div>
         </RollModalFrame>
     );

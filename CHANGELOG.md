@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Preserved focused roll-mode previews when the pointer leaves.
+
 - Added shared independent source tool checks and desktop/mobile roll controls.
 
 - Restored qualified plain-d20 advantage/disadvantage; retained equal-die diagnostics.

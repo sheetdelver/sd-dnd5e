@@ -594,3 +594,21 @@ while Advantage retains focus resets preview to normal, then Enter submits
 advantage. It asserts the defect, not corrected behavior. Add its failing case
 to maintained coverage and correct it alongside combined-check/alternate-ability
 qualification. No new arithmetic/Core blocker or full acceptance closure.
+
+### C10 — DD-R06 focused preview correction (2026-10-20)
+
+RV04 documentation checkpoint `e9be054` preserves the independent review.
+Maintained mounted coverage first reproduced the same mismatch at1440/390:
+Advantage remained focused after pointer exit, preview reverted to1d20+5 and
+Enter submitted2d20kh1+5. Both now preview and submit2d20kh1+5. Focus and hover
+are separate; focus takes precedence, blur uses remaining hover, and neither
+interaction restores the source default. Transfer between actions is covered.
+Source/manual execution, disabled choices and stale-intent fences are retained.
+`npm test` passes33 tooling assertions/13 suites; explicit `npm run typecheck`
+passes102 files; `test:mounted` passes50 transitions/8 previews/16 facts/18 modes/
+56 tools plus the new interaction cases. Portable C10 evidence records unchanged
+inputs and results in docs/audits/evidence/2026-10-20-c10-preview.json. These are
+mounted module regressions with the SDK presentation seam, not installed UI or
+native/operator acceptance. DD-R06 is corrected (DD-24/27/34, A02/A18 partial);
+DD-R01–DD-R05 remain covered. No Core/rules/serialization change or full gate
+closure. Continue combined-check/alternate-ability qualification; ADR-0001 open.
