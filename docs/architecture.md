@@ -26,7 +26,8 @@ target, not a new compatibility claim for module 0.4.1. See the
 - The UI manifest registers the sheet, initiative modal and stylesheet. It has
   no builder/tool/dashboard action. The server entry exposes read-only D&D content
   metadata routes; rules-bearing write commands remain unimplemented.
-- Basic ability/save/skill roll formulas are available, with known parity gaps.
+- Bounded source-derived numeric ability/save/skill formulas are available;
+  unqualified rules and unknown contexts disable these controls with reasons.
   Weapon/spell controls currently request `item` rolls that the adapter does not
   resolve. They are not complete native activity execution.
 - Rest controls currently perform partial HP/temp-HP changes only. Hit-dice,
@@ -108,11 +109,14 @@ collisions, mismatched IDs and unknown types are diagnosed. No decoded value is
 written back. The adapter publishes context/capability readiness separately from
 its old numeric projection, which remains explicitly unqualified pending M2.
 
-M2's first bounded replacement is `src/logic/preparation/skills.ts`: modern PC
-numeric skill checks/passives derive from class levels, source ability scores,
-proficiency multipliers, constant bonuses and global proficiency overrides.
-Source `total/passive/mod` are never reused as an oracle. Adapter roll execution
-and both sheet layouts consume the same result/formula. This subset supports
+M2's bounded replacements are `src/logic/preparation/skills.ts` and `abilities.ts`:
+modern PC numeric skill checks/passives and ability checks/saves derive from
+class levels, source ability scores, proficiency multipliers, constant bonuses
+and global proficiency overrides. `character-profile.ts` shares prerequisites,
+class-level proficiency, constant parsing and numeric representation checks.
+Source `total/passive/mod/check.value/save.value` are never reused as an oracle.
+Adapter execution and both layouts consume the same result/formula. Cards also
+consume the qualified class level and proficiency result. This subset supports
 normal/manual advantage/disadvantage requests and numeric situational bonuses;
 alternate abilities and unqualified bonus expressions are rejected. It is not
 the complete native skill/ability/save/tool interpreter. Active effects,
@@ -127,8 +131,11 @@ unknown/unsupported context produces unavailable values and rejects direct rolls
 (DD-R02). Legacy fallback requires an explicitly supported `legacy-limited`
 profile, never missing prepared checks. Configured bounds, malformed bounds and
 combined ranges remain unavailable until Q00 qualifies equivalent execution.
-Other numeric
-domains and the legacy compatibility projection remain unqualified.
+Ability/check/save range scopes apply the same execution gate. Check/save totals
+remain distinct from base ability modifiers; a check bonus does not change the
+displayed score. Only six standard ability scores0–30 and the explicit numeric
+profile are qualified. Other numeric domains (including HP/AC) and the legacy
+compatibility projection remain unqualified.
 
 `getSystemDataForUser` and GET `content` / `content/detail` under
 `/api/modules/dnd5e/` use only the supplied caller runtime. Catalog supports
@@ -151,9 +158,12 @@ Core0.18 lacks world context and caller-safe projection. These contracts are
 released in module-api1.5 (Core0.19.0); Core0.19.3 is the selected tested baseline.
 The manifest floor and CI/release pins align with that actual dependency.
 
-Skill intents bind to Actor identity, host world/epoch/context/source revisions
-and the current prepared skill projection. Both layouts use the same controller.
-ModalHost hides stale skill controls immediately and retires the slot; mounted
+Skill/check/save intents bind to Actor identity, host world/epoch/context/source
+revisions and the current prepared projection. Both layouts use the same
+`usePreparedRollIntent` controller. Modern previews and confirmation use the
+same `numericD20Roll` compiler as direct adapter execution; unsupported bonus
+expressions disable submit rather than showing an executable formula.
+ModalHost hides stale roll controls immediately and retires the slot; mounted
 callbacks also carry a transition token and an unmount fence so recovery cannot
 revive prior intent. This is consumer intent state, not a world cache or a write
 receipt protocol. Core still validates the current prepared revision at execution.

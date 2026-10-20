@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
-import { ABILITY_FULL_NAME, ABILITY_OPTIONS } from '../shared/abilityNames';
-import { skillIntentSignature } from '../shared/skillIntent';
+import { ABILITY_FULL_NAME } from '../shared/abilityNames';
+import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
 
 /**
  * Skills block — full skill list with columnar layout.
@@ -44,72 +44,28 @@ interface Props {
 export default function Skills({ skills, onRoll }: Props) {
     const { openModal } = useModal();
     const { actor } = useSheet();
-    const signature = skillIntentSignature(actor);
-    const latest = useRef({ signature, token: {}, onRoll, skills, alive: true });
-    // A fresh token on each observed transition prevents a retained callback
-    // reviving when context returns to the exact same values after a failure.
-    latest.current = { signature, token: latest.current.signature === signature ? latest.current.token : {}, onRoll, skills, alive: latest.current.alive };
-    useEffect(() => { latest.current.alive = true; return () => { latest.current.alive = false; latest.current.token = {}; }; }, []);
+    const { canRoll, review } = usePreparedRollIntent('skill', onRoll);
     if (!skills) return null;
 
     const ordered = SKILL_ORDER.filter(k => skills[k]);
 
     const handleClick = (e: React.MouseEvent, key: string) => {
         const skill = skills[key];
-        if (!onRoll || skill.total === null || skill.unavailableReason || !signature) return;
-        const reviewed = latest.current;
-        const confirm = async (options?: Record<string, unknown>) => {
-            const current = latest.current, currentSkill = current.skills?.[key];
-            if (!current.alive || current.token !== reviewed.token || !current.signature || !current.onRoll || !currentSkill
-                || currentSkill.total === null || currentSkill.unavailableReason) throw new Error('Skill roll intent changed; review current values');
-            await current.onRoll('skill', key, options);
-        };
+        const intent = review(key);
+        if (!intent) return;
         if (e.shiftKey) {
-            void confirm();
+            void intent.onConfirm();
             return;
         }
         const abilityName = ABILITY_FULL_NAME[skill.ability] ?? skill.ability;
-
-        if (skill.formula) {
-            openModal('roll', {
-                rollType: 'skill', rollKey: key,
-                label: `${abilityName} (${skill.label}) Check`, subtitle: actor?.name,
-                formula: skill.formula,
-                skillIntentSignature: signature,
-                onConfirm: confirm,
-            });
-            return;
-        }
-
-        // Reactive formula — recomputes when the user changes the Abilities
-        // dropdown or types a situational bonus. Reads ability mods + prof
-        // bonus from the actor's derived data via SheetContext.
-        const abilitiesData = (actor?.derived?.abilities ?? {}) as Record<string, { mod: number }>;
-        const profBonus = (actor?.derived?.profBonus ?? 2) as number;
-        const computeFormula = ({ ability, situationalBonus }: Record<string, string>) => {
-            const chosen = ability ?? skill.ability;
-            const mod = abilitiesData[chosen]?.mod ?? 0;
-            const profPart = Math.floor((skill.prof || 0) * profBonus);
-            const total = mod + profPart;
-            const base = `1d20${total >= 0 ? '+' : ''}${total}`;
-            const trimmed = (situationalBonus ?? '').trim();
-            return trimmed ? `${base} + ${trimmed}` : base;
-        };
 
         openModal('roll', {
             rollType: 'skill',
             rollKey: key,
             label: `${abilityName} (${skill.label}) Check`,
             subtitle: actor?.name,
-            computeFormula,
-            configFields: [{
-                key: 'ability',
-                label: 'Abilities',
-                initialValue: skill.ability,
-                options: ABILITY_OPTIONS,
-            }],
-            skillIntentSignature: signature,
-            onConfirm: confirm,
+            formula: skill.formula,
+            ...intent,
         });
     };
 
@@ -152,7 +108,7 @@ export default function Skills({ skills, onRoll }: Props) {
                 return (
                     <button
                         key={key}
-                        disabled={skill.total === null || Boolean(skill.unavailableReason) || !signature}
+                        disabled={!canRoll(key)}
                         title={skill.unavailableReason}
                         onClick={(e) => handleClick(e, key)}
                         style={{

@@ -4,6 +4,8 @@ import React from 'react';
 import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
 import { ABILITY_FULL_NAME } from '../shared/abilityNames';
+import type { PreparedNumericD20 } from '../../../logic/preparation/d20-configuration';
+import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
 
 const SAVE_ORDER = ['str', 'dex', 'con', 'int', 'wis', 'cha'] as const;
 const SAVE_LABEL: Record<string, string> = {
@@ -11,10 +13,9 @@ const SAVE_LABEL: Record<string, string> = {
 };
 
 interface AbilityData {
-    score: number;
-    mod: number;
-    save: number;
-    saveProficient: boolean;
+    save: number | null;
+    saveProficient: boolean | null;
+    saveRoll?: PreparedNumericD20;
 }
 
 interface Props {
@@ -25,22 +26,22 @@ interface Props {
 export default function SavingThrows({ abilities, onRoll }: Props) {
     const { openModal } = useModal();
     const { actor } = useSheet();
+    const { canRoll, review } = usePreparedRollIntent('save', onRoll);
 
     const handleClick = (e: React.MouseEvent, key: string) => {
-        if (!onRoll) return;
+        const intent = review(key);
+        if (!intent) return;
         if (e.shiftKey) {
-            void onRoll('save', key);
+            void intent.onConfirm();
             return;
         }
-        const save = abilities?.[key]?.save ?? 0;
-        const formula = `1d20${save >= 0 ? '+' : ''}${save}`;
         openModal('roll', {
             rollType: 'save',
             rollKey: key,
             label: `${ABILITY_FULL_NAME[key] ?? key} Saving Throw`,
             subtitle: actor?.name,
-            formula,
-            onConfirm: (opts: Record<string, unknown>) => onRoll('save', key, opts),
+            formula: abilities?.[key]?.saveRoll?.formula,
+            ...intent,
         });
     };
 
@@ -50,14 +51,16 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4px' }}>
                 {SAVE_ORDER.map(key => {
                     const ab = abilities?.[key];
-                    const save = ab?.save ?? 0;
+                    const save = ab?.save ?? null;
                     const proficient = ab?.saveProficient ?? false;
-                    const formatted = save >= 0 ? `+${save}` : `${save}`;
+                    const formatted = save === null ? '—' : save >= 0 ? `+${save}` : `${save}`;
                     return (
                         <button
                             key={key}
+                            aria-label={`${ABILITY_FULL_NAME[key] ?? key} Saving Throw`}
                             onClick={(e) => handleClick(e, key)}
-                            disabled={!ab}
+                            disabled={!canRoll(key)}
+                            title={ab?.saveRoll?.unavailableReason}
                             style={{
                                 textAlign: 'center',
                                 padding: '8px 4px',
@@ -91,6 +94,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                             <div style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--text-primary)' }}>
                                 {formatted}
                             </div>
+                            {ab?.saveRoll?.unavailableReason && <small>{ab.saveRoll.unavailableReason}</small>}
                         </button>
                     );
                 })}

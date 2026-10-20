@@ -37,3 +37,22 @@ A missing checkout, wrong release tag or changed inventory fails. To deliberatel
 regenerate after review, supply `--write-inventory /absolute/output.json`, compare
 that file, and update provenance; never silently bless changes in ordinary tests.
 Native N/action capture and installed I/U harnesses remain open acceptance gates.
+
+`ability-checks.json` extends the fixture with eight independent, manually
+specified numeric ability/check/save expectations. These were authored before
+the M2 ability implementation; six cases failed on C04. Scores, class levels,
+local/global bonuses and proficiency overrides are synthetic source inputs.
+
+```sh
+npm run test:native-checks -- --native /path/to/dnd5e --core /path/to/core
+```
+
+This controlled S comparison extracts exact-release method syntax via the
+TypeScript AST, not the native module loader. It compares all eight cases,
+81 source advantage-mode combinations, 800 ordered advantage/disadvantage die
+selections (including ties), combined ranges and null range defaults. Stubs are
+explicit: numeric classification, empty applied rules/compatibility shims,
+no conditions/cover/flags, plain property access and count merging. Unknown
+formula evaluation fails. It does not boot Foundry, prepare native Documents,
+evaluate arbitrary formulas, or qualify the SDK dice engine or native ranges.
+`--write-evidence /path/result.json` retains observations and exclusions.

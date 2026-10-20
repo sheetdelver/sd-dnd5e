@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useModal } from './useModal';
 import { useSheet } from './SheetContext';
-import { skillIntentSignature } from './skillIntent';
+import { rollIntentSignature, type PreparedRollKind } from './skillIntent';
 import ThemeModal, { type ThemeModalProps } from '../modals/ThemeModal';
 import RollModal, { type RollModalProps } from '../modals/RollModal';
 import HPModal, { type HPModalProps } from '../modals/HPModal';
@@ -22,12 +22,12 @@ import RichTextModal, { type RichTextModalProps } from '../modals/RichTextModal'
 export default function ModalHost() {
     const { activeId, activeProps, closeModal } = useModal();
     const { actor } = useSheet();
-    const currentSignature = skillIntentSignature(actor);
-    const staleSkill = activeId === 'roll' && activeProps.rollType === 'skill'
-        && (!currentSignature || activeProps.skillIntentSignature !== currentSignature);
-    useEffect(() => { if (staleSkill) closeModal(); }, [staleSkill, closeModal]);
-    // Hide stale controls in this render, before effect-driven slot cleanup.
-    if (staleSkill) return null;
+    const kind = ['skill', 'ability', 'save'].includes(String(activeProps.rollType)) ? activeProps.rollType as PreparedRollKind : null;
+    const currentSignature = kind ? rollIntentSignature(actor, kind) : null;
+    const staleRoll = activeId === 'roll' && kind !== null
+        && (!currentSignature || activeProps.preparedIntentSignature !== currentSignature);
+    useEffect(() => { if (staleRoll) closeModal(); }, [staleRoll, closeModal]);
+    if (staleRoll) return null;
 
     if (activeId === null) return null;
 

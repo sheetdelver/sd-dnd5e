@@ -71,6 +71,8 @@ export interface RollModalProps {
      * checks where switching the ability re-derives the total).
      */
     computeFormula?: (ctx: FormulaContext) => string;
+    /** Shared prepared-rule compiler; null disables unsupported choices. */
+    resolveFormula?: (options: Record<string, unknown>) => string | null;
     /** Placeholder text for the situational bonus input. */
     bonusPlaceholder?: string;
     /** Roll-type-specific dropdowns (e.g. Abilities, Attack Mode). */
@@ -88,6 +90,7 @@ export default function RollModal({
     subtitle,
     formula,
     computeFormula,
+    resolveFormula,
     bonusPlaceholder = 'Situational Bonus?',
     configFields = [],
     onConfirm,
@@ -105,11 +108,12 @@ export default function RollModal({
     // see what they typed flowing into the roll.
     const displayedFormula = useMemo(() => {
         const ctx: FormulaContext = { ...configValues, situationalBonus: bonus };
+        if (resolveFormula) return resolveFormula({ ...configValues, ...(bonus.trim() ? { situationalBonus: bonus.trim() } : {}) });
         if (computeFormula) return computeFormula(ctx);
         const base = formula ?? '1d20';
         const trimmed = bonus.trim();
         return trimmed ? `${base} + ${trimmed}` : base;
-    }, [formula, computeFormula, configValues, bonus]);
+    }, [formula, computeFormula, resolveFormula, configValues, bonus]);
 
     const submit = async (advantage: Advantage) => {
         const trimmed = bonus.trim();
@@ -119,6 +123,7 @@ export default function RollModal({
             ...configValues,
         };
         if (trimmed) options.situationalBonus = trimmed;
+        if (resolveFormula && !resolveFormula(options)) return;
         await onConfirm(options);
         onClose();
     };
@@ -141,7 +146,7 @@ export default function RollModal({
                     color: 'var(--text-primary)',
                     fontVariantNumeric: 'tabular-nums',
                 }}>
-                    {displayedFormula}
+                    {displayedFormula ?? 'Unavailable: use a numeric situational bonus'}
                 </span>
                 <span style={{
                     fontSize: '11px',
@@ -159,6 +164,8 @@ export default function RollModal({
                 value={bonus}
                 onChange={e => setBonus(e.target.value)}
                 placeholder={bonusPlaceholder}
+                aria-label="Situational bonus"
+                aria-invalid={displayedFormula === null}
                 style={inputStyle}
             />
 
@@ -217,9 +224,9 @@ export default function RollModal({
 
             {/* Advantage / Normal / Disadvantage — each submits the roll */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-sm)' }}>
-                <AdvantageButton onClick={() => submit('adv')}>Advantage</AdvantageButton>
-                <AdvantageButton onClick={() => submit('normal')} primary>Normal</AdvantageButton>
-                <AdvantageButton onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
+                <AdvantageButton disabled={displayedFormula === null} onClick={() => submit('adv')}>Advantage</AdvantageButton>
+                <AdvantageButton disabled={displayedFormula === null} onClick={() => submit('normal')} primary>Normal</AdvantageButton>
+                <AdvantageButton disabled={displayedFormula === null} onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
             </div>
         </RollModalFrame>
     );

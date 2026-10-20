@@ -284,3 +284,54 @@ Reviewed `6189dcd` with no source edits or live access. See the
   readiness claim. E01 unchanged; no additional Core requirement. Next execute
   bounded Q00 native roll configuration comparisons and shared M2 ability/save
   preparation with independent expected values and the same execution gates.
+
+### C05 — Q00 comparisons and shared numeric abilities/checks/saves (2026-10-19)
+
+- C04 correction commit is `e9c579d`; review-only checkpoint is `1163db4`.
+  DD-R01/DD-R02 remain corrected. No complete DD/A/M requirement is closed.
+  C05 advances DD-01/02/24/34 and A02/A18 within the explicit numeric profile.
+- `ability-checks.json` contains eight independent expected results authored
+  before implementation. Six initially failed against C04: `wis-save`,
+  `check-half-and-bonuses`, `int-check-expert`, `dex-multiclass`,
+  `con-global-save`, `cha-high-level`. All eight pass after correction. The
+  half-proficient WIS case now gives mod2/check6/save10, including separate
+  local/global check/save bonuses. Source is deeply unchanged. Poisoned source
+  mod/check.value/save.value99 is ignored. Level/proficiency thresholds,
+  global overrides, bonus rejection, range gates and context recovery are covered.
+- Shared profile and D20 compiler now drive skills, abilities, saving throws,
+  card level/proficiency, desktop/mobile controls, previews and direct formulas.
+  A maintained direct-call regression additionally failed with retained
+  `1d20+6` after context retirement; explicit profile validation now rejects all
+  three check kinds. A selected legacy profile remains separate and unqualified.
+- R: `npm test` passes31 tooling assertions/nine module suites;
+  `npm run typecheck` explicitly checks93 module/UI/server/test/browser files.
+  Mounted R (`npm run test:mounted -- --browser-tools <test-tools> --chromium
+  <installed-executable>`) passes50 transitions at1440/390px, retained-callback
+  fences for all three kinds and six preview validations. `1d4`/`1+2` bonuses
+  show unavailable/disabled submits; numeric2 preview and options agree with the
+  direct compiler tests. An initial new-driver declaration-order error was
+  corrected before the passing run. Playwright1.56.1/Chromium143.0.7499.4;
+  intercepted requests, fresh browser contexts, no fixture listener/service.
+- S: `npm run test:native-source -- --native ../../../../temp/dnd5e` matches2242
+  records/591 candidate expressions. `npm run test:native-checks -- --native
+  ../../../../temp/dnd5e --write-evidence temp/c05-native-checks.json` passes8
+  ability/check/save cases,81 source-mode combinations and800 ordered native
+  advantage/disadvantage selections (400 each, including ties), plus12/14 combined
+  ranges and null defaults. Both read release objects at87e94db, never HEAD.
+  The older module-local checkout gives identical release results; both native
+  worktrees remain unchanged. Extraction uses declared numeric/no-rule stubs;
+  these are not native Documents, engine distributions or action acceptance.
+- Isolated `npm run check:package` passes module checks/types/public boundaries
+  and logic/UI/server packaging against Core0.19.3/90c13e5. Archive identity is
+  recorded in the [portable record](../audits/evidence/2026-10-19-c05-preparation.json).
+  SHA-256 `a7c6dcc5d9c00716b070dd4eeaa7a43e40798dd03a6445cd92ba9b0dd8e21188`.
+  Fifteen regular files; no tests/native-reference fixtures. Node24.21.0/
+  npm11.19.0; Node22 CI was not run here. Version0.4.1 and experimental status
+  unchanged; no migration needed for pure projections.
+- Q00/E05 remains partial: public `simulateRoll` fallback is insufficient as a
+  kh/kl oracle; no SDK-engine parity or new Core defect is claimed. Nonzero
+  source modes, ranges, expressions, proficiency dice, effects/filters,
+  conditions/flags, transforms and tools remain work. No installed I/U, native
+  N/O or release readiness. Next implement source-mode/passive semantics using
+  the81 independent cases, qualify the public execution path, then continue
+  shared tools and effect phases. E01 remains the existing external dependency.

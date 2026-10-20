@@ -21,6 +21,21 @@ E01 and existing Q00/Q01 work retain their prior scope. M0/M1/M2 and full
 acceptance remain open. Earlier baseline observations below are historical;
 current compatibility is Core>=0.19.3/module-api>=1.5 and module0.4.1 experimental.
 
+C05 subsequently implements shared bounded numeric abilities/checks/saves and
+qualified card level/proficiency (DD-01/02/24/34 partial, A02/A18 partial).
+Independent expectations precede implementation: six of eight cases failed on
+C04; all now pass. Prepared previews, options, shortcuts, direct execution and
+mounted loss/recovery agree for that profile. A separate failing regression
+showed retained numeric preparation could authorize a context-retired direct
+check; direct execution now also requires the explicit supported profile.
+Controlled exact-native comparisons cover eight ability cases,81 source-mode
+combinations and800 ordered d20 selections. See verification C05 and the
+[portable preparation record](evidence/2026-10-19-c05-preparation.json).
+These do not close the ordinary rules obligations: native source modes/ranges,
+effects/filters, conditions/flags, proficiency dice, broader expressions, tools
+and other M2 domains remain open. No new Core dependency, installed I/U or native
+N/O acceptance is asserted; the historical baseline below remains preserved.
+
 ## Finding
 
 The module is a partially wired character-sheet presentation, not a complete D&D implementation. It can render bounded Actor fields and request basic checks, but important numbers rely on prepared-looking input or guessed defaults. Modern Item schemas are incompletely interpreted. Item/spell buttons do not resolve an executable module roll; rest recovery is incomplete; no builder or advancement workflow is registered. Current green tests do not cover these behaviors.

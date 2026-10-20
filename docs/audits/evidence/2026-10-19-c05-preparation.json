@@ -1,0 +1,664 @@
+{
+  "checkpoint": "C05",
+  "baseCommit": "e9c579dc116f677fc685e8ce9ae4ad7fa939fb2f",
+  "reviewCheckpoint": "1163db4",
+  "moduleVersion": "0.4.1",
+  "experimental": true,
+  "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirementsPartial": [
+    "DD-01",
+    "DD-02",
+    "DD-24",
+    "DD-34"
+  ],
+  "acceptancePartial": [
+    "A02",
+    "A18"
+  ],
+  "completedCorrections": [
+    "DD-R01 (C04)",
+    "DD-R02 (C04)"
+  ],
+  "closedFullGates": [],
+  "beforeEvidence": {
+    "maintainedSuite": "src/tests/abilities-source.test.ts",
+    "independentCases": 8,
+    "failedOnC04": [
+      "wis-save",
+      "check-half-and-bonuses",
+      "int-check-expert",
+      "dex-multiclass",
+      "con-global-save",
+      "cha-high-level"
+    ],
+    "after": "all eight numeric preparation and direct-formula cases pass; source deeply unchanged",
+    "additionalFailingBefore": "Retained prepared ability check with unavailable/absent lifecycle returned 1d20+6; now all skill/check/save direct calls require explicit supported context"
+  },
+  "checks": [
+    {
+      "command": "npm test",
+      "result": "PASS:31 tooling assertions,9 module suites"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS:93 explicitly included module/UI/server/test/browser files"
+    },
+    {
+      "command": "npm run test:native-source -- --native ../../../../temp/dnd5e",
+      "result": "PASS:2242 records/591 candidate expressions; exact release objects"
+    },
+    {
+      "command": "npm run test:native-checks -- --native ../../../../temp/dnd5e --write-evidence temp/c05-native-checks.json",
+      "result": "PASS:8 numeric cases/81 modes/800 ordered die selections/combined and default ranges; S only"
+    },
+    {
+      "command": "npm run test:mounted -- --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell",
+      "result": "PASS:50 mounted transitions/6 preview validations and retained-callback fences; SDK presentation seam"
+    },
+    {
+      "command": "npm run check:package",
+      "result": "PASS:isolated check/public boundaries/types/logic/UI/server package; not installed acceptance"
+    }
+  ],
+  "nativeSource": {
+    "path": "../../../../temp/dnd5e",
+    "referenceHead": "28f35531021bb07609c79c4cbbb9b7e7c2744bf9",
+    "moduleLocalHead": "965ad2d0cf5d063dac675ba078b5bd3c3c0dd449",
+    "oracle": "release-6.0.6 pinned objects in both read-only references; HEAD never used",
+    "resultSha256": "7c2ebda4c93593dd6e5ba4a82760b5eee9f21da502baea4d41830c11947d1f12",
+    "result": {
+      "evidence": "S controlled exact native methods, not native/SDK engine execution",
+      "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+      "abilities": [
+        {
+          "id": "wis-base",
+          "observed": {
+            "mod": 2,
+            "check": 2,
+            "save": 2
+          }
+        },
+        {
+          "id": "wis-save",
+          "observed": {
+            "mod": 2,
+            "check": 2,
+            "save": 5
+          }
+        },
+        {
+          "id": "check-half-and-bonuses",
+          "observed": {
+            "mod": 2,
+            "check": 6,
+            "save": 10
+          }
+        },
+        {
+          "id": "str-negative",
+          "observed": {
+            "mod": -1,
+            "check": -1,
+            "save": 1
+          }
+        },
+        {
+          "id": "int-check-expert",
+          "observed": {
+            "mod": 5,
+            "check": 17,
+            "save": 5
+          }
+        },
+        {
+          "id": "dex-multiclass",
+          "observed": {
+            "mod": 1,
+            "check": 1,
+            "save": 4
+          }
+        },
+        {
+          "id": "con-global-save",
+          "observed": {
+            "mod": 3,
+            "check": 3,
+            "save": 7
+          }
+        },
+        {
+          "id": "cha-high-level",
+          "observed": {
+            "mod": 4,
+            "check": 4,
+            "save": 11
+          }
+        }
+      ],
+      "sourceModeCombinations": 81,
+      "orderedD20Selections": 800,
+      "range": {
+        "minimum": 12,
+        "maximum": 14
+      },
+      "stubs": [
+        "Numeric literal classification only; unknown evaluation fails",
+        "No applied rules/conditions/cover/flags",
+        "Empty ability compatibility shims",
+        "Property traversal and plain count merging"
+      ],
+      "limits": [
+        "Effects and applied-rule filters",
+        "Conditions, cover and native flags",
+        "Equipment and encumbrance",
+        "Transformed/original saves",
+        "Optional abilities and proficiency dice",
+        "Nonconstant bonus formulas",
+        "Native die-range execution and source roll modes",
+        "SDK engine/transport, critical annotations, chat, native/operator acceptance"
+      ]
+    }
+  },
+  "mounted": {
+    "path": "/tmp/dnd5e-mounted-jpoNLr/evidence.json",
+    "sha256": "8cfda547c90aaeb6f9b5ec7d116da82b06f93b20291f64bc12119d96c9a21314",
+    "result": {
+      "evidence": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+      "playwright": "1.56.1",
+      "browser": "143.0.7499.4",
+      "rows": [
+        {
+          "width": 1440,
+          "id": "rules-setting-unavailable",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "unsupported-native-version",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "snapshot-absent",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-skills.prc.roll-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-skills.prc.roll-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-abilities.wis.check.roll-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-abilities.wis.check.roll-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-rolls.ability.check-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-rolls.ability.check-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-rolls.ability.skill-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-rolls.ability.skill-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "ability",
+          "id": "rules-setting-unavailable",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "ability",
+          "id": "unsupported-native-version",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "ability",
+          "id": "snapshot-absent",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "ability",
+          "id": "check-local-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "ability",
+          "id": "check-local-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "ability",
+          "id": "check-global-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "ability",
+          "id": "check-global-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "save",
+          "id": "rules-setting-unavailable",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "save",
+          "id": "unsupported-native-version",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "save",
+          "id": "snapshot-absent",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "save",
+          "id": "save-local-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "save",
+          "id": "save-local-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "save",
+          "id": "save-global-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "kind": "save",
+          "id": "save-global-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "rules-setting-unavailable",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "unsupported-native-version",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "snapshot-absent",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-skills.prc.roll-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-skills.prc.roll-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-abilities.wis.check.roll-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-abilities.wis.check.roll-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-rolls.ability.check-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-rolls.ability.check-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-rolls.ability.skill-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-rolls.ability.skill-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "ability",
+          "id": "rules-setting-unavailable",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "ability",
+          "id": "unsupported-native-version",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "ability",
+          "id": "snapshot-absent",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "ability",
+          "id": "check-local-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "ability",
+          "id": "check-local-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "ability",
+          "id": "check-global-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "ability",
+          "id": "check-global-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "save",
+          "id": "rules-setting-unavailable",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "save",
+          "id": "unsupported-native-version",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "save",
+          "id": "snapshot-absent",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "save",
+          "id": "save-local-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "save",
+          "id": "save-local-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "save",
+          "id": "save-global-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "kind": "save",
+          "id": "save-global-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        }
+      ],
+      "previewRows": [
+        {
+          "width": 1440,
+          "kind": "skill",
+          "unsupported": [
+            "1d4",
+            "1+2"
+          ],
+          "preview": "1d20+5+(2)",
+          "submitted": "advantage with numeric2"
+        },
+        {
+          "width": 1440,
+          "kind": "ability",
+          "unsupported": [
+            "1d4",
+            "1+2"
+          ],
+          "preview": "1d20+6+(2)",
+          "submitted": "advantage with numeric2"
+        },
+        {
+          "width": 1440,
+          "kind": "save",
+          "unsupported": [
+            "1d4",
+            "1+2"
+          ],
+          "preview": "1d20+10+(2)",
+          "submitted": "advantage with numeric2"
+        },
+        {
+          "width": 390,
+          "kind": "skill",
+          "unsupported": [
+            "1d4",
+            "1+2"
+          ],
+          "preview": "1d20+5+(2)",
+          "submitted": "advantage with numeric2"
+        },
+        {
+          "width": 390,
+          "kind": "ability",
+          "unsupported": [
+            "1d4",
+            "1+2"
+          ],
+          "preview": "1d20+6+(2)",
+          "submitted": "advantage with numeric2"
+        },
+        {
+          "width": 390,
+          "kind": "save",
+          "unsupported": [
+            "1d4",
+            "1+2"
+          ],
+          "preview": "1d20+10+(2)",
+          "submitted": "advantage with numeric2"
+        }
+      ]
+    }
+  },
+  "package": {
+    "path": "/tmp/dnd5e-package-YEI2jJ/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "a7c6dcc5d9c00716b070dd4eeaa7a43e40798dd03a6445cd92ba9b0dd8e21188",
+    "regularFiles": [
+      "LICENSE",
+      "README.md",
+      "info.json",
+      "assets/dnd5e.css",
+      "assets/dnd5e.tailwind.css",
+      "dist/logic.js",
+      "dist/server.js",
+      "dist/ui.js",
+      "assets/fonts/README.md",
+      "assets/fonts/roboto/OFL.txt",
+      "assets/fonts/roboto/Roboto-Variable.ttf",
+      "assets/fonts/roboto-mono/OFL.txt",
+      "assets/fonts/roboto-mono/RobotoMono-Variable.ttf",
+      "assets/fonts/roboto-slab/LICENSE.txt",
+      "assets/fonts/roboto-slab/RobotoSlab-Variable.ttf"
+    ]
+  },
+  "sourceFilesSha256": {
+    "src/logic/adapter.ts": "ee5cc0d7e862ffe131d60103ef37f2b2be62b7cf2e324bfa8514bb5fbd0a7f36",
+    "src/logic/preparation/character-profile.ts": "e468ea1eeb28944cd1fcc3c9d789c76b9a8baac8b087ff1933cd79874602e93f",
+    "src/logic/preparation/abilities.ts": "cfd96b334ce5fb139b1e99e9b3468c0908c2a9c4ccd41a753657aadb0f5f7e69",
+    "src/logic/preparation/skills.ts": "77981af25fa2cb5419501aa6bee81e25e65b9f0e5af0a0ab539b363c14b67929",
+    "src/logic/preparation/d20-configuration.ts": "d844185070bec4e35b82d4269627c33671b7c9a998a2e600c7a112d54f9b5ed0",
+    "src/ui/components/shared/usePreparedRollIntent.ts": "cc970da2dbc7f8bb7ee88ccd48610d187c471ae4db0b03f43070b7e7108957e9",
+    "src/ui/components/shared/skillIntent.ts": "09e42b5d252140c6ef48cab5f57b47907a727572a1518fde63374df73370a298",
+    "src/ui/components/shared/ModalHost.tsx": "73c5594200074b2af85bf04530111f46a2d2202d88537f1aa84980000c87cf2a",
+    "src/ui/components/modals/RollModal.tsx": "b31e13fc6eb66ea0cd6dc52a526d26b0f5691bba88f06846705b32550d9fb446",
+    "scripts/test-mounted.mjs": "b9917e953c2ca2c412c37c5b68791373e9b9e8f9c023c33320ffc2c989e74ca2",
+    "scripts/native-check-oracle.mjs": "44a47656ab9434abf22f35fed3174688c95c5cf94817058991d65198757ea901",
+    "src/tests/abilities-source.test.ts": "79287f2fcd85b14767d90b25b7d15588a93ccde1b7ba471db5afac942897cb33",
+    "tests/fixtures/native-6.0.6/ability-checks.json": "00b66e1c53f39cc8955ddb3c9f6fd4b7bb4ce5902c4a5779da4e24dc847acdc2"
+  },
+  "environment": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "core": "0.19.3",
+    "node22CI": "not executed"
+  },
+  "limits": [
+    "Bounded modern PC numeric source-only profile, six scores0..30; no complete DD/A/M gate closes",
+    "Configured native ranges and nonzero source modes still unavailable; source comparisons are not completed execution support",
+    "Effects, filters, conditions, cover, flags, transformed/original saves, equipment/encumbrance, optional abilities, proficiency dice, expressions and tools remain open",
+    "Public simulateRoll is limited; no new Core defect or SDK-engine equivalence claim",
+    "Mounted actual module consumers use a test SDK presentation seam; no installed Core I/U or native N/O acceptance",
+    "No service/live Foundry/source writes/migration/version bump/remote writes; E01 unchanged"
+  ]
+}

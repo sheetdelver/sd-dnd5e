@@ -344,9 +344,9 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 
 | Gate | State at planning checkpoint | Required evidence location |
 | --- | --- | --- |
-| M0 | In progress: C01 verification foundation/source inventory; Q00 and executable rule-domain oracles open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01 |
+| M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C04 corrects DD-R01/DD-R02; die-range execution, other domains/Q00/effect phases open | RV01 retained; C04 source/static/mounted correction evidence |
+| M2 | In progress: C04 corrects DD-R01/DD-R02; C05 shared numeric abilities/checks/saves; die ranges, other domains/Q00/effect phases open | RV01 retained; C04/C05 independent source and mounted regression evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -416,3 +416,26 @@ See verification C04 and its portable evidence. Native die-range execution still
 requires Q00 qualification; temporary unavailable states do not close M2/A02.
 Next, continue bounded Q00/M2 shared ability/check/save preparation using the
 same source-context and execution-readiness separation. No new Core requirement.
+
+### C05 shared preparation disposition
+
+C04 is checkpoint `e9c579d`; the review checkpoint remains `1163db4`. C05
+continues DD-01/02/24/34 and A02/A18 with independent numeric ability/check/save
+expectations. Six of eight cases failed on C04; all now pass using a shared
+source profile, proficiency calculation and numeric D20 compiler. Cards use the
+same qualified level/proficiency. Both layouts, previews, shortcuts and direct
+execution consume prepared results, fence stale intent and reject unsupported
+options or unavailable context. Source remains unchanged.
+
+Q00 advances through controlled exact-release comparisons: eight preparation
+cases,81 source-mode combinations,800 ordered d20 selections, combined ranges
+and null defaults. These are S evidence with declared stubs, not native/SDK
+engine or installed acceptance. Native source modes are not implemented by this
+checkpoint. Bounds remain unavailable; effects/filters, conditions/flags,
+proficiency dice, expressions, transformations and tools still need work.
+No full DD/A/M gate closes; E01 is unchanged and E02–E05 have no new Core defect
+claim. See verification C05 and its portable evidence for commands and artifacts.
+Next implement source-mode combination/passive semantics from the controlled
+expectations, then qualify the public roll path before widening formula/range
+support. Continue shared tool preparation and the planned effect phases after
+their independent expectations are ready. ADR-0001 remains open.

@@ -8,6 +8,7 @@
     "typecheck": "node scripts/typecheck.mjs",
     "test:native-source": "node scripts/native-source.mjs",
     "check:package": "node scripts/check-package.mjs",
-    "test:mounted": "node scripts/test-mounted.mjs"
+    "test:mounted": "node scripts/test-mounted.mjs",
+    "test:native-checks": "node scripts/native-check-oracle.mjs"
   }
 }

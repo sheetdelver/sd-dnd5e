@@ -6,7 +6,7 @@ Investigation date: 2026-10-19. Supporting evidence for [ADR-0001](../adr/0001-c
 
 The [Foundry package listing](https://foundryvtt.com/packages/dnd5e) identifies **6.0.6** as the current installable release, requiring **Foundry 14.367+**, verified generation 14. The [release](https://github.com/foundryvtt/dnd5e/releases/tag/release-6.0.6) points to `87e94dbd9f930135e0694cd7e7d49f210603cd2c`. This is the selected oracle, following the user's clarification to use the current Foundry release. It is not a claim about the operator's deployed system.
 
-The local `temp/dnd5e` checkout is clean on `6.0.x`, HEAD `28f35531021bb07609c79c4cbbb9b7e7c2744bf9`, described as `release-6.0.6-2-g28f355310`. The complete release-to-HEAD diff is four changed lines in `module/applications/api/application-v2-mixin.mjs`. All models, rules, settings, packs and document methods cited below are identical to the release. No checkout, fetch, reset or branch change was performed. Read exact release files with `git -C temp/dnd5e show release-6.0.6:<path>`; do not treat future branch changes as release evidence.
+The Core reference `temp/dnd5e` checkout is clean on `6.0.x`, HEAD `28f35531021bb07609c79c4cbbb9b7e7c2744bf9`, described as `release-6.0.6-2-g28f355310`. The complete release-to-HEAD diff is four changed lines in `module/applications/api/application-v2-mixin.mjs`. All models, rules, settings, packs and document methods cited below are identical to the release. No checkout, fetch, reset or branch change was performed. From this module, that reference is `../../../../temp/dnd5e`. A separate module-local `temp/dnd5e` is clean at older `965ad2d0c`; it contains the same pinned release objects but its HEAD is not an oracle either. Read exact release files with `git -C <reference> show release-6.0.6:<path>`; do not treat branch names or future branch changes as release evidence.
 
 Foundry's listing also offers system **5.3.3** for Foundry **13.351+**. That is a separate older schema/runtime profile, not evidence that 6.0.6 runs on v13. It is outside the primary implementation qualification. The existing module test's `systemVersion: '5.3.3'` does not establish support for either profile.
 
@@ -192,3 +192,23 @@ dependencies; `SpellcastingField.prepareData` calculates preparation/attack/save
 from embedded class/Actor data without that registry. Selection refresh and any
 numeric cross-document dependency still need executable M5/Q05 qualification.
 No global registry or privileged pack cache is copied into the module.
+
+## Q00/M2 bounded C05 comparisons
+
+The maintained `test:native-checks` runner extracts exact-release
+`CommonTemplate.prepareAbilities/calculateAbilityCheckProficiency`, `Proficiency`,
+`simplifyBonus`, `AdvantageModeField` combine/count/resolve,
+`D20RollModificationField.combineFields` and `BasicDie.expandAdvantage/advantage`.
+Eight independent numeric cases agree. Source modes cancel when both directions
+are present across all81 combinations. All400 ordered face pairs per direction
+select the greater/lesser face, retaining the first tie; combined min/max12/14
+and null defaults are compared separately. These are controlled source-method S
+results with explicit stubs, not native Documents or SDK roll-engine acceptance.
+
+Numeric ability/check/save preparation now shares the skill prerequisites and
+compiler. Conditions (including cover), applied rules, original/transformed
+saves, native flags, nonconstant expressions, optional abilities and proficiency
+dice remain excluded. Nonzero source modes and configured bounds stay explicitly
+unavailable pending implementation/SDK qualification. Public `simulateRoll` is
+a limited basic-dice preview; its fallback cannot establish kh/kl equivalence.
+No new Core defect or required extension is established. Q00/E05 remains open.

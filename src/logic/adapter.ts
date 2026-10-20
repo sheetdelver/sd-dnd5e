@@ -17,7 +17,9 @@ import { resolveRulesContext } from './rules-context';
 import { callerCatalog } from '../server/content/catalog';
 import { decodeActor606 } from './native/6.0.6/source';
 import { prepareNumericSkills606, numericSkillRoll, unavailableSkillChecks, type PreparedSkill } from './preparation/skills';
-import { d20RangeReason, skillRollScopes } from './preparation/d20-configuration';
+import { d20RangeReason, skillRollScopes, abilityRollScopes, numericD20Roll } from './preparation/d20-configuration';
+import { prepareNumericAbilities606, type PreparedNumericAbility } from './preparation/abilities';
+import { numericCharacterProfile } from './preparation/character-profile';
 
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
@@ -131,6 +133,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             preparation: 'legacy-projection-unqualified' };
         const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
         if (!selectedLegacy) {
+            prepared.derived.abilities = prepareNumericAbilities606(actor, rules);
             const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules)
                 : unavailableSkillChecks(actor, `Skill rules context unavailable: ${rules.reason ?? 'unknown profile'}`);
             prepared.derived.skillChecks = skills;
@@ -138,13 +141,23 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             prepared.derived.passivePerception = skills.prc?.passive ?? null;
             prepared.derived.passiveInvestigation = skills.inv?.passive ?? null;
             prepared.derived.passiveInsight = skills.ins?.passive ?? null;
+            const profile = numericCharacterProfile(actor, rules);
+            if (profile.status === 'ready') { prepared.derived.profBonus = profile.proficiency; prepared.derived.level = profile.level; }
         } else {
             // Explicitly selected historical compatibility projection only.
             // Its math remains unqualified; bounds still cannot be discarded.
             const skills = prepared.derived.skills as Record<string, Record<string, unknown>>;
             for (const [key, skill] of Object.entries(skills)) {
                 const reason = d20RangeReason(skillRollScopes(actor, key));
-                if (reason) { skill.formula = null; skill.unavailableReason = reason; }
+                skill.formula = reason ? null : signBonus(skill.total as number);
+                if (reason) skill.unavailableReason = reason;
+            }
+            const abilities = prepared.derived.abilities as Record<string, Record<string, unknown>>;
+            for (const [key, ability] of Object.entries(abilities)) {
+                for (const [type, field, total] of [['check', 'check', ability.mod], ['save', 'saveRoll', ability.save]] as const) {
+                    const reason = d20RangeReason(abilityRollScopes(actor, key, type));
+                    ability[field] = { ability: key, total, formula: reason ? null : signBonus(total as number), ...(reason ? { unavailableReason: reason } : {}) };
+                }
             }
         }
         return prepared;
@@ -233,6 +246,16 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         _options?: RollDataOptions,
     ): RollData | null {
         const s = actor.system as Partial<D5eSystem>;
+        const lifecycle = actor.derived.lifecycle as { status?: string; profile?: string } | undefined;
+        const selectedLegacy = lifecycle?.status === 'supported' && lifecycle.profile === 'legacy-limited';
+        if (['ability', 'save', 'skill'].includes(type) && !selectedLegacy
+            && (lifecycle?.status !== 'supported' || lifecycle.profile !== '2024')) return null;
+        if ((type === 'ability' || type === 'save') && !selectedLegacy) {
+            const ability = (actor.derived.abilities as Record<string, PreparedNumericAbility> | undefined)?.[key];
+            const formula = numericD20Roll(type === 'ability' ? ability?.check : ability?.saveRoll, _options);
+            return formula ? { formula, label: `${ABILITY_LABELS[key] ?? key} ${type === 'ability' ? 'Check' : 'Saving Throw'}` } : null;
+        }
+        if (selectedLegacy && (type === 'ability' || type === 'save') && d20RangeReason(abilityRollScopes(actor, key, type === 'ability' ? 'check' : 'save'))) return null;
 
         if (type === 'ability') {
             const ab = s?.abilities?.[key];
@@ -257,8 +280,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 const formula = numericSkillRoll(preparedSkills[key], _options);
                 return formula ? { formula, label: `${SKILL_LABELS[key] ?? key} Check` } : null;
             }
-            const lifecycle = actor.derived.lifecycle as { status?: string; profile?: string } | undefined;
-            if (lifecycle?.status !== 'supported' || lifecycle.profile !== 'legacy-limited'
+            if (!selectedLegacy
                 || d20RangeReason(skillRollScopes(actor, key))) return null;
             const skill = s?.skills?.[key];
             if (!skill) return null;
@@ -279,14 +301,14 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const s = actor.system as Partial<D5eSystem>;
         const hp = s?.attributes?.hp;
         const ac = s?.attributes?.ac?.value ?? 10;
-        const level = actor.items.filter((i: FoundryItem) => i.type === 'class')
+        const level = typeof actor.derived.level === 'number' ? actor.derived.level : actor.items.filter((i: FoundryItem) => i.type === 'class')
                     .map((c: FoundryItem) => {
                         const sys = c.system as Record<string, any>;
                         const lvl = sys?.levels ?? sys?.level ?? '';
                         return lvl;
                     })
                     .join(' / ') || '—';      
-        const prof = s?.attributes?.prof ?? 2;
+        const prof = typeof actor.derived.profBonus === 'number' ? actor.derived.profBonus : s?.attributes?.prof ?? 2;
 
         const classes = actor.items
             .filter((i: FoundryItem) => i.type === 'class')
@@ -298,7 +320,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             .join(' / ');
 
         const race = this.getRaceData(actor)?.name;
-        const numericLevel = Number.parseInt(level, 10);
+        const numericLevel = typeof level === 'number' ? level : Number.parseInt(level, 10);
         const subtext = [Number.isFinite(numericLevel) && numericLevel > 0 ? `Level ${level}` : null, race, classes]
             .filter(Boolean)
             .join(' • ');
@@ -321,7 +343,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 },
                 {
                     title: 'Level',
-                    value: level || '—',
+                    value: typeof level === 'number' ? level : level || '—',
                 },
                 {
                     title: 'Prof',

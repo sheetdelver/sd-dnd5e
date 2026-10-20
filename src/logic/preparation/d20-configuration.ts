@@ -1,5 +1,25 @@
 import { record } from '../native/6.0.6/source';
 
+export interface PreparedNumericD20 {
+    ability: string; total: number | null; formula: string | null; unavailableReason?: string;
+}
+export function numericD20Roll(check: PreparedNumericD20 | undefined, options: Record<string, unknown> = {}): string | null {
+    if (!check?.formula || check.total === null || check.unavailableReason) return null;
+    if (options.ability !== undefined && options.ability !== check.ability) return null;
+    const advantage = options.advantage ?? 'normal';
+    const die = advantage === 'normal' ? '1d20' : advantage === 'adv' ? '2d20kh1' : advantage === 'dis' ? '2d20kl1' : null;
+    if (!die) return null;
+    const bonus = options.situationalBonus;
+    if (bonus !== undefined && (typeof bonus !== 'string' || bonus.length > 64 || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(bonus.trim()) || !Number.isFinite(Number(bonus)))) return null;
+    const base = `${die}${check.total < 0 ? '' : '+'}${check.total}`;
+    return bonus === undefined ? base : `${base}+(${String(bonus).trim()})`;
+}
+export function abilityRollScopes(actor: unknown, ability: string, type: 'check' | 'save') {
+    const system = record(record(actor)?.system), data = record(record(system?.abilities)?.[ability]);
+    return [{ path: `abilities.${ability}.${type}.roll`, value: record(data?.[type])?.roll },
+        { path: `rolls.ability.${type}`, value: record(record(system?.rolls)?.ability)?.[type] }];
+}
+
 /** Exact 6.0.6 D20RollModificationField: min/max default null, integer 1–20.
  * Configured bounds are preserved as an execution blocker until Q00 qualifies
  * equivalent public roll semantics. They do not modify static/passive totals.

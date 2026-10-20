@@ -1,0 +1,45 @@
+import { record } from '../native/6.0.6/source';
+import type { RulesContext } from '../rules-context';
+import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
+import { abilityRollScopes, d20RangeReason, type PreparedNumericD20 } from './d20-configuration';
+
+export interface PreparedNumericAbility {
+    score: number | null; mod: number | null; save: number | null; saveProficient: boolean | null;
+    check: PreparedNumericD20; saveRoll: PreparedNumericD20;
+}
+/** Bounded CommonTemplate.prepareAbilities numeric check/save semantics at
+ * 87e94db. Raw source mod/check.value/save.value and AC cover are not source
+ * inputs. Cover is zero only in this no-status/no-effect qualified profile.
+ */
+export function prepareNumericAbilities606(actor: unknown, context: RulesContext): Record<string, PreparedNumericAbility> {
+    const system = record(record(actor)?.system) ?? {}, abilities = record(system.abilities) ?? {};
+    const globals = record(record(system.rolls)?.ability) ?? {}, profile = numericCharacterProfile(actor, context);
+    const result: Record<string, PreparedNumericAbility> = {};
+    for (const [key, value] of Object.entries(abilities)) {
+        const data = record(value) ?? {}, rawScore = data.value;
+        let reason = profile.status === 'unavailable' ? profile.reason : undefined;
+        if (!['str','dex','con','int','wis','cha'].includes(key)) reason = 'Ability outside qualified profile';
+        if (typeof rawScore !== 'number' || !Number.isInteger(rawScore) || rawScore < 0 || rawScore > 30) reason = 'Ability source score unavailable';
+        const score = reason ? null : rawScore as number, mod = score === null ? null : Math.floor((score - 10) / 2);
+        function prepare(type: 'check' | 'save'): PreparedNumericD20 {
+            let unavailableReason = reason;
+            const local = record(data[type]) ?? {}, roll = record(local.roll) ?? {}, global = record(globals[type]) ?? {};
+            if (data[type] != null && !record(data[type]) || globals[type] != null && !record(globals[type])) unavailableReason = 'Malformed native ability roll configuration';
+            const bonuses = [roll.bonus, global.bonus].map(numericConstant);
+            if (bonuses.some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
+            if ([roll.mode, global.mode].some(mode => mode !== undefined && mode !== 0)) unavailableReason = 'Ability source roll mode preparation unavailable';
+            const base = type === 'check' ? 0 : data.proficient;
+            const multipliers = [base, global.proficiency].filter(value => value !== undefined);
+            if (base === undefined || multipliers.some(value => typeof value !== 'number' || !(type === 'check' ? [0,.5,1,2] : [0,1]).includes(value))) unavailableReason = 'Ability proficiency source unavailable';
+            if (unavailableReason || mod === null || profile.status !== 'ready') return { ability: key, total: null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
+            const total = mod + Math.floor(profile.proficiency * Math.max(...multipliers as number[])) + (bonuses[0] as number) + (bonuses[1] as number);
+            if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
+            unavailableReason = d20RangeReason(abilityRollScopes(actor, key, type));
+            return { ability: key, total, formula: unavailableReason ? null : `1d20${total < 0 ? '' : '+'}${total}`, ...(unavailableReason ? { unavailableReason } : {}) };
+        }
+        const check = prepare('check'), saveRoll = prepare('save');
+        const saveMultiplier = Math.max(typeof data.proficient === 'number' ? data.proficient : 0, typeof record(globals.save)?.proficiency === 'number' ? record(globals.save)!.proficiency as number : 0);
+        result[key] = { score, mod, check, saveRoll, save: saveRoll.total, saveProficient: saveRoll.total === null ? null : saveMultiplier >= 1 };
+    }
+    return result;
+}
