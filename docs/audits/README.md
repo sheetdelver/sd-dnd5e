@@ -8,7 +8,7 @@ Implementation progress belongs in that ADR's milestone ledger and the linked [v
 The current [independent C08/C09 review](evidence/2026-10-20-c08-c09-review.md)
 confirms the DD-R05 correction and bounded tool checks. All maintained checks
 pass again. **DD-R06 (low)** records a focused-button preview lost on pointer
-exit; correct it alongside the next combined-check/alternate-ability package.
+exit, corrected by C10. C11 implements bounded combined checks/alternate abilities.
 No new Core dependency or full acceptance closure follows.
 
 The earlier [independent C06/C07 review](evidence/2026-10-19-c06-c07-review.md)
@@ -31,3 +31,6 @@ Wider Q00/E05 remains open.
 C09 implements bounded independent Actor source tool checks in both layouts.
 [Portable evidence](evidence/2026-10-20-c09-tools.json) records R/S/mounted/public-host
 checks; combined tool choices, effects and full acceptance remain open.
+
+C11 supersedes C09's selected-check refusal for the qualified numeric source
+profile. Effects and full acceptance remain open; see its portable evidence.

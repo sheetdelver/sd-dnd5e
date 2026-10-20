@@ -128,10 +128,11 @@ Focused/hovered buttons preview the actual selected formula. Forty equal-valued
 index differences are nonblocking diagnostics, with actual host records unchanged.
 This supersedes C07's blanket execution restriction; wider E05 remains open.
 Opposed sources cancel to a normal roll;
-alternate abilities and unqualified bonus expressions are rejected. It is not
+C11 permits selected source abilities for skill/tool checks; unqualified bonus
+expressions and alternate generic ability/save requests remain rejected. It is not
 the complete native skill/ability/save/tool interpreter. Active effects,
 conditions, equipped equipment/encumbrance, active native Actor flags,
-proficiency dice, optional abilities and missing inputs yield explicit unavailable
+proficiency dice, unsupported abilities and missing inputs yield explicit unavailable
 checks. Valid source modes share numeric execution; malformed modes remain unavailable. UI disables them
 and passives render an unavailable state instead of a guessed10 within that
 tested branch. The [independent review](audits/evidence/2026-10-19-c01-c03-review.md)
@@ -252,8 +253,9 @@ flags remain unavailable until their preparation phases are qualified.
 
 Independent checks use the same plain-d20 numeric execution qualified at C08.
 Native selected skill/tool combinations also take maximum proficiency and may
-add advantage; C09 does not implement that choice. The compiler rejects `skill`,
-`tool` and `pace` options rather than dropping the interaction. Alternate abilities,
+add advantage. At C09 the compiler rejected combination/alternate ability
+requests; C11 below supersedes that restriction for qualified skill/tool choices.
+Pace,
 Item activities, expressions, ranges and shared profile exclusions remain gated.
 Range blockers preserve independently known totals; they add no passive bonus.
 No tool passive score is invented. The visible boundary and stale-intent fencing
@@ -265,3 +267,40 @@ A focused action takes precedence over hover on another action; blur restores
 hover, and neither restores the configured source default. Execution and host
 serialization are unchanged. Maintained mounted tests cover pointer exit with
 focus retained, keyboard submit, focus transfer, blur and default restoration.
+
+### Configurable source checks (C11)
+
+`prepareSkillToolModel606` creates `derived.checkConfiguration` once per prepared
+Actor revision. It holds detached source operands, verified tool defaults,
+qualified class proficiency, ability scores/check scopes and exact skill/tool
+identities. Nonpersisted targets/counts and prepared-looking totals are excluded.
+`configureSkillToolCheck` is the single calculation for independent/default
+Skills/Tools, selected modal previews and direct adapter requests. The existing
+plain-d20 compiler handles the resulting total/mode and numeric situational
+bonus. There is no UI formula, additional evaluator, transport or world cache.
+
+A selected combination takes max proficiency and adds automatic advantage if
+both source multipliers are positive, even when a half-proficiency flat bonus
+rounds to0. It never stacks bonuses from both resources: only primary local roll,
+primary global skill/tool, selected ability check and global check contribute.
+Secondary proficiency availability is independent of its unused bonus/mode/range
+or ability. Primary and selected-ability ranges still block execution. Global
+proficiency remains verified initialized0 until effects are implemented.
+
+Shared modal selectors pass exact IDs and optional ability. Empty selection
+means cleared/default; null, malformed, missing or unsupported choices reject
+with a reason. Unknown rule options require qualification; existing legacy
+behavior gains no combinations or alternate abilities. The modal updates heading,
+preview and configured default mode together; all buttons explicitly override
+that mode. Changing/clearing the secondary recomputes dependent proficiency and
+mode while preserving a valid ability choice. Clearing ability restores the
+primary source default. No choice changes the static independent passive score.
+
+Every choice configures a fresh request with its final ability, equivalent to
+native #rollSkillTool(config) followed by _buildSkillToolConfig. Native internal
+formData changes are a different phase: they rebuild parts/ranges with the new
+ability but retain initial process mode. C11 compares and documents both; it
+makes no claim of native UI identity. The source/context/model participates in
+intent signatures, so secondary source loss retires the whole modal and retained
+callbacks; recovery requires a new review. R/S/mounted/public-host evidence does
+not close installed UI or native/operator gates.

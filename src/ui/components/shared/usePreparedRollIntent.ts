@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { useSheet } from './SheetContext';
-import { preparedRollAvailable, preparedRollCheck, rollIntentSignature, type PreparedRollKind } from './skillIntent';
-import { numericD20Roll } from '../../../logic/preparation/d20-configuration';
+import { preparedRollAvailable, preparedRollCheck, preparedRollFormula, configuredRollCheck, rollIntentSignature, type PreparedRollKind } from './skillIntent';
+import type { SkillToolModel } from '../../../logic/preparation/skill-tool';
+import { ABILITY_FULL_NAME } from './abilityNames';
 
 /** One identity/retirement controller for source-prepared skill/check/save UI. */
 export function usePreparedRollIntent(kind: PreparedRollKind, onRoll?: (type: string, key: string, options?: Record<string, unknown>) => Promise<void>) {
@@ -15,8 +16,19 @@ export function usePreparedRollIntent(kind: PreparedRollKind, onRoll?: (type: st
         const reviewed = latest.current;
         // Selected legacy behavior retains its separate, unqualified options.
         const resolveFormula = actor?.derived.lifecycle?.profile === '2024'
-            ? (options: Record<string, unknown>) => numericD20Roll(preparedRollCheck(reviewed.actor, kind, key), options) : undefined;
-        return { preparedIntentSignature: signature, resolveFormula, preparedDefaultMode: preparedRollCheck(actor, kind, key)?.sourceMode ?? 0, onConfirm: async (options?: Record<string, unknown>) => {
+            ? (options: Record<string, unknown>) => preparedRollFormula(reviewed.actor,kind,key,options) : undefined;
+        const model=actor?.derived.checkConfiguration as SkillToolModel|undefined;
+        const configFields=resolveFormula && model && (kind==='skill'||kind==='tool') ? [
+            {key:kind==='skill'?'tool':'skill',label:kind==='skill'?'Combine with tool':'Combine with skill',initialValue:'',options:[
+                {value:'',label:'None (independent check)'},...Object.entries(kind==='skill'?model.tools:model.skills).map(([value,entry])=>({value,label:entry.reason?`${entry.label} (Unavailable: ${entry.reason})`:entry.label,disabled:!!entry.reason})),
+            ]},
+            {key:'ability',label:'Check ability',initialValue:'',options:[
+                {value:'',label:'Default ability'},...Object.entries(model.abilities).map(([value,entry])=>({value,label:(ABILITY_FULL_NAME[value]??value)+(entry.score===null||entry.reason?' (source unavailable)':''),disabled:entry.score===null||!!entry.reason})),
+            ]},
+        ] : undefined;
+        return { preparedIntentSignature: signature, resolveFormula, configFields,
+            resolveCheck:resolveFormula ? (options:Record<string,unknown>)=>configuredRollCheck(reviewed.actor,kind,key,options) : undefined,
+            preparedDefaultMode: preparedRollCheck(actor, kind, key)?.sourceMode ?? 0, onConfirm: async (options?: Record<string, unknown>) => {
             const current = latest.current;
             if (!current.alive || current.token !== reviewed.token || !current.onRoll || !preparedRollAvailable(current.actor, kind, key)) throw new Error('Roll intent changed; review current values');
             if (resolveFormula && !resolveFormula(options ?? {})) throw new Error('Roll options require Q00 qualification');

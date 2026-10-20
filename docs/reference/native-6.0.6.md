@@ -325,3 +325,41 @@ boundary; they do not establish source effects or completed combination support.
 Unknown formulas fail the oracle. Empty AppliedRules, flags/conditions and plain
 property/count helpers are explicit stubs. See C09 portable evidence for separate
 regression, source-method, mounted and public-host results and their limits.
+
+### Selected requests and native dialog phases (C11)
+
+At exact87e94db, Actor5e.#rollSkillTool reads primary and alternate prepared
+prof.hasProficiency; both positive grant one advantage source. Proficiency.flat
+uses floor(multiplier×base), while hasProficiency tests positive multiplier/base,
+so a positive half multiplier can grant advantage despite a zero flat result.
+CommonTemplate.calculateSkillToolProficiency uses max of selected effectValue
+multipliers, then tool proficiency when a tool is selected. With effects/flags
+absent, those values are the persisted skill/tool multipliers; nonpersisted raw
+proficiency/effectValue/prof fields are not initialization substitutes.
+
+Both #rollSkillTool and _buildSkillToolConfig use selected ability check,
+global check, primary global skill/tool and primary local roll scopes. They do
+not combine both local/global type bonuses or modes. The selected ability supplies
+mod and ability bonus/mode/range. Manual D20 dialog actions override the resulting
+source/automatic mode. SkillToolRollConfigurationDialog offers the six configured
+abilities. Controlled comparisons use the exact dispatch, prepareSkill/prepareTools,
+proficiency methods, BasicRoll.constructParts, D20 combination and dialog methods.
+
+Phase boundary: #rollSkillTool chooses mode before a native dialog opens.
+Its in-place ability form edit reaches _buildSkillToolConfig, which rebuilds
+parts/ranges but does not recalculate that process mode. C11 explicitly compares
+this behavior. Module choices instead configure fresh requests with final ability
+and selected identities before dispatch. Their previews therefore match a fresh
+#rollSkillTool request, not the native dialog's retained initial process state.
+This distinction is intentional and is not presented as native UI acceptance.
+
+combined-checks.json independently specifies asymmetric WIS/DEX bonuses/modes,
+primary type differences, fractions/expertise and a zero-flat half case.38 builds,
+324 auto/source cases,6 native ability choices and existing manual overrides
+pass with explicit initialized model inputs. Empty AppliedRules preserve supplied
+source parts/counts/ranges; travel, flags, conditions, transforms and native hooks
+are stubbed absent. Build captures parts/data without evaluating dice. Module
+regressions compare arithmetic separately; isolated public rolls qualify the
+compiled numeric requests. No native engine, DataModel or operator acceptance
+follows, and C09's broader exclusions remain except the explicitly qualified
+combination/ability selections.

@@ -23,8 +23,8 @@ export function numericD20Roll(check: PreparedNumericD20 | undefined, options: R
 /** Source fields only. No effect counts/suppression/overrides are accepted from
  * raw source. Presence in both directions cancels regardless of multiplicity.
  */
-export function sourceD20Mode(scopes: readonly { path: string; value: unknown }[]): { mode: -1 | 0 | 1; reason?: undefined } | { mode?: undefined; reason: string } {
-    const modes: number[] = [];
+export function sourceD20Mode(scopes: readonly { path: string; value: unknown }[], automaticAdvantage = false): { mode: -1 | 0 | 1; reason?: undefined } | { mode?: undefined; reason: string } {
+    const modes: number[] = automaticAdvantage ? [1] : [];
     for (const {path, value} of scopes) {
         if (value !== undefined && value !== null && !record(value)) return { reason: `Malformed source roll configuration: ${path}` };
         const mode = record(value)?.mode;

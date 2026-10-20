@@ -1,0 +1,2597 @@
+{
+  "checkpoint": "C11",
+  "reviewCommit": "e9be054f41d689294aca4e8e48715ba2319a99c9",
+  "baseImplementation": "508369f1af77cc38f7f555aa8c61dd3105452dfc",
+  "correctedPreviously": [
+    "DD-R01",
+    "DD-R02",
+    "DD-R03",
+    "DD-R04",
+    "DD-R05",
+    "DD-R06"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "scope": "Qualified source-only fresh selected skill/tool requests and alternate standard abilities; partial DD-02/24/27/34, A02/A18, M2/Q00 remains open",
+  "failingBefore": {
+    "originalIndependentCases": 36,
+    "failedRequests": 34,
+    "ids": [
+      "skill-0-0-wis",
+      "skill-0-0-dex",
+      "skill-0.5-0-wis",
+      "skill-0.5-0-dex",
+      "skill-0-0.5-wis",
+      "skill-0-0.5-dex",
+      "skill-0.5-0.5-wis",
+      "skill-0.5-0.5-dex",
+      "skill-1-0.5-wis",
+      "skill-1-0.5-dex",
+      "skill-0.5-2-wis",
+      "skill-0.5-2-dex",
+      "skill-2-1-wis",
+      "skill-2-1-dex",
+      "skill-1.5-1-wis",
+      "skill-1.5-1-dex",
+      "tool-0-0-wis",
+      "tool-0-0-dex",
+      "tool-0.5-0-wis",
+      "tool-0.5-0-dex",
+      "tool-0-0.5-wis",
+      "tool-0-0.5-dex",
+      "tool-0.5-0.5-wis",
+      "tool-0.5-0.5-dex",
+      "tool-1-0.5-wis",
+      "tool-1-0.5-dex",
+      "tool-0.5-2-wis",
+      "tool-0.5-2-dex",
+      "tool-2-1-wis",
+      "tool-2-1-dex",
+      "tool-1.5-1-wis",
+      "tool-1.5-1-dex",
+      "independent-skill-dex",
+      "independent-tool-wis"
+    ],
+    "note": "Same original inputs passed after implementation. Two additional positive-half/zero-flat edge cases independently compared against native later."
+  },
+  "checks": {
+    "npm test": "PASS33 tooling assertions/14 module suites",
+    "npm run typecheck": "PASS106 explicit source/UI/server/hook/test/browser files",
+    "npm run test:native-source -- --native ../../../../temp/dnd5e": "PASS2242 records / 591 candidate expressions",
+    "npm run test:native-checks -- --native ../../../../temp/dnd5e --write-evidence temp/c11-native.json": "PASS prior16 ability/81 skill modes/800 die selections/9 manual overrides/8 tools/81 modes/20 intermediate combinations plus38 selected builds/324 selected modes/6 ability dialog options",
+    "npm run test:mounted -- --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell": "PASS50 transitions/8 previews/16 facts/18 modes/56 tools/80 selection cases and callbacks plus DD-R06",
+    "npm run test:public-rolls": "PASS1095 requests =943 prior +152 selected/default/manual/numeric-bonus requests;40 tied-index diagnostics retained",
+    "npm run check:package": "PASS public boundaries/types/managed logic/UI/server bundles and archive,15 regular files",
+    "node ../../../../node_modules/tsx/dist/cli.mjs --tsconfig ../../../../tsconfig.json src/tests/combined-checks.test.ts": "PASS38 expected builds/114 manual numeric-bonus choices/324 source-mode cases and invalid/source/poison/context gates"
+  },
+  "controlledSource": {
+    "evidence": "S controlled exact native methods, not native/SDK engine execution",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "selectionCases": [
+      {
+        "id": "skill-0-0-wis",
+        "mode": -1,
+        "parts": [
+          "@mod",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": null,
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 12
+      },
+      {
+        "id": "skill-0-0-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": null,
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 7
+      },
+      {
+        "id": "skill-0.5-0-wis",
+        "mode": -1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "1",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 13
+      },
+      {
+        "id": "skill-0.5-0-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "1",
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 8
+      },
+      {
+        "id": "skill-0-0.5-wis",
+        "mode": -1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "1",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 13
+      },
+      {
+        "id": "skill-0-0.5-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "1",
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 8
+      },
+      {
+        "id": "skill-0.5-0.5-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "1",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 13
+      },
+      {
+        "id": "skill-0.5-0.5-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "1",
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 8
+      },
+      {
+        "id": "skill-1-0.5-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "3",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 15
+      },
+      {
+        "id": "skill-1-0.5-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "3",
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 10
+      },
+      {
+        "id": "skill-0.5-2-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "6",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 18
+      },
+      {
+        "id": "skill-0.5-2-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "6",
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 13
+      },
+      {
+        "id": "skill-2-1-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "6",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 18
+      },
+      {
+        "id": "skill-2-1-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "6",
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 13
+      },
+      {
+        "id": "skill-1.5-1-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "4",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 16
+      },
+      {
+        "id": "skill-1.5-1-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "4",
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 11
+      },
+      {
+        "id": "tool-0-0-wis",
+        "mode": -1,
+        "parts": [
+          "@mod",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": null,
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 14
+      },
+      {
+        "id": "tool-0-0-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": null,
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 9
+      },
+      {
+        "id": "tool-0.5-0-wis",
+        "mode": -1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "1",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 15
+      },
+      {
+        "id": "tool-0.5-0-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "1",
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 10
+      },
+      {
+        "id": "tool-0-0.5-wis",
+        "mode": -1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "1",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 15
+      },
+      {
+        "id": "tool-0-0.5-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "1",
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 10
+      },
+      {
+        "id": "tool-0.5-0.5-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "1",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 15
+      },
+      {
+        "id": "tool-0.5-0.5-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "1",
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 10
+      },
+      {
+        "id": "tool-1-0.5-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "3",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 17
+      },
+      {
+        "id": "tool-1-0.5-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "3",
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 12
+      },
+      {
+        "id": "tool-0.5-2-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "6",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 20
+      },
+      {
+        "id": "tool-0.5-2-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "6",
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 15
+      },
+      {
+        "id": "tool-2-1-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "6",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 20
+      },
+      {
+        "id": "tool-2-1-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "6",
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 15
+      },
+      {
+        "id": "tool-1.5-1-wis",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "4",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 18
+      },
+      {
+        "id": "tool-1.5-1-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "4",
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 13
+      },
+      {
+        "id": "independent-skill-wis",
+        "mode": -1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "3",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 15
+      },
+      {
+        "id": "independent-skill-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "3",
+        "bonus": "-2 + 2 + 3 + 1",
+        "total": 10
+      },
+      {
+        "id": "independent-tool-wis",
+        "mode": -1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "6",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 20
+      },
+      {
+        "id": "independent-tool-dex",
+        "mode": 1,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 3,
+        "prof": "6",
+        "bonus": "-2 + 2 + -1 + 7",
+        "total": 15
+      },
+      {
+        "id": "positive-half-zero-flat-skill",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "0",
+        "bonus": "4 + 2 + 3 + 1",
+        "total": 12
+      },
+      {
+        "id": "positive-half-zero-flat-tool",
+        "mode": 0,
+        "parts": [
+          "@mod",
+          "@prof",
+          "@ruleBonus"
+        ],
+        "mod": 2,
+        "prof": "0",
+        "bonus": "4 + 2 + -1 + 7",
+        "total": 14
+      }
+    ],
+    "selectedModeCases": 324,
+    "nativeAbilityDialogChoices": 6,
+    "manualModeCases": 9,
+    "declarations": [
+      "check",
+      "save",
+      "skill",
+      "tool"
+    ],
+    "abilities": [
+      {
+        "id": "wis-base",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 2,
+          "check": 2,
+          "save": 2
+        }
+      },
+      {
+        "id": "wis-save",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 2,
+          "check": 2,
+          "save": 5
+        }
+      },
+      {
+        "id": "check-half-and-bonuses",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 2,
+          "check": 6,
+          "save": 10
+        }
+      },
+      {
+        "id": "str-negative",
+        "phase": "intermediate",
+        "observed": {
+          "mod": -1,
+          "check": -1,
+          "save": 1
+        }
+      },
+      {
+        "id": "int-check-expert",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 5,
+          "check": 17,
+          "save": 5
+        }
+      },
+      {
+        "id": "dex-multiclass",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 1,
+          "check": 1,
+          "save": 4
+        }
+      },
+      {
+        "id": "con-global-save",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 3,
+          "check": 3,
+          "save": 7
+        }
+      },
+      {
+        "id": "cha-high-level",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 4,
+          "check": 4,
+          "save": 11
+        }
+      },
+      {
+        "id": "wis-base",
+        "phase": "source-default",
+        "observed": {
+          "mod": 2,
+          "check": 2,
+          "save": 2
+        }
+      },
+      {
+        "id": "wis-save",
+        "phase": "source-default",
+        "observed": {
+          "mod": 2,
+          "check": 2,
+          "save": 5
+        }
+      },
+      {
+        "id": "check-half-and-bonuses",
+        "phase": "source-default",
+        "observed": {
+          "mod": 2,
+          "check": 5,
+          "save": 10
+        }
+      },
+      {
+        "id": "str-negative",
+        "phase": "source-default",
+        "observed": {
+          "mod": -1,
+          "check": -1,
+          "save": 1
+        }
+      },
+      {
+        "id": "int-check-expert",
+        "phase": "source-default",
+        "observed": {
+          "mod": 5,
+          "check": 5,
+          "save": 5
+        }
+      },
+      {
+        "id": "dex-multiclass",
+        "phase": "source-default",
+        "observed": {
+          "mod": 1,
+          "check": 1,
+          "save": 4
+        }
+      },
+      {
+        "id": "con-global-save",
+        "phase": "source-default",
+        "observed": {
+          "mod": 3,
+          "check": 3,
+          "save": 3
+        }
+      },
+      {
+        "id": "cha-high-level",
+        "phase": "source-default",
+        "observed": {
+          "mod": 4,
+          "check": 4,
+          "save": 11
+        }
+      }
+    ],
+    "tools": [
+      {
+        "id": "untrained",
+        "total": -1,
+        "multiplier": 0,
+        "phase": "explicit-schema-defaults then prepared numeric methods"
+      },
+      {
+        "id": "half-rounded-down",
+        "total": 3,
+        "multiplier": 0.5,
+        "phase": "explicit-schema-defaults then prepared numeric methods"
+      },
+      {
+        "id": "proficient",
+        "total": 5,
+        "multiplier": 1,
+        "phase": "explicit-schema-defaults then prepared numeric methods"
+      },
+      {
+        "id": "one-and-half",
+        "total": 9,
+        "multiplier": 1.5,
+        "phase": "explicit-schema-defaults then prepared numeric methods"
+      },
+      {
+        "id": "expert",
+        "total": 14,
+        "multiplier": 2,
+        "phase": "explicit-schema-defaults then prepared numeric methods"
+      },
+      {
+        "id": "all-four-bonuses",
+        "total": 12.5,
+        "multiplier": 1,
+        "phase": "explicit-schema-defaults then prepared numeric methods"
+      },
+      {
+        "id": "negative-total",
+        "total": -6,
+        "multiplier": 0,
+        "phase": "explicit-schema-defaults then prepared numeric methods"
+      },
+      {
+        "id": "initialized-defaults",
+        "total": 2,
+        "multiplier": 0,
+        "phase": "explicit-schema-defaults then prepared numeric methods"
+      }
+    ],
+    "toolModeCombinations": 81,
+    "combinedToolCases": 20,
+    "sourceModeCombinations": 81,
+    "orderedD20Selections": 800,
+    "range": {
+      "minimum": 12,
+      "maximum": 14
+    },
+    "stubs": [
+      "Numeric literal classification only; unknown evaluation fails",
+      "No applied rules/conditions/cover/flags",
+      "Empty ability compatibility shims; Remarkable Athlete false",
+      "Tool defaults checked as schema syntax then explicitly initialized; no Foundry DataModel construction",
+      "Property traversal and plain count merging",
+      "Actor build capture with no dice evaluation or hooks; no travel, transformations or flags",
+      "Native skill dialog context uses empty base context and a StringField options stub; not a DOM/DataModel",
+      "Native in-place ability form changes retain process mode; module configures fresh selected requests"
+    ],
+    "limits": [
+      "Effects and applied-rule filters",
+      "Conditions, cover and native flags",
+      "Equipment and encumbrance",
+      "Transformed/original saves",
+      "Optional abilities and proficiency dice",
+      "Nonconstant bonus formulas",
+      "Native die-range execution and source roll modes",
+      "SDK engine/transport, critical annotations, chat, native/operator acceptance"
+    ]
+  },
+  "mounted": {
+    "evidence": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "playwright": "1.56.1",
+    "browser": "143.0.7499.4",
+    "focusRows": [
+      {
+        "width": 1440,
+        "beforePointerLeaves": "2d20kh1+5",
+        "afterPointerLeaves": "2d20kh1+5",
+        "retainedFocus": true,
+        "submitted": "2d20kh1+5"
+      },
+      {
+        "width": 390,
+        "beforePointerLeaves": "2d20kh1+5",
+        "afterPointerLeaves": "2d20kh1+5",
+        "retainedFocus": true,
+        "submitted": "2d20kh1+5"
+      }
+    ],
+    "combinationRows": [
+      {
+        "width": 1440,
+        "id": "skill-0-0-wis",
+        "defaultPreview": "2d20kl1+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0-0-dex",
+        "defaultPreview": "2d20kh1+7",
+        "manualNormal": "1d20+7"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-0-wis",
+        "defaultPreview": "2d20kl1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-0-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0-0.5-wis",
+        "defaultPreview": "2d20kl1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0-0.5-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-0.5-wis",
+        "defaultPreview": "1d20+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-0.5-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 1440,
+        "id": "skill-1-0.5-wis",
+        "defaultPreview": "1d20+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "skill-1-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-2-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-2-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-2-1-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 1440,
+        "id": "skill-2-1-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-1.5-1-wis",
+        "defaultPreview": "1d20+16",
+        "manualNormal": "1d20+16"
+      },
+      {
+        "width": 1440,
+        "id": "skill-1.5-1-dex",
+        "defaultPreview": "2d20kh1+11",
+        "manualNormal": "1d20+11"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0-0-wis",
+        "defaultPreview": "2d20kl1+14",
+        "manualNormal": "1d20+14"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0-0-dex",
+        "defaultPreview": "2d20kh1+9",
+        "manualNormal": "1d20+9"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-0-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-0-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0-0.5-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-0.5-wis",
+        "defaultPreview": "1d20+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "tool-1-0.5-wis",
+        "defaultPreview": "1d20+17",
+        "manualNormal": "1d20+17"
+      },
+      {
+        "width": 1440,
+        "id": "tool-1-0.5-dex",
+        "defaultPreview": "2d20kh1+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-2-wis",
+        "defaultPreview": "1d20+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-2-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-2-1-wis",
+        "defaultPreview": "1d20+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 1440,
+        "id": "tool-2-1-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-1.5-1-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 1440,
+        "id": "tool-1.5-1-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "independent-skill-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "independent-skill-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "independent-tool-wis",
+        "defaultPreview": "2d20kl1+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 1440,
+        "id": "independent-tool-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "positive-half-zero-flat-skill",
+        "defaultPreview": "1d20+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 1440,
+        "id": "positive-half-zero-flat-tool",
+        "defaultPreview": "1d20+14",
+        "manualNormal": "1d20+14"
+      },
+      {
+        "width": 1440,
+        "kind": "skill",
+        "clearing": true,
+        "abilityPreservedWhenValid": true,
+        "recoveryFresh": true,
+        "retainedCallbackFenced": true,
+        "secondarySourceLossFenced": true
+      },
+      {
+        "width": 1440,
+        "kind": "tool",
+        "clearing": true,
+        "abilityPreservedWhenValid": true,
+        "recoveryFresh": true,
+        "retainedCallbackFenced": true,
+        "secondarySourceLossFenced": true
+      },
+      {
+        "width": 390,
+        "id": "skill-0-0-wis",
+        "defaultPreview": "2d20kl1+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 390,
+        "id": "skill-0-0-dex",
+        "defaultPreview": "2d20kh1+7",
+        "manualNormal": "1d20+7"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-0-wis",
+        "defaultPreview": "2d20kl1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-0-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 390,
+        "id": "skill-0-0.5-wis",
+        "defaultPreview": "2d20kl1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-0-0.5-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-0.5-wis",
+        "defaultPreview": "1d20+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-0.5-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 390,
+        "id": "skill-1-0.5-wis",
+        "defaultPreview": "1d20+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "skill-1-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-2-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-2-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-2-1-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 390,
+        "id": "skill-2-1-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-1.5-1-wis",
+        "defaultPreview": "1d20+16",
+        "manualNormal": "1d20+16"
+      },
+      {
+        "width": 390,
+        "id": "skill-1.5-1-dex",
+        "defaultPreview": "2d20kh1+11",
+        "manualNormal": "1d20+11"
+      },
+      {
+        "width": 390,
+        "id": "tool-0-0-wis",
+        "defaultPreview": "2d20kl1+14",
+        "manualNormal": "1d20+14"
+      },
+      {
+        "width": 390,
+        "id": "tool-0-0-dex",
+        "defaultPreview": "2d20kh1+9",
+        "manualNormal": "1d20+9"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-0-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-0-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "tool-0-0.5-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-0-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-0.5-wis",
+        "defaultPreview": "1d20+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "tool-1-0.5-wis",
+        "defaultPreview": "1d20+17",
+        "manualNormal": "1d20+17"
+      },
+      {
+        "width": 390,
+        "id": "tool-1-0.5-dex",
+        "defaultPreview": "2d20kh1+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-2-wis",
+        "defaultPreview": "1d20+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-2-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-2-1-wis",
+        "defaultPreview": "1d20+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 390,
+        "id": "tool-2-1-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-1.5-1-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 390,
+        "id": "tool-1.5-1-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "independent-skill-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "independent-skill-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "independent-tool-wis",
+        "defaultPreview": "2d20kl1+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 390,
+        "id": "independent-tool-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "positive-half-zero-flat-skill",
+        "defaultPreview": "1d20+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 390,
+        "id": "positive-half-zero-flat-tool",
+        "defaultPreview": "1d20+14",
+        "manualNormal": "1d20+14"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "clearing": true,
+        "abilityPreservedWhenValid": true,
+        "recoveryFresh": true,
+        "retainedCallbackFenced": true,
+        "secondarySourceLossFenced": true
+      },
+      {
+        "width": 390,
+        "kind": "tool",
+        "clearing": true,
+        "abilityPreservedWhenValid": true,
+        "recoveryFresh": true,
+        "retainedCallbackFenced": true,
+        "secondarySourceLossFenced": true
+      }
+    ],
+    "priorCounts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56
+    }
+  },
+  "isolatedPublicHost": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "qualified-plain-d20-numeric-profile",
+    "equalIndexDiagnostics": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "selectionMismatches": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "caseCount": 1095,
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "manualModeCases": 18,
+    "toolCases": 24,
+    "selectedCases": 152,
+    "histogram": {
+      "adv": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39
+      ],
+      "dis": [
+        39,
+        37,
+        35,
+        33,
+        31,
+        29,
+        27,
+        25,
+        23,
+        21,
+        19,
+        17,
+        15,
+        13,
+        11,
+        9,
+        7,
+        5,
+        3,
+        1
+      ]
+    },
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "semantics": [
+    "Maximum of selected source multipliers; floor once against class proficiency. Both positive prepared proficiencies grant advantage, including half proficiency with zero flat bonus.",
+    "Only primary local/global type plus selected-ability check/global check bonuses and modes/ranges contribute. Secondary contributes proficiency/automatic advantage only.",
+    "Each module choice configures a fresh native-equivalent request using final ability. Native in-place formData ability edits rebuild parts/ranges while retaining process modes; that distinction is tested and not called native UI parity.",
+    "Explicit manual Normal/Advantage/Disadvantage overrides configured automatic/source mode. Clearing secondary/ability restores independent/default, valid ability choice is preserved when clearing secondary.",
+    "Source-only normalized operands in Core-owned prepared revision are shared by default projections, modal intent, previews/shortcuts and adapter; no source mutation or second cache/evaluator.",
+    "Nonpersisted proficiency/mode counts and prepared total/mod/prof/effectValue ignored; invalid identities/options/abilities reject without fallback; current model/revision changes retire all intents."
+  ],
+  "boundaries": [
+    "Only the existing numeric character profile; explicit source entries/proficiency and ability scores required, except proven tool defaults INT/0. No creation of missing skill/tool entries.",
+    "No effects/flags, range execution, proficiency dice, broader expressions, travel pace, Item activities, transformations or legacy expansion. Existing source/profile gates remain.",
+    "Static/passive sheet projections remain independent/default checks. Ephemeral selected rolls do not change a passive score or save choices to source.",
+    "E01 external and wider Q00/E05 open; no new Core dependency established; experimental0.4.1 and compatibility unchanged.",
+    "R source/mounted SDK seam and S extracted native methods/default stubs are not Foundry DataModel/native engine or installed UI/operator acceptance.",
+    "Public host uses temporary config/synthetic transport/users and silent public requests, not installed D&D Actor route/chat/audience/criticals.",
+    "Node24.21.0/npm11.19.0/Core0.19.3/90c13e5; Node22 CI not executed."
+  ],
+  "archive": {
+    "name": "dnd5e-0.4.1.tgz",
+    "sha256": "a0e18f5d77ef21a20f7cfbc31b92d35b6c56677e280350f0468060a2c81a59cc",
+    "entrySha256": {
+      "LICENSE": "08ff80867f8a6a6ace3c6070c8dc4bcded415f7a9e4e7e9798fafe47ccc8c493",
+      "README.md": "b1c03fc54b388fcda7f71008a5ca7dfcb3c8137bfd8edcaa3b1fd53d6318deb0",
+      "info.json": "94f0cc12abaee5bc977a8224a748570dab347c6100142db911ad40617e72ef26",
+      "assets/dnd5e.css": "f5d38c61b4779db4aaa95f149519fcb3e7efcb0be8287b2d6e51826dad582f79",
+      "assets/dnd5e.tailwind.css": "6c8ba48bf016dde32ea2a5608fd444688204a1ca791f2c2c71e28a856b1650c0",
+      "dist/logic.js": "bc8d838936c24d4d02798e7f2911e216969eafd0d61faa274f92362fb0817003",
+      "dist/server.js": "00e76fca554e55e1fe2840a670d1dec0a6878b822cf9f21418641608e8975700",
+      "dist/ui.js": "1ee97d4a456ccef00696291a21819f5712d8ae18c3218cad54d1f8474ad54b86",
+      "assets/fonts/README.md": "fed8ab76384aeb58989b2b5df122742a10f9a154bf73ddf679da8b881f4901e7",
+      "assets/fonts/roboto/OFL.txt": "061402327a96aadb0bfb694a960ed289ecd38d383e396243831ab81feb109c41",
+      "assets/fonts/roboto/Roboto-Variable.ttf": "d7598e12c5dbef095ff8272cfc55da0250bd07fbdecbac8a530b9b277872a134",
+      "assets/fonts/roboto-mono/OFL.txt": "50ab8dd54680d3473f649c9db86fece88434d097c7834475c1c72d2f8c429215",
+      "assets/fonts/roboto-mono/RobotoMono-Variable.ttf": "66a80e79d17e4c7cabd162e2916578a4cc08fd19eef6e2a643305eae9c567b2b",
+      "assets/fonts/roboto-slab/LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "assets/fonts/roboto-slab/RobotoSlab-Variable.ttf": "786ae192477447d33c6672c3055fba7cbfe45184c9a79e77a14f15716ca05b16"
+    }
+  },
+  "artifactHashes": {
+    "tests/fixtures/native-6.0.6/combined-checks.json": "805e32b5d1387f506f5f2100e3de28dea8ac6541b122c5a8525c580c46d9785d",
+    "src/tests/fixtures/combined-scenarios.ts": "38ebe49719a8adbd2a0f1cedfea481e6ee549063f3648dbf4b5d63dd94d729a2",
+    "src/tests/combined-checks.test.ts": "022a0073d82e2f72f9c66af1c3e13e53aac3f5ea484aa76768c8be88841b4a79",
+    "src/logic/preparation/skill-tool.ts": "5239520f01e6d5ed65853b33d14528a70617bd415bdd02e988497a0a3ff109ea",
+    "src/logic/preparation/check-identities.ts": "cd25f83d0f54f79f45676d3c870959b9fb0a2a9cae0836bd41e8069c724d03e3",
+    "src/logic/adapter.ts": "275644a3b912965cd2d374494bdd7cdd57059374e0113e0ac09efd391bea530f",
+    "scripts/native-check-oracle.mjs": "4af98bd21dbebc0550309f60a80ecd3b651c9d6f3159e7b125d46af5d3946c0c",
+    "scripts/test-mounted.mjs": "7b99383333134b2ce0712654a79b20726a5a699bdd5e09d97524508fbfd65a11",
+    "scripts/test-public-rolls.mjs": "d0f10290ba50a07a32602302d5ab2cf79ed2885f0646382837b9de840137e69f",
+    "/tmp/dnd5e-mounted-bA52WJ/fixture.js": "d45c0fb4efcbe5e13c8d90f49ec5ecb6a09e104ff918a400bf67c7964e9b5dbc",
+    "/tmp/dnd5e-mounted-bA52WJ/evidence.json": "e7961c3ea0cdd4b59b891589aa0b655538c3658b4d57a871730a7f0bdbe9d804",
+    "/tmp/dnd5e-public-rolls-VVimUz/observed.json": "a5316f664a70328a1dcd705a3549c25171d3726ac44f9519d6e0fcaa4efba860",
+    "/tmp/dnd5e-public-rolls-VVimUz/evidence.json": "2427340ab5505d06a75e7d2f836a748c7226e011bb23518edd873a8ca5ff8fe8",
+    "temp/c11-before.log": "c782b8d84f45119dabc0e55beadd914c99ed60ec09dd374747a8433fc4465e61"
+  },
+  "taskServicesRetained": false,
+  "priorWorkspaceArchive": {
+    "name": "dnd5e-0.4.1.tgz",
+    "sha256": "4e53fecb0d670aaffafca853e3260edc89acce2879702c5614d65b4e5b04dbf9",
+    "entrySha256": {
+      "LICENSE": "08ff80867f8a6a6ace3c6070c8dc4bcded415f7a9e4e7e9798fafe47ccc8c493",
+      "README.md": "b1c03fc54b388fcda7f71008a5ca7dfcb3c8137bfd8edcaa3b1fd53d6318deb0",
+      "info.json": "94f0cc12abaee5bc977a8224a748570dab347c6100142db911ad40617e72ef26",
+      "assets/dnd5e.css": "f5d38c61b4779db4aaa95f149519fcb3e7efcb0be8287b2d6e51826dad582f79",
+      "assets/dnd5e.tailwind.css": "88710c93054519fa7c37e7ed862778d3bcbf7598a9f0033bdef1af735d6bac08",
+      "dist/logic.js": "dd60ff04e82ed07ab7fdcff62eab6321f8fd2d81f50557a201fb974ed9c4948f",
+      "dist/server.js": "ec693ebfcdc4c7fe388f71311324b510afa27ec476351c2970bd87106c4a3cca",
+      "dist/ui.js": "44f389ed5ac539df6c4d654ec71fa23566da4b434f57e191fbda46112fd89fdb",
+      "assets/fonts/README.md": "fed8ab76384aeb58989b2b5df122742a10f9a154bf73ddf679da8b881f4901e7",
+      "assets/fonts/roboto/OFL.txt": "061402327a96aadb0bfb694a960ed289ecd38d383e396243831ab81feb109c41",
+      "assets/fonts/roboto/Roboto-Variable.ttf": "d7598e12c5dbef095ff8272cfc55da0250bd07fbdecbac8a530b9b277872a134",
+      "assets/fonts/roboto-mono/OFL.txt": "50ab8dd54680d3473f649c9db86fece88434d097c7834475c1c72d2f8c429215",
+      "assets/fonts/roboto-mono/RobotoMono-Variable.ttf": "66a80e79d17e4c7cabd162e2916578a4cc08fd19eef6e2a643305eae9c567b2b",
+      "assets/fonts/roboto-slab/LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "assets/fonts/roboto-slab/RobotoSlab-Variable.ttf": "786ae192477447d33c6672c3055fba7cbfe45184c9a79e77a14f15716ca05b16"
+    }
+  },
+  "baselineVerification": {
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "fixture": "/tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "fixtureTrackedTree": "clean",
+    "checkout": "Offline disposable shared clone at pinned commit; original Core checkout read-only",
+    "dependencies": "Existing node_modules/.managed referenced read-only; no .env/root settings used",
+    "reason": "Unrelated concurrent Core maintenance edits observed; preserved and excluded from final contract qualification",
+    "commands": {
+      "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core": "PASS33/14",
+      "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core": "PASS106",
+      "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core": "PASS1095/40 diagnostics",
+      "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core": "PASS public boundaries/types/bundles/archive15"
+    },
+    "packageDifference": "Earlier workspace archive retained separately. Different build roots change generated JS source comments; clean Tailwind includes additional .rounded utility. Final pristine-baseline artifact and entry hashes recorded; byte identity is not claimed."
+  }
+}

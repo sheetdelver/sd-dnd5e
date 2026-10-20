@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. RV04 verifies the slice; DD-R06 preview correction accompanies combined tools/alternate abilities. Effects, expressions and ranges remain open | RV01–RV04 retained; C06–C09 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected combined checks/alternate abilities within the numeric source profile. Effects, expressions and ranges remain open | RV01–RV04 retained; C06–C11 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -649,3 +649,39 @@ mounted module regressions with the SDK presentation seam, not installed UI or
 native/operator acceptance. DD-R06 is corrected (DD-24/27/34, A02/A18 partial);
 DD-R01–DD-R05 remain covered. No Core/rules/serialization change or full gate
 closure. Continue combined-check/alternate-ability qualification; ADR-0001 open.
+
+### C11 — Selected skill/tool checks and alternate abilities (2026-10-20)
+
+Review checkpoint `e9be054`; DD-R06 correction `508369f`. The saved C11 ADR
+precedes substantive changes. C11 advances DD-02/24/27/34 and A02/A18 within
+M2/Q00. Of the original36 independent requests,34 failed before and pass after;
+38 final cases compare with exact87e94db native dispatch/preparation/builders.
+
+One source-only prepared operand model now serves independent projections and
+configured execution. A skill may select a tool, a tool may select a skill, and
+either may select a supported source ability. Proficiency is the larger selected
+multiplier, rounded down once against class proficiency. Both positive selected
+proficiencies grant advantage, including half proficiency with a zero flat bonus.
+Only the primary local/global type and selected-ability/global-check scopes
+supply numeric bonuses/modes/ranges. A secondary check does not add its bonus,
+mode, ability or range. Automatic advantage cancels source disadvantage; manual
+buttons remain explicit overrides. Source and nonpersisted-field boundaries hold.
+
+Each module selection previews a freshly configured native-equivalent request
+using the final ability. Exact native in-place formData ability edits instead
+rebuild parts/ranges while retaining process mode; that phase difference is
+compared separately, not represented as native dialog parity. The shared modal
+shows the selected ability, combined source mode and unavailable reasons.
+Clearing selections restores independent/default checks, retains still-valid
+ability choices, and never persists roll choices. Actor/context changes retire
+whole dialogs/callbacks; recovery starts with current, empty selections.
+
+The [C11 ledger](../plans/0001-verification.md#c11--selected-checks-and-alternate-abilities-2026-10-20)
+and [portable record](../audits/evidence/2026-10-20-c11-selections.json) distinguish
+R, S, mounted and isolated-host evidence. Effects/flags, range execution,
+proficiency dice, expressions, pace, Item activities and general legacy expansion
+remain unavailable. E01 and wider Q00/E05 remain open. No full DD/A/M gate closes;
+ADR-0001 and native/operator acceptance remain open, experimental0.4.1 unchanged.
+Next executable M2/Q00 package: independent effect eligibility/phase-order and
+numeric proficiency/check-bonus fixtures, then the first qualified shared effect
+slice. Apply Q02a to unsupported filters; do not invent a Core dependency.

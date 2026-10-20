@@ -13,7 +13,7 @@ export default function Tools({ onRoll }: {onRoll?: (type:string,key:string,opti
     const preparation = actor?.derived.toolPreparation as {reason?:string} | undefined;
     return <section className="block-card" aria-label="Tool checks">
         <h3>Tool checks</h3>
-        <p style={{fontSize:'11px'}}>Independent checks. Combined skill/tool checks and alternate abilities are unavailable.</p>
+        <p style={{fontSize:'11px'}}>Choose a skill or ability in the roll dialog. Shift-click uses the independent default.</p>
         {preparation?.reason && <p role="status">{preparation.reason}</p>}
         {!preparation?.reason && !Object.keys(tools).length && <p>No tool checks in actor source.</p>}
         {Object.values(tools).map(tool => <div key={tool.key} style={{marginBottom:'8px'}}>

@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import RollModalFrame, { ConfigRow, AdvantageButton, inputStyle, selectStyle } from './RollModalFrame';
+import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 
 /**
  * RollModal — pre-flight dialog for any roll, modeled on the Foundry dnd5e
@@ -38,7 +39,7 @@ export interface ConfigField {
     key: string;
     label: string;
     initialValue: string;
-    options: { value: string; label: string }[];
+    options: { value: string; label: string; disabled?:boolean }[];
 }
 
 /**
@@ -74,6 +75,7 @@ export interface RollModalProps {
     /** Shared prepared-rule compiler; null disables unsupported choices. */
     preparedDefaultMode?: -1 | 0 | 1;
     resolveFormula?: (options: Record<string, unknown>) => string | null;
+    resolveCheck?: (options:Record<string,unknown>)=>{sourceMode?:-1|0|1;unavailableReason?:string;ability?:string;label?:string}|undefined;
     /** Placeholder text for the situational bonus input. */
     bonusPlaceholder?: string;
     /** Roll-type-specific dropdowns (e.g. Abilities, Attack Mode). */
@@ -92,7 +94,8 @@ export default function RollModal({
     formula,
     computeFormula,
     resolveFormula,
-    preparedDefaultMode = 0,
+    resolveCheck,
+    preparedDefaultMode: initialDefaultMode = 0,
     bonusPlaceholder = 'Situational Bonus?',
     configFields = [],
     onConfirm,
@@ -107,6 +110,8 @@ export default function RollModal({
     const [configValues, setConfigValues] = useState<Record<string, string>>(() =>
         Object.fromEntries(configFields.map(f => [f.key, f.initialValue]))
     );
+    const configured=resolveCheck?.(configValues);
+    const preparedDefaultMode=configured?.sourceMode??initialDefaultMode;
 
     // Live formula recompute. If the call site passed `computeFormula`, use it
     // (skill ability swap, attack-mode-aware formulas, etc.). Otherwise, just
@@ -137,7 +142,7 @@ export default function RollModal({
     };
 
     return (
-        <RollModalFrame title={label ?? 'Roll'} subtitle={subtitle} onClose={onClose}>
+        <RollModalFrame title={configured?.label && configured.ability ? `${ABILITY_FULL_NAME[configured.ability]??configured.ability} (${configured.label}) Check` : label ?? 'Roll'} subtitle={subtitle} onClose={onClose}>
             {/* Formula row — live updates with bonus + config */}
             <div style={{
                 display: 'flex',
@@ -154,7 +159,7 @@ export default function RollModal({
                     color: 'var(--text-primary)',
                     fontVariantNumeric: 'tabular-nums',
                 }}>
-                    {displayedFormula ?? 'Unavailable: situational bonus outside the supported numeric profile'}
+                    {displayedFormula ?? `Unavailable: ${configured?.unavailableReason??'situational bonus outside the supported numeric profile'}`}
                 </span>
                 <span style={{
                     fontSize: '11px',
@@ -209,11 +214,12 @@ export default function RollModal({
                     <ConfigRow key={field.key} label={field.label}>
                         <select
                             value={configValues[field.key]}
+                            aria-label={field.label}
                             onChange={e => setConfigValues(prev => ({ ...prev, [field.key]: e.target.value }))}
                             style={selectStyle}
                         >
                             {field.options.map(opt => (
-                                <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                <option key={opt.value} value={opt.value} disabled={opt.disabled}>{opt.label}</option>
                             ))}
                         </select>
                     </ConfigRow>

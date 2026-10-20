@@ -18,6 +18,7 @@ writeFileSync(driver, `import { DnD5eAdapter } from ${JSON.stringify(join(module
 import { skillContext, skillSource, unavailableContexts, setSkillRoll, rollScopes } from ${JSON.stringify(join(moduleRoot, 'src/tests/fixtures/skill-scenarios.ts'))};
 import { abilityCases, abilitySource } from ${JSON.stringify(join(moduleRoot, 'src/tests/fixtures/ability-scenarios.ts'))};
 import { toolCases, toolSource } from ${JSON.stringify(join(moduleRoot, 'src/tests/fixtures/tool-scenarios.ts'))};
+import { combinedCases, combinedSource } from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/combined-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -59,10 +60,14 @@ for(const path of ['tools.thief.roll','abilities.dex.check.roll','rolls.ability.
 for(const patch of [{value:'1'},{ability:'missing'},{roll:{bonus:'1d4'}},{roll:{mode:2}}]){const actor=toolSource();Object.assign(actor.system.tools.thief,patch);tools['malformed-'+JSON.stringify(patch)]=prepare(actor);}
 const effectTool=toolSource();effectTool.effects=[{disabled:false}];tools.effect=prepare(effectTool);
 const toolModes=[];for(const mode of [-1,0,1]){const actor=toolSource();setSkillRoll(actor,'tools.thief.roll',{mode:mode===0?1:mode});if(mode===0)setSkillRoll(actor,'rolls.ability.tool',{mode:-1});toolModes.push({actor:adapter.prepareActorData(actor,{...skillContext(),sourceRevision:200+mode}),mode,formula:(mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20')+'+5'});}
-process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes}));`);
+const combinations=combinedCases.map(row=>({...row,actor:prepare(combinedSource(row))}));
+const combinedUnavailable=unavailableContexts().map(({id,context})=>({id,actor:prepare(combinedSource(combinedCases[8]),context)}));
+const removed=combinedSource(combinedCases[8]);delete removed.system.tools.thief;combinedUnavailable.push({id:'selected-tool-removed',actor:prepare(removed)});
+const removedSkill=combinedSource(combinedCases[8]);delete removedSkill.system.skills.prc;combinedUnavailable.push({id:'selected-skill-removed',actor:prepare(removedSkill)});
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable}));`);
 const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8' });
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -71,7 +76,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -292,12 +297,69 @@ try {
         await page.evaluate(actor=>window.skillFixture.render(actor,'tool'),tools.supported);
         assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld({advantage:'adv'})),'retired');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
         toolRows.push({width,retainedCallbackFencedAcrossRecovery:true});
+        await render(combinations[8].actor);await tab('Skills');
+        const combinedControl=kind=>kind==='skill'?skill:toolControl;
+        for(const row of combinations) {
+            await render(row.actor);await combinedControl(row.kind).click();
+            const dialog=page.locator('dialog[open]');
+            await dialog.getByRole('combobox',{name:row.kind==='skill'?'Combine with tool':'Combine with skill',exact:true}).selectOption(row.combined?(row.kind==='skill'?'thief':'prc'):'');
+            await dialog.getByRole('combobox',{name:'Check ability',exact:true}).selectOption(row.ability);
+            await page.mouse.move(0,0);
+            const expected=(row.expectedMode===1?'2d20kh1':row.expectedMode===-1?'2d20kl1':'1d20')+'+'+row.expectedTotal;
+            assert.ok((await dialog.innerText()).includes(expected),row.id+' preview');
+            assert.ok((await dialog.getByRole('heading').innerText()).includes(row.ability==='dex'?'Dexterity':'Wisdom'),'Selected ability updates heading');
+            await dialog.getByRole('button',{name:'Normal',exact:true}).click();
+            const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));assert.equal(calls.length,1);
+            assert.equal(calls[0].formula,'1d20+'+row.expectedTotal);assert.equal(calls[0].options.ability,row.ability);
+            combinationRows.push({width,id:row.id,defaultPreview:expected,manualNormal:calls[0].formula});
+        }
+        for(const kind of ['skill','tool']) {
+            const actor=combinations[8].actor;await render(actor);await combinedControl(kind).click();
+            const dialog=page.locator('dialog[open]'),secondary=dialog.getByRole('combobox',{name:kind==='skill'?'Combine with tool':'Combine with skill',exact:true}),ability=dialog.getByRole('combobox',{name:'Check ability',exact:true});
+            await secondary.selectOption(kind==='skill'?'thief':'prc');await ability.selectOption('wis');await page.mouse.move(0,0);
+            assert.ok((await dialog.innerText()).includes(kind==='skill'?'1d20+15':'1d20+17'));
+            await secondary.selectOption('');assert.ok((await dialog.innerText()).includes('2d20kl1+15'),'Clearing secondary removes automatic advantage and uses primary proficiency');
+            await ability.selectOption('');assert.ok((await dialog.innerText()).includes(kind==='skill'?'2d20kl1+15':'2d20kh1+10'),'Default ability restored');
+            await secondary.selectOption(kind==='skill'?'thief':'prc');await ability.selectOption('dex');
+            await secondary.selectOption('');assert.equal(await ability.inputValue(),'dex','Valid independent ability choice remains valid');
+            await secondary.selectOption(kind==='skill'?'thief':'prc');
+            await dialog.getByRole('button',{name:'Disadvantage',exact:true}).focus();
+            assert.ok((await dialog.innerText()).includes(kind==='skill'?'2d20kl1+10':'2d20kl1+12'));
+            await page.keyboard.press('Enter');const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));
+            assert.equal(calls[0].formula,kind==='skill'?'2d20kl1+10':'2d20kl1+12');
+            for(const state of combinedUnavailable.filter(state=>state.id!==('selected-'+(kind==='skill'?'skill':'tool')+'-removed'))) {
+                await render(actor);await combinedControl(kind).click();
+                await page.getByRole('combobox',{name:kind==='skill'?'Combine with tool':'Combine with skill',exact:true}).selectOption(kind==='skill'?'thief':'prc');
+                await render(state.actor);await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
+                assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+                await render(actor);await combinedControl(kind).click();
+                assert.equal(await page.getByRole('combobox',{name:kind==='skill'?'Combine with tool':'Combine with skill',exact:true}).inputValue(),'','Recovery starts fresh');
+                await page.getByRole('button',{name:'Close',exact:true}).click();
+            }
+            const probe=kind==='skill'?true:'tool';
+            await page.evaluate(({actor,probe})=>window.skillFixture.render(actor,probe),{actor,probe});
+            await combinedControl(kind).click();await page.evaluate(()=>window.skillFixture.hold());
+            await page.evaluate(({actor,probe})=>window.skillFixture.render(actor,probe),{actor:combinedUnavailable[0].actor,probe});
+            await page.evaluate(({actor,probe})=>window.skillFixture.render(actor,probe),{actor,probe});
+            assert.equal(await page.evaluate(kind=>window.skillFixture.submitHeld({ability:'dex',...(kind==='skill'?{tool:'thief'}:{skill:'prc'}),advantage:'adv'}),kind),'retired');
+            assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+            // The same retained callback must retire on secondary source loss
+            // even with the same world/context/revision fixture numbers.
+            await combinedControl(kind).click();await page.evaluate(()=>window.skillFixture.hold());
+            const removedSecondary=combinedUnavailable.find(state=>state.id==='selected-'+(kind==='skill'?'tool':'skill')+'-removed').actor;
+            await page.evaluate(({actor,probe})=>window.skillFixture.render(actor,probe),{actor:removedSecondary,probe});
+            await page.evaluate(({actor,probe})=>window.skillFixture.render(actor,probe),{actor,probe});
+            assert.equal(await page.evaluate(kind=>window.skillFixture.submitHeld({ability:'dex',...(kind==='skill'?{tool:'thief'}:{skill:'prc'}),advantage:'adv'}),kind),'retired');
+            assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+            combinationRows.push({width,kind,clearing:true,abilityPreservedWhenValid:true,recoveryFresh:true,retainedCallbackFenced:true,secondarySourceLossFenced:true});
+            await render(actor);await tab('Skills');
+        }
         assert.deepEqual(errors, []);
         await context.close();
     }
     writeFileSync(join(artifacts, 'focus.json'),JSON.stringify(focusRows,null,2));
     for(const row of focusRows)assert.equal(row.afterPointerLeaves,'2d20kh1+5','DD-R06/'+row.width+'; artifacts '+artifacts);
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows }, null, 2));
-    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases and retained-callback fences PASS; artifacts ${artifacts}\n`);
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows }, null, 2));
+    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }

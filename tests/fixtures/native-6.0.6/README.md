@@ -98,3 +98,17 @@ workflow, not completed combined checks or effect support. Module regressions
 cover poisoned fields, source preservation, bounds, malformed data and recovery.
 Mounted consumers cover both layouts; public-host cases add24 tool requests.
 All evidence limits in C08 continue to apply.
+
+C11 `combined-checks.json` distinguishes fresh selected requests from native
+in-place dialog edits.38 independent cases use asymmetric primary/secondary and
+ability scopes, including half proficiency with zero flat bonus. Original36
+cases first failed34 module requests; all now pass. The native harness extracts
+#rollSkillTool/_buildSkillToolConfig and BasicRoll.constructParts into controlled
+classes, prepares numeric proficiency with explicit defaults, captures request
+parts/data without dice evaluation, and checks324 source/automatic combinations.
+The six ability-dialog choices use an explicit empty-base/StringField stub.
+Native formData ability changes retain process mode; fresh module requests use
+final ability for mode and parts. These are separately tested phases. Poison,
+invalid/missing choices, clearing and source/context recovery remain maintained
+regressions. Public-host152 selected requests supplement the plain-d20 qualifier;
+mounted module consumers cover both layouts, not installed Core/native UI.

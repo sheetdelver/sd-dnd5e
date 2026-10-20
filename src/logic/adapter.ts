@@ -19,7 +19,9 @@ import { decodeActor606 } from './native/6.0.6/source';
 import { prepareNumericSkills606, numericSkillRoll, unavailableSkillChecks, type PreparedSkill } from './preparation/skills';
 import { d20RangeReason, skillRollScopes, abilityRollScopes, numericD20Roll, independentD20Options } from './preparation/d20-configuration';
 import { prepareNumericAbilities606, type PreparedNumericAbility } from './preparation/abilities';
-import { prepareNumericTools606, type PreparedTool } from './preparation/tools';
+import { prepareNumericTools606 } from './preparation/tools';
+import { SKILL_LABELS } from './preparation/check-identities';
+import { prepareSkillToolModel606, configureSkillToolCheck, skillToolRoll, type SkillToolModel } from './preparation/skill-tool';
 import { characterFacts606, characterFactsProjection } from './preparation/character-profile';
 
 // ---------------------------------------------------------------------------
@@ -75,14 +77,7 @@ const ABILITY_LABELS: Record<string, string> = {
     int: 'Intelligence', wis: 'Wisdom', cha: 'Charisma',
 };
 
-export const SKILL_LABELS: Record<string, string> = {
-    acr: 'Acrobatics',   ani: 'Animal Handling', arc: 'Arcana',
-    ath: 'Athletics',    dec: 'Deception',        his: 'History',
-    ins: 'Insight',      itm: 'Intimidation',     inv: 'Investigation',
-    med: 'Medicine',     nat: 'Nature',            prc: 'Perception',
-    prf: 'Performance',  per: 'Persuasion',        rel: 'Religion',
-    slt: 'Sleight of Hand', ste: 'Stealth',        sur: 'Survival',
-};
+export { SKILL_LABELS } from './preparation/check-identities';
 
 type RaceRecord = {
     name: string;
@@ -133,12 +128,14 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             // Schema context readiness does not qualify the old numeric projection.
             preparation: 'legacy-projection-unqualified' };
         const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
-        const tools = prepareNumericTools606(actor,rules);
+        const checkModel = prepareSkillToolModel606(actor,rules);
+        prepared.derived.checkConfiguration = checkModel;
+        const tools = prepareNumericTools606(actor,rules,checkModel);
         prepared.derived.tools = tools.checks;
         prepared.derived.toolPreparation = {status:tools.status,reason:tools.reason};
         if (!selectedLegacy) {
             prepared.derived.abilities = prepareNumericAbilities606(actor, rules);
-            const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules)
+            const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules,checkModel)
                 : unavailableSkillChecks(actor, `Skill rules context unavailable: ${rules.reason ?? 'unknown profile'}`);
             prepared.derived.skillChecks = skills;
             prepared.derived.skills = Object.fromEntries(Object.entries(skills).map(([key, skill]) => [key, { ...skill, label: SKILL_LABELS[key] ?? key }]));
@@ -259,11 +256,13 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const lifecycle = actor.derived.lifecycle as { status?: string; profile?: string } | undefined;
         const selectedLegacy = lifecycle?.status === 'supported' && lifecycle.profile === 'legacy-limited';
         if (selectedLegacy && ['ability','save','skill'].includes(type) && !independentD20Options(_options)) return null;
-        if (type === 'tool') {
+        if (!selectedLegacy && (type === 'skill' || type === 'tool')) {
             if (lifecycle?.status !== 'supported' || lifecycle.profile !== '2024') return null;
-            const check = (actor.derived.tools as Record<string, PreparedTool> | undefined)?.[key];
-            const formula = numericD20Roll(check,_options);
-            return formula && check ? {formula,label:`${check.label} Check`} : null;
+            const model = actor.derived.checkConfiguration as SkillToolModel | undefined;
+            if (!model) return null;
+            const check = configureSkillToolCheck(model,type,key,_options);
+            const formula = skillToolRoll(model,type,key,_options);
+            return formula ? {formula,label:`${check.label} Check`} : null;
         }
         if (['ability', 'save', 'skill'].includes(type) && !selectedLegacy
             && (lifecycle?.status !== 'supported' || lifecycle.profile !== '2024')) return null;

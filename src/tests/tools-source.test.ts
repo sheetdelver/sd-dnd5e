@@ -69,16 +69,16 @@ for(const value of [null,[],true,'tool']) {
     assert.match(check(prepare(source)).unavailableReason,/entry malformed/);
 }
 const missing=toolSource(); delete (missing.system as any).abilities.dex;
-assert.match(check(prepare(missing)).unavailableReason,/ability source score unavailable/);
+assert.match(check(prepare(missing)).unavailableReason,/ability source score unavailable/i);
 for(const key of ['Thieves\' tools','unknown','toString','__proto__']) {
     const source=toolSource();(source.system as any).tools=JSON.parse(JSON.stringify({[key]:{ability:'dex',value:1}}));
     assert.equal(adapter.getRollData(prepare(source),'tool',key),null,'Names and unknown keys never become rule identity');
 }
 assert.equal(Object.keys(TOOL_LABELS_606).length,40);
-for (const options of [{skill:'prc'},{tool:'thief'},{pace:'slow'},{ability:'str'},{situationalBonus:'1d4'},{situationalBonus:'1+2'},{situationalBonus:'1000000001'}]) {
+for (const options of [{skill:'missing'},{tool:'missing'},{pace:'slow'},{ability:'str'},{situationalBonus:'1d4'},{situationalBonus:'1+2'},{situationalBonus:'1000000001'}]) {
     assert.equal(adapter.getRollData(baseline,'tool','thief',options),null);
 }
-assert.equal(adapter.getRollData(baseline,'skill','prc',{tool:'thief'}),null,'Combined skill/tool must not lose native benefit');
+assert.equal(adapter.getRollData(baseline,'skill','prc',{tool:'missing'}),null,'Unavailable selected tool cannot fall back');
 const legacy=skillWorld();(legacy.settings as any)['dnd5e.rulesVersion']={status:'world',value:'legacy'};
 assert.equal(adapter.getRollData(prepare(toolSource(),skillContext(legacy)),'tool','thief'),null);
 assert.equal(adapter.getRollData(prepare(toolSource(),skillContext(legacy)),'skill','prc',{tool:'thief'}),null,'Legacy does not add combined checks');

@@ -11,10 +11,11 @@ confirms DD-R05's bounded correction and the independent source tool checks.
 Fresh offline, mounted, isolated public-host and packaging checks pass; all 15
 regular archive entries match the reported package. DD-R01–DD-R04 remain covered.
 
-**DD-R06 (low)**: mouse leave clears a still-focused mode button's preview.
+**DD-R06 (low; corrected in C10 below)**: RV04 found that mouse leave cleared a
+still-focused mode button's preview.
 At both tested widths, a focused Advantage button shows `1d20+5` after pointer
-exit but Enter submits the correct `2d20kh1+5`. Correct focus/hover preview
-coordination with a mounted regression in the next M2 package. This is a module
+exit but Enter submits the correct `2d20kh1+5`. C10 corrects focus/hover preview
+coordination with maintained mounted coverage. This is a module
 presentation issue, not a calculation or Core-contract blocker. Combined
 skill/tool and alternate-ability qualification can proceed alongside it.
 See the report and [portable evidence](evidence/2026-10-20-c08-c09-review.json).
@@ -333,3 +334,24 @@ mounted module regressions with the SDK presentation seam, not installed UI or
 native/operator acceptance. DD-R06 is corrected (DD-24/27/34, A02/A18 partial);
 DD-R01–DD-R05 remain covered. No Core/rules/serialization change or full gate
 closure. Continue combined-check/alternate-ability qualification; ADR-0001 open.
+
+### C11 — Selected check qualification and implementation (2026-10-20)
+
+C10 (`508369f`) corrects DD-R06; DD-R01–DD-R05 remain covered. C11 advances
+DD-02/24/27/34 and A02/A18 with shared source-only skill/tool combinations and
+alternate abilities. Original36 independent inputs first failed34 requests.
+Final38 native builds include fractional/expertise and positive-half/zero-flat
+cases;324 automatic/source combinations and114 manual numeric-bonus cases pass.
+Only primary bonus/mode scopes contribute; selected resource poison or unused
+bonus/range/mode fields do not become overrides. Requested invalid identities
+never fall back to independent checks. Both layouts use one shared model/compiler.
+
+Mounted80 selected cases plus earlier protections and DD-R06 pass; public-host
+1095 requests preserve strict plain-d20 equivalence and40 diagnostic equal-index
+differences with host serialization unchanged. Full checks/package pass; see the
+[ledger](../plans/0001-verification.md) and [C11 record](evidence/2026-10-20-c11-selections.json).
+Native source/preparation/request construction, the native in-place dialog phase,
+mounted SDK seam and isolated public host remain separate evidence. No installed
+UI/native/operator or release acceptance. Effects/flags/ranges/dice/expressions/
+pace/Item activities/legacy expansion, E01 and wider Q00/E05 remain open. Continue
+independent effect eligibility/phase-order and numeric modifier work in M2/Q00.

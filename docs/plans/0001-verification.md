@@ -612,3 +612,89 @@ mounted module regressions with the SDK presentation seam, not installed UI or
 native/operator acceptance. DD-R06 is corrected (DD-24/27/34, A02/A18 partial);
 DD-R01–DD-R05 remain covered. No Core/rules/serialization change or full gate
 closure. Continue combined-check/alternate-ability qualification; ADR-0001 open.
+
+### C11 — Selected checks and alternate abilities (2026-10-20)
+
+RV04 review checkpoint `e9be054f41d689294aca4e8e48715ba2319a99c9`;
+DD-R06 corrective implementation `508369f1af77cc38f7f555aa8c61dd3105452dfc`.
+ADR saved before substantive C11 revision. DD-R01–DD-R06 remain covered.
+
+- **Independent before/after R:**36 original asymmetric selected requests were
+  authored before implementation and compared against exact native methods.
+  The module first failed34, then passed the same requests. Two later edge
+  cases independently qualify positive half proficiency with zero flat bonus.
+  Final38 cases,114 manual numeric-bonus choices and324 combined source-mode
+  cases pass. Poisoned nonpersisted/prepared fields cannot override source;
+  current invalid/missing identities/abilities/options reject without fallback.
+  Secondary local/global bonuses, modes and ranges remain unused, as native.
+- **S:** `npm run test:native-source -- --native ../../../../temp/dnd5e` passes
+  exact2242 records/591 candidate expressions at87e94db. `npm run
+  test:native-checks -- --native ../../../../temp/dnd5e --write-evidence
+  temp/c11-native.json` passes prior16 ability phases/81 skill modes-passives/
+  800 ordered selections/9 manual overrides/8 tool totals/81 tool modes/20
+  intermediate combinations, plus38 selected request builds,324 auto/source
+  combinations and6 ability-dialog choices. Exact #rollSkillTool,
+  _buildSkillToolConfig, preparation/proficiency, BasicRoll.constructParts,
+  D20 combination and relevant dialog methods are exercised. Initialized plain
+  models, empty AppliedRules preserving supplied source parts/counts/ranges,
+  absent travel/effects/flags/conditions/transforms and build capture are stubs.
+  No native dice evaluation, Document/DataModel or browser lifecycle is proved.
+- **Phase distinction:** module selectors configure a fresh request with final
+  ability for modifier, ability bonus/mode/range. Native in-place dialog ability
+  edits rebuild parts/ranges while retaining initial process mode. Both are
+  compared separately. The module is not claiming native dialog identity.
+- **Mounted R:** `npm run test:mounted -- --browser-tools /tmp/sd-dice-preview-tools
+  --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell`
+  passes50 transitions/8 previews/16 facts/18 modes/56 tools,80 selected-check
+  cases and stale callbacks, plus DD-R06 focus/hover/blur restoration, at1440/390.
+  Selected ability headings/previews/direct requests agree. Clearing selectors
+  restores independent/default; a valid ability remains selected when clearing
+  the secondary. Source/context loss retires dialogs/callbacks; recovery has
+  empty selections and dispatches no prior roll. Playwright1.56.1/Chromium
+  143.0.7499.4; all network intercepted; actual consumers with SDK presentation
+  seam, not installed Core/native UI acceptance.
+- **Isolated public host:** `npm run test:public-rolls` passes1095 requests,
+  including152 new selected/default/manual/numeric-bonus cases. Ordered faces,
+  exact entropy use, retained value/count, consistent flags, totals, unequal
+  identity and full plain-d20 distributions remain strict.40 equal-index
+  diagnostics and actual serialization remain unchanged. Public player login,
+  request-bound silent rolls, temporary config and synthetic loopback transport
+  on Core0.19.3/90c13e5; no live Foundry/full D&D Actor route/chat/audience or
+  critical/native/operator acceptance.
+- **Maintained checks:** `npm test` passes33 tooling assertions/14 module suites;
+  `npm run typecheck` explicitly checks106 module/UI/server/hook/test/browser
+  files. The final combined-check suite also passes when run directly via
+  `node ../../../../node_modules/tsx/dist/cli.mjs --tsconfig ../../../../tsconfig.json
+  src/tests/combined-checks.test.ts`. `npm run check:package` passes public
+  boundaries, managed typing and logic/UI/server bundles. Archive15 regular
+  files; no test fixtures. SHA256
+  `a0e18f5d77ef21a20f7cfbc31b92d35b6c56677e280350f0468060a2c81a59cc`.
+  Node24.21.0/npm11.19.0; CI's Node22 not executed.
+
+[Portable C11 evidence](../audits/evidence/2026-10-20-c11-selections.json) records
+observations, before failures, fixture/script hashes and all15 archive entry
+hashes. Local artifacts: /tmp/dnd5e-mounted-bA52WJ,
+/tmp/dnd5e-public-rolls-VVimUz, /tmp/dnd5e-package-MCabgW; exact native observation
+temp/c11-native.json. Services stopped after fixtures. These artifact references
+are supplemental; tracked cases and summaries are self-contained.
+
+Completed bounded selected-check behavior advances DD-02/24/27/34 and A02/A18;
+no full DD/A/M gate closes. Effects/flags, range execution, proficiency dice,
+expressions, pace, Item activities, transformations and general legacy expansion
+remain unavailable. E01 and wider Q00/E05 stay open. Next M2/Q00 package:
+independent effect eligibility/phase-order and numeric proficiency/check-bonus
+fixtures, then the first qualified shared effect slice, with Q02a unsupported
+filters explicit. Experimental0.4.1/compatibility unchanged; ADR-0001 open.
+
+Final baseline isolation: unrelated concurrent Core maintenance edits were
+observed and preserved. Offline temporary checkout
+`/tmp/dnd5e-core-baseline-iDcWjQ/core` is pristine at90c13e5. Final `npm test`,
+`npm run typecheck`, `npm run test:public-rolls` and `npm run check:package`
+were rerun with `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` and passed
+33/14,106,1095/40 and public boundaries/types/bundles/archive15 respectively.
+Dependencies/managed aliases remain read-only; synthetic transport/config only.
+The final archive above is from that pristine baseline. The earlier workspace
+archive is retained in evidence; build-root JS comments and one Tailwind utility
+differ, so byte identity is not claimed. No Core source was changed by this task.
+Both secondary source-loss directions retire callbacks even at unchanged fixture
+revision numbers; final mounted80 cases include those fences.

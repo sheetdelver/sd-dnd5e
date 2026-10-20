@@ -23,10 +23,10 @@ const getProperty = (value, path) => typeof path === 'string' ? path.split('.').
 const merge = (target, input) => { for (const [key, value] of Object.entries(input)) {
     if (value && typeof value === 'object' && !Array.isArray(value)) target[key] = merge(target[key] ?? {}, value); else target[key] = value;
 } return target; };
-const sandbox = { foundry: { utils: { getProperty, getType: value => value && typeof value === 'object' ? 'Object' : typeof value, mergeObject: merge } },
+const sandbox = { foundry: { utils: { getProperty, getType: value => value && typeof value === 'object' ? 'Object' : typeof value, mergeObject: merge, deepClone: structuredClone, setProperty:(obj,path,value)=>{const keys=path.split('.');let cursor=obj;for(const key of keys.slice(0,-1))cursor=cursor[key]??={};cursor[keys.at(-1)]=value;} } },
     dnd5e: { settings: { proficiencyModifier: 'bonus', rulesVersion: 'modern' } },
     CONFIG: { DND5E: { skillPassive: {base:10,modifier:5}, maxAbilityScore: 30, abilities: Object.fromEntries(['str','dex','con','int','wis','cha'].map(key => [key, { type: ['str','dex','con'].includes(key) ? 'physical' : 'mental' }])) } },
-    AppliedRules: { collect: () => ({ filterWith: () => ({ toFormula: () => '', toAdvantageCounts: () => ({}) }) }) },
+    AppliedRules: { collect: () => ({ filterWith: () => ({ toFormula: (parts=[]) => parts.join(' + '), toAdvantageCounts: (counts={}) => counts, resolve: () => ({toSmallest:value=>value,toLargest:value=>value}) }) }) },
     _loc: value => value,
     console: { error: () => { throw new Error('Unqualified formula evaluation reached native oracle'); } },
 };
@@ -47,7 +47,16 @@ class D20RollModificationField { ${member('module/data/shared/d20-roll-modificat
 ${member('module/data/shared/d20-roll-modification-field.mjs', 'D20RollModificationField', '#makeRulesIterator')} }
 class D20Dialog { ${['_prepareButtonsContext','_finalizeConfig'].map(name => member('module/applications/dice/d20-configuration-dialog.mjs','D20RollConfigurationDialog',name)).join('\n')} }
 class BasicDie { ${['expandAdvantage','advantage'].map(name => member('module/dice/basic-die.mjs', 'BasicDie', name)).join('\n')} }
-globalThis.native = { CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, D20Dialog, BasicDie };`;
+class DialogBase { async _prepareConfigurationContext(context) {return context;} }
+class NativeSkillDialog extends DialogBase {
+${member('module/applications/dice/skill-tool-configuration-dialog.mjs','SkillToolRollConfigurationDialog','_prepareConfigurationContext')} }
+class NativeActor {
+${member('module/documents/actor/actor.mjs','Actor5e','#rollSkillTool')}
+${member('module/documents/actor/actor.mjs','Actor5e','_buildSkillToolConfig')}
+run(...args) {return this.#rollSkillTool(...args);} }
+class NativeParts { ${member('module/dice/basic-roll.mjs','BasicRoll','constructParts')}
+${member('module/dice/basic-roll.mjs','BasicRoll','mergeOptions')} }
+globalThis.native = { NativeSkillDialog, NativeActor, NativeParts, CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, D20Dialog, BasicDie };`;
 vm.runInNewContext(code, sandbox, { timeout: 1000 });
 const { CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, D20Dialog, BasicDie } = sandbox.native;
 assert.match(files.get('module/dice/d20-roll.mjs'), /NORMAL: 0,\s*ADVANTAGE: 1,\s*DISADVANTAGE: -1/);
@@ -117,7 +126,7 @@ assert.equal(toolFixture.nativeCommit,nativeCommit);
 // Exact configured identities compared as syntax, not inferred from labels.
 const configFile=ts.createSourceFile('config.mjs',files.get('module/config.mjs'),ts.ScriptTarget.Latest,true,ts.ScriptKind.JS);
 const configKeys=name=>configFile.statements.find(node=>ts.isExpressionStatement(node)&&ts.isBinaryExpression(node.expression)&&node.expression.left.getText(configFile)==='DND5E.'+name).expression.right.properties.map(node=>node.name.text);
-const moduleTools=ts.createSourceFile('tools.ts',readFileSync(join(moduleRoot,'src/logic/preparation/tools.ts'),'utf8'),ts.ScriptTarget.Latest,true,ts.ScriptKind.TS);
+const moduleTools=ts.createSourceFile('tools.ts',readFileSync(join(moduleRoot,'src/logic/preparation/check-identities.ts'),'utf8'),ts.ScriptTarget.Latest,true,ts.ScriptKind.TS);
 const moduleKeys=moduleTools.statements.flatMap(node=>ts.isVariableStatement(node)?node.declarationList.declarations.filter(decl=>decl.name.getText(moduleTools)==='TOOL_LABELS_606').flatMap(decl=>decl.initializer.properties.map(prop=>prop.name.text)):[]);
 assert.deepEqual(moduleKeys,[...configKeys('tools'),...configKeys('vehicleTypes')]);
 const tools=[];
@@ -153,6 +162,68 @@ for(const skill of [0,.5,1,2])for(const tool of [0,.5,1,1.5,2]) {
     const prof=CommonTemplate.calculateSkillToolProficiency({system:model},'dex',{skill:'prc',tool:'thief'});
     assert.equal(prof.flat,Math.floor(3*Math.max(skill,tool)));combinedToolCases++;
 }
+// Fresh fully selected requests through the exact private dispatch and public
+// builder. Build is a capture seam, not a dice evaluator/native engine.
+const selectionFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/combined-checks.json'),'utf8'));
+assert.equal(selectionFixture.nativeCommit,nativeCommit);
+const {NativeActor,NativeParts}=sandbox.native;
+sandbox.dnd5e.dataModels={actor:{CommonTemplate}};
+sandbox.TravelField={getTravelPaceMode:()=>({advantage:false,disadvantage:false})};
+sandbox.SkillToolRollConfigurationDialog=class {};
+sandbox.Trait={keyLabel:key=>key};sandbox.ChatMessage={getSpeaker:()=>({})};
+sandbox.CONFIG.DND5E.skills={prc:{ability:'wis',label:'Perception'}};
+sandbox.CONFIG.DND5E.tools={thief:{ability:'dex'}};sandbox.CONFIG.DND5E.vehicleTypes={};
+let capture;
+Object.assign(sandbox.CONFIG.Dice.D20Roll,{
+    constructParts:NativeParts.constructParts,mergeOptions:NativeParts.mergeOptions,
+    mergeConfigs:(a,b={})=>merge(a,b),
+    build:async(process,dialog)=>{const config={options:{advantage:process.advantage,disadvantage:process.disadvantage}};dialog.options.buildConfig(process,config,undefined,0);capture={process,config};return [];}
+});
+sandbox.foundry.data={fields:{StringField:class {constructor(options){this.options=options;}}}};
+const nativeAbilityDialog=new sandbox.native.NativeSkillDialog();nativeAbilityDialog.options={chooseAbility:true};nativeAbilityDialog.config={ability:'dex'};
+const abilityDialogContext=await nativeAbilityDialog._prepareConfigurationContext({fields:[]},{});
+assert.equal(abilityDialogContext.fields[0].name,'ability');assert.equal(abilityDialogContext.fields[0].value,'dex');
+assert.deepEqual(Array.from(abilityDialogContext.fields[0].options,entry=>entry.value),['str','dex','con','int','wis','cha']);
+const nativeAbilityDialogChoices=6;
+const selectionCases=[];let selectedModeCases=0;
+for(const row of selectionFixture.cases) {
+    const actor=new NativeActor(),model=Object.create(CreatureTemplate.prototype);
+    model.abilities={wis:{value:14,mod:2,check:{roll:{bonus:4,mode:-1}}},dex:{value:16,mod:3,check:{roll:{bonus:-2,mode:1}}}};
+    model.skills={prc:{value:row.skillValue,ability:'wis',roll:{bonus:1,mode:0},bonuses:{passive:''}}};
+    model.tools={thief:{value:row.toolValue,ability:'dex',roll:{bonus:7,mode:0}}};
+    model.attributes={prof:Proficiency.calculateMod(row.level??5)};model.rolls={ability:{check:{bonus:2,mode:0,proficiency:0},skill:{bonus:3,mode:0,proficiency:0},tool:{bonus:-1,mode:0,proficiency:0}}};
+    model._source=structuredClone({abilities:model.abilities,skills:model.skills,tools:model.tools,rolls:model.rolls});
+    actor.system=model;actor.flags={dnd5e:{}};actor.getFlag=()=>undefined;actor.getRollData=()=>({roll:{}});actor.addConditionRollReduction=()=>{};actor._isRemarkableAthlete=()=>false;actor.conditionRollReduction=0;
+    model.parent=actor;model.skills.prc=model.prepareSkill('prc',{rollData:{},originalSkills:{}});model.prepareTools();
+    const config={ability:row.ability,[row.kind]:row.kind==='skill'?'prc':'thief'};
+    if(row.combined)Object.assign(config,{skill:'prc',tool:'thief'});
+    await actor.run(row.kind,config);
+    const {process,config:built}=capture;
+    const mode=Number(process.advantage)-Number(process.disadvantage);
+    assert.equal(mode,row.expectedMode,row.id);
+    assert.equal(Number(built.data.prof??0),Math.floor(Proficiency.calculateMod(row.level??5)*row.expectedProficiency),row.id);
+    const bonuses=row.kind==='skill'?(row.ability==='wis'?10:4):(row.ability==='wis'?12:6);
+    assert.equal(built.data.mod+Number(built.data.prof??0)+bonuses,row.expectedTotal,row.id);
+    assert.equal(built.data.ruleBonus,(row.ability==='wis'?'4':'-2')+' + 2 + '+(row.kind==='skill'?'3 + 1':'-1 + 7'));
+    assert.deepEqual(Array.from(built.parts),row.expectedProficiency>0?['@mod','@prof','@ruleBonus']:['@mod','@ruleBonus']);
+    selectionCases.push({id:row.id,mode,parts:Array.from(built.parts),mod:built.data.mod,prof:built.data.prof??null,bonus:built.data.ruleBonus,total:row.expectedTotal});
+    if(row.id===row.kind+'-1-0.5-wis')for(const automatic of [false,true])for(const a of [-1,0,1])for(const b of [-1,0,1])for(const c of [-1,0,1])for(const d of [-1,0,1]) {
+        const values=[a,b,c,d],paths=[row.kind+'s.'+(row.kind==='skill'?'prc':'thief')+'.roll','abilities.wis.check.roll','rolls.ability.check','rolls.ability.'+row.kind];
+        paths.forEach((path,index)=>{getProperty(model,path).mode=values[index];getProperty(model._source,path).mode=values[index];});
+        const request={ability:'wis',[row.kind]:row.kind==='skill'?'prc':'thief',...(automatic?{skill:'prc',tool:'thief'}:{})};
+        await actor.run(row.kind,request);
+        const observed=Number(capture.process.advantage)-Number(capture.process.disadvantage);
+        assert.equal(observed,((automatic||values.includes(1))?1:0)-(values.includes(-1)?1:0));selectedModeCases++;
+    }
+    // Native in-place dialog ability edits rebuild parts/ranges, but retain the
+    // process mode. Module selections instead configure a fresh request above.
+    if(row.id==='independent-skill-wis') {
+        const form={get:key=>key==='ability'?'dex':undefined},changed={options:{advantage:process.advantage,disadvantage:process.disadvantage}};
+        actor._buildSkillToolConfig('skill',null,process,changed,form,0);
+        assert.equal(changed.data.mod,3);assert.equal(changed.data.ruleBonus,'-2 + 2 + 3 + 1');
+        assert.equal(changed.options.disadvantage,true);assert.equal(changed.options.advantage,false);
+    }
+}
 const rangeModel = { a: { min: 10 }, b: { max: 15 }, c: { min: 12 }, d: { max: 14 }, _source: {} };
 const range = D20RollModificationField.combineFields(rangeModel, ['a','b','c','d']);
 assert.equal(range.minimum, 12); assert.equal(range.maximum, 14);
@@ -171,9 +242,9 @@ for (const adv of [false,true]) for (let a = 1; a <= 20; a++) for (let b = 1; b 
     selections++;
 }
 const evidence = { evidence: 'S controlled exact native methods, not native/SDK engine execution', nativeCommit,
-    manualModeCases, declarations, abilities, tools, toolModeCombinations, combinedToolCases, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
-    stubs: ['Numeric literal classification only; unknown evaluation fails', 'No applied rules/conditions/cover/flags', 'Empty ability compatibility shims; Remarkable Athlete false', 'Tool defaults checked as schema syntax then explicitly initialized; no Foundry DataModel construction', 'Property traversal and plain count merging'],
+    selectionCases, selectedModeCases, nativeAbilityDialogChoices, manualModeCases, declarations, abilities, tools, toolModeCombinations, combinedToolCases, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
+    stubs: ['Numeric literal classification only; unknown evaluation fails', 'No applied rules/conditions/cover/flags', 'Empty ability compatibility shims; Remarkable Athlete false', 'Tool defaults checked as schema syntax then explicitly initialized; no Foundry DataModel construction', 'Property traversal and plain count merging', 'Actor build capture with no dice evaluation or hooks; no travel, transformations or flags', 'Native skill dialog context uses empty base context and a StringField options stub; not a DOM/DataModel', 'Native in-place ability form changes retain process mode; module configures fresh selected requests'],
     limits: fixture.exclusions };
 const output = option(args, '--write-evidence');
 if (output) writeFileSync(output, JSON.stringify(evidence, null, 2) + '\n');
-process.stdout.write(`S: ${abilities.length} native intermediate/source-default ability/save cases, ${modes} source-mode combinations and ${selections} ordered d20 selections, ${tools.length} tools/${toolModeCombinations} modes/${combinedToolCases} intermediate combinations PASS; no native/SDK engine acceptance\n`);
+process.stdout.write(`S: ${abilities.length} native intermediate/source-default ability/save cases, ${modes} source-mode combinations and ${selections} ordered d20 selections, ${tools.length} tools/${toolModeCombinations} modes/${combinedToolCases} intermediate combinations/${selectionCases.length} selected request builds/${selectedModeCases} selected modes PASS; no native/SDK engine acceptance\n`);
