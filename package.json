@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "release:tag": "node scripts/release.mjs",
-    "test:release": "node --test scripts/release.test.mjs",
+    "test:release": "node --test scripts/*.test.mjs",
     "test": "node scripts/test.mjs",
     "typecheck": "node scripts/typecheck.mjs",
     "test:native-source": "node scripts/native-source.mjs",
