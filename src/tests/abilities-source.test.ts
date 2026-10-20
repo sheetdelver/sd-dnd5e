@@ -10,9 +10,9 @@ for (const row of abilityCases) {
     const actor = abilitySource(row), before = structuredClone(actor), prepared = adapter.prepareActorData(actor, skillContext());
     try {
         const ability = (prepared.derived.abilities as Record<string, any>)[row.ability];
-        assert.equal(ability.mod, row.expected.mod); assert.equal(ability.save, row.expected.save);
-        assert.equal(adapter.getRollData(prepared, 'ability', row.ability)?.formula, formula(row.expected.check));
-        assert.equal(adapter.getRollData(prepared, 'save', row.ability)?.formula, formula(row.expected.save));
+        assert.equal(ability.mod, row.sourceExpected.mod); assert.equal(ability.save, row.sourceExpected.save);
+        assert.equal(adapter.getRollData(prepared, 'ability', row.ability)?.formula, formula(row.sourceExpected.check));
+        assert.equal(adapter.getRollData(prepared, 'save', row.ability)?.formula, formula(row.sourceExpected.save));
     } catch { failures.push(row.id); }
     assert.deepEqual(actor, before);
 }
@@ -22,12 +22,12 @@ const baseRow = abilityCases[2];
 const prepare = (actor = abilitySource(baseRow), context = skillContext()) => adapter.prepareActorData(actor, context);
 const ability = (prepared: PreparedActorData) => (prepared.derived.abilities as Record<string, any>)[baseRow.ability];
 const initial = prepare();
-assert.equal(ability(initial).check.total, 6); assert.equal(ability(initial).saveRoll.total, 10);
+assert.equal(ability(initial).check.total, 5); assert.equal(ability(initial).saveRoll.total, 10);
 assert.equal(initial.derived.profBonus, 3); assert.equal(initial.derived.level, 5);
 assert.equal(adapter.getActorCardData(initial).blocks?.find(block => block.title === 'Prof')?.value, '+3');
 assert.equal(adapter.getActorCardData(initial).blocks?.find(block => block.title === 'Level')?.value, 5);
 assert.equal(adapter.getRollData(initial, 'save', baseRow.ability, { advantage: 'adv', situationalBonus: '2' })?.formula, '2d20kh1+10+(2)');
-assert.equal(adapter.getRollData(initial, 'ability', baseRow.ability, { advantage: 'dis' })?.formula, '2d20kl1+6');
+assert.equal(adapter.getRollData(initial, 'ability', baseRow.ability, { advantage: 'dis' })?.formula, '2d20kl1+5');
 assert.equal(adapter.getRollData(initial, 'ability', baseRow.ability, { situationalBonus: '2+1d4' }), null);
 for (const type of ['check', 'save']) for (const scope of ['ability', 'global']) for (const field of ['min', 'max']) {
     const actor = abilitySource(baseRow), system = actor.system as Record<string, any>;
@@ -36,19 +36,19 @@ for (const type of ['check', 'save']) for (const scope of ['ability', 'global'])
     const prepared = prepare(actor);
     const rollType = type === 'check' ? 'ability' : 'save';
     assert.equal(adapter.getRollData(prepared, rollType, baseRow.ability), null);
-    assert.equal(ability(prepared)[type === 'check' ? 'check' : 'saveRoll'].total, type === 'check' ? 6 : 10);
+    assert.equal(ability(prepared)[type === 'check' ? 'check' : 'saveRoll'].total, type === 'check' ? 5 : 10);
 }
 for (const { context } of unavailableContexts()) {
     const actor = abilitySource(baseRow), before = structuredClone(actor), unavailable = prepare(actor, context), recovered = prepare(actor);
     assert.equal(ability(unavailable).mod, null); assert.equal(ability(unavailable).save, null);
     assert.equal(adapter.getRollData(unavailable, 'ability', baseRow.ability), null);
     assert.equal(adapter.getRollData(unavailable, 'save', baseRow.ability), null);
-    assert.equal(ability(recovered).check.total, 6); assert.equal(ability(recovered).save, 10);
+    assert.equal(ability(recovered).check.total, 5); assert.equal(ability(recovered).save, 10);
     assert.deepEqual(actor, before);
 }
 const poisoned = abilitySource(baseRow), raw = (poisoned.system as Record<string, any>).abilities[baseRow.ability];
 raw.mod = 99; raw.check.value = 99; raw.save.value = 99;
-assert.equal(ability(prepare(poisoned)).mod, 2); assert.equal(ability(prepare(poisoned)).check.total, 6);
+assert.equal(ability(prepare(poisoned)).mod, 2); assert.equal(ability(prepare(poisoned)).check.total, 5);
 assert.equal(adapter.getRollData({ ...initial, derived: {} }, 'ability', baseRow.ability), null);
 assert.equal(adapter.getRollData({ ...initial, derived: {} }, 'save', baseRow.ability), null);
 for (const lifecycle of [undefined, { status: 'unavailable' }, { status: 'unsupported', profile: '2024' }]) {
@@ -65,6 +65,6 @@ for (const value of ['1d4', '1+2', {}, true]) {
     const input = abilitySource(baseRow), data = input.system as Record<string, any>;
     data.abilities.wis.save.roll.bonus = value;
     const output = prepare(input);
-    assert.equal(ability(output).save, null); assert.equal(ability(output).check.total, 6);
+    assert.equal(ability(output).save, null); assert.equal(ability(output).check.total, 5);
 }
 console.log('R/S: shared source ability/check/save preparation and explicit execution/context gates: PASS (bounded profile)');

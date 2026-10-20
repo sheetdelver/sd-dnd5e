@@ -130,7 +130,7 @@ export default function StandardView({
                         gridTemplateColumns: 'repeat(4, 1fr)',
                         gap: 'var(--space-sm)',
                     }}>
-                        <ProficiencyBonus value={derived.profBonus} />
+                        <ProficiencyBonus derived={derived} />
                         <WalkingSpeed walk={derived.speed?.walk} />
                         <HeroicInspiration active={derived.inspiration} />
                         <HitPoints hp={derived.hp} />

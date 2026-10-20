@@ -1,3 +1,4 @@
+import { initializedAbilityRolls606 } from './roll-initialization';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
@@ -13,7 +14,7 @@ export interface PreparedNumericAbility {
  */
 export function prepareNumericAbilities606(actor: unknown, context: RulesContext): Record<string, PreparedNumericAbility> {
     const system = record(record(actor)?.system) ?? {}, abilities = record(system.abilities) ?? {};
-    const globals = record(record(system.rolls)?.ability) ?? {}, profile = numericCharacterProfile(actor, context);
+    const globals = initializedAbilityRolls606(actor), profile = numericCharacterProfile(actor, context);
     const result: Record<string, PreparedNumericAbility> = {};
     for (const [key, value] of Object.entries(abilities)) {
         const data = record(value) ?? {}, rawScore = data.value;

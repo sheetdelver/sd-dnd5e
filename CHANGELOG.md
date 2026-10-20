@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Made level/proficiency availability explicit; separated source defaults from prepared proficiency targets.
+
 - Blocked unqualified skill die bounds and unavailable-context fallback; retired stale roll intents.
 - Shared source-derived numeric ability checks/saves and validated prepared roll previews.
 - Added exact-release character-lifecycle fixtures and maintained verification tools.

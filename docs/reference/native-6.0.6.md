@@ -222,3 +222,15 @@ dice remain excluded. Nonzero source modes and configured bounds stay explicitly
 unavailable pending implementation/SDK qualification. Public `simulateRoll` is
 a limited basic-dice preview; its fallback cannot establish kh/kl equivalence.
 No new Core defect or required extension is established. Q00/E05 remains open.
+
+## C06 source/default correction
+
+The eight original ability expectations are intermediate-model cases. C06 keeps
+them unchanged and adds eight independently specified source/default expectations:
+without qualified effects, global proficiency targets initialize0. Check-half
+source result is5 (intermediate6), INT expert source check5 (intermediate17),
+CON global-save source3 (intermediate7). These supersede C05's source-parity
+interpretation without changing historical evidence. The runner verifies all four
+exact native `initial:0,persisted:false` declarations and labels each phase. It
+still does not instantiate native Documents. Future effects must reach nonzero
+target values through qualified preparation phases.

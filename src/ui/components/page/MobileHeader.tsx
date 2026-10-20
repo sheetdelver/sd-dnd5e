@@ -5,6 +5,8 @@ import { resolveImage } from '@sheet-delver/sdk';
 import { useModal } from '../shared/useModal';
 import { useSheetSetting } from '../shared/useSheetSetting';
 import Rest from '../blocks/Rest';
+import { characterFactsProjection } from '../../../logic/preparation/character-profile';
+import CharacterFact from '../shared/CharacterFact';
 
 /**
  * MobileHeader — compact header for the mobile character sheet view.
@@ -30,14 +32,12 @@ interface Props {
 export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
     const subtitle = [derived.race, derived.classes].filter(Boolean).join(' · ');
-    const level = derived.level ?? 0;
+    const facts = characterFactsProjection(derived);
     const hp = derived.hp ?? { value: 0, max: 0 };
-    const profBonus = derived.profBonus ?? 2;
     const walk = derived.speed?.walk ?? 30;
     const initiative = derived.initiative ?? 0;
     const ac = derived.ac ?? 10;
     const inspiration = derived.inspiration ?? false;
-    const profFmt = profBonus >= 0 ? `+${profBonus}` : `${profBonus}`;
     const initFmt = initiative >= 0 ? `+${initiative}` : `${initiative}`;
     const { openModal } = useModal();
     const [theme, setTheme] = useSheetSetting<string>('theme', 'paladin');
@@ -112,7 +112,7 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         margin: '2px 0 0',
                     }}>
                         {subtitle}
-                        {level > 0 && <span style={{ marginLeft: '4px' }}>Level {level}</span>}
+                        <span style={{ marginLeft: '4px' }}>Level <CharacterFact fact={facts.level} label="Character level" /></span>
                     </p>
                 </div>
 
@@ -175,7 +175,7 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                 overflowX: 'auto',
             }}>
                 {/* Stat chip: Proficiency Bonus */}
-                <StatChip label="BONUS" title="PROFICIENCY" value={profFmt} />
+                <StatChip label="BONUS" title="PROFICIENCY" value={<CharacterFact fact={facts.proficiency} label="Proficiency bonus" />} />
                 {/* Stat chip: Walking Speed */}
                 <StatChip label="SPEED" title="WALKING" value={`${walk} ft.`} />
                 {/* Stat chip: Initiative */}
@@ -261,7 +261,7 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
 function StatChip({ title, label, value, bordered }: {
     title?: string;
     label: string;
-    value: string;
+    value: React.ReactNode;
     bordered?: boolean;
 }) {
     return (

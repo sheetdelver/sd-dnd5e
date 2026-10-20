@@ -465,3 +465,22 @@ No full milestone or acceptance gate closes; E01 remains the existing external
 dependency. Review-only documentation changes are uncommitted; application code,
 compatibility and version metadata were not changed. The prior ADR was saved
 locally before this addendum.
+
+### C06 correction disposition
+
+Review documentation was checkpointed separately as `35c6abc`; the ADR was saved
+before revision. DD-R03/DD-R04 are corrected as bounded module defects. Shared
+class facts carry status/value/display/reason/provenance to cards and both sheet
+headers/proficiency controls. Unknown context or class data cannot reuse source
+level/prof or old defaults. Independently known level5/+3 survives unresolved
+equipped armor while rolls remain unavailable. Effects remain unqualified.
+
+Detached global roll initialization restores nonpersisted proficiency0 and
+preserves persisted fields and source bytes. Eight intermediate arithmetic cases
+remain separate from eight source/default cases; no source override stands in
+for effect support. Maintained tests first reproduced five fact fallback cases
+and three poisoned proficiency cases; all pass after correction. DD-R01/DD-R02
+remain corrected. Verification C06 records regressions, controlled S comparisons,
+mounted header/proficiency checks and isolated packaging separately. Full DD/A/M
+gates and ADR-0001 remain open. Next execute the existing source-mode/passive
+package and public roll-path qualification; E01 and E02–E05 dispositions unchanged.

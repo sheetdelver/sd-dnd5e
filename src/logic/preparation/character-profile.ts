@@ -13,35 +13,58 @@ export function numericConstant(input: unknown): number | null {
 export function qualifiedNumericTotal(value: number): boolean {
     return Number.isFinite(value) && /^-?\d+(?:\.\d+)?$/.test(String(value));
 }
-/** Common source-only PC prerequisites, shared by skills/checks/saves. Excluded
- * domains remain explicit work, not proof that those native rules don't matter.
+export interface NumericFact {
+    status: 'ready' | 'unavailable' | 'legacy-unqualified';
+    value: number | null; display: string; provenance: string; reason?: string;
+}
+export interface CharacterFacts { level: NumericFact; proficiency: NumericFact }
+const provenance = 'release-6.0.6 CharacterData.prepareEmbeddedData / Proficiency.calculateMod';
+export function numericFact(value: number | null, reason?: string): NumericFact {
+    return { status: value === null ? 'unavailable' : 'ready', value, display: value === null ? '—' : String(value), provenance, ...(reason ? { reason } : {}) };
+}
+/** Class facts are independent of unresolved equipped armor/encumbrance rules.
+ * Effects/transformations remain unqualified, including possible stat changes.
  */
-export function numericCharacterProfile(actor: unknown, context: RulesContext):
-    { status: 'ready'; level: number; proficiency: number } | { status: 'unavailable'; reason: string } {
+export function characterFacts606(actor: unknown, context: RulesContext): CharacterFacts {
     const source = record(actor) ?? {}, system = record(source.system) ?? {};
-    if (context.status !== 'supported' || context.profile !== '2024') return { status: 'unavailable', reason: `Character rules context unavailable: ${context.reason ?? context.profile ?? 'unknown'}` };
     let reason: string | undefined, level = 0;
-    if (source.type !== 'character') reason = 'Character rule profile unavailable';
-    const proficiency = context.settings['dnd5e.proficiencyModifier'];
-    if (!proficiency || proficiency.status === 'unavailable' || proficiency.value !== 'bonus') reason = 'Proficiency dice or setting unavailable; Q00 qualification required';
-    const encumbrance = context.settings['dnd5e.encumbrance'];
-    if (!encumbrance || encumbrance.status === 'unavailable' || encumbrance.value !== 'none') reason = 'Encumbrance rule preparation unavailable';
+    if (context.status !== 'supported' || context.profile !== '2024') reason = `Character rules context unavailable: ${context.reason ?? context.profile ?? 'unknown'}`;
+    else if (source.type !== 'character') reason = 'Character rule profile unavailable';
     const items = Array.isArray(source.items) ? source.items : null;
-    if (!items) reason = 'Class source collection unavailable';
+    if (!items) reason ??= 'Class source collection unavailable';
     for (const value of items ?? []) {
         const item = record(value);
         if (item?.type !== 'class') continue;
         const levels = record(item.system)?.levels;
-        if (typeof levels !== 'number' || !Number.isInteger(levels) || levels < 0 || levels > 20) reason = 'Class level source unavailable';
+        if (typeof levels !== 'number' || !Number.isInteger(levels) || levels < 0 || levels > 20) reason ??= 'Class level source unavailable';
         else level += levels;
     }
-    if (level > 20) reason = 'Class levels above 20 unsupported';
+    if (level > 20) reason ??= 'Class levels above 20 unsupported';
     const effects = [source.effects, ...(items ?? []).map(item => record(item)?.effects)];
-    if (effects.some(list => list !== undefined && (!Array.isArray(list) || list.some(effect => record(effect)?.disabled !== true)))) reason = 'Active effect preparation unavailable';
-    if ((items ?? []).some(value => record(value)?.type === 'equipment' && record(record(value)?.system)?.equipped === true)) reason = 'Equipped armor/item rule preparation unavailable';
+    if (effects.some(list => list !== undefined && (!Array.isArray(list) || list.some(effect => record(effect)?.disabled !== true)))) reason ??= 'Active effect preparation unavailable';
+    if (Object.values(record(record(source.flags)?.dnd5e) ?? {}).some(Boolean)) reason ??= 'Native flag or transformation preparation unavailable';
+    const levelFact = numericFact(reason ? null : level, reason);
+    const setting = context.settings['dnd5e.proficiencyModifier'];
+    const profReason = reason ?? (!setting || setting.status === 'unavailable' || setting.value !== 'bonus' ? 'Proficiency dice or setting unavailable; Q00 qualification required' : undefined);
+    const prof = numericFact(profReason ? null : Math.floor((level + 7) / 4), profReason);
+    if (prof.value !== null) prof.display = `+${prof.value}`;
+    return { level: levelFact, proficiency: prof };
+}
+/** Projection accessor only; never reconstruct facts from raw/fallback numbers. */
+export function characterFactsProjection(derived: Record<string, any>): CharacterFacts {
+    return derived.characterFacts ?? { level: numericFact(null, 'Level preparation unavailable'), proficiency: numericFact(null, 'Proficiency preparation unavailable') };
+}
+/** Common source-only PC roll prerequisites, shared by skills/checks/saves. */
+export function numericCharacterProfile(actor: unknown, context: RulesContext):
+    { status: 'ready'; level: number; proficiency: number } | { status: 'unavailable'; reason: string } {
+    const source = record(actor) ?? {}, system = record(source.system) ?? {}, facts = characterFacts606(actor, context);
+    if (facts.level.value === null || facts.proficiency.value === null) return { status: 'unavailable', reason: facts.level.reason ?? facts.proficiency.reason ?? 'Character facts unavailable' };
+    let reason: string | undefined;
+    const encumbrance = context.settings['dnd5e.encumbrance'];
+    if (!encumbrance || encumbrance.status === 'unavailable' || encumbrance.value !== 'none') reason = 'Encumbrance rule preparation unavailable';
+    if ((source.items as unknown[]).some(value => record(value)?.type === 'equipment' && record(record(value)?.system)?.equipped === true)) reason = 'Equipped armor/item rule preparation unavailable';
     const attributes = record(system.attributes) ?? {};
     if (attributes.exhaustion !== undefined && attributes.exhaustion !== 0 || Array.isArray(source.statuses) && source.statuses.length) reason = 'Condition preparation unavailable';
-    if (Object.values(record(record(source.flags)?.dnd5e) ?? {}).some(Boolean)) reason = 'Native skill/roll flag or transformation preparation unavailable';
     if (Object.values(record(record(system.bonuses)?.abilities) ?? {}).some(Boolean)) reason = 'Legacy global ability bonus schema requires qualification';
-    return reason ? { status: 'unavailable', reason } : { status: 'ready', level, proficiency: Math.floor((level + 7) / 4) };
+    return reason ? { status: 'unavailable', reason } : { status: 'ready', level: facts.level.value, proficiency: facts.proficiency.value };
 }

@@ -19,7 +19,7 @@ import { decodeActor606 } from './native/6.0.6/source';
 import { prepareNumericSkills606, numericSkillRoll, unavailableSkillChecks, type PreparedSkill } from './preparation/skills';
 import { d20RangeReason, skillRollScopes, abilityRollScopes, numericD20Roll } from './preparation/d20-configuration';
 import { prepareNumericAbilities606, type PreparedNumericAbility } from './preparation/abilities';
-import { numericCharacterProfile } from './preparation/character-profile';
+import { characterFacts606, characterFactsProjection } from './preparation/character-profile';
 
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
@@ -141,9 +141,15 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             prepared.derived.passivePerception = skills.prc?.passive ?? null;
             prepared.derived.passiveInvestigation = skills.inv?.passive ?? null;
             prepared.derived.passiveInsight = skills.ins?.passive ?? null;
-            const profile = numericCharacterProfile(actor, rules);
-            if (profile.status === 'ready') { prepared.derived.profBonus = profile.proficiency; prepared.derived.level = profile.level; }
+            const facts = characterFacts606(actor, rules);
+            prepared.derived.characterFacts = facts;
+            prepared.derived.level = facts.level.value;
+            prepared.derived.profBonus = facts.proficiency.value;
         } else {
+            prepared.derived.characterFacts = Object.fromEntries([['level', prepared.derived.level], ['proficiency', prepared.derived.profBonus]].map(([key, value]) => [key, {
+                status: 'legacy-unqualified', value, display: key === 'proficiency' ? `+${value}` : String(value),
+                provenance: 'Selected legacy compatibility projection', reason: 'Legacy level/proficiency remain unqualified',
+            }]));
             // Explicitly selected historical compatibility projection only.
             // Its math remains unqualified; bounds still cannot be discarded.
             const skills = prepared.derived.skills as Record<string, Record<string, unknown>>;
@@ -301,14 +307,8 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const s = actor.system as Partial<D5eSystem>;
         const hp = s?.attributes?.hp;
         const ac = s?.attributes?.ac?.value ?? 10;
-        const level = typeof actor.derived.level === 'number' ? actor.derived.level : actor.items.filter((i: FoundryItem) => i.type === 'class')
-                    .map((c: FoundryItem) => {
-                        const sys = c.system as Record<string, any>;
-                        const lvl = sys?.levels ?? sys?.level ?? '';
-                        return lvl;
-                    })
-                    .join(' / ') || '—';      
-        const prof = typeof actor.derived.profBonus === 'number' ? actor.derived.profBonus : s?.attributes?.prof ?? 2;
+        const facts = characterFactsProjection(actor.derived);
+        const level = facts.level.value;
 
         const classes = actor.items
             .filter((i: FoundryItem) => i.type === 'class')
@@ -320,8 +320,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             .join(' / ');
 
         const race = this.getRaceData(actor)?.name;
-        const numericLevel = typeof level === 'number' ? level : Number.parseInt(level, 10);
-        const subtext = [Number.isFinite(numericLevel) && numericLevel > 0 ? `Level ${level}` : null, race, classes]
+        const subtext = [level !== null ? `Level ${facts.level.display}` : 'Level unavailable', race, classes]
             .filter(Boolean)
             .join(' • ');
 
@@ -343,11 +342,11 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 },
                 {
                     title: 'Level',
-                    value: typeof level === 'number' ? level : level || '—',
+                    value: level ?? '—', subValue: facts.level.reason,
                 },
                 {
                     title: 'Prof',
-                    value: `+${prof}`,
+                    value: facts.proficiency.display, subValue: facts.proficiency.reason,
                 },
             ],
         };

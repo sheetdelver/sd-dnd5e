@@ -1,3 +1,4 @@
+import { initializedAbilityRolls606 } from './roll-initialization';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { d20RangeReason, skillRollScopes, numericD20Roll } from './d20-configuration';
@@ -26,7 +27,7 @@ export function prepareNumericSkills606(actor: unknown, context: RulesContext): 
     if (context.status !== 'supported' || context.profile !== '2024') return unavailableSkillChecks(actor, `Skill rules context unavailable: ${context.reason ?? context.profile ?? 'unknown profile'}`);
     const source = record(actor) ?? {}, system = record(source.system) ?? {};
     const skills = record(system.skills) ?? {}, abilities = record(system.abilities) ?? {};
-    const rolls = record(record(system.rolls)?.ability) ?? {};
+    const rolls = initializedAbilityRolls606(actor);
     const globalCheck = record(rolls.check) ?? {}, globalSkill = record(rolls.skill) ?? {};
     const profile = numericCharacterProfile(actor, context);
     if (profile.status !== 'ready') return unavailableSkillChecks(actor, profile.reason);

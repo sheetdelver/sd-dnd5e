@@ -12,8 +12,8 @@ It adds two medium-priority module findings to the next M2 checkpoint:
 
 | ID | Finding | Required disposition |
 | --- | --- | --- |
-| DD-R03 | When the numeric profile is unavailable, level/proficiency retain old defaults or stale source values; the five-level baseline card becomes level0/+2. | Make availability explicit across prepared values, card and headers; preserve independently qualified facts, never substitute fallback numbers. DD-01/02/24/34, A02/A03/A18. |
-| DD-R04 | Source fixtures and preparation trust global proficiency fields that native6.0.6 declares nonpersisted. Later-phase arithmetic comparisons miss initialization. | Separate source/default/effect phases and fixture evidence; ignore stale nonpersisted source fields, retain independent intermediate arithmetic cases. DD-01/02/30/34, A02/A04. |
+| DD-R03 | When the numeric profile is unavailable, level/proficiency retain old defaults or stale source values; the five-level baseline card becomes level0/+2. | Corrected C06: shared fact availability/provenance drives cards and both headers; known armor-independent class facts survive, unknown facts display unavailable. DD-01/02/24/34, A02/A03/A18. |
+| DD-R04 | Source fixtures and preparation trust global proficiency fields that native6.0.6 declares nonpersisted. Later-phase arithmetic comparisons miss initialization. | Corrected C06: detached initialized proficiency0, poisoned-source invariance, separate source/default and intermediate cases; effects remain unavailable. DD-01/02/30/34, A02/A04. |
 
 See the report for exact paths, reproduced values, correction criteria and
 [portable results](evidence/2026-10-19-c04-c05-review.json). No new Core issue or
@@ -225,3 +225,5 @@ DD-R01/DD-R02 above identify missed range handling and context fallthrough, so
 this is not a general fail-closed readiness guarantee. This partially
 addresses DD-02/24/34 and A02; complete skill/native acceptance and the rest of
 M2 remain open. Static render checks do not establish mounted U acceptance.
+
+C06 (`35c6abc` review baseline) corrects DD-R03/DD-R04 with maintained failing-before/passing-after tests and mounted header/proficiency recovery. See verification C06 and its portable record. DD-R01/DD-R02 coverage is retained. No full DD/A/M acceptance gate closes.

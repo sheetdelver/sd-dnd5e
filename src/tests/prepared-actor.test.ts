@@ -41,7 +41,7 @@ export function run(): void {
 
     assert.equal(prepared._id, 'hero');
     assert.equal(prepared.id, 'hero');
-    assert.equal((prepared.derived.level as number), 3);
+    assert.equal(prepared.derived.level, null, 'Missing world context cannot qualify a source-looking level');
     assert.equal((prepared.derived.hp as { value: number }).value, 17);
     assert.deepEqual(prepared.categorizedItems?.weapons.map(item => item.name), ['Quarterstaff']);
     assert.deepEqual(prepared.categorizedItems?.features.map(item => item.name), ['Wizard', 'Human']);

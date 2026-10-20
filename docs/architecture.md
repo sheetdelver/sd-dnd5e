@@ -112,13 +112,14 @@ its old numeric projection, which remains explicitly unqualified pending M2.
 M2's bounded replacements are `src/logic/preparation/skills.ts` and `abilities.ts`:
 modern PC numeric skill checks/passives and ability checks/saves derive from
 class levels, source ability scores, proficiency multipliers, constant bonuses
-and global proficiency overrides. `character-profile.ts` shares prerequisites,
+and initialized global proficiency targets. `character-profile.ts` shares prerequisites,
 class-level proficiency, constant parsing and numeric representation checks.
 Source `total/passive/mod/check.value/save.value` are never reused as an oracle.
 Adapter execution and both layouts consume the same result/formula. Cards also
-consume the class level and proficiency result when that profile is ready;
-DD-R03 records that unavailable profiles currently retain old fallback values
-and need explicit availability across card/header consumers. This subset supports
+consume `characterFacts` with explicit value/status/reason/provenance; missing
+facts never select old source/default numbers. C06 corrects DD-R03 across card
+projection and both headers/proficiency controls. Known class facts survive
+unresolved equipped armor; unknown context/class data/effects remain unavailable. This subset supports
 normal/manual advantage/disadvantage requests and numeric situational bonuses;
 alternate abilities and unqualified bonus expressions are rejected. It is not
 the complete native skill/ability/save/tool interpreter. Active effects,
@@ -136,11 +137,12 @@ combined ranges remain unavailable until Q00 qualifies equivalent execution.
 Ability/check/save range scopes apply the same execution gate. Check/save totals
 remain distinct from base ability modifiers; a check bonus does not change the
 displayed score. Only six standard ability scores0–30 and the explicit numeric
-profile are qualified subject to DD-R04: native global roll proficiency fields
-are nonpersisted preparation targets, but current source fixtures/logic wrongly
-accept them as raw inputs. Separate schema initialization and effect-phase
-results before claiming source parity for these overrides; see the
-[C04/C05 review](audits/evidence/2026-10-19-c04-c05-review.md).
+profile are qualified. C06 corrects DD-R04: `roll-initialization.ts` creates
+separate detached global check/save/skill/tool configs with verified initial0
+for nonpersisted proficiency, preserving persisted bonus/mode/range fields.
+Source fields remain unchanged. Effects must be qualified through future phases;
+stale source proficiency is never an effect substitute. Eight intermediate-model
+arithmetic expectations remain separate from eight source/default expectations.
 Other numeric domains (including HP/AC) and the legacy
 compatibility projection remain unqualified.
 

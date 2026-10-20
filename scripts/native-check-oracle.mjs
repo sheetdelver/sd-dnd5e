@@ -44,18 +44,30 @@ class BasicDie { ${['expandAdvantage','advantage'].map(name => member('module/di
 globalThis.native = { CommonTemplate, Proficiency, AdvantageModeField, D20RollModificationField, BasicDie };`;
 vm.runInNewContext(code, sandbox, { timeout: 1000 });
 const { CommonTemplate, Proficiency, AdvantageModeField, D20RollModificationField, BasicDie } = sandbox.native;
+// Verify exact schema declarations without constructing native runtime fields.
+const creature = ts.createSourceFile('creature.mjs', files.get('module/data/actor/templates/creature.mjs'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+const declarations = [];
+function visit(node) {
+    if (ts.isNewExpression(node) && node.expression.getText(creature) === 'NumberField') {
+        const options = node.arguments?.[0]?.getText(creature) ?? '';
+        const scope = options.match(/rolls\.ability\.(check|save|skill|tool)\.proficiency/);
+        if (scope) { assert.match(options, /initial:\s*0/); assert.match(options, /persisted:\s*false/); declarations.push(scope[1]); }
+    }
+    ts.forEachChild(node, visit);
+}
+visit(creature); assert.deepEqual(declarations, ['check','save','skill','tool']);
 const abilities = [];
-for (const row of fixture.cases) {
+for (const phase of ['intermediate', 'source-default']) for (const row of fixture.cases) {
     const model = Object.create(CommonTemplate.prototype);
     model.abilities = { [row.ability]: { value: row.score, proficient: row.proficient, max: null,
         attack: { roll: {} }, check: { roll: { bonus: row.checkBonus ?? '' } }, save: { roll: { bonus: row.saveBonus ?? '' } } } };
     model.attributes = { prof: Proficiency.calculateMod(row.levels.reduce((a, b) => a + b, 0)), ac: { cover: 0 } };
-    model.rolls = { ability: { check: { bonus: row.globalCheckBonus ?? '', proficiency: row.checkProficiency }, save: { bonus: row.globalSaveBonus ?? '', proficiency: row.saveProficiency } } };
+    model.rolls = { ability: { check: { bonus: row.globalCheckBonus ?? '', proficiency: phase === 'intermediate' ? row.checkProficiency : 0 }, save: { bonus: row.globalSaveBonus ?? '', proficiency: phase === 'intermediate' ? row.saveProficiency : 0 } } };
     model.parent = { flags: { dnd5e: {} }, conditionRollReduction: 0, coverBonus: 0, hasConditionEffect: () => false };
     model.prepareAbilities();
     const result = model.abilities[row.ability];
     const observed = { mod: result.mod, check: result.check.value, save: result.save.value };
-    assert.deepEqual(observed, row.expected, row.id); abilities.push({ id: row.id, observed });
+    assert.deepEqual(observed, phase === 'intermediate' ? row.expected : row.sourceExpected, row.id+'/'+phase); abilities.push({ id: row.id, phase, observed });
 }
 let modes = 0;
 for (const a of [-1,0,1]) for (const b of [-1,0,1]) for (const c of [-1,0,1]) for (const d of [-1,0,1]) {
@@ -82,9 +94,9 @@ for (const adv of [false,true]) for (let a = 1; a <= 20; a++) for (let b = 1; b 
     selections++;
 }
 const evidence = { evidence: 'S controlled exact native methods, not native/SDK engine execution', nativeCommit,
-    abilities, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
+    declarations, abilities, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
     stubs: ['Numeric literal classification only; unknown evaluation fails', 'No applied rules/conditions/cover/flags', 'Empty ability compatibility shims', 'Property traversal and plain count merging'],
     limits: fixture.exclusions };
 const output = option(args, '--write-evidence');
 if (output) writeFileSync(output, JSON.stringify(evidence, null, 2) + '\n');
-process.stdout.write(`S: ${abilities.length} native ability/save cases, ${modes} source-mode combinations and ${selections} ordered d20 selections PASS; no native/SDK engine acceptance\n`);
+process.stdout.write(`S: ${abilities.length} native intermediate/source-default ability/save cases, ${modes} source-mode combinations and ${selections} ordered d20 selections PASS; no native/SDK engine acceptance\n`);

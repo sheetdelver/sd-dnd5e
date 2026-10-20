@@ -63,7 +63,7 @@
     "source-before.json": "fae01a9d6de2e1b11fa0edd7d23ea06aeaac5504e767a402a0a625a71f1fe99d",
     "expected.json": "be474a442a9d464e6ce718161eed88c5236823025fd948f03fb01f7443789473",
     "source-inventory.json": "4245e48ae69cc8206285dc672cd5fe288d3b69c6ed57361c5213216aae4db6ea",
-    "ability-checks.json": "00b66e1c53f39cc8955ddb3c9f6fd4b7bb4ce5902c4a5779da4e24dc847acdc2"
+    "ability-checks.json": "215ec7cde509336d3d9f71a143aec1c62f2d022cd4413974b3e0ae35760bff23"
   },
   "extensions": [
     {
@@ -83,7 +83,7 @@
         "M2"
       ],
       "file": "ability-checks.json",
-      "method": "Manual independent expected arithmetic followed by controlled exact-native method comparisons; no native capture",
+      "method": "Independent intermediate-model arithmetic and separate source/default expectations; no native capture",
       "nativePrepared": null
     }
   ]

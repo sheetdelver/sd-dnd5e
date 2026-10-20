@@ -7,8 +7,8 @@ export function abilitySource(row: typeof abilityCases[number]): FoundryActor {
     const actor = skillSource(), system = actor.system as Record<string, unknown>;
     system.abilities = { [row.ability]: { value: row.score, proficient: row.proficient,
         check: { roll: { bonus: row.checkBonus ?? '' } }, save: { roll: { bonus: row.saveBonus ?? '' } } } };
-    system.rolls = { ability: { check: { bonus: row.globalCheckBonus ?? '', proficiency: row.checkProficiency },
-        save: { bonus: row.globalSaveBonus ?? '', proficiency: row.saveProficiency } } };
+    system.rolls = { ability: { check: { bonus: row.globalCheckBonus ?? '' },
+        save: { bonus: row.globalSaveBonus ?? '' } } };
     actor.items = row.levels.map((levels, i) => ({ _id: `class${i}`, name: 'Synthetic class', type: 'class', system: { levels } })) as unknown as FoundryActor['items'];
     return actor;
 }

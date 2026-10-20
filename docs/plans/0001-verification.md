@@ -362,3 +362,35 @@ reproductions and qualifications. DD-R01/DD-R02 remain corrected.
 - R/S/mounted fixture/package only; no I/U/N/O acceptance. Node24.21.0;
   Node22 CI not executed. No Core finding or new contract floor. Existing
   Q00/Q01, effects/modes/ranges/tools and E01 remain open. ADR-0001 stays open.
+
+### C06 — DD-R03/DD-R04 corrections (2026-10-19)
+
+- Review-only `35c6abc` preserves RV02; ADR saved before substantive revision.
+  Maintained `profile-review.test.ts` first failed five DD-R03 context/class/poison
+  cases and three DD-R04 source proficiency inputs. All pass after correction.
+  Equipped armor retains independently known5/+3 while rolls stay unavailable;
+  unknown context, invalid class source and active effects display unavailable.
+- Shared facts drive adapter/card/header/proficiency with reasons/provenance.
+  Source details.level99/attributes.prof99 is ignored. Poisoned nonpersisted
+  proficiency across all four scopes cannot affect preparation, including
+  malformed values. Persisted proficiency/bonuses/ranges/modes are preserved;
+  active effects do not become source overrides. Source deeply unchanged.
+- C05's eight arithmetic cases are retained as intermediate-model expectations;
+  eight separate source/default expectations and exact four field declarations
+  are verified. This supersedes its source-parity claim, not historical results.
+- `npm test`:31 tooling assertions/10 module suites PASS. Explicit `npm run
+  typecheck`:96 files PASS. `test:native-source -- --native ../../../../temp/dnd5e`
+  matches2242 records/591 candidates. `test:native-checks` with the same reference
+  passes8 intermediate +8 source/default cases,81 modes and800 die selections.
+- `test:mounted` with the documented external Playwright/Chromium paths passes
+  50 existing transitions,6 previews and16 fact projection/recovery cases at
+  1440/390. Actual module headers/proficiency are mounted; card adapter projection
+  is asserted separately. No installed Core card/UI claim or I/U/N/O acceptance.
+- `npm run check:package` passes isolated public-boundary/types/bundles/package
+  on Core0.19.3/90c13e5. Fifteen regular files; archive SHA256
+  `ffa1b6a8d05a3af043845e1875f9570a614d53566e3a570b938a10e804e0acc7`.
+  [Portable record](../audits/evidence/2026-10-19-c06-corrections.json) records raw
+  results and hashes. Node24.21/npm11.19; Node22 CI not run. No source migration.
+- DD-R03/DD-R04 corrected, DD-R01/DD-R02 regressions retained; full DD/A/M gates
+  remain open. Next: source modes/passives and public roll execution qualification.
+  Effects/ranges/formulas/tools and E01 remain their existing dependency work.

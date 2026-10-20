@@ -7,8 +7,8 @@ Implementation progress belongs in that ADR's milestone ledger and the linked [v
 
 The current [independent C04/C05 review](evidence/2026-10-19-c04-c05-review.md)
 confirms DD-R01/DD-R02 corrections and fresh offline checks. **DD-R03/DD-R04**
-remain open: card/header availability and nonpersisted proficiency field/fixture
-boundaries. Correct them within the next M2 checkpoint, then resume the existing
-roadmap. Neither requires Core changes. The earlier
+were corrected in C06: shared card/header availability and nonpersisted
+proficiency source/default boundaries. The verification ledger records evidence;
+continue the existing mode/passive and public roll qualification roadmap. Neither requires Core changes. The earlier
 [C01–C03 review](evidence/2026-10-19-c01-c03-review.md) is retained as historical
 failing evidence, not an instruction to redo its completed corrections.

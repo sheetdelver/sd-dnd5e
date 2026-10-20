@@ -31,10 +31,18 @@ for (const type of ['check','save']) for (const scope of ['local','global']) for
     const target = scope === 'local' ? actor.system.abilities.wis[type].roll : actor.system.rolls.ability[type];
     target[field] = 10; abilities[type+'-'+scope+'-'+field] = prepare(actor);
 }
-process.stdout.write(JSON.stringify({skills: states, abilities}));`);
+const facts = { supported: {actor: states.supported, expected: 5} };
+for (const {id, context} of unavailableContexts()) facts[id] = {actor: prepare(skillSource(), context), expected: null};
+const invalid = skillSource(); invalid.items[0].system.levels = 'unknown'; facts.invalid = {actor: prepare(invalid), expected: null};
+const armor = skillSource(); armor.items.push({_id:'armor',name:'Armor',type:'equipment',system:{equipped:true}}); facts.armor = {actor:prepare(armor),expected:5};
+const effect = skillSource(); effect.effects = [{disabled:false}]; facts.effect = {actor:prepare(effect),expected:null};
+const poison = skillSource(); poison.system.details = {level:99}; poison.system.attributes.prof = 99;
+facts.poison = {actor:prepare(poison,unavailableContexts()[1].context),expected:null};
+for (const value of Object.values(facts)) value.card = adapter.getActorCardData(value.actor);
+process.stdout.write(JSON.stringify({skills: states, abilities, facts}));`);
 const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8' });
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -43,7 +51,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -116,7 +124,7 @@ try {
                 await render(abilityStates.supported);
                 await control.click();
                 await page.locator('dialog[open]').waitFor();
-                assert.match(await page.locator('dialog[open]').innerText(), kind === 'ability' ? /1d20\+6/ : /1d20\+10/);
+                assert.match(await page.locator('dialog[open]').innerText(), kind === 'ability' ? /1d20\+5/ : /1d20\+10/);
                 await render(abilityStates[id]);
                 await page.waitForFunction(() => !document.querySelector('dialog[open]'), undefined, { timeout: 1500 });
                 assert.equal(await control.isDisabled(), true);
@@ -131,7 +139,7 @@ try {
             await control.click();
             await page.getByRole('button', { name: /^normal$/i }).click();
             assert.equal(await page.evaluate(() => window.skillFixture.calls.splice(0).length), 1, 'Fresh dialog confirmation dispatches once');
-            await verifyOptions(control, kind, kind === 'ability' ? 6 : 10);
+            await verifyOptions(control, kind, kind === 'ability' ? 5 : 10);
             await page.evaluate(({actor, kind}) => window.skillFixture.render(actor, kind), {actor: abilityStates.supported, kind});
             await control.click(); await page.evaluate(() => window.skillFixture.hold());
             await page.evaluate(({actor, kind}) => window.skillFixture.render(actor, kind), {actor: abilityStates['snapshot-absent'], kind});
@@ -139,10 +147,24 @@ try {
             assert.equal(await page.evaluate(() => window.skillFixture.submitHeld()), 'retired');
             assert.equal(await page.evaluate(() => window.skillFixture.calls.length), 0);
         }
+        for (const [id, state] of Object.entries(facts)) {
+            const level = state.expected, prof = level === null ? '—' : '+3';
+            assert.equal(state.card.blocks.find(b => b.title === 'Level').value, level ?? '—');
+            assert.equal(state.card.blocks.find(b => b.title === 'Prof').value, prof);
+            if (level === null) assert.ok(state.card.blocks.find(b => b.title === 'Prof').subValue);
+            await render(state.actor);
+            assert.match(await page.getByLabel('Character level', {exact:true}).innerText(), level === null ? /^—/ : /^5$/);
+            assert.match(await page.getByLabel('Proficiency bonus', {exact:true}).innerText(), level === null ? /^—/ : /^\+3$/);
+            assert.ok(await page.getByLabel('Character level', {exact:true}).getAttribute('title'), 'Provenance is exposed');
+            await render(facts.supported.actor);
+            assert.equal(await page.getByLabel('Character level', {exact:true}).innerText(), '5');
+            assert.equal(await page.getByLabel('Proficiency bonus', {exact:true}).innerText(), '+3');
+            factRows.push({width,id,cardProjection:true,mountedHeaderAndProficiency:true,recovery:true});
+        }
         assert.deepEqual(errors, []);
         await context.close();
     }
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows }, null, 2));
-    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations and retained-callback fences PASS; artifacts ${artifacts}\n`);
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows }, null, 2));
+    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }

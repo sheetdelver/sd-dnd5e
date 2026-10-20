@@ -56,3 +56,10 @@ no conditions/cover/flags, plain property access and count merging. Unknown
 formula evaluation fails. It does not boot Foundry, prepare native Documents,
 evaluate arbitrary formulas, or qualify the SDK dice engine or native ranges.
 `--write-evidence /path/result.json` retains observations and exclusions.
+
+C06 phase clarification (DD-R04): `expected` in `ability-checks.json` describes
+an already-initialized intermediate model with explicitly supplied later-phase
+proficiency targets. `sourceExpected` describes persisted source plus verified
+default0, with effects absent. `abilitySource` never injects those nonpersisted
+targets. Both sets are independently specified and compared separately. C05's
+original arithmetic remains useful but is not source initialization parity.
