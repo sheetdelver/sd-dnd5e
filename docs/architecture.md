@@ -120,12 +120,16 @@ consume `characterFacts` with explicit value/status/reason/provenance; missing
 facts never select old source/default numbers. C06 corrects DD-R03 across card
 projection and both headers/proficiency controls. Known class facts survive
 unresolved equipped armor; unknown context/class data/effects remain unavailable. This subset supports
-normal/manual advantage/disadvantage requests and numeric situational bonuses;
+normal rolls and numeric situational bonuses within the released host literal
+limit (absolute1e9). C07 computes persisted source modes and passive±5, but
+blocks manual/source advantage/disadvantage execution after a public-host tie
+selection mismatch (E05). Opposed sources cancel to an executable normal roll;
 alternate abilities and unqualified bonus expressions are rejected. It is not
 the complete native skill/ability/save/tool interpreter. Active effects,
 conditions, equipped equipment/encumbrance, active native Actor flags,
-proficiency dice, optional abilities, nonzero source roll
-modes and missing inputs yield explicit unavailable checks. UI disables them
+proficiency dice, optional abilities and missing inputs yield explicit unavailable
+checks. Nonzero source modes preserve known totals/passives but have unavailable
+execution; malformed modes remain unavailable. UI disables them
 and passives render an unavailable state instead of a guessed10 within that
 tested branch. The [independent review](audits/evidence/2026-10-19-c01-c03-review.md)
 identified two exceptions corrected by C04: all four native die-range scopes now
@@ -183,3 +187,17 @@ requests intercepted. No fixture service is started. Playwright stays outside
 module/runtime dependencies; missing tools fail instead of skipping. Explicit
 typing includes `tests/browser`. These mounted module tests use a test SDK
 presentation seam and do not establish installed Core I/U or native N/O parity.
+
+C07's `test:public-rolls` launches Core's normal entry point with an isolated data
+root, synthetic loopback transport/users, and test-only dependency entropy. A
+fixture module calls actual request-bound `runtime.rolls.roll` after public player
+login; no private Core import, live Foundry, new module runtime evaluator or
+production configuration is used. All901 totals/serialized faces and numeric
+distributions match. Forty tied adv/dis pairs retain index1 where exact native
+BasicDie retains index0. This is a D&D equivalence gap, not a claim that Core's
+generic keep/drop contract is defective. A public first-tie selection contract
+(or independently qualified equivalent primitive) is the bounded E05 dependency.
+The qualification command exits2 and records the open gate, never a parity pass.
+Silent normal execution is qualified only within this numeric fixture; full
+Actor-route, chat/audience/critical annotations, installed UI and native/operator
+acceptance remain open.

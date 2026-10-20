@@ -192,7 +192,7 @@ Evidence: ordinary SDK document store mapping in `src/server/shared/utils/module
 
 M7 Q04 separates PC-facing rules from canvas/world automation. Existing authorized Actor/Combat/Item/effect operations may satisfy companion and concentration work. If selected behavior needs scene token targets/placement or advancing world time, propose narrow typed caller-authorized capabilities with readiness/revision/outcome rules and explicit native permissions. No generic “execute native method” bridge. Accept exact Actor/Token identity, source-preserving unlinked-token semantics, denied cross-owner actions, world switch and cleanup. Keep canvas/Bastion automation outside this release unless the user selects it; do not claim it is implemented by a card or chat instruction.
 
-### E05 — Numeric roll expressiveness (conditional, qualify in Q00)
+### E05 — Numeric roll expressiveness (Q00, bounded selection gap reproduced)
 
 Core `src/server/core/foundry/Roll.ts` and `FoundryDieRules.ts`, governed by Core
 ADR-0051, implement a bounded numeric grammar. It is not a native D&D `D20Roll`
@@ -213,6 +213,18 @@ bounded evaluation, accurate terms/visibility and parity fixtures. Acceptance
 requires complete distribution/selection semantics, not merely one coincidentally
 matching total. M4/M5 cannot claim complete action support until required terms
 are covered; optional custom terms remain explicitly unsupported.
+
+C07 qualifies normal numeric requests through an isolated real public host,
+not simulateRoll. Existing kh1/kl1 candidates match all numeric totals and
+selection distributions, but40 tied pairs retain the second die instead of native
+BasicDie's first. Required bounded contract: caller-bound evaluated d20 selection
+that retains the first occurrence on ties, preserving ordered faces, active/
+discarded flags and serialized results, without module re-evaluation. An existing
+public equivalent may be qualified instead; no private import/record rewrite or
+new evaluator is authorized. This is an equivalence gap against D&D's custom die,
+not a generic Core keep/drop defect. See C07 portable public-host reproduction.
+Adv/dis execution remains unavailable until a released compatible contract is
+proven. Broader expressions/ranges/critical/chat behavior still require Q00.
 
 ## Existing world-context and migration adoption
 
@@ -346,7 +358,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C04 corrects DD-R01/DD-R02; C05 shared numeric abilities/checks/saves; die ranges, other domains/Q00/effect phases open | RV01 retained; C04/C05 independent source and mounted regression evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives, normal public-host numeric execution; E05 tie-selection, ranges/tools/effects remain open | RV01/RV02 retained; C06/C07 source, mounted and public-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -484,3 +496,28 @@ remain corrected. Verification C06 records regressions, controlled S comparisons
 mounted header/proficiency checks and isolated packaging separately. Full DD/A/M
 gates and ADR-0001 remain open. Next execute the existing source-mode/passive
 package and public roll-path qualification; E01 and E02–E05 dispositions unchanged.
+
+### C07 bounded modes/passives and public execution qualification
+
+C06 corrections are checkpoint `f4d78f6`; DD-R01–DD-R04 coverage remains passing.
+The ADR was saved before C07 revisions. Eighty of81 independent source-mode
+cases were unavailable before this slice. All81 static mode/passive cases now
+agree with exact native methods, including cancellation and passive±5. Ability/
+save source modes share the same interpretation. Nonpersisted mode counts and
+proficiency remain separate from source. Ranges/effects remain unavailable.
+
+Public host qualification uses the normal released Core entry point, public
+login/module request runtime and synthetic loopback transport. All901 numeric
+outcomes agree;40 native tie-index mismatches keep E05 explicitly open. Normal
+numeric requests are qualified within the documented literal bound. Default and
+manual adv/dis execution are fenced consistently in controls, previews, shortcuts
+and direct calls; known static totals/passives remain visible. This intentionally
+supersedes C03/C05's unqualified manual adv/dis execution assumption. It does not
+count unavailable execution as completed native rules support.
+
+See verification C07 and portable evidence for hashes, blocked qualification
+exit2 and separate R/S/isolated-I evidence. No new Core defect, version/floor
+change, installed UI or N/O acceptance. E01 remains external. Next qualify a
+public first-tie selection primitive under separately scoped Core authority;
+independently continue source-only tool preparation and planned effect phases
+with their own oracles. Full DD/A/M gates and ADR-0001 remain open.

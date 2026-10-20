@@ -234,3 +234,25 @@ interpretation without changing historical evidence. The runner verifies all fou
 exact native `initial:0,persisted:false` declarations and labels each phase. It
 still does not instantiate native Documents. Future effects must reach nonzero
 target values through qualified preparation phases.
+
+## C07 persisted modes, passives and public-host limit
+
+At87e94db `CreatureTemplate.prepareSkill` combines local ability-check, skill,
+global-check and global-skill modes through `AdvantageModeField.combineFields`.
+Presence of both directions cancels regardless of multiplicity. Persisted mode
+values are−1/0/1 with initial0; effect counts/overrides are later-phase data and
+are never trusted from raw source. `CONFIG.DND5E.skillPassive` is base10/modifier5:
+passive is10 + known numeric total + passive bonus + combinedMode×5. Die minimum/
+maximum does not add a passive bonus. Eighty-one independent persisted-mode cases
+now compare both combination and exact prepareSkill passive output with explicit
+no-effect/condition/flag stubs.
+
+Native BasicDie.advantage retains the first equal face in both directions. The
+real isolated Core0.19.3 public runtime returns the same face value/distributions
+but keeps index1 for all40 tied pairs among the800 ordered adv/dis inputs.
+This was observed through public login and `req.runtime.rolls.roll`, with exact
+face/entropy-consumption checks. It is not captured native Actor/engine behavior.
+The E05 requirement is equivalent ordered first-tie selection/serialization;
+current generic keep/drop is not declared defective. Normal numeric rolls and
+literal bounds were qualified separately. No critical/chat/audience parity or
+range support follows. Temporary adv/dis unavailability is not completed support.

@@ -2,7 +2,7 @@ import { initializedAbilityRolls606 } from './roll-initialization';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
-import { abilityRollScopes, d20RangeReason, type PreparedNumericD20 } from './d20-configuration';
+import { abilityRollScopes, d20RangeReason, sourceD20Mode, numericD20Formula, numericD20ExecutionReason, type PreparedNumericD20 } from './d20-configuration';
 
 export interface PreparedNumericAbility {
     score: number | null; mod: number | null; save: number | null; saveProficient: boolean | null;
@@ -28,15 +28,16 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             if (data[type] != null && !record(data[type]) || globals[type] != null && !record(globals[type])) unavailableReason = 'Malformed native ability roll configuration';
             const bonuses = [roll.bonus, global.bonus].map(numericConstant);
             if (bonuses.some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
-            if ([roll.mode, global.mode].some(mode => mode !== undefined && mode !== 0)) unavailableReason = 'Ability source roll mode preparation unavailable';
+            const mode = sourceD20Mode(abilityRollScopes(actor, key, type));
+            if (mode.reason) unavailableReason = mode.reason;
             const base = type === 'check' ? 0 : data.proficient;
             const multipliers = [base, global.proficiency].filter(value => value !== undefined);
             if (base === undefined || multipliers.some(value => typeof value !== 'number' || !(type === 'check' ? [0,.5,1,2] : [0,1]).includes(value))) unavailableReason = 'Ability proficiency source unavailable';
-            if (unavailableReason || mod === null || profile.status !== 'ready') return { ability: key, total: null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
+            if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready') return { ability: key, total: null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
             const total = mod + Math.floor(profile.proficiency * Math.max(...multipliers as number[])) + (bonuses[0] as number) + (bonuses[1] as number);
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
-            unavailableReason = d20RangeReason(abilityRollScopes(actor, key, type));
-            return { ability: key, total, formula: unavailableReason ? null : `1d20${total < 0 ? '' : '+'}${total}`, ...(unavailableReason ? { unavailableReason } : {}) };
+            unavailableReason = d20RangeReason(abilityRollScopes(actor, key, type)) ?? numericD20ExecutionReason(total, mode.mode);
+            return { ability: key, total, sourceMode: mode.mode, formula: unavailableReason ? null : numericD20Formula(total, mode.mode), ...(unavailableReason ? { unavailableReason } : {}) };
         }
         const check = prepare('check'), saveRoll = prepare('save');
         const saveMultiplier = Math.max(typeof data.proficient === 'number' ? data.proficient : 0, typeof record(globals.save)?.proficiency === 'number' ? record(globals.save)!.proficiency as number : 0);

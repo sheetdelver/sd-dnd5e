@@ -72,6 +72,7 @@ export interface RollModalProps {
      */
     computeFormula?: (ctx: FormulaContext) => string;
     /** Shared prepared-rule compiler; null disables unsupported choices. */
+    preparedDefaultMode?: -1 | 0 | 1;
     resolveFormula?: (options: Record<string, unknown>) => string | null;
     /** Placeholder text for the situational bonus input. */
     bonusPlaceholder?: string;
@@ -91,6 +92,7 @@ export default function RollModal({
     formula,
     computeFormula,
     resolveFormula,
+    preparedDefaultMode = 0,
     bonusPlaceholder = 'Situational Bonus?',
     configFields = [],
     onConfirm,
@@ -114,6 +116,8 @@ export default function RollModal({
         const trimmed = bonus.trim();
         return trimmed ? `${base} + ${trimmed}` : base;
     }, [formula, computeFormula, resolveFormula, configValues, bonus]);
+
+    const modeAvailable = (advantage: Advantage) => !resolveFormula || resolveFormula({...configValues, advantage, ...(bonus.trim() ? {situationalBonus:bonus.trim()} : {})}) !== null;
 
     const submit = async (advantage: Advantage) => {
         const trimmed = bonus.trim();
@@ -146,7 +150,7 @@ export default function RollModal({
                     color: 'var(--text-primary)',
                     fontVariantNumeric: 'tabular-nums',
                 }}>
-                    {displayedFormula ?? 'Unavailable: use a numeric situational bonus'}
+                    {displayedFormula ?? 'Unavailable: situational bonus outside the supported numeric profile'}
                 </span>
                 <span style={{
                     fontSize: '11px',
@@ -158,6 +162,7 @@ export default function RollModal({
                 </span>
             </div>
 
+            {resolveFormula && <small>Default: {preparedDefaultMode === 1 ? 'Advantage' : preparedDefaultMode === -1 ? 'Disadvantage' : 'Normal'}. Buttons select this roll’s mode.</small>}
             {/* Situational bonus input */}
             <input
                 type="text"
@@ -222,11 +227,12 @@ export default function RollModal({
                 </ConfigRow>
             </div>
 
+            {resolveFormula && displayedFormula !== null && !modeAvailable('adv') && <p>Advantage/disadvantage unavailable: native die selection is not yet supported.</p>}
             {/* Advantage / Normal / Disadvantage — each submits the roll */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-sm)' }}>
-                <AdvantageButton disabled={displayedFormula === null} onClick={() => submit('adv')}>Advantage</AdvantageButton>
-                <AdvantageButton disabled={displayedFormula === null} onClick={() => submit('normal')} primary>Normal</AdvantageButton>
-                <AdvantageButton disabled={displayedFormula === null} onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
+                <AdvantageButton primary={preparedDefaultMode === 1} disabled={displayedFormula === null || !modeAvailable('adv')} onClick={() => submit('adv')}>Advantage</AdvantageButton>
+                <AdvantageButton disabled={displayedFormula === null || !modeAvailable('normal')} onClick={() => submit('normal')} primary={preparedDefaultMode === 0}>Normal</AdvantageButton>
+                <AdvantageButton primary={preparedDefaultMode === -1} disabled={displayedFormula === null || !modeAvailable('dis')} onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
             </div>
         </RollModalFrame>
     );

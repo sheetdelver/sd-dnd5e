@@ -37,7 +37,7 @@ export default function PassiveSenses({ perception, investigation, insight, sens
             <div style={{ display: 'flex', justifyContent: 'space-around', gap: '8px' }}>
                 {items.map(sense => (
                     <div key={sense.label} style={{ textAlign: 'center' }}>
-                        <div style={{
+                        <div aria-label={`Passive ${sense.label}`} style={{
                             width: '36px',
                             height: '36px',
                             borderRadius: '50%',

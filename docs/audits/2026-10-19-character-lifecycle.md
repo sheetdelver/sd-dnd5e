@@ -227,3 +227,14 @@ addresses DD-02/24/34 and A02; complete skill/native acceptance and the rest of
 M2 remain open. Static render checks do not establish mounted U acceptance.
 
 C06 (`35c6abc` review baseline) corrects DD-R03/DD-R04 with maintained failing-before/passing-after tests and mounted header/proficiency recovery. See verification C06 and its portable record. DD-R01/DD-R02 coverage is retained. No full DD/A/M acceptance gate closes.
+
+C07 implements persisted source-mode combination and native passive±5 (DD-02/34
+partial). Eighty of81 cases failed readiness before implementation; all static
+cases now pass independent controlled exact-source comparisons. Source-mode
+counts/proficiency poison does not become an effect. Public-host qualification
+is separate:901 numeric totals and distributions pass,40 tied adv/dis selections
+retain index1 instead of native index0. E05 now has executable evidence for a
+bounded selection contract; this is not a claim of a generic Core defect.
+Affected default/manual execution is explicitly fenced, with static totals and
+passives retained. Normal execution remains bounded; ranges/tools/effects and
+full DD/A/M acceptance remain open. See verification C07 and portable evidence.

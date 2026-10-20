@@ -16,7 +16,7 @@ export function usePreparedRollIntent(kind: PreparedRollKind, onRoll?: (type: st
         // Selected legacy behavior retains its separate, unqualified options.
         const resolveFormula = actor?.derived.lifecycle?.profile === '2024'
             ? (options: Record<string, unknown>) => numericD20Roll(preparedRollCheck(reviewed.actor, kind, key), options) : undefined;
-        return { preparedIntentSignature: signature, resolveFormula, onConfirm: async (options?: Record<string, unknown>) => {
+        return { preparedIntentSignature: signature, resolveFormula, preparedDefaultMode: preparedRollCheck(actor, kind, key)?.sourceMode ?? 0, onConfirm: async (options?: Record<string, unknown>) => {
             const current = latest.current;
             if (!current.alive || current.token !== reviewed.token || !current.onRoll || !preparedRollAvailable(current.actor, kind, key)) throw new Error('Roll intent changed; review current values');
             if (resolveFormula && !resolveFormula(options ?? {})) throw new Error('Roll options require Q00 qualification');

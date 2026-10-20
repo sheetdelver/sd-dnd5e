@@ -25,8 +25,8 @@ const merge = (target, input) => { for (const [key, value] of Object.entries(inp
 } return target; };
 const sandbox = { foundry: { utils: { getProperty, getType: value => value && typeof value === 'object' ? 'Object' : typeof value, mergeObject: merge } },
     dnd5e: { settings: { proficiencyModifier: 'bonus', rulesVersion: 'modern' } },
-    CONFIG: { DND5E: { maxAbilityScore: 30, abilities: Object.fromEntries(['str','dex','con','int','wis','cha'].map(key => [key, { type: ['str','dex','con'].includes(key) ? 'physical' : 'mental' }])) } },
-    AppliedRules: { collect: () => ({ filterWith: () => ({ toFormula: () => '' }) }) },
+    CONFIG: { DND5E: { skillPassive: {base:10,modifier:5}, maxAbilityScore: 30, abilities: Object.fromEntries(['str','dex','con','int','wis','cha'].map(key => [key, { type: ['str','dex','con'].includes(key) ? 'physical' : 'mental' }])) } },
+    AppliedRules: { collect: () => ({ filterWith: () => ({ toFormula: () => '', toAdvantageCounts: () => ({}) }) }) },
     console: { error: () => { throw new Error('Unqualified formula evaluation reached native oracle'); } },
 };
 const utils = ts.createSourceFile('utils.mjs', files.get('module/utils.mjs'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
@@ -37,13 +37,14 @@ ${simplify}
 class CommonTemplate { ${member(commonPath, 'CommonTemplate', 'prepareAbilities')}
 ${member(commonPath, 'CommonTemplate', 'calculateAbilityCheckProficiency')}
 static shimAbilityData() {} }
+class CreatureTemplate extends CommonTemplate { ${member('module/data/actor/templates/creature.mjs', 'CreatureTemplate', 'prepareSkill')} }
 class AdvantageModeField { ${['combineFields','getCounts','resolveMode'].map(name => member(advantagePath, 'AdvantageModeField', name)).join('\n')} }
 class D20RollModificationField { ${member('module/data/shared/d20-roll-modification-field.mjs', 'D20RollModificationField', 'combineFields')}
 ${member('module/data/shared/d20-roll-modification-field.mjs', 'D20RollModificationField', '#makeRulesIterator')} }
 class BasicDie { ${['expandAdvantage','advantage'].map(name => member('module/dice/basic-die.mjs', 'BasicDie', name)).join('\n')} }
-globalThis.native = { CommonTemplate, Proficiency, AdvantageModeField, D20RollModificationField, BasicDie };`;
+globalThis.native = { CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, BasicDie };`;
 vm.runInNewContext(code, sandbox, { timeout: 1000 });
-const { CommonTemplate, Proficiency, AdvantageModeField, D20RollModificationField, BasicDie } = sandbox.native;
+const { CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, BasicDie } = sandbox.native;
 // Verify exact schema declarations without constructing native runtime fields.
 const creature = ts.createSourceFile('creature.mjs', files.get('module/data/actor/templates/creature.mjs'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
 const declarations = [];
@@ -69,12 +70,22 @@ for (const phase of ['intermediate', 'source-default']) for (const row of fixtur
     const observed = { mod: result.mod, check: result.check.value, save: result.save.value };
     assert.deepEqual(observed, phase === 'intermediate' ? row.expected : row.sourceExpected, row.id+'/'+phase); abilities.push({ id: row.id, phase, observed });
 }
+const modeFixture = JSON.parse(readFileSync(join(moduleRoot, 'tests/fixtures/native-6.0.6/skill-modes.json'), 'utf8'));
+assert.equal(modeFixture.nativeCommit, nativeCommit);
+assert.match(files.get('module/config.mjs'), /skillPassive = \{\s*base: 10,\s*modifier: 5/);
 let modes = 0;
-for (const a of [-1,0,1]) for (const b of [-1,0,1]) for (const c of [-1,0,1]) for (const d of [-1,0,1]) {
-    const values = [a,b,c,d], model = { _source: Object.fromEntries(values.map((mode, i) => [`scope${i}`, { mode }])) };
-    const observed = AdvantageModeField.combineFields(model, values.map((_, i) => `scope${i}.mode`));
-    const expected = values.includes(1) && !values.includes(-1) ? 1 : values.includes(-1) && !values.includes(1) ? -1 : 0;
-    assert.equal(observed.mode, expected); modes++;
+for (const row of modeFixture.cases) {
+    const model = Object.create(CreatureTemplate.prototype);
+    model.attributes = {prof:3}; model.abilities = {wis:{value:14,mod:2,check:{roll:{mode:row.modes[0]}}}};
+    model.skills = {prc:{value:1,ability:'wis',roll:{mode:row.modes[1]},bonuses:{passive:''}}};
+    model.rolls = {ability:{check:{mode:row.modes[2],proficiency:0},skill:{mode:row.modes[3],proficiency:0}}};
+    model.parent = {flags:{dnd5e:{}},conditionRollReduction:0};
+    model._source = structuredClone({abilities:model.abilities,skills:model.skills,rolls:model.rolls});
+    const paths = modeFixture.scopeOrder.map(path => path+'.mode');
+    assert.equal(AdvantageModeField.combineFields(model, paths).mode, row.expectedMode);
+    const observed = model.prepareSkill('prc',{skillData:model.skills.prc,rollData:{},originalSkills:{}});
+    assert.equal(observed.total, row.expectedTotal); assert.equal(observed.passive, row.expectedPassive);
+    modes++;
 }
 const rangeModel = { a: { min: 10 }, b: { max: 15 }, c: { min: 12 }, d: { max: 14 }, _source: {} };
 const range = D20RollModificationField.combineFields(rangeModel, ['a','b','c','d']);

@@ -1,18 +1,43 @@
 import { record } from '../native/6.0.6/source';
 
 export interface PreparedNumericD20 {
-    ability: string; total: number | null; formula: string | null; unavailableReason?: string;
+    ability: string; total: number | null; formula: string | null; sourceMode?: -1 | 0 | 1; unavailableReason?: string;
 }
 export function numericD20Roll(check: PreparedNumericD20 | undefined, options: Record<string, unknown> = {}): string | null {
     if (!check?.formula || check.total === null || check.unavailableReason) return null;
     if (options.ability !== undefined && options.ability !== check.ability) return null;
-    const advantage = options.advantage ?? 'normal';
+    const advantage = options.advantage ?? (check.sourceMode === 1 ? 'adv' : check.sourceMode === -1 ? 'dis' : 'normal');
+    // Public-host qualification preserves numeric distributions but fails native
+    // first-tie retention. Never present that candidate as equivalent execution.
+    if (advantage !== 'normal') return null;
     const die = advantage === 'normal' ? '1d20' : advantage === 'adv' ? '2d20kh1' : advantage === 'dis' ? '2d20kl1' : null;
     if (!die) return null;
     const bonus = options.situationalBonus;
-    if (bonus !== undefined && (typeof bonus !== 'string' || bonus.length > 64 || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(bonus.trim()) || !Number.isFinite(Number(bonus)))) return null;
+    if (bonus !== undefined && (typeof bonus !== 'string' || bonus.length > 64 || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(bonus.trim()) || !Number.isFinite(Number(bonus)) || Math.abs(Number(bonus)) > 1_000_000_000)) return null;
     const base = `${die}${check.total < 0 ? '' : '+'}${check.total}`;
     return bonus === undefined ? base : `${base}+(${String(bonus).trim()})`;
+}
+/** Source fields only. No effect counts/suppression/overrides are accepted from
+ * raw source. Presence in both directions cancels regardless of multiplicity.
+ */
+export function sourceD20Mode(scopes: readonly { path: string; value: unknown }[]): { mode: -1 | 0 | 1; reason?: undefined } | { mode?: undefined; reason: string } {
+    const modes: number[] = [];
+    for (const {path, value} of scopes) {
+        if (value !== undefined && value !== null && !record(value)) return { reason: `Malformed source roll configuration: ${path}` };
+        const mode = record(value)?.mode;
+        if (mode === undefined) continue;
+        if (typeof mode !== 'number' || ![-1, 0, 1].includes(mode)) return { reason: `Malformed source roll mode: ${path}` };
+        modes.push(mode);
+    }
+    return { mode: ((modes.includes(1) ? 1 : 0) - (modes.includes(-1) ? 1 : 0)) as -1 | 0 | 1 };
+}
+export function numericD20Formula(total: number, mode: -1 | 0 | 1): string {
+    return `${mode === 1 ? '2d20kh1' : mode === -1 ? '2d20kl1' : '1d20'}${total < 0 ? '' : '+'}${total}`;
+}
+export function numericD20ExecutionReason(total: number, mode: -1 | 0 | 1): string | undefined {
+    if (Math.abs(total) > 1_000_000_000) return 'Numeric roll bonus exceeds the supported host limit';
+    if (mode !== 0) return 'Native advantage/disadvantage die selection is not yet supported';
+    return undefined;
 }
 export function abilityRollScopes(actor: unknown, ability: string, type: 'check' | 'save') {
     const system = record(record(actor)?.system), data = record(record(system?.abilities)?.[ability]);

@@ -26,8 +26,8 @@ assert.equal(ability(initial).check.total, 5); assert.equal(ability(initial).sav
 assert.equal(initial.derived.profBonus, 3); assert.equal(initial.derived.level, 5);
 assert.equal(adapter.getActorCardData(initial).blocks?.find(block => block.title === 'Prof')?.value, '+3');
 assert.equal(adapter.getActorCardData(initial).blocks?.find(block => block.title === 'Level')?.value, 5);
-assert.equal(adapter.getRollData(initial, 'save', baseRow.ability, { advantage: 'adv', situationalBonus: '2' })?.formula, '2d20kh1+10+(2)');
-assert.equal(adapter.getRollData(initial, 'ability', baseRow.ability, { advantage: 'dis' })?.formula, '2d20kl1+5');
+assert.equal(adapter.getRollData(initial, 'save', baseRow.ability, { advantage: 'adv', situationalBonus: '2' }), null);
+assert.equal(adapter.getRollData(initial, 'ability', baseRow.ability, { advantage: 'dis' }), null);
 assert.equal(adapter.getRollData(initial, 'ability', baseRow.ability, { situationalBonus: '2+1d4' }), null);
 for (const type of ['check', 'save']) for (const scope of ['ability', 'global']) for (const field of ['min', 'max']) {
     const actor = abilitySource(baseRow), system = actor.system as Record<string, any>;

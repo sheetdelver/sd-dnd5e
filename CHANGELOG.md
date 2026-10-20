@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Added source mode/passive preparation; fenced adv/dis execution pending native tie-selection support.
+
 - Made level/proficiency availability explicit; separated source defaults from prepared proficiency targets.
 
 - Blocked unqualified skill die bounds and unavailable-context fallback; retired stale roll intents.

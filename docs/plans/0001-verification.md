@@ -394,3 +394,50 @@ reproductions and qualifications. DD-R01/DD-R02 remain corrected.
 - DD-R03/DD-R04 corrected, DD-R01/DD-R02 regressions retained; full DD/A/M gates
   remain open. Next: source modes/passives and public roll execution qualification.
   Effects/ranges/formulas/tools and E01 remain their existing dependency work.
+
+### C07 — source modes/passives and public roll qualification (2026-10-19)
+
+- Correction checkpoint `f4d78f6`; ADR saved before revision. DD-R01–DD-R04 remain
+  corrected. `modes-source.test.ts` first failed80 of81 readiness cases. All81
+  static mode/passive results now agree with independent native expectations.
+  Eighteen ability/save combinations, malformed modes, poisoned prepared counts,
+  bounded ranges, manual option refusal and numeric limits are covered. Source
+  preserved. Source modes±1 retain known totals/passives while execution is fenced.
+- `npm test`:31 tooling assertions/11 module suites PASS. `npm run typecheck`:
+  97 explicit module/UI/server/test/browser files PASS. Exact-release
+  `test:native-source -- --native ../../../../temp/dnd5e`:2242/591 match.
+  `test:native-checks` same reference:8 intermediate +8 source/default cases,81
+  exact prepareSkill mode/passive comparisons,800 ordered selections PASS.
+- Mounted R:50 existing transitions,6 numeric previews,16 fact projections and
+  18 source-mode checks at1440/390 PASS. Actual controls/passive displays retire
+  stale intent; normal cancellation recovers, adv/dis/defaults/shortcuts are
+  disabled consistently. Card adapter projections remain separate from mounted
+  headers. SDK presentation seam; no installed UI U or N/O acceptance.
+- Isolated public-host I (numeric path only): `npm run test:public-rolls` exits2
+  with901 totals/serialized face records and exact distribution counts passing,
+  but40 native tie-index mismatches. Core0.19.3/90c13e5 normal entry point, fresh
+  data/config, public player login, test module `req.runtime.rolls.roll`, synthetic
+  loopback transport and dependency entropy. Both CJS/ESM engine seams and exact
+  draw consumption verified. No private Core imports, simulateRoll or extra dice
+  evaluator. Auth is synthetic; no full actor-endpoint/permission/installed-UI
+  workflow acceptance. Silent rolls produce no synthetic native writes/chat.
+- E05 concrete minimum: native first-tie retention with ordered evaluated faces/
+  active flags and serialization through a public caller-bound roll contract,
+  or a proven equivalent existing primitive. Generic kh1/kl1 numeric results are
+  correct; this is a D&D equivalence gap, not a generic Core defect. Broader
+  grammar, ranges, critical annotations/chat/audience remain unqualified. Module
+  now refuses all modern adv/dis requests and source-default±1 rolls rather than
+  modifying host results. C03/C05 manual-mode claims are superseded accordingly.
+  Numeric literal magnitude is bounded at1e9; larger known static totals remain
+  visible but unexecutable. The public rejection was observed independently.
+- Isolated `npm run check:package` passes boundaries/types/logic/UI/server; archive
+  SHA256 `dc68321ae55655d1f18808f34b0250bbfd91d660aeb407340f62a845ca11a10e`,
+  15 regular files. Version/compatibility/experimental status unchanged.
+  [Portable record](../audits/evidence/2026-10-19-c07-modes.json) includes exact
+  artifact identities and blocked qualification. Node24.21/npm11.19; Node22 CI
+  not run. Fixture startup/entropy/term-shape mistakes were corrected before the
+  accepted comparison. One automatic approval timeout prevented execution; its
+  single retry succeeded. No task-owned service remains.
+- Complete source-mode/passive static slice only; no full DD/A/M gate closes.
+  Next: separately qualify/release E05 first-tie support and, independently,
+  shared source-only tools and planned effect phases. E01 remains unchanged.

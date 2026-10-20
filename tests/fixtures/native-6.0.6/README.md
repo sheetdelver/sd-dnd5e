@@ -63,3 +63,18 @@ proficiency targets. `sourceExpected` describes persisted source plus verified
 default0, with effects absent. `abilitySource` never injects those nonpersisted
 targets. Both sets are independently specified and compared separately. C05's
 original arithmetic remains useful but is not source initialization parity.
+
+`skill-modes.json` contains81 independent persisted-mode/passive expectations.
+The exact-source runner now compares both combineFields and prepareSkill for
+these cases. Native BasicDie tie identity is independent of numeric totals.
+
+`npm run test:public-rolls` exercises candidate formulas via a real isolated
+Core0.19.3 public request runtime with synthetic loopback transport/auth and
+controlled dependency entropy. No private Core imports or native runtime boot.
+Normal requests come from adapter execution; unqualified adv/dis candidates use
+the same shared formatter only inside the isolated test. Exact faces and draw
+consumption are asserted, not assumed. All901 totals/distributions pass but40
+tied selections differ from native; exit2 means E05 remains blocked. Artifacts
+include observed serialized results and a compact evidence record. No Core
+service is retained. This script is not part of npm test and does not silently
+turn a qualification mismatch into a passing module regression.

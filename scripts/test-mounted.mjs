@@ -39,10 +39,23 @@ const effect = skillSource(); effect.effects = [{disabled:false}]; facts.effect 
 const poison = skillSource(); poison.system.details = {level:99}; poison.system.attributes.prof = 99;
 facts.poison = {actor:prepare(poison,unavailableContexts()[1].context),expected:null};
 for (const value of Object.values(facts)) value.card = adapter.getActorCardData(value.actor);
-process.stdout.write(JSON.stringify({skills: states, abilities, facts}));`);
+const modes = {};
+for (const kind of ['skill','ability','save']) {
+    modes[kind] = [];
+    for (const mode of [-1,0,1]) {
+        const actor = kind === 'skill' ? skillSource() : abilitySource(abilityCases[1]);
+        const local = kind === 'skill' ? 'skills.prc.roll' : 'abilities.wis.'+(kind === 'ability'?'check':'save')+'.roll';
+        const global = 'rolls.ability.'+(kind === 'skill'?'check':kind === 'ability'?'check':'save');
+        setSkillRoll(actor,local,{mode:mode === 0?1:mode});
+        if (mode === 0) setSkillRoll(actor,global,{mode:-1});
+        const prepared=adapter.prepareActorData(actor,{...skillContext(),sourceRevision:100+mode});
+        modes[kind].push({actor:prepared,mode,formula:adapter.getRollData(prepared,kind,kind==='skill'?'prc':'wis')?.formula ?? null});
+    }
+}
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes}));`);
 const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8' });
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, modes } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -51,7 +64,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -70,18 +83,18 @@ try {
             const dialog = page.locator('dialog[open]'), bonus = dialog.getByRole('textbox', { name: 'Situational bonus' });
             for (const unsupported of ['1d4', '1+2']) {
                 await bonus.fill(unsupported);
-                assert.match(await dialog.innerText(), /Unavailable: use a numeric situational bonus/);
+                assert.match(await dialog.innerText(), /Unavailable: situational bonus outside the supported numeric profile/);
                 for (const name of ['Advantage', 'Normal', 'Disadvantage']) assert.equal(await dialog.getByRole('button', { name, exact: true }).isDisabled(), true);
                 assert.equal(await page.evaluate(() => window.skillFixture.calls.length), 0);
             }
             await bonus.fill('2');
             assert.match(await dialog.innerText(), new RegExp('1d20\\+'+total+'\\+\\(2\\)'));
-            await dialog.getByRole('button', { name: 'Advantage', exact: true }).click();
+            await dialog.getByRole('button', { name: 'Normal', exact: true }).click();
             const calls = await page.evaluate(() => window.skillFixture.calls.splice(0));
             assert.equal(calls.length, 1);
             assert.equal(calls[0].options.situationalBonus, '2');
-            assert.equal(calls[0].options.advantage, 'adv');
-            previewRows.push({ width, kind, unsupported: ['1d4', '1+2'], preview: `1d20+${total}+(2)`, submitted: 'advantage with numeric2' });
+            assert.equal(calls[0].options.advantage, 'normal');
+            previewRows.push({ width, kind, unsupported: ['1d4', '1+2'], preview: `1d20+${total}+(2)`, submitted: 'normal with numeric2' });
         };
         await render(states.supported);
         if (width < 1024) {
@@ -161,10 +174,44 @@ try {
             assert.equal(await page.getByLabel('Proficiency bonus', {exact:true}).innerText(), '+3');
             factRows.push({width,id,cardProjection:true,mountedHeaderAndProficiency:true,recovery:true});
         }
+        const tab = async name => { if (width < 1024) { await page.getByRole('button', {name:'▲',exact:true}).click(); await page.getByRole('button',{name:new RegExp(name)}).click(); } };
+        for (const kind of ['skill','ability','save']) {
+            await render(kind==='skill'?states.supported:abilityStates.supported);
+            await tab(kind==='skill'?'Skills':'Abilities');
+            const control = kind==='skill'?skill:page.getByRole('button',{name:kind==='ability'?'Wisdom Check':'Wisdom Saving Throw',exact:true});
+            for (const state of modes[kind]) {
+                await render(kind==='skill'?states.supported:abilityStates.supported);
+                await control.click(); await page.locator('dialog[open]').waitFor();
+                await render(state.actor);
+                await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
+                if (state.mode === 0) {
+                    assert.equal(await control.isEnabled(),true);
+                    await control.click();
+                    assert.ok((await page.locator('dialog[open]').innerText()).includes(state.formula));
+                    assert.equal(await page.getByRole('button',{name:'Advantage',exact:true}).isDisabled(),true);
+                    assert.equal(await page.getByRole('button',{name:'Disadvantage',exact:true}).isDisabled(),true);
+                    await page.getByRole('button',{name:'Normal',exact:true}).click();
+                    assert.equal(await page.evaluate(()=>window.skillFixture.calls.splice(0).length),1);
+                    await control.click({modifiers:['Shift']});
+                    const shortcut=await page.evaluate(()=>window.skillFixture.calls.splice(0));
+                    assert.equal(shortcut.length,1);assert.equal(shortcut[0].options,undefined);
+                } else {
+                    assert.equal(await control.isDisabled(),true);
+                    await control.dispatchEvent('click',{shiftKey:true});
+                    assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+                }
+                if (kind==='skill') {
+                    await tab('Abilities');
+                    assert.equal(await page.getByLabel('Passive Perception',{exact:true}).innerText(),String(15+state.mode*5));
+                    await tab('Skills');
+                }
+                modeRows.push({width,kind,mode:state.mode,formula:state.formula,staleRetired:true,execution:state.mode===0?'normal-only':'blocked-E05'});
+            }
+        }
         assert.deepEqual(errors, []);
         await context.close();
     }
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows }, null, 2));
-    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections and retained-callback fences PASS; artifacts ${artifacts}\n`);
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows }, null, 2));
+    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }

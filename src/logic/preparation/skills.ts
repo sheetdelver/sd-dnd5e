@@ -1,12 +1,12 @@
 import { initializedAbilityRolls606 } from './roll-initialization';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
-import { d20RangeReason, skillRollScopes, numericD20Roll } from './d20-configuration';
+import { d20RangeReason, skillRollScopes, numericD20Roll, sourceD20Mode, numericD20Formula, numericD20ExecutionReason } from './d20-configuration';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
 
 export interface PreparedSkill {
     ability: string; prof: number | null; total: number | null; passive: number | null;
-    formula: string | null; unavailableReason?: string;
+    formula: string | null; sourceMode?: -1 | 0 | 1; unavailableReason?: string;
 }
 export function numericSkillRoll(skill: PreparedSkill | undefined, options: Record<string, unknown> = {}): string | null {
     return numericD20Roll(skill, options);
@@ -43,11 +43,12 @@ export function prepareNumericSkills606(actor: unknown, context: RulesContext): 
         if (typeof score !== 'number' || !Number.isInteger(score) || score < 0 || score > 30) reason = 'Ability source score unavailable';
         const modifiers = [skillRoll.bonus, globalCheck.bonus, abilityRoll.bonus, globalSkill.bonus, bonuses.passive].map(numericConstant);
         if (modifiers.some(value => value === null) || bonuses.check) reason = 'Skill formula requires Q00 qualification';
-        if ([skillRoll.mode, abilityRoll.mode, globalCheck.mode, globalSkill.mode].some(mode => mode !== undefined && mode !== 0)) reason = 'Skill advantage mode preparation unavailable';
+        const mode = sourceD20Mode(skillRollScopes(actor, key));
+        if (mode.reason) reason = mode.reason;
         const multipliers = [skill.value, globalCheck.proficiency, globalSkill.proficiency].filter(value => value !== undefined);
         if (skill.value === undefined || multipliers.some(value => typeof value !== 'number' || ![0, .5, 1, 2].includes(value))) reason = 'Skill proficiency source unavailable';
         const multiplier = reason ? null : Math.max(...multipliers as number[]);
-        if (reason || multiplier === null) {
+        if (reason || multiplier === null || mode.mode === undefined) {
             result[key] = { ability, prof: null, total: null, passive: null, formula: null, unavailableReason: reason ?? 'Skill preparation unavailable' };
             continue;
         }
@@ -58,9 +59,9 @@ export function prepareNumericSkills606(actor: unknown, context: RulesContext): 
             result[key] = { ability, prof: multiplier, total: null, passive: null, formula: null, unavailableReason: 'Numeric skill result outside qualified roll representation' };
             continue;
         }
-        const unavailableReason = d20RangeReason(skillRollScopes(actor, key));
-        result[key] = { ability, prof: multiplier, total, passive: 10 + total + passiveBonus,
-            formula: unavailableReason ? null : `1d20${total < 0 ? '' : '+'}${total}`, ...(unavailableReason ? { unavailableReason } : {}) };
+        const unavailableReason = d20RangeReason(skillRollScopes(actor, key)) ?? numericD20ExecutionReason(total, mode.mode);
+        result[key] = { ability, prof: multiplier, total, passive: 10 + total + passiveBonus + 5 * mode.mode, sourceMode: mode.mode,
+            formula: unavailableReason ? null : numericD20Formula(total, mode.mode), ...(unavailableReason ? { unavailableReason } : {}) };
     }
     return result;
 }
