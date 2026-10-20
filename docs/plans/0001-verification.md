@@ -597,6 +597,8 @@ qualification. No new arithmetic/Core blocker or full acceptance closure.
 
 ### C10 — DD-R06 focused preview correction (2026-10-20)
 
+Implementation commit: `508369f1af77cc38f7f555aa8c61dd3105452dfc`.
+
 RV04 documentation checkpoint `e9be054` preserves the independent review.
 Maintained mounted coverage first reproduced the same mismatch at1440/390:
 Advantage remained focused after pointer exit, preview reverted to1d20+5 and
@@ -614,6 +616,8 @@ DD-R01–DD-R05 remain covered. No Core/rules/serialization change or full gate
 closure. Continue combined-check/alternate-ability qualification; ADR-0001 open.
 
 ### C11 — Selected checks and alternate abilities (2026-10-20)
+
+Implementation commit: `53270c40d1ed01e8a87daab45da56132433b8710`.
 
 RV04 review checkpoint `e9be054f41d689294aca4e8e48715ba2319a99c9`;
 DD-R06 corrective implementation `508369f1af77cc38f7f555aa8c61dd3105452dfc`.

@@ -652,6 +652,8 @@ closure. Continue combined-check/alternate-ability qualification; ADR-0001 open.
 
 ### C11 — Selected skill/tool checks and alternate abilities (2026-10-20)
 
+Implementation commit: `53270c40d1ed01e8a87daab45da56132433b8710`.
+
 Review checkpoint `e9be054`; DD-R06 correction `508369f`. The saved C11 ADR
 precedes substantive changes. C11 advances DD-02/24/27/34 and A02/A18 within
 M2/Q00. Of the original36 independent requests,34 failed before and pass after;

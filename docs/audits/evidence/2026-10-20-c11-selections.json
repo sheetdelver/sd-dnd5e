@@ -2593,5 +2593,6 @@
       "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core": "PASS public boundaries/types/bundles/archive15"
     },
     "packageDifference": "Earlier workspace archive retained separately. Different build roots change generated JS source comments; clean Tailwind includes additional .rounded utility. Final pristine-baseline artifact and entry hashes recorded; byte identity is not claimed."
-  }
+  },
+  "implementationCommit": "53270c40d1ed01e8a87daab45da56132433b8710"
 }
