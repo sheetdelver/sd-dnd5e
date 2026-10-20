@@ -439,3 +439,29 @@ Next implement source-mode combination/passive semantics from the controlled
 expectations, then qualify the public roll path before widening formula/range
 support. Continue shared tool preparation and the planned effect phases after
 their independent expectations are ready. ADR-0001 remains open.
+
+### Independent C04/C05 review addendum — 2026-10-19
+
+RV02 reviewed `b45e144`, independently reran the reported offline checks and
+confirmed DD-R01/DD-R02 corrections. See the
+[review report](../audits/evidence/2026-10-19-c04-c05-review.md) and
+[portable ledger](../audits/evidence/2026-10-19-c04-c05-review.json).
+All15 regular package files match the reported archive. This remains offline
+and controlled-source evidence, not native/operator acceptance.
+
+Two corrections qualify C05 and should be included in the next M2 checkpoint:
+
+| ID | Decision / correction | Required evidence |
+| --- | --- | --- |
+| DD-R03 | Level/proficiency must have explicit availability. When the shared profile is unavailable, cards/headers must not reuse old defaults or stale source fields. Preserve independently qualified facts where separable; use one projection for every consumer. | Supported5/+3 → unknown/unqualified → recovered5/+3; equipped equipment, invalid class levels and poisoned source fields. Check cards, desktop/mobile headers/proficiency, and unchanged source. |
+| DD-R04 | Respect native schema initialization before rule preparation. Global roll proficiency fields are nonpersisted targets initialized to0, not raw source overrides. Keep later effect-derived values separate from source fixtures. | Poisoned nonpersisted source values cannot affect output. Separate source/default cases from the existing intermediate-model arithmetic cases; future effect cases must traverse the real preparation phases. |
+
+Both are module corrections under DD-01/02/24/30/34 and A02/A03/A04/A18;
+neither requires a Core change, migration, broader legacy support or a native
+runtime. The previous eight arithmetic comparisons retain value at their stated
+phase but do not prove source initialization. Once corrected, resume source-mode
+combination/passives and public roll-path qualification in dependency order.
+No full milestone or acceptance gate closes; E01 remains the existing external
+dependency. Review-only documentation changes are uncommitted; application code,
+compatibility and version metadata were not changed. The prior ADR was saved
+locally before this addendum.

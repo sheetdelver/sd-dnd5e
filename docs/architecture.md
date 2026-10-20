@@ -116,7 +116,9 @@ and global proficiency overrides. `character-profile.ts` shares prerequisites,
 class-level proficiency, constant parsing and numeric representation checks.
 Source `total/passive/mod/check.value/save.value` are never reused as an oracle.
 Adapter execution and both layouts consume the same result/formula. Cards also
-consume the qualified class level and proficiency result. This subset supports
+consume the class level and proficiency result when that profile is ready;
+DD-R03 records that unavailable profiles currently retain old fallback values
+and need explicit availability across card/header consumers. This subset supports
 normal/manual advantage/disadvantage requests and numeric situational bonuses;
 alternate abilities and unqualified bonus expressions are rejected. It is not
 the complete native skill/ability/save/tool interpreter. Active effects,
@@ -134,7 +136,12 @@ combined ranges remain unavailable until Q00 qualifies equivalent execution.
 Ability/check/save range scopes apply the same execution gate. Check/save totals
 remain distinct from base ability modifiers; a check bonus does not change the
 displayed score. Only six standard ability scores0–30 and the explicit numeric
-profile are qualified. Other numeric domains (including HP/AC) and the legacy
+profile are qualified subject to DD-R04: native global roll proficiency fields
+are nonpersisted preparation targets, but current source fixtures/logic wrongly
+accept them as raw inputs. Separate schema initialization and effect-phase
+results before claiming source parity for these overrides; see the
+[C04/C05 review](audits/evidence/2026-10-19-c04-c05-review.md).
+Other numeric domains (including HP/AC) and the legacy
 compatibility projection remain unqualified.
 
 `getSystemDataForUser` and GET `content` / `content/detail` under

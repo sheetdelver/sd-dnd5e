@@ -15,7 +15,7 @@ Keep these separate in every checkpoint:
 | N — native comparison | Exact supported Foundry/system build, real source/prepared data and native action behavior independently observed | Arbitrary untested extensions, releases or configurations |
 | O — operator acceptance | User can complete intended workflows and understand failures/recovery/boundaries | Exhaustive rules parity by visual approval alone |
 
-Current R/S and packaging evidence is recorded in C01–C03 and independent RV01 below. No milestone has native acceptance yet. Don't backfill an N result from an R/S/I run or a sibling module's acceptance.
+Current R/S and packaging evidence is recorded in C01–C05 and independent RV01/RV02 below. RV02 confirms the original corrections and qualifies C05's card availability and source-phase claims. No milestone has native acceptance yet. Don't backfill an N result from an R/S/I run or a sibling module's acceptance.
 
 ## Fixture format and acquisition
 
@@ -335,3 +335,30 @@ Reviewed `6189dcd` with no source edits or live access. See the
   N/O or release readiness. Next implement source-mode/passive semantics using
   the81 independent cases, qualify the public execution path, then continue
   shared tools and effect phases. E01 remains the existing external dependency.
+
+### RV02 — independent C04/C05 review (2026-10-19)
+
+Reviewed `b45e144` without source edits or live access. The
+[review report](../audits/evidence/2026-10-19-c04-c05-review.md) and
+[portable evidence](../audits/evidence/2026-10-19-c04-c05-review.json) retain
+reproductions and qualifications. DD-R01/DD-R02 remain corrected.
+
+- Fresh passes:31 tooling assertions,9 module suites,93-file explicit typing,
+  exact6.0.6 inventory (2242 records/591 expressions),8 arithmetic cases,
+  81 source-mode combinations,800 die selections,50 mounted transitions,
+  6 preview cases and retained-callback fences; isolated check/package passes.
+- Fresh archive SHA-256:
+  `8394dbeff020c349cc2df131d8385f329312fa82a8ed32cab48e7bc496c97223`.
+  All15 regular file contents equal the reported C05 archive.
+- DD-R03:6 unavailable/unqualified inputs retain fabricated or stale card
+  level/proficiency; supported baseline is5/+3. Context loss, equipped armor or
+  invalid class source gives0/+2; poisoned source produces99/+99. Rolls refuse
+  correctly. Add shared card/header availability and recovery coverage.
+- DD-R04:3 injected nonpersisted proficiency fields change module results.
+  Exact6.0.6 field declarations and controlled Foundry14.367 `SchemaField`
+  initialization show those raw fields initialize to0. Three C05 arithmetic
+  cases are intermediate-model evidence, not equivalent source preparation.
+  Separate fixture phases and test stale-field invariance before widening M2.
+- R/S/mounted fixture/package only; no I/U/N/O acceptance. Node24.21.0;
+  Node22 CI not executed. No Core finding or new contract floor. Existing
+  Q00/Q01, effects/modes/ranges/tools and E01 remain open. ADR-0001 stays open.

@@ -23,6 +23,16 @@ These copies help identify runtime coupling; they do not establish native accept
 
 Use the [versioned upstream tree](https://github.com/foundryvtt/dnd5e/tree/release-6.0.6) with the exact paths and symbols below. Preparation outputs must remain distinct from persisted source. The server receives JSON documents, not instances of these classes.
 
+RV02 clarification: `CreatureTemplate.defineSchema` in
+`module/data/actor/templates/creature.mjs` declares
+`rolls.ability.{check,save,skill,tool}.proficiency` with `initial:0` and
+`persisted:false`. These are preparation/effect targets, not persisted source
+overrides. Foundry14.367 `SchemaField.initialize` selects a nonpersisted field's
+initial value instead of supplied source data. A direct `prepareAbilities`
+comparison on an already-populated plain model does not establish that source
+initialization occurred. See [DD-R04](../audits/evidence/2026-10-19-c04-c05-review.md)
+for exact file provenance, controlled-method qualifications and fixture guidance.
+
 | Domain | Authoritative source and native symbols | Consequence for SheetDelver |
 | --- | --- | --- |
 | PC model | `module/data/actor/character.mjs`: `CharacterData.defineSchema`, `prepareBaseData`, `prepareEmbeddedData`, `prepareDerivedData` | Class Item levels produce total level and proficiency. HP max may be null in source and derive from HitPoints advancements plus bonuses. Background is a local Item reference, not necessarily a display string. |

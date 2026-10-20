@@ -4,7 +4,24 @@ Status: **active implementation; investigation retained, acceptance open**. Date
 
 Owning plan: [accepted module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
 
-## Current independent review — C01–C03
+## Current independent review — C04/C05 (RV02)
+
+The [C04/C05 review](evidence/2026-10-19-c04-c05-review.md) at `b45e144`
+independently passes the reported checks and confirms DD-R01/DD-R02 corrections.
+It adds two medium-priority module findings to the next M2 checkpoint:
+
+| ID | Finding | Required disposition |
+| --- | --- | --- |
+| DD-R03 | When the numeric profile is unavailable, level/proficiency retain old defaults or stale source values; the five-level baseline card becomes level0/+2. | Make availability explicit across prepared values, card and headers; preserve independently qualified facts, never substitute fallback numbers. DD-01/02/24/34, A02/A03/A18. |
+| DD-R04 | Source fixtures and preparation trust global proficiency fields that native6.0.6 declares nonpersisted. Later-phase arithmetic comparisons miss initialization. | Separate source/default/effect phases and fixture evidence; ignore stale nonpersisted source fields, retain independent intermediate arithmetic cases. DD-01/02/30/34, A02/A04. |
+
+See the report for exact paths, reproduced values, correction criteria and
+[portable results](evidence/2026-10-19-c04-c05-review.json). No new Core issue or
+live acceptance is claimed. Resolve these within the next bounded checkpoint,
+then continue source-mode/passive and public roll-path qualification. Effects,
+range execution, tools and E01 remain their existing planned work.
+
+### Earlier review and implementation dispositions
 
 The [October 19 review](evidence/2026-10-19-c01-c03-review.md) at `6189dcd`
 independently passes the reported foundation checks, but records two required
@@ -22,7 +39,9 @@ acceptance remain open. Earlier baseline observations below are historical;
 current compatibility is Core>=0.19.3/module-api>=1.5 and module0.4.1 experimental.
 
 C05 subsequently implements shared bounded numeric abilities/checks/saves and
-qualified card level/proficiency (DD-01/02/24/34 partial, A02/A18 partial).
+the supported-profile card level/proficiency path (DD-01/02/24/34 partial,
+A02/A18 partial; DD-R03 qualifies its unavailable path and DD-R04 its source
+proficiency fixtures).
 Independent expectations precede implementation: six of eight cases failed on
 C04; all now pass. Prepared previews, options, shortcuts, direct execution and
 mounted loss/recovery agree for that profile. A separate failing regression
