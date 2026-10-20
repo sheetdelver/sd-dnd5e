@@ -228,7 +228,7 @@ distributions, retaining equal-value index differences as diagnostics. Host
 serialization must remain unchanged. This is not an exemption for unequal dice,
 rerolls, grouped dice, die-specific metadata or wider native behavior. See
 [DD-R05](../audits/evidence/2026-10-19-c06-c07-review.md) and the RV03 addendum.
-The current implementation still blocks adv/dis pending that module correction;
+C08 corrects DD-R05 and restores this qualified adv/dis profile;
 do not task Core with first-tie support without evidence that a scoped feature
 requires it. Broader expressions/ranges/critical/chat behavior still require Q00.
 
@@ -556,3 +556,22 @@ proposal; the tied-index diagnostic alone does not. E01 remains external.
 The guards are still present in current code. This review changes documentation
 only and does not close ADR-0001, any full acceptance gate or native/operator
 qualification. The prior ADR was saved before annotation.
+
+### C08 — DD-R05 correction (2026-10-20)
+
+Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
+ equivalence recommendation and restores source/manual normal/adv/dis requests.
+Twelve unchanged qualified requests first failed and now pass. Native default
+button selection and all nine explicit overrides compare against exact
+D20RollConfigurationDialog methods at87e94db. Source-mode cancellation, range/
+context gates and retained callback protections remain covered.
+
+Qualification requires ordered faces, exact entropy consumption, one correct
+retained value, consistent active/discarded states, unchanged totals and complete
+distributions. Unequal pairs require exact identity. Equal-index diagnostics are
+nonblocking only for plain homogeneous d20 without distinguishable metadata.
+Negative oracle tests reject corrupt counts, values, flags, metadata, groups,
+modifiers and totals. No host record is rewritten. C07's first-tie dependency and
+blanket unavailability are superseded for this profile; historical evidence and
+native first-tie observation remain. Wider E05, effects/flags/ranges/groups/
+rerolls and die-specific behavior remain unqualified; no new Core dependency.

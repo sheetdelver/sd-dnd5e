@@ -469,3 +469,40 @@ its documented scope; no additional calculation defect was confirmed.
   critical annotation, installed D&D UI or native/operator acceptance. Services
   stopped; operator Foundry untouched. No source/version/Git writes. Wider
   Q00/E05 and E01 remain open; no full DD/A/M or ADR gate closes.
+
+### C08 — DD-R05 correction (2026-10-20)
+
+Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
+ equivalence recommendation and restores source/manual normal/adv/dis requests.
+Twelve unchanged qualified requests first failed and now pass. Native default
+button selection and all nine explicit overrides compare against exact
+D20RollConfigurationDialog methods at87e94db. Source-mode cancellation, range/
+context gates and retained callback protections remain covered.
+
+Qualification requires ordered faces, exact entropy consumption, one correct
+retained value, consistent active/discarded states, unchanged totals and complete
+distributions. Unequal pairs require exact identity. Equal-index diagnostics are
+nonblocking only for plain homogeneous d20 without distinguishable metadata.
+Negative oracle tests reject corrupt counts, values, flags, metadata, groups,
+modifiers and totals. No host record is rewritten. C07's first-tie dependency and
+blanket unavailability are superseded for this profile; historical evidence and
+native first-tie observation remain. Wider E05, effects/flags/ranges/groups/
+rerolls and die-specific behavior remain unqualified; no new Core dependency.
+
+C08 evidence: `npm test`33 tooling assertions/12 module suites PASS; explicit
+`npm run typecheck`98 files PASS; exact source2242/591 match; native comparisons
+16 phase-labelled abilities/81 modes-passives/800 selections +9 manual overrides
+PASS. Mounted50 transitions/6 previews/16 facts/18 modes plus source/context
+callback fences PASS at1440/390. All three buttons preview and dispatch the same
+shared formula; shortcuts retain source defaults.
+
+`npm run test:public-rolls` exits0:919 totals/ordered serialized faces and
+complete distributions PASS,40 nonblocking equal-index diagnostics retained.
+The additional18 cases exercise all manual choices over source modes with numeric
+bonuses. `npm run check:package` PASS,15 regular files, archive SHA256
+`bbae8b02b290d15bb641bd080bf995c5d3d64fee20a7bbab5f97d0648f3d5c96`.
+[Portable C08 evidence](../audits/evidence/2026-10-20-c08-correction.json) records
+hashes and separate R/S/isolated-host results. No installed UI/N/O acceptance.
+Node24.21/npm11.19; Node22 CI not run. Experimental0.4.1/compatibility unchanged.
+DD-R01–DD-R04 preserved; DD-R05 corrected. No full DD/A/M gate closes. Next:
+shared source-only tool preparation with independent schema/method expectations.

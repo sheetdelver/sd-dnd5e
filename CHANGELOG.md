@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Restored qualified plain-d20 advantage/disadvantage; retained equal-die diagnostics.
+
 - Added source mode/passive preparation; fenced adv/dis execution pending native tie-selection support.
 
 - Made level/proficiency availability explicit; separated source defaults from prepared proficiency targets.

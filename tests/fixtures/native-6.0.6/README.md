@@ -78,3 +78,10 @@ tied selections differ from native; exit2 means E05 remains blocked. Artifacts
 include observed serialized results and a compact evidence record. No Core
 service is retained. This script is not part of npm test and does not silently
 turn a qualification mismatch into a passing module regression.
+
+C08 supersedes the C07 first-tie restriction: the public harness now passes narrow
+plain-d20 equivalence and records equal-index differences as diagnostics. Faces,
+retained value/count, flags, exact unequal identity, entropy and distributions
+remain strict. Actual host serialization is preserved. Negative oracle cases
+reject nonplain metadata/modifiers/groups and corrupt records. Native dialog
+defaults and explicit mode overrides are controlled S comparisons, not native UI.

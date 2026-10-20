@@ -7,9 +7,6 @@ export function numericD20Roll(check: PreparedNumericD20 | undefined, options: R
     if (!check?.formula || check.total === null || check.unavailableReason) return null;
     if (options.ability !== undefined && options.ability !== check.ability) return null;
     const advantage = options.advantage ?? (check.sourceMode === 1 ? 'adv' : check.sourceMode === -1 ? 'dis' : 'normal');
-    // Public-host qualification preserves numeric distributions but fails native
-    // first-tie retention. Never present that candidate as equivalent execution.
-    if (advantage !== 'normal') return null;
     const die = advantage === 'normal' ? '1d20' : advantage === 'adv' ? '2d20kh1' : advantage === 'dis' ? '2d20kl1' : null;
     if (!die) return null;
     const bonus = options.situationalBonus;
@@ -36,7 +33,6 @@ export function numericD20Formula(total: number, mode: -1 | 0 | 1): string {
 }
 export function numericD20ExecutionReason(total: number, mode: -1 | 0 | 1): string | undefined {
     if (Math.abs(total) > 1_000_000_000) return 'Numeric roll bonus exceeds the supported host limit';
-    if (mode !== 0) return 'Native advantage/disadvantage die selection is not yet supported';
     return undefined;
 }
 export function abilityRollScopes(actor: unknown, ability: string, type: 'check' | 'save') {

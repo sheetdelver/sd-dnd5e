@@ -18,3 +18,5 @@ proficiency source/default boundaries. The verification ledger records evidence;
 continue the existing mode/passive and public roll qualification roadmap. Neither requires Core changes. The earlier
 [C01–C03 review](evidence/2026-10-19-c01-c03-review.md) is retained as historical
 failing evidence, not an instruction to redo its completed corrections.
+
+C08 corrects DD-R05 with bounded numeric equivalence and actual consumer tests. Wider Q00/E05 remains open; continue the planned source-only tool segment.

@@ -27,6 +27,7 @@ const sandbox = { foundry: { utils: { getProperty, getType: value => value && ty
     dnd5e: { settings: { proficiencyModifier: 'bonus', rulesVersion: 'modern' } },
     CONFIG: { DND5E: { skillPassive: {base:10,modifier:5}, maxAbilityScore: 30, abilities: Object.fromEntries(['str','dex','con','int','wis','cha'].map(key => [key, { type: ['str','dex','con'].includes(key) ? 'physical' : 'mental' }])) } },
     AppliedRules: { collect: () => ({ filterWith: () => ({ toFormula: () => '', toAdvantageCounts: () => ({}) }) }) },
+    _loc: value => value,
     console: { error: () => { throw new Error('Unqualified formula evaluation reached native oracle'); } },
 };
 const utils = ts.createSourceFile('utils.mjs', files.get('module/utils.mjs'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
@@ -41,10 +42,23 @@ class CreatureTemplate extends CommonTemplate { ${member('module/data/actor/temp
 class AdvantageModeField { ${['combineFields','getCounts','resolveMode'].map(name => member(advantagePath, 'AdvantageModeField', name)).join('\n')} }
 class D20RollModificationField { ${member('module/data/shared/d20-roll-modification-field.mjs', 'D20RollModificationField', 'combineFields')}
 ${member('module/data/shared/d20-roll-modification-field.mjs', 'D20RollModificationField', '#makeRulesIterator')} }
+class D20Dialog { ${['_prepareButtonsContext','_finalizeConfig'].map(name => member('module/applications/dice/d20-configuration-dialog.mjs','D20RollConfigurationDialog',name)).join('\n')} }
 class BasicDie { ${['expandAdvantage','advantage'].map(name => member('module/dice/basic-die.mjs', 'BasicDie', name)).join('\n')} }
-globalThis.native = { CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, BasicDie };`;
+globalThis.native = { CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, D20Dialog, BasicDie };`;
 vm.runInNewContext(code, sandbox, { timeout: 1000 });
-const { CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, BasicDie } = sandbox.native;
+const { CommonTemplate, CreatureTemplate, Proficiency, AdvantageModeField, D20RollModificationField, D20Dialog, BasicDie } = sandbox.native;
+assert.match(files.get('module/dice/d20-roll.mjs'), /NORMAL: 0,\s*ADVANTAGE: 1,\s*DISADVANTAGE: -1/);
+sandbox.CONFIG.Dice={D20Roll:{ADV_MODE:{NORMAL:0,ADVANTAGE:1,DISADVANTAGE:-1}}};
+let manualModeCases=0;
+for(const mode of [-1,0,1]) {
+    const dialog=Object.create(D20Dialog.prototype);dialog.options={};dialog.config={rolls:[{options:{advantageMode:mode}}]};
+    const context=await dialog._prepareButtonsContext({},{});
+    assert.equal(Object.keys(context.buttons).find(key=>context.buttons[key].default),mode===1?'advantage':mode===-1?'disadvantage':'normal');
+    for(const [action,expected] of [['normal',0],['advantage',1],['disadvantage',-1]]) {
+        const config={rolls:[{options:{advantageMode:mode}}]};dialog._finalizeConfig(config,action);
+        assert.equal(config.rolls[0].options.advantageMode,expected);manualModeCases++;
+    }
+}
 // Verify exact schema declarations without constructing native runtime fields.
 const creature = ts.createSourceFile('creature.mjs', files.get('module/data/actor/templates/creature.mjs'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
 const declarations = [];
@@ -105,7 +119,7 @@ for (const adv of [false,true]) for (let a = 1; a <= 20; a++) for (let b = 1; b 
     selections++;
 }
 const evidence = { evidence: 'S controlled exact native methods, not native/SDK engine execution', nativeCommit,
-    declarations, abilities, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
+    manualModeCases, declarations, abilities, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
     stubs: ['Numeric literal classification only; unknown evaluation fails', 'No applied rules/conditions/cover/flags', 'Empty ability compatibility shims', 'Property traversal and plain count merging'],
     limits: fixture.exclusions };
 const output = option(args, '--write-evidence');

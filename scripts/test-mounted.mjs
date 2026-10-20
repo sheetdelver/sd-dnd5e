@@ -184,29 +184,41 @@ try {
                 await control.click(); await page.locator('dialog[open]').waitFor();
                 await render(state.actor);
                 await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
-                if (state.mode === 0) {
-                    assert.equal(await control.isEnabled(),true);
+                assert.equal(await control.isEnabled(),true);
+                for (const [name,choice,die] of [['Normal','normal','1d20'],['Advantage','adv','2d20kh1'],['Disadvantage','dis','2d20kl1']]) {
                     await control.click();
                     assert.ok((await page.locator('dialog[open]').innerText()).includes(state.formula));
-                    assert.equal(await page.getByRole('button',{name:'Advantage',exact:true}).isDisabled(),true);
-                    assert.equal(await page.getByRole('button',{name:'Disadvantage',exact:true}).isDisabled(),true);
-                    await page.getByRole('button',{name:'Normal',exact:true}).click();
-                    assert.equal(await page.evaluate(()=>window.skillFixture.calls.splice(0).length),1);
-                    await control.click({modifiers:['Shift']});
-                    const shortcut=await page.evaluate(()=>window.skillFixture.calls.splice(0));
-                    assert.equal(shortcut.length,1);assert.equal(shortcut[0].options,undefined);
-                } else {
-                    assert.equal(await control.isDisabled(),true);
-                    await control.dispatchEvent('click',{shiftKey:true});
-                    assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+                    const button=page.getByRole('button',{name,exact:true});
+                    assert.equal(await button.isEnabled(),true);
+                    await page.getByRole('textbox',{name:'Situational bonus'}).fill('2');
+                    await button.focus();
+                    const expected=die+'+'+(kind==='ability'?2:5)+'+(2)';
+                    assert.ok((await page.locator('dialog[open]').innerText()).includes(expected),'Focused mode previews its exact request');
+                    await button.click();
+                    const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));
+                    assert.equal(calls.length,1);assert.equal(calls[0].options.advantage,choice);assert.equal(calls[0].formula,expected);
                 }
+                await control.click({modifiers:['Shift']});
+                const shortcut=await page.evaluate(()=>window.skillFixture.calls.splice(0));
+                assert.equal(shortcut.length,1);assert.equal(shortcut[0].options,undefined);assert.equal(shortcut[0].formula,state.formula);
                 if (kind==='skill') {
                     await tab('Abilities');
                     assert.equal(await page.getByLabel('Passive Perception',{exact:true}).innerText(),String(15+state.mode*5));
                     await tab('Skills');
                 }
-                modeRows.push({width,kind,mode:state.mode,formula:state.formula,staleRetired:true,execution:state.mode===0?'normal-only':'blocked-E05'});
+                modeRows.push({width,kind,mode:state.mode,formula:state.formula,staleRetired:true,execution:'qualified-normal-adv-dis'});
             }
+        }
+        for (const kind of ['skill','ability','save']) {
+            const state=modes[kind][2].actor, baseline=kind==='skill'?states.supported:abilityStates.supported;
+            const probe=kind==='skill'?true:kind;
+            await page.evaluate(({actor,probe})=>window.skillFixture.render(actor,probe),{actor:state,probe});
+            const control=kind==='skill'?skill:page.getByRole('button',{name:kind==='ability'?'Wisdom Check':'Wisdom Saving Throw',exact:true});
+            await control.click();await page.evaluate(()=>window.skillFixture.hold());
+            await page.evaluate(({actor,probe})=>window.skillFixture.render(actor,probe),{actor:baseline,probe});
+            await page.evaluate(({actor,probe})=>window.skillFixture.render(actor,probe),{actor:state,probe});
+            assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld({advantage:'adv'})),'retired');
+            assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
         }
         assert.deepEqual(errors, []);
         await context.close();

@@ -27,22 +27,24 @@ export function ConfigRow({ label, children }: { label: string; children: React.
     </div>;
 }
 
-export function AdvantageButton({ onClick, primary, children, disabled = false, label }: {
+export function AdvantageButton({ onClick, primary, children, disabled = false, label, onPreview, onPreviewEnd }: {
     onClick: () => void;
     primary?: boolean;
     children: React.ReactNode;
     disabled?: boolean;
     label?: string;
+    onPreview?: () => void;
+    onPreviewEnd?: () => void;
 }) {
-    return <button type="button" onClick={onClick} disabled={disabled} aria-label={label}
+    return <button type="button" onClick={onClick} disabled={disabled} aria-label={label} onFocus={onPreview} onBlur={onPreviewEnd}
         style={{ padding: '10px 4px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase',
             letterSpacing: '0.05em', background: primary ? 'var(--theme-glow)' : 'var(--surface-elevated)',
             color: primary ? 'var(--theme-primary)' : 'var(--text-primary)',
             border: primary ? '1px solid var(--theme-primary)' : '1px solid var(--theme-border)',
             borderRadius: 'var(--block-radius)', cursor: disabled ? 'not-allowed' : 'pointer',
             opacity: disabled ? 0.5 : 1, transition: 'all 0.1s' }}
-        onMouseEnter={event => { event.currentTarget.style.boxShadow = '0 0 8px var(--theme-glow)'; }}
-        onMouseLeave={event => { event.currentTarget.style.boxShadow = 'none'; }}>{children}</button>;
+        onMouseEnter={event => { if (!disabled) onPreview?.(); event.currentTarget.style.boxShadow = '0 0 8px var(--theme-glow)'; }}
+        onMouseLeave={event => { onPreviewEnd?.(); event.currentTarget.style.boxShadow = 'none'; }}>{children}</button>;
 }
 
 const closeButtonStyle: React.CSSProperties = {

@@ -8,11 +8,11 @@ for (const row of fixture.cases) {
     fixture.scopeOrder.forEach((scope, i) => setSkillRoll(source, scope, { mode: row.modes[i] }));
     const before = structuredClone(source), prepared = adapter.prepareActorData(source, skillContext()), check = (prepared.derived.skillChecks as any).prc;
     const die = row.expectedMode === 1 ? '2d20kh1' : row.expectedMode === -1 ? '2d20kl1' : '1d20';
-    try { assert.equal(check.total, row.expectedTotal); assert.equal(check.passive, row.expectedPassive); assert.equal(adapter.getRollData(prepared, 'skill', 'prc')?.formula, row.expectedMode === 0 ? die+'+5' : undefined); }
+    try { assert.equal(check.total, row.expectedTotal); assert.equal(check.passive, row.expectedPassive); assert.equal(adapter.getRollData(prepared, 'skill', 'prc')?.formula, die+'+5'); }
     catch { failures++; }
-    assert.equal(adapter.getRollData(prepared, 'skill', 'prc', {advantage:'normal'})?.formula, row.expectedMode === 0 ? '1d20+5' : undefined);
-    assert.equal(adapter.getRollData(prepared, 'skill', 'prc', {advantage:'adv'}), null);
-    assert.equal(adapter.getRollData(prepared, 'skill', 'prc', {advantage:'dis',situationalBonus:'2'}), null);
+    assert.equal(adapter.getRollData(prepared, 'skill', 'prc', {advantage:'normal'})?.formula, '1d20+5');
+    assert.equal(adapter.getRollData(prepared, 'skill', 'prc', {advantage:'adv'})?.formula, '2d20kh1+5');
+    assert.equal(adapter.getRollData(prepared, 'skill', 'prc', {advantage:'dis',situationalBonus:'2'})?.formula, '2d20kl1+5+(2)');
     const bounded = structuredClone(source); (bounded.system as any).skills.prc.roll.min = 10;
     const blocked = adapter.prepareActorData(bounded, skillContext());
     assert.equal((blocked.derived.skillChecks as any).prc.passive, row.expectedPassive);
@@ -30,13 +30,13 @@ for (const type of ['check','save']) for (const a of [-1,0,1]) for (const b of [
     setSkillRoll(source, `abilities.wis.${type}.roll`, {mode:a}); setSkillRoll(source, `rolls.ability.${type}`, {mode:b});
     const mode = ([a,b].includes(1)?1:0)-([a,b].includes(-1)?1:0);
     const die = mode === 1 ? '2d20kh1' : mode === -1 ? '2d20kl1' : '1d20';
-    assert.equal(adapter.getRollData(adapter.prepareActorData(source, skillContext()), type === 'check'?'ability':'save','wis')?.formula, mode === 0 ? die+(type === 'check'?'+2':'+5') : undefined);
+    assert.equal(adapter.getRollData(adapter.prepareActorData(source, skillContext()), type === 'check'?'ability':'save','wis')?.formula, die+(type === 'check'?'+2':'+5'));
 }
 const poisoned = skillSource(); setSkillRoll(poisoned,'skills.prc.roll',{mode:1,modeCounts:{override:-1}});
 const ignoredCounts=adapter.prepareActorData(poisoned,skillContext());
 assert.equal((ignoredCounts.derived.skillChecks as any).prc.sourceMode,1);
 assert.equal((ignoredCounts.derived.skillChecks as any).prc.passive,20);
-assert.equal(adapter.getRollData(ignoredCounts,'skill','prc'),null);
+assert.equal(adapter.getRollData(ignoredCounts,'skill','prc')?.formula,'2d20kh1+5');
 const large=skillSource();setSkillRoll(large,'skills.prc.roll',{bonus:1000000001});
 const limited=adapter.prepareActorData(large,skillContext());
 assert.equal((limited.derived.skillChecks as any).prc.total,1000000006);assert.equal(adapter.getRollData(limited,'skill','prc'),null);

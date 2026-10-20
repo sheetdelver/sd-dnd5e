@@ -121,19 +121,18 @@ facts never select old source/default numbers. C06 corrects DD-R03 across card
 projection and both headers/proficiency controls. Known class facts survive
 unresolved equipped armor; unknown context/class data/effects remain unavailable. This subset supports
 normal rolls and numeric situational bonuses within the released host literal
-limit (absolute1e9). C07 computes persisted source modes and passive±5, but
-blocks manual/source advantage/disadvantage execution after a public-host tie
-selection mismatch (E05). RV03/DD-R05 qualifies that block: equal-faced index
-selection alone does not establish a different numeric outcome or necessary
-Core dependency for plain d20 rolls. The recommended correction is bounded
-numeric equivalence with unchanged host records and retained diagnostics.
-Current code still blocks these modes. Opposed sources cancel to an executable normal roll;
+limit (absolute1e9). C08 restores normal/source/manual advantage and disadvantage
+for homogeneous plain d20 selection using existing public Core primitives. Source
+modes determine defaults; native-consistent explicit buttons override them.
+Focused/hovered buttons preview the actual selected formula. Forty equal-valued
+index differences are nonblocking diagnostics, with actual host records unchanged.
+This supersedes C07's blanket execution restriction; wider E05 remains open.
+Opposed sources cancel to a normal roll;
 alternate abilities and unqualified bonus expressions are rejected. It is not
 the complete native skill/ability/save/tool interpreter. Active effects,
 conditions, equipped equipment/encumbrance, active native Actor flags,
 proficiency dice, optional abilities and missing inputs yield explicit unavailable
-checks. Nonzero source modes preserve known totals/passives but have unavailable
-execution; malformed modes remain unavailable. UI disables them
+checks. Valid source modes share numeric execution; malformed modes remain unavailable. UI disables them
 and passives render an unavailable state instead of a guessed10 within that
 tested branch. The [independent review](audits/evidence/2026-10-19-c01-c03-review.md)
 identified two exceptions corrected by C04: all four native die-range scopes now
@@ -208,3 +207,22 @@ execution guard is DD-R05. Wider E05 remains open.
 Silent normal execution is qualified only within this numeric fixture; full
 Actor-route, chat/audience/critical annotations, installed UI and native/operator
 acceptance remain open.
+
+### C08 — DD-R05 correction (2026-10-20)
+
+Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
+ equivalence recommendation and restores source/manual normal/adv/dis requests.
+Twelve unchanged qualified requests first failed and now pass. Native default
+button selection and all nine explicit overrides compare against exact
+D20RollConfigurationDialog methods at87e94db. Source-mode cancellation, range/
+context gates and retained callback protections remain covered.
+
+Qualification requires ordered faces, exact entropy consumption, one correct
+retained value, consistent active/discarded states, unchanged totals and complete
+distributions. Unequal pairs require exact identity. Equal-index diagnostics are
+nonblocking only for plain homogeneous d20 without distinguishable metadata.
+Negative oracle tests reject corrupt counts, values, flags, metadata, groups,
+modifiers and totals. No host record is rewritten. C07's first-tie dependency and
+blanket unavailability are superseded for this profile; historical evidence and
+native first-tie observation remain. Wider E05, effects/flags/ranges/groups/
+rerolls and die-specific behavior remain unqualified; no new Core dependency.

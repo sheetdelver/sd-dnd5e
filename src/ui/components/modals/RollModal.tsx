@@ -99,6 +99,7 @@ export default function RollModal({
     onClose,
 }: RollModalProps) {
     const [rollMode, setRollMode] = useState<RollMode>('publicroll');
+    const [previewMode, setPreviewMode] = useState<Advantage>();
     const [bonus, setBonus] = useState<string>('');
     const [configValues, setConfigValues] = useState<Record<string, string>>(() =>
         Object.fromEntries(configFields.map(f => [f.key, f.initialValue]))
@@ -110,12 +111,12 @@ export default function RollModal({
     // see what they typed flowing into the roll.
     const displayedFormula = useMemo(() => {
         const ctx: FormulaContext = { ...configValues, situationalBonus: bonus };
-        if (resolveFormula) return resolveFormula({ ...configValues, ...(bonus.trim() ? { situationalBonus: bonus.trim() } : {}) });
+        if (resolveFormula) return resolveFormula({ ...configValues, ...(previewMode ? {advantage:previewMode} : {}), ...(bonus.trim() ? { situationalBonus: bonus.trim() } : {}) });
         if (computeFormula) return computeFormula(ctx);
         const base = formula ?? '1d20';
         const trimmed = bonus.trim();
         return trimmed ? `${base} + ${trimmed}` : base;
-    }, [formula, computeFormula, resolveFormula, configValues, bonus]);
+    }, [formula, computeFormula, resolveFormula, configValues, bonus, previewMode]);
 
     const modeAvailable = (advantage: Advantage) => !resolveFormula || resolveFormula({...configValues, advantage, ...(bonus.trim() ? {situationalBonus:bonus.trim()} : {})}) !== null;
 
@@ -230,9 +231,9 @@ export default function RollModal({
             {resolveFormula && displayedFormula !== null && !modeAvailable('adv') && <p>Advantage/disadvantage unavailable: native die selection is not yet supported.</p>}
             {/* Advantage / Normal / Disadvantage — each submits the roll */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-sm)' }}>
-                <AdvantageButton primary={preparedDefaultMode === 1} disabled={displayedFormula === null || !modeAvailable('adv')} onClick={() => submit('adv')}>Advantage</AdvantageButton>
-                <AdvantageButton disabled={displayedFormula === null || !modeAvailable('normal')} onClick={() => submit('normal')} primary={preparedDefaultMode === 0}>Normal</AdvantageButton>
-                <AdvantageButton primary={preparedDefaultMode === -1} disabled={displayedFormula === null || !modeAvailable('dis')} onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
+                <AdvantageButton primary={preparedDefaultMode === 1} disabled={displayedFormula === null || !modeAvailable('adv')} onPreview={() => setPreviewMode('adv')} onPreviewEnd={() => setPreviewMode(undefined)} onClick={() => submit('adv')}>Advantage</AdvantageButton>
+                <AdvantageButton disabled={displayedFormula === null || !modeAvailable('normal')} onPreview={() => setPreviewMode('normal')} onPreviewEnd={() => setPreviewMode(undefined)} onClick={() => submit('normal')} primary={preparedDefaultMode === 0}>Normal</AdvantageButton>
+                <AdvantageButton primary={preparedDefaultMode === -1} disabled={displayedFormula === null || !modeAvailable('dis')} onPreview={() => setPreviewMode('dis')} onPreviewEnd={() => setPreviewMode(undefined)} onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
             </div>
         </RollModalFrame>
     );
