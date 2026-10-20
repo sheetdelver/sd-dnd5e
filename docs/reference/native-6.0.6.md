@@ -256,3 +256,13 @@ The E05 requirement is equivalent ordered first-tie selection/serialization;
 current generic keep/drop is not declared defective. Normal numeric rolls and
 literal bounds were qualified separately. No critical/chat/audience parity or
 range support follows. Temporary adv/dis unavailability is not completed support.
+
+RV03 independently reproduces the index difference and narrows its significance:
+for the plain homogeneous d20 profile, all901 results retain the correct value
+and count, ordered faces and consistent discarded flags. Every differing index
+is an equal pair without die-specific metadata. Native first-tie behavior is a
+real source fact, but it does not by itself establish a necessary Core extension
+for numerical equivalence. See [DD-R05](../audits/evidence/2026-10-19-c06-c07-review.md)
+for the proposed narrow acceptance criterion. Preserve the original host results
+and diagnostics; no extension to rerolls, groups, effects or identity-sensitive
+operations follows from that recommendation.

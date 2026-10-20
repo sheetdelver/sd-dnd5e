@@ -123,7 +123,11 @@ unresolved equipped armor; unknown context/class data/effects remain unavailable
 normal rolls and numeric situational bonuses within the released host literal
 limit (absolute1e9). C07 computes persisted source modes and passive±5, but
 blocks manual/source advantage/disadvantage execution after a public-host tie
-selection mismatch (E05). Opposed sources cancel to an executable normal roll;
+selection mismatch (E05). RV03/DD-R05 qualifies that block: equal-faced index
+selection alone does not establish a different numeric outcome or necessary
+Core dependency for plain d20 rolls. The recommended correction is bounded
+numeric equivalence with unchanged host records and retained diagnostics.
+Current code still blocks these modes. Opposed sources cancel to an executable normal roll;
 alternate abilities and unqualified bonus expressions are rejected. It is not
 the complete native skill/ability/save/tool interpreter. Active effects,
 conditions, equipped equipment/encumbrance, active native Actor flags,
@@ -194,10 +198,13 @@ fixture module calls actual request-bound `runtime.rolls.roll` after public play
 login; no private Core import, live Foundry, new module runtime evaluator or
 production configuration is used. All901 totals/serialized faces and numeric
 distributions match. Forty tied adv/dis pairs retain index1 where exact native
-BasicDie retains index0. This is a D&D equivalence gap, not a claim that Core's
-generic keep/drop contract is defective. A public first-tie selection contract
-(or independently qualified equivalent primitive) is the bounded E05 dependency.
-The qualification command exits2 and records the open gate, never a parity pass.
+BasicDie retains index0. RV03 confirms all901 selected values/counts, ordered
+faces and discard consistency match; no unequal pair differs. Its recommended
+plain-profile equivalence records tied-index differences without disabling
+otherwise qualified rolls. This does not change Core's generic keep/drop
+contract or claim support for die-identity-sensitive rules. The current strict
+qualification command still exits2; correcting that overbroad criterion and
+execution guard is DD-R05. Wider E05 remains open.
 Silent normal execution is qualified only within this numeric fixture; full
 Actor-route, chat/audience/critical annotations, installed UI and native/operator
 acceptance remain open.

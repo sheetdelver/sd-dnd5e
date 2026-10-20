@@ -441,3 +441,31 @@ reproductions and qualifications. DD-R01/DD-R02 remain corrected.
 - Complete source-mode/passive static slice only; no full DD/A/M gate closes.
   Next: separately qualify/release E05 first-tie support and, independently,
   shared source-only tools and planned effect phases. E01 remains unchanged.
+
+### RV03 — independent C06/C07 review (2026-10-19; completed October20)
+
+Reviewed `a1492d8`; see the [report](../audits/evidence/2026-10-19-c06-c07-review.md)
+and [portable results](../audits/evidence/2026-10-19-c06-c07-review.json).
+DD-R01–DD-R04 remain corrected. Source/mode/passive preparation passes within
+its documented scope; no additional calculation defect was confirmed.
+
+- Fresh passes:31 tooling assertions,11 module suites,97-file typing,
+  2242-record/591-expression inventory,16 phase-labelled ability cases,
+  81 source modes/passives,800 die selections; mounted50 transitions/6 previews/
+  16 facts/18 modes and callback fences; isolated check/package.
+- Public-host harness exit2 independently reproduced:901 numeric outcomes
+  and distributions pass,40 first/second index differences on equal-faced dice.
+  Secondary comparison verifies901 retained values/counts, ordered faces and
+  discard consistency; unequal pairs all select the exact native index.
+- DD-R05: the blanket adv/dis block and mandatory first-tie Core dependency
+  overstate this representation difference for plain numeric d20 rolls. Adopt
+  the review's narrow equivalence criterion and restore qualified execution
+  with actual module-consumer coverage. Keep equal-value index diagnostics and
+  actual host serialization; do not generalize to unqualified dice features.
+- Fresh archive SHA256
+  `428fb51ea6cb5e21c06adc94774890c05d81df3eba6fac23079ee4068c3e0ca3`;
+  all15 regular files match C07's reported archive. Node24.21.0; Node22 CI unrun.
+- Isolated public silent-roll evidence is not full Actor-route, chat/audience,
+  critical annotation, installed D&D UI or native/operator acceptance. Services
+  stopped; operator Foundry untouched. No source/version/Git writes. Wider
+  Q00/E05 and E01 remain open; no full DD/A/M or ADR gate closes.

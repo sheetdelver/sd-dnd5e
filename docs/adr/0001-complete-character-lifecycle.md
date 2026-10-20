@@ -192,7 +192,7 @@ Evidence: ordinary SDK document store mapping in `src/server/shared/utils/module
 
 M7 Q04 separates PC-facing rules from canvas/world automation. Existing authorized Actor/Combat/Item/effect operations may satisfy companion and concentration work. If selected behavior needs scene token targets/placement or advancing world time, propose narrow typed caller-authorized capabilities with readiness/revision/outcome rules and explicit native permissions. No generic “execute native method” bridge. Accept exact Actor/Token identity, source-preserving unlinked-token semantics, denied cross-owner actions, world switch and cleanup. Keep canvas/Bastion automation outside this release unless the user selects it; do not claim it is implemented by a card or chat instruction.
 
-### E05 — Numeric roll expressiveness (Q00, bounded selection gap reproduced)
+### E05 — Numeric roll expressiveness (Q00 open; plain tied-value equivalence reviewed)
 
 Core `src/server/core/foundry/Roll.ts` and `FoundryDieRules.ts`, governed by Core
 ADR-0051, implement a bounded numeric grammar. It is not a native D&D `D20Roll`
@@ -216,15 +216,21 @@ are covered; optional custom terms remain explicitly unsupported.
 
 C07 qualifies normal numeric requests through an isolated real public host,
 not simulateRoll. Existing kh1/kl1 candidates match all numeric totals and
-selection distributions, but40 tied pairs retain the second die instead of native
-BasicDie's first. Required bounded contract: caller-bound evaluated d20 selection
-that retains the first occurrence on ties, preserving ordered faces, active/
-discarded flags and serialized results, without module re-evaluation. An existing
-public equivalent may be qualified instead; no private import/record rewrite or
-new evaluator is authorized. This is an equivalence gap against D&D's custom die,
-not a generic Core keep/drop defect. See C07 portable public-host reproduction.
-Adv/dis execution remains unavailable until a released compatible contract is
-proven. Broader expressions/ranges/critical/chat behavior still require Q00.
+selection distributions, but40 tied pairs retain the second equal die instead
+of native BasicDie's first. C07 introduced an execution block and proposed a
+first-tie contract. RV03 independently reproduced the difference and qualifies
+that proposal: no necessary external dependency is established for homogeneous
+plain d20 rolls solely by the identity of equal-valued dice.
+
+The recommended bounded acceptance rule is correct selected value/count,
+discard consistency, ordered observed faces, numerical outcomes and complete
+distributions, retaining equal-value index differences as diagnostics. Host
+serialization must remain unchanged. This is not an exemption for unequal dice,
+rerolls, grouped dice, die-specific metadata or wider native behavior. See
+[DD-R05](../audits/evidence/2026-10-19-c06-c07-review.md) and the RV03 addendum.
+The current implementation still blocks adv/dis pending that module correction;
+do not task Core with first-tie support without evidence that a scoped feature
+requires it. Broader expressions/ranges/critical/chat behavior still require Q00.
 
 ## Existing world-context and migration adoption
 
@@ -358,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives, normal public-host numeric execution; E05 tie-selection, ranges/tools/effects remain open | RV01/RV02 retained; C06/C07 source, mounted and public-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives, normal public-host numeric execution; RV03/DD-R05 qualifies the adv/dis block; ranges/tools/effects remain open | RV01/RV02 retained; C06/C07 and RV03 source, mounted and public-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -521,3 +527,32 @@ change, installed UI or N/O acceptance. E01 remains external. Next qualify a
 public first-tie selection primitive under separately scoped Core authority;
 independently continue source-only tool preparation and planned effect phases
 with their own oracles. Full DD/A/M gates and ADR-0001 remain open.
+
+### RV03 — independent C06/C07 review and E05 scope correction
+
+The [review](../audits/evidence/2026-10-19-c06-c07-review.md) at `a1492d8`
+independently confirms DD-R01–DD-R04 corrections, the new mode/passive
+preparation and reported checks. The unchanged public harness again exits2:
+901 numeric outcomes pass;40 equal-faced pairs differ only in retained index.
+All15 packaged regular files match the reported C07 archive.
+
+**DD-R05** qualifies the C07 next-step recommendation above. A first-tie Core
+extension is not demonstrated necessary for the current plain numeric d20
+profile. The review recommends treating interchangeable equal values as
+equivalent for this profile while retaining their index difference as diagnostic
+evidence. Ordered faces, correct retained value/count, discard consistency,
+totals and distributions remain required; actual host records remain untouched.
+This is a bounded adaptation decision, not a relaxation for unequal dice,
+rerolls, grouped dice, effects or distinguishable per-die rules.
+
+Next module checkpoint: encode that acceptance boundary in maintained tests;
+restore qualified manual/source advantage and disadvantage through the existing
+public primitive; verify mode choices, previews, shortcuts and direct requests
+plus stale-intent recovery. Then continue source-only tool preparation. Preserve
+range/effect/formula/other unqualified gates and continue wider Q00/E05 work.
+An actual future die-identity-sensitive requirement may justify a narrow Core
+proposal; the tied-index diagnostic alone does not. E01 remains external.
+
+The guards are still present in current code. This review changes documentation
+only and does not close ADR-0001, any full acceptance gate or native/operator
+qualification. The prior ADR was saved before annotation.

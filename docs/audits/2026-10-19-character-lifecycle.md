@@ -4,7 +4,24 @@ Status: **active implementation; investigation retained, acceptance open**. Date
 
 Owning plan: [accepted module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
 
-## Current independent review — C04/C05 (RV02)
+## Current independent review — C06/C07 (RV03)
+
+The [C06/C07 review](evidence/2026-10-19-c06-c07-review.md) at `a1492d8`
+independently confirms DD-R01–DD-R04 corrections and the reported offline,
+mounted and isolated public-host evidence. **DD-R05** is the remaining review
+finding: the blanket adv/dis execution block treats equal-valued die identity
+as a rules failure, although all901 numeric outcomes and retained values match.
+All40 index differences occur on equal pairs. No required first-tie Core
+extension has been demonstrated for this plain numeric profile.
+
+Recommended next checkpoint: define narrow numeric equivalence, preserve the
+index diagnostic and unmodified host serialization, restore qualified mode
+execution with consumer tests, then continue source-only tools. Wider E05 and
+E01 remain open. See the report and
+[portable evidence](evidence/2026-10-19-c06-c07-review.json) for boundaries.
+No source changes or live/native acceptance occurred during review.
+
+### C04/C05 review (RV02), findings now corrected
 
 The [C04/C05 review](evidence/2026-10-19-c04-c05-review.md) at `b45e144`
 independently passes the reported checks and confirms DD-R01/DD-R02 corrections.
@@ -17,8 +34,8 @@ It adds two medium-priority module findings to the next M2 checkpoint:
 
 See the report for exact paths, reproduced values, correction criteria and
 [portable results](evidence/2026-10-19-c04-c05-review.json). No new Core issue or
-live acceptance is claimed. Resolve these within the next bounded checkpoint,
-then continue source-mode/passive and public roll-path qualification. Effects,
+live acceptance is claimed. C06 resolves these findings; RV03 verifies them.
+Continue the current checkpoint guidance above. Effects,
 range execution, tools and E01 remain their existing planned work.
 
 ### Earlier review and implementation dispositions
@@ -238,3 +255,7 @@ bounded selection contract; this is not a claim of a generic Core defect.
 Affected default/manual execution is explicitly fenced, with static totals and
 passives retained. Normal execution remains bounded; ranges/tools/effects and
 full DD/A/M acceptance remain open. See verification C07 and portable evidence.
+
+RV03 supersedes C07's mandatory first-tie dependency recommendation for the
+plain numeric profile. The current guards remain an implementation limitation
+tracked as DD-R05; wider native roll equivalence is still open.
