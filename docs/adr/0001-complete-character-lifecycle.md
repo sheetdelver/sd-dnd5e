@@ -578,6 +578,8 @@ rerolls and die-specific behavior remain unqualified; no new Core dependency.
 
 ### C09 — Independent source tool checks (2026-10-20)
 
+Implementation commit: `bbce67765f8ddc34781d22d5ff75add70e454051`.
+
 C08 (`6839b73f1dcba855be4dec9da615b2ec0b46e1bb`) corrects DD-R05 after
 review checkpoint `89f4645`. C09 advances the existing M2 tool work under
 DD-02/24/34 and A02/A18; it does not close those full requirements. Independent

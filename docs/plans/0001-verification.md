@@ -472,6 +472,8 @@ its documented scope; no additional calculation defect was confirmed.
 
 ### C08 — DD-R05 correction (2026-10-20)
 
+Implementation commit: `6839b73f1dcba855be4dec9da615b2ec0b46e1bb`.
+
 Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
 equivalence recommendation and restores source/manual normal/adv/dis requests.
 Twelve unchanged qualified requests first failed and now pass. Native default
@@ -508,6 +510,8 @@ DD-R01–DD-R04 preserved; DD-R05 corrected. No full DD/A/M gate closes. Next:
 shared source-only tool preparation with independent schema/method expectations.
 
 ### C09 — Independent source tool checks (2026-10-20)
+
+Implementation commit: `bbce67765f8ddc34781d22d5ff75add70e454051`.
 
 C08 implementation: `6839b73f1dcba855be4dec9da615b2ec0b46e1bb`.
 Review documentation: `89f4645`. The ADR was saved locally before C09 revisions.

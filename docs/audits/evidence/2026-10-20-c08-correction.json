@@ -1,6 +1,6 @@
 {
   "checkpoint": "C08",
-  "reviewCommit": "89f4645",
+  "reviewCommit": "89f464531c72d447dde0c5dd9987a2fd8fb7b242",
   "baseImplementation": "a1492d812b2c5170dbf13b48049af0721b295650",
   "corrected": "DD-R05",
   "preserved": [
@@ -2110,5 +2110,6 @@
     "Host serialization unchanged; native first-tie observation and historical evidence retained",
     "No full actor endpoint/chat/critical/installed UI/native/operator acceptance",
     "E01 external; wider Q00/E05 open; no Core/compatibility/version change"
-  ]
+  ],
+  "implementationCommit": "6839b73f1dcba855be4dec9da615b2ec0b46e1bb"
 }
