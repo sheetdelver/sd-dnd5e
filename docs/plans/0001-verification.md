@@ -574,3 +574,23 @@ alternate-ability expectations and exact native roll-builder comparisons, then
 shared preparation/UI only for qualified choices before planned effect phases.
 E01 remains the separate external content dependency. Experimental0.4.1 and all
 compatibility requirements are unchanged. ADR-0001 remains open.
+
+### RV04 — independent C08/C09 review (2026-10-20)
+
+Reviewed `1c81d05` against exact native `87e94db` and Core 0.19.3/`90c13e5`.
+The [review](../audits/evidence/2026-10-20-c08-c09-review.md) records commands,
+source symbols and evidence limits; its [portable result](../audits/evidence/2026-10-20-c08-c09-review.json)
+is self-contained. DD-R05 is corrected and DD-R01–DD-R04 remain covered.
+
+Fresh checks pass: 33 tooling assertions / 13 suites; 102 typed files;
+2242 records / 591 expressions; controlled native methods; mounted 50 transitions,
+8 previews, 16 facts, 18 modes and 56 tool cases; 943 public-host roll cases with
+40 nonblocking equal-index diagnostics; isolated check/package. All 15 regular
+archive entries match the implementer's final archive. Node 22 CI and native,
+installed UI, chat/audience and operator acceptance were not performed.
+
+An additional mounted probe reproduces **DD-R06** at 1440 and 390: hover exit
+while Advantage retains focus resets preview to normal, then Enter submits
+advantage. It asserts the defect, not corrected behavior. Add its failing case
+to maintained coverage and correct it alongside combined-check/alternate-ability
+qualification. No new arithmetic/Core blocker or full acceptance closure.

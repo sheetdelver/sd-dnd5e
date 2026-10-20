@@ -5,7 +5,13 @@ The current audit is [2026-10-19 character-lifecycle discovery](2026-10-19-chara
 Implementation progress belongs in that ADR's milestone ledger and the linked [verification matrix](../plans/0001-verification.md). This is the module's only active plan. Ignored `temp/audit-report/` preparation-runtime research remains parked and is not a parallel implementation queue. Core and sibling-module audits are references only.
 
 
-The current [independent C06/C07 review](evidence/2026-10-19-c06-c07-review.md)
+The current [independent C08/C09 review](evidence/2026-10-20-c08-c09-review.md)
+confirms the DD-R05 correction and bounded tool checks. All maintained checks
+pass again. **DD-R06 (low)** records a focused-button preview lost on pointer
+exit; correct it alongside the next combined-check/alternate-ability package.
+No new Core dependency or full acceptance closure follows.
+
+The earlier [independent C06/C07 review](evidence/2026-10-19-c06-c07-review.md)
 confirms DD-R01–DD-R04 corrections. **DD-R05** recommends removing the blanket
 adv/dis block for the proven plain numeric profile, with explicit equivalence
 criteria and preserved equal-die index diagnostics. A mandatory first-tie Core

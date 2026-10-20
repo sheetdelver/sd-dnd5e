@@ -1,0 +1,81 @@
+{
+  "review": "RV04 independent C08/C09 review",
+  "date": "2026-10-20",
+  "moduleCommit": "1c81d05f1b5934acbf2d83db868bb1e068a57731",
+  "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "moduleVersion": "0.4.1",
+  "coreVersion": "0.19.3",
+  "nodeVersion": "24.21.0",
+  "npmVersion": "11.19.0",
+  "disposition": "DD-R01 through DD-R05 remain corrected; DD-R06 low-priority preview issue accompanies next M2 package",
+  "checks": {
+    "toolingAssertions": 33,
+    "moduleSuites": 13,
+    "explicitTypeFiles": 102,
+    "nativeInventoryRecords": 2242,
+    "candidateExpressions": 591,
+    "nativeAbilityCases": 16,
+    "nativeSkillModeCases": 81,
+    "nativeDieSelections": 800,
+    "nativeManualOverrides": 9,
+    "nativeToolArithmeticCases": 8,
+    "nativeToolModeCases": 81,
+    "nativeIntermediateCombinedCases": 20,
+    "mountedTransitions": 50,
+    "mountedPreviews": 8,
+    "mountedFacts": 16,
+    "mountedModes": 18,
+    "mountedTools": 56,
+    "publicHostRequests": 943,
+    "equalIndexDiagnostics": 40,
+    "syntheticNativeWrites": 0,
+    "maintainedChecksExit": 0,
+    "moduleCheckAndPackage": "pass"
+  },
+  "additionalReviewProbe": {
+    "finding": "DD-R06",
+    "severity": "low",
+    "cause": "Mouse leave clears shared previewMode while Advantage remains focused",
+    "steps": [
+      "Open normal-mode Thieves tools +5 check",
+      "Focus and hover Advantage",
+      "Move pointer outside without changing focus",
+      "Press Enter"
+    ],
+    "result": "preview mismatch reproduced",
+    "rows": [
+      {
+        "width": 1440,
+        "beforePointerLeaves": "2d20kh1+5",
+        "afterPointerLeaves": "1d20+5",
+        "focusedButton": "Advantage",
+        "submitted": "2d20kh1+5"
+      },
+      {
+        "width": 390,
+        "beforePointerLeaves": "2d20kh1+5",
+        "afterPointerLeaves": "1d20+5",
+        "focusedButton": "Advantage",
+        "submitted": "2d20kh1+5"
+      }
+    ],
+    "scope": "Actual module control/modal in isolated SDK presentation fixture; all network intercepted; no correction made"
+  },
+  "archive": {
+    "path": "/tmp/dnd5e-package-mtkPD3/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "8bf1f3dc81471dc619d8356381b1c31e770f59cc675117c080dc222cd39eb50d",
+    "implementerSha256": "ada0a65274a1800eac2c4c6c85f2d34feb382e4e220ab578c480e161599abd6b",
+    "regularFiles": 15,
+    "allEntryContentsIdentical": true
+  },
+  "limits": [
+    "Source-method comparisons use explicit initialization and documented stubs, not a live Foundry DataModel",
+    "Mounted UI uses an SDK presentation seam",
+    "Public host uses synthetic transport and request-bound silent rolls, not the installed D&D Actor endpoint or chat/audience acceptance",
+    "No native/operator acceptance or Node 22 CI execution",
+    "Combined checks, alternate abilities, wider Q00/E05, E01 and later ADR milestones remain open"
+  ],
+  "mutations": "Review documentation only; no code, Git history, versions, remote state or native data changes",
+  "taskServicesRetained": false
+}

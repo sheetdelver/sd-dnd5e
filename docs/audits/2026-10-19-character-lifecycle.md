@@ -4,7 +4,23 @@ Status: **active implementation; investigation retained, acceptance open**. Date
 
 Owning plan: [accepted module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
 
-## Current independent review — C06/C07 (RV03)
+## Current independent review — C08/C09 (RV04)
+
+The [C08/C09 review](evidence/2026-10-20-c08-c09-review.md) at `1c81d05`
+confirms DD-R05's bounded correction and the independent source tool checks.
+Fresh offline, mounted, isolated public-host and packaging checks pass; all 15
+regular archive entries match the reported package. DD-R01–DD-R04 remain covered.
+
+**DD-R06 (low)**: mouse leave clears a still-focused mode button's preview.
+At both tested widths, a focused Advantage button shows `1d20+5` after pointer
+exit but Enter submits the correct `2d20kh1+5`. Correct focus/hover preview
+coordination with a mounted regression in the next M2 package. This is a module
+presentation issue, not a calculation or Core-contract blocker. Combined
+skill/tool and alternate-ability qualification can proceed alongside it.
+See the report and [portable evidence](evidence/2026-10-20-c08-c09-review.json).
+ADR-0001 and native/operator acceptance remain open. Review edits are docs only.
+
+### C06/C07 review (RV03), finding now corrected
 
 The [C06/C07 review](evidence/2026-10-19-c06-c07-review.md) at `a1492d8`
 independently confirms DD-R01–DD-R04 corrections and the reported offline,

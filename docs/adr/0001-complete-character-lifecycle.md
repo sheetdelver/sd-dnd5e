@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. Combined tools, effects, expressions and ranges remain open | RV01–RV03 retained; C06–C09 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. RV04 verifies the slice; DD-R06 preview correction accompanies combined tools/alternate abilities. Effects, expressions and ranges remain open | RV01–RV04 retained; C06–C09 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -553,7 +553,8 @@ range/effect/formula/other unqualified gates and continue wider Q00/E05 work.
 An actual future die-identity-sensitive requirement may justify a narrow Core
 proposal; the tied-index diagnostic alone does not. E01 remains external.
 
-The guards are still present in current code. This review changes documentation
+At the RV03 checkpoint the guards were still present (C08 corrects them below).
+That review changed documentation
 only and does not close ADR-0001, any full acceptance gate or native/operator
 qualification. The prior ADR was saved before annotation.
 
@@ -607,3 +608,26 @@ experimental0.4.1 and compatibility are unchanged. ADR-0001 stays open.
 Next executable M2/Q00 package: independently qualify selected combined
 skill/tool checks and alternate-ability re-preparation against the pinned native
 roll builder before exposing those choices, then continue planned effect phases.
+
+### RV04 — independent C08/C09 verification (2026-10-20)
+
+Review at `1c81d05` confirms DD-R05's bounded plain-d20 correction and shared
+source-only tool preparation. DD-R01–DD-R04 regressions remain passing. The
+fresh public-host run passes 943 requests with the 40 equal-index diagnostics
+retained; mounted consumers, explicit typing, native-source/method checks and
+isolated packaging pass. The rebuilt archive's 15 regular files match C09's
+reported archive. These are separate R/S/mounted/isolated-host observations,
+not installed UI/native/operator acceptance.
+
+One low-priority module presentation finding, **DD-R06**, belongs with the next
+M2 package: pointer exit clears a focused mode button's formula preview, although
+keyboard activation still submits the correct selected mode. Track focus/hover
+independently and add a mounted regression; keep source defaults, explicit
+overrides and intent retirement intact. This does not reopen DD-R05 or establish
+a Core dependency, and need not hold combined-check investigation.
+
+See [RV04](../audits/evidence/2026-10-20-c08-c09-review.md) for reproduction,
+commands and limitations. Continue selected combined skill/tool and alternate
+ability qualification against the exact native builder before exposing choices.
+E01, wider Q00/E05, later milestones and ADR-0001 remain open. The prior ADR was
+saved as `temp/ADR-0001-before-rv04.md`; review annotations are uncommitted.
