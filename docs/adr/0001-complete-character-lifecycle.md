@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives, normal public-host numeric execution; RV03/DD-R05 qualifies the adv/dis block; ranges/tools/effects remain open | RV01/RV02 retained; C06/C07 and RV03 source, mounted and public-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. Combined tools, effects, expressions and ranges remain open | RV01–RV03 retained; C06–C09 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -560,7 +560,7 @@ qualification. The prior ADR was saved before annotation.
 ### C08 — DD-R05 correction (2026-10-20)
 
 Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
- equivalence recommendation and restores source/manual normal/adv/dis requests.
+equivalence recommendation and restores source/manual normal/adv/dis requests.
 Twelve unchanged qualified requests first failed and now pass. Native default
 button selection and all nine explicit overrides compare against exact
 D20RollConfigurationDialog methods at87e94db. Source-mode cancellation, range/
@@ -575,3 +575,33 @@ modifiers and totals. No host record is rewritten. C07's first-tie dependency an
 blanket unavailability are superseded for this profile; historical evidence and
 native first-tie observation remain. Wider E05, effects/flags/ranges/groups/
 rerolls and die-specific behavior remain unqualified; no new Core dependency.
+
+### C09 — Independent source tool checks (2026-10-20)
+
+C08 (`6839b73f1dcba855be4dec9da615b2ec0b46e1bb`) corrects DD-R05 after
+review checkpoint `89f4645`. C09 advances the existing M2 tool work under
+DD-02/24/34 and A02/A18; it does not close those full requirements. Independent
+expectations were written first: the untrained case failed with no tool result
+where the pinned expectation was−1, then passed with the same source.
+
+Shared source-only preparation now handles exact native Actor tool/vehicle keys,
+verified existing-entry defaults (INT/0), source proficiency0/.5/1/1.5/2, numeric
+bonuses and all81 four-scope mode combinations. Direct execution, both layouts,
+roll previews/buttons/shortcuts and stale-intent recovery consume that result.
+Nonpersisted/prepared fields never override source defaults; source stays intact.
+
+Native combined skill/tool checks use the larger selected proficiency and can
+add advantage when both selected prepared proficiencies are positive. They are
+separate from independent checks: C09 rejects combination, pace and alternate
+ability requests and explains that boundary on the tool surface. Owned Item
+activities, effects/flags, expressions, ranges and other unqualified phases stay
+open; temporary unavailable states do not count as support.
+
+See [C09 verification](../plans/0001-verification.md#c09--independent-source-tool-checks-2026-10-20)
+and [portable evidence](../audits/evidence/2026-10-20-c09-tools.json). R/S,
+mounted module and isolated public-host evidence are distinct from installed
+UI/native/operator acceptance. E01 remains external, wider Q00/E05 remains open,
+experimental0.4.1 and compatibility are unchanged. ADR-0001 stays open.
+Next executable M2/Q00 package: independently qualify selected combined
+skill/tool checks and alternate-ability re-preparation against the pinned native
+roll builder before exposing those choices, then continue planned effect phases.

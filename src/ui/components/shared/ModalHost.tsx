@@ -22,7 +22,7 @@ import RichTextModal, { type RichTextModalProps } from '../modals/RichTextModal'
 export default function ModalHost() {
     const { activeId, activeProps, closeModal } = useModal();
     const { actor } = useSheet();
-    const kind = ['skill', 'ability', 'save'].includes(String(activeProps.rollType)) ? activeProps.rollType as PreparedRollKind : null;
+    const kind = ['skill', 'ability', 'save', 'tool'].includes(String(activeProps.rollType)) ? activeProps.rollType as PreparedRollKind : null;
     const currentSignature = kind ? rollIntentSignature(actor, kind) : null;
     const staleRoll = activeId === 'roll' && kind !== null
         && (!currentSignature || activeProps.preparedIntentSignature !== currentSignature);

@@ -252,7 +252,7 @@ real isolated Core0.19.3 public runtime returns the same face value/distribution
 but keeps index1 for all40 tied pairs among the800 ordered adv/dis inputs.
 This was observed through public login and `req.runtime.rolls.roll`, with exact
 face/entropy-consumption checks. It is not captured native Actor/engine behavior.
-The E05 requirement is equivalent ordered first-tie selection/serialization;
+C07 originally proposed equivalent ordered first-tie selection/serialization for E05; C08 supersedes that proposal for the bounded numeric profile;
 current generic keep/drop is not declared defective. Normal numeric rolls and
 literal bounds were qualified separately. No critical/chat/audience parity or
 range support follows. Temporary adv/dis unavailability is not completed support.
@@ -270,7 +270,7 @@ operations follows from that recommendation.
 ### C08 — DD-R05 correction (2026-10-20)
 
 Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
- equivalence recommendation and restores source/manual normal/adv/dis requests.
+equivalence recommendation and restores source/manual normal/adv/dis requests.
 Twelve unchanged qualified requests first failed and now pass. Native default
 button selection and all nine explicit overrides compare against exact
 D20RollConfigurationDialog methods at87e94db. Source-mode cancellation, range/
@@ -285,3 +285,43 @@ modifiers and totals. No host record is rewritten. C07's first-tie dependency an
 blanket unavailability are superseded for this profile; historical evidence and
 native first-tie observation remain. Wider E05, effects/flags/ranges/groups/
 rerolls and die-specific behavior remain unqualified; no new Core dependency.
+
+### Tool schema, source phase and roll configuration (C09)
+
+All comparisons read87e94dbd9f930135e0694cd7e7d49f210603cd2c. In
+`module/data/actor/templates/creature.mjs`, `tools` is a MappingField without
+initialKeys. Each existing RollConfigField declares ability="int" and
+value initial0/min0/max2/step0.5; `bonuses` is persisted:false. RollConfigField
+provides the ability StringField default and D20RollModificationField provides
+bonus/mode/range initialization. MappingField does not infer tool entries or
+abilities from names. An empty bagpipes entry therefore uses the schema INT
+default, not CONFIG.tools.bagpipes' CHA suggestion. C09 verifies the declarations
+as syntax and then supplies explicit initialized defaults to extracted methods;
+it does not claim actual Foundry schema/model initialization acceptance.
+
+`CreatureTemplate.prepareTools` uses `CommonTemplate.calculateToolProficiency`,
+then `calculateAbilityCheckProficiency` and `Proficiency.flat`. With no effects,
+flags, conditions or proficiency dice, total = floor((score−10)/2) +
+floor(multiplier × floor((level+7)/4)) + four numeric bonuses: tool.roll,
+ability.check.roll, rolls.ability.check and rolls.ability.tool. Multipliers
+0/.5/1/1.5/2 are schema-valid. Global proficiency targets are nonpersisted initial0
+(DD-R04); tool effectValue/prof/mod/bonus/total are later prepared results.
+
+Actor5e.#rollSkillTool and `_buildSkillToolConfig` use these same scopes and the
+selected ability. Independent checks differ from an explicitly selected
+skill/tool combination: calculateSkillToolProficiency takes max of the selected
+prepared effectValue multipliers, and #rollSkillTool contributes advantage when
+both selected prof.hasProficiency values are positive (including half). No
+automatic same-name matching or implicit scan of every skill establishes that
+selection. C09 qualifies independent Actor mapping checks only. It refuses
+combination/pace/alternate ability options; their native roll-builder workflow
+remains a next M2/Q00 package. Owned Item ToolData ability/proficient/bonus and
+activity configuration remain separate, unqualified workflows.
+
+Maintained tool-checks.json independently specifies eight totals and defaults;
+controlled extracted methods match all eight, plus81 tool mode combinations and
+20 intermediate combined-proficiency cases. The combined cases explain a
+boundary; they do not establish source effects or completed combination support.
+Unknown formulas fail the oracle. Empty AppliedRules, flags/conditions and plain
+property/count helpers are explicit stubs. See C09 portable evidence for separate
+regression, source-method, mounted and public-host results and their limits.

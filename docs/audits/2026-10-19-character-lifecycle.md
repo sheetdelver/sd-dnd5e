@@ -8,15 +8,16 @@ Owning plan: [accepted module ADR-0001](../adr/0001-complete-character-lifecycle
 
 The [C06/C07 review](evidence/2026-10-19-c06-c07-review.md) at `a1492d8`
 independently confirms DD-R01–DD-R04 corrections and the reported offline,
-mounted and isolated public-host evidence. **DD-R05** is the remaining review
+mounted and isolated public-host evidence. **DD-R05**, subsequently corrected by C08 below, was the review
 finding: the blanket adv/dis execution block treats equal-valued die identity
 as a rules failure, although all901 numeric outcomes and retained values match.
 All40 index differences occur on equal pairs. No required first-tie Core
 extension has been demonstrated for this plain numeric profile.
 
-Recommended next checkpoint: define narrow numeric equivalence, preserve the
-index diagnostic and unmodified host serialization, restore qualified mode
-execution with consumer tests, then continue source-only tools. Wider E05 and
+RV03 recommended defining narrow numeric equivalence, preserving the
+index diagnostic and unmodified host serialization, restoring qualified mode
+execution with consumer tests, then continuing source-only tools. C08/C09 implement
+those bounded segments; full acceptance remains open. Wider E05 and
 E01 remain open. See the report and
 [portable evidence](evidence/2026-10-19-c06-c07-review.json) for boundaries.
 No source changes or live/native acceptance occurred during review.
@@ -257,13 +258,13 @@ passives retained. Normal execution remains bounded; ranges/tools/effects and
 full DD/A/M acceptance remain open. See verification C07 and portable evidence.
 
 RV03 supersedes C07's mandatory first-tie dependency recommendation for the
-plain numeric profile. The current guards remain an implementation limitation
-tracked as DD-R05; wider native roll equivalence is still open.
+plain numeric profile. At RV03 the guards remained an implementation limitation
+tracked as DD-R05 (corrected by C08); wider native roll equivalence is still open.
 
 ### C08 — DD-R05 correction (2026-10-20)
 
 Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
- equivalence recommendation and restores source/manual normal/adv/dis requests.
+equivalence recommendation and restores source/manual normal/adv/dis requests.
 Twelve unchanged qualified requests first failed and now pass. Native default
 button selection and all nine explicit overrides compare against exact
 D20RollConfigurationDialog methods at87e94db. Source-mode cancellation, range/
@@ -278,3 +279,23 @@ modifiers and totals. No host record is rewritten. C07's first-tie dependency an
 blanket unavailability are superseded for this profile; historical evidence and
 native first-tie observation remain. Wider E05, effects/flags/ranges/groups/
 rerolls and die-specific behavior remain unqualified; no new Core dependency.
+
+### C09 — Independent source tools (2026-10-20)
+
+C08 implementation is `6839b73f1dcba855be4dec9da615b2ec0b46e1bb`; review docs
+were checkpointed separately at89f4645. DD-R01–DD-R05 remain corrected with
+maintained regressions. C09 adds shared source-only Actor tool preparation and a
+small Tool checks surface in desktop/mobile Skills. Eight independent arithmetic
+cases,81 mode combinations, poisoned-field/source invariance and malformed/
+unsupported/recovery cases pass. Native schema/default and extracted-method
+comparisons explicitly separate source from intermediate phases.
+
+This advances DD-02/24/34 and A02/A18 only. Combined skill/tool proficiency and
+advantage are documented and refused, as are alternate abilities/pace, effects,
+Item activities, broader formulas and ranges. The public-host fixture passes943
+requests (24 tool requests added) with40 equal-index diagnostics preserved.
+Mounted tests use the actual layout/tool consumers and shared modal with an SDK
+presentation seam. No installed UI/N/O, full tool/lifecycle or release acceptance
+is claimed. See [C09 evidence](evidence/2026-10-20-c09-tools.json) and the
+verification ledger. E01 and wider Q00/E05 remain open; continue the bounded
+combined-check/ability-selection qualification before planned effects.

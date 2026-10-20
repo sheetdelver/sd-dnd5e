@@ -3,8 +3,14 @@ import { record } from '../native/6.0.6/source';
 export interface PreparedNumericD20 {
     ability: string; total: number | null; formula: string | null; sourceMode?: -1 | 0 | 1; unavailableReason?: string;
 }
+export function independentD20Options(options: Record<string, unknown> = {}): boolean {
+    return !['skill','tool','pace'].some(key => options[key] !== undefined);
+}
 export function numericD20Roll(check: PreparedNumericD20 | undefined, options: Record<string, unknown> = {}): string | null {
     if (!check?.formula || check.total === null || check.unavailableReason) return null;
+    // Native combined checks change proficiency and can grant advantage. Never
+    // silently execute the independent profile for a requested combination.
+    if (!independentD20Options(options)) return null;
     if (options.ability !== undefined && options.ability !== check.ability) return null;
     const advantage = options.advantage ?? (check.sourceMode === 1 ? 'adv' : check.sourceMode === -1 ? 'dis' : 'normal');
     const die = advantage === 'normal' ? '1d20' : advantage === 'adv' ? '2d20kh1' : advantage === 'dis' ? '2d20kl1' : null;

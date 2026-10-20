@@ -71,10 +71,11 @@ these cases. Native BasicDie tie identity is independent of numeric totals.
 `npm run test:public-rolls` exercises candidate formulas via a real isolated
 Core0.19.3 public request runtime with synthetic loopback transport/auth and
 controlled dependency entropy. No private Core imports or native runtime boot.
-Normal requests come from adapter execution; unqualified adv/dis candidates use
-the same shared formatter only inside the isolated test. Exact faces and draw
+At C07 normal requests came from adapter execution; adv/dis candidates used
+the shared formatter in isolation. At C08 all requests come from adapter execution. Exact faces and draw
 consumption are asserted, not assumed. All901 totals/distributions pass but40
-tied selections differ from native; exit2 means E05 remains blocked. Artifacts
+tied selections differ from native; C07 exited2 on the stricter identity criterion,
+superseded by C08 below. Artifacts
 include observed serialized results and a compact evidence record. No Core
 service is retained. This script is not part of npm test and does not silently
 turn a qualification mismatch into a passing module regression.
@@ -85,3 +86,15 @@ retained value/count, flags, exact unequal identity, entropy and distributions
 remain strict. Actual host serialization is preserved. Negative oracle cases
 reject nonplain metadata/modifiers/groups and corrupt records. Native dialog
 defaults and explicit mode overrides are controlled S comparisons, not native UI.
+
+`tool-checks.json` supplies independent source-only totals at levels1/5/9/13/17/20,
+negative/zero ability modifiers, multipliers0/.5/1/1.5/2, four numeric bonus scopes
+and verified omitted-field defaults. No nonpersisted proficiency injection is
+used. The native harness checks the exact40 CONFIG tool/vehicle keys and schema
+syntax, initializes explicit defaults, then compares extracted prepareTools and
+proficiency methods. It separately checks81 source mode combinations and20
+intermediate combined skill/tool proficiencies. The latter explain a refused
+workflow, not completed combined checks or effect support. Module regressions
+cover poisoned fields, source preservation, bounds, malformed data and recovery.
+Mounted consumers cover both layouts; public-host cases add24 tool requests.
+All evidence limits in C08 continue to apply.

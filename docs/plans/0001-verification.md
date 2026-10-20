@@ -473,7 +473,7 @@ its documented scope; no additional calculation defect was confirmed.
 ### C08 — DD-R05 correction (2026-10-20)
 
 Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
- equivalence recommendation and restores source/manual normal/adv/dis requests.
+equivalence recommendation and restores source/manual normal/adv/dis requests.
 Twelve unchanged qualified requests first failed and now pass. Native default
 button selection and all nine explicit overrides compare against exact
 D20RollConfigurationDialog methods at87e94db. Source-mode cancellation, range/
@@ -506,3 +506,67 @@ hashes and separate R/S/isolated-host results. No installed UI/N/O acceptance.
 Node24.21/npm11.19; Node22 CI not run. Experimental0.4.1/compatibility unchanged.
 DD-R01–DD-R04 preserved; DD-R05 corrected. No full DD/A/M gate closes. Next:
 shared source-only tool preparation with independent schema/method expectations.
+
+### C09 — Independent source tool checks (2026-10-20)
+
+C08 implementation: `6839b73f1dcba855be4dec9da615b2ec0b46e1bb`.
+Review documentation: `89f4645`. The ADR was saved locally before C09 revisions.
+No DD-R01–DD-R05 finding is reopened; all maintained protections pass.
+
+- **R failing before / passing after:** independent tool-checks.json and the
+  maintained tools-source suite were added before implementation. The untrained
+  fixture expected−1 and got undefined; unchanged source now produces−1. Eight
+  independent totals cover levels1/5/9/13/17/20, proficiency0/.5/1/1.5/2, negative
+  modifiers, numeric four-scope bonuses and existing-entry INT/0 defaults.
+- **R source/gates:**81 mode combinations, manual overrides/numeric bonuses,
+  poisoned nonpersisted and prepared-looking fields, source preservation,
+  unknown identities, malformed/missing inputs, four-scope bounds, context
+  loss/recovery and explicit combined-check/alternate-ability refusal pass.
+- **S:** `npm run test:native-source -- --native ../../../../temp/dnd5e`
+  matches2242 records/591 candidate expressions at exact87e94db. Native HEAD
+  is not the oracle. `npm run test:native-checks -- --native ../../../../temp/dnd5e
+  --write-evidence temp/c09-native.json` passes16 phase-labelled ability cases,
+  81 skill modes/passives,800 ordered selections,9 manual overrides,8 tool
+  arithmetic cases,81 tool modes and20 intermediate combined proficiencies.
+  Forty tool/vehicle keys and explicit schema defaults match syntax. Stubs:
+  explicit initialized plain objects, empty AppliedRules, no flags/conditions,
+  Remarkable Athlete false, numeric literal classification and property/count
+  helpers. No actual Foundry model initialization or native engine acceptance.
+- **Mounted R:** `npm run test:mounted -- --browser-tools /tmp/sd-dice-preview-tools
+  --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell`
+  passes50 existing transitions,8 preview validations,16 fact projections,
+  18 existing source modes and56 tool cases at1440/390. Actual full-sheet tool
+  controls show the same totals/proficiency/ability; previews, buttons,
+  shortcuts, disabled reasons and retired callbacks agree. Playwright1.56.1 /
+  Chromium143.0.7499.4, network intercepted, SDK presentation seam. This is
+  distinct from installed Core UI and native/operator acceptance.
+- **Isolated host:** `npm run test:public-rolls` passes943 numeric requests,
+  including24 tool cases; ordered faces/entropy, retained count/value and
+  states, unequal identity, totals and complete distributions remain strict.
+  Forty equal-index diagnostics and actual host serialization are preserved.
+  Public player login/request-bound rolls on Core0.19.3/90c13e5, synthetic
+  transport and temporary configuration; no live connection. Full D&D Actor
+  route, chat/audience/criticals and installed UI remain unqualified.
+- **Checks/package:** `npm test` passes33 tooling assertions and13 module
+  suites. `npm run typecheck` explicitly checks102 module/source/UI/server/
+  hook/test files. `npm run check:package` passes public boundaries, managed
+  types and logic/UI/server bundles. Archive15 regular files, no fixtures:
+  `dnd5e-0.4.1.tgz`, SHA256
+  `ada0a65274a1800eac2c4c6c85f2d34feb382e4e220ab578c480e161599abd6b`.
+  Node24.21.0/npm11.19.0; Node22 CI unrun. Services stopped after fixtures.
+
+[Portable C09 evidence](../audits/evidence/2026-10-20-c09-tools.json) retains
+separate R/S/mounted/host observations, artifact hashes, archive entries and
+phase limits without requiring ignored reports. Local artifacts are in
+`/tmp/dnd5e-mounted-DfGKIH`, `/tmp/dnd5e-public-rolls-Ad4Rqf` and
+`/tmp/dnd5e-package-hhmq9z`; source observation in temp/c09-native.json.
+
+This partially advances DD-02/24/34 and A02/A18. No full DD/A/M gate closes;
+independent Actor mapping checks are not complete tool support. Selected
+combined skill/tool checks, alternate-ability re-preparation, Item activities,
+effects/flags/conditions/armor/encumbrance, broader formulas, ranges and wider
+Q00/E05 remain open. Next bounded M2 package: independent combined-choice/
+alternate-ability expectations and exact native roll-builder comparisons, then
+shared preparation/UI only for qualified choices before planned effect phases.
+E01 remains the separate external content dependency. Experimental0.4.1 and all
+compatibility requirements are unchanged. ADR-0001 remains open.

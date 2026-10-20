@@ -3,6 +3,7 @@
 import React from 'react';
 
 import Skills from '../../blocks/Skills';
+import Tools from '../../blocks/Tools';
 
 interface Props {
     derived: Record<string, any>;
@@ -10,5 +11,5 @@ interface Props {
 }
 
 export default function SkillsTab({ derived, onRoll }: Props) {
-    return <Skills skills={derived.skills} onRoll={onRoll} />;
+    return <><Skills skills={derived.skills} onRoll={onRoll} /><Tools onRoll={onRoll} /></>;
 }

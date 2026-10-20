@@ -37,8 +37,11 @@ ${files.get('module/documents/actor/proficiency.mjs').replace('export default cl
 ${simplify}
 class CommonTemplate { ${member(commonPath, 'CommonTemplate', 'prepareAbilities')}
 ${member(commonPath, 'CommonTemplate', 'calculateAbilityCheckProficiency')}
+${member(commonPath, 'CommonTemplate', 'calculateToolProficiency')}
+${member(commonPath, 'CommonTemplate', 'calculateSkillToolProficiency')}
 static shimAbilityData() {} }
-class CreatureTemplate extends CommonTemplate { ${member('module/data/actor/templates/creature.mjs', 'CreatureTemplate', 'prepareSkill')} }
+class CreatureTemplate extends CommonTemplate { ${member('module/data/actor/templates/creature.mjs', 'CreatureTemplate', 'prepareSkill')}
+${member('module/data/actor/templates/creature.mjs', 'CreatureTemplate', 'prepareTools')} }
 class AdvantageModeField { ${['combineFields','getCounts','resolveMode'].map(name => member(advantagePath, 'AdvantageModeField', name)).join('\n')} }
 class D20RollModificationField { ${member('module/data/shared/d20-roll-modification-field.mjs', 'D20RollModificationField', 'combineFields')}
 ${member('module/data/shared/d20-roll-modification-field.mjs', 'D20RollModificationField', '#makeRulesIterator')} }
@@ -101,6 +104,55 @@ for (const row of modeFixture.cases) {
     assert.equal(observed.total, row.expectedTotal); assert.equal(observed.passive, row.expectedPassive);
     modes++;
 }
+// Tool source phase: explicit declarations qualify defaults; plain stubs do
+// not instantiate Foundry fields. Arithmetic below starts after initialization.
+const toolSchema = files.get('module/data/actor/templates/creature.mjs').match(/tools: new MappingField\([\s\S]*?entryLabel:[^\n]+/)[0];
+assert.match(toolSchema,/ability: "int"/);
+assert.match(toolSchema,/bonuses: new SchemaField\(\{\}, \{ persisted: false \}\)/);
+assert.match(toolSchema,/min: 0,[\s\S]*max: 2,[\s\S]*step: 0.5,[\s\S]*initial: 0/);
+assert.doesNotMatch(toolSchema,/initialKeys/);
+assert.match(files.get('module/data/shared/roll-config-field.mjs'),/initial: ability/);
+const toolFixture = JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/tool-checks.json'),'utf8'));
+assert.equal(toolFixture.nativeCommit,nativeCommit);
+// Exact configured identities compared as syntax, not inferred from labels.
+const configFile=ts.createSourceFile('config.mjs',files.get('module/config.mjs'),ts.ScriptTarget.Latest,true,ts.ScriptKind.JS);
+const configKeys=name=>configFile.statements.find(node=>ts.isExpressionStatement(node)&&ts.isBinaryExpression(node.expression)&&node.expression.left.getText(configFile)==='DND5E.'+name).expression.right.properties.map(node=>node.name.text);
+const moduleTools=ts.createSourceFile('tools.ts',readFileSync(join(moduleRoot,'src/logic/preparation/tools.ts'),'utf8'),ts.ScriptTarget.Latest,true,ts.ScriptKind.TS);
+const moduleKeys=moduleTools.statements.flatMap(node=>ts.isVariableStatement(node)?node.declarationList.declarations.filter(decl=>decl.name.getText(moduleTools)==='TOOL_LABELS_606').flatMap(decl=>decl.initializer.properties.map(prop=>prop.name.text)):[]);
+assert.deepEqual(moduleKeys,[...configKeys('tools'),...configKeys('vehicleTypes')]);
+const tools=[];
+for (const row of toolFixture.cases) {
+    const model=Object.create(CreatureTemplate.prototype);
+    model.attributes={prof:Proficiency.calculateMod(row.level)};
+    model.abilities={[row.ability]:{mod:Math.floor((row.score-10)/2),check:{roll:{bonus:row.bonuses[1]}}}};
+    model.tools={[row.key]:{ability:row.ability,value:row.value ?? 0,roll:{bonus:row.bonuses[0]}}};
+    model.rolls={ability:{check:{bonus:row.bonuses[2],proficiency:0},tool:{bonus:row.bonuses[3],proficiency:0}}};
+    model.parent={flags:{dnd5e:{}},conditionRollReduction:0}; model.prepareTools();
+    assert.equal(model.tools[row.key].total,row.expectedTotal,row.id);
+    assert.equal(model.tools[row.key].prof.multiplier,row.expectedMultiplier,row.id);
+    tools.push({id:row.id,total:model.tools[row.key].total,multiplier:model.tools[row.key].prof.multiplier,phase:'explicit-schema-defaults then prepared numeric methods'});
+}
+let toolModeCombinations=0;
+for(const a of [-1,0,1])for(const b of [-1,0,1])for(const c of [-1,0,1])for(const d of [-1,0,1]) {
+    const model={tools:{thief:{roll:{mode:a}}},abilities:{dex:{check:{roll:{mode:b}}}},rolls:{ability:{check:{mode:c},tool:{mode:d}}}};
+    model._source=structuredClone(model);
+    const result=D20RollModificationField.combineFields(model,['tools.thief.roll','abilities.dex.check.roll','rolls.ability.check','rolls.ability.tool']);
+    const expected=([a,b,c,d].includes(1)?1:0)-([a,b,c,d].includes(-1)?1:0);
+    assert.equal(Number(result.advantage)-Number(result.disadvantage),expected);toolModeCombinations++;
+}
+// Combined checks are an intermediate-model contract only; module rejects them.
+// Native max proficiency plus advantage if both selected prepared profs >0.
+const actorSource=files.get('module/documents/actor/actor.mjs');
+assert.match(actorSource,/doubleProf = !!relevant\?\.prof.hasProficiency && !!alternate\?\.prof.hasProficiency/);
+assert.match(actorSource,/advantages: \{ count: Number\(doubleProf\)/);
+let combinedToolCases=0;
+for(const skill of [0,.5,1,2])for(const tool of [0,.5,1,1.5,2]) {
+    const model=Object.create(CommonTemplate.prototype);
+    model.attributes={prof:3};model.rolls={ability:{check:{proficiency:0},tool:{proficiency:0},skill:{proficiency:0}}};
+    model.skills={prc:{effectValue:skill}};model.tools={thief:{effectValue:tool}};model.parent={flags:{dnd5e:{}},_isRemarkableAthlete:()=>false};
+    const prof=CommonTemplate.calculateSkillToolProficiency({system:model},'dex',{skill:'prc',tool:'thief'});
+    assert.equal(prof.flat,Math.floor(3*Math.max(skill,tool)));combinedToolCases++;
+}
 const rangeModel = { a: { min: 10 }, b: { max: 15 }, c: { min: 12 }, d: { max: 14 }, _source: {} };
 const range = D20RollModificationField.combineFields(rangeModel, ['a','b','c','d']);
 assert.equal(range.minimum, 12); assert.equal(range.maximum, 14);
@@ -119,9 +171,9 @@ for (const adv of [false,true]) for (let a = 1; a <= 20; a++) for (let b = 1; b 
     selections++;
 }
 const evidence = { evidence: 'S controlled exact native methods, not native/SDK engine execution', nativeCommit,
-    manualModeCases, declarations, abilities, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
-    stubs: ['Numeric literal classification only; unknown evaluation fails', 'No applied rules/conditions/cover/flags', 'Empty ability compatibility shims', 'Property traversal and plain count merging'],
+    manualModeCases, declarations, abilities, tools, toolModeCombinations, combinedToolCases, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
+    stubs: ['Numeric literal classification only; unknown evaluation fails', 'No applied rules/conditions/cover/flags', 'Empty ability compatibility shims; Remarkable Athlete false', 'Tool defaults checked as schema syntax then explicitly initialized; no Foundry DataModel construction', 'Property traversal and plain count merging'],
     limits: fixture.exclusions };
 const output = option(args, '--write-evidence');
 if (output) writeFileSync(output, JSON.stringify(evidence, null, 2) + '\n');
-process.stdout.write(`S: ${abilities.length} native intermediate/source-default ability/save cases, ${modes} source-mode combinations and ${selections} ordered d20 selections PASS; no native/SDK engine acceptance\n`);
+process.stdout.write(`S: ${abilities.length} native intermediate/source-default ability/save cases, ${modes} source-mode combinations and ${selections} ordered d20 selections, ${tools.length} tools/${toolModeCombinations} modes/${combinedToolCases} intermediate combinations PASS; no native/SDK engine acceptance\n`);

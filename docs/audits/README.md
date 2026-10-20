@@ -19,4 +19,9 @@ continue the existing mode/passive and public roll qualification roadmap. Neithe
 [C01–C03 review](evidence/2026-10-19-c01-c03-review.md) is retained as historical
 failing evidence, not an instruction to redo its completed corrections.
 
-C08 corrects DD-R05 with bounded numeric equivalence and actual consumer tests. Wider Q00/E05 remains open; continue the planned source-only tool segment.
+C08 corrects DD-R05 with bounded numeric equivalence and actual consumer tests.
+Wider Q00/E05 remains open.
+
+C09 implements bounded independent Actor source tool checks in both layouts.
+[Portable evidence](evidence/2026-10-20-c09-tools.json) records R/S/mounted/public-host
+checks; combined tool choices, effects and full acceptance remain open.

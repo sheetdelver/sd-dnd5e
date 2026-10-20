@@ -17,8 +17,9 @@ import { resolveRulesContext } from './rules-context';
 import { callerCatalog } from '../server/content/catalog';
 import { decodeActor606 } from './native/6.0.6/source';
 import { prepareNumericSkills606, numericSkillRoll, unavailableSkillChecks, type PreparedSkill } from './preparation/skills';
-import { d20RangeReason, skillRollScopes, abilityRollScopes, numericD20Roll } from './preparation/d20-configuration';
+import { d20RangeReason, skillRollScopes, abilityRollScopes, numericD20Roll, independentD20Options } from './preparation/d20-configuration';
 import { prepareNumericAbilities606, type PreparedNumericAbility } from './preparation/abilities';
+import { prepareNumericTools606, type PreparedTool } from './preparation/tools';
 import { characterFacts606, characterFactsProjection } from './preparation/character-profile';
 
 // ---------------------------------------------------------------------------
@@ -132,6 +133,9 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             // Schema context readiness does not qualify the old numeric projection.
             preparation: 'legacy-projection-unqualified' };
         const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
+        const tools = prepareNumericTools606(actor,rules);
+        prepared.derived.tools = tools.checks;
+        prepared.derived.toolPreparation = {status:tools.status,reason:tools.reason};
         if (!selectedLegacy) {
             prepared.derived.abilities = prepareNumericAbilities606(actor, rules);
             const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules)
@@ -254,6 +258,13 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const s = actor.system as Partial<D5eSystem>;
         const lifecycle = actor.derived.lifecycle as { status?: string; profile?: string } | undefined;
         const selectedLegacy = lifecycle?.status === 'supported' && lifecycle.profile === 'legacy-limited';
+        if (selectedLegacy && ['ability','save','skill'].includes(type) && !independentD20Options(_options)) return null;
+        if (type === 'tool') {
+            if (lifecycle?.status !== 'supported' || lifecycle.profile !== '2024') return null;
+            const check = (actor.derived.tools as Record<string, PreparedTool> | undefined)?.[key];
+            const formula = numericD20Roll(check,_options);
+            return formula && check ? {formula,label:`${check.label} Check`} : null;
+        }
         if (['ability', 'save', 'skill'].includes(type) && !selectedLegacy
             && (lifecycle?.status !== 'supported' || lifecycle.profile !== '2024')) return null;
         if ((type === 'ability' || type === 'save') && !selectedLegacy) {

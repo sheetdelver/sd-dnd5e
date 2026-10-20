@@ -9,6 +9,7 @@ import Header from '../page/Header';
 // Blocks (already wired)
 import Abilities from '../blocks/Abilities';
 import Skills from '../blocks/Skills';
+import Tools from '../blocks/Tools';
 
 // Blocks (stubs — no actor data yet)
 import SavingThrows from '../blocks/SavingThrows';
@@ -163,6 +164,7 @@ export default function StandardView({
                 {/* Center column: Skills */}
                 <div>
                     <Skills skills={derived.skills} onRoll={onRoll} />
+                    <Tools onRoll={onRoll} />
                 </div>
 
                 {/* Right column: Init/AC/Def/Cond → Tab bar → Tab content */}

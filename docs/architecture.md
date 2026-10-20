@@ -109,8 +109,8 @@ collisions, mismatched IDs and unknown types are diagnosed. No decoded value is
 written back. The adapter publishes context/capability readiness separately from
 its old numeric projection, which remains explicitly unqualified pending M2.
 
-M2's bounded replacements are `src/logic/preparation/skills.ts` and `abilities.ts`:
-modern PC numeric skill checks/passives and ability checks/saves derive from
+M2's bounded replacements are `src/logic/preparation/skills.ts`, `abilities.ts` and `tools.ts`:
+modern PC numeric skill checks/passives, ability checks/saves and independent tool checks derive from
 class levels, source ability scores, proficiency multipliers, constant bonuses
 and initialized global proficiency targets. `character-profile.ts` shares prerequisites,
 class-level proficiency, constant parsing and numeric representation checks.
@@ -201,17 +201,17 @@ BasicDie retains index0. RV03 confirms all901 selected values/counts, ordered
 faces and discard consistency match; no unequal pair differs. Its recommended
 plain-profile equivalence records tied-index differences without disabling
 otherwise qualified rolls. This does not change Core's generic keep/drop
-contract or claim support for die-identity-sensitive rules. The current strict
-qualification command still exits2; correcting that overbroad criterion and
-execution guard is DD-R05. Wider E05 remains open.
-Silent normal execution is qualified only within this numeric fixture; full
+contract or claim support for die-identity-sensitive rules. At C07 the strict
+qualification command exited2. C08 corrects that overbroad criterion and
+execution guard (DD-R05), as recorded below. Wider E05 remains open.
+Silent numeric execution is qualified only within the bounded fixture; full
 Actor-route, chat/audience/critical annotations, installed UI and native/operator
 acceptance remain open.
 
 ### C08 — DD-R05 correction (2026-10-20)
 
 Review-only checkpoint `89f4645` preserves RV03. C08 accepts its bounded numeric
- equivalence recommendation and restores source/manual normal/adv/dis requests.
+equivalence recommendation and restores source/manual normal/adv/dis requests.
 Twelve unchanged qualified requests first failed and now pass. Native default
 button selection and all nine explicit overrides compare against exact
 D20RollConfigurationDialog methods at87e94db. Source-mode cancellation, range/
@@ -226,3 +226,36 @@ modifiers and totals. No host record is rewritten. C07's first-tie dependency an
 blanket unavailability are superseded for this profile; historical evidence and
 native first-tie observation remain. Wider E05, effects/flags/ranges/groups/
 rerolls and die-specific behavior remain unqualified; no new Core dependency.
+
+### Independent tool projection (C09)
+
+`tools.ts` prepares one `derived.tools` mapping and a collection availability
+reason. The adapter, shared roll compiler/intent controller and Tool checks
+block consume it. Desktop places it below Skills; mobile includes it in Skills.
+Presentation only formats the prepared identity, ability, multiplier, total and
+reason. There is no second tool cache, transport, rules calculation or evaluator.
+
+The exact Actor mapping key must be one of release-6.0.6's36 tool or4 vehicle
+identities. Labels are display-only; Item names, configured content UUIDs and
+owned Items never create proficiency or substitute identities. Existing entries
+initialize missing ability to INT and value to0 from verified schema declarations;
+missing entries create no checks. Required numeric ability scores remain explicit.
+The tool schema's INT default is distinct from CONFIG.tools' suggested abilities.
+
+The qualified total is ability modifier + floor(class proficiency × source
+multiplier) + numeric tool-local, ability-check, global-check and global-tool
+bonuses. Persisted modes from those four scopes combine through the existing
+shared interpretation. Initialized global proficiency targets remain0;
+nonpersisted tool `bonuses`, prepared `total/mod/prof/effectValue` and stale global
+proficiency fields are ignored. No source field is modified. Active effects and
+flags remain unavailable until their preparation phases are qualified.
+
+Independent checks use the same plain-d20 numeric execution qualified at C08.
+Native selected skill/tool combinations also take maximum proficiency and may
+add advantage; C09 does not implement that choice. The compiler rejects `skill`,
+`tool` and `pace` options rather than dropping the interaction. Alternate abilities,
+Item activities, expressions, ranges and shared profile exclusions remain gated.
+Range blockers preserve independently known totals; they add no passive bonus.
+No tool passive score is invented. The visible boundary and stale-intent fencing
+apply to both layouts. C09 evidence is R/S plus isolated mounted/public-host
+fixtures, not installed UI or native/operator qualification.

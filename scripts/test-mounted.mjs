@@ -17,6 +17,7 @@ const driver = join(artifacts, 'states.ts');
 writeFileSync(driver, `import { DnD5eAdapter } from ${JSON.stringify(join(moduleRoot, 'src/logic/adapter.ts'))};
 import { skillContext, skillSource, unavailableContexts, setSkillRoll, rollScopes } from ${JSON.stringify(join(moduleRoot, 'src/tests/fixtures/skill-scenarios.ts'))};
 import { abilityCases, abilitySource } from ${JSON.stringify(join(moduleRoot, 'src/tests/fixtures/ability-scenarios.ts'))};
+import { toolCases, toolSource } from ${JSON.stringify(join(moduleRoot, 'src/tests/fixtures/tool-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -52,10 +53,16 @@ for (const kind of ['skill','ability','save']) {
         modes[kind].push({actor:prepared,mode,formula:adapter.getRollData(prepared,kind,kind==='skill'?'prc':'wis')?.formula ?? null});
     }
 }
-process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes}));`);
+const tools={supported:prepare(toolSource())}, toolExamples=toolCases.map(row=>({actor:prepare(toolSource(row)),key:row.key,total:row.expectedTotal,prof:row.expectedMultiplier,ability:row.ability}));
+for(const {id,context} of unavailableContexts())tools[id]=prepare(toolSource(),context);
+for(const path of ['tools.thief.roll','abilities.dex.check.roll','rolls.ability.check','rolls.ability.tool'])for(const field of ['min','max']){const actor=toolSource();setSkillRoll(actor,path,{[field]:10});tools['range-'+path+'-'+field]=prepare(actor);}
+for(const patch of [{value:'1'},{ability:'missing'},{roll:{bonus:'1d4'}},{roll:{mode:2}}]){const actor=toolSource();Object.assign(actor.system.tools.thief,patch);tools['malformed-'+JSON.stringify(patch)]=prepare(actor);}
+const effectTool=toolSource();effectTool.effects=[{disabled:false}];tools.effect=prepare(effectTool);
+const toolModes=[];for(const mode of [-1,0,1]){const actor=toolSource();setSkillRoll(actor,'tools.thief.roll',{mode:mode===0?1:mode});if(mode===0)setSkillRoll(actor,'rolls.ability.tool',{mode:-1});toolModes.push({actor:adapter.prepareActorData(actor,{...skillContext(),sourceRevision:200+mode}),mode,formula:(mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20')+'+5'});}
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes}));`);
 const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8' });
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts, modes } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -64,7 +71,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], modeRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -220,10 +227,54 @@ try {
             assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld({advantage:'adv'})),'retired');
             assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
         }
+        await render(tools.supported); await tab('Skills');
+        const toolControl=page.getByRole('button',{name:"Thieves' tools Tool Check",exact:true});
+        await verifyOptions(toolControl,'tool',5);
+        for(const [id,actor] of Object.entries(tools).filter(([id])=>id!=='supported')) {
+            await render(tools.supported);await toolControl.click();await page.locator('dialog[open]').waitFor();
+            await render(actor);await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
+            assert.equal(await toolControl.isDisabled(),true,id);
+            assert.match(await toolControl.innerText(),id.startsWith('range-')?/\+5/:/—/);
+            assert.ok(await toolControl.getAttribute('title'));
+            await toolControl.dispatchEvent('click',{shiftKey:true});assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+            await render(tools.supported);assert.equal(await toolControl.isEnabled(),true);
+            await toolControl.click({modifiers:['Shift']});const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));
+            assert.equal(calls.length,1);assert.equal(calls[0].type,'tool');assert.equal(calls[0].key,'thief');assert.equal(calls[0].formula,'1d20+5');
+            toolRows.push({width,id,disabled:true,staleDialogRetired:true,recovery:true});
+        }
+        for(const row of toolExamples) {
+            await render(row.actor);const control=page.getByRole('region',{name:'Tool checks',exact:true}).getByRole('button');
+            const text=await control.innerText();assert.ok(text.includes(row.ability.toUpperCase()));assert.ok(text.includes(row.prof+'×'));
+            assert.ok(text.includes((row.total<0?'':'+')+row.total));
+            await control.click({modifiers:['Shift']});const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));
+            assert.equal(calls[0].key,row.key);assert.equal(calls[0].formula,'1d20'+(row.total<0?'':'+')+row.total);
+            toolRows.push({width,key:row.key,total:row.total,prof:row.prof,actualConsumer:true});
+        }
+        await render(tools.supported);
+        for(const state of toolModes) {
+            await toolControl.click();await page.locator('dialog[open]').waitFor();await render(state.actor);
+            await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
+            for(const [name,choice,die] of [['Normal','normal','1d20'],['Advantage','adv','2d20kh1'],['Disadvantage','dis','2d20kl1']]) {
+                await toolControl.click();assert.ok((await page.locator('dialog[open]').innerText()).includes(state.formula));
+                await page.getByRole('textbox',{name:'Situational bonus'}).fill('-1.5');
+                const button=page.getByRole('button',{name,exact:true});await button.focus();
+                const formula=die+'+5+(-1.5)';assert.ok((await page.locator('dialog[open]').innerText()).includes(formula));
+                await button.click();const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));
+                assert.equal(calls[0].formula,formula);assert.equal(calls[0].options.advantage,choice);
+            }
+            await toolControl.click({modifiers:['Shift']});assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,state.formula);
+            toolRows.push({width,mode:state.mode,formula:state.formula,buttons:true,previews:true,shortcut:true});
+        }
+        await page.evaluate(actor=>window.skillFixture.render(actor,'tool'),tools.supported);
+        await toolControl.click();await page.evaluate(()=>window.skillFixture.hold());
+        await page.evaluate(actor=>window.skillFixture.render(actor,'tool'),tools['snapshot-absent']);
+        await page.evaluate(actor=>window.skillFixture.render(actor,'tool'),tools.supported);
+        assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld({advantage:'adv'})),'retired');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+        toolRows.push({width,retainedCallbackFencedAcrossRecovery:true});
         assert.deepEqual(errors, []);
         await context.close();
     }
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows }, null, 2));
-    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes and retained-callback fences PASS; artifacts ${artifacts}\n`);
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows }, null, 2));
+    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }
