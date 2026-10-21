@@ -578,3 +578,32 @@ null remains unavailable. Static coefficient and execution availability stay
 separate, including bounded source advantage. This is not the actor proficiency
 bonus or stored armor/weapon/tool training; those distinct values never derive
 from the marker. Preparation/preview/shortcut/direct execution are unchanged.
+
+
+### Source training and language presentation (C27)
+
+`prepareTraining606` consumes the same detached initialized/effect operands and
+local skill/tool model as check preparation. It never infers armor, weapon, tool,
+language or mastery grants from a name, class, effective roll coefficient or old
+prepared-looking fields. Local tool coefficients remain separate from the global
+proficiency floor used in execution. Invalid class/ability/roll preparation does
+not erase independently qualified local training. Unknown contexts never select
+legacy; the selected legacy training projection remains explicitly unqualified.
+
+The prepared training DTO supplies cards and the desktop/mobile Proficiencies
+block. Registered groups and canonical English language labels/order come from
+pinned configuration/localization methods. ALL languages, selectable Primordial
+groups, custom semicolon entries (including duplicates), and positive communication
+ranges with known units/defaults preserve native presentation. Missing range
+context leaves independently known spoken languages visible with a partial reason.
+No ambient user locale/session is read during deterministic preparation.
+
+Individual armor/weapon/mastery source keys retain literal identity and known
+canonical reference UUID metadata, with labels explicitly unresolved. These static
+native identity references are not pack discovery, a premium allowlist or an
+access grant; preparation never reads a private base Item index or fetches content.
+E01 caller-authorized enrichment remains external. Additional mastery properties
+are conditional stored options, not additional mastered weapons or active Item
+execution. Source/mastery fields are persisted; nonpersisted source poison is
+ignored. Effects outside the qualified initial local tool subset still gate facts;
+source trait-set effects await their own bounded qualification.

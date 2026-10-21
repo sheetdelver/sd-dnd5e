@@ -1,0 +1,923 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Source/default/qualified-initial operands -> canonical English native language/trait presentation. Local training differs from effective roll coefficient. Unresolved base Item labels stay explicit.",
+  "cases": [
+    {
+      "id": "empty-defaults",
+      "traits": {},
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "selective-source",
+      "traits": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "shl"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ]
+        },
+        "languages": {
+          "value": [
+            "common"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [
+          "Light",
+          "Shields"
+        ],
+        "weapons": [
+          "Simple"
+        ],
+        "tools": [
+          [
+            "thief",
+            1
+          ]
+        ],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": []
+      },
+      "tools": {
+        "thief": {
+          "value": 1,
+          "ability": "dex"
+        }
+      }
+    },
+    {
+      "id": "source-order-and-custom",
+      "traits": {
+        "armorProf": {
+          "value": [
+            "hvy",
+            "lgt",
+            "med",
+            "shl"
+          ],
+          "custom": "Custom armor;Custom armor; "
+        },
+        "weaponProf": {
+          "value": [
+            "mar",
+            "sim"
+          ],
+          "custom": "Custom weapons"
+        }
+      },
+      "expected": {
+        "armor": [
+          "Heavy",
+          "Light",
+          "Medium",
+          "Shields",
+          "Custom armor",
+          "Custom armor"
+        ],
+        "weapons": [
+          "Martial",
+          "Simple",
+          "Custom weapons"
+        ],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "language-native-order",
+      "traits": {
+        "languages": {
+          "value": [
+            "sign",
+            "draconic",
+            "common"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Common",
+          "Draconic",
+          "Common Sign Language"
+        ],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "language-children",
+      "traits": {
+        "languages": {
+          "value": [
+            "ignan",
+            "aquan"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Primordial (Aquan, Ignan)"
+        ],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "language-group-suppresses-children",
+      "traits": {
+        "languages": {
+          "value": [
+            "ignan",
+            "primordial",
+            "aquan"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Primordial"
+        ],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "all-languages-custom",
+      "traits": {
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ],
+          "custom": "Custom speech; Custom speech"
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "All Languages",
+          "Custom speech",
+          "Custom speech"
+        ],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "trimmed-sets",
+      "traits": {
+        "armorProf": {
+          "value": [
+            " lgt ",
+            "lgt"
+          ]
+        },
+        "languages": {
+          "value": [
+            " common ",
+            "common"
+          ],
+          "custom": null
+        }
+      },
+      "expected": {
+        "armor": [
+          "Light"
+        ],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "null-defaults",
+      "traits": {
+        "armorProf": null,
+        "weaponProf": {
+          "value": null,
+          "custom": null
+        },
+        "languages": null
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "local-tool-half-and-expertise",
+      "traits": {},
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [
+          [
+            "thief",
+            0.5
+          ],
+          [
+            "smith",
+            2
+          ]
+        ],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      },
+      "tools": {
+        "thief": {
+          "value": 0.5
+        },
+        "smith": {
+          "value": 2
+        }
+      }
+    },
+    {
+      "id": "local-tool-one-and-half",
+      "traits": {},
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [
+          [
+            "thief",
+            1.5
+          ]
+        ],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      },
+      "tools": {
+        "thief": {
+          "value": 1.5
+        }
+      }
+    },
+    {
+      "id": "global-roll-prof-is-not-training",
+      "traits": {},
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      },
+      "tools": {
+        "thief": {
+          "value": 0,
+          "ability": "dex"
+        }
+      },
+      "effect": "global-prof"
+    },
+    {
+      "id": "initial-local-tool-training",
+      "traits": {},
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [
+          [
+            "thief",
+            1
+          ]
+        ],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      },
+      "tools": {
+        "thief": {
+          "value": 0,
+          "ability": "dex"
+        }
+      },
+      "effect": "local-tool"
+    },
+    {
+      "id": "training-independent-roll-formula",
+      "traits": {},
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [
+          [
+            "thief",
+            1
+          ]
+        ],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      },
+      "tools": {
+        "thief": {
+          "value": 1,
+          "ability": "dex",
+          "roll": {
+            "bonus": "1d4"
+          }
+        }
+      }
+    },
+    {
+      "id": "training-independent-class",
+      "traits": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [
+          "Light"
+        ],
+        "weapons": [],
+        "tools": [
+          [
+            "thief",
+            1
+          ]
+        ],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      },
+      "tools": {
+        "thief": {
+          "value": 1
+        }
+      },
+      "invalidClass": true
+    },
+    {
+      "id": "training-independent-armor",
+      "traits": {
+        "weaponProf": {
+          "value": [
+            "sim"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [
+          "Simple"
+        ],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      },
+      "unknownArmor": true
+    },
+    {
+      "id": "telepathy-default-feet",
+      "traits": {
+        "languages": {
+          "value": [
+            "common"
+          ],
+          "communication": {
+            "telepathy": {
+              "value": 60
+            }
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": [],
+        "communication": [
+          [
+            "telepathy",
+            60,
+            "ft"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "telepathy-default-metric",
+      "traits": {
+        "languages": {
+          "communication": {
+            "telepathy": {
+              "value": 60
+            }
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "communication": [
+          [
+            "telepathy",
+            60,
+            "m"
+          ]
+        ]
+      },
+      "metric": true
+    },
+    {
+      "id": "telepathy-explicit-units",
+      "traits": {
+        "languages": {
+          "communication": {
+            "telepathy": {
+              "value": 2,
+              "units": "mi"
+            }
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "communication": [
+          [
+            "telepathy",
+            2,
+            "mi"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "telepathy-zero-no-range",
+      "traits": {
+        "languages": {
+          "communication": {
+            "telepathy": {
+              "value": 0,
+              "units": "invalid"
+            }
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": []
+      }
+    },
+    {
+      "id": "telepathy-missing-default",
+      "traits": {
+        "languages": {
+          "value": [
+            "common"
+          ],
+          "communication": {
+            "telepathy": {
+              "value": 60
+            }
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": [],
+        "languagePartial": true
+      },
+      "missingMetric": true
+    },
+    {
+      "id": "telepathy-malformed",
+      "traits": {
+        "languages": {
+          "value": [
+            "common"
+          ],
+          "communication": {
+            "telepathy": {
+              "value": "60"
+            }
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": [],
+        "languagePartial": true
+      }
+    },
+    {
+      "id": "language-unknown-and-nonselectable",
+      "traits": {
+        "languages": {
+          "value": [
+            "common",
+            "standard",
+            "custom-lang"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": [],
+        "languagePartial": true,
+        "unresolvedLanguages": [
+          "standard",
+          "custom-lang"
+        ]
+      }
+    },
+    {
+      "id": "specific-references-unresolved",
+      "traits": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "plate"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "mar",
+            "longsword"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [
+          "Light"
+        ],
+        "weapons": [
+          "Martial"
+        ],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "armorUnresolved": [
+          "plate"
+        ],
+        "weaponsUnresolved": [
+          "longsword"
+        ]
+      }
+    },
+    {
+      "id": "unknown-source-key-not-name",
+      "traits": {
+        "weaponProf": {
+          "value": [
+            "Simple Weapons"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "weaponsUnresolved": [
+          "Simple Weapons"
+        ]
+      }
+    },
+    {
+      "id": "mastery-source-metadata",
+      "traits": {
+        "weaponProf": {
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "vex",
+              "sap"
+            ]
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [
+          "longsword"
+        ],
+        "bonus": [
+          "Vex",
+          "Sap"
+        ]
+      }
+    },
+    {
+      "id": "mastery-bonus-conditional",
+      "traits": {
+        "weaponProf": {
+          "mastery": {
+            "bonus": [
+              "vex"
+            ]
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [
+          "Vex"
+        ]
+      }
+    },
+    {
+      "id": "prepared-looking-poison",
+      "traits": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ],
+          "labels": [
+            "Heavy"
+          ]
+        },
+        "languages": {
+          "value": [
+            "common"
+          ],
+          "labels": {
+            "languages": [
+              "ALL"
+            ]
+          }
+        }
+      },
+      "expected": {
+        "armor": [
+          "Light"
+        ],
+        "weapons": [],
+        "tools": [
+          [
+            "thief",
+            1
+          ]
+        ],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": []
+      },
+      "tools": {
+        "thief": {
+          "value": 1,
+          "prof": 99,
+          "total": 99
+        }
+      },
+      "poison": true
+    },
+    {
+      "id": "malformed-armor",
+      "traits": {
+        "armorProf": {
+          "value": "lgt"
+        },
+        "languages": {
+          "value": [
+            "common"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": [],
+        "armorUnavailable": true
+      }
+    },
+    {
+      "id": "malformed-tools",
+      "traits": {},
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "toolsUnavailable": true
+      },
+      "tools": {
+        "thief": {
+          "value": "1"
+        }
+      }
+    },
+    {
+      "id": "unknown-tool-key",
+      "traits": {},
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "toolsUnresolved": [
+          "custom-tool"
+        ]
+      },
+      "tools": {
+        "custom-tool": {
+          "value": 1
+        }
+      }
+    },
+    {
+      "id": "unqualified-effect",
+      "traits": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "allUnavailable": true
+      },
+      "effect": "unqualified"
+    },
+    {
+      "id": "active-condition",
+      "traits": {
+        "languages": {
+          "value": [
+            "common"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "allUnavailable": true
+      },
+      "effect": "condition"
+    },
+    {
+      "id": "malformed-traits-container",
+      "traits": 42,
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "allUnavailable": true
+      }
+    },
+    {
+      "id": "prototype-keys-stay-literal",
+      "traits": {
+        "weaponProf": {
+          "value": [
+            "toString",
+            "__proto__"
+          ]
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [],
+        "mastered": [],
+        "bonus": [],
+        "weaponsUnresolved": [
+          "toString",
+          "__proto__"
+        ]
+      }
+    },
+    {
+      "id": "communication-container-malformed",
+      "traits": {
+        "languages": {
+          "value": [
+            "common"
+          ],
+          "communication": {
+            "telepathy": 42
+          }
+        }
+      },
+      "expected": {
+        "armor": [],
+        "weapons": [],
+        "tools": [],
+        "languages": [
+          "Common"
+        ],
+        "mastered": [],
+        "bonus": [],
+        "languagePartial": true
+      }
+    }
+  ]
+}

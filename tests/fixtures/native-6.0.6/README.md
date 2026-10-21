@@ -300,3 +300,15 @@ states in mounted tests. Actual before UI mislabels1.5 and null as zero; the new
 shared marker formats existing prepared values only. Static bounded coefficients
 remain distinct from default execution readiness. Native methods are controlled
 arithmetic/source-default comparisons, not engine/operator or full legacy proof.
+
+
+C27 `training.json` declares36 independent source contracts; `training-registries.json`
+records exact modern English native localization/configuration and canonical identity
+references, not content discovery.33 controlled native-method comparisons use exact
+prepareLanguages, Trait.keyLabel, sheet presentation, prepareTools/proficiency and a
+conditional masteryOptions example. Local tool effectValue and prepared effective
+value are recorded separately. Global/local overrides begin after the already-qualified
+initial effect phase; raw nonpersisted99 never initializes an override. Partial
+malformed ranges compare spoken labels only. The prototype-key inherited-function
+native diagnostic is retained without inventing a grant. Malformed/source/context
+and all preservation tests are module R boundaries, not native coercion parity.

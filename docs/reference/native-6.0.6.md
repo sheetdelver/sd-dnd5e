@@ -638,3 +638,40 @@ cases are separate from malformed source/UI availability tests and native engine
 acceptance. Empty flags/rules/conditions and Remarkable Athlete=false are explicit
 stubs; nonpersisted global coefficients initialize0. Module marker choices are
 presentation of those prepared values, not a new native training interpretation.
+
+
+### Source training / canonical English presentation (C27)
+
+CharacterData declares armorProf and weaponProf as SimpleTraitField. Its mastery
+value and bonus are persisted String Sets, unlike nonpersisted roll proficiency.
+TraitsFields.creature declares languages value/custom and communication MappingField
+(value NumberField min0, units defaultUnits(length)). Common/Creature tool methods
+capture initialized local value in effectValue, then replace prepared value with
+effective prof.multiplier. Global check proficiency2 can therefore produce effective2
+while local stored/default training is0. The module training DTO uses that local
+operand, never the effective field to infer a grant.
+
+Exact config preLocalize/performPreLocalization/_localizeObject/sortObjectEntries
+produce the captured modern English tree. Standard/exotic children registered with
+key=label contain primitive strings: their label comparator is NaN and preserves
+insertion order. Primordial's separate no-key registration sorts its strings.
+Source sign/draconic/common consequently presents Common, Draconic, Common Sign
+Language. This supersedes the preliminary ignored-handoff alphabetical assumption.
+prepareLanguages supplies ALL, grouped children, custom splitting and ranged labels.
+
+Trait.keyLabel normally consults its private base Item index for specific source
+keys. The controlled harness deliberately has no index and records native raw-key
+fallbacks; the module explicitly marks those labels unresolved. Prototype keys
+produce an inherited-function native lookup diagnostic (captured, not treated as
+a usable label); the module retains a literal unresolved key. Weapon.masteryOptions
+requires a mastered baseItem AND an Item base mastery. bonus contains additional
+property IDs, excludes the base property and does not itself master a weapon.
+Only a fixed longsword/sap conditional example is compared; no Item lifecycle or
+operator acceptance follows.
+
+The oracle adds33 initialized/source/qualified-intermediate training cases, exact
+schema assertions and pinned registry capture. Empty AppliedRules, conditions and
+flags; no base Item index; fixed English/unit formatter; and explicit initialization
+are declared stubs. Partial malformed/default-range cases compare only the independent
+spoken domain. No DataModel, native engine, installed sheet or native/operator parity
+is claimed. Unknown context, malformed and source-preservation tests remain R.

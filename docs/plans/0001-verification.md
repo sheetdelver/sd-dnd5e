@@ -1423,3 +1423,46 @@ stopped; Node24 local, Node22 CI/native/operator unrun. No full DD/A/M gate clos
 Next M2: replace fixed training/languages panel with shared source preparation;
 remaining conditions/rule/filter/final/Item phases and M3+ remain open. E01/wider
 Q00/E05/ADR-0001 open; experimental0.4.1 and compatibility unchanged.
+
+### C27 — Source training and languages (2026-10-21)
+
+Predecessor C26 `76c8d81`. Completed bounded M2 DD-02/06/27/34, A02/A21
+subrequirements: shared source/local training, category availability, canonical
+English native language presentation, exact unresolved identities and conditional
+mastery metadata. No full DD/A/M gate closes.36 same-input contracts fail against
+the predecessor adapter and pass after. Maintained `--training-diagnostics` captures
+78 predecessor desktop/mobile states with universal fixed armor/weapons/Common and
+missing prepared consumers; diagnostics never print qualification PASS. Actual
+shared panel and card projections recover from context loss and independent class/
+roll failures without source changes or inferred training from global roll bonuses.
+
+All commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (released0.19.3,
+90c13e5). `npm test`:60 tooling assertions,8 tooling/29 module suites PASS.
+`typecheck`:155 explicit module/UI/server/test/hook files PASS; root typing is not
+substituted. `test:native-source -- --native ../../../../temp/dnd5e`:2242 records/
+591 expressions PASS at exact87e94db release6.0.6, not native HEAD. `test:native-traits
+-- --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14`:
+24 defense,33 training and33 initial trait-effect comparisons plus pinned registry/
+schema assertions PASS. Explicit initialization, empty AppliedRules/flags/conditions,
+no base Item index, fixed English/unit adapter and conditional mastery example
+are controlled-source limits; no native engine/DataModel parity follows. Native
+prototype inherited-function lookup stays a diagnostic; module keys stay unresolved.
+
+`test:mounted` uses test-only `/tmp/sd-dice-preview-tools` and Chromium143 at the
+previously recorded `--chromium` path;78 training states and all prior suites pass
+at1440/390 in actual module consumers against the SDK seam. Artifacts
+`/tmp/dnd5e-mounted-8wEkFl`; before diagnostic `/tmp/dnd5e-mounted-xx2kbX`.
+`test:public-rolls`:14510 accepted requests,9043 normal-range/441 distributions,
+1 rejected unary candidate and40 nonblocking plain tied-index diagnostics PASS.
+Artifacts `/tmp/dnd5e-public-rolls-9napsC`; serialization unchanged, synthetic
+public-host primitive regression only. `check:package` passes isolated module/
+public-boundary checks, managed typing and bundles. Archive
+`/tmp/dnd5e-package-SHu3J0/data/dist/modules/dnd5e-0.4.1.tgz`, SHA256
+`5fc035eed81fe611712b3f99dc83f921ee2120af1737b06e2609fd9a3c4fafe3`.
+[Portable evidence](../audits/evidence/2026-10-21-c27-training.json) records identities,
+observations and limits without requiring ignored artifacts. Node24 local; Node22
+CI/installed UI/native/operator acceptance unrun. Task services cleaned.
+
+Next bounded M2: initial training/language/mastery Set effects, then remaining
+conditions/rules/filter/final/Item phases and dependency-ready M3/Q02. E01/wider
+Q00/E05/ADR-0001 remain open. Experimental0.4.1 and compatibility unchanged.

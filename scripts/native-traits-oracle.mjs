@@ -6,6 +6,7 @@ import {createRequire} from 'node:module';
 import {join} from 'node:path';
 import {coreRoot,moduleRoot,option} from './lib/toolchain.mjs';
 import {readRelease,nativeCommit,sha256} from './lib/native-release.mjs';
+import {trainingRegistry} from './lib/native-training-registry.mjs';
 const args=process.argv.slice(2),repo=option(args,'--native'),foundry=option(args,'--foundry');
 if(!repo||!foundry)throw Error('Supply exact --native release6.0.6 and static --foundry14.367; no service is started');
 const files=readRelease(repo),require=createRequire(join(coreRoot(args),'package.json')),ts=require('typescript');
@@ -21,6 +22,7 @@ const configAst=ts.createSourceFile('config',files.get('module/config.mjs'),ts.S
 const registry=name=>vm.runInNewContext('('+configAst.statements.find(n=>ts.isExpressionStatement(n)&&n.expression.left?.getText(configAst)==='DND5E.'+name).expression.right.getText(configAst)+')',{Color:class{}});
 const englishText=execFileSync('git',['-C',repo,'show',nativeCommit+':lang/en.json'],{encoding:'utf8',maxBuffer:10000000}),english=JSON.parse(englishText);
 function lookup(obj,key){if(!obj||typeof obj!=='object')return;if(Object.hasOwn(obj,key))return obj[key];for(const prefix of Object.keys(obj).sort((a,b)=>b.length-a.length))if(key.startsWith(prefix+'.')){const value=lookup(obj[prefix],key.slice(prefix.length+1));if(value!==undefined)return value;}}
+const trainingConfig=trainingRegistry(files,english,ts);assert.deepEqual(JSON.parse(JSON.stringify(trainingConfig)),JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/training-registries.json'),'utf8')));
 const loc=key=>{const value=lookup(english,key);assert.equal(typeof value,'string',key);return value;};
 const damage=registry('damageTypes'),conditions=registry('conditionTypes'),properties=registry('itemProperties');
 const actualRegistry={nativeCommit,damage:Object.fromEntries(Object.entries(damage).map(([k,v])=>[k,loc(v.label)])),conditions:Object.fromEntries(Object.entries(conditions).map(([k,v])=>[k,loc(v.name)])),bypasses:Object.fromEntries(['ada','mgc','sil'].map(k=>[k,loc(properties[k].label)])),physical:Object.keys(damage).filter(k=>damage[k].isPhysical),allDamage:loc('DND5E.DAMAGE.All')};
@@ -29,6 +31,12 @@ assert.match(files.get('module/data/actor/fields/simple-trait-field.mjs'),/initi
 assert.match(files.get('module/data/actor/fields/simple-trait-field.mjs'),/custom: new StringField\(\{ required: true/);
 assert.match(files.get('module/data/actor/fields/damage-trait-field.mjs'),/initialBypasses=\[\]/);
 assert.match(files.get(traits),/ci: new SimpleTraitField/);
+const characterSchema=files.get('module/data/actor/character.mjs');
+assert.match(characterSchema,/mastery: new SchemaField\(\{\s*value: new SetField\(new StringField\(\)\),\s*bonus: new SetField\(new StringField\(\)\)/);
+assert.match(characterSchema,/armorProf: new SimpleTraitField/);
+assert.match(files.get(traits),/communication: new MappingField/);
+assert.match(files.get(traits),/units: new StringField\(\{ initial: \(\) => defaultUnits\("length"\) \}\)/);
+
 const utilsAst=ts.createSourceFile('utils',files.get('module/utils.mjs'),ts.ScriptTarget.Latest,true,ts.ScriptKind.JS);
 const declaration=name=>utilsAst.statements.find(n=>ts.isFunctionDeclaration(n)&&n.name?.text===name).getText(utilsAst).replace(/^export /,'');
 const get=(obj,path)=>path.split('.').reduce((v,k)=>v?.[k],obj);
@@ -56,7 +64,15 @@ class NativeFormula extends StringField {${['_castChangeDelta','_applyChangeAdd'
 class SchemaField extends DataField {constructor(fields){super();this.fields=fields;}
 ${['_defaults','getInitialValue'].map(m=>f('SchemaField',m)).join('\n')}
 _cleanType(){return Object.fromEntries(Object.entries(this.fields).map(([key,field])=>[key,field.clean(undefined,{migrate:false,sanitize:false},{cleanOptions:true})]));} }
-class TraitsFields {${member(files.get(traits),'TraitsField','prepareResistImmune')} }
+class TraitsFields {${['prepareResistImmune','prepareLanguages'].map(name=>member(files.get(traits),'TraitsField',name)).join('\n')} }
+${files.get('module/documents/actor/proficiency.mjs').replace('export default class','class')}
+class ToolTemplate {${['calculateAbilityCheckProficiency','calculateToolProficiency','calculateSkillToolProficiency'].map(name=>member(files.get('module/data/actor/templates/common.mjs'),'CommonTemplate',name)).join('\n')}
+${member(files.get('module/data/actor/templates/creature.mjs'),'CreatureTemplate','prepareTools')} }
+class NativeWeapon {${member(files.get('module/data/item/weapon.mjs'),'WeaponData','masteryOptions')} }
+${helper(files.get('module/documents/actor/trait.mjs'),'_innerLabel')}
+${helper(files.get('module/documents/actor/trait.mjs'),'keyLabel')}
+function getBaseItem(){return undefined;}
+
 ${declaration('splitSemicolons')}
 ${declaration('simplifyBonus')}
 Number.isNumeric=value=>value!==null&&value!==''&&typeof value!=='boolean'&&Number.isFinite(Number(value));
@@ -64,7 +80,7 @@ Number.isNumeric=value=>value!==null&&value!==''&&typeof value!=='boolean'&&Numb
 class NativeSheet {static MODES={PLAY:'play'};
 ${member(files.get('module/applications/actor/api/base-actor-sheet.mjs'),'BaseActorSheet','_prepareTraits')}
 }
-globalThis.native={StringField,SetField,SchemaField,TraitsFields,NativeSheet,NativeFormula,splitSemicolons,simplifyBonus};`,box);
+globalThis.native={StringField,SetField,SchemaField,TraitsFields,NativeSheet,NativeFormula,ToolTemplate,NativeWeapon,keyLabel,splitSemicolons,simplifyBonus};`,box);
 const {StringField,SetField,SchemaField,TraitsFields,NativeSheet,splitSemicolons,simplifyBonus}=box.native,options=Object.freeze({migrate:false,sanitize:false});
 function cleanSet(value){const element=new StringField(),field=new SetField(element,{initial:[]});const values=value==null?field.getInitialValue({}):value.map(v=>element.clean(v,options));return field.initialize(values,{});}
 const blankTrait=new SchemaField({value:new SetField(new StringField(),{initial:[]}),custom:new StringField({required:true})}).getInitialValue({});
@@ -112,8 +128,53 @@ for(const row of effectFixture.cases.filter(row=>row.expectedOperands)){
  effectObservations.push({id:row.id,applied,afterDerived:Object.fromEntries(['dr','di','dv','ci'].map(key=>[key,Array.from(model.traits[key].value)]))});
 }
 const rawArrayDiagnosticField=new SetField(new StringField(),{initial:[]}),rawArrayDiagnostic=Array.from(rawArrayDiagnosticField.applyChange(cleanSet([]),{},{type:'add',value:['fire','cold']}));assert.deepEqual(rawArrayDiagnostic,['fire,cold']);
-const evidence={effectObservations,rawArrayDiagnostic:{sourceValue:['fire','cold'],nativeValue:rawArrayDiagnostic,module:'Explicitly unavailable; never interpreted as JSON array string'},nativeCommit,foundry:{generation:14,build:367,fieldsSha256:sha256(fields),helpersSha256:sha256(helpers),setPrimitivesSha256:sha256(setSource)},registry:actualRegistry,observations,
- sourceHashes:Object.fromEntries([traits,'module/data/actor/fields/simple-trait-field.mjs','module/data/actor/fields/damage-trait-field.mjs','module/data/fields/formula-field.mjs','module/config.mjs','module/utils.mjs','module/applications/actor/api/base-actor-sheet.mjs'].map(path=>[path,sha256(files.get(path))])),englishSha256:sha256(englishText),
- stubs:['C25 exact DataField.applyChange and field delta/operation/cleaning methods, native equality and Set.map/equals; validation wrapper checks known primitive strings only; references/object equality throw outside profile; no full DataModel validation','Primitive option-merging constructors; exact String clean/default and Array/Set initialization, source arrays cleaned elementwise; no DataModel or validation boot','Schema default container clean delegates only verified child defaults; Schema key/migration/validation logic not emulated','Condition-free Actor stub: empty statuses and hasConditionEffect=false; initial/final/Item effects not executed here','Partial cases compare independent ready domains only, initializing unavailable domains empty; unknown immunity also gates resistance in module','C24 simplifyBonus numeric-literal fast path; C25 two independently declared constant-expression totals in a closed Roll stub, not a native engine or module evaluator','Exact native trait presentation in edit mode with fixed subset trait registry, empty communication/masteries, key-label lookup stub from independently captured English registry, deepClone identity read-only stub, exact native Set.map/equals, en-US number formatter; physical bypasses compared separately','Native English registry capture at exact commit; no game locale/runtime or installed sheet/operator acceptance']};
+// C27 source training / native language presentation. Registry capture executes
+// exact pre-localization (primitive label-sort calls preserve insertion order).
+box.CONFIG.DND5E.languages=trainingConfig.languages;box.CONFIG.DND5E.communicationTypes=trainingConfig.communication;
+box.CONFIG.DND5E.armorProficiencies=trainingConfig.armor;box.CONFIG.DND5E.weaponProficiencies=trainingConfig.weapons;box.CONFIG.DND5E.weaponMasteries=trainingConfig.mastery;
+box.CONFIG.DND5E.armorIds=trainingConfig.armorReferences;box.CONFIG.DND5E.weaponIds=trainingConfig.weaponReferences;
+box.CONFIG.DND5E.traits={armor:{actorKeyPath:'system.traits.armorProf',configKey:'armorProficiencies',labels:{localization:'DND5E.TRAIT.Armor'},subtypes:{ids:['armorIds']}},weapon:{actorKeyPath:'system.traits.weaponProf',configKey:'weaponProficiencies',labels:{localization:'DND5E.TRAIT.Weapon'},subtypes:{ids:['weaponIds']}}};
+box.Trait.keyLabel=box.native.keyLabel;box.foundry.utils.getType=value=>value&&typeof value==='object'?'Object':typeof value;
+box.AppliedRules={collect:()=>({filterWith:()=>({toFormula:()=>''})})};
+box.game={i18n:{lang:'en',getListFormatter:options=>new Intl.ListFormat('en',options)}};box.dnd5e={settings:{rulesVersion:'modern',proficiencyModifier:'bonus'}};
+// Format-only unit adapter; exact integer ranges/units are separately captured.
+box.formatLength=(value,units)=>new Intl.NumberFormat('en',{style:'unit',unit:({ft:'foot',m:'meter',mi:'mile',km:'kilometer'})[units],unitDisplay:'short'}).format(value);
+const trainingFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/training.json'),'utf8'));assert.equal(trainingFixture.nativeCommit,nativeCommit);
+const trainingObservations=[];
+for(const row of trainingFixture.cases.filter(row=>!row.expected.allUnavailable)){
+ const model={traits:{}};for(const [key,sourceKey] of [['armor','armorProf'],['weapons','weaponProf']]){
+  const raw=key==='armor'&&row.expected.armorUnavailable?{}:row.traits[sourceKey]??{};
+  model.traits[sourceKey]={value:cleanSet(raw.value),custom:new StringField({required:true}).clean(raw.custom,options)};
+ }
+ const rawLanguages=row.traits.languages??{},communication={};
+ // Partial range cases compare the independent spoken domain only, never guess
+ // a missing metric default or silently coerce malformed persisted input.
+ if(!row.expected.languagePartial)for(const [key,raw] of Object.entries(rawLanguages.communication??{}))communication[key]={value:raw.value??null,units:raw.units??(row.metric?'m':'ft')};
+ model.traits.languages={value:cleanSet(rawLanguages.value),custom:new StringField({required:true}).clean(rawLanguages.custom,options),communication};
+ TraitsFields.prepareLanguages.call(model);const labels=Array.from(model.traits.languages.labels.languages);assert.deepEqual(labels,row.expected.languages,row.id+'/spoken');
+ const observed={id:row.id,spoken:labels,communicationCompared:!row.expected.languagePartial,ranged:Array.from(model.traits.languages.labels.ranged),training:{}};
+ if(!row.expected.languagePartial){const expected=(row.expected.communication??[]).map(([key,value,unit])=>trainingConfig.communication[key].label+' '+box.formatLength(value,unit));assert.deepEqual(observed.ranged,expected,row.id+'/range');}
+ const sheet=Object.assign(new NativeSheet(),{actor:{system:model,getRollData:()=>({})},document:{hasConditionEffect:()=>false},_mode:'edit'}),display=sheet._prepareTraits({});
+ for(const [key,trait] of [['armor','armor'],['weapons','weapon']]){
+  if(key==='armor'&&row.expected.armorUnavailable)continue;
+  const expected=[...row.expected[key],...(row.expected[key+'Unresolved']??[])];const actual=Array.from(display[trait]??[],entry=>entry.label);if(row.id==='prototype-keys-stay-literal'&&key==='weapons'){assert.equal(typeof actual[0],'function');assert.equal(actual[1],'__proto__');observed.nativePrototypeDiagnostic=actual.map(value=>typeof value==='function'?'[inherited function; module preserves unresolved source key]':value);}else assert.deepEqual(actual,expected,row.id+'/'+key);observed.training[key]=actual.map(value=>typeof value==='function'?'[function]':value);
+ }
+ const rawMastery=row.traits.weaponProf?.mastery??{},weapon=Object.assign(new box.native.NativeWeapon(),{parent:{actor:{system:{traits:{weaponProf:{mastery:{value:cleanSet(rawMastery.value),bonus:cleanSet(rawMastery.bonus)}}}}}},type:{baseItem:'longsword'},mastery:'sap'});
+ const opts=weapon.masteryOptions;observed.masteryExample=opts?Array.from(opts,entry=>({value:entry.value,label:entry.label,rule:entry.rule??false})):null;
+ if(row.id==='mastery-source-metadata')assert.deepEqual(observed.masteryExample.map(entry=>entry.value),['sap','vex']);
+ if(row.id==='mastery-bonus-conditional')assert.equal(opts,null);
+ if(!row.expected.toolsUnavailable){
+  const toolModel=Object.assign(Object.create(box.native.ToolTemplate.prototype),{attributes:{prof:3},abilities:{int:{mod:0,check:{roll:{}}},dex:{mod:2,check:{roll:{}}}},tools:{},rolls:{ability:{check:{proficiency:row.effect==='global-prof'?2:0},tool:{proficiency:0}}},parent:{flags:{dnd5e:{}},conditionRollReduction:0,getRollData:()=>({})}});
+  for(const [key,raw] of Object.entries(row.tools??{}))toolModel.tools[key]={ability:raw.ability??'int',value:row.effect==='local-tool'?1:raw.value??0,roll:{}};
+  toolModel.prepareTools();observed.localTools=Object.entries(toolModel.tools).map(([key,data])=>({key,local:data.effectValue,preparedValue:data.value,effective:data.prof.multiplier}));
+  assert.deepEqual(observed.localTools.filter(entry=>entry.local>0&&!row.expected.toolsUnresolved?.includes(entry.key)).map(entry=>[entry.key,entry.local]),row.expected.tools,row.id+'/local training');
+  if(row.id==='global-roll-prof-is-not-training')assert.deepEqual(observed.localTools,[{key:'thief',local:0,preparedValue:2,effective:2}]);
+ }
+ trainingObservations.push(observed);
+}
+const evidence={trainingRegistry:trainingConfig,trainingObservations,effectObservations,rawArrayDiagnostic:{sourceValue:['fire','cold'],nativeValue:rawArrayDiagnostic,module:'Explicitly unavailable; never interpreted as JSON array string'},nativeCommit,foundry:{generation:14,build:367,fieldsSha256:sha256(fields),helpersSha256:sha256(helpers),setPrimitivesSha256:sha256(setSource)},registry:actualRegistry,observations,
+ sourceHashes:Object.fromEntries([traits,'module/data/actor/character.mjs','module/data/actor/templates/common.mjs','module/data/actor/templates/creature.mjs','module/documents/actor/trait.mjs','module/documents/actor/proficiency.mjs','module/data/item/weapon.mjs','module/data/actor/fields/simple-trait-field.mjs','module/data/actor/fields/damage-trait-field.mjs','module/data/fields/formula-field.mjs','module/config.mjs','module/utils.mjs','module/applications/actor/api/base-actor-sheet.mjs'].map(path=>[path,sha256(files.get(path))])),englishSha256:sha256(englishText),
+ stubs:['C27 exact prepareLanguages, trait keyLabel and sheet presentation; canonical English, base Item index deliberately unavailable, fixed subset trait config, independent unit-format adapter; partial range cases compare spoken domain only','C27 absent AppliedRules collection is empty, no filtered bonus/effect semantics claimed; prototype-key native inherited-function lookup is recorded as diagnostic, never a usable label',
+ 'C27 local Tool.value is captured as effectValue by exact prepareTools; prepared value becomes effective multiplier; globals/local override cases start after C13-qualified initial operations, not raw nonpersisted source overrides','C27 masteryOptions getter is only a conditional example (longsword/sap), not module Item/activity execution','C25 exact DataField.applyChange and field delta/operation/cleaning methods, native equality and Set.map/equals; validation wrapper checks known primitive strings only; references/object equality throw outside profile; no full DataModel validation','Primitive option-merging constructors; exact String clean/default and Array/Set initialization, source arrays cleaned elementwise; no DataModel or validation boot','Schema default container clean delegates only verified child defaults; Schema key/migration/validation logic not emulated','Condition-free Actor stub: empty statuses and hasConditionEffect=false; initial/final/Item effects not executed here','Partial cases compare independent ready domains only, initializing unavailable domains empty; unknown immunity also gates resistance in module','C24 simplifyBonus numeric-literal fast path; C25 two independently declared constant-expression totals in a closed Roll stub, not a native engine or module evaluator','Exact native trait presentation in edit mode with fixed subset trait registry, empty communication/masteries, key-label lookup stub from independently captured English registry, deepClone identity read-only stub, exact native Set.map/equals, en-US number formatter; physical bypasses compared separately','Native English registry capture at exact commit; no game locale/runtime or installed sheet/operator acceptance']};
 const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');
-process.stdout.write(`S: ${observations.length} defense source/default captures (${observations.filter(o=>o.complete).length} complete, remainder independent domains) and ${effectObservations.length} ordered initial trait-effect cases and pinned registries PASS\n`);
+process.stdout.write(`S: ${observations.length} defense source/default captures (${observations.filter(o=>o.complete).length} complete, remainder independent domains) and ${trainingObservations.length} source training/language and ${effectObservations.length} ordered initial trait-effect cases and pinned registries PASS\n`);

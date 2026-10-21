@@ -794,3 +794,23 @@ execution/shortcuts remain fenced; explicit Normal uses existing support. See
 and [portable record](evidence/2026-10-21-c26-proficiency-indicators.json). The fixed
 Proficiencies panel and remaining rules are still open; this is not native/operator
 or release acceptance.
+
+
+### C27 — Source training replaces universal fixed grants
+
+C26 `76c8d81` precedes this bounded M2 slice (DD-02/06/27/34, A02/A21 partial).
+36 unchanged independent source contracts fail against the predecessor adapter;
+78 actual desktop/mobile diagnostic states lack truthful prepared training displays.
+The shared DTO now distinguishes local tool training from effective roll proficiency,
+preserves independent facts and reports unavailable/partial reasons instead of fixed
+armor/weapons/Common grants. Specific Item labels remain unresolved exact keys with
+reference metadata; no content access or grant is inferred. Mastery properties are
+conditional source choices. Pinned localization methods preserve actual native order,
+not an assumed alphabetical order. Native prototype lookup and phase/stub limits
+are recorded, not hidden or used to assert source/runtime parity.
+
+See [C27 ledger](../plans/0001-verification.md#c27--source-training-and-languages-2026-10-21)
+and [portable evidence](evidence/2026-10-21-c27-training.json). Effects beyond existing
+initial numeric local coefficients, active conditions/flags/filter/final/Item rules,
+legacy expansion and native/operator/full acceptance remain open. No version,
+compatibility or Core changes; E01 and wider Q00/E05 remain external/open as before.
