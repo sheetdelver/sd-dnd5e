@@ -23,7 +23,7 @@ import { prepareNumericTools606 } from './preparation/tools';
 import { SKILL_LABELS } from './preparation/check-identities';
 import { prepareSkillToolModel606, configureSkillToolCheck, skillToolRoll, type SkillToolModel } from './preparation/skill-tool';
 import { characterFacts606, characterFactsProjection } from './preparation/character-profile';
-import { planEffects606 } from './preparation/effects';
+import { prepareNumericEffects606 } from './preparation/numeric-effects';
 
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
@@ -129,14 +129,15 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             // Schema context readiness does not qualify the old numeric projection.
             preparation: 'legacy-projection-unqualified' };
         const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
-        prepared.derived.effectPreparation = planEffects606(actor);
-        const checkModel = prepareSkillToolModel606(actor,rules);
+        const effects=prepareNumericEffects606(actor);
+        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied};
+        const checkModel = prepareSkillToolModel606(actor,rules,effects);
         prepared.derived.checkConfiguration = checkModel;
         const tools = prepareNumericTools606(actor,rules,checkModel);
         prepared.derived.tools = tools.checks;
         prepared.derived.toolPreparation = {status:tools.status,reason:tools.reason};
         if (!selectedLegacy) {
-            prepared.derived.abilities = prepareNumericAbilities606(actor, rules);
+            prepared.derived.abilities = prepareNumericAbilities606(actor, rules,effects);
             const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules,checkModel)
                 : unavailableSkillChecks(actor, `Skill rules context unavailable: ${rules.reason ?? 'unknown profile'}`);
             prepared.derived.skillChecks = skills;
@@ -144,7 +145,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             prepared.derived.passivePerception = skills.prc?.passive ?? null;
             prepared.derived.passiveInvestigation = skills.inv?.passive ?? null;
             prepared.derived.passiveInsight = skills.ins?.passive ?? null;
-            const facts = characterFacts606(actor, rules);
+            const facts = characterFacts606(actor, rules,effects);
             prepared.derived.characterFacts = facts;
             prepared.derived.level = facts.level.value;
             prepared.derived.profBonus = facts.proficiency.value;

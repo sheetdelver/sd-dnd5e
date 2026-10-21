@@ -1,19 +1,8 @@
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
-import { planEffects606 } from './effects';
+import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 
-/** Qualified constant part of native simplifyBonus. Never evaluates expressions. */
-export function numericConstant(input: unknown): number | null {
-    if (input === undefined || input === null || input === '') return 0;
-    if (typeof input === 'number') return Number.isFinite(input) ? input : null;
-    if (typeof input === 'string' && /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(input.trim())) {
-        const value = Number(input); return Number.isFinite(value) ? value : null;
-    }
-    return null;
-}
-export function qualifiedNumericTotal(value: number): boolean {
-    return Number.isFinite(value) && /^-?\d+(?:\.\d+)?$/.test(String(value));
-}
+export { numericConstant, qualifiedNumericTotal } from './numeric';
 export interface NumericFact {
     status: 'ready' | 'unavailable' | 'legacy-unqualified';
     value: number | null; display: string; provenance: string; reason?: string;
@@ -26,7 +15,7 @@ export function numericFact(value: number | null, reason?: string): NumericFact 
 /** Class facts are independent of unresolved equipped armor/encumbrance rules.
  * Effects/transformations remain unqualified, including possible stat changes.
  */
-export function characterFacts606(actor: unknown, context: RulesContext): CharacterFacts {
+export function characterFacts606(actor: unknown, context: RulesContext, effects:NumericEffects=prepareNumericEffects606(actor)): CharacterFacts {
     const source = record(actor) ?? {}, system = record(source.system) ?? {};
     let reason: string | undefined, level = 0;
     if (context.status !== 'supported' || context.profile !== '2024') reason = `Character rules context unavailable: ${context.reason ?? context.profile ?? 'unknown'}`;
@@ -41,7 +30,7 @@ export function characterFacts606(actor: unknown, context: RulesContext): Charac
         else level += levels;
     }
     if (level > 20) reason ??= 'Class levels above 20 unsupported';
-    reason ??= planEffects606(actor).reason;
+    reason ??= effects.reason;
     if (Object.values(record(record(source.flags)?.dnd5e) ?? {}).some(Boolean)) reason ??= 'Native flag or transformation preparation unavailable';
     const levelFact = numericFact(reason ? null : level, reason);
     const setting = context.settings['dnd5e.proficiencyModifier'];
@@ -55,9 +44,9 @@ export function characterFactsProjection(derived: Record<string, any>): Characte
     return derived.characterFacts ?? { level: numericFact(null, 'Level preparation unavailable'), proficiency: numericFact(null, 'Proficiency preparation unavailable') };
 }
 /** Common source-only PC roll prerequisites, shared by skills/checks/saves. */
-export function numericCharacterProfile(actor: unknown, context: RulesContext):
+export function numericCharacterProfile(actor: unknown, context: RulesContext, effects:NumericEffects=prepareNumericEffects606(actor)):
     { status: 'ready'; level: number; proficiency: number } | { status: 'unavailable'; reason: string } {
-    const source = record(actor) ?? {}, system = record(source.system) ?? {}, facts = characterFacts606(actor, context);
+    const source = record(actor) ?? {}, system = record(source.system) ?? {}, facts = characterFacts606(actor, context,effects);
     if (facts.level.value === null || facts.proficiency.value === null) return { status: 'unavailable', reason: facts.level.reason ?? facts.proficiency.reason ?? 'Character facts unavailable' };
     let reason: string | undefined;
     const encumbrance = context.settings['dnd5e.encumbrance'];

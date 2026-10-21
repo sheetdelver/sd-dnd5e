@@ -377,3 +377,31 @@ are explicit stubs. No Document/DataModel/runtime/operator parity follows.
 Evidence and commands: [C12 verification ledger](../plans/0001-verification.md#c12--effect-eligibility-and-phase-foundation-2026-10-21)
 and [portable record](evidence/2026-10-21-c12-effects.json).
 M2/Q00 and ADR-0001 remain open. Next: initial numeric field/proficiency effects.
+
+### C13 — Initial numeric field effects (2026-10-21)
+
+C12 implementation checkpoint is `d0cf3f2`. C13 advances M2/Q00 and DD-02/24/27/
+34, A02/A18 partially with one detached source/default/initial-effect operand
+path. Twenty independently specified supported cases cover six numeric field
+operations, stable priority ordering, integer rounding, half-step cleaning and
+clamping, ability scores/save proficiency, local skill/tool multipliers and all
+four verified initialized0 global proficiency targets. Seventeen original cases
+failed before implementation; all now pass. Eight deliberately unqualified cases
+remain unavailable (final phase, expressions, unknown/missing targets, invalid
+choices, custom hooks, bonus FormulaFields and uninitialized fractional source).
+
+The adapter prepares the detached effect operands once, then shares them with
+character facts, ability checks/saves and the configurable skill/tool model.
+Source remains byte-for-value unchanged, including poisoned nonpersisted target99.
+Effective global check/skill/tool proficiency follows native scope selection.
+Automatic combined advantage uses independently prepared proficiencies, not just
+raw local multipliers: global half proficiency can grant advantage with both
+local values0. Source disadvantage cancels it; manual choices still override.
+Effect provenance participates in intent retirement even when a changed effect
+does not change a particular total. Recovery requires fresh intent, without replay.
+
+Evidence/commands/limits: [C13 ledger](../plans/0001-verification.md#c13--initial-numeric-field-effects-2026-10-21)
+and [portable record](evidence/2026-10-21-c13-numeric-effects.json).
+No full gate closes. Next: constant FormulaField check bonuses; final phases,
+filters, Item preparation and wider expressions remain open. E01 and wider Q00/E05
+remain open. ADR-0001 stays open with experimental0.4.1/compatibility unchanged.

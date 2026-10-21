@@ -1,3 +1,4 @@
+import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
@@ -8,10 +9,12 @@ export type SkillToolKind = 'skill' | 'tool';
 interface Entry { ability:string; prof:number|null; label:string; roll:unknown; reason?:string; primaryReason?:string; passiveBonus?:number|null }
 interface Ability { score:number|null; roll:unknown; reason?:string }
 /** Detached, revision-owned operands from source + verified initialization.
- * No source references, effect outputs, prepared totals or browser world cache. */
+ * Initial qualified field effects are separate from raw source. No source
+ * references, unqualified prepared totals or browser world cache. */
 export interface SkillToolModel {
     reason?:string; proficiency:number|null;
     abilities:Record<string,Ability>; skills:Record<string,Entry>; tools:Record<string,Entry>;
+    proficiencies:Record<'check'|'skill'|'tool',number>;
     globals:Record<'check'|'skill'|'tool',unknown>;
 }
 export interface ConfiguredCheck extends PreparedNumericD20 {label:string; prof:number|null; automaticAdvantage?:boolean}
@@ -27,8 +30,8 @@ function rollInput(value:unknown):unknown {
     const data=record(value);
     return data ? Object.fromEntries(['bonus','mode','min','max'].filter(key=>data[key]!==undefined).map(key=>[key,structuredClone(data[key])])) : false;
 }
-export function prepareSkillToolModel606(actor:unknown, context:RulesContext):SkillToolModel {
-    const system=record(record(actor)?.system) ?? {}, profile=numericCharacterProfile(actor,context);
+export function prepareSkillToolModel606(actor:unknown, context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):SkillToolModel {
+    const system=effects.system, profile=numericCharacterProfile(actor,context,effects);
     let reason=profile.status==='ready'?undefined:profile.reason;
     const rawGlobals=record(record(system.rolls)?.ability) ?? {};
     if ([system.rolls,record(system.rolls)?.ability].some(value=>value!=null&&!record(value))) reason ??= 'Roll source container malformed';
@@ -49,7 +52,7 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext):Sk
                 ...(error?{reason:error}:{}),...(kind==='skill'?{passiveBonus,...(record(data?.bonuses)?.check||passiveBonus===null?{primaryReason:'Skill formula requires Q00 qualification'}:{})}:{})}];
         }));
     }
-    return {reason,proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
+    return {reason,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
         globals:{check:rollInput(rawGlobals.check),skill:rollInput(rawGlobals.skill),tool:rollInput(rawGlobals.tool)}};
 }
 /** Native fresh #rollSkillTool + _buildSkillToolConfig source-only profile.
@@ -78,14 +81,16 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     reason ??= data?.reason;
     const scopes=[{path:`${kind}s.${key}.roll`,value:primary?.roll},{path:`abilities.${abilityId}.check.roll`,value:data?.roll},
         {path:'rolls.ability.check',value:model.globals.check},{path:`rolls.ability.${kind}`,value:model.globals[kind]}];
-    const automaticAdvantage=(primary?.prof??0)>0&&(secondary?.prof??0)>0;
+    const targets=model.proficiencies;
+    const independentProf=(entry:Entry|undefined,type:SkillToolKind)=>Math.max(entry?.prof??0,targets.check,targets[type]);
+    const automaticAdvantage=!!secondary&&independentProf(primary,kind)>0&&independentProf(secondary,other)>0;
     const mode=sourceD20Mode(scopes,automaticAdvantage);
     reason ??= mode.reason;
     const bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));
     if (bonuses.some(value=>value===null)) reason ??= `${kind==='skill'?'Skill':'Tool'} formula requires Q00 qualification`;
     const base={ability:abilityId,label:primary?.label??key,automaticAdvantage};
     if (reason||!primary||primary.prof===null||model.proficiency===null||mode.mode===undefined||data?.score==null) return {...base,prof:null,total:null,formula:null,unavailableReason:reason??'Check preparation unavailable'};
-    const prof=Math.max(primary.prof,secondary?.prof??0), total=Math.floor((data.score-10)/2)+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0);
+    const prof=Math.max(primary.prof,secondary?.prof??0,targets.check,...(kind==='skill'||other==='skill'&&secondary?[targets.skill]:[]),...(kind==='tool'||other==='tool'&&secondary?[targets.tool]:[])), total=Math.floor((data.score-10)/2)+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0);
     if (!qualifiedNumericTotal(total)) return {...base,prof,total:null,formula:null,unavailableReason:'Numeric result outside qualified roll representation'};
     const unavailableReason=d20RangeReason(scopes)??numericD20ExecutionReason(total,mode.mode);
     return {...base,prof,total,sourceMode:mode.mode,formula:unavailableReason?null:numericD20Formula(total,mode.mode),...(unavailableReason?{unavailableReason}:{})};

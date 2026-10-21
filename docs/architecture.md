@@ -316,3 +316,29 @@ Actual active field changes, filters, statuses, time-dependent expiry, legacy
 migration and owned Item preparation stay explicitly unavailable. Nontransfer
 Item effects are not harmless: they can change class data before Actor preparation.
 This is a static eligibility foundation, not completed effect support.
+
+### Detached initial numeric effects (C13)
+
+`prepareNumericEffects606` interprets the eligible initial numeric field subset
+once per adapter preparation. It clones persisted operands, initializes global
+proficiency targets to verified0, applies ordered qualified operations and emits
+applied-field provenance separately from source. Character facts, abilities and
+checkConfiguration consume this same result. No effect output is reclassified
+as persisted source. The prepared skill/tool model retains raw post-initial local
+multipliers separately from global proficiency targets; independent projections
+and configured fresh requests use native scope rules and floor once.
+
+Combined automatic advantage tests both independently prepared proficiencies,
+including global targets, while the selected request computes proficiency using
+only applicable selected scopes. Effects join roll-intent signatures, retiring
+callbacks on relevant provenance changes even if a total stays equal. Source
+bonus/mode/range semantics and explicit manual overrides remain shared.
+
+This supersedes the blanket C12 active-field restriction only for initial
+NumberField ability score/save proficiency, known local skill/tool multipliers
+and global check/save/skill/tool proficiency targets. Finite numeric literal
+changes support add/subtract/multiply/override/upgrade/downgrade and bounded
+native cleaning. Invalid global choices, unsupported initial source values,
+FormulaFields, final changes, filters/status/time/dependencies/Item phases and
+custom operations remain explicit unavailable. Final source operands must never
+be treated as initial inputs to recompute already-derived fields.

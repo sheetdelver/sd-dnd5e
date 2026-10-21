@@ -89,6 +89,7 @@ import modes from ${JSON.stringify(join(moduleRoot,'tests/fixtures/native-6.0.6/
 import {toolCases,toolSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/tool-scenarios.ts'))};
 import {combinedCases,combinedSource,combinedOptions} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/combined-scenarios.ts'))};
 import effectFixture from ${JSON.stringify(join(moduleRoot,'tests/fixtures/native-6.0.6/effect-phases.json'))};
+import {numericEffectCases,numericEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/effect-scenarios.ts'))};
 const adapter=new DnD5eAdapter(), cases=[];
 function add(mode,faces,total=5,bonus=undefined){const actor=skillSource();setSkillRoll(actor,'skills.prc.roll',{mode,bonus:total-5});const prepared=adapter.prepareActorData(actor,skillContext());const options=bonus===undefined?{}:{situationalBonus:String(bonus)};const formula=adapter.getRollData(prepared,'skill','prc',options)?.formula;if(!formula)throw new Error('Unavailable normal formula');const selected=mode===1?Math.max(...faces):mode===-1?Math.min(...faces):faces[0];cases.push({formula,faces,expected:selected+total+(bonus??0),mode,total,bonus});}
 for(const mode of [-1,1])for(let a=1;a<=20;a++)for(let b=1;b<=20;b++)add(mode,[a,b]);
@@ -99,6 +100,15 @@ for(const row of toolCases)for(const mode of [-1,0,1]){const actor=toolSource(ro
 for(const row of combinedCases)for(const manual of [undefined,'normal','adv','dis']){const options={...combinedOptions(row),...(manual?{advantage:manual,situationalBonus:'2'}:{})};const formula=adapter.getRollData(adapter.prepareActorData(combinedSource(row),skillContext()),row.kind,row.kind==='skill'?'prc':'thief',options)?.formula;const mode=manual==='adv'?1:manual==='dis'?-1:manual==='normal'?0:row.expectedMode,faces=mode===0?[7]:[3,18],bonus=manual?2:0;cases.push({formula,faces,expected:(mode===1?18:mode===-1?3:7)+row.expectedTotal+bonus,mode,total:row.expectedTotal,...(bonus?{bonus}:{}),selectedCase:row.id});}
 const effectCases=effectFixture.cases;
 for(const row of effectCases.filter(row=>row.expected.ready)){const actor=skillSource();actor.effects=row.effects;actor.items.push(...row.items);const formula=adapter.getRollData(adapter.prepareActorData(actor,skillContext()),'skill','prc')?.formula;cases.push({formula,faces:[11],expected:16,mode:0,total:5,effectCase:row.id});}
+
+for(const row of numericEffectCases.filter(row=>row.expected)){
+ const e=row.expected,prepared=adapter.prepareActorData(numericEffectSource(row),skillContext());
+ for(const [kind,key,total,combined] of [['skill','prc',e.skill,false],['tool','thief',e.tool,false],['ability','wis',e.check,false],['save','wis',e.save,false],['skill','prc',e.combined,true],['tool','thief',e.combined,true]])for(const manual of [undefined,'normal','adv','dis']){
+  const options={...(combined?{ability:'wis',[kind==='skill'?'tool':'skill']:kind==='skill'?'thief':'prc'}:{}),...(manual?{advantage:manual,situationalBonus:'2'}:{})};
+  const formula=adapter.getRollData(prepared,kind,key,options)?.formula,mode=manual==='adv'?1:manual==='dis'?-1:manual==='normal'?0:combined?e.combinedMode:0,faces=mode===0?[7]:[3,18],bonus=manual?2:0;
+  cases.push({formula,faces,expected:(mode===1?18:mode===-1?3:7)+total+bonus,mode,total,...(bonus?{bonus}:{}),numericEffectCase:row.id});
+ }
+}
 process.stdout.write(JSON.stringify(cases));`);
     const generated=spawnSync(process.execPath,[join(core,'node_modules/tsx/dist/cli.mjs'),'--tsconfig',join(core,'tsconfig.json'),driver],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH}});
     assert.equal(generated.status,0,generated.stderr);const cases=JSON.parse(generated.stdout);
@@ -124,7 +134,7 @@ process.stdout.write(JSON.stringify(cases));`);
     const invalid=await fetch(origin+'/api/modules/q00/probe',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,Cookie:cookie},body:JSON.stringify({cases:[{formula:'1d20+1000000001',faces:[1]}]})});
     assert.ok(invalid.status>=400,'Host numeric literal bound rejects without fallback');
     assert.deepEqual(writes,[],'Silent rolls dispatch no synthetic native writes/chat');
-    writeFileSync(join(root,'evidence.json'),JSON.stringify({evidence:'Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance',result:'qualified-plain-d20-numeric-profile',equalIndexDiagnostics:selectionMismatches,selectionMismatches,coreVersion,coreCommit,caseCount:cases.length,controlledPairs:800,normalFaces:20,sourceModeCases:81,manualModeCases:18,toolCases:cases.filter(row=>row.toolCase).length,selectedCases:cases.filter(row=>row.selectedCase).length,effectCases:cases.filter(row=>row.effectCase).length,histogram,numericLiteralBoundaryRejected:true,nativeWrites:0,limits:['Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI','Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance']},null,2));
+    writeFileSync(join(root,'evidence.json'),JSON.stringify({evidence:'Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance',result:'qualified-plain-d20-numeric-profile',equalIndexDiagnostics:selectionMismatches,selectionMismatches,coreVersion,coreCommit,caseCount:cases.length,controlledPairs:800,normalFaces:20,sourceModeCases:81,manualModeCases:18,toolCases:cases.filter(row=>row.toolCase).length,selectedCases:cases.filter(row=>row.selectedCase).length,effectCases:cases.filter(row=>row.effectCase).length,numericEffectCases:cases.filter(row=>row.numericEffectCase).length,histogram,numericLiteralBoundaryRejected:true,nativeWrites:0,limits:['Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI','Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance']},null,2));
     process.stdout.write(`Public-host controlled rolls: ${cases.length} totals/serialized faces and distributions PASS; ${selectionMismatches.length} nonblocking equal-index diagnostics\n`);
 } catch(error) {process.stderr.write(logs.slice(-9000));throw error;}
 finally {

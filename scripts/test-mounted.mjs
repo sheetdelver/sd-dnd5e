@@ -20,6 +20,7 @@ import { abilityCases, abilitySource } from ${JSON.stringify(join(moduleRoot, 's
 import { toolCases, toolSource } from ${JSON.stringify(join(moduleRoot, 'src/tests/fixtures/tool-scenarios.ts'))};
 import { combinedCases, combinedSource } from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/combined-scenarios.ts'))};
 import effectFixture from ${JSON.stringify(join(moduleRoot,'tests/fixtures/native-6.0.6/effect-phases.json'))};
+import {numericEffectCases,numericEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/effect-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -63,13 +64,15 @@ const effectTool=toolSource();effectTool.effects=[{disabled:false}];tools.effect
 const toolModes=[];for(const mode of [-1,0,1]){const actor=toolSource();setSkillRoll(actor,'tools.thief.roll',{mode:mode===0?1:mode});if(mode===0)setSkillRoll(actor,'rolls.ability.tool',{mode:-1});toolModes.push({actor:adapter.prepareActorData(actor,{...skillContext(),sourceRevision:200+mode}),mode,formula:(mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20')+'+5'});}
 const combinations=combinedCases.map(row=>({...row,actor:prepare(combinedSource(row))}));
 const effectCases=effectFixture.cases.map((row,index)=>{const source=skillSource();source.effects=row.effects;source.items.push(...row.items);return {id:row.id,ready:row.expected.ready,actor:adapter.prepareActorData(source,{...skillContext(),sourceRevision:300+index})};});
+const numericEffects=numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))}));
 const combinedUnavailable=unavailableContexts().map(({id,context})=>({id,actor:prepare(combinedSource(combinedCases[8]),context)}));
 const removed=combinedSource(combinedCases[8]);delete removed.system.tools.thief;combinedUnavailable.push({id:'selected-tool-removed',actor:prepare(removed)});
 const removedSkill=combinedSource(combinedCases[8]);delete removedSkill.system.skills.prc;combinedUnavailable.push({id:'selected-skill-removed',actor:prepare(removedSkill)});
-process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases}));`);
-const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8' });
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects}));`);
+const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8', maxBuffer:16*1024*1024 });
+if (result.error) throw result.error;
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -78,7 +81,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -366,12 +369,43 @@ try {
             await render(states.supported);assert.equal(await skill.isEnabled(),true);
             effectRows.push({width,id:state.id,ready:state.ready,staleRetired:true,recovery:true});
         }
+
+        for(const row of numericEffects){
+            await render(states.supported);await tab('Skills');await skill.click();await render(row.actor);
+            await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
+            if(!row.expected){assert.equal(await skill.isDisabled(),true,row.id);assert.equal(await toolControl.isDisabled(),true,row.id);}
+            else {
+                const e=row.expected;assert.equal(await skill.isEnabled(),true,row.id);
+                await skill.click();const dialog=page.locator('dialog[open]');
+                assert.ok((await dialog.innerText()).includes('1d20+'+e.skill),row.id+' independent');
+                await dialog.getByRole('combobox',{name:'Combine with tool',exact:true}).selectOption('thief');await page.mouse.move(0,0);
+                assert.ok((await dialog.innerText()).includes((e.combinedMode===1?'2d20kh1':'1d20')+'+'+e.combined),row.id+' combined');
+                await dialog.getByRole('textbox',{name:'Situational bonus'}).fill('2');
+                await dialog.getByRole('button',{name:'Disadvantage',exact:true}).focus();
+                assert.ok((await dialog.innerText()).includes('2d20kl1+'+e.combined+'+(2)'),row.id+' manual');
+                await page.keyboard.press('Enter');assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,'2d20kl1+'+e.combined+'+(2)');
+                await skill.click({modifiers:['Shift']});assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,'1d20+'+e.skill);
+                await toolControl.click({modifiers:['Shift']});assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,'1d20+'+e.tool);
+                await tab('Abilities');assert.equal(await page.getByLabel('Passive Perception',{exact:true}).innerText(),String(e.passive));
+                for(const [kind,total] of [['ability',e.check],['save',e.save]]){
+                    await page.evaluate(({actor,kind})=>window.skillFixture.render(actor,kind),{actor:row.actor,kind});
+                    const control=page.getByRole('button',{name:kind==='ability'?'Wisdom Check':'Wisdom Saving Throw',exact:true});
+                    await control.click({modifiers:['Shift']});assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,'1d20+'+total);
+                }
+                await page.evaluate(actor=>window.skillFixture.render(actor,true),row.actor);await skill.click();await page.evaluate(()=>window.skillFixture.hold());
+                await page.evaluate(actor=>window.skillFixture.render(actor,true),states['snapshot-absent']);
+                await page.evaluate(actor=>window.skillFixture.render(actor,true),row.actor);
+                assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld()),'retired',row.id);assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+            }
+            await render(states.supported);await tab('Skills');assert.equal(await skill.isEnabled(),true);
+            numericEffectRows.push({width,id:row.id,ready:!!row.expected,actualConsumers:true,recovery:true});
+        }
         assert.deepEqual(errors, []);
         await context.close();
     }
     writeFileSync(join(artifacts, 'focus.json'),JSON.stringify(focusRows,null,2));
     for(const row of focusRows)assert.equal(row.afterPointerLeaves,'2d20kh1+5','DD-R06/'+row.width+'; artifacts '+artifacts);
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows }, null, 2));
-    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} effect cases and retained-callback fences PASS; artifacts ${artifacts}\n`);
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows }, null, 2));
+    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} eligibility and ${numericEffectRows.length} numeric effect cases and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }

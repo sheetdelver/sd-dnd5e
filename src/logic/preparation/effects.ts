@@ -6,7 +6,7 @@ const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,su
 /** Source-only eligibility/phase plan for exact6.0.6/Foundry14.367.
  * No Item preparation, filters, statuses or time are fabricated. Item-targeted
  * effects stay blocked because prepared Items can feed Actor class/rule data.
- * Active changes remain unavailable until their field/phase is qualified. */
+ * Field/phase qualification is handled separately by numeric-effects. */
 export function planEffects606(actor:unknown):EffectPlan {
     const source=record(actor)??{},initial:EffectChange[]=[],final:EffectChange[]=[],decisions:EffectDecision[]=[];
     let reason:string|undefined,order=0;
@@ -71,6 +71,5 @@ export function planEffects606(actor:unknown):EffectPlan {
     collect(source.effects);
     if(Array.isArray(source.items))for(const raw of source.items){const item=record(raw);if(item)collect(item.effects,item);}
     for(const changes of [initial,final])changes.sort((a,b)=>a.priority-b.priority||a.order-b.order);
-    if(initial.length||final.length)reason??='Active effect field/phase preparation unavailable';
     return {initial,final,decisions,...(reason?{reason}:{})};
 }

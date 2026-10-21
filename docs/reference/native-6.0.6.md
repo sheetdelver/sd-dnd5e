@@ -383,3 +383,25 @@ Foundry or resumes the parked runtime experiment. Hashes are recorded in C12.
 The eleven maintained module fixtures include explicit unavailable outcomes for
 unsupported phases of Item preparation, filters, status/time, migration and type.
 No schema initialization or native Document/operator acceptance is established.
+
+### Initial numeric fields and proficiency (C13)
+
+Foundry14.367 NumberField operations cast numeric deltas, perform the chosen
+operation, then clean and validate. Ability fields round/clamp at their schema
+constraints; skill/tool multipliers use0–2 in half steps; global nonpersisted
+proficiency targets initialize0 and use exact declared choices. Controlled
+source comparisons exercise the actual operation/clean/validation methods with
+explicit wrapper/default stubs and numeric-literal-only Roll input. These are
+not a DataModel initialization or general expression-engine comparison.
+
+Native independent prepareSkill/prepareTools proficiency can exceed the local
+post-initial effectValue through global targets. #rollSkillTool tests the two
+independently prepared prof.hasProficiency values for automatic advantage.
+calculateSkillToolProficiency instead starts from selected raw effectValue values,
+then applies global check, skill when selected and tool when selected. Thus a
+skill target can raise a selected skill/tool request without raising an independent
+tool check or granting advantage from an otherwise unproficient tool. Global
+check half proficiency can make both independent proficiencies positive despite
+local0. Twenty independent numeric fixtures compare these cases and forty exact
+native dispatch/build captures. Native source, module regressions and public-host
+roll execution remain separate; no native/operator acceptance is claimed.

@@ -1,4 +1,4 @@
-import { initializedAbilityRolls606 } from './roll-initialization';
+import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
@@ -12,9 +12,9 @@ export interface PreparedNumericAbility {
  * 87e94db. Raw source mod/check.value/save.value and AC cover are not source
  * inputs. Cover is zero only in this no-status/no-effect qualified profile.
  */
-export function prepareNumericAbilities606(actor: unknown, context: RulesContext): Record<string, PreparedNumericAbility> {
-    const system = record(record(actor)?.system) ?? {}, abilities = record(system.abilities) ?? {};
-    const globals = initializedAbilityRolls606(actor), profile = numericCharacterProfile(actor, context);
+export function prepareNumericAbilities606(actor: unknown, context: RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)): Record<string, PreparedNumericAbility> {
+    const system = effects.system, abilities = record(system.abilities) ?? {};
+    const globals = effects.globals, profile = numericCharacterProfile(actor, context,effects);
     const result: Record<string, PreparedNumericAbility> = {};
     for (const [key, value] of Object.entries(abilities)) {
         const data = record(value) ?? {}, rawScore = data.value;

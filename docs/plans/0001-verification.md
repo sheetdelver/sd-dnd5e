@@ -742,3 +742,59 @@ Next executable phase: independently qualify initial numeric effect fields and
 proficiency targets, then consume their detached prepared operands through the
 same ability/check configuration path. ADR-0001 remains open; experimental0.4.1
 and compatibility unchanged. No installed UI/native/operator acceptance claimed.
+
+### C13 — Initial numeric field effects (2026-10-21)
+
+C12 implementation checkpoint is `d0cf3f2`. C13 advances M2/Q00 and DD-02/24/27/
+34, A02/A18 partially with one detached source/default/initial-effect operand
+path. Twenty independently specified supported cases cover six numeric field
+operations, stable priority ordering, integer rounding, half-step cleaning and
+clamping, ability scores/save proficiency, local skill/tool multipliers and all
+four verified initialized0 global proficiency targets. Seventeen original cases
+failed before implementation; all now pass. Eight deliberately unqualified cases
+remain unavailable (final phase, expressions, unknown/missing targets, invalid
+choices, custom hooks, bonus FormulaFields and uninitialized fractional source).
+
+The adapter prepares the detached effect operands once, then shares them with
+character facts, ability checks/saves and the configurable skill/tool model.
+Source remains byte-for-value unchanged, including poisoned nonpersisted target99.
+Effective global check/skill/tool proficiency follows native scope selection.
+Automatic combined advantage uses independently prepared proficiencies, not just
+raw local multipliers: global half proficiency can grant advantage with both
+local values0. Source disadvantage cancels it; manual choices still override.
+Effect provenance participates in intent retirement even when a changed effect
+does not change a particular total. Recovery requires fresh intent, without replay.
+
+`npm test` passes56 tooling assertions/7 tooling suites/16 module suites; explicit
+`npm run typecheck` covers112 module/UI/server/hook/test files. Pinned source
+comparison remains2242/591; all previous native-check comparisons pass. Extended
+`test:native-effects` matches5 eligibility/order cases plus20 numeric cases and40
+combined skill/tool dispatch/build captures. Static Foundry NumberField operation/
+cleaning and exact native preparation/proficiency/dispatch/build methods are used.
+Field clean/validate/initialize wrappers, explicit initialized defaults, numeric-
+literal-only Roll stub, empty applied rules/flags/conditions and capture-only dice
+build are explicit stubs. No native Documents/DataModel/runtime acceptance follows.
+
+Mounted fixtures pass prior protections plus56 numeric-effect cases across1440/390
+with actual skill/tool/passive/check/save consumers, previews/manual buttons,
+shortcuts, source/context loss and retained callbacks. This is an SDK presentation
+seam, not installed Core/native UI. Isolated public Core0.19.3 requests pass1578
+numeric outcomes/serialized faces, including480 new effect-derived requests;
+40 equal-index diagnostics and strict unequal identity/entropy/distributions stay
+unchanged. Synthetic auth/transport and temporary configuration only. Isolated
+module checking/packaging passes boundaries, explicit managed types and bundles.
+All host commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core`; exact native
+is87e94db release-6.0.6; static Foundry14.367 was read, never started. Services close
+in harness cleanup. The enlarged test fixture needed a16MiB subprocess buffer;
+no runtime browser dependency or production configuration change was introduced.
+
+[Portable C13 evidence](../audits/evidence/2026-10-21-c13-numeric-effects.json)
+records original failures, source observations, fixture/script hashes and archive
+identity. Numeric invalid choices/unsupported source initialization remain
+explicit unavailable rather than claiming native fallback parity. Final effects
+are not reapplied as initial changes or used to recompute derived scores.
+Next executable phase: constant check-bonus FormulaField effects, qualified
+separately from numeric NumberFields; broader expressions/filters and Item phases
+stay open. E01 and wider Q00/E05 remain external/open. No complete DD/A/M gate
+closes. ADR-0001 remains open; experimental0.4.1/compatibility unchanged; no native/
+operator or release acceptance claimed.
