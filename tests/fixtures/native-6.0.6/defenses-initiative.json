@@ -1,0 +1,883 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Modern persisted AC/initiative inputs + explicit initialization -> derived AC/initiative -> fresh initiative construction; legacy aliases unavailable",
+  "cases": [
+    {
+      "id": "default",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "negative-dex",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 8,
+        "total": -2,
+        "mode": 0,
+        "score": 8,
+        "rollBonus": -2,
+        "fixed": false
+      },
+      "abilities": {
+        "dex": 6
+      }
+    },
+    {
+      "id": "override-independent",
+      "ac": {
+        "override": 17
+      },
+      "init": {},
+      "expected": {
+        "ac": 17,
+        "total": null,
+        "mode": null,
+        "score": null,
+        "rollBonus": null,
+        "fixed": false
+      },
+      "abilities": {
+        "dex": null
+      }
+    },
+    {
+      "id": "natural-independent",
+      "ac": {
+        "calcs": [
+          "natural"
+        ],
+        "flat": 15
+      },
+      "init": {},
+      "expected": {
+        "ac": 15,
+        "total": null,
+        "mode": null,
+        "score": null,
+        "rollBonus": null,
+        "fixed": false
+      },
+      "abilities": {
+        "dex": null
+      }
+    },
+    {
+      "id": "flat-does-not-override",
+      "ac": {
+        "flat": 17
+      },
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "empty-calcs-flat",
+      "ac": {
+        "calcs": [],
+        "flat": 17
+      },
+      "init": {},
+      "expected": {
+        "ac": 17,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "mage",
+      "ac": {
+        "calcs": [
+          "mage"
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 15,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "monk",
+      "ac": {
+        "calcs": [
+          "unarmoredMonk",
+          "unarmored"
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 15,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "barbarian",
+      "ac": {
+        "calcs": [
+          "unarmoredBarb"
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 15,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "abilities": {
+        "con": 16
+      }
+    },
+    {
+      "id": "bard",
+      "ac": {
+        "calcs": [
+          "unarmoredBard"
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 16,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "abilities": {
+        "cha": 18
+      }
+    },
+    {
+      "id": "equal-formula-order",
+      "ac": {
+        "calcs": [
+          "draconic",
+          "mage"
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 15,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "calculation": "mage"
+    },
+    {
+      "id": "custom-constant",
+      "ac": {
+        "formulas": [
+          {
+            "formula": "18"
+          }
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 18,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "custom-lower",
+      "ac": {
+        "formulas": [
+          {
+            "formula": "7"
+          }
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "custom-armored-filter",
+      "ac": {
+        "formulas": [
+          {
+            "formula": "99",
+            "armored": true
+          }
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "custom-shielded-filter",
+      "ac": {
+        "formulas": [
+          {
+            "formula": "99",
+            "shielded": true
+          }
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "zero-override",
+      "ac": {
+        "override": 0
+      },
+      "init": {},
+      "expected": {
+        "ac": 0,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "prepared-poison",
+      "ac": {
+        "armor": 99,
+        "base": 99,
+        "bonus": "1d4",
+        "cover": 99,
+        "shield": 99,
+        "min": "99",
+        "formula": "99"
+      },
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "legacy-value-open",
+      "ac": {
+        "value": 15
+      },
+      "init": {},
+      "expected": {
+        "ac": null,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "legacy-calc-open",
+      "ac": {
+        "calc": "flat",
+        "flat": 17
+      },
+      "init": {},
+      "expected": {
+        "ac": null,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "unknown-calculation",
+      "ac": {
+        "calcs": [
+          "unknown"
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": null,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "custom-expression-open",
+      "ac": {
+        "formulas": [
+          {
+            "formula": "8 + @abilities.dex.mod"
+          }
+        ]
+      },
+      "init": {},
+      "expected": {
+        "ac": null,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      }
+    },
+    {
+      "id": "numeric-bonuses",
+      "ac": {},
+      "init": {
+        "roll": {
+          "bonus": "1"
+        }
+      },
+      "expected": {
+        "ac": 12,
+        "total": 8,
+        "mode": 0,
+        "score": 18,
+        "rollBonus": 8,
+        "fixed": false
+      },
+      "abilityRolls": {
+        "dex": {
+          "bonus": "2"
+        }
+      },
+      "globalCheck": {
+        "bonus": "3"
+      }
+    },
+    {
+      "id": "alternate-ability",
+      "ac": {},
+      "init": {
+        "ability": "wis",
+        "roll": {
+          "bonus": "2"
+        }
+      },
+      "expected": {
+        "ac": 12,
+        "total": 9,
+        "mode": 0,
+        "score": 19,
+        "rollBonus": 9,
+        "fixed": false
+      },
+      "abilityRolls": {
+        "wis": {
+          "bonus": "1"
+        }
+      },
+      "globalCheck": {
+        "bonus": "3"
+      }
+    },
+    {
+      "id": "source-mode-cancel",
+      "ac": {},
+      "init": {
+        "roll": {
+          "mode": 1
+        }
+      },
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 17,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "abilityRolls": {
+        "dex": {
+          "mode": -1
+        }
+      }
+    },
+    {
+      "id": "global-mode",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 1,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "globalCheck": {
+        "mode": 1
+      }
+    },
+    {
+      "id": "tie-breaker",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2.14,
+        "fixed": false
+      },
+      "settings": {
+        "tie": true
+      }
+    },
+    {
+      "id": "fixed-score",
+      "ac": {},
+      "init": {
+        "roll": {
+          "mode": 1
+        }
+      },
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 17,
+        "rollBonus": 17,
+        "fixed": true
+      },
+      "abilityRolls": {
+        "dex": {
+          "mode": -1
+        }
+      },
+      "settings": {
+        "score": "all"
+      }
+    },
+    {
+      "id": "fixed-tie-ignored",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 12,
+        "fixed": true
+      },
+      "settings": {
+        "score": "all",
+        "tie": true
+      }
+    },
+    {
+      "id": "npc-score-PC-roll",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "settings": {
+        "score": "npcs"
+      }
+    },
+    {
+      "id": "check-proficiency-does-not-apply",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "globalProficiencyEffect": 2
+    },
+    {
+      "id": "proficiency-dice-independent",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "settings": {
+        "proficiency": "dice"
+      }
+    },
+    {
+      "id": "initial-init-bonus",
+      "ac": {},
+      "init": {
+        "roll": {
+          "bonus": "2"
+        }
+      },
+      "expected": {
+        "ac": 12,
+        "total": 7,
+        "mode": 0,
+        "score": 17,
+        "rollBonus": 7,
+        "fixed": false
+      },
+      "initiativeEffect": {
+        "type": "add",
+        "value": 3,
+        "field": "bonus"
+      },
+      "nativeInitBonus": 5
+    },
+    {
+      "id": "initial-init-mode",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 1,
+        "score": 17,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "initiativeEffect": {
+        "type": "add",
+        "value": 1,
+        "field": "mode"
+      },
+      "nativeInitMode": 1
+    },
+    {
+      "id": "range-attributes.init.roll-min",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "bounds": {
+        "attributes.init.roll": {
+          "min": 10
+        }
+      },
+      "executionUnavailable": true
+    },
+    {
+      "id": "range-attributes.init.roll-max",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "bounds": {
+        "attributes.init.roll": {
+          "max": 10
+        }
+      },
+      "executionUnavailable": true
+    },
+    {
+      "id": "range-abilities.dex.check.roll-min",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "bounds": {
+        "abilities.dex.check.roll": {
+          "min": 10
+        }
+      },
+      "executionUnavailable": true
+    },
+    {
+      "id": "range-abilities.dex.check.roll-max",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "bounds": {
+        "abilities.dex.check.roll": {
+          "max": 10
+        }
+      },
+      "executionUnavailable": true
+    },
+    {
+      "id": "range-rolls.ability.check-min",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "bounds": {
+        "rolls.ability.check": {
+          "min": 10
+        }
+      },
+      "executionUnavailable": true
+    },
+    {
+      "id": "range-rolls.ability.check-max",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "bounds": {
+        "rolls.ability.check": {
+          "max": 10
+        }
+      },
+      "executionUnavailable": true
+    },
+    {
+      "id": "fixed-ignores-die-bounds",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 12,
+        "fixed": true
+      },
+      "settings": {
+        "score": "all"
+      },
+      "bounds": {
+        "attributes.init.roll": {
+          "min": 20
+        }
+      }
+    },
+    {
+      "id": "malformed-range",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "bounds": {
+        "attributes.init.roll": {
+          "min": 0
+        }
+      },
+      "executionUnavailable": true
+    },
+    {
+      "id": "legacy-init-open",
+      "ac": {},
+      "init": {
+        "value": 99
+      },
+      "expected": {
+        "ac": 12,
+        "total": null,
+        "mode": null,
+        "score": null,
+        "rollBonus": null,
+        "fixed": false
+      }
+    },
+    {
+      "id": "unknown-ability",
+      "ac": {},
+      "init": {
+        "ability": "missing"
+      },
+      "expected": {
+        "ac": 12,
+        "total": null,
+        "mode": null,
+        "score": null,
+        "rollBonus": null,
+        "fixed": false
+      }
+    },
+    {
+      "id": "formula-bonus-open",
+      "ac": {},
+      "init": {
+        "roll": {
+          "bonus": "1d4"
+        }
+      },
+      "expected": {
+        "ac": 12,
+        "total": null,
+        "mode": null,
+        "score": null,
+        "rollBonus": null,
+        "fixed": false
+      }
+    },
+    {
+      "id": "unsupported-score-setting",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": 12,
+        "total": 2,
+        "mode": 0,
+        "score": 12,
+        "rollBonus": 2,
+        "fixed": false
+      },
+      "settings": {
+        "score": "future"
+      },
+      "executionUnavailable": true
+    },
+    {
+      "id": "equipped-item-open",
+      "ac": {},
+      "init": {},
+      "expected": {
+        "ac": null,
+        "total": null,
+        "mode": null,
+        "score": null,
+        "rollBonus": null,
+        "fixed": false
+      },
+      "equipped": true
+    },
+    {
+      "id": "equipped-override-independent",
+      "ac": {
+        "override": 17
+      },
+      "init": {},
+      "expected": {
+        "ac": 17,
+        "total": null,
+        "mode": null,
+        "score": null,
+        "rollBonus": null,
+        "fixed": false
+      },
+      "equipped": true
+    },
+    {
+      "id": "fixed-score-zero",
+      "ac": {},
+      "init": {
+        "roll": {
+          "bonus": "-12"
+        }
+      },
+      "expected": {
+        "ac": 12,
+        "total": -10,
+        "mode": 0,
+        "score": 0,
+        "rollBonus": 0,
+        "fixed": true
+      },
+      "settings": {
+        "score": "all"
+      }
+    }
+  ]
+}

@@ -973,3 +973,49 @@ Do not trust raw prepared-looking ac.value/init.mod/init.total or default10/0.
 Broader M2 effects/final/filter/Item/status/time/formula work, E01, wider Q00/E05,
 M3 onward and native/operator gates remain open. No full DD/A/M gate closes;
 ADR-0001 stays open, experimental0.4.1/compatibility unchanged.
+
+### C17 — Shared armor and initiative facts/execution (2026-10-21)
+
+C16 predecessor `9d15b1a`;47 original failures,48 final cases. R covers canonical
+calculation IDs, registry ties, source/default/nonpersisted poison, migration
+boundaries, numeric bonuses/effects/modes, alternate initiative ability, fixed
+scores including0, tiebreaker order, invalid/absent settings, range/static separation,
+unsupported context recovery and source preservation. The earlier public hook
+returned1d20+99 for all three context-loss inputs; it now throws. Same-ID/revision
+but different canonical UUID intents are distinct. New metadata uses prepared
+resource values and effective max32 rather than base27 in the independent case.
+
+Commands use pristine Core0.19.3/90c13e5 via `-- --core
+/tmp/dnd5e-core-baseline-iDcWjQ/core`:
+
+- `npm test`:56 tooling assertions,7 tooling suites,20 module suites pass.
+- `npm run typecheck`: explicitly124 source/UI/server/test/hook files pass.
+- `npm run test:native-source -- --native ../../../../temp/dnd5e`:2242 records/
+  591 expressions unchanged. Exact release87e94db, never native checkout HEAD.
+- `test:native-checks`, `test:native-effects -- --foundry
+  /home/juvinious/projects/foundryvtt/foundryvtt-v14`, `test:native-health`: prior
+  comparisons pass. `test:native-defenses`:42 AC/41 initiative captures and3
+  separately identified legacy migrations pass. Explicit initialization, constant
+  lookup arithmetic, empty rules/flags/conditions/cover and constructor captures
+  are stubs. No equipped Item interpretation or native DataModel/dice engine.
+- `test:mounted -- --browser-tools /tmp/sd-dice-preview-tools --chromium
+  /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell`:
+  prior protections plus102 AC/initiative projections at1440/390 pass, including
+  fixed/manual/preview/shortcut controls, unavailable/recovery and retained
+  context/UUID callbacks. SDK presentation seam, not installed Core/native UI.
+- `test:public-rolls`:2821 accepted requests, including144 initiative requests and
+  8 fixed-score branches;1 maintained rejected unary candidate,40 nonblocking equal
+  index diagnostics. Exact ordered entropy/faces/kept value/count/flags/totals and
+  distributions remain strict. Tiebreaker20-face arithmetic is exact; native parts
+  order is preserved after a meaningful flattened-bonus failure. No tolerance,
+  new evaluator or host serialization rewrite. Synthetic transport/native writes0.
+- `check:package`: public boundaries, managed typing and all bundles pass with
+  isolated output. Artifact hashes and observations are in the portable record.
+
+Mounted artifacts `/tmp/dnd5e-mounted-Pqa07m`; public-host artifacts
+`/tmp/dnd5e-public-rolls-IJyGSZ`. Harness cleanup stops task-owned services.
+Core baseline remains clean; Node24 local, Node22 CI unrun. Modern migration
+aliases/equipped armor/flags/conditions/cover/expressions/range dice and later
+phases remain unavailable. No complete DD/A/M gate closes. Next executable M2
+slice: exact equipped armor Item preparation and resulting AC/check dependencies.
+E01/wider Q00/E05/native/operator acceptance and ADR-0001 remain open.

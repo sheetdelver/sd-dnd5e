@@ -43,6 +43,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         }else if(keys[1]==='skills'&&keys.length===5&&keys[3]==='bonuses'&&keys[4]==='passive'&&Object.hasOwn(SKILL_LABELS,keys[2])){
             const entry=record(record(system.skills)?.[keys[2]]);if(entry){const bonuses=rollBonus(entry,['bonuses']);if(bonuses)return {object:bonuses,field:'passive',formula:true};}
         }
+        if(keys[1]==='attributes'&&keys[2]==='init'&&keys.length===5&&keys[3]==='roll'&&['bonus','mode'].includes(keys[4]))bonus=rollBonus(system,['attributes','init','roll']);
         if(bonus)return keys.at(-1)==='mode'?{object:bonus,field:'mode',mode:true}:{object:bonus,field:'bonus',formula:true};
         if(keys[1]==='rolls'&&keys[2]==='ability'&&keys.length===5&&keys[4]==='proficiency'&&Object.hasOwn(globals,keys[3])){
             if([system.rolls,record(system.rolls)?.ability,record(record(system.rolls)?.ability)?.[keys[3]]].some(value=>value!=null&&!record(value)))return null;

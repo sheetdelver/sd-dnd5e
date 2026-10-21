@@ -121,7 +121,7 @@ export default function MobileView({
             fontSize: '14px', /* Base font bump for mobile */
         }}>
             {/* ---- Mobile-specific header ---- */}
-            <MobileHeader actor={actor} derived={derived} foundryUrl={foundryUrl} />
+            <MobileHeader actor={actor} derived={derived} foundryUrl={foundryUrl} onRoll={onRoll} />
 
             {/* ---- Scrollable body: active tab content ---- */}
             <main style={{

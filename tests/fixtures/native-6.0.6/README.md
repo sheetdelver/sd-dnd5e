@@ -221,3 +221,12 @@ retains its separate unqualified projection. Modern health/rest controls are
 gated pending M3/M4; generic writes and native healing/rest rules are not qualified
 by these displays. Source/default native comparisons are controlled method/phase
 fixtures, not native Documents/DataModel/engine or installed/operator acceptance.
+
+C17 `defenses-initiative.json` supplies48 independent source/default AC/initiative
+expectations. The native-defense oracle captures42 AC/41 initiative branches,
+explicitly initialized nonpersisted fields, empty rules/conditions/flags and
+known constant-expression results, plus3 separate migration observations. Source
+aliases that native migrates are not called nonpersisted poison. No Item/native
+DataModel/runtime/dice acceptance. Initiative fixed scores use BasicRoll and no
+entropy; tiebreaker remains a trailing part to preserve exact operation order.
+See the C17 portable record and verification ledger for public/mounted evidence.

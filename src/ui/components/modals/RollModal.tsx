@@ -75,7 +75,7 @@ export interface RollModalProps {
     /** Shared prepared-rule compiler; null disables unsupported choices. */
     preparedDefaultMode?: -1 | 0 | 1;
     resolveFormula?: (options: Record<string, unknown>) => string | null;
-    resolveCheck?: (options:Record<string,unknown>)=>{sourceMode?:-1|0|1;unavailableReason?:string;ability?:string;label?:string}|undefined;
+    resolveCheck?: (options:Record<string,unknown>)=>{sourceMode?:-1|0|1;fixed?:boolean;unavailableReason?:string;ability?:string;label?:string}|undefined;
     /** Placeholder text for the situational bonus input. */
     bonusPlaceholder?: string;
     /** Roll-type-specific dropdowns (e.g. Abilities, Attack Mode). */
@@ -171,10 +171,11 @@ export default function RollModal({
                 </span>
             </div>
 
-            {resolveFormula && <small>Default: {preparedDefaultMode === 1 ? 'Advantage' : preparedDefaultMode === -1 ? 'Disadvantage' : 'Normal'}. Buttons select this roll’s mode.</small>}
+            {resolveFormula && !configured?.fixed && <small>Default: {preparedDefaultMode === 1 ? 'Advantage' : preparedDefaultMode === -1 ? 'Disadvantage' : 'Normal'}. Buttons select this roll’s mode.</small>}
             {/* Situational bonus input */}
             <input
                 type="text"
+                disabled={configured?.fixed}
                 value={bonus}
                 onChange={e => setBonus(e.target.value)}
                 placeholder={bonusPlaceholder}
@@ -237,7 +238,7 @@ export default function RollModal({
                 </ConfigRow>
             </div>
 
-            {resolveFormula && displayedFormula !== null && !modeAvailable('adv') && <p>Advantage/disadvantage unavailable: native die selection is not yet supported.</p>}
+            {resolveFormula && displayedFormula !== null && !modeAvailable('adv') && <p>{configured?.fixed?'Fixed initiative uses its prepared score; advantage, disadvantage and situational bonuses do not apply.':'Advantage/disadvantage unavailable for this roll profile.'}</p>}
             {/* Advantage / Normal / Disadvantage — each submits the roll */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-sm)' }}>
                 <AdvantageButton primary={preparedDefaultMode === 1} disabled={displayedFormula === null || !modeAvailable('adv')} onPreview={() => setHoverMode('adv')} onPreviewEnd={() => setHoverMode(undefined)} onPreviewFocus={() => setFocusMode('adv')} onPreviewBlur={() => setFocusMode(undefined)} onClick={() => submit('adv')}>Advantage</AdvantageButton>

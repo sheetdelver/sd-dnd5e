@@ -11,10 +11,11 @@ import ModalHost from '../../src/ui/components/shared/ModalHost';
 import Abilities from '../../src/ui/components/blocks/Abilities';
 import SavingThrows from '../../src/ui/components/blocks/SavingThrows';
 import Tools from '../../src/ui/components/blocks/Tools';
+import Initiative from '../../src/ui/components/blocks/Initiative';
 
 type Confirm = (options: Record<string, unknown>) => Promise<void>;
 interface Fixture {
-    render(actor: PreparedActorData, probe?: boolean | 'ability' | 'save' | 'tool'): void;
+    render(actor: PreparedActorData, probe?: boolean | 'ability' | 'save' | 'tool'|'initiative'): void;
     updates:Array<{path:string;value:unknown}>;
     calls: Array<{ type: string; key: string; options: unknown; formula?: string | null }>;
     hold(): void;
@@ -32,7 +33,7 @@ const fixture: Fixture = {
         flushSync(() => root.render(probe ? <SheetProvider actor={actor}><ModalProvider>
             {probe === 'ability' ? <Abilities abilities={actor.derived.abilities as any} onRoll={onRoll} />
                 : probe === 'save' ? <SavingThrows abilities={actor.derived.abilities as any} onRoll={onRoll} />
-                    : probe === 'tool' ? <Tools onRoll={onRoll} />
+                    : probe === 'initiative'?<Initiative onRoll={onRoll}/>:probe === 'tool' ? <Tools onRoll={onRoll} />
                     : <Skills skills={actor.derived.skills as any} onRoll={onRoll} />}<Probe /><ModalHost />
         </ModalProvider></SheetProvider> : <Sheet actor={actor} onRoll={onRoll} onUpdate={async (path,value) => {fixture.updates.push({path,value});}} isOwner />));
     },

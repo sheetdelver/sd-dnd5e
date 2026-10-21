@@ -175,7 +175,7 @@ export default function StandardView({
                         gridTemplateColumns: 'repeat(4, 1fr)',
                         gap: 'var(--space-sm)',
                     }}>
-                        <Initiative value={derived.initiative} />
+                        <Initiative value={derived.initiative} onRoll={onRoll} />
                         <ArmorClass value={derived.ac} />
                         <Defenses />
                         <Conditions />

@@ -409,3 +409,25 @@ retains its separate unqualified projection. Modern health/rest controls are
 gated pending M3/M4; generic writes and native healing/rest rules are not qualified
 by these displays. Source/default native comparisons are controlled method/phase
 fixtures, not native Documents/DataModel/engine or installed/operator acceptance.
+
+### Armor and initiative projections (C17)
+
+`prepareArmorClass606`/`prepareInitiative606` separate source, initialized defaults,
+static facts and executable configuration. Modern cards/headers/blocks never use
+raw ac.value/init.total or synthetic10/0. AC registry identity/order is pinned;
+constant source formulas and overrides are bounded, equipped Item phases remain
+open. Legacy source migration aliases are explicit unqualified inputs, while
+verified current nonpersisted fields are ignored without modifying source.
+
+Initiative uses the shared d20/mode compiler, separate static score and optional
+trailing tiebreaker. Fixed initiative uses the native BasicRoll branch (no entropy),
+with inapplicable manual controls disabled and direct overrides rejected. Ordinary
+range execution stays gated; valid ranges are irrelevant only to the no-die fixed
+branch. Unavailable modern initiative throws through the public hook, preventing
+Core's empty-hook default1d20. Canonical UUID/source/context/effect changes retire
+roll intents. Combat metadata points at prepared stats and effective HP max using
+existing public contracts; explicit GM configuration remains authoritative.
+
+Controlled source captures, public rolls and mounted SDK-seam UI are separate
+layers. No installed combat HUD, native DataModel/engine, migration or operator
+acceptance follows from these fixtures. Legacy behavior stays separately labeled.

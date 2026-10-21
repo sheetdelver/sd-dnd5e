@@ -2,23 +2,25 @@ import { initializedModeState, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
 
 export interface PreparedNumericD20 {
-    ability: string; total: number | null; formula: string | null; sourceMode?: -1 | 0 | 1; unavailableReason?: string;
+    ability: string; total: number | null; fixed?:boolean;trailingBonus?:number; formula: string | null; sourceMode?: -1 | 0 | 1; unavailableReason?: string;
 }
 export function independentD20Options(options: Record<string, unknown> = {}): boolean {
     return !['skill','tool','pace'].some(key => options[key] !== undefined);
 }
 export function numericD20Roll(check: PreparedNumericD20 | undefined, options: Record<string, unknown> = {}): string | null {
+    if(!record(options)||options.advantage!==undefined&&!['normal','adv','dis'].includes(String(options.advantage)))return null;
     if (!check?.formula || check.total === null || check.unavailableReason) return null;
     // Native combined checks change proficiency and can grant advantage. Never
     // silently execute the independent profile for a requested combination.
     if (!independentD20Options(options)) return null;
     if (options.ability !== undefined && options.ability !== check.ability) return null;
+    if(check.fixed)return options.situationalBonus===undefined&&(options.advantage===undefined||options.advantage==='normal')?check.formula:null;
     const advantage = options.advantage ?? (check.sourceMode === 1 ? 'adv' : check.sourceMode === -1 ? 'dis' : 'normal');
     const die = advantage === 'normal' ? '1d20' : advantage === 'adv' ? '2d20kh1' : advantage === 'dis' ? '2d20kl1' : null;
     if (!die) return null;
     const bonus = options.situationalBonus;
     if (bonus !== undefined && (typeof bonus !== 'string' || bonus.length > 64 || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(bonus.trim()) || !Number.isFinite(Number(bonus)) || Math.abs(Number(bonus)) > 1_000_000_000)) return null;
-    const base = `${die}${check.total < 0 ? '' : '+'}${check.total}`;
+    const base = `${die}${check.total < 0 ? '' : '+'}${check.total}`+(check.trailingBonus?`${check.trailingBonus<0?'':'+'}${check.trailingBonus}`:'');
     return bonus === undefined ? base : `${base}+(${String(bonus).trim()})`;
 }
 /** Source modes plus qualified prepared effect counts. Raw modeCounts and
@@ -42,8 +44,8 @@ export function sourceD20Mode(scopes:readonly D20ModeScope[],automaticAdvantage=
     const dis=(override===-1||override===null&&disadvantages>0)&&!suppressDisadvantages;
     return {mode:(Number(adv)-Number(dis)) as -1|0|1};
 }
-export function numericD20Formula(total: number, mode: -1 | 0 | 1): string {
-    return `${mode === 1 ? '2d20kh1' : mode === -1 ? '2d20kl1' : '1d20'}${total < 0 ? '' : '+'}${total}`;
+export function numericD20Formula(total: number, mode: -1 | 0 | 1,trailingBonus=0): string {
+    return `${mode === 1 ? '2d20kh1' : mode === -1 ? '2d20kl1' : '1d20'}${total < 0 ? '' : '+'}${total}`+(trailingBonus?`${trailingBonus<0?'':'+'}${trailingBonus}`:'');
 }
 export function numericD20ExecutionReason(total: number, mode: -1 | 0 | 1): string | undefined {
     if (Math.abs(total) > 1_000_000_000) return 'Numeric roll bonus exceeds the supported host limit';
@@ -59,7 +61,7 @@ export function abilityRollScopes(actor: unknown, ability: string, type: 'check'
  * Configured bounds are preserved as an execution blocker until Q00 qualifies
  * equivalent public roll semantics. They do not modify static/passive totals.
  */
-export function d20RangeReason(scopes: readonly { path: string; value: unknown }[]): string | undefined {
+export function d20RangeReason(scopes: readonly { path: string; value: unknown }[],hasDice=true): string | undefined {
     for (const { path, value } of scopes) {
         if (value == null) continue;
         const scope = record(value);
@@ -70,6 +72,7 @@ export function d20RangeReason(scopes: readonly { path: string; value: unknown }
             if (typeof bound !== 'number' || !Number.isInteger(bound) || bound < 1 || bound > 20) return `Malformed native die range: ${path}.${field}`;
         }
     }
+    if(!hasDice)return undefined;
     for (const { path, value } of scopes) {
         const scope = record(value);
         if (scope?.min != null || scope?.max != null) return `Native die range requires Q00 execution qualification: ${path}`;

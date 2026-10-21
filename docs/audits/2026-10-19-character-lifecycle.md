@@ -519,3 +519,45 @@ and [portable record](evidence/2026-10-21-c16-health.json).
 No complete gate closes. Continue bounded native AC/initiative qualification;
 modern health/rest commands await M3/M4. E01/wider Q00/E05 and native/operator
 acceptance remain open. ADR-0001 and version/compatibility remain unchanged.
+
+### C17 — Shared armor and initiative facts/execution (2026-10-21)
+
+C16 implementation is `9d15b1a`. C17 advances DD-01/02/03/24/27/34 and A02/A03/A18
+partially. All47 original AC/initiative inputs failed before;48 maintained inputs
+now pass. Modern AC ignores verified nonpersisted totals and follows the pinned
+registry order, source calculation selection, constant custom formulas and final
+literal override. This slice has no equipped Item interpretation. An explicit AC
+override remains independently known; unresolved equipment otherwise stays gated.
+Old `ac.value`/`ac.calc` and truthy `init.value`/old `init.bonus` are native migration
+inputs, not interchangeable with current nonpersisted poison. They remain
+unavailable pending migration qualification; three controlled migrations preserve
+that distinction. This corrects the overly broad C16 handoff suggestion to ignore
+all of those aliases. Source is unchanged.
+
+Initiative shares initialized ability/constant bonuses, qualified initial effects
+and ability/local/global mode combination. Static total, local-mode initiative
+score and execution readiness are separate. Global check proficiency is not an
+initiative proficiency grant. The declared exact-release `initiativeScore` setting
+supports character d20 and fixed-score branches; fixed scores consume zero dice
+and reject inapplicable manual mode/bonus overrides. Valid die bounds do not affect
+the native BasicRoll fixed branch; malformed bounds still refuse. Ordinary bounded
+dice remain unavailable. The tiebreaker is a separate trailing term, preserving
+native arithmetic order: flattening `1d20+2+0.14` into `1d20+2.14` failed the exact
+public-host assertion for face2 (4.14 versus4.140000000000001). No tolerance or host
+serialization was changed.
+
+Cards and actual desktop/mobile AC/initiative blocks consume these shared facts;
+button, preview, shortcut and direct adapter use one compiler. The public initiative
+hook throws a validation error on unavailable modern rules instead of returning an
+empty formula that Core could replace with1d20. Earlier context-loss fixtures
+returned1d20+99; all three now refuse. Actor UUID participates in intent identity,
+retiring same-ID/revision callbacks from a different canonical Actor. Combat stat
+suggestions use the existing public metadata contract and prepared paths; HP max
+is effective maximum. GM selections/explicit initiative overrides remain Core-owned.
+
+Evidence/commands/limits: [C17 ledger](../plans/0001-verification.md#c17--shared-armor-and-initiative-factsexecution-2026-10-21)
+and [portable record](evidence/2026-10-21-c17-defenses-initiative.json).
+No complete DD/A/M gate closes. Next M2 work is equipped armor/Item preparation,
+then remaining movement/senses/final/filter/rule and Q00 domains. E01, wider E05,
+M3 onward and installed/native/operator gates remain open. Experimental0.4.1 and
+compatibility are unchanged; ADR-0001 remains open.

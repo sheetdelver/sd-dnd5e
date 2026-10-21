@@ -1,6 +1,7 @@
+import { prepareArmorClass606,prepareInitiative606,initiativeRoll,armorClassProjection } from './preparation/defenses';
 import { prepareHealth606, hpProjection } from './preparation/health';
 import {
-    BaseSystemAdapter,
+    BaseSystemAdapter, SdkError,
     resolveImage,
     type FoundryActor,
     type ActorPreparationContext,
@@ -151,7 +152,11 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             prepared.derived.level = facts.level.value;
             prepared.derived.profBonus = facts.proficiency.value;
             const health=prepareHealth606(actor,rules,effects);prepared.derived.hp=health.hp;prepared.derived.hitDice=health.hitDice;
+            const armor=prepareArmorClass606(actor,rules,effects),initiative=prepareInitiative606(actor,rules,effects);
+            prepared.derived.armorClass=armor;prepared.derived.ac=armor.value;prepared.derived.initiativeFacts=initiative.fact;prepared.derived.initiative=initiative.fact.value;prepared.derived.initiativeCheck=initiative.check;
         } else {
+            prepared.derived.armorClass={status:'legacy-unqualified',value:prepared.derived.ac,display:String(prepared.derived.ac),provenance:'Selected legacy AC compatibility projection',reason:'Legacy armor class remains unqualified'};
+            prepared.derived.initiativeFacts={status:'legacy-unqualified',value:prepared.derived.initiative,display:String(prepared.derived.initiative),ability:'',score:null,provenance:'Selected legacy initiative compatibility projection',reason:'Legacy initiative remains unqualified'};
             const hp=prepared.derived.hp as Record<string,unknown>;
             prepared.derived.hp={...hp,status:'legacy-unqualified',effectiveMax:hp.max,tempmax:0,provenance:'Selected legacy compatibility HP projection',reason:'Legacy HP remain unqualified'};
             prepared.derived.characterFacts = Object.fromEntries([['level', prepared.derived.level], ['proficiency', prepared.derived.profBonus]].map(([key, value]) => [key, {
@@ -174,6 +179,8 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 }
             }
         }
+        const hp=hpProjection(prepared.derived),hd=prepared.derived.hitDice as any;
+        prepared.derived.combatStats={hp:hp.value!==null&&hp.effectiveMax!==null?{value:hp.value,max:hp.effectiveMax}:null,hitDice:hd?.status==='ready'?{value:hd.value,max:hd.max}:null};
         return prepared;
     }
 
@@ -262,6 +269,12 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const s = actor.system as Partial<D5eSystem>;
         const lifecycle = actor.derived.lifecycle as { status?: string; profile?: string } | undefined;
         const selectedLegacy = lifecycle?.status === 'supported' && lifecycle.profile === 'legacy-limited';
+        if(type==='initiative'){
+            if(key!=='initiative')return null;
+            if(lifecycle?.status!=='supported'||lifecycle.profile!=='2024')return null;
+            const formula=initiativeRoll(actor.derived.initiativeCheck as any,_options);
+            return formula?{formula,label:'Initiative'}:null;
+        }
         if (selectedLegacy && ['ability','save','skill'].includes(type) && !independentD20Options(_options)) return null;
         if (!selectedLegacy && (type === 'skill' || type === 'tool')) {
             if (lifecycle?.status !== 'supported' || lifecycle.profile !== '2024') return null;
@@ -315,15 +328,23 @@ export class DnD5eAdapter extends BaseSystemAdapter {
     }
 
     getInitiativeFormula(actor: PreparedActorData): string {
-        const s = actor.system as Partial<D5eSystem>;
-        const init = s?.attributes?.init?.value ?? s?.attributes?.init?.mod ?? 0;
-        return signBonus(init);
+        const lifecycle=actor.derived.lifecycle as any;
+        if(lifecycle?.status==='supported'&&lifecycle.profile==='legacy-limited'){
+            const s=actor.system as Partial<D5eSystem>;
+            const init=(s?.attributes?.init??{}) as any,ability=typeof init.ability==='string'&&init.ability?init.ability:'dex';
+            const reason=d20RangeReason([...abilityRollScopes(actor,ability,'check'),{path:'attributes.init.roll',value:init.roll}]);
+            if(reason)throw new SdkError('validation',reason);
+            return signBonus(init.value??init.mod??0);
+        }
+        const check=actor.derived.initiativeCheck as any;
+        if(lifecycle?.status!=='supported'||lifecycle.profile!=='2024'||!check?.formula||check.unavailableReason)throw new SdkError('validation',check?.unavailableReason??'Initiative preparation unavailable');
+        return check.formula;
     }
 
     getActorCardData(actor: PreparedActorData): ActorCardData {
         const s = actor.system as Partial<D5eSystem>;
         const hp = hpProjection(actor.derived);
-        const ac = s?.attributes?.ac?.value ?? 10;
+        const ac = armorClassProjection(actor.derived);
         const facts = characterFactsProjection(actor.derived);
         const level = facts.level.value;
 
@@ -354,8 +375,8 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 },
                 {
                     title: 'AC',
-                    value: ac,
-                    valueClass: 'text-blue-400',
+                    value: ac.value??'—', subValue:ac.reason,
+                    valueClass: ac.status==='unavailable'?'text-muted-foreground':'text-blue-400',
                 },
                 {
                     title: 'Level',

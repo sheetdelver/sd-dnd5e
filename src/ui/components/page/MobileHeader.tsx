@@ -7,6 +7,8 @@ import { useSheetSetting } from '../shared/useSheetSetting';
 import Rest from '../blocks/Rest';
 import { characterFactsProjection } from '../../../logic/preparation/character-profile';
 import CharacterFact from '../shared/CharacterFact';
+import Initiative from '../blocks/Initiative';
+import {armorClassProjection} from '../../../logic/preparation/defenses';
 import {HpReadout,HitDiceReadout} from '../shared/HealthFacts';
 
 /**
@@ -28,17 +30,16 @@ interface Props {
     actor: Record<string, any>;
     derived: Record<string, any>;
     foundryUrl?: string;
+    onRoll?:(type:string,key:string,options?:Record<string,unknown>)=>Promise<void>;
 }
 
-export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
+export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Props) {
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
     const subtitle = [derived.race, derived.classes].filter(Boolean).join(' · ');
     const facts = characterFactsProjection(derived);
     const walk = derived.speed?.walk ?? 30;
-    const initiative = derived.initiative ?? 0;
-    const ac = derived.ac ?? 10;
+    const ac=armorClassProjection(derived);
     const inspiration = derived.inspiration ?? false;
-    const initFmt = initiative >= 0 ? `+${initiative}` : `${initiative}`;
     const { openModal } = useModal();
     const [theme, setTheme] = useSheetSetting<string>('theme', 'paladin');
 
@@ -180,9 +181,9 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                 {/* Stat chip: Walking Speed */}
                 <StatChip label="SPEED" title="WALKING" value={`${walk} ft.`} />
                 {/* Stat chip: Initiative */}
-                <StatChip label="INITIATIVE" value={initFmt} bordered />
+                <StatChip label="INITIATIVE" value={<Initiative compact onRoll={onRoll}/>} bordered />
                 {/* Stat chip: Armor Class */}
-                <StatChip label="CLASS" title="ARMOR" value={String(ac)} />
+                <StatChip label="CLASS" title="ARMOR" value={<CharacterFact fact={ac} label="Armor class"/>} />
 
                 {/* Defenses + Conditions + Rest — stacked on the right edge */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: 'auto', flexShrink: 0, alignItems: 'flex-end' }}>

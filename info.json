@@ -519,6 +519,26 @@
             }
         },
         {
+            "key": "dnd5e.initiativeScore",
+            "scope": "world",
+            "systemVersion": "=6.0.6",
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "npcs",
+                    "all"
+                ]
+            },
+            "affectsPreparation": true,
+            "exposure": "authenticated",
+            "default": {
+                "value": "none",
+                "source": "dnd5e release-6.0.6 (87e94dbd): module/settings.mjs registerSystemSettings initiativeScore",
+                "systemVersion": "=6.0.6"
+            }
+        },
+        {
             "key": "dnd5e.autoApplyDowned",
             "scope": "world",
             "systemVersion": "=6.0.6",
@@ -584,5 +604,65 @@
                 "systemVersion": "=6.0.6"
             }
         }
-    ]
+    ],
+    "combatTracking": {
+        "attributes": [
+            {
+                "key": "hp",
+                "label": "HP",
+                "path": "derived.combatStats.hp",
+                "kind": "resource",
+                "actorTypes": [
+                    "character"
+                ],
+                "showInRoster": true
+            },
+            {
+                "key": "ac",
+                "label": "AC",
+                "path": "derived.ac",
+                "kind": "number",
+                "actorTypes": [
+                    "character"
+                ],
+                "showInRoster": true
+            },
+            {
+                "key": "initiative",
+                "label": "Initiative",
+                "path": "derived.initiative",
+                "kind": "number",
+                "actorTypes": [
+                    "character"
+                ]
+            },
+            {
+                "key": "proficiency",
+                "label": "Proficiency",
+                "path": "derived.profBonus",
+                "kind": "number",
+                "actorTypes": [
+                    "character"
+                ]
+            },
+            {
+                "key": "level",
+                "label": "Level",
+                "path": "derived.level",
+                "kind": "number",
+                "actorTypes": [
+                    "character"
+                ]
+            },
+            {
+                "key": "hitDice",
+                "label": "Hit Dice",
+                "path": "derived.combatStats.hitDice",
+                "kind": "resource",
+                "actorTypes": [
+                    "character"
+                ]
+            }
+        ]
+    }
 }
