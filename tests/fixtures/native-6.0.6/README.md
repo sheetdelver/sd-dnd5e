@@ -230,3 +230,10 @@ aliases that native migrates are not called nonpersisted poison. No Item/native
 DataModel/runtime/dice acceptance. Initiative fixed scores use BasicRoll and no
 entropy; tiebreaker remains a trailing part to preserve exact operation order.
 See the C17 portable record and verification ledger for public/mounted evidence.
+
+C18 `equipment.json`:45 independent cases,34 qualified and11 explicitly unavailable.
+The native-equipment oracle captures initialized Item base/derived armor, exact
+property/magic getters, Actor skill-before-armor phases, first-source selection,
+registry eligibility and fresh counts. Known constant lookup/explicit defaults
+and empty rule/condition/flag stubs are limits, not native model acceptance.
+Actor/Item source is preserved; prepared-looking getter/field poison is ignored.

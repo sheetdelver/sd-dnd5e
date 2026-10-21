@@ -1,5 +1,6 @@
 import { numericAbilityValue } from './numeric';
 import type { EffectModeState } from './mode-effects';
+import {initializedModeState,applyEffectMode} from './mode-effects';
 import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
@@ -14,7 +15,7 @@ interface Ability { score:number|null;mod:number|null; roll:unknown; reason?:str
  * Initial qualified field effects are separate from raw source. No source
  * references, unqualified prepared totals or browser world cache. */
 export interface SkillToolModel {
-    reason?:string; proficiency:number|null;modeStates:Record<string,EffectModeState>;
+    reason?:string; proficiency:number|null;modeStates:Record<string,EffectModeState>;executionModeStates:Record<string,EffectModeState>;
     abilities:Record<string,Ability>; skills:Record<string,Entry>; tools:Record<string,Entry>;
     proficiencies:Record<'check'|'skill'|'tool',number>;
     globals:Record<'check'|'skill'|'tool',unknown>;
@@ -54,7 +55,14 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
                 ...(error?{reason:error}:{}),...(kind==='skill'?{passiveBonus,...(record(data?.bonuses)?.check||passiveBonus===null?{primaryReason:'Skill formula requires Q00 qualification'}:{})}:{})}];
         }));
     }
-    return {reason,modeStates:structuredClone(effects.modes),proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
+    const executionModeStates=structuredClone(effects.modes);
+    if(effects.equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')){
+        const path='system.skills.ste.roll.mode';
+        const state=executionModeStates[path]??initializedModeState(record(record(record(system.skills)?.ste)?.roll)?.mode);
+        if(state){applyEffectMode(state,'add',-1);executionModeStates[path]=state;}
+        else reason??='Equipped armor Stealth mode source malformed';
+    }
+    return {reason,modeStates:structuredClone(effects.modes),executionModeStates,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
         globals:Object.fromEntries(['check','skill','tool'].map(key=>[key,sourceGlobals[key]!=null&&!record(sourceGlobals[key])?false:rollInput(rawGlobals[key])])) as SkillToolModel['globals']};
 }
 /** Native fresh #rollSkillTool + _buildSkillToolConfig source-only profile.
@@ -87,7 +95,8 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     const independentProf=(entry:Entry|undefined,type:SkillToolKind)=>Math.max(entry?.prof??0,targets.check,targets[type]);
     const automaticAdvantage=!!secondary&&independentProf(primary,kind)>0&&independentProf(secondary,other)>0;
     const qualifiedScopes=scopes.map(scope=>({...scope,effectMode:model.modeStates['system.'+scope.path+'.mode']}));
-    const mode=sourceD20Mode([...qualifiedScopes.slice(1),qualifiedScopes[0]],automaticAdvantage);
+    const executionScopes=scopes.map(scope=>({...scope,effectMode:model.executionModeStates['system.'+scope.path+'.mode']}));
+    const mode=sourceD20Mode([...executionScopes.slice(1),executionScopes[0]],automaticAdvantage);
     const passive=sourceD20Mode([qualifiedScopes[1],qualifiedScopes[0],...qualifiedScopes.slice(2)],false,'passive');
     reason ??= mode.reason??passive.reason;
     const bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));

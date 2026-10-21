@@ -431,3 +431,21 @@ existing public contracts; explicit GM configuration remains authoritative.
 Controlled source captures, public rolls and mounted SDK-seam UI are separate
 layers. No installed combat HUD, native DataModel/engine, migration or operator
 acceptance follows from these fixtures. Legacy behavior stays separately labeled.
+
+### Equipped armor phase (C18)
+
+`NumericEffects.equipment` holds one detached `prepareEquipment606` result, with
+canonical owned IDs, initialized base/magical armor inputs, verified equipment
+registry types, source-order armor/shield selection and diagnostics. It is not an
+Item cache or persisted preparation. No native getters or source names are trusted
+as mechanics. Existing checks can proceed with this bounded equipment profile;
+unknown Item/effect/migration/formula dependencies retain explicit reasons.
+
+`SkillToolModel.modeStates` remains the initial passive phase;
+`executionModeStates` adds the exact post-passive armor Stealth count. This prevents
+retroactively changing native passives while keeping fresh roll configuration,
+combined/alternate requests, previews and direct execution in agreement. The
+prepared equipment identity participates in intent retirement. AC registry
+eligibility, shield contribution, caps and warnings use the same equipment result.
+Both headers/blocks format one fact; no UI arithmetic or additional world cache.
+Source identity, metadata, extension fields and original Item values remain intact.

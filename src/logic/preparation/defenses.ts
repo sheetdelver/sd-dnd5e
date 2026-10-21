@@ -5,7 +5,7 @@ import {numericAbilityValue,numericConstant,qualifiedNumericTotal} from './numer
 import {prepareNumericEffects606,type NumericEffects} from './numeric-effects';
 import {initializedModeState,resolvedEffectMode} from './mode-effects';
 import {sourceD20Mode,d20RangeReason,numericD20Formula,numericD20ExecutionReason,numericD20Roll,type PreparedNumericD20} from './d20-configuration';
-export interface ArmorClassFact extends NumericFact {calculation?:string;formula?:string;base?:number}
+export interface ArmorClassFact extends NumericFact {calculation?:string;formula?:string;base?:number;armorId?:string;shieldId?:string;warnings?:string[]}
 export interface InitiativeFact extends NumericFact {ability:string;score:number|null;fixed?:boolean;tiebreaker?:number}
 const acProvenance='release-6.0.6 AttributesFields.armorClass / prepareArmorClass / CONFIG.armorClasses';
 const initProvenance='release-6.0.6 prepareInitiative / Actor.getInitiativeRollConfig / getInitiativeRoll';
@@ -15,12 +15,12 @@ const makeAc=(value:number|null,reason?:string):ArmorClassFact=>({...numericFact
 const armorCalculations=[
     {id:'natural',formula:'@attributes.ac.flat',abilities:[],base:0},
     {id:'armored',formula:'@attributes.ac.armor + @attributes.ac.clamped.dex',abilities:['dex'],base:0,armored:true},
-    {id:'unarmored',formula:'10 + @abilities.dex.mod',abilities:['dex'],base:10},
-    {id:'mage',formula:'13 + @abilities.dex.mod',abilities:['dex'],base:13},
-    {id:'draconic',formula:'13 + @abilities.dex.mod',abilities:['dex'],base:13},
-    {id:'unarmoredMonk',formula:'10 + @abilities.dex.mod + @abilities.wis.mod',abilities:['dex','wis'],base:10},
-    {id:'unarmoredBarb',formula:'10 + @abilities.dex.mod + @abilities.con.mod',abilities:['dex','con'],base:10},
-    {id:'unarmoredBard',formula:'10 + @abilities.dex.mod + @abilities.cha.mod',abilities:['dex','cha'],base:10},
+    {id:'unarmored',formula:'10 + @abilities.dex.mod',abilities:['dex'],base:10,armored:false},
+    {id:'mage',formula:'13 + @abilities.dex.mod',abilities:['dex'],base:13,armored:false},
+    {id:'draconic',formula:'13 + @abilities.dex.mod',abilities:['dex'],base:13,armored:false},
+    {id:'unarmoredMonk',formula:'10 + @abilities.dex.mod + @abilities.wis.mod',abilities:['dex','wis'],base:10,armored:false,shielded:false},
+    {id:'unarmoredBarb',formula:'10 + @abilities.dex.mod + @abilities.con.mod',abilities:['dex','con'],base:10,armored:false},
+    {id:'unarmoredBard',formula:'10 + @abilities.dex.mod + @abilities.cha.mod',abilities:['dex','cha'],base:10,armored:false},
 ];
 function basicReason(actor:unknown,context:RulesContext,effects:NumericEffects):string|undefined {
     const source=record(actor)??{},system=effects.system,attributes=record(system.attributes)??{};
@@ -43,29 +43,30 @@ export function prepareArmorClass606(actor:unknown,context:RulesContext,effects:
         if(typeof override!=='number'||!Number.isInteger(override)||override<0||override>1_000_000_000)return makeAc(null,'Armor class override source malformed');
         return {...makeAc(override),calculation:'override',formula:'@attributes.ac.override'};
     }
-    if(!Array.isArray(source.items))return makeAc(null,'Armor Item source collection unavailable');
-    if(source.items.some(raw=>record(raw)?.type==='equipment'&&record(record(raw)?.system)?.equipped===true))return makeAc(null,'Equipped armor/Item preparation unavailable');
+    const equipment=effects.equipment;
+    if(equipment.reason)return makeAc(null,equipment.reason);
+    const armor=equipment.armor,shield=equipment.shield;
     const flat=data.flat==null?0:data.flat,calcs=data.calcs===undefined?['unarmored','armored']:data.calcs,formulas=data.formulas===undefined?[]:data.formulas;
     if(typeof flat!=='number'||!Number.isInteger(flat)||flat<0||flat>1_000_000_000||!Array.isArray(calcs)||calcs.some(id=>typeof id!=='string'||!armorCalculations.some(c=>c.id===id))||!Array.isArray(formulas))return makeAc(null,'Armor calculation source outside qualified profile');
     let base=-Infinity,calculation='natural',formula='@attributes.ac.flat';
     for(const config of armorCalculations){
-        if(!calcs.includes(config.id)||'armored' in config&&config.armored)continue;
+        if(!calcs.includes(config.id)||'armored' in config&&config.armored!==!!armor||'shielded' in config&&config.shielded!==!!shield)continue;
         const mods=config.abilities.map(key=>numericAbilityValue(record(record(effects.system.abilities)?.[key])?.value)?.mod);
         if(mods.some(value=>value===undefined))return makeAc(null,`Ability source unavailable for armor calculation: ${config.id}`);
-        const value=config.id==='natural'?flat:config.base+(mods as number[]).reduce((n,v)=>n+v,0);
+        const value=config.id==='natural'?flat:config.id==='armored'?armor!.value+(armor?.type==='heavy'?0:Math.min(mods[0]!,armor!.dex??Infinity)):config.base+(mods as number[]).reduce((n,v)=>n+v,0);
         if(value>base){base=value;calculation=config.id;formula=config.formula;}
     }
     for(const raw of formulas){
         const config=record(raw);if(!config)return makeAc(null,'Custom armor formula source malformed');
         if([config.armored,config.shielded].some(value=>value!=null&&typeof value!=='boolean'))return makeAc(null,'Custom armor eligibility source malformed');
-        if(config.armored===true||config.shielded===true)continue;
+        if(typeof config.armored==='boolean'&&config.armored!==!!armor||typeof config.shielded==='boolean'&&config.shielded!==!!shield)continue;
         if(config.formula===undefined||config.formula===null||config.formula==='')continue;
         const value=numericConstant(config.formula);if(value===null)return makeAc(null,'Custom armor expression requires Q00 qualification');
         if(value>base){base=value;calculation='custom';formula=String(config.formula);}
     }
     if(!Number.isFinite(base))base=flat;
-    const value=Math.max(0,base);
-    return qualifiedNumericTotal(value)&&Math.abs(value)<=1_000_000_000?{...makeAc(value),base,calculation,formula}:makeAc(null,'Armor result outside qualified numeric range');
+    const value=Math.max(0,base+(shield?.value??0));
+    return qualifiedNumericTotal(value)&&Math.abs(value)<=1_000_000_000?{...makeAc(value),base,calculation,formula,armorId:armor?.id,shieldId:shield?.id,warnings:equipment.warnings}:makeAc(null,'Armor result outside qualified numeric range');
 }
 export function prepareInitiative606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):{fact:InitiativeFact;check:PreparedNumericD20} {
     const profile=numericCharacterProfile(actor,context,effects,false),system=effects.system,raw=record(system.attributes)?.init,data=record(raw)??{},ability=data.ability===undefined||data.ability===''?'dex':data.ability;

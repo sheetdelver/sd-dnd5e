@@ -561,3 +561,39 @@ No complete DD/A/M gate closes. Next M2 work is equipped armor/Item preparation,
 then remaining movement/senses/final/filter/rule and Q00 domains. E01, wider E05,
 M3 onward and installed/native/operator gates remain open. Experimental0.4.1 and
 compatibility are unchanged; ADR-0001 remains open.
+
+### C18 — Source equipped armor and post-passive Stealth (2026-10-21)
+
+C17 is `0106422`. C18 advances DD-02/03/09/24/27/34 and A02/A03/A18 partially.
+The45 maintained source cases include34 qualified Item/Actor phase comparisons
+and11 explicit unqualified dispositions. All34 qualified inputs failed before
+(including the absent equipment provenance result for an unequipped case).
+`prepareEquipment606` initializes a detached source-only armor subset once per
+preparation. Canonical owned identities, source order, base/magical values,
+attunement and properties remain distinct. Exact registry types determine armor
+versus shields; names/base-item labels and prepared-looking getters are never
+mechanics. Actor AC uses the first equipped armor/shield, heavy-armor zero Dex,
+other caps including null/unlimited, formula eligibility and source override.
+Multiple equipment warns without reordering or changing source.
+
+Native armor preparation adds Stealth disadvantage after skill passive preparation.
+The shared check model therefore keeps initial passive mode states separate from
+post-armor execution counts. Source advantage cancels armor disadvantage for fresh
+rolls while an already-computed passive can remain20. Initial effect overrides/
+suppression retain their actual behavior. A selected tool can grant automatic
+advantage and cancel armor disadvantage for a primary Stealth check; a primary
+tool check does not inherit its secondary skill's local armor mode. Alternate
+abilities, explicit manual modes, numeric bonuses and existing die-bound gates
+use the same compiler. Equipped armor no longer blocks otherwise qualified
+numeric checks/saves/initiative. Unqualified equipped types, flags/migrations,
+identity conflicts, Item effects and expressions still refuse affected workflows.
+No armor-training penalty or broader Item/activity/final preparation is invented.
+
+Cards and both layouts share AC facts; warnings are formatted once. Equipment
+provenance joins roll intent identity, retiring callbacks even when a replacement
+owned Item leaves totals/revision equal. Source documents, UUIDs, edition and
+extension fields remain unchanged. Evidence: [C18 ledger](../plans/0001-verification.md#c18--source-equipped-armor-and-post-passive-stealth-2026-10-21)
+and [portable record](evidence/2026-10-21-c18-equipment.json).
+No complete gate closes. Continue M2 movement/senses, then remaining rule/filter/
+final/Item and Q00 dependencies. E01/wider E05/native/operator gates and ADR-0001
+remain open; experimental0.4.1/compatibility unchanged.

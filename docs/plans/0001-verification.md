@@ -1019,3 +1019,44 @@ aliases/equipped armor/flags/conditions/cover/expressions/range dice and later
 phases remain unavailable. No complete DD/A/M gate closes. Next executable M2
 slice: exact equipped armor Item preparation and resulting AC/check dependencies.
 E01/wider Q00/E05/native/operator acceptance and ADR-0001 remain open.
+
+### C18 — Source equipped armor and post-passive Stealth (2026-10-21)
+
+Predecessor C17 `0106422`;45 maintained cases,34 original failures and11 unavailable
+profiles. Independent expectations precede implementation; exact release methods
+passed those34 cases before module changes. R covers light/medium/heavy/natural/
+shield, missing/null defaults, negative Dex/caps, numeric magic, required/optional
+attunement, first-source selection/ties, formula eligibility, override, prepared
+poison, source/manual/effect modes, combined primary-scope differences, alternate
+ability, context recovery, source/identity/metadata preservation and malformed/
+migration/flag/unsupported inputs. DD-R01–06 coverage is retained.
+
+On pristine Core0.19.3/90c13e5, commands use `-- --core
+/tmp/dnd5e-core-baseline-iDcWjQ/core`. `npm test` passes56 tooling assertions,
+7 tooling and21 module suites; `typecheck` explicitly covers127 source/UI/server/
+test/hook files. `test:native-source -- --native ../../../../temp/dnd5e` remains
+2242 records/591 expressions; native-checks/effects/health/defenses pass unchanged.
+`test:native-equipment -- --native ../../../../temp/dnd5e --foundry
+/home/juvinious/projects/foundryvtt/foundryvtt-v14` compares34 Item/Actor
+phase cases. Exact87e94db methods, explicit source/default initialization, no-op
+Item presentation/price/mount phases, empty conditions/flags/rules and a closed
+independent arithmetic table are controlled S evidence. Selected mode scopes/
+automatic counts build on separately qualified C11/C15 dispatch semantics.
+No native runtime or another module expression evaluator is introduced.
+
+`test:public-rolls` passes2969 accepted requests, including148 equipped armor
+requests and the earlier8 no-die fixed-score branches. The maintained unary
+negative candidate and40 equal-index diagnostics remain; all unrelated face,
+entropy, selection, totals and distribution assertions stay strict. Synthetic
+transport/native writes0. `test:mounted` verifies actual both-layout AC/control/
+preview/manual/shortcut/selection consumers and identity retirement through the
+SDK seam (90 equipment cases at1440/390); passive arithmetic is independently R/S, not an invented displayed
+passive. `check:package` passes isolated module check, managed typing and all
+bundles. Exact command/artifact identities and limits are in the portable record.
+
+Full equipped Item activities/effects/final phases, armor training, custom type/
+formula/migration support, other M2 domains and M3 onward remain open. No complete
+DD/A/M gate closes; next executable M2 work is movement/senses source/default/
+species inheritance and shared truthful consumers. E01/wider Q00/E05/installed UI/
+native/operator gates remain open. Services are task-owned fixtures with cleanup;
+experimental0.4.1/compatibility and ADR status unchanged.

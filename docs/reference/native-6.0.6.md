@@ -494,3 +494,17 @@ existing public contracts; explicit GM configuration remains authoritative.
 Controlled source captures, public rolls and mounted SDK-seam UI are separate
 layers. No installed combat HUD, native DataModel/engine, migration or operator
 acceptance follows from these fixtures. Legacy behavior stays separately labeled.
+
+### Equipped armor evidence (C18)
+
+Pinned EquipmentData.prepareBaseData resets armor.base/value from source; derived
+preparation adds magicalBonus only through exact EquippableItemTemplate.magicAvailable
+(attuned or not required, mgc and valid property). Item-description validProperties
+uses the equipment registry. Actor AttributesFields.prepareArmorClass selects first
+armor/shield in source fixture order, clamps Dex (heavy0), filters formulas and adds
+shield. It adds Stealth mode after CreatureTemplate.prepareSkill has computed its
+passive. `native-equipment-oracle.mjs` captures34 initialized cases using exact
+methods/getters, known constant arithmetic and explicit empty dependencies. Source
+schema/default and prepared phases are identified; labels/price/mount/description
+phases are no-ops. It does not boot native Item/Actor DataModels or qualify Item
+activities/effects/final phases, collection hydration or native/operator behavior.

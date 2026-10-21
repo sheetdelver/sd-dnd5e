@@ -132,6 +132,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             preparation: 'legacy-projection-unqualified' };
         const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
         const effects=prepareNumericEffects606(actor);
+        prepared.derived.equipmentPreparation=effects.equipment;
         prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied};
         const checkModel = prepareSkillToolModel606(actor,rules,effects);
         prepared.derived.checkConfiguration = checkModel;

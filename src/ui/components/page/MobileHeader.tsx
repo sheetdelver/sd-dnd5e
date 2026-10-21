@@ -7,6 +7,7 @@ import { useSheetSetting } from '../shared/useSheetSetting';
 import Rest from '../blocks/Rest';
 import { characterFactsProjection } from '../../../logic/preparation/character-profile';
 import CharacterFact from '../shared/CharacterFact';
+import {ArmorClassReadout} from '../blocks/ArmorClass';
 import Initiative from '../blocks/Initiative';
 import {armorClassProjection} from '../../../logic/preparation/defenses';
 import {HpReadout,HitDiceReadout} from '../shared/HealthFacts';
@@ -183,7 +184,7 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
                 {/* Stat chip: Initiative */}
                 <StatChip label="INITIATIVE" value={<Initiative compact onRoll={onRoll}/>} bordered />
                 {/* Stat chip: Armor Class */}
-                <StatChip label="CLASS" title="ARMOR" value={<CharacterFact fact={ac} label="Armor class"/>} />
+                <StatChip label="CLASS" title="ARMOR" value={<ArmorClassReadout fact={ac}/>} />
 
                 {/* Defenses + Conditions + Rest — stacked on the right edge */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: 'auto', flexShrink: 0, alignItems: 'flex-end' }}>

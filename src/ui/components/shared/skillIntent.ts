@@ -11,7 +11,7 @@ export function rollIntentSignature(actor: unknown, kind: PreparedRollKind): str
     if (lifecycle?.status !== 'supported' || !['2024', 'legacy-limited'].includes(String(lifecycle.profile))) return null;
     return JSON.stringify({ actor: value?.uuid??value?._id ?? value?.id, identity: lifecycle.identity,
         sourceRevision: lifecycle.sourceRevision, worldEpoch: lifecycle.worldEpoch,
-        profile: lifecycle.profile, kind, effects:derived?.effectPreparation, configuration: kind === 'skill' || kind === 'tool' ? derived?.checkConfiguration : undefined,
+        profile: lifecycle.profile, kind, effects:derived?.effectPreparation, equipment:derived?.equipmentPreparation, configuration: kind === 'skill' || kind === 'tool' ? derived?.checkConfiguration : undefined,
         checks:kind==='initiative'?derived?.initiativeCheck:kind === 'skill' ? derived?.skills : kind === 'tool' ? derived?.tools : derived?.abilities });
 }
 export function configuredRollCheck(actor: unknown, kind: PreparedRollKind, key: string, options:Record<string,unknown>={}): PreparedNumericD20 | undefined {

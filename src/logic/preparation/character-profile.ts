@@ -52,7 +52,7 @@ export function numericCharacterProfile(actor: unknown, context: RulesContext, e
     let reason: string | undefined;
     const encumbrance = context.settings['dnd5e.encumbrance'];
     if (!encumbrance || encumbrance.status === 'unavailable' || encumbrance.value !== 'none') reason = 'Encumbrance rule preparation unavailable';
-    if ((source.items as unknown[]).some(value => record(value)?.type === 'equipment' && record(record(value)?.system)?.equipped === true)) reason = 'Equipped armor/item rule preparation unavailable';
+    reason ??= effects.equipment.reason;
     const attributes = record(system.attributes) ?? {};
     if (attributes.exhaustion !== undefined && attributes.exhaustion !== 0 || Array.isArray(source.statuses) && source.statuses.length) reason = 'Condition preparation unavailable';
     if (Object.values(record(record(system.bonuses)?.abilities) ?? {}).some(Boolean)) reason = 'Legacy global ability bonus schema requires qualification';

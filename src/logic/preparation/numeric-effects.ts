@@ -4,8 +4,9 @@ import { planEffects606, type EffectPlan, type EffectChange } from './effects';
 import { initializedAbilityRolls606 } from './roll-initialization';
 import { numericConstant, qualifiedNumericTotal } from './numeric';
 import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
+import {prepareEquipment606,type EquipmentPreparation} from './equipment';
 export interface NumericEffects {
-    system:Record<string,unknown>;globals:Record<string,Record<string,unknown>>;
+    system:Record<string,unknown>;globals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;
     applied:Array<{effectId:string;key:string;phase:'initial';before:number;value:number;formula?:string}>;
 }
@@ -106,5 +107,5 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         field.object[field.field]=value;if(formula!==undefined)formulas[change.key]=formula;
         applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(formula!==undefined?{formula}:{})});
     }
-    return {system,globals,plan,applied,modes,...(reason?{reason}:{})};
+    return {system,globals,plan,applied,modes,equipment:prepareEquipment606(actor),...(reason?{reason}:{})};
 }

@@ -1,0 +1,1028 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Source equipment -> initialized Item base/derived armor -> Actor skill passive -> armor phase -> fresh roll modes",
+  "cases": [
+    {
+      "id": "light-unlimited",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "medium-cap",
+      "equipment": [
+        {
+          "type": "medium",
+          "armor": {
+            "value": 14,
+            "dex": 2
+          }
+        }
+      ],
+      "expected": {
+        "ac": 16,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "heavy-no-dex",
+      "equipment": [
+        {
+          "type": "heavy",
+          "armor": {
+            "value": 18,
+            "dex": 3
+          }
+        }
+      ],
+      "expected": {
+        "ac": 18,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "negative-dex",
+      "equipment": [
+        {
+          "type": "medium",
+          "armor": {
+            "value": 14,
+            "dex": 2
+          }
+        }
+      ],
+      "expected": {
+        "ac": 12,
+        "skill": 1,
+        "mode": 0,
+        "passive": 11,
+        "initiativeTotal": -2,
+        "initiativeMode": 0
+      },
+      "abilities": {
+        "dex": 6
+      },
+      "expectedSkill": 1
+    },
+    {
+      "id": "shield-only",
+      "equipment": [
+        {
+          "type": "shield",
+          "armor": {
+            "value": 2,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 14,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "armor-shield",
+      "equipment": [
+        {
+          "type": "heavy",
+          "armor": {
+            "value": 18,
+            "dex": null
+          }
+        },
+        {
+          "type": "shield",
+          "armor": {
+            "value": 2,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 20,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "natural-equipped",
+      "equipment": [
+        {
+          "type": "natural",
+          "armor": {
+            "value": 13,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 15,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "null-value-default",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": null,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 2,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "missing-fields-default",
+      "equipment": [
+        {
+          "type": "light"
+        }
+      ],
+      "expected": {
+        "ac": 2,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "dex-cap-zero",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": 0
+          }
+        }
+      ],
+      "expected": {
+        "ac": 11,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "dex-cap-negative",
+      "equipment": [
+        {
+          "type": "medium",
+          "armor": {
+            "value": 14,
+            "dex": -1
+          }
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "magic-no-attunement",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "mgc"
+          ],
+          "magicalBonus": "1"
+        }
+      ],
+      "expected": {
+        "ac": 14,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "magic-required-unattuned",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "mgc"
+          ],
+          "magicalBonus": "1",
+          "attunement": "required",
+          "attuned": false
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "magic-required-attuned",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "mgc"
+          ],
+          "magicalBonus": "1",
+          "attunement": "required",
+          "attuned": true
+        }
+      ],
+      "expected": {
+        "ac": 14,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "magic-optional-unattuned",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "mgc"
+          ],
+          "magicalBonus": "1",
+          "attunement": "optional",
+          "attuned": false
+        }
+      ],
+      "expected": {
+        "ac": 14,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "bonus-without-magic",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "magicalBonus": "4"
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "first-armor-source-order",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          }
+        },
+        {
+          "type": "heavy",
+          "armor": {
+            "value": 18,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "warnings": [
+        "multiple-armor"
+      ]
+    },
+    {
+      "id": "first-shield-source-order",
+      "equipment": [
+        {
+          "type": "shield",
+          "armor": {
+            "value": 2,
+            "dex": null
+          }
+        },
+        {
+          "type": "shield",
+          "armor": {
+            "value": 3,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 14,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "warnings": [
+        "multiple-shields"
+      ]
+    },
+    {
+      "id": "unarmored-formula-excluded",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 0,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "actorAc": {
+        "calcs": [
+          "unarmoredMonk"
+        ]
+      }
+    },
+    {
+      "id": "monk-with-shield-excluded",
+      "equipment": [
+        {
+          "type": "shield",
+          "armor": {
+            "value": 2,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 2,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "actorAc": {
+        "calcs": [
+          "unarmoredMonk"
+        ]
+      }
+    },
+    {
+      "id": "barbarian-with-shield",
+      "equipment": [
+        {
+          "type": "shield",
+          "armor": {
+            "value": 2,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 16,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "actorAc": {
+        "calcs": [
+          "unarmoredBarb"
+        ]
+      }
+    },
+    {
+      "id": "custom-armored-selected",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 20,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "actorAc": {
+        "formulas": [
+          {
+            "armored": true,
+            "formula": "20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "custom-unarmored-excluded",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "actorAc": {
+        "formulas": [
+          {
+            "armored": false,
+            "formula": "20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "override-still-armor-stealth",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ]
+        }
+      ],
+      "expected": {
+        "ac": 17,
+        "skill": 5,
+        "mode": -1,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "actorAc": {
+        "override": 17
+      }
+    },
+    {
+      "id": "stealth-disadvantage-after-passive",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ]
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": -1,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "source-advantage-cancels-armor",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ]
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 20,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "skillMode": 1
+    },
+    {
+      "id": "source-disadvantage-with-armor",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ]
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": -1,
+        "passive": 10,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "skillMode": -1
+    },
+    {
+      "id": "global-advantage-cancels-armor",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ]
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 20,
+        "initiativeTotal": 2,
+        "initiativeMode": 1
+      },
+      "globalMode": 1
+    },
+    {
+      "id": "combined-automatic-cancels-armor",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ]
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": -1,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "selected": {
+        "skillMode": 0,
+        "toolMode": 1,
+        "alternateTotal": 6
+      }
+    },
+    {
+      "id": "effect-override-persists-after-armor",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ]
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 1,
+        "passive": 20,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "modeEffect": {
+        "type": "override",
+        "value": 1
+      }
+    },
+    {
+      "id": "effect-suppression-persists-after-armor",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ]
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "modeEffect": {
+        "type": "upgrade",
+        "value": 0
+      }
+    },
+    {
+      "id": "unequipped-no-armor",
+      "equipment": [
+        {
+          "type": "heavy",
+          "armor": {
+            "value": 18,
+            "dex": null
+          },
+          "equipped": false
+        }
+      ],
+      "expected": {
+        "ac": 12,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "prepared-looking-item-poison",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "stealthDisadvantage"
+          ],
+          "poison": true
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": -1,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      }
+    },
+    {
+      "id": "same-display-name-preserved",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "name": "Same"
+        },
+        {
+          "type": "heavy",
+          "armor": {
+            "value": 18,
+            "dex": null
+          },
+          "name": "Same"
+        }
+      ],
+      "expected": {
+        "ac": 13,
+        "skill": 5,
+        "mode": 0,
+        "passive": 15,
+        "initiativeTotal": 2,
+        "initiativeMode": 0
+      },
+      "warnings": [
+        "multiple-armor"
+      ]
+    },
+    {
+      "id": "malformed-type",
+      "equipment": [
+        {
+          "type": 3
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "unknown-equipped-type",
+      "equipment": [
+        {
+          "type": "invented",
+          "armor": {
+            "value": 11,
+            "dex": null
+          }
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "legacy-attunement",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "attunement": 1
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "malformed-armor",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": "13"
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "formula-magic",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": [
+            "mgc"
+          ],
+          "magicalBonus": "1d4"
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "malformed-cap",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": "2"
+          }
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "malformed-properties",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "properties": "stealthDisadvantage"
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "legacy-item-stealth",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "legacyStealth": true
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "item-native-flag",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "nativeFlag": true
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "malformed-equipment-identity",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "badIdentity": true
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    },
+    {
+      "id": "duplicate-equipment-identity",
+      "equipment": [
+        {
+          "type": "light",
+          "armor": {
+            "value": 11,
+            "dex": null
+          },
+          "duplicateIdentity": true
+        }
+      ],
+      "expected": {
+        "ac": null,
+        "skill": null,
+        "mode": null,
+        "passive": null
+      }
+    }
+  ]
+}
