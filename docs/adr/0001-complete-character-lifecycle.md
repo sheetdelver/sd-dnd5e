@@ -172,7 +172,7 @@ it necessary; distinguish a source-number dependency from a display-only link.
 
 Acceptance: an unfamiliar optional pack installed after module packaging is discovered and selected without manifest edits; permitted documents hydrate/read, denied data never leaks; removal/permission/content revisions retire open results; SRD-only still works; no diagnostic fallback required; memory/paging measured. Needed by M1 discovery completion and M6 optional-content acceptance. Module SRD preparation work can proceed before delivery.
 
-### E02 — Exact command outcome and concurrency qualification (conditional gap)
+### E02 — Exact command outcome and concurrency qualification (bounded public gap; open)
 
 Evidence: SDK CRUD/embedded mutations return records; `commit` is sequential; DataStore has get/set but no compare-and-set/transaction. Native caller operations can occur outside the module queue. `useActorSheet.update` catches errors. Existing Shadowdark exact-ID recovery is useful precedent but not proof for D&D's larger grant graphs or multi-document rest/consumption.
 
@@ -365,7 +365,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
 | M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default | RV01–RV04 retained; C06–C31 separate R/S/mounted/isolated-host evidence |
-| M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
+| M3 | Q02 public-contract qualification begun; journal/gameplay routes not implemented | C32 public receipts/failures/race; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
 | M6 | Not started | Builder/advancement class-level matrix |
@@ -1294,3 +1294,38 @@ parked. No full DD/A/M gate closes. Continue dependency-ready Q02a rule/filter/
 condition/final/Item preparation and bounded M3/Q02 receipt qualification. E01/
 wider Q00/E05/full acceptance and ADR-0001 remain open; experimental0.4.1 and
 compatibility unchanged.
+
+
+### C32 — Public command receipts, admission and residual races (2026-10-21)
+
+C31 is `834b7ca`. Q02/M3 now has20 maintained observations through released
+Core0.19.3 caller-bound public SDK, isolated configuration and synthetic transport.
+Owner denial/loss and caller-subject spoof reject before dispatch. Exact Actor,
+embedded Item/effect and nested-effect receipts preserve actual acknowledged IDs;
+deletes return void. Submitted IDs can differ under the controlled backend policy,
+so native ID preservation still needs independent qualification. Sequential commit
+can apply the first step and reject the next without returning previous receipts.
+
+Identical empty acknowledgements and unchanged Core primary reads represent both
+no-write and applied-without-event outcomes. Applied/lost response times out after
+one dispatch without SDK replay. A concurrent external HP edit15→20 between read
+and absolute damage5 patch is overwritten to10; full acknowledgement and readback
+still make naive confirmation pass, although a fresh calculation would produce15.
+The public patch options have no native compare precondition. This is executable
+evidence of a bounded A17/E02 contract/decision gap, not a claim that Core promised
+transactions or that native atomic compare is impossible. Qualify backend support
+or explicitly decide conflict policy before exposing affected resource commands.
+
+Real isolated DataStore file failure after an Item acknowledgement preserves its
+exact ID in the response, fences continuation and survives restart as executing.
+Exact operation/step tags identify a candidate among duplicate names/source UUIDs,
+but tags alone are not trusted history or proof of native persistence. Namespace
+failure can resolve set(void) without saving: persist-and-readback admission catches
+it with zero document writes. Successful journal data survives actual host restart.
+
+[C32 ledger](../plans/0001-verification.md#c32--public-command-contracts-2026-10-21)
+and [portable observations](../audits/evidence/2026-10-21-c32-command-contracts.json)
+record commands, hashes and limits. No production command route, new Core import,
+version change or native/operator acceptance. Continue module journal/serialization/
+intent foundation independently while E02 native/concurrency gates remain open.
+E01, wider Q00/E05, full M2/M3+ and ADR-0001 remain open.

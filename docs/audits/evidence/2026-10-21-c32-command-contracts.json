@@ -1,0 +1,882 @@
+{
+  "kind": "Isolated public Core host contract qualification; synthetic transport/backend, not native/operator acceptance",
+  "coreVersion": "0.19.3",
+  "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "observations": [
+    {
+      "case": "owner-gate-zero-dispatch",
+      "result": {
+        "caller": "fixtureplayer",
+        "thrown": {
+          "name": "SdkError",
+          "message": "Write denied: user fixtureplayer lacks owner-level access to Actor Q02Denied0000001",
+          "code": "permission_denied",
+          "status": 403
+        }
+      }
+    },
+    {
+      "case": "caller-authority-override-denied-zero-dispatch",
+      "result": {
+        "caller": "fixtureplayer",
+        "thrown": {
+          "name": "SdkError",
+          "message": "Write denied: access override user fixturegm does not match bound transport user fixtureplayer",
+          "code": "permission_denied",
+          "status": 403
+        }
+      }
+    },
+    {
+      "case": "current-owner-loss-zero-dispatch",
+      "read": {
+        "caller": "fixtureplayer",
+        "value": null,
+        "valueType": "object"
+      },
+      "mutation": {
+        "caller": "fixtureplayer",
+        "thrown": {
+          "name": "SdkError",
+          "message": "Write denied: user fixtureplayer lacks owner-level access to Actor Q02Actor00000001",
+          "code": "permission_denied",
+          "status": 403
+        }
+      }
+    },
+    {
+      "case": "full-patch-receipt",
+      "result": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02Actor00000001",
+          "name": "Offline Q02 actor",
+          "type": "character",
+          "system": {
+            "attributes": {
+              "hp": {
+                "value": 14,
+                "max": 20,
+                "temp": 0
+              }
+            }
+          },
+          "items": [],
+          "effects": [],
+          "ownership": {
+            "default": 0,
+            "fixtureplayer": 3
+          },
+          "flags": {},
+          "_stats": {
+            "modifiedTime": 3,
+            "systemId": "q02",
+            "systemVersion": "1.0.0"
+          }
+        },
+        "valueType": "object"
+      }
+    },
+    {
+      "case": "embedded-create-receipt",
+      "result": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02OwnedItem0001",
+          "name": "Same name",
+          "type": "loot",
+          "system": {
+            "quantity": 1
+          },
+          "flags": {
+            "_sheet_delver": {
+              "operation": "q02-item"
+            }
+          }
+        },
+        "valueType": "object"
+      }
+    },
+    {
+      "case": "embedded-update-delete-receipts",
+      "updated": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02OwnedItem0001",
+          "name": "Same name",
+          "type": "loot",
+          "system": {
+            "quantity": 3
+          },
+          "flags": {
+            "_sheet_delver": {
+              "operation": "q02-item"
+            }
+          }
+        },
+        "valueType": "object"
+      },
+      "deleted": {
+        "caller": "fixtureplayer",
+        "value": null,
+        "valueType": "undefined"
+      }
+    },
+    {
+      "case": "effect-receipts",
+      "created": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02Effect0000001",
+          "name": "Fixture",
+          "type": "base",
+          "system": {
+            "changes": []
+          }
+        },
+        "valueType": "object"
+      },
+      "updated": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02Effect0000001",
+          "name": "Fixture",
+          "type": "base",
+          "system": {
+            "changes": []
+          },
+          "disabled": true
+        },
+        "valueType": "object"
+      },
+      "deleted": {
+        "caller": "fixtureplayer",
+        "value": null,
+        "valueType": "undefined"
+      }
+    },
+    {
+      "case": "nested-effect-parent-routing",
+      "created": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02NestEff000001",
+          "name": "Nested effect",
+          "type": "base",
+          "system": {
+            "changes": []
+          }
+        },
+        "valueType": "object"
+      },
+      "updated": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02NestEff000001",
+          "name": "Nested effect",
+          "type": "base",
+          "system": {
+            "changes": []
+          },
+          "disabled": true
+        },
+        "valueType": "object"
+      },
+      "deleted": {
+        "caller": "fixtureplayer",
+        "value": null,
+        "valueType": "undefined"
+      },
+      "parentUuid": "Actor.Q02Actor00000001.Item.Q02NestItem00001"
+    },
+    {
+      "case": "submitted-vs-acknowledged-identities",
+      "requested": {
+        "_id": "Q02Requested0001",
+        "name": "Offline Q02 actor",
+        "type": "character",
+        "system": {
+          "attributes": {
+            "hp": {
+              "value": 15,
+              "max": 20,
+              "temp": 0
+            }
+          }
+        },
+        "items": [
+          {
+            "_id": "Q02PlanItem00001",
+            "name": "Same name",
+            "type": "loot",
+            "system": {
+              "quantity": 1
+            },
+            "_stats": {
+              "compendiumSource": "Compendium.q02.items.Item.sameSource000001"
+            }
+          },
+          {
+            "_id": "Q02PlanItem00002",
+            "name": "Same name",
+            "type": "loot",
+            "system": {
+              "quantity": 1
+            },
+            "_stats": {
+              "compendiumSource": "Compendium.q02.items.Item.sameSource000001"
+            }
+          }
+        ],
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "fixtureplayer": 3
+        },
+        "flags": {},
+        "_stats": {
+          "modifiedTime": 1,
+          "systemId": "q02",
+          "systemVersion": "1.0.0"
+        }
+      },
+      "receipt": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02ActualActor01",
+          "name": "Offline Q02 actor",
+          "type": "character",
+          "system": {
+            "attributes": {
+              "hp": {
+                "value": 15,
+                "max": 20,
+                "temp": 0
+              }
+            }
+          },
+          "items": [
+            {
+              "_id": "Q02RemapItem0000",
+              "name": "Same name",
+              "type": "loot",
+              "system": {
+                "quantity": 1
+              },
+              "_stats": {
+                "compendiumSource": "Compendium.q02.items.Item.sameSource000001"
+              }
+            },
+            {
+              "_id": "Q02RemapItem0001",
+              "name": "Same name",
+              "type": "loot",
+              "system": {
+                "quantity": 1
+              },
+              "_stats": {
+                "compendiumSource": "Compendium.q02.items.Item.sameSource000001"
+              }
+            }
+          ],
+          "effects": [],
+          "ownership": {
+            "default": 0,
+            "fixtureplayer": 3
+          },
+          "flags": {},
+          "_stats": {
+            "modifiedTime": 1,
+            "systemId": "q02",
+            "systemVersion": "1.0.0"
+          }
+        },
+        "valueType": "object"
+      },
+      "transport": {
+        "userId": "fixtureplayer",
+        "type": "Actor",
+        "action": "create",
+        "operation": {
+          "data": [
+            {
+              "_id": "Q02Requested0001",
+              "name": "Offline Q02 actor",
+              "type": "character",
+              "system": {
+                "attributes": {
+                  "hp": {
+                    "value": 15,
+                    "max": 20,
+                    "temp": 0
+                  }
+                }
+              },
+              "items": [
+                {
+                  "_id": "Q02PlanItem00001",
+                  "name": "Same name",
+                  "type": "loot",
+                  "system": {
+                    "quantity": 1
+                  },
+                  "_stats": {
+                    "compendiumSource": "Compendium.q02.items.Item.sameSource000001"
+                  }
+                },
+                {
+                  "_id": "Q02PlanItem00002",
+                  "name": "Same name",
+                  "type": "loot",
+                  "system": {
+                    "quantity": 1
+                  },
+                  "_stats": {
+                    "compendiumSource": "Compendium.q02.items.Item.sameSource000001"
+                  }
+                }
+              ],
+              "effects": [],
+              "ownership": {
+                "default": 0,
+                "fixtureplayer": 3
+              },
+              "flags": {},
+              "_stats": {
+                "modifiedTime": 1,
+                "systemId": "q02",
+                "systemVersion": "1.0.0"
+              }
+            }
+          ]
+        }
+      },
+      "qualification": "Synthetic backend remapping tests SDK receipt fidelity; does not establish native ID policy"
+    },
+    {
+      "case": "commit-precheck-zero-dispatch",
+      "result": {
+        "caller": "fixtureplayer",
+        "thrown": {
+          "name": "SdkError",
+          "message": "Write denied: user fixtureplayer lacks owner-level access to Actor Q02Denied0000001",
+          "code": "permission_denied",
+          "status": 403
+        }
+      }
+    },
+    {
+      "case": "sequential-commit-partial",
+      "result": {
+        "caller": "fixtureplayer",
+        "thrown": {
+          "name": "Error",
+          "message": "Injected synthetic native rejection",
+          "code": null,
+          "status": null
+        }
+      },
+      "knownSyntheticWrite": {
+        "userId": "fixtureplayer",
+        "type": "Actor",
+        "action": "create",
+        "operation": {
+          "data": [
+            {
+              "action": "create",
+              "_id": "Q02Partial000001",
+              "name": "Offline Q02 actor",
+              "type": "character",
+              "system": {
+                "attributes": {
+                  "hp": {
+                    "value": 15,
+                    "max": 20,
+                    "temp": 0
+                  }
+                }
+              },
+              "items": [],
+              "effects": [],
+              "ownership": {
+                "default": 0,
+                "fixtureplayer": 3
+              },
+              "flags": {},
+              "_stats": {
+                "modifiedTime": 1,
+                "systemId": "q02",
+                "systemVersion": "1.0.0"
+              }
+            }
+          ]
+        },
+        "result": [
+          {
+            "action": "create",
+            "_id": "Q02Partial000001",
+            "name": "Offline Q02 actor",
+            "type": "character",
+            "system": {
+              "attributes": {
+                "hp": {
+                  "value": 15,
+                  "max": 20,
+                  "temp": 0
+                }
+              }
+            },
+            "items": [],
+            "effects": [],
+            "ownership": {
+              "default": 0,
+              "fixtureplayer": 3
+            },
+            "flags": {},
+            "_stats": {
+              "modifiedTime": 1,
+              "systemId": "q02",
+              "systemVersion": "1.0.0"
+            }
+          }
+        ]
+      },
+      "qualification": "SDK rejects without returning prior successful receipt array; module must dispatch/journal steps separately"
+    },
+    {
+      "case": "empty-ack-without-apply",
+      "result": {
+        "caller": "fixtureplayer",
+        "value": {
+          "type": "Actor",
+          "action": "update",
+          "result": [],
+          "operation": {
+            "updates": [
+              {
+                "_id": "Q02Actor00000001",
+                "system.attributes.hp.value": 10
+              }
+            ]
+          }
+        },
+        "valueType": "object"
+      },
+      "primary": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02Actor00000001",
+          "name": "Offline Q02 actor",
+          "type": "character",
+          "system": {
+            "attributes": {
+              "hp": {
+                "value": 15,
+                "max": 20,
+                "temp": 0
+              }
+            }
+          },
+          "items": [],
+          "effects": [],
+          "ownership": {
+            "default": 0,
+            "fixtureplayer": 3
+          },
+          "flags": {},
+          "_stats": {
+            "modifiedTime": 4,
+            "systemId": "q02",
+            "systemVersion": "1.0.0"
+          }
+        },
+        "valueType": "object"
+      },
+      "backend": {
+        "_id": "Q02Actor00000001",
+        "name": "Offline Q02 actor",
+        "type": "character",
+        "system": {
+          "attributes": {
+            "hp": {
+              "value": 15,
+              "max": 20,
+              "temp": 0
+            }
+          }
+        },
+        "items": [],
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "fixtureplayer": 3
+        },
+        "flags": {},
+        "_stats": {
+          "modifiedTime": 4,
+          "systemId": "q02",
+          "systemVersion": "1.0.0"
+        }
+      }
+    },
+    {
+      "case": "empty-ack-after-apply",
+      "result": {
+        "caller": "fixtureplayer",
+        "value": {
+          "type": "Actor",
+          "action": "update",
+          "result": [],
+          "operation": {
+            "updates": [
+              {
+                "_id": "Q02Actor00000001",
+                "system.attributes.hp.value": 10
+              }
+            ]
+          }
+        },
+        "valueType": "object"
+      },
+      "primary": {
+        "caller": "fixtureplayer",
+        "value": {
+          "_id": "Q02Actor00000001",
+          "name": "Offline Q02 actor",
+          "type": "character",
+          "system": {
+            "attributes": {
+              "hp": {
+                "value": 15,
+                "max": 20,
+                "temp": 0
+              }
+            }
+          },
+          "items": [],
+          "effects": [],
+          "ownership": {
+            "default": 0,
+            "fixtureplayer": 3
+          },
+          "flags": {},
+          "_stats": {
+            "modifiedTime": 5,
+            "systemId": "q02",
+            "systemVersion": "1.0.0"
+          }
+        },
+        "valueType": "object"
+      },
+      "backend": {
+        "_id": "Q02Actor00000001",
+        "name": "Offline Q02 actor",
+        "type": "character",
+        "system": {
+          "attributes": {
+            "hp": {
+              "value": 10,
+              "max": 20,
+              "temp": 0
+            }
+          }
+        },
+        "items": [],
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "fixtureplayer": 3
+        },
+        "flags": {},
+        "_stats": {
+          "modifiedTime": 6,
+          "systemId": "q02",
+          "systemVersion": "1.0.0"
+        }
+      }
+    },
+    {
+      "case": "applied-lost-response-no-sdk-replay",
+      "result": {
+        "caller": "fixtureplayer",
+        "thrown": {
+          "name": "Error",
+          "message": "Timeout waiting for event: modifyDocument",
+          "code": null,
+          "status": null
+        }
+      },
+      "backend": {
+        "_id": "Q02Actor00000001",
+        "name": "Offline Q02 actor",
+        "type": "character",
+        "system": {
+          "attributes": {
+            "hp": {
+              "value": 11,
+              "max": 20,
+              "temp": 0
+            }
+          }
+        },
+        "items": [],
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "fixtureplayer": 3
+        },
+        "flags": {},
+        "_stats": {
+          "modifiedTime": 8,
+          "systemId": "q02",
+          "systemVersion": "1.0.0"
+        }
+      }
+    },
+    {
+      "case": "external-edit-between-read-and-patch",
+      "externalValue": 20,
+      "request": {
+        "type": "Actor",
+        "action": "update",
+        "operation": {
+          "updates": [
+            {
+              "_id": "Q02Actor00000001",
+              "system.attributes.hp.value": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case": "stale-overwrite-naive-confirmation",
+      "result": {
+        "caller": "fixtureplayer",
+        "value": {
+          "before": {
+            "_id": "Q02Actor00000001",
+            "name": "Offline Q02 actor",
+            "type": "character",
+            "system": {
+              "attributes": {
+                "hp": {
+                  "value": 15,
+                  "max": 20,
+                  "temp": 0
+                }
+              }
+            },
+            "items": [],
+            "effects": [],
+            "ownership": {
+              "default": 0,
+              "fixtureplayer": 3
+            },
+            "flags": {},
+            "_stats": {
+              "modifiedTime": 9,
+              "systemId": "q02",
+              "systemVersion": "1.0.0"
+            }
+          },
+          "desired": 10,
+          "receipt": {
+            "_id": "Q02Actor00000001",
+            "name": "Offline Q02 actor",
+            "type": "character",
+            "system": {
+              "attributes": {
+                "hp": {
+                  "value": 10,
+                  "max": 20,
+                  "temp": 0
+                }
+              }
+            },
+            "items": [],
+            "effects": [],
+            "ownership": {
+              "default": 0,
+              "fixtureplayer": 3
+            },
+            "flags": {},
+            "_stats": {
+              "modifiedTime": 11,
+              "systemId": "q02",
+              "systemVersion": "1.0.0"
+            }
+          },
+          "after": {
+            "_id": "Q02Actor00000001",
+            "name": "Offline Q02 actor",
+            "type": "character",
+            "system": {
+              "attributes": {
+                "hp": {
+                  "value": 10,
+                  "max": 20,
+                  "temp": 0
+                }
+              }
+            },
+            "items": [],
+            "effects": [],
+            "ownership": {
+              "default": 0,
+              "fixtureplayer": 3
+            },
+            "flags": {},
+            "_stats": {
+              "modifiedTime": 11,
+              "systemId": "q02",
+              "systemVersion": "1.0.0"
+            }
+          },
+          "naiveConfirmed": true
+        },
+        "valueType": "object"
+      },
+      "expectedAfterExternalEditThenDamage": 15,
+      "actual": 10,
+      "qualification": "Unconditional public patch has no submitted native compare precondition; host lock is not cross-native atomicity"
+    },
+    {
+      "case": "receipt-preserved-after-real-journal-write-failure",
+      "result": {
+        "caller": "fixtureplayer",
+        "value": {
+          "receipt": {
+            "_id": "Q02JournalIt0001",
+            "name": "Same name",
+            "type": "loot",
+            "system": {
+              "quantity": 1
+            },
+            "_stats": {
+              "compendiumSource": "Compendium.q02.items.Item.sameSource000001"
+            },
+            "flags": {
+              "_sheet_delver": {
+                "operation": "q02-journal-operation",
+                "step": 0
+              }
+            }
+          },
+          "journal": "failed",
+          "fenced": true,
+          "message": "EISDIR: illegal operation on a directory, rename '/tmp/dnd5e-public-commands-xtNsMp/data/cache/q02/datastore/q02-journal.json.622486.1792618592399.cb549d82ac8f08.tmp' -> '/tmp/dnd5e-public-commands-xtNsMp/data/cache/q02/datastore/q02-journal.json'"
+        },
+        "valueType": "object"
+      },
+      "writeCount": 1,
+      "fault": "Synthetic data path replaced with directory AFTER native fixture acknowledgement data was generated; actual public DataStore.set rename failure"
+    },
+    {
+      "case": "journal-admission-readback-detects-unavailable-storage",
+      "set": {
+        "caller": "fixtureplayer",
+        "value": null,
+        "valueType": "undefined"
+      },
+      "get": {
+        "caller": "fixtureplayer",
+        "value": null,
+        "valueType": "object"
+      },
+      "admission": {
+        "caller": "fixtureplayer",
+        "value": {
+          "admission": "rejected-zero-write",
+          "reason": "Intent readback mismatch"
+        },
+        "valueType": "object"
+      },
+      "nativeAttempts": 0,
+      "qualification": "DataStore.set can resolve when namespace initialization failed; module must verify persisted intent readback before invoking any mutation"
+    },
+    {
+      "case": "restart-exact-operation-tag-recovery",
+      "journal": {
+        "caller": "fixtureplayer",
+        "value": {
+          "phase": "executing",
+          "operation": "q02-journal-operation",
+          "ids": [],
+          "plannedStep": 0
+        },
+        "valueType": "object"
+      },
+      "ids": [
+        "Q02JournalIt0001"
+      ],
+      "ambiguousSameNameSameSourceCopies": 2,
+      "qualification": "Public primary snapshot plus exact operation tag identifies fixture receipt; native flag/ID persistence remains separate operator gate"
+    },
+    {
+      "case": "datastore-restart-receipt",
+      "before": {
+        "caller": "fixtureplayer",
+        "value": {
+          "phase": "executing",
+          "ids": [
+            "Q02OwnedItem0001"
+          ]
+        },
+        "valueType": "object"
+      },
+      "after": {
+        "caller": "fixtureplayer",
+        "value": {
+          "phase": "executing",
+          "ids": [
+            "Q02OwnedItem0001"
+          ]
+        },
+        "valueType": "object"
+      }
+    }
+  ],
+  "limits": [
+    "No production/live Foundry connection or D&D gameplay endpoint exposed",
+    "Synthetic backend models chosen ACK/remap/race/failure outcomes; native ID/hook/atomicity policy remains unqualified",
+    "Caller-bound public req.runtime only inside fixture module; no private Core imports in module code",
+    "Actual temp-file/namespace faults and restart exercise public DataStore; no production path touched",
+    "E02 remains open; no native/operator acceptance or cross-client atomicity claim"
+  ],
+  "checkpoint": "C32",
+  "date": "2026-10-21",
+  "implementationParent": "834b7ca",
+  "artifactRoot": "/tmp/dnd5e-public-commands-xtNsMp",
+  "artifactSha256": "3baac27ea6b1e8ce3ab9f820219120a17935bd4037c912c1ce4defb5dfffd0fb",
+  "counts": {
+    "cases": 20,
+    "wireAttemptsIncludingReads": 45,
+    "appliedSyntheticWrites": 19,
+    "writeCallers": [
+      "fixtureplayer"
+    ]
+  },
+  "commands": {
+    "npm test": "PASS:60 assertions,8 tooling/32 module suites",
+    "npm run typecheck": "PASS:164 explicit module/UI/server/test/hook files",
+    "npm run test:native-source": "PASS:2242 records/591 expressions, exact87e94db",
+    "npm run test:public-commands": "20 expected capability/limitation observations recorded",
+    "npm run check:package": "PASS:isolated module checks,managed typing,bundles"
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-bEIeYH/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "3878e80d0ac680117bcaae7e4bd680cc58765b92ad8dbe86513f52ac52d5162d"
+  },
+  "files": {
+    "scripts/test-public-commands.mjs": "97402ae45daf521fd016d52edb31bfdbbff4c19fd50e42b05b4b4c67507e512c",
+    "package.json": "6d63c0adf67ac453fa7d7d1c8a89da014ef27a446d2dcd220242f117baa18031"
+  },
+  "evidenceLimits": [
+    "No production module behavior changed; C31 mounted/roll evidence retained, not rerun or enlarged by these tests",
+    "Synthetic external edit20 vs baseline15/intended damage5 is within max20; naive result10 wrongly reports confirmation instead of fresh15",
+    "Request ID remapping and tag recovery are chosen synthetic policies, not native ID/flag guarantees; tags alone are not trusted history",
+    "E02 remains open: qualify native compare preconditions or explicitly decide conflict policy before derived resource writes",
+    "Module journal/state/admission foundation is next; no M3 gameplay command endpoint implemented"
+  ]
+}

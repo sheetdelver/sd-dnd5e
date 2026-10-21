@@ -1652,3 +1652,30 @@ No complete DD/A/M gate closes. Continue remaining Q02a rule/filter/condition/
 final/Item preparation and dependency-ready Q02 command outcome qualification.
 Limited simulateRoll is not evidence of a new necessary Core contract. E01/wider
 Q00/E05/full acceptance and ADR-0001 remain open;experimental0.4.1 unchanged.
+
+
+### C32 — Public command contracts (2026-10-21)
+
+Parent `834b7ca`; Q02/M3 and DD-20/25/35,A17/A18 qualification only. Run
+`npm run test:public-commands -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core`.
+20 maintained observations through actual released0.19.3/90c13e5 SDK and host:
+owner/current-loss/subject-spoof zero dispatch; exact Actor/embedded/nested receipts;
+void deletes; controlled ID remapping; commit precheck and partial sequential failure;
+identical empty ACKs with different backend outcomes; applied lost ACK (one dispatch,
+no retry); external HP15→20 then stale patch10/naive confirmed versus fresh15; real
+post-ACK journal rename failure, namespace admission readback failure, operation-tag
+candidate recovery and successful persistence across host restart. All applied
+synthetic writes use the caller player socket. Tags/copies do not prove native ID
+history; chosen backend policies are explicit. Artifacts `/tmp/dnd5e-public-commands-xtNsMp`.
+
+`npm test`:60 assertions,8 tooling/32 module suites PASS. `npm run typecheck`:
+164 explicit module/UI/server/test/hook files PASS. `test:native-source`:2242 records/
+591 expressions at87e94db PASS. `check:package`:isolated checks/managed typing/bundles
+PASS; `/tmp/dnd5e-package-bEIeYH/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`3878e80d0ac680117bcaae7e4bd680cc58765b92ad8dbe86513f52ac52d5162d`.
+[Portable observations](../audits/evidence/2026-10-21-c32-command-contracts.json)
+retain all20 cases,artifact/script identities and limits. No production source/UI
+change; C31 mounted/public-roll results remain historical, not newly rerun evidence.
+Task-owned host/socket services stopped; production listeners untouched. E02 is open
+pending native compare qualification or explicit conflict-policy decision; E01/wider
+Q00/E05 and all full acceptance gates remain open. Next is module journal foundation.

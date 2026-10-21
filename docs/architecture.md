@@ -697,3 +697,23 @@ Defaults are recorded in effectPreparation.initialized and never written to sour
 Raw mod/global proficiency poison remains nonauthoritative; qualified effects can
 subsequently alter actual operands. This supersedes only the bounded C29 dependent
 filter restriction, not wider Q02a/M2 or legacy qualification.
+
+
+### Command qualification boundary (C32)
+
+Public caller-bound document operations enforce ownership and return actual create/
+patch records; embedded/nested parents route through the same SDK. Delete resolves
+void. Sequential commit is not atomic and its rejection does not carry earlier
+receipts. Journal individual steps rather than assuming a transaction or request-ID
+preservation. Public DataStore admission must verify its persisted value by readback;
+namespace failure can otherwise resolve without storage. Exact acknowledged IDs
+must survive later bookkeeping failure. Executing/unknown outcomes fence that
+operation across restart; names, source UUIDs and untrusted tags cannot prove identity.
+
+Core primary reads are source-store reads, not guaranteed fresh native confirmation.
+Empty acknowledgements can hide applied writes, and a public absolute patch can
+race with an independent native edit while acknowledgement/readback both match the
+stale desired value. Actor queues serialize module commands only. Derived-resource
+commands need E02's verified native precondition or an explicit conflict-policy
+decision. C32 is synthetic public-host qualification; production journal/routes and
+native ID/concurrency/operator acceptance remain open.

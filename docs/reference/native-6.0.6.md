@@ -764,3 +764,13 @@ C13/C26 method qualification. This does not boot a DataModel, execute a native d
 engine or revive the parked preparation runtime. No full native source/operator
 parity follows. Final-only/no-initial, Item, derived/mod, unsupported/unknown branch
 and malformed/coerced data cases remain module availability boundaries.
+
+
+### Q02 phase boundary (C32)
+
+Public Core0.19.3 command qualification uses a synthetic backend, not release6.0.6
+Document creation/update hooks. Its ID remapping, acknowledgement loss and external
+edit cases establish SDK behavior, not native keepId/embedded relationship policy,
+flag persistence or atomic compare support. Native command/receipt/operator fixtures
+remain separately required. Exact release87e94db stays the rules oracle; no reference
+checkout/runtime was started or modified by this investigation.

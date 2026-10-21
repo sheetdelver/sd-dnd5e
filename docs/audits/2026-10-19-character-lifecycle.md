@@ -883,3 +883,19 @@ See [C31 ledger](../plans/0001-verification.md#c31--initial-scalar-filters-2026-
 and [portable record](evidence/2026-10-21-c31-initial-filters.json). Controlled methods
 and isolated consumers do not establish full native/installed/operator acceptance;
 no complete milestone or release gate closes.
+
+
+### C32 Q02 disposition — public receipts and command boundaries
+
+C31 is `834b7ca`. DD-20/25/35 and A17/A18 advance in qualification only:
+20 isolated public-host observations establish caller-bound owner gates, actual
+receipt identities, sequential partial commit, ambiguous empty/lost responses,
+real journal-storage faults/restart and the external-edit overwrite reproduction.
+No production journal/gameplay command handling is claimed. E02 stays open with
+an executable public conditional-write/explicit-conflict-policy gap; it is not a
+Core transaction defect claim. Readback of Core primary data alone cannot resolve
+all backend outcomes. Native ID/flag policy, atomicity and operator gates remain
+unqualified. See [C32 ledger](../plans/0001-verification.md#c32--public-command-contracts-2026-10-21)
+and [portable observations](evidence/2026-10-21-c32-command-contracts.json).
+Next: shared durable admission/state/Actor serialization with exact acknowledgements,
+zero-write rejection and operation-specific unknown fencing, before gameplay routes.
