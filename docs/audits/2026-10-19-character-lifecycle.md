@@ -716,3 +716,22 @@ C12's raw-omission behavior only; historical source/initialized evidence remains
 Malformed/coerced legacy inputs, Item effects/final/filter/dependency phases and
 native creation/lifecycle hooks remain unavailable. No complete gate or native/
 operator acceptance is claimed, and E01/wider Q00/E05 remain open.
+
+### C23 — Stored species identity across read surfaces
+
+C22 `6f95ea2` is the preceding checkpoint. The first-race-Item fallback in
+adapter cards/headers disagreed with the stored exact reference already used by
+movement. C23 replaces it with one shared resolver and source identity projection
+(DD-02/06/15/34, A02/A14 partial). Reference ID, canonical UUID, source edition and
+source label remain distinct. An unresolved fallback string is labeled source
+text, never assigned an Item ID by name. Missing context/malformed/duplicate/
+foreign/wrong-type identity is unavailable; a missing selection is explicit.
+
+The17 added contract cases fail on the predecessor's absent structured projection;
+this includes reproduced wrong-label cases for a second selected Item, no selected
+Item and unresolved text.12 qualified states compare against pinned native
+cleaning/local-lookup methods. Cards and desktop/mobile headers consume the same
+fact; source preservation/poison, class/movement independence, context recovery and
+selected legacy boundaries are covered. See [C23 ledger](../plans/0001-verification.md#c23--shared-species-source-identity-2026-10-21)
+and [portable evidence](evidence/2026-10-21-c23-species.json). Item prepared-rule,
+installed UI/native/operator and full lifecycle acceptance remain open.

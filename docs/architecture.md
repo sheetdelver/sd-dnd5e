@@ -517,3 +517,17 @@ ordinary consumables do not. Required attunement still suppresses when unattuned
 Malformed/unknown/legacy-coercion cases and active dependencies remain gated.
 This is source/default eligibility plus existing qualified initial changes, not
 Item model initialization, creation hooks, Item-target effects or final phases.
+
+### Species source identity
+
+`resolveSpecies606` cleans the stored local reference and resolves only that owned
+Item identity. Movement/senses and `prepareSpeciesIdentity606` share the resolver;
+no card/header performs its own Item selection. The identity fact is source-only,
+so a valid label/UUID can remain visible when unrelated class or movement rules
+are unavailable. Canonical identity and edition are preserved without conversion.
+Native fallback strings have `source-text` status and no Item UUID; they never
+trigger same-name/first-Item substitution. Missing selection, unavailable context
+and malformed references have separate statuses/reasons. Both headers expose the
+same fact and diagnostics; cards and `getRaceData` share it. Selected legacy first-
+Item presentation remains explicitly unqualified. Item effects/grants/prepared
+traits do not follow from a source identity label.

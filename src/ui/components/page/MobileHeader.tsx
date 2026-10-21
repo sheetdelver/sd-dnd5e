@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import SpeciesIdentity from '../shared/SpeciesIdentity';
 import { resolveImage } from '@sheet-delver/sdk';
 import { useModal } from '../shared/useModal';
 import { useSheetSetting } from '../shared/useSheetSetting';
@@ -38,7 +39,6 @@ interface Props {
 
 export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Props) {
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
-    const subtitle = [derived.race, derived.classes].filter(Boolean).join(' · ');
     const facts = characterFactsProjection(derived);
     const movement=movementProjection(derived);
     const ac=armorClassProjection(derived);
@@ -115,7 +115,7 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
                         color: 'var(--text-secondary)',
                         margin: '2px 0 0',
                     }}>
-                        {subtitle}
+                        <SpeciesIdentity derived={derived} />{derived.classes?` · ${derived.classes}`:''}
                         <span style={{ marginLeft: '4px' }}>Level <CharacterFact fact={facts.level} label="Character level" /></span>
                     </p>
                 </div>

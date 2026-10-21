@@ -1236,3 +1236,50 @@ Next executable M2 slice: shared truthful species identity projection, then
 remaining trait/rule/filter/final/Item domains and dependency-ready M3. E01,
 wider Q00/E05, installed/native/operator gates and ADR-0001 remain open;
 experimental0.4.1 and compatibility are unchanged.
+
+### C23 — Shared species source identity (2026-10-21)
+
+Predecessor C22 `6f95ea2`. Completed bounded subrequirements: DD-02/06/15/34,
+A02/A14 shared source identity presentation.17 new contract cases fail against
+the predecessor's missing structured projection, including concrete first-Item
+substitutions for a second selected species, absent selection and unresolved
+source text. All pass after; source/edition/ownership preservation, prepared-field
+poison, malformed identity, independent class/movement failures, context recovery
+and explicit legacy boundaries are maintained. This is not17 distinct native-rule
+arithmetic defects. No complete DD/A/M gate closes.
+
+Use pristine Core0.19.3/90c13e5 at `/tmp/dnd5e-core-baseline-iDcWjQ/core` through
+`-- --core` for module commands. `npm test` passes60 tooling assertions,
+8 tooling/25 module suites. `npm run typecheck` explicitly checks140 module/UI/
+server/test/hook files, pass. `test:native-source -- --native ../../../../temp/dnd5e`
+remains2242 records/591 expressions at exact87e94db release6.0.6.
+`test:native-movement` with that native path and static `--foundry
+/home/juvinious/projects/foundryvtt/foundryvtt-v14` passes12 source reference/
+label comparisons plus prior31 movement/34 senses cases. The prior incomplete-
+STR diagnostic remains distinct; source/default/Item-rule phases are not merged.
+Primitive option constructors, lightweight Item/Map, parent collection lookup and
+empty rule/condition stubs are explicit limits, not native model acceptance.
+
+`test:mounted -- --browser-tools /tmp/sd-dice-preview-tools --chromium
+/home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell`
+passes40 new species cases at1440/390: actual header labels/status/identity,
+provenance, card projection and supported→unavailable→supported recovery.
+All prior consumer/roll/range/callback suites pass. Artifacts
+`/tmp/dnd5e-mounted-gMJUDF`; controlled SDK seam, not installed Core UI/cards.
+
+`test:public-rolls` passes13634 accepted requests, including1656 Item-effect and
+9009 normal ranges/441 distributions;1 rejected unary and40 plain tie diagnostics
+unchanged. Artifacts `/tmp/dnd5e-public-rolls-2jsTmR`. Initial synthetic world
+bootstrap timed out before rules execution; cleanup ran and the unchanged bounded
+retry passed. No additional Core dependency/defect is inferred from that timeout.
+This is regression integration, not a new species/native endpoint acceptance.
+
+`check:package` passes isolated module/public-boundary checks, managed typing and
+all bundles. Archive `/tmp/dnd5e-package-FRXVCO/data/dist/modules/dnd5e-0.4.1.tgz`,
+SHA256 `37bbccc94b7e750ecdaa166f73375563318878777aa904b8dd17a36e3968eb5c`. [Portable evidence](../audits/evidence/2026-10-21-c23-species.json)
+records fixture/source/script/artifact identities and phase limits. Task-owned
+services stopped. Node24 local; Node22 CI/native/operator unrun.
+
+Next M2/Q02a: remaining trait/defense/condition, rule/filter/final and Item
+preparation. No source/default label implies those rules are ready. E01 and wider
+Q00/E05 remain open; ADR-0001, experimental0.4.1 and compatibility unchanged.

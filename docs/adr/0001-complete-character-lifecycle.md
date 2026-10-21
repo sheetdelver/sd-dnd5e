@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility | RV01–RV04 retained; C06–C22 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity | RV01–RV04 retained; C06–C23 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1045,3 +1045,31 @@ commands, artifacts and phase limits. No full DD/A/M gate closes. Next: truthful
 shared identity/trait projections and remaining M2 rule/filter/final phases,
 followed by dependency-ready M3 qualification. E01, wider Q00/E05 and installed/
 native/operator acceptance remain open. ADR-0001 and experimental0.4.1 unchanged.
+
+### C23 — Shared species source identity (2026-10-21)
+
+C22 is `6f95ea2`. C23 advances M2, DD-02/06/15/34 and A02/A14 partially.
+Cards and headers previously chose the first owned race Item even when a different
+stored species ID was selected. One exact local-reference resolver now feeds
+movement/senses and a detached source identity fact. Cards, both headers and
+`getRaceData` consume that fact. It carries status/provenance, canonical owned ID/
+UUID, preserved edition metadata and explicit absent/unavailable reasons. Unknown
+context never chooses legacy. Selected legacy retains its clearly labeled,
+unqualified first-Item compatibility boundary.
+
+Native LocalDocumentField deliberately returns an unmatched stored string when
+fallback=true. That is displayed as source text with no Item identity, not resolved
+by name or first Item. Movement remains unavailable when it needs an unresolved
+species. Conversely, a valid source name/identity can remain visible when unrelated
+class or movement data is unqualified. Item rule/effect preparation is not inferred
+from that source fact. Malformed/wrong-type/duplicate/cross-Actor references remain
+unavailable. No source mutation, new lookup cache or content-access bypass exists.
+
+[C23 ledger](../plans/0001-verification.md#c23--shared-species-source-identity-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c23-species.json) distinguish
+regression, controlled source, mounted/public-host and package evidence. Earlier
+C19 fallback-string diagnostics are now exposed truthfully as identity text,
+without weakening movement/rule gates. No full DD/A/M or installed/native/operator
+gate closes. Next: remaining trait/defense/condition and rule/filter/final/Item
+preparation under M2/Q02a. E01 and wider Q00/E05 remain open; experimental0.4.1,
+compatibility and ADR-0001's open status are unchanged.

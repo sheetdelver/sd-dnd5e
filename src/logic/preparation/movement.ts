@@ -1,8 +1,9 @@
-import {record,documentIdentity} from '../native/6.0.6/source';
+import {record} from '../native/6.0.6/source';
 import type {RulesContext} from '../rules-context';
 import {numericFact,type NumericFact} from './character-profile';
 import {numericConstant,numericAbilityValue} from './numeric';
 import {prepareNumericEffects606,type NumericEffects} from './numeric-effects';
+import {resolveSpecies606} from './species-identity';
 
 export const movementKeys=['walk','burrow','climb','fly','jump','swim'] as const;
 export const senseKeys=['blindsight','darkvision','tremorsense','truesight'] as const;
@@ -35,15 +36,11 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
     common??=effects.reason;
     if(Object.values(record(record(source.flags)?.dnd5e)??{}).some(Boolean))common??='Movement/senses flags or transformation unavailable';
     if(attributes.exhaustion!==undefined&&attributes.exhaustion!==0||source.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length))common??='Movement/senses condition preparation unavailable';
-    const ref=record(system.details)?.race;let species:Record<string,unknown>|null=null,speciesUuid:string|undefined;
-    if(system.details!=null&&!record(system.details))common??='Species reference source container malformed';
-    if(ref!=null&&ref!==''){
-        const matches=Array.isArray(source.items)?source.items.filter(raw=>record(raw)?._id===ref):[];
-        if(typeof ref!=='string'||matches.length!==1||record(matches[0])?.type!=='race')common??='Stored species reference unavailable; no name or first-Item substitution';
-        else {
-            species=record(record(matches[0])?.system);speciesUuid=`Actor.${source._id}.Item.${ref}`;
-            if(!documentIdentity(speciesUuid)||!species||record(matches[0])?.uuid!==undefined&&record(matches[0])?.uuid!==speciesUuid)common??='Species identity/source unavailable';
-        }
+    const ref=resolveSpecies606(actor,system);let species:Record<string,unknown>|null=null,speciesUuid:string|undefined;
+    if(ref.kind==='text'||ref.kind==='unavailable')common??=ref.reason;
+    if(ref.kind==='resolved'){
+        species=record(ref.item?.system);speciesUuid=ref.uuid;
+        if(!species)common??='Species identity/source unavailable';
     }
     if(common)return {movement:noMovement(common),senses:noSenses(common)};
     const setting=context.settings['dnd5e.metricLengthUnits'];

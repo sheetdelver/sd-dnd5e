@@ -1,6 +1,7 @@
 import { prepareArmorClass606,prepareInitiative606,initiativeRoll,armorClassProjection } from './preparation/defenses';
 import { prepareHealth606, hpProjection } from './preparation/health';
 import {prepareMovement606,movementKeys,senseKeys} from './preparation/movement';
+import {prepareSpeciesIdentity606,speciesProjection,legacySpeciesIdentity} from './preparation/species-identity';
 import {
     BaseSystemAdapter, SdkError,
     resolveImage,
@@ -89,6 +90,10 @@ type RaceRecord = {
     description: string;
     _id: string;
     type: string;
+    status?:string;
+    reason?:string;
+    provenance?:string;
+    uuid?:string|null;
 }
 
 function getDescriptionValue(system: unknown): string {
@@ -132,6 +137,10 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             // Schema context readiness does not qualify the old numeric projection.
             preparation: 'legacy-projection-unqualified' };
         const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
+        const oldSpecies=selectedLegacy?this.getLegacyRaceData(actor):null;
+        const species=oldSpecies?legacySpeciesIdentity(oldSpecies.name,oldSpecies._id,oldSpecies.img,oldSpecies.description):prepareSpeciesIdentity606(actor,rules);
+        prepared.derived.speciesIdentity=species;
+        prepared.derived.race=species.name??'';
         const effects=prepareNumericEffects606(actor);
         prepared.derived.equipmentPreparation=effects.equipment;
         prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied};
@@ -195,6 +204,11 @@ export class DnD5eAdapter extends BaseSystemAdapter {
     }
 
     getRaceData(actor: FoundryActor): RaceRecord {
+        const species=speciesProjection((actor as PreparedActorData).derived);
+        return {name:species.name??'',_id:species.id??'',type:species.id?'race':'',img:resolveImage(species.img,this.foundryUrl),description:species.description,status:species.status,reason:species.reason,provenance:species.provenance,uuid:species.uuid};
+    }
+
+    private getLegacyRaceData(actor:FoundryActor):RaceRecord {
         const race = actor.items.filter((i: FoundryItem) => i.type === 'race');
         const description = getDescriptionValue(race[0]?.system);
 
@@ -367,7 +381,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             })
             .join(' / ');
 
-        const race = this.getRaceData(actor)?.name;
+        const race = speciesProjection(actor.derived).display;
         const subtext = [level !== null ? `Level ${facts.level.display}` : 'Level unavailable', race, classes]
             .filter(Boolean)
             .join(' • ');

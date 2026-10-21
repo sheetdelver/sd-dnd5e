@@ -575,3 +575,16 @@ with the pinned getter after that controlled initialization. Hidden=false and
 parent.isGroup=false are explicit stubs; malformed/coerced states, creation hooks,
 DataModels/Documents and full Item effect phases are not qualified. Earlier
 initialized phase/arithmetic comparisons remain separate evidence categories.
+
+### Species source-reference presentation (C23)
+
+DetailsFields.race declares LocalDocumentField with fallback=true. Inherited
+StringField cleaning trims the raw reference; DocumentIdField defaults make an
+absent/blank reference null. LocalDocumentField.initialize returns the exact
+collection entry and defines source name stringification; if absent it returns
+the stored value.12 controlled C23 comparisons independently verify selected first/
+second IDs, equal display names, literal unresolved text/UUIDs, sparse refs and
+source label independence from class/Item-rule data. Wrong-type/duplicate/foreign/
+malformed model inputs stay unqualified module boundaries, not claimed native
+parity. Item/Map/parent lookup and primitive constructors are explicit stubs. C19's
+movement/senses comparisons and incomplete-STR diagnostic remain separate phases.

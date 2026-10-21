@@ -7,6 +7,7 @@ import { useSheetSetting } from '../shared/useSheetSetting';
 import Rest from '../blocks/Rest';
 import { characterFactsProjection } from '../../../logic/preparation/character-profile';
 import CharacterFact from '../shared/CharacterFact';
+import SpeciesIdentity from '../shared/SpeciesIdentity';
 
 /**
  * Header — top-level character identity and utility bar.
@@ -22,7 +23,6 @@ interface Props {
 
 export default function Header({ actor, derived, foundryUrl }: Props) {
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
-    const subtitle = [derived.race, derived.classes].filter(Boolean).join(' • ');
     const facts = characterFactsProjection(derived);
     const { openModal } = useModal();
     const [theme, setTheme] = useSheetSetting<string>('theme', 'paladin');
@@ -99,7 +99,7 @@ export default function Header({ actor, derived, foundryUrl }: Props) {
                         color: 'var(--text-secondary)',
                         margin: '2px 0 0',
                     }}>
-                        {subtitle}
+                        <SpeciesIdentity derived={derived} />{derived.classes?` • ${derived.classes}`:''}
                         <span style={{ marginLeft: '4px' }}>Level <CharacterFact fact={facts.level} label="Character level" /></span>
                     </p>
                 </div>

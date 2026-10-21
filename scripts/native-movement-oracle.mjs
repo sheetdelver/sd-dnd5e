@@ -25,8 +25,8 @@ Array.prototype.filterJoin=function(separator){return this.filter(Boolean).join(
 class DataField {static #cleanDefaultTrue=[];constructor(options={}){Object.assign(this,this.constructor._defaults,options);} ${['_defaults','getInitialValue','clean','_validateSpecial','_cleanType','initialize'].map(m=>f('DataField',m)).join('\n')} }
 class ScalarString extends DataField {${['_defaults','getInitialValue','_validateSpecial','_cast','clean'].map(m=>f('StringField',m)).join('\n')} }
 class NumberField extends DataField {${f('NumberField','_defaults')} }
-class LocalDocumentField {constructor(){this.model=Item;this.options={fallback:true};this.idOnly=false;}
-${['_findCollection','initialize'].map(m=>n('module/data/fields/local-document-field.mjs','LocalDocumentField',m)).join('\n')} }
+class LocalDocumentField extends ScalarString {constructor(){super({required:true,blank:false,nullable:true});this.model=Item;this.options={fallback:true};this.idOnly=false;}
+${['_cast','_findCollection','initialize'].map(m=>n('module/data/fields/local-document-field.mjs','LocalDocumentField',m)).join('\n')} }
 class Item {static metadata={collection:'items'};constructor(id,type,system){this._id=id;this.type=type;this.name='Same label';this.system=system;} }
 class EmbeddedBase {prepareEmbeddedData(){}}
 class Character extends EmbeddedBase {${n('module/data/actor/character.mjs','CharacterData','prepareEmbeddedData')} }
@@ -63,7 +63,22 @@ for(const row of fixture.cases){
 }
 const fallbackModel={parent:{getEmbeddedCollection:()=>new Map([['raceFixture0001',new sandbox.native.Item('raceFixture0001','race',{})]])}};
 const fallbackDiagnostic=new sandbox.native.LocalDocumentField().initialize('Missing species',fallbackModel)();assert.equal(fallbackDiagnostic,'Missing species');
-const evidence={evidence:'S controlled exact source scalar cleaning/local reference/embedded inheritance/movement methods; no native DataModel/Documents/engine or operator acceptance',nativeCommit,foundry:{generation:14,build:367,fieldsSha256:sha256(fieldsSource),numberSha256:sha256(numberSource)},referenceFallbackDiagnostic:{requested:'Missing species',returned:fallbackDiagnostic,substitutedItem:false},scalarInitialization:{numericZero:'0',null:'undefined',blank:''},observations,
+// C23 source label/reference cases, separate from movement/rule preparation.
+assert.match(files.get('module/data/actor/templates/details.mjs'),/race: new LocalDocumentField[\s\S]*?required: true, fallback: true/);
+assert.match(f('DocumentIdField','_defaults'),/blank: false,[\s\S]*?nullable: true/);
+const speciesFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/species-identity.json'),'utf8'));
+assert.equal(speciesFixture.nativeCommit,nativeCommit);
+const speciesObservations=[];
+for(const row of speciesFixture.cases.filter(row=>row.expected.status!=='unavailable')){
+ const {Item,LocalDocumentField}=sandbox.native,items=new Map();
+ for(const [id,name] of [['speciesFirst001',row.sameName?'Shared label':'First species'],['speciesSecond01',row.sameName?'Shared label':'Second species']]){const item=new Item(id,'race',{});item.name=name;items.set(id,item);}
+ const model={parent:{getEmbeddedCollection:()=>items}},field=new LocalDocumentField();
+ const cleaned=field.clean(row.omitRef?undefined:row.ref,scalarOptions),resolved=field.initialize(cleaned,model)();
+ const observed={id:row.id,cleaned,resolvedId:typeof resolved==='object'?resolved?._id??null:null,display:resolved==null?'Species not selected':String(resolved)};
+ assert.equal(observed.resolvedId,row.expected.id,row.id);assert.equal(observed.display,row.expected.display,row.id);
+ speciesObservations.push(observed);
+}
+const evidence={speciesObservations,evidence:'S controlled exact source scalar cleaning/local reference/embedded inheritance/movement methods; no native DataModel/Documents/engine or operator acceptance',nativeCommit,foundry:{generation:14,build:367,fieldsSha256:sha256(fieldsSource),numberSha256:sha256(numberSource)},referenceFallbackDiagnostic:{requested:'Missing species',returned:fallbackDiagnostic,substitutedItem:false},scalarInitialization:{numericZero:'0',null:'undefined',blank:''},observations,
     stubs:['Primitive field option-merging constructor; exact scalar clean/default/cast methods with migration/sanitization disabled; no full schema validation','Native Character embedded base no-op, exact-ID Map collection and lightweight Item class; no native Documents','Constant-only simplifyBonus Roll stub; unknown expressions fail; condition-free Set.reduce','Native species raw scalar/defaults explicitly initialized; no Item effects/final phases','Strength effect case starts after separately qualified initial numeric phase16; missing initialized strength produces a separately recorded incomplete-method diagnostic; jump remains unqualified','Independent movement/senses domains compared separately when the other is unavailable'],
     sourceHashes:Object.fromEntries(['module/data/shared/movement-field.mjs','module/data/shared/senses-field.mjs','module/data/fields/local-document-field.mjs','module/data/fields/mapping-field.mjs','module/data/actor/character.mjs','module/data/actor/templates/attributes.mjs','module/data/actor/templates/details.mjs','module/data/item/race.mjs','module/utils.mjs','module/config.mjs'].map(p=>[p,sha256(files.get(p))]))};
-const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: ${observations.filter(o=>o.movement).length} movement / ${observations.filter(o=>o.senses).length} senses initialized comparisons PASS\n`);
+const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: ${speciesObservations.length} source species identity and ${observations.filter(o=>o.movement).length} movement / ${observations.filter(o=>o.senses).length} senses initialized comparisons PASS\n`);

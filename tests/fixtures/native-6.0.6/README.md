@@ -268,3 +268,10 @@ precede the pinned getter. No source/prepared phase substitution, malformed
 coercion or native DataModel/creation hook acceptance. Extra fields outside the
 equippable schemas remain source poison; numeric initial changes retain C13–15
 qualification. Origin changes retire equal-total/revision roll intent.
+
+C23 `species-identity.json`:17 raw-source identity/presentation contracts;12 exact
+primitive-clean/local-lookup comparisons,5 unavailable boundaries. This does not
+initialize an Item DataModel or derive its rule data. Source fallback text never
+becomes an Item UUID; source identity can remain independently visible when rules
+are unavailable. The resolver is shared with movement/senses, whose unresolved
+reference and other rule gates remain intact. Explicit legacy is separate.

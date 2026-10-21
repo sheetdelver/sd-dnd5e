@@ -1,0 +1,583 @@
+{
+  "checkpoint": "C23",
+  "precedingImplementation": "6f95ea2",
+  "requirementsPartial": [
+    "M2",
+    "DD-02",
+    "DD-06",
+    "DD-15",
+    "DD-34",
+    "A02",
+    "A14"
+  ],
+  "R": {
+    "sourceCases": 17,
+    "failingBefore": {
+      "implementation": "6f95ea2",
+      "cases": [
+        "stored-second-id",
+        "stored-first-id",
+        "same-name-second-id",
+        "absent-null",
+        "absent-blank",
+        "absent-omitted",
+        "literal-not-name-substitute",
+        "literal-missing-id",
+        "literal-uuid",
+        "trim-reference",
+        "invalid-object",
+        "wrong-owned-type",
+        "duplicate-owned-id",
+        "foreign-item-uuid",
+        "malformed-owned-system",
+        "missing-name",
+        "independent-unqualified-class"
+      ],
+      "qualification": "New structured identity projection absent in every predecessor case; concrete wrong-label cases include selected second Item, absent selection and unresolved text; not17 distinct native-label arithmetic defects"
+    },
+    "passingAfter": true,
+    "sourcePreserved": true,
+    "preparedPoisonIgnored": true,
+    "legacyExplicitUnqualified": true,
+    "toolingAssertions": 60,
+    "toolingSuites": 8,
+    "moduleSuites": 25,
+    "explicitTypedFiles": 140
+  },
+  "S": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": {
+      "generation": 14,
+      "build": 367,
+      "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "numberSha256": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820"
+    },
+    "speciesObservations": [
+      {
+        "id": "stored-second-id",
+        "cleaned": "speciesSecond01",
+        "resolvedId": "speciesSecond01",
+        "display": "Second species"
+      },
+      {
+        "id": "stored-first-id",
+        "cleaned": "speciesFirst001",
+        "resolvedId": "speciesFirst001",
+        "display": "First species"
+      },
+      {
+        "id": "same-name-second-id",
+        "cleaned": "speciesSecond01",
+        "resolvedId": "speciesSecond01",
+        "display": "Shared label"
+      },
+      {
+        "id": "absent-null",
+        "cleaned": null,
+        "resolvedId": null,
+        "display": "Species not selected"
+      },
+      {
+        "id": "absent-blank",
+        "cleaned": null,
+        "resolvedId": null,
+        "display": "Species not selected"
+      },
+      {
+        "id": "absent-omitted",
+        "cleaned": null,
+        "resolvedId": null,
+        "display": "Species not selected"
+      },
+      {
+        "id": "literal-not-name-substitute",
+        "cleaned": "First species",
+        "resolvedId": null,
+        "display": "First species"
+      },
+      {
+        "id": "literal-missing-id",
+        "cleaned": "speciesMissing1",
+        "resolvedId": null,
+        "display": "speciesMissing1"
+      },
+      {
+        "id": "literal-uuid",
+        "cleaned": "Compendium.example.species.Item.speciesSecond01",
+        "resolvedId": null,
+        "display": "Compendium.example.species.Item.speciesSecond01"
+      },
+      {
+        "id": "trim-reference",
+        "cleaned": "speciesSecond01",
+        "resolvedId": "speciesSecond01",
+        "display": "Second species"
+      },
+      {
+        "id": "malformed-owned-system",
+        "cleaned": "speciesSecond01",
+        "resolvedId": "speciesSecond01",
+        "display": "Second species"
+      },
+      {
+        "id": "independent-unqualified-class",
+        "cleaned": "speciesSecond01",
+        "resolvedId": "speciesSecond01",
+        "display": "Second species"
+      }
+    ],
+    "preservedMovement": 31,
+    "preservedSenses": 34,
+    "unavailableCases": [
+      "invalid-object",
+      "wrong-owned-type",
+      "duplicate-owned-id",
+      "foreign-item-uuid",
+      "missing-name"
+    ],
+    "sourceHashes": {
+      "module/data/shared/movement-field.mjs": "7d44de85078342175ba22a50cae778541968c3db0ac983dac91138d07957a1b2",
+      "module/data/shared/senses-field.mjs": "16aa4b9878b456c5a8a93bffb4347834bf8bf97e462823d2846a8d9c24c80f31",
+      "module/data/fields/local-document-field.mjs": "8ee48700a28eda8ddba241e8a68da6c4d82ea54e070b1148605e37b8cd6c4f16",
+      "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/actor/templates/details.mjs": "249cec9385d4205d778f16c7a490cc0f65f2cd7481aad10ddda19a4243f758ff",
+      "module/data/item/race.mjs": "73f269bde89980ae136df13d06e3dbeff6e64b2a86a7fc5f6c477f00357b2ced",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134"
+    },
+    "stubs": [
+      "Primitive field option-merging constructor; exact scalar clean/default/cast methods with migration/sanitization disabled; no full schema validation",
+      "Native Character embedded base no-op, exact-ID Map collection and lightweight Item class; no native Documents",
+      "Constant-only simplifyBonus Roll stub; unknown expressions fail; condition-free Set.reduce",
+      "Native species raw scalar/defaults explicitly initialized; no Item effects/final phases",
+      "Strength effect case starts after separately qualified initial numeric phase16; missing initialized strength produces a separately recorded incomplete-method diagnostic; jump remains unqualified",
+      "Independent movement/senses domains compared separately when the other is unavailable",
+      "C23 LocalDocument primitive constructor explicitly sets inherited required/blank/nullable options; exact clean/cast/initialize methods, no Item Document or validation boot",
+      "Resolved source identities and labels only; no Item effects/grants/movement/class-rule preparation inferred"
+    ]
+  },
+  "U": {
+    "category": "Actual module desktop/mobile headers in controlled SDK presentation seam; card projection assertions separate from installed card rendering",
+    "artifacts": "/tmp/dnd5e-mounted-gMJUDF",
+    "evidenceSha256": "4ab66d1bb6a6cff1228b9315333e4578ae37938f99b42fd5f0b8bb77105be6bf",
+    "speciesRows": [
+      {
+        "width": 1440,
+        "id": "stored-second-id",
+        "status": "resolved-source",
+        "display": "Second species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "stored-first-id",
+        "status": "resolved-source",
+        "display": "First species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "same-name-second-id",
+        "status": "resolved-source",
+        "display": "Shared label",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "absent-null",
+        "status": "absent",
+        "display": "Species not selected",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "absent-blank",
+        "status": "absent",
+        "display": "Species not selected",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "absent-omitted",
+        "status": "absent",
+        "display": "Species not selected",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "literal-not-name-substitute",
+        "status": "source-text",
+        "display": "First species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "literal-missing-id",
+        "status": "source-text",
+        "display": "speciesMissing1",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "literal-uuid",
+        "status": "source-text",
+        "display": "Compendium.example.species.Item.speciesSecond01",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "trim-reference",
+        "status": "resolved-source",
+        "display": "Second species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "invalid-object",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "wrong-owned-type",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "duplicate-owned-id",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "foreign-item-uuid",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-owned-system",
+        "status": "resolved-source",
+        "display": "Second species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "missing-name",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "independent-unqualified-class",
+        "status": "resolved-source",
+        "display": "Second species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "stored-second-id",
+        "status": "resolved-source",
+        "display": "Second species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "stored-first-id",
+        "status": "resolved-source",
+        "display": "First species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "same-name-second-id",
+        "status": "resolved-source",
+        "display": "Shared label",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "absent-null",
+        "status": "absent",
+        "display": "Species not selected",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "absent-blank",
+        "status": "absent",
+        "display": "Species not selected",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "absent-omitted",
+        "status": "absent",
+        "display": "Species not selected",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "literal-not-name-substitute",
+        "status": "source-text",
+        "display": "First species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "literal-missing-id",
+        "status": "source-text",
+        "display": "speciesMissing1",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "literal-uuid",
+        "status": "source-text",
+        "display": "Compendium.example.species.Item.speciesSecond01",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "trim-reference",
+        "status": "resolved-source",
+        "display": "Second species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "invalid-object",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "wrong-owned-type",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "duplicate-owned-id",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "foreign-item-uuid",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-owned-system",
+        "status": "resolved-source",
+        "display": "Second species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "missing-name",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "independent-unqualified-class",
+        "status": "resolved-source",
+        "display": "Second species",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "header": true,
+        "cardProjection": true,
+        "recovery": true
+      }
+    ],
+    "priorSuitesRetained": true
+  },
+  "I": {
+    "category": "Synthetic public-host roll regression, not new species endpoint/installed/native acceptance",
+    "artifacts": "/tmp/dnd5e-public-rolls-2jsTmR",
+    "evidenceSha256": "e43fb9fce1e2a3498aa142c015d32aa95c157dba132323dd70396dfd36b53f26",
+    "accepted": 13634,
+    "normalRangeCases": 9009,
+    "normalRangeDistributions": 441,
+    "itemEffectCases": 1656,
+    "plainTieDiagnostics": 40,
+    "unaryRejected": 1,
+    "nativeWrites": 0,
+    "initialAttempt": "Synthetic world bootstrap timed out at45seconds before any rules request; cleanup ran. Unchanged bounded fixture retry passed; no Core defect inferred."
+  },
+  "sourceInventory": {
+    "records": 2242,
+    "expressions": 591
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-FRXVCO/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "37bbccc94b7e750ecdaa166f73375563318878777aa904b8dd17a36e3968eb5c",
+    "moduleCheck": true,
+    "managedTyping": true,
+    "bundles": true
+  },
+  "hashes": {
+    "src/logic/preparation/species-identity.ts": "4760a021518afe832be649f7718c7cfa54ce978f8f1359a9419ca30dd52bff3d",
+    "src/logic/preparation/movement.ts": "d10ae1f03950547690d424b005ae9604259b41ea2797d9539b12888151c52c7f",
+    "src/logic/adapter.ts": "6cbe2cf556ede2bb8e445344d3fa4a507a9dc184a51e05fc8a5b773696b401e5",
+    "src/ui/components/shared/SpeciesIdentity.tsx": "17319e23eac81e08f83682a860d662d9b0eb39d1648f53d5847ede5f2de6a2fc",
+    "src/ui/components/page/Header.tsx": "05d473b7524c0d031094f134ccdba57f087e828171b7950f50f3669f654a4c23",
+    "src/ui/components/page/MobileHeader.tsx": "bfde09fe0af25cccdab0181a88bf44cb3fc9dc8cc5bcd1ae9009511aa5c7d0b4",
+    "src/tests/species-identity.test.ts": "0759fbdb28dd223e0e9ebd4ac4c06e7b720a8fda4d85de5745d87ea9e1ba032e",
+    "src/tests/fixtures/species-scenarios.ts": "3d7bfc7a42dc5444eebc2679d230ce12cb8fd0920e7994b85fc2823cbe2bfba1",
+    "tests/fixtures/native-6.0.6/species-identity.json": "446f635c5cf06c28491496f1efed34d29b5aed6c3f177ed0e638f4738613a6a2",
+    "scripts/native-movement-oracle.mjs": "a2bda4f6a12664dfbdb723fbc34a7187407671a7e8f92becfb4b675753b69f7a",
+    "scripts/test-mounted.mjs": "4be1407468d87a32c27cdbf6be7f569b95d953326cb6d9930e90d84d4c066580"
+  },
+  "commands": [
+    "npm test -- --core <pristineCore0.19.3>",
+    "npm run typecheck -- --core <pristineCore0.19.3>",
+    "npm run test:native-source -- --core <pristineCore0.19.3> --native <release6.0.6>",
+    "npm run test:native-movement -- --core <pristineCore0.19.3> --native <release6.0.6> --foundry <static14.367> --write-evidence temp/c23-native-movement.json",
+    "npm run test:mounted -- --core <pristineCore0.19.3> --browser-tools /tmp/sd-dice-preview-tools --chromium <installedChromium143>",
+    "npm run test:public-rolls -- --core <pristineCore0.19.3>",
+    "npm run check:package -- --core <pristineCore0.19.3>"
+  ],
+  "limits": [
+    "Source identity, not prepared Item rule/grant/effect semantics;5 malformed/wrong-type/duplicate/foreign/name cases stay unavailable",
+    "Source fallback text has no canonical Item UUID and does not resolve by name; unresolved species-dependent movement remains unavailable",
+    "Context unavailable never selects legacy; explicit legacy first-Item source behavior remains separately unqualified",
+    "Prior movement incomplete-STR method diagnostic retained;12 identity comparisons are controlled methods, not native DataModel/operator acceptance",
+    "No installed UI/card endpoints/native/operator or full DD/A/M acceptance; E01/wider Q00/E05/ADR open",
+    "Experimental0.4.1/compatibility unchanged; task services cleaned; no live Foundry"
+  ]
+}
