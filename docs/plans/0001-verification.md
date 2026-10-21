@@ -1875,3 +1875,36 @@ compatibility unchanged. Other conditions/levels,flags/time/dependent guards,Ite
 final phases and broader expressions remain open; next qualify modern exhaustion's
 source/map/status/reduction/movement/config phases before bounded integration.
 E01/E02/wider Q00/E05/full DD/A/M and installed/native/operator acceptance stay open.
+
+
+### C38 — Modern exhaustion qualification (2026-10-21)
+
+Parent `11ba39c`; M0/M2 Q02a,DD-02/05/27/34,A02/A04 qualification only.
+`test:native-conditions` uses released0.19.3 Core fixture and exact87e94db/static14.367
+references;32 exhaustion profiles/192 skill/tool builds,81 source-mode vectors/324
+builds,576 initialized movement,288 initiative and4 nonpersisted-map comparisons PASS.
+All prior Poisoned3/93/372/324/50/14/9/4 captures remain PASS. No runtime gate removed.
+Map selection uses actual DataModel._initialize/MappingField/ObjectField methods;
+constructors/order/getDefiningClass helpers restricted. Source guard callbacks,model/
+clock/custom-rule absence,CI executor and roll-build callbacks remain declared stubs.
+Movement literals,bonuses and multipliers are initialized intermediates,not source/
+effect/formula qualification. Missing/null exhaustion→1,high→6,dead at6,last-active
+map assignment,false guard map-without-status,CI timing and mixed Poisoned compare
+independent expectations. Fixed score lives in options.fixed,not necessarily data.mod.
+Prototype expectation/helper setup corrections precede the maintained capture; no
+module/Core defect claim was inferred from them.
+
+Commands `npm test`,`typecheck`,`test:native-source`,`check:package` with
+`-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` PASS:60 assertions,8tooling/36module;
+176 explicit module/UI/server/test/hook files;2242records/591expressions;isolated
+public-boundary/module checking,managed typing and logic/UI/server bundles. Archive
+`/tmp/dnd5e-package-7g266S/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`5b646a0aebd207741302b2445eecb513782b17de70e68908a035cc57419a5ee6`.
+[Portable record](../audits/evidence/2026-10-21-c38-exhaustion-foundation.json) embeds
+new inputs/observations,source/script/artifact hashes,stubs and limits. C37 mounted
+and public-host evidence is retained separately,not newly rerun/enlarged by this
+qualification-only slice. Harness starts no service; prior task fixtures stopped.
+No native DataModel/runtime/installed/operator acceptance or complete DD/A/M gate
+closure. Next bounded shared exhaustion integration requires maintained before/after,
+actual desktop/mobile consumers and public-host execution. E01/E02/widerQ00/E05/full
+ADR stay open;experimental0.4.1/compatibility unchanged.

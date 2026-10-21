@@ -3,6 +3,7 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+- Qualified modern exhaustion status/level, reduction, movement and roll configuration phases.
 - Applied bounded poisoned condition modes/passives with shared desktop/mobile status readouts.
 - Added controlled condition source/status/mode preparation comparisons.
 - Shared class-derived level/proficiency facts with initial rule predicates.

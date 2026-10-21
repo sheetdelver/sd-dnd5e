@@ -974,3 +974,17 @@ editing or other-condition/level/flag/clock/Item/final/formula qualification fol
 and [portable evidence](evidence/2026-10-21-c37-poisoned-condition.json) distinguish
 regression,controlled native-method,mounted UI,isolated public-host and packaging
 evidence. Full rules/ADR gates and E01/E02/wider Q00/E05 remain open.
+
+
+### C38 disposition — exhaustion source/map/status qualification
+
+C37 is `11ba39c`. Controlled-source M0/M2 Q02a,DD-02/05/27/34,A02/A04
+advances through32 phase profiles/192 builds,81 source-mode vectors/324 builds,576
+movement,288 initiative and4 nonpersisted-map initialization captures. Raw persisted
+source and prepared levels/statuses/reductions are distinct,including false guards,
+CI timing,last-active duplicate order and mixed Poisoned. No production availability
+change; numeric movement inputs/model/guard/CI/roll-builder stubs remain explicit.
+[C38 ledger](../plans/0001-verification.md#c38--modern-exhaustion-qualification-2026-10-21)
+and [portable record](evidence/2026-10-21-c38-exhaustion-foundation.json) retain the
+independent inputs/source identities. Bounded runtime integration follows; no full
+DataModel/native/operator acceptance or complete gate closure.

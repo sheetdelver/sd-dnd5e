@@ -859,3 +859,30 @@ custom-rule absence and roll-build callbacks remain stubs; the CI executor is sy
 No native dice engine,full DataModel/native boot or installed/operator acceptance.
 The public-host harness independently evaluates compiled formulas with real Core0.19.3
 primitives and preserves actual serialized results. See the [C37 record](../audits/evidence/2026-10-21-c37-poisoned-condition.json).
+
+
+### Modern exhaustion and the nonpersisted condition map (C38)
+
+CommonTemplate.conditions is a persisted:false MappingField(NumberField integer/min1).
+Actual Foundry14.367 DataModel._initialize selects its initial empty value even with
+raw exhaustion/poisoned99. The probe uses actual ObjectField/MappingField initialization
+with restricted constructor/order/getDefiningClass helpers; no full model/source boot.
+ConditionData.prepareDerivedData clamps missing/null level to1 and high values to6,
+adds dead at6,and writes the map when active BEFORE initial condition evaluation.
+The cached guard starts null: later false guard may leave a level entry but no Actor
+status or reduction. Duplicate documents write last active level,not sum/max.
+
+Actor.conditionRollReductions requires effective status minus CI and a prepared level;
+modern config uses2 roll/5ft speed reduction per level. Common abilities/Creature
+skill/tool/passive and actual roll builders agree,including negative totals,mixed
+Poisoned and81 source-mode vectors with different primary skill/tool scopes.
+Attributes.prepareMovement converts reduction before bonus/multiplier and cannot
+revive zero speed with a positive bonus. Jump overwrite follows max/slowed. Modern
+conditionEffects.noMovement excludes dead; no added inference is justified. Initiative
+score/roll/fixed configuration are distinct. 32 profiles/192 builds,324 additional
+mode builds,576 initialized movement,288 initiative and4 map-default captures pass.
+
+See [C38 record](../audits/evidence/2026-10-21-c38-exhaustion-foundation.json) for exact
+source hashes,independent inputs and declared primitive/model/clock/guard/custom-rule/
+CI/roll-build stubs. These are controlled method comparisons,no native dice engine,
+full DataModel/runtime,installed/operator acceptance or source-expression expansion.

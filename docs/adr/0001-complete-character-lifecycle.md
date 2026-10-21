@@ -1491,3 +1491,34 @@ and [ledger](../plans/0001-verification.md#c37--bounded-poisoned-condition-2026-
 separate maintained regression,controlled native methods,mounted UI,isolated public
 host and package checks. No installed/native/operator acceptance or complete DD/A/M
 gate closes. E01/E02/wider Q00/E05/full ADR remain open;experimental0.4.1 unchanged.
+
+
+### C38 — Modern exhaustion phase qualification (2026-10-21)
+
+C37 is `11ba39c`. M0/M2 Q02a,DD-02/05/27/34,A02/A04 qualification only.
+The maintained condition harness adds32 exhaustion profiles/192 builds,81 source-mode
+vectors/324 builds,576 movement,288 initiative and4 nonpersisted-map initialization
+captures against exact87e94db/static14.367. C37's Poisoned comparisons remain intact.
+
+CommonTemplate.conditions is persisted:false. Actual DataModel._initialize chooses
+its initial empty MappingField value over raw99 fields. ConditionData prepares levels
+1–6 (missing/null→1,high→6),adds dead at6 and writes the condition map before initial
+guard evaluation. A false guard can leave a map entry without an effective status
+or roll reduction. Last active duplicate wins the map; levels neither add nor take
+a maximum. Effective exhaustion status and prepared level are both required for the
+modern -2/level roll reduction and5ft/level speed reduction. CI timing retains the
+precollection boundary. Mixed Poisoned,source/manual/selected scopes and initiative
+remain distinct. Fixed initiative stores its score in options.fixed,not data.mod.
+
+Movement comparisons use initialized numeric intermediates (ft/m,bonus,multiplier),
+not a new source/effect/expression qualification. The native modern noMovement set
+does not include dead; do not infer an extra rule. Model constructors/initialization
+order/getDefiningClass,guard/clock/custom-rule/CI executor and roll-build stubs remain
+explicit. This checkpoint removes no runtime gate and makes no native/operator
+acceptance claim. [C38 record](../audits/evidence/2026-10-21-c38-exhaustion-foundation.json)
+and [ledger](../plans/0001-verification.md#c38--modern-exhaustion-qualification-2026-10-21)
+preserve inputs,observations,hashes and limits. Next implement the bounded Actor
+exhaustion path through shared preparation/readouts/compiler with unchanged-source
+regressions,mounted consumers and real public-host execution. Other conditions,
+flags/time/dependent guards,Item/final phases and broader formulas stay open.
+E01/E02/wider Q00/E05/full ADR remain open;experimental0.4.1 unchanged.

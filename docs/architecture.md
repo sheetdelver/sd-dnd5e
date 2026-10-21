@@ -833,3 +833,19 @@ the projection. Source/context changes retire held roll intents and require a fr
 action after recovery. No condition writes,second cache,dice evaluator or native
 preparation runtime. Other conditions/levels,dependent filters,Item/final phases and
 broader formulas remain dependency-ordered M2 work; C37 is not complete condition support.
+
+
+### Exhaustion integration boundary (C38)
+
+Exhaustion remains unavailable pending runtime integration. Pinned comparisons
+separate nonpersisted condition-map initialization,ConditionData derived level/status
+updates,initial guard/status collection,final CI and lazy roll reductions. The map
+is initially empty even when raw source contains99; a false initial guard may leave
+a previously prepared map entry without effective status/reduction. Last active
+duplicate writes its level in source order. Do not collapse these phases to a sum,
+maximum,final Document.active or a guessed status from type/name. Modern reduction
+is -2 per effective exhaustion level for D20 tests/passives and5ft per level for
+speeds,converted before numeric bonus/multiplier; levels cap6 and add dead. Movement
+intermediates/effects/source fields remain separately qualified. The eventual shared
+path must feed ability/save/skill/tool/initiative/movement and both condition readouts
+without writing source or treating raw prepared-looking maps as authoritative.
