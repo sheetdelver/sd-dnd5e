@@ -1,0 +1,5784 @@
+{
+  "checkpoint": "C34",
+  "date": "2026-10-21",
+  "parent": "b2aed3c",
+  "requirements": "M2/Q02a,DD-02/05/27/34,A02/A04/A21 partially",
+  "fixture": {
+    "contracts": 83,
+    "supported": 58,
+    "unqualified": 25,
+    "cases": [
+      {
+        "id": "dr.value-has",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ]
+      },
+      {
+        "id": "dr.value-missing-member",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ]
+      },
+      {
+        "id": "di.value-has",
+        "path": "di.value",
+        "raw": [
+          "cold"
+        ],
+        "conditions": "{\"k\":\"traits.di.value\",\"o\":\"has\",\"v\":\"cold\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "cold"
+        ]
+      },
+      {
+        "id": "di.value-missing-member",
+        "path": "di.value",
+        "raw": [
+          "cold"
+        ],
+        "conditions": "{\"k\":\"traits.di.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "cold"
+        ]
+      },
+      {
+        "id": "dv.value-has",
+        "path": "dv.value",
+        "raw": [
+          "poison"
+        ],
+        "conditions": "{\"k\":\"traits.dv.value\",\"o\":\"has\",\"v\":\"poison\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "poison"
+        ],
+        "expectedFinalSet": [
+          "poison"
+        ]
+      },
+      {
+        "id": "dv.value-missing-member",
+        "path": "dv.value",
+        "raw": [
+          "poison"
+        ],
+        "conditions": "{\"k\":\"traits.dv.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "poison"
+        ],
+        "expectedFinalSet": [
+          "poison"
+        ]
+      },
+      {
+        "id": "ci.value-has",
+        "path": "ci.value",
+        "raw": [
+          "poisoned"
+        ],
+        "conditions": "{\"k\":\"traits.ci.value\",\"o\":\"has\",\"v\":\"poisoned\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "poisoned"
+        ],
+        "expectedFinalSet": [
+          "poisoned"
+        ]
+      },
+      {
+        "id": "ci.value-missing-member",
+        "path": "ci.value",
+        "raw": [
+          "poisoned"
+        ],
+        "conditions": "{\"k\":\"traits.ci.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "poisoned"
+        ],
+        "expectedFinalSet": [
+          "poisoned"
+        ]
+      },
+      {
+        "id": "dr.bypasses-has",
+        "path": "dr.bypasses",
+        "raw": [
+          "mgc"
+        ],
+        "conditions": "{\"k\":\"traits.dr.bypasses\",\"o\":\"has\",\"v\":\"mgc\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "mgc"
+        ],
+        "expectedFinalSet": [
+          "mgc"
+        ]
+      },
+      {
+        "id": "dr.bypasses-missing-member",
+        "path": "dr.bypasses",
+        "raw": [
+          "mgc"
+        ],
+        "conditions": "{\"k\":\"traits.dr.bypasses\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "mgc"
+        ],
+        "expectedFinalSet": [
+          "mgc"
+        ]
+      },
+      {
+        "id": "di.bypasses-has",
+        "path": "di.bypasses",
+        "raw": [
+          "sil"
+        ],
+        "conditions": "{\"k\":\"traits.di.bypasses\",\"o\":\"has\",\"v\":\"sil\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "sil"
+        ],
+        "expectedFinalSet": [
+          "sil"
+        ]
+      },
+      {
+        "id": "di.bypasses-missing-member",
+        "path": "di.bypasses",
+        "raw": [
+          "sil"
+        ],
+        "conditions": "{\"k\":\"traits.di.bypasses\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "sil"
+        ],
+        "expectedFinalSet": [
+          "sil"
+        ]
+      },
+      {
+        "id": "dv.bypasses-has",
+        "path": "dv.bypasses",
+        "raw": [
+          "ada"
+        ],
+        "conditions": "{\"k\":\"traits.dv.bypasses\",\"o\":\"has\",\"v\":\"ada\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "ada"
+        ],
+        "expectedFinalSet": [
+          "ada"
+        ]
+      },
+      {
+        "id": "dv.bypasses-missing-member",
+        "path": "dv.bypasses",
+        "raw": [
+          "ada"
+        ],
+        "conditions": "{\"k\":\"traits.dv.bypasses\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "ada"
+        ],
+        "expectedFinalSet": [
+          "ada"
+        ]
+      },
+      {
+        "id": "dm.bypasses-has",
+        "path": "dm.bypasses",
+        "raw": [
+          "mgc"
+        ],
+        "conditions": "{\"k\":\"traits.dm.bypasses\",\"o\":\"has\",\"v\":\"mgc\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "mgc"
+        ],
+        "expectedFinalSet": [
+          "mgc"
+        ]
+      },
+      {
+        "id": "dm.bypasses-missing-member",
+        "path": "dm.bypasses",
+        "raw": [
+          "mgc"
+        ],
+        "conditions": "{\"k\":\"traits.dm.bypasses\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "mgc"
+        ],
+        "expectedFinalSet": [
+          "mgc"
+        ]
+      },
+      {
+        "id": "armorProf.value-has",
+        "path": "armorProf.value",
+        "raw": [
+          "lgt"
+        ],
+        "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"lgt\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "lgt"
+        ],
+        "expectedFinalSet": [
+          "lgt"
+        ]
+      },
+      {
+        "id": "armorProf.value-missing-member",
+        "path": "armorProf.value",
+        "raw": [
+          "lgt"
+        ],
+        "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "lgt"
+        ],
+        "expectedFinalSet": [
+          "lgt"
+        ]
+      },
+      {
+        "id": "weaponProf.value-has",
+        "path": "weaponProf.value",
+        "raw": [
+          "sim"
+        ],
+        "conditions": "{\"k\":\"traits.weaponProf.value\",\"o\":\"has\",\"v\":\"sim\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "sim"
+        ],
+        "expectedFinalSet": [
+          "sim"
+        ]
+      },
+      {
+        "id": "weaponProf.value-missing-member",
+        "path": "weaponProf.value",
+        "raw": [
+          "sim"
+        ],
+        "conditions": "{\"k\":\"traits.weaponProf.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "sim"
+        ],
+        "expectedFinalSet": [
+          "sim"
+        ]
+      },
+      {
+        "id": "languages.value-has",
+        "path": "languages.value",
+        "raw": [
+          "common"
+        ],
+        "conditions": "{\"k\":\"traits.languages.value\",\"o\":\"has\",\"v\":\"common\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "common"
+        ],
+        "expectedFinalSet": [
+          "common"
+        ]
+      },
+      {
+        "id": "languages.value-missing-member",
+        "path": "languages.value",
+        "raw": [
+          "common"
+        ],
+        "conditions": "{\"k\":\"traits.languages.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "common"
+        ],
+        "expectedFinalSet": [
+          "common"
+        ]
+      },
+      {
+        "id": "weaponProf.mastery.value-has",
+        "path": "weaponProf.mastery.value",
+        "raw": [
+          "dagger"
+        ],
+        "conditions": "{\"k\":\"traits.weaponProf.mastery.value\",\"o\":\"has\",\"v\":\"dagger\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "dagger"
+        ],
+        "expectedFinalSet": [
+          "dagger"
+        ]
+      },
+      {
+        "id": "weaponProf.mastery.value-missing-member",
+        "path": "weaponProf.mastery.value",
+        "raw": [
+          "dagger"
+        ],
+        "conditions": "{\"k\":\"traits.weaponProf.mastery.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "dagger"
+        ],
+        "expectedFinalSet": [
+          "dagger"
+        ]
+      },
+      {
+        "id": "weaponProf.mastery.bonus-has",
+        "path": "weaponProf.mastery.bonus",
+        "raw": [
+          "vex"
+        ],
+        "conditions": "{\"k\":\"traits.weaponProf.mastery.bonus\",\"o\":\"has\",\"v\":\"vex\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "vex"
+        ],
+        "expectedFinalSet": [
+          "vex"
+        ]
+      },
+      {
+        "id": "weaponProf.mastery.bonus-missing-member",
+        "path": "weaponProf.mastery.bonus",
+        "raw": [
+          "vex"
+        ],
+        "conditions": "{\"k\":\"traits.weaponProf.mastery.bonus\",\"o\":\"has\",\"v\":\"unrelated\"}",
+        "scope": "change",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "vex"
+        ],
+        "expectedFinalSet": [
+          "vex"
+        ]
+      },
+      {
+        "id": "membership-26",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-27",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\" FIRE \"}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-28",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"cold\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-29",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":[\"other\",\"cold\"]}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-30",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":[\"other\"]}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-31",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":[]}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-32",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[\"cold\",\"fire\"]}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-33",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[\"fire\",\"other\"]}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-34",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[]}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-35",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"subsetof\",\"v\":[\"cold\",\"fire\",\"other\"]}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-36",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"subsetof\",\"v\":[\"fire\"]}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-37",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":true}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "membership-38",
+        "path": "dr.value",
+        "raw": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":false}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire",
+          "cold"
+        ],
+        "expectedFinalSet": [
+          "fire",
+          "cold"
+        ]
+      },
+      {
+        "id": "empty-39",
+        "path": "dr.value",
+        "raw": [],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "empty-40",
+        "path": "dr.value",
+        "raw": [],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":[\"fire\"]}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "empty-41",
+        "path": "dr.value",
+        "raw": [],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[\"fire\"]}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "empty-42",
+        "path": "dr.value",
+        "raw": [],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[]}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "empty-43",
+        "path": "dr.value",
+        "raw": [],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"subsetof\",\"v\":[]}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "empty-44",
+        "path": "dr.value",
+        "raw": [],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":true}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "empty-45",
+        "path": "dr.value",
+        "raw": [],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":false}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "missing-value-schema-default",
+        "path": "dr.value",
+        "raw": "[absent]",
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":true}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "null-value-schema-default",
+        "path": "languages.value",
+        "raw": null,
+        "conditions": "{\"k\":\"traits.languages.value\",\"o\":\"empty\",\"v\":true}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "unknown-literal-is-not-content-inference",
+        "path": "armorProf.value",
+        "raw": [
+          "unknown-exact-id"
+        ],
+        "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"unknown-exact-id\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "unknown-exact-id"
+        ],
+        "expectedFinalSet": [
+          "unknown-exact-id"
+        ]
+      },
+      {
+        "id": "prototype-literal-is-just-a-Set-member",
+        "path": "weaponProf.value",
+        "raw": [
+          "constructor"
+        ],
+        "conditions": "{\"k\":\"traits.weaponProf.value\",\"o\":\"has\",\"v\":\"constructor\"}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "constructor"
+        ],
+        "expectedFinalSet": [
+          "constructor"
+        ]
+      },
+      {
+        "id": "ALL-does-not-expand-before-initial",
+        "path": "dr.value",
+        "raw": [
+          "ALL"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "ALL"
+        ],
+        "expectedFinalSet": [
+          "ALL"
+        ]
+      },
+      {
+        "id": "resistance-before-immunity-normalization",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "extraTraits": {
+          "di": {
+            "value": [
+              "fire"
+            ]
+          }
+        },
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ]
+      },
+      {
+        "id": "earlier-add-is-not-an-initial-predicate-input",
+        "path": "armorProf.value",
+        "raw": [
+          "lgt"
+        ],
+        "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"med\"}",
+        "priorSet": {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "med",
+          "priority": 10
+        },
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "lgt"
+        ],
+        "expectedFinalSet": [
+          "lgt",
+          "med"
+        ]
+      },
+      {
+        "id": "earlier-subtract-is-not-an-initial-predicate-input",
+        "path": "armorProf.value",
+        "raw": [
+          "lgt"
+        ],
+        "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"lgt\"}",
+        "scope": "change",
+        "priorSet": {
+          "key": "system.traits.armorProf.value",
+          "type": "subtract",
+          "value": "lgt",
+          "priority": 10
+        },
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "lgt"
+        ],
+        "expectedFinalSet": []
+      },
+      {
+        "id": "missing-container",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "missingContainer": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "missing-traits-parent",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "missingTraits": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "null-container",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "nullContainer": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "malformed-source-57",
+        "path": "dr.value",
+        "raw": 42,
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "malformed-source-58",
+        "path": "dr.value",
+        "raw": "fire",
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "malformed-source-59",
+        "path": "dr.value",
+        "raw": [
+          1
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "malformed-source-60",
+        "path": "dr.value",
+        "raw": [
+          "fire",
+          null
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "malformed-source-61",
+        "path": "dr.value",
+        "raw": {
+          "fire": true
+        },
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-62",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":{\"k\":\"x\",\"v\":\"fire\"}}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-63",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":42}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-64",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":\"fire\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-65",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[1]}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-66",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"subsetof\",\"v\":{\"fire\":true}}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-67",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":\"true\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-68",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"exact\",\"v\":[\"fire\"]}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-69",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"contains\",\"v\":\"fire\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unsupported-predicate-70",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"gt\",\"v\":0}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unknown-snapshot-path",
+        "path": "ci.bypasses",
+        "raw": [
+          "mgc"
+        ],
+        "conditions": "{\"k\":\"traits.ci.bypasses\",\"o\":\"has\",\"v\":\"mgc\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "final-only-effect",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "final": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "source-Item-replacement",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "itemEffect": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "active-status",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "statuses": [
+          "poisoned"
+        ],
+        "workflowUnavailable": true
+      },
+      {
+        "id": "actor-flag",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "actorFlag": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "oversized-source-Set",
+        "path": "dr.value",
+        "raw": [
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire",
+          "fire"
+        ],
+        "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "mixed-AND-numeric",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"o\":\"AND\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"},{\"k\":\"abilities.wis.value\",\"o\":\"exact\",\"v\":14}]}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ]
+      },
+      {
+        "id": "mixed-OR-numeric",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"o\":\"OR\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"other\"},{\"k\":\"abilities.wis.value\",\"o\":\"gt\",\"v\":13}]}",
+        "truth": true,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ]
+      },
+      {
+        "id": "collection-NOT",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"o\":\"NOT\",\"v\":{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ]
+      },
+      {
+        "id": "collection-XOR",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"o\":\"XOR\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"},{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}]}",
+        "truth": false,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ]
+      },
+      {
+        "id": "unknown-branch-behind-true",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"o\":\"OR\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"},{\"k\":\"traits.unknown.value\",\"o\":\"has\",\"v\":\"fire\"}]}",
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ],
+        "workflowUnavailable": true
+      },
+      {
+        "id": "unqualified-branch-behind-false",
+        "path": "dr.value",
+        "raw": [
+          "fire"
+        ],
+        "conditions": "{\"o\":\"AND\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"other\"},{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":{\"k\":\"x\",\"v\":\"fire\"}}]}",
+        "expectedInitial": [
+          "fire"
+        ],
+        "expectedFinalSet": [
+          "fire"
+        ],
+        "workflowUnavailable": true
+      }
+    ]
+  },
+  "before": {
+    "commit": "b2aed3c3cfb7054c266c58222fd7047e0fa22a1e",
+    "root": "/tmp/dnd5e-c34-before-cb0lkra6",
+    "exitCode": 1,
+    "failedIds": [
+      "dr.value-has",
+      "dr.value-missing-member",
+      "di.value-has",
+      "di.value-missing-member",
+      "dv.value-has",
+      "dv.value-missing-member",
+      "ci.value-has",
+      "ci.value-missing-member",
+      "dr.bypasses-has",
+      "dr.bypasses-missing-member",
+      "di.bypasses-has",
+      "di.bypasses-missing-member",
+      "dv.bypasses-has",
+      "dv.bypasses-missing-member",
+      "dm.bypasses-has",
+      "dm.bypasses-missing-member",
+      "armorProf.value-has",
+      "armorProf.value-missing-member",
+      "weaponProf.value-has",
+      "weaponProf.value-missing-member",
+      "languages.value-has",
+      "languages.value-missing-member",
+      "weaponProf.mastery.value-has",
+      "weaponProf.mastery.value-missing-member",
+      "weaponProf.mastery.bonus-has",
+      "weaponProf.mastery.bonus-missing-member",
+      "membership-26",
+      "membership-27",
+      "membership-28",
+      "membership-29",
+      "membership-30",
+      "membership-31",
+      "membership-32",
+      "membership-33",
+      "membership-34",
+      "membership-35",
+      "membership-36",
+      "membership-37",
+      "membership-38",
+      "empty-39",
+      "empty-40",
+      "empty-41",
+      "empty-42",
+      "empty-43",
+      "empty-44",
+      "empty-45",
+      "missing-value-schema-default",
+      "null-value-schema-default",
+      "unknown-literal-is-not-content-inference",
+      "prototype-literal-is-just-a-Set-member",
+      "ALL-does-not-expand-before-initial",
+      "resistance-before-immunity-normalization",
+      "earlier-add-is-not-an-initial-predicate-input",
+      "earlier-subtract-is-not-an-initial-predicate-input",
+      "mixed-AND-numeric",
+      "mixed-OR-numeric",
+      "collection-NOT",
+      "collection-XOR"
+    ],
+    "artifactSha256": "ecd0fe1d6ad62aad8b7833c3673fc0b19f8e8ee77e8624f91413111bb73c6746",
+    "sameInputCasesSha256": "55a803d3b83971047d0e8184ebb803742499cf3731118e267a62fc57f528de3a",
+    "result": "58 independently expected cases fail on archived C33;25 boundaries retained. Only new maintained inputs/helpers/tests copied into archive; baseline runtime source unchanged."
+  },
+  "regression": {
+    "command": "npm test -- --core <released0.19.3>",
+    "result": "60 assertions/8 tooling/34 module suites PASS;58 pass after,source preservation/poison/definition+same-result-source retirement/context recovery and prior corrections retained"
+  },
+  "controlledSource": {
+    "command": "npm run test:native-initial-filters -- --core <released0.19.3> --native <release6.0.6> --foundry <static14.367>",
+    "result": "88 independent captures:30 retainedscalar+58collection; exact primitive schema cleaning/initialization, native collection/filter/apply methods",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "artifactSha256": "6398fe08597684c277877c40f6d2d7cbc1b28ac41bc9eb3c543d05c9851eca46",
+    "collectionObservations": [
+      {
+        "id": "dr.value-has",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          "fire"
+        ],
+        "initialMembers": [
+          "fire"
+        ],
+        "finalMembers": [
+          "fire"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dr.value-missing-member",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          "fire"
+        ],
+        "initialMembers": [
+          "fire"
+        ],
+        "finalMembers": [
+          "fire"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "di.value-has",
+        "collection": true,
+        "path": "di.value",
+        "rawValue": [
+          "cold"
+        ],
+        "initialMembers": [
+          "cold"
+        ],
+        "finalMembers": [
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.di.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "cold"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "di.value-missing-member",
+        "collection": true,
+        "path": "di.value",
+        "rawValue": [
+          "cold"
+        ],
+        "initialMembers": [
+          "cold"
+        ],
+        "finalMembers": [
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.di.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "cold"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dv.value-has",
+        "collection": true,
+        "path": "dv.value",
+        "rawValue": [
+          "poison"
+        ],
+        "initialMembers": [
+          "poison"
+        ],
+        "finalMembers": [
+          "poison"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dv.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "poison"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dv.value-missing-member",
+        "collection": true,
+        "path": "dv.value",
+        "rawValue": [
+          "poison"
+        ],
+        "initialMembers": [
+          "poison"
+        ],
+        "finalMembers": [
+          "poison"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dv.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "poison"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "ci.value-has",
+        "collection": true,
+        "path": "ci.value",
+        "rawValue": [
+          "poisoned"
+        ],
+        "initialMembers": [
+          "poisoned"
+        ],
+        "finalMembers": [
+          "poisoned"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.ci.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "poisoned"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "ci.value-missing-member",
+        "collection": true,
+        "path": "ci.value",
+        "rawValue": [
+          "poisoned"
+        ],
+        "initialMembers": [
+          "poisoned"
+        ],
+        "finalMembers": [
+          "poisoned"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.ci.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "poisoned"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dr.bypasses-has",
+        "collection": true,
+        "path": "dr.bypasses",
+        "rawValue": [
+          "mgc"
+        ],
+        "initialMembers": [
+          "mgc"
+        ],
+        "finalMembers": [
+          "mgc"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.bypasses",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "mgc"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dr.bypasses-missing-member",
+        "collection": true,
+        "path": "dr.bypasses",
+        "rawValue": [
+          "mgc"
+        ],
+        "initialMembers": [
+          "mgc"
+        ],
+        "finalMembers": [
+          "mgc"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.bypasses",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "mgc"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "di.bypasses-has",
+        "collection": true,
+        "path": "di.bypasses",
+        "rawValue": [
+          "sil"
+        ],
+        "initialMembers": [
+          "sil"
+        ],
+        "finalMembers": [
+          "sil"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.di.bypasses",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "sil"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "di.bypasses-missing-member",
+        "collection": true,
+        "path": "di.bypasses",
+        "rawValue": [
+          "sil"
+        ],
+        "initialMembers": [
+          "sil"
+        ],
+        "finalMembers": [
+          "sil"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.di.bypasses",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "sil"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dv.bypasses-has",
+        "collection": true,
+        "path": "dv.bypasses",
+        "rawValue": [
+          "ada"
+        ],
+        "initialMembers": [
+          "ada"
+        ],
+        "finalMembers": [
+          "ada"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dv.bypasses",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "ada"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dv.bypasses-missing-member",
+        "collection": true,
+        "path": "dv.bypasses",
+        "rawValue": [
+          "ada"
+        ],
+        "initialMembers": [
+          "ada"
+        ],
+        "finalMembers": [
+          "ada"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dv.bypasses",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "ada"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dm.bypasses-has",
+        "collection": true,
+        "path": "dm.bypasses",
+        "rawValue": [
+          "mgc"
+        ],
+        "initialMembers": [
+          "mgc"
+        ],
+        "finalMembers": [
+          "mgc"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dm.bypasses",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "mgc"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "dm.bypasses-missing-member",
+        "collection": true,
+        "path": "dm.bypasses",
+        "rawValue": [
+          "mgc"
+        ],
+        "initialMembers": [
+          "mgc"
+        ],
+        "finalMembers": [
+          "mgc"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dm.bypasses",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "mgc"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "armorProf.value-has",
+        "collection": true,
+        "path": "armorProf.value",
+        "rawValue": [
+          "lgt"
+        ],
+        "initialMembers": [
+          "lgt"
+        ],
+        "finalMembers": [
+          "lgt"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.armorProf.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "lgt"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "armorProf.value-missing-member",
+        "collection": true,
+        "path": "armorProf.value",
+        "rawValue": [
+          "lgt"
+        ],
+        "initialMembers": [
+          "lgt"
+        ],
+        "finalMembers": [
+          "lgt"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.armorProf.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "lgt"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "weaponProf.value-has",
+        "collection": true,
+        "path": "weaponProf.value",
+        "rawValue": [
+          "sim"
+        ],
+        "initialMembers": [
+          "sim"
+        ],
+        "finalMembers": [
+          "sim"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.weaponProf.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "sim"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "weaponProf.value-missing-member",
+        "collection": true,
+        "path": "weaponProf.value",
+        "rawValue": [
+          "sim"
+        ],
+        "initialMembers": [
+          "sim"
+        ],
+        "finalMembers": [
+          "sim"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.weaponProf.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "sim"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "languages.value-has",
+        "collection": true,
+        "path": "languages.value",
+        "rawValue": [
+          "common"
+        ],
+        "initialMembers": [
+          "common"
+        ],
+        "finalMembers": [
+          "common"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.languages.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "common"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "languages.value-missing-member",
+        "collection": true,
+        "path": "languages.value",
+        "rawValue": [
+          "common"
+        ],
+        "initialMembers": [
+          "common"
+        ],
+        "finalMembers": [
+          "common"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.languages.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "common"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "weaponProf.mastery.value-has",
+        "collection": true,
+        "path": "weaponProf.mastery.value",
+        "rawValue": [
+          "dagger"
+        ],
+        "initialMembers": [
+          "dagger"
+        ],
+        "finalMembers": [
+          "dagger"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.weaponProf.mastery.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "dagger"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "weaponProf.mastery.value-missing-member",
+        "collection": true,
+        "path": "weaponProf.mastery.value",
+        "rawValue": [
+          "dagger"
+        ],
+        "initialMembers": [
+          "dagger"
+        ],
+        "finalMembers": [
+          "dagger"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.weaponProf.mastery.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "dagger"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "weaponProf.mastery.bonus-has",
+        "collection": true,
+        "path": "weaponProf.mastery.bonus",
+        "rawValue": [
+          "vex"
+        ],
+        "initialMembers": [
+          "vex"
+        ],
+        "finalMembers": [
+          "vex"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.weaponProf.mastery.bonus",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "vex"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "weaponProf.mastery.bonus-missing-member",
+        "collection": true,
+        "path": "weaponProf.mastery.bonus",
+        "rawValue": [
+          "vex"
+        ],
+        "initialMembers": [
+          "vex"
+        ],
+        "finalMembers": [
+          "vex"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.weaponProf.mastery.bonus",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "vex"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-26",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-27",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-28",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-29",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-30",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-31",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-32",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-33",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-34",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-35",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-36",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-37",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "membership-38",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          " fire ",
+          "cold",
+          "fire"
+        ],
+        "initialMembers": [
+          "fire",
+          "cold"
+        ],
+        "finalMembers": [
+          "fire",
+          "cold"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire",
+                "cold"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "empty-39",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [],
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "empty-40",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [],
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "empty-41",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [],
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "empty-42",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [],
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "empty-43",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [],
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "empty-44",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [],
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "empty-45",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [],
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "missing-value-schema-default",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": "[absent]",
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "null-value-schema-default",
+        "collection": true,
+        "path": "languages.value",
+        "rawValue": null,
+        "initialMembers": [],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.languages.value",
+            "value": {
+              "kind": "Set",
+              "members": []
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "unknown-literal-is-not-content-inference",
+        "collection": true,
+        "path": "armorProf.value",
+        "rawValue": [
+          "unknown-exact-id"
+        ],
+        "initialMembers": [
+          "unknown-exact-id"
+        ],
+        "finalMembers": [
+          "unknown-exact-id"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.armorProf.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "unknown-exact-id"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prototype-literal-is-just-a-Set-member",
+        "collection": true,
+        "path": "weaponProf.value",
+        "rawValue": [
+          "constructor"
+        ],
+        "initialMembers": [
+          "constructor"
+        ],
+        "finalMembers": [
+          "constructor"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.weaponProf.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "constructor"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "ALL-does-not-expand-before-initial",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          "ALL"
+        ],
+        "initialMembers": [
+          "ALL"
+        ],
+        "finalMembers": [
+          "ALL"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "ALL"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "resistance-before-immunity-normalization",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          "fire"
+        ],
+        "initialMembers": [
+          "fire"
+        ],
+        "finalMembers": [
+          "fire"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "earlier-add-is-not-an-initial-predicate-input",
+        "collection": true,
+        "path": "armorProf.value",
+        "rawValue": [
+          "lgt"
+        ],
+        "initialMembers": [
+          "lgt"
+        ],
+        "finalMembers": [
+          "lgt",
+          "med"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.armorProf.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "lgt"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "traits.armorProf.value",
+            "before": {
+              "kind": "Set",
+              "members": [
+                "lgt"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "earlier-subtract-is-not-an-initial-predicate-input",
+        "collection": true,
+        "path": "armorProf.value",
+        "rawValue": [
+          "lgt"
+        ],
+        "initialMembers": [
+          "lgt"
+        ],
+        "finalMembers": [],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.armorProf.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "lgt"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "traits.armorProf.value",
+            "before": {
+              "kind": "Set",
+              "members": [
+                "lgt"
+              ]
+            }
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "mixed-AND-numeric",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          "fire"
+        ],
+        "initialMembers": [
+          "fire"
+        ],
+        "finalMembers": [
+          "fire"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire"
+              ]
+            }
+          },
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "mixed-OR-numeric",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          "fire"
+        ],
+        "initialMembers": [
+          "fire"
+        ],
+        "finalMembers": [
+          "fire"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire"
+              ]
+            }
+          },
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "collection-NOT",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          "fire"
+        ],
+        "initialMembers": [
+          "fire"
+        ],
+        "finalMembers": [
+          "fire"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "collection-XOR",
+        "collection": true,
+        "path": "dr.value",
+        "rawValue": [
+          "fire"
+        ],
+        "initialMembers": [
+          "fire"
+        ],
+        "finalMembers": [
+          "fire"
+        ],
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire"
+              ]
+            }
+          },
+          {
+            "event": "read",
+            "path": "traits.dr.value",
+            "value": {
+              "kind": "Set",
+              "members": [
+                "fire"
+              ]
+            }
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      }
+    ],
+    "nativeSourceHashes": {
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/abstract/actor-data-model.mjs": "0905d4b45c1e30d21ca7890fa6c133db9d68d4c479253662f83901f2593c8f8a",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/filter.mjs": "f80fcb3066fe319389225c6101e31ae8738a14f7f1baab56fde9c2e60b051cbf",
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360"
+    },
+    "foundrySourceHashes": {
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/utils/helpers.mjs": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+      "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+    },
+    "stubs": [
+      "Primitive NumberField/StringField/ArrayField/SetField initialization/defaults and typed apply/clean methods; validation wrapper, no full DataModel source boot",
+      "Collection profile requires explicit trait parent containers; omitted/null values initialize empty Set, trimmed/de-duplicated members precede native has/hasany/hasall/subsetof/empty predicates; no nested predicate/coercion/final/Item snapshot qualification",
+      "Character base/embedded/prepareRace and Creature getRollData static source proof do not overwrite queried traits; later prepareResistImmune/label normalization not run before initial checks",
+      "Only explicit 0..30 score/save coefficient and schema-initialized nonpersisted roll proficiency queried; stale raw mod/global99 omitted by schema provenance, not prepared overrides",
+      "Exact Character base/embedded methods and Actor getRollData/initial collection methods; unrelated HitDice/AC/encumbrance/movement/senses constructor helpers and XP mapping are stubs, no claimed qualification of those domains here",
+      "Exact Common legacy bonus shims do not overwrite queried scalar fields; Creature classes/subclasses overlay is excluded after static source proof it does not overwrite abilities/rolls; those namespaces remain unavailable",
+      "Source Items preserve IDs but active effect/scale collections are empty initialized fixtures; no source Item replacement/permission/content behavior qualified",
+      "Exact effect suppression/cache, superclass phase gate, Filter checks and numeric field application; clone/overrides wrappers are explicitly limited and not native serialization acceptance",
+      "Expected post-effect scores and totals are independently declared; numeric derived arithmetic composes prior C13/C26 qualification, no native dice engine or installed/operator acceptance"
+    ],
+    "retainedComparisons": [
+      "44 invariant native guards/zero reads and cache/change probes PASS",
+      "24 defense source/default (15complete),24 initial training Sets,33 source training/language,33 ordered trait-effect cases and registries PASS"
+    ]
+  },
+  "mounted": {
+    "command": "npm run test:mounted -- --core <released0.19.3> --browser-tools <testonly> --chromium <143>",
+    "artifacts": "/tmp/dnd5e-mounted-tzxkPl",
+    "artifactSha256": "97ebf687019dbd3bdc35f17d05c7b60fd0716697e59847c03379cd892d5dc673",
+    "newCollectionNumericRows": [
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dr.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dr.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:di.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:di.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dv.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dv.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:ci.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:ci.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dr.bypasses-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dr.bypasses-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:di.bypasses-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:di.bypasses-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dv.bypasses-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dv.bypasses-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dm.bypasses-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:dm.bypasses-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:armorProf.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:armorProf.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:weaponProf.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:weaponProf.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:languages.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:languages.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:weaponProf.mastery.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:weaponProf.mastery.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:weaponProf.mastery.bonus-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:weaponProf.mastery.bonus-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-26",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-27",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-28",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-29",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-30",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-31",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-32",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-33",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-34",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-35",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-36",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-37",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:membership-38",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:empty-39",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:empty-40",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:empty-41",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:empty-42",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:empty-43",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:empty-44",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:empty-45",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:missing-value-schema-default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:null-value-schema-default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unknown-literal-is-not-content-inference",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:prototype-literal-is-just-a-Set-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:ALL-does-not-expand-before-initial",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:resistance-before-immunity-normalization",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:earlier-add-is-not-an-initial-predicate-input",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:earlier-subtract-is-not-an-initial-predicate-input",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:missing-container",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:missing-traits-parent",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:null-container",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:malformed-source-57",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:malformed-source-58",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:malformed-source-59",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:malformed-source-60",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:malformed-source-61",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-62",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-63",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-64",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-65",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-66",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-67",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-68",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-69",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unsupported-predicate-70",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unknown-snapshot-path",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:final-only-effect",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:source-Item-replacement",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:active-status",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:actor-flag",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:oversized-source-Set",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:mixed-AND-numeric",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:mixed-OR-numeric",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:collection-NOT",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:collection-XOR",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unknown-branch-behind-true",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:unqualified-branch-behind-false",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:collection:equal-initial-set-source-retirement",
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dr.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dr.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:di.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:di.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dv.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dv.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:ci.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:ci.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dr.bypasses-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dr.bypasses-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:di.bypasses-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:di.bypasses-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dv.bypasses-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dv.bypasses-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dm.bypasses-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:dm.bypasses-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:armorProf.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:armorProf.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:weaponProf.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:weaponProf.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:languages.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:languages.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:weaponProf.mastery.value-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:weaponProf.mastery.value-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:weaponProf.mastery.bonus-has",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:weaponProf.mastery.bonus-missing-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-26",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-27",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-28",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-29",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-30",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-31",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-32",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-33",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-34",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-35",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-36",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-37",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:membership-38",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:empty-39",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:empty-40",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:empty-41",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:empty-42",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:empty-43",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:empty-44",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:empty-45",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:missing-value-schema-default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:null-value-schema-default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unknown-literal-is-not-content-inference",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:prototype-literal-is-just-a-Set-member",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:ALL-does-not-expand-before-initial",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:resistance-before-immunity-normalization",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:earlier-add-is-not-an-initial-predicate-input",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:earlier-subtract-is-not-an-initial-predicate-input",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:missing-container",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:missing-traits-parent",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:null-container",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:malformed-source-57",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:malformed-source-58",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:malformed-source-59",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:malformed-source-60",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:malformed-source-61",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-62",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-63",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-64",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-65",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-66",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-67",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-68",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-69",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unsupported-predicate-70",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unknown-snapshot-path",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:final-only-effect",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:source-Item-replacement",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:active-status",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:actor-flag",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:oversized-source-Set",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:mixed-AND-numeric",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:mixed-OR-numeric",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:collection-NOT",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:collection-XOR",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unknown-branch-behind-true",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:unqualified-branch-behind-false",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:collection:equal-initial-set-source-retirement",
+        "retainedCallbackFenced": true
+      }
+    ],
+    "newCollectionTrainingRows": 166,
+    "numericRows": 806,
+    "trainingRows": 538,
+    "result": "Full maintained mounted suite1440/390 PASS with actual consumers/preview/execution/recovery; SDK seam,not installed host UI"
+  },
+  "publicHost": {
+    "artifacts": "/tmp/dnd5e-public-rolls-r2mG6x",
+    "artifactSha256": "040f412fc64576a3c0dd939b44e473e4e729e2cefbb330da4da5f6cb0873b19e",
+    "accepted": 18210,
+    "newCollectionChecks": 1392,
+    "newCollectionNormalBounds": 58,
+    "equalIndexDiagnostics": 40,
+    "nativeWrites": 0,
+    "result": "18210 accepted requests; exact ordered faces/entropy/retained value/count/states/totals/distributions and unequal identities. Actual serialization unchanged;40 plain tied-index diagnostics,1 unary candidate rejection,normal-only bounds unchanged"
+  },
+  "typing": {
+    "result": "169 explicit module/UI/server/test/hook files PASS"
+  },
+  "sourceInventory": {
+    "result": "2242 records/591 expressions at exact87e94db PASS"
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-Qb1eR8/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "76190671dddc53b0cc202b8084438468c6268d735b8b17892ba59e2b6ffbae3d",
+    "result": "isolated module checks/public boundary/managed typing/bundles PASS"
+  },
+  "fileHashes": {
+    "src/logic/preparation/constant-filters.ts": "2e421ccf559d41fbfb83578ef5cdfed125d693d4c420e600e5265c1f662a1932",
+    "src/logic/preparation/initial-filter-data.ts": "d7c5f55f85cfa490e77f376a6a765852fd0599dc54a62ed987d0a41778718c2e",
+    "src/logic/preparation/effects.ts": "2110c645f5c1b207d9c845d4a3c8157a9a05fd799ef2ecba44d88d2134d64dad",
+    "src/tests/initial-collection-filters.test.ts": "14d76c8ced8dea1a720f779902f439179a907d956b6dcac3ed4fa0c7cd09b061",
+    "src/tests/fixtures/initial-collection-filter-scenarios.ts": "19812387e976371967e34f7a4f0580497084b4e2267413298e01eb466e20cadc",
+    "tests/fixtures/native-6.0.6/initial-collection-filters.json": "15ad90e24dc94c8474483641a1a85ba3351d2cd9a7f344b06d879de4b9d18bd8",
+    "scripts/native-initial-filter-oracle.mjs": "326de6c9a62d1c2b8a5b81eb423fea122f89d90120a95cba74b01c1adcc32d7e",
+    "scripts/test-mounted.mjs": "31881f689867569a6eabb061156f10359f3810a31fbdc6a166e8e806dbeb7b0a",
+    "scripts/test-public-rolls.mjs": "4600753162602c48150a611b3ab698976de2f084a9dc0fb52ac5757506e69168"
+  },
+  "limits": [
+    "Closed thirteen initial String/Set paths under explicit trait parent containers; omitted/null values default[],trim/de-duplicate before membership; source unchanged",
+    "Primitive has/hasany/hasall/subsetof/empty only; nested predicates,string iterable coercion,Set exact comparison,unknown paths,malformed/oversized values,parent initialization remain unqualified",
+    "Unknown literal membership is source identity comparison,not content resolution/training grant; labels/effectValue poison remains nonauthoritative",
+    "Initial reads precede earlier sorted changes and later ALL/immunity normalization; no source Item/final/status/flag snapshot qualification",
+    "Numeric scalar grammar retained in same parser; all branches must qualify. No dice evaluator/Core extension/runtime browser dependency",
+    "No full DataModel/native engine/installed/native/operator acceptance; isolated synthetic public roll composition only",
+    "E01/E02/widerQ00/E05/fullM2/M3+ and ADR0001 remain open;experimental0.4.1/compatibility unchanged",
+    "Task-owned services stopped;Core/sibling/native checkouts unchanged"
+  ]
+}

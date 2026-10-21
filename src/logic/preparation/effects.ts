@@ -1,5 +1,5 @@
 import { record } from '../native/6.0.6/source';
-import {constantFilter606,numericInitialFilter606,type ConstantFilter,type ConstantFilterResult} from './constant-filters';
+import {constantFilter606,initialFieldFilter606,type ConstantFilter,type ConstantFilterResult} from './constant-filters';
 import {initialFilterData606} from './initial-filter-data';
 import {itemEffectState606,type ItemEffectState} from './item-effect-state';
 export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState;condition?:ConstantFilter;key?:string}
@@ -71,7 +71,7 @@ export function planEffects606(actor:unknown):EffectPlan {
             const qualify=(raw:unknown,initial:boolean):ConstantFilterResult=>{
                 const invariant=constantFilter606(raw);if(invariant.status==='ready')return invariant;
                 if(item||activeStatus||!initial)return {status:'unavailable',reason:'Dependent filter initial Actor snapshot/first-evaluation phase requires qualification'};
-                return numericInitialFilter606(raw,initialRead);
+                return initialFieldFilter606(raw,initialRead);
             };
             const condition=qualify(system.conditions,firstInitial);
             if(condition.status==='unavailable'){

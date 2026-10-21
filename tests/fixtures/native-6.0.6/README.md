@@ -351,3 +351,13 @@ C29 examples gain `initialTruth` source-workflow expectations; the constant-only
 helper/oracle remains strict and unknown-field OR branches stay unavailable.
 Primitive/model-shell/domain stubs are declared; not full DataModel/source lifecycle
 or native/operator acceptance.
+
+
+C34 `initial-collection-filters.json`:83 independently declared contracts,58 supported
+initial String/Set workflows and25 explicit boundaries. All58 fail on archived C33
+with unchanged inputs and pass after shared preparation. Exact primitive cleaning/
+initialization,filter and native initial collection/apply methods compare88 captures
+(30scalar/58collection). Explicit parents,default/trim/dedup/source preservation,
+unknown literals,empty/any/all/subset/mixed trees and earlier-change/later-normalization
+phase separation are recorded. Unknown/malformed/nested/final/Item/status/flag cases
+remain unavailable. Serialized Set provenance is not a full native prepared snapshot.

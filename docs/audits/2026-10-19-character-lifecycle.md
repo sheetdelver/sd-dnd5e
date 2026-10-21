@@ -915,3 +915,18 @@ and [portable record](evidence/2026-10-21-c33-command-journal.json). Development
 regressions caught and corrected context changes during async validation and
 prior-process review reuse. All earlier roll/preparation coverage remains. No full
 gate closes; E01/E02/wider Q00/E05/installed/native/operator acceptance stay open.
+
+
+### C34 disposition — initial collection filter profile
+
+C33 is `b2aed3c`. DD-02/05/27/34,A02/A04/A21 remain partial while58 new
+initial Set workflows become qualified through shared preparation.83 contracts
+preserve25 unavailable boundaries. Exact schema/filter/collection/apply methods
+establish initial members and reads before earlier sorted writes or later defense
+normalization; raw source/defaults/prepared members and provenance remain distinct.
+Both layouts consume the same outcomes for controls,previews,training/cards and
+execution; equal-initial-Set raw edits retire retained callbacks. No content grants,
+name inference,new evaluator or Core requirement. See [C34 ledger](../plans/0001-verification.md#c34--initial-collection-filters-2026-10-21)
+and [portable record](evidence/2026-10-21-c34-initial-collection-filters.json).
+Native source-method comparisons are not native/operator acceptance; full lifecycle,
+E01/E02/wider Q00/E05 and ADR closeout remain open.

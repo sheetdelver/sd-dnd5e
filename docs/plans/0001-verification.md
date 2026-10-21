@@ -1718,3 +1718,43 @@ stopped; Core/sibling/native references untouched. No generic/domain write route
 cross-native atomicity, automatic recovery or full DD/A/M completion. E01/E02/wider
 Q00/E05 and native/operator acceptance remain open. Continue independent M2/Q02a
 collection/condition/final/Item preparation and qualified domain commands afterward.
+
+
+### C34 — Initial collection filters (2026-10-21)
+
+Parent `b2aed3c`; M2/Q02a,DD-02/05/27/34,A02/A04/A21 partially.83 declared
+contracts:58 supported initial String/Set workflows fail on an archived unchanged
+C33 runtime and pass after;25 boundaries stay unavailable. Inputs/helpers/maintained
+regression are copied into the isolated baseline,not runtime code. Source,poisoned
+prepared fields,default/member provenance,same-result source/definition retirement,
+context loss/recovery and earlier DD-R coverage are retained. No competing oracle
+uses module output. Primitive field cleaning and native filter/collection/apply
+methods produce88 captures (30scalar/58collection),all reads before writes; earlier
+priority10 Set changes and later ALL/immunity normalization do not change input.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (released0.19.3,
+90c13e5). `npm test`:60 assertions,8 tooling/34 module suites PASS. `typecheck`:
+169 explicit module/UI/server/test/hook files PASS. `test:native-source`:2242 records/
+591 expressions at87e94db PASS. `test:native-initial-filters` with exact `--native`
+and static `--foundry` references:88 captures PASS. Retained `test:native-filters`:
+44 guards/zero reads plus cache/change probes PASS. `test:native-traits`:24 defense
+(15complete),24 initial training Sets,33 source training/language and33 ordered
+trait-effect comparisons/registries PASS. Primitive/model/validation/domain stubs
+and excluded phases are explicit; no full native DataModel or engine acceptance.
+
+Full `test:mounted` at1440/390 passes actual desktop/mobile consumers,preview/button/
+shortcut execution,context recovery and retained callbacks,including same-initial-Set
+raw edits. Artifacts `/tmp/dnd5e-mounted-tzxkPl`; SDK seam,not installed Core UI.
+`test:public-rolls`:18210 accepted,including1392 new collection check/mode/bonus and58
+normal-bound requests;40 plain tied-index diagnostics,1 unary candidate rejection,
+0 native writes. Strict observed faces/entropy/value/count/states/totals/distributions
+and unequal retained indices remain; actual serialization unchanged. Artifacts
+`/tmp/dnd5e-public-rolls-r2mG6x`. `check:package`:isolated module/public-boundary checks,
+managed typing,bundles PASS; `/tmp/dnd5e-package-Qb1eR8/data/dist/modules/dnd5e-0.4.1.tgz`,
+SHA256 `76190671dddc53b0cc202b8084438468c6268d735b8b17892ba59e2b6ffbae3d`.
+[Portable record](../audits/evidence/2026-10-21-c34-initial-collection-filters.json)
+contains baseline failing IDs,case/phase traces,script/source/artifact identities and
+limits. Task services stopped; production listeners untouched. No complete DD/A/M
+gate closes. E01/E02/wider Q00/E05 and installed/native/operator/full acceptance stay
+open. Continue qualified initial fields,conditions/final/Item and broader formula
+work from ADR; source-derived commands retain E02's explicit concurrency boundary.

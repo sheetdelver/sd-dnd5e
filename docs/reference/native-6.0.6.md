@@ -783,3 +783,22 @@ qualify native create IDs, flag correlation or concurrency. Its domain-driver
 interface requires server-derived rules/fingerprints and exact confirmation; those
 are not supplied by a generic JSON plan. Pinned rules fixtures and native/operator
 command acceptance remain separate from synthetic public-host infrastructure tests.
+
+
+### Initial collection predicates (C34)
+
+Pinned SimpleTraitField.value and damage-trait bypasses use StringField/SetField;
+CharacterData adds armor/weapon training and mastery Sets. Character base/embedded/
+prepareRace and Creature getRollData do not overwrite these queried paths. Exact
+DataField/ArrayField/StringField cleaning and SetField initialization establish
+trimmed,de-duplicated initial members,including missing/null defaults under explicit
+parents. Native Filter.has uses in_(literal,Set);hasany/all use Array.from(values),
+subsetof checks every member with in_,and empty uses isEmpty/strict boolean comparison.
+C34 qualifies primitive string/array/boolean literals only,without general coercions
+or nested filter evaluation. Unknown source literals remain literal identities.
+
+88 controlled captures retain30 scalar and add58 collection cases. Actual initial
+Actor collection checks precede all writes,including priority10 training Set changes;
+ALL/immunity normalization is later and cannot replace initial input. Source defaults,
+initialized Sets and final fields are separately recorded. Model/validation/domain
+stubs remain explicit; this is not full DataModel/native engine/operator acceptance.

@@ -749,3 +749,24 @@ aggregate records have8MiB/131072-node/depth24 limits. Future domain handlers mu
 qualify their acknowledgement shape and bounds before writes. Module-process
 serialization is not native/cross-process atomicity; C32/E02's external-edit gap and
 native ID/freshness/confirmation gates remain open.
+
+
+### Qualified initial collection reads (C34)
+
+The existing initial-field filter grammar now accepts primitive Set membership,
+any/all/subset and empty checks for thirteen closed trait paths. Explicit parent
+containers are required. `initializeTraitSet606` supplies the same proven StringField
+trim/Set deduplication used by detached trait preparation; missing/null values are
+verified empty defaults. Typed read provenance stores raw source and initialized
+members separately. Unknown literal members are exact source comparisons,not content
+lookup,training grants or prepared labels/effectValue overrides.
+
+The grammar shares scalar/boolean logic and validates every branch. Initial inputs
+are collected before any ordered initial effect application,including earlier Set
+adds/subtracts,and before later ALL/immunity normalization. Schema members never
+borrow current derived traits. Source/definition edits enter intent identity even
+when initialized members and totals stay equal. Source Item/final/status/flag data,
+nested object predicates,iterable coercion,Set equality,unknown paths,missing/malformed
+parents and oversized/malformed members remain gated. No second interpreter/cache
+or browser dependency. Native primitive/model-shell and unrelated-domain stubs are
+explicit in the controlled evidence; full preparation parity is still open.

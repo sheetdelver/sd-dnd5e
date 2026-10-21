@@ -1,0 +1,1710 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Independent declared expectations: explicit primitive StringField/SetField initialization in existing trait containers, Actor-owned pre-initial replacementData, all predicates before any changes; not derived trait normalization or full DataModel boot",
+  "paths": [
+    "dr.value",
+    "di.value",
+    "dv.value",
+    "ci.value",
+    "dr.bypasses",
+    "di.bypasses",
+    "dv.bypasses",
+    "dm.bypasses",
+    "armorProf.value",
+    "weaponProf.value",
+    "languages.value",
+    "weaponProf.mastery.value",
+    "weaponProf.mastery.bonus"
+  ],
+  "cases": [
+    {
+      "id": "dr.value-has",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ]
+    },
+    {
+      "id": "dr.value-missing-member",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ]
+    },
+    {
+      "id": "di.value-has",
+      "path": "di.value",
+      "raw": [
+        "cold"
+      ],
+      "conditions": "{\"k\":\"traits.di.value\",\"o\":\"has\",\"v\":\"cold\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "cold"
+      ]
+    },
+    {
+      "id": "di.value-missing-member",
+      "path": "di.value",
+      "raw": [
+        "cold"
+      ],
+      "conditions": "{\"k\":\"traits.di.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "cold"
+      ]
+    },
+    {
+      "id": "dv.value-has",
+      "path": "dv.value",
+      "raw": [
+        "poison"
+      ],
+      "conditions": "{\"k\":\"traits.dv.value\",\"o\":\"has\",\"v\":\"poison\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "poison"
+      ],
+      "expectedFinalSet": [
+        "poison"
+      ]
+    },
+    {
+      "id": "dv.value-missing-member",
+      "path": "dv.value",
+      "raw": [
+        "poison"
+      ],
+      "conditions": "{\"k\":\"traits.dv.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "poison"
+      ],
+      "expectedFinalSet": [
+        "poison"
+      ]
+    },
+    {
+      "id": "ci.value-has",
+      "path": "ci.value",
+      "raw": [
+        "poisoned"
+      ],
+      "conditions": "{\"k\":\"traits.ci.value\",\"o\":\"has\",\"v\":\"poisoned\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "poisoned"
+      ],
+      "expectedFinalSet": [
+        "poisoned"
+      ]
+    },
+    {
+      "id": "ci.value-missing-member",
+      "path": "ci.value",
+      "raw": [
+        "poisoned"
+      ],
+      "conditions": "{\"k\":\"traits.ci.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "poisoned"
+      ],
+      "expectedFinalSet": [
+        "poisoned"
+      ]
+    },
+    {
+      "id": "dr.bypasses-has",
+      "path": "dr.bypasses",
+      "raw": [
+        "mgc"
+      ],
+      "conditions": "{\"k\":\"traits.dr.bypasses\",\"o\":\"has\",\"v\":\"mgc\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "mgc"
+      ],
+      "expectedFinalSet": [
+        "mgc"
+      ]
+    },
+    {
+      "id": "dr.bypasses-missing-member",
+      "path": "dr.bypasses",
+      "raw": [
+        "mgc"
+      ],
+      "conditions": "{\"k\":\"traits.dr.bypasses\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "mgc"
+      ],
+      "expectedFinalSet": [
+        "mgc"
+      ]
+    },
+    {
+      "id": "di.bypasses-has",
+      "path": "di.bypasses",
+      "raw": [
+        "sil"
+      ],
+      "conditions": "{\"k\":\"traits.di.bypasses\",\"o\":\"has\",\"v\":\"sil\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "sil"
+      ],
+      "expectedFinalSet": [
+        "sil"
+      ]
+    },
+    {
+      "id": "di.bypasses-missing-member",
+      "path": "di.bypasses",
+      "raw": [
+        "sil"
+      ],
+      "conditions": "{\"k\":\"traits.di.bypasses\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "sil"
+      ],
+      "expectedFinalSet": [
+        "sil"
+      ]
+    },
+    {
+      "id": "dv.bypasses-has",
+      "path": "dv.bypasses",
+      "raw": [
+        "ada"
+      ],
+      "conditions": "{\"k\":\"traits.dv.bypasses\",\"o\":\"has\",\"v\":\"ada\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "ada"
+      ],
+      "expectedFinalSet": [
+        "ada"
+      ]
+    },
+    {
+      "id": "dv.bypasses-missing-member",
+      "path": "dv.bypasses",
+      "raw": [
+        "ada"
+      ],
+      "conditions": "{\"k\":\"traits.dv.bypasses\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "ada"
+      ],
+      "expectedFinalSet": [
+        "ada"
+      ]
+    },
+    {
+      "id": "dm.bypasses-has",
+      "path": "dm.bypasses",
+      "raw": [
+        "mgc"
+      ],
+      "conditions": "{\"k\":\"traits.dm.bypasses\",\"o\":\"has\",\"v\":\"mgc\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "mgc"
+      ],
+      "expectedFinalSet": [
+        "mgc"
+      ]
+    },
+    {
+      "id": "dm.bypasses-missing-member",
+      "path": "dm.bypasses",
+      "raw": [
+        "mgc"
+      ],
+      "conditions": "{\"k\":\"traits.dm.bypasses\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "mgc"
+      ],
+      "expectedFinalSet": [
+        "mgc"
+      ]
+    },
+    {
+      "id": "armorProf.value-has",
+      "path": "armorProf.value",
+      "raw": [
+        "lgt"
+      ],
+      "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"lgt\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "lgt"
+      ],
+      "expectedFinalSet": [
+        "lgt"
+      ]
+    },
+    {
+      "id": "armorProf.value-missing-member",
+      "path": "armorProf.value",
+      "raw": [
+        "lgt"
+      ],
+      "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "lgt"
+      ],
+      "expectedFinalSet": [
+        "lgt"
+      ]
+    },
+    {
+      "id": "weaponProf.value-has",
+      "path": "weaponProf.value",
+      "raw": [
+        "sim"
+      ],
+      "conditions": "{\"k\":\"traits.weaponProf.value\",\"o\":\"has\",\"v\":\"sim\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "sim"
+      ],
+      "expectedFinalSet": [
+        "sim"
+      ]
+    },
+    {
+      "id": "weaponProf.value-missing-member",
+      "path": "weaponProf.value",
+      "raw": [
+        "sim"
+      ],
+      "conditions": "{\"k\":\"traits.weaponProf.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "sim"
+      ],
+      "expectedFinalSet": [
+        "sim"
+      ]
+    },
+    {
+      "id": "languages.value-has",
+      "path": "languages.value",
+      "raw": [
+        "common"
+      ],
+      "conditions": "{\"k\":\"traits.languages.value\",\"o\":\"has\",\"v\":\"common\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "common"
+      ],
+      "expectedFinalSet": [
+        "common"
+      ]
+    },
+    {
+      "id": "languages.value-missing-member",
+      "path": "languages.value",
+      "raw": [
+        "common"
+      ],
+      "conditions": "{\"k\":\"traits.languages.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "common"
+      ],
+      "expectedFinalSet": [
+        "common"
+      ]
+    },
+    {
+      "id": "weaponProf.mastery.value-has",
+      "path": "weaponProf.mastery.value",
+      "raw": [
+        "dagger"
+      ],
+      "conditions": "{\"k\":\"traits.weaponProf.mastery.value\",\"o\":\"has\",\"v\":\"dagger\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "dagger"
+      ],
+      "expectedFinalSet": [
+        "dagger"
+      ]
+    },
+    {
+      "id": "weaponProf.mastery.value-missing-member",
+      "path": "weaponProf.mastery.value",
+      "raw": [
+        "dagger"
+      ],
+      "conditions": "{\"k\":\"traits.weaponProf.mastery.value\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "dagger"
+      ],
+      "expectedFinalSet": [
+        "dagger"
+      ]
+    },
+    {
+      "id": "weaponProf.mastery.bonus-has",
+      "path": "weaponProf.mastery.bonus",
+      "raw": [
+        "vex"
+      ],
+      "conditions": "{\"k\":\"traits.weaponProf.mastery.bonus\",\"o\":\"has\",\"v\":\"vex\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "vex"
+      ],
+      "expectedFinalSet": [
+        "vex"
+      ]
+    },
+    {
+      "id": "weaponProf.mastery.bonus-missing-member",
+      "path": "weaponProf.mastery.bonus",
+      "raw": [
+        "vex"
+      ],
+      "conditions": "{\"k\":\"traits.weaponProf.mastery.bonus\",\"o\":\"has\",\"v\":\"unrelated\"}",
+      "scope": "change",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "vex"
+      ],
+      "expectedFinalSet": [
+        "vex"
+      ]
+    },
+    {
+      "id": "membership-26",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-27",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\" FIRE \"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-28",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"cold\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-29",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":[\"other\",\"cold\"]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-30",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":[\"other\"]}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-31",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":[]}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-32",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[\"cold\",\"fire\"]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-33",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[\"fire\",\"other\"]}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-34",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-35",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"subsetof\",\"v\":[\"cold\",\"fire\",\"other\"]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-36",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"subsetof\",\"v\":[\"fire\"]}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-37",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":true}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "membership-38",
+      "path": "dr.value",
+      "raw": [
+        " fire ",
+        "cold",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":false}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire",
+        "cold"
+      ],
+      "expectedFinalSet": [
+        "fire",
+        "cold"
+      ]
+    },
+    {
+      "id": "empty-39",
+      "path": "dr.value",
+      "raw": [],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "empty-40",
+      "path": "dr.value",
+      "raw": [],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":[\"fire\"]}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "empty-41",
+      "path": "dr.value",
+      "raw": [],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[\"fire\"]}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "empty-42",
+      "path": "dr.value",
+      "raw": [],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "empty-43",
+      "path": "dr.value",
+      "raw": [],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"subsetof\",\"v\":[]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "empty-44",
+      "path": "dr.value",
+      "raw": [],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":true}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "empty-45",
+      "path": "dr.value",
+      "raw": [],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":false}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "missing-value-schema-default",
+      "path": "dr.value",
+      "raw": "[absent]",
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":true}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "null-value-schema-default",
+      "path": "languages.value",
+      "raw": null,
+      "conditions": "{\"k\":\"traits.languages.value\",\"o\":\"empty\",\"v\":true}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "unknown-literal-is-not-content-inference",
+      "path": "armorProf.value",
+      "raw": [
+        "unknown-exact-id"
+      ],
+      "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"unknown-exact-id\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "unknown-exact-id"
+      ],
+      "expectedFinalSet": [
+        "unknown-exact-id"
+      ]
+    },
+    {
+      "id": "prototype-literal-is-just-a-Set-member",
+      "path": "weaponProf.value",
+      "raw": [
+        "constructor"
+      ],
+      "conditions": "{\"k\":\"traits.weaponProf.value\",\"o\":\"has\",\"v\":\"constructor\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "constructor"
+      ],
+      "expectedFinalSet": [
+        "constructor"
+      ]
+    },
+    {
+      "id": "ALL-does-not-expand-before-initial",
+      "path": "dr.value",
+      "raw": [
+        "ALL"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "ALL"
+      ],
+      "expectedFinalSet": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "resistance-before-immunity-normalization",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "extraTraits": {
+        "di": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ]
+    },
+    {
+      "id": "earlier-add-is-not-an-initial-predicate-input",
+      "path": "armorProf.value",
+      "raw": [
+        "lgt"
+      ],
+      "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"med\"}",
+      "priorSet": {
+        "key": "system.traits.armorProf.value",
+        "type": "add",
+        "value": "med",
+        "priority": 10
+      },
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "lgt"
+      ],
+      "expectedFinalSet": [
+        "lgt",
+        "med"
+      ]
+    },
+    {
+      "id": "earlier-subtract-is-not-an-initial-predicate-input",
+      "path": "armorProf.value",
+      "raw": [
+        "lgt"
+      ],
+      "conditions": "{\"k\":\"traits.armorProf.value\",\"o\":\"has\",\"v\":\"lgt\"}",
+      "scope": "change",
+      "priorSet": {
+        "key": "system.traits.armorProf.value",
+        "type": "subtract",
+        "value": "lgt",
+        "priority": 10
+      },
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "lgt"
+      ],
+      "expectedFinalSet": []
+    },
+    {
+      "id": "missing-container",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "missingContainer": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "missing-traits-parent",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "missingTraits": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "null-container",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "nullContainer": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "malformed-source-57",
+      "path": "dr.value",
+      "raw": 42,
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "malformed-source-58",
+      "path": "dr.value",
+      "raw": "fire",
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "malformed-source-59",
+      "path": "dr.value",
+      "raw": [
+        1
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "malformed-source-60",
+      "path": "dr.value",
+      "raw": [
+        "fire",
+        null
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "malformed-source-61",
+      "path": "dr.value",
+      "raw": {
+        "fire": true
+      },
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-62",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":{\"k\":\"x\",\"v\":\"fire\"}}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-63",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":42}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-64",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasany\",\"v\":\"fire\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-65",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"hasall\",\"v\":[1]}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-66",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"subsetof\",\"v\":{\"fire\":true}}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-67",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"empty\",\"v\":\"true\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-68",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"exact\",\"v\":[\"fire\"]}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-69",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"contains\",\"v\":\"fire\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-predicate-70",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"gt\",\"v\":0}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unknown-snapshot-path",
+      "path": "ci.bypasses",
+      "raw": [
+        "mgc"
+      ],
+      "conditions": "{\"k\":\"traits.ci.bypasses\",\"o\":\"has\",\"v\":\"mgc\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "final-only-effect",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "final": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "source-Item-replacement",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "itemEffect": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "active-status",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "statuses": [
+        "poisoned"
+      ],
+      "workflowUnavailable": true
+    },
+    {
+      "id": "actor-flag",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "actorFlag": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "oversized-source-Set",
+      "path": "dr.value",
+      "raw": [
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire"
+      ],
+      "conditions": "{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "mixed-AND-numeric",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"o\":\"AND\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"},{\"k\":\"abilities.wis.value\",\"o\":\"exact\",\"v\":14}]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ]
+    },
+    {
+      "id": "mixed-OR-numeric",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"o\":\"OR\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"other\"},{\"k\":\"abilities.wis.value\",\"o\":\"gt\",\"v\":13}]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ]
+    },
+    {
+      "id": "collection-NOT",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"o\":\"NOT\",\"v\":{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ]
+    },
+    {
+      "id": "collection-XOR",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"o\":\"XOR\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"},{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"}]}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ]
+    },
+    {
+      "id": "unknown-branch-behind-true",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"o\":\"OR\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"fire\"},{\"k\":\"traits.unknown.value\",\"o\":\"has\",\"v\":\"fire\"}]}",
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ],
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unqualified-branch-behind-false",
+      "path": "dr.value",
+      "raw": [
+        "fire"
+      ],
+      "conditions": "{\"o\":\"AND\",\"v\":[{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":\"other\"},{\"k\":\"traits.dr.value\",\"o\":\"has\",\"v\":{\"k\":\"x\",\"v\":\"fire\"}}]}",
+      "expectedInitial": [
+        "fire"
+      ],
+      "expectedFinalSet": [
+        "fire"
+      ],
+      "workflowUnavailable": true
+    }
+  ]
+}

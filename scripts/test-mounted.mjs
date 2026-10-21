@@ -40,6 +40,7 @@ import {trainingCases,trainingSource,trainingContext} from ${JSON.stringify(join
 import {trainingEffectCases,trainingEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/training-effect-scenarios.ts'))};
 import {filterCases,filterSource,filterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/filter-scenarios.ts'))};
 import {initialFilterCases,initialFilterSource,initialFilterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/initial-filter-scenarios.ts'))};
+import {initialCollectionFilterCases,initialCollectionFilterSource,initialCollectionFilterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/initial-collection-filter-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -83,7 +84,7 @@ const effectTool=toolSource();effectTool.effects=[{disabled:false}];tools.effect
 const toolModes=[];for(const mode of [-1,0,1]){const actor=toolSource();setSkillRoll(actor,'tools.thief.roll',{mode:mode===0?1:mode});if(mode===0)setSkillRoll(actor,'rolls.ability.tool',{mode:-1});toolModes.push({actor:adapter.prepareActorData(actor,{...skillContext(),sourceRevision:200+mode}),mode,formula:(mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20')+'+5'});}
 const combinations=combinedCases.map(row=>({...row,actor:prepare(combinedSource(row))}));
 const effectCases=effectFixture.cases.map((row,index)=>{const source=skillSource();source.effects=row.effects;source.items.push(...row.items);return {id:row.id,ready:row.expected.ready,actor:adapter.prepareActorData(source,{...skillContext(),sourceRevision:300+index})};});
-const numericEffects=[...initialFilterCases.map(row=>({id:'initial-filter:'+row.id,expected:initialFilterExpected(row),actor:prepare(initialFilterSource(row))})),...filterCases.map(row=>({id:'constant-filter:'+row.id,expected:filterExpected(row),actor:prepare(filterSource(row))})),...trainingEffectCases.map(row=>({id:'training-set:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(trainingEffectSource(row))})),...traitEffectCases.map(row=>({id:'trait-effect:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(traitEffectSource(row))})),...itemEffectCases.map(row=>({id:'item-default:'+row.id,expected:itemEffectExpected(row),actor:prepare(itemEffectSource(row))})),...numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))})),...bonusEffectCases.map(row=>({id:'constant:'+row.id,expected:row.expected,actor:prepare(bonusEffectSource(row))}))];
+const numericEffects=[...initialCollectionFilterCases.map(row=>({id:'initial-filter:collection:'+row.id,expected:initialCollectionFilterExpected(row),actor:prepare(initialCollectionFilterSource(row))})),...initialFilterCases.map(row=>({id:'initial-filter:'+row.id,expected:initialFilterExpected(row),actor:prepare(initialFilterSource(row))})),...filterCases.map(row=>({id:'constant-filter:'+row.id,expected:filterExpected(row),actor:prepare(filterSource(row))})),...trainingEffectCases.map(row=>({id:'training-set:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(trainingEffectSource(row))})),...traitEffectCases.map(row=>({id:'trait-effect:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(traitEffectSource(row))})),...itemEffectCases.map(row=>({id:'item-default:'+row.id,expected:itemEffectExpected(row),actor:prepare(itemEffectSource(row))})),...numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))})),...bonusEffectCases.map(row=>({id:'constant:'+row.id,expected:row.expected,actor:prepare(bonusEffectSource(row))}))];
 const modeEffects=modeEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(modeEffectSource(row))}));
 const healthActors=healthCases.map(row=>({...row,actor:prepare(healthSource(row))}));
 for(const {id,context} of unavailableContexts())healthActors.push({id,actor:prepare(healthSource(healthCases[0]),context),hpUnavailable:true,hdUnavailable:true});
@@ -95,6 +96,9 @@ const defenseTraits=defenseTraitCases.map(row=>{const actor=prepare(defenseTrait
 for(const row of traitEffectCases){const actor=prepare(traitEffectSource(row));defenseTraits.push({id:'trait-effect:'+row.id,expected:Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,row.expectedOperands?{}:null])),actor,card:adapter.getActorCardData(actor)});}
 for(const {id,context} of unavailableContexts()){const actor=prepare(defenseTraitSource(defenseTraitCases[1]),context);defenseTraits.push({id,expected:Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,null])),actor,card:adapter.getActorCardData(actor)});}
 const trainingActors=trainingCases.map(row=>{const actor=adapter.prepareActorData(trainingSource(row),trainingContext(row));return {id:row.id,actor,card:adapter.getActorCardData(actor)};});
+for(const row of initialCollectionFilterCases){const actor=prepare(initialCollectionFilterSource(row));trainingActors.push({id:'initial-filter:collection:'+row.id,actor,card:adapter.getActorCardData(actor)});}
+const equivalentSource=initialCollectionFilterSource(initialCollectionFilterCases[0]);equivalentSource.system.traits.dr.value.push('fire');
+const collectionEquivalent=prepare(equivalentSource);
 for(const row of initialFilterCases){const actor=prepare(initialFilterSource(row));trainingActors.push({id:'initial-filter:'+row.id,actor,card:adapter.getActorCardData(actor)});}
 for(const row of filterCases){const actor=prepare(filterSource(row));trainingActors.push({id:'constant-filter:'+row.id,actor,card:adapter.getActorCardData(actor)});}
 for(const row of trainingEffectCases){const actor=prepare(trainingEffectSource(row));trainingActors.push({id:'training-set:'+row.id,actor,card:adapter.getActorCardData(actor)});}
@@ -111,11 +115,11 @@ const defenseUnavailable=unavailableContexts().map(({id,context})=>({id,actor:ad
 const combinedUnavailable=unavailableContexts().map(({id,context})=>({id,actor:prepare(combinedSource(combinedCases[8]),context)}));
 const removed=combinedSource(combinedCases[8]);delete removed.system.tools.thief;combinedUnavailable.push({id:'selected-tool-removed',actor:prepare(removed)});
 const removedSkill=combinedSource(combinedCases[8]);delete removedSkill.system.skills.prc;combinedUnavailable.push({id:'selected-skill-removed',actor:prepare(removedSkill)});
-process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, trainingActors, rangeActors, rangeChanged}));`);
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, collectionEquivalent, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, trainingActors, rangeActors, rangeChanged}));`);
 const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8', maxBuffer:16*1024*1024 });
 if (result.error) throw result.error;
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, trainingActors, rangeActors, rangeChanged } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, collectionEquivalent, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, trainingActors, rangeActors, rangeChanged } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -570,6 +574,13 @@ try {
         assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld()),'retired');
         assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
         numericEffectRows.push({width,id:'trait-effect:equal-total-equal-set-retirement',retainedCallbackFenced:true});
+
+        const literalCollection=numericEffects.find(row=>row.id==='initial-filter:collection:dr.value-has').actor;
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),literalCollection);await skill.click();await page.evaluate(()=>window.skillFixture.hold());
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),collectionEquivalent);
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),literalCollection);
+        assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld()),'retired');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+        numericEffectRows.push({width,id:'initial-filter:collection:equal-initial-set-source-retirement',retainedCallbackFenced:true});
 
         const defaultFilter=numericEffects.find(row=>row.id==='constant-filter:empty-object').actor;
         const arrayFilter=numericEffects.find(row=>row.id==='constant-filter:empty-array').actor;

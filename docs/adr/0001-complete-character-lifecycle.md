@@ -1368,3 +1368,32 @@ creation/inventory/health/activity workflow or installed/native/operator accepta
 Next continue independent Q02a initial collection-filter/condition/final/Item rules,
 and domain-specific command qualification as dependencies permit. E01/E02/wider
 Q00/E05, full M2/M3+ acceptance and ADR-0001 remain open.
+
+
+### C34 — Initial collection predicates and source provenance (2026-10-21)
+
+C33 is `b2aed3c`. M2/Q02a,DD-02/05/27/34,A02/A04/A21 advance partially:
+the same bounded filter grammar now reads thirteen schema-initialized String/Set
+fields under explicit trait parents (defenses/bypasses,training/languages/mastery).
+Primitive has/hasany/hasall/subsetof/empty semantics are independently qualified.
+Omitted/null values initialize empty Sets; StringField trimming and Set deduplication
+precede membership. Read provenance preserves raw source separately from initialized
+members, so equal-result source edits still retire intent. Unknown literals compare
+exactly without granting training or resolving content. Source remains unchanged.
+
+83 maintained contracts include58 baseline failures/passes-after and25 retained
+boundaries. The pinned oracle supplies88 scalar/collection phase captures,58 new:
+all predicates read before earlier priority changes, and before later ALL/immunity
+normalization. The parser validates every boolean branch and supports mixed scalar/
+collection trees without a new expression or dice evaluator. Nested predicates,
+string-iterable coercion,Set equality,missing/malformed parents,oversized/malformed
+members,unknown paths,source Item/final/status/flag snapshots remain unavailable.
+
+[C34 ledger](../plans/0001-verification.md#c34--initial-collection-filters-2026-10-21)
+and [portable evidence](../audits/evidence/2026-10-21-c34-initial-collection-filters.json)
+separate declared expectations,unchanged C33 baseline,controlled primitive/schema/
+method evidence,mounted consumers and isolated public execution. No full DataModel/
+native engine/operator acceptance. Continue source/schema-backed initial predicates,
+conditions/final/Item phases and wider Q00 formulas in dependency order; domain command
+work retains C33 admission/receipt protocol and E02 concurrency gates. E01/E02/wider
+Q00/E05,full M2/M3+ acceptance and ADR-0001 remain open;experimental0.4.1 unchanged.
