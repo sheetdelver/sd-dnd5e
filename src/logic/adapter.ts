@@ -1,5 +1,6 @@
 import { prepareArmorClass606,prepareInitiative606,initiativeRoll,armorClassProjection } from './preparation/defenses';
 import { prepareHealth606, hpProjection } from './preparation/health';
+import {prepareMovement606,movementKeys,senseKeys} from './preparation/movement';
 import {
     BaseSystemAdapter, SdkError,
     resolveImage,
@@ -155,7 +156,11 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             const health=prepareHealth606(actor,rules,effects);prepared.derived.hp=health.hp;prepared.derived.hitDice=health.hitDice;
             const armor=prepareArmorClass606(actor,rules,effects),initiative=prepareInitiative606(actor,rules,effects);
             prepared.derived.armorClass=armor;prepared.derived.ac=armor.value;prepared.derived.initiativeFacts=initiative.fact;prepared.derived.initiative=initiative.fact.value;prepared.derived.initiativeCheck=initiative.check;
+            const motion=prepareMovement606(actor,rules,effects);prepared.derived.movement=motion.movement;prepared.derived.speed=motion.movement.speeds;prepared.derived.senses=motion.senses;
         } else {
+            const oldSpeed=prepared.derived.speed as Record<string,number>,oldSenses=prepared.derived.senses as Record<string,any>;
+            prepared.derived.movement={status:'legacy-unqualified',reason:'Selected legacy movement remains unqualified',provenance:'Selected legacy compatibility movement projection',speeds:Object.fromEntries(movementKeys.map(k=>[k,oldSpeed[k]??null])),jump:{status:'legacy-unqualified',value:null,display:'—',provenance:'Selected legacy compatibility'},units:'ft',max:null,slowed:null,hover:null,special:''};
+            prepared.derived.senses={status:'legacy-unqualified',reason:'Selected legacy senses remain unqualified',provenance:'Selected legacy compatibility senses projection',ranges:Object.fromEntries(senseKeys.map(k=>[k,oldSenses[k]??0])),units:'ft',special:oldSenses.special??''};
             prepared.derived.armorClass={status:'legacy-unqualified',value:prepared.derived.ac,display:String(prepared.derived.ac),provenance:'Selected legacy AC compatibility projection',reason:'Legacy armor class remains unqualified'};
             prepared.derived.initiativeFacts={status:'legacy-unqualified',value:prepared.derived.initiative,display:String(prepared.derived.initiative),ability:'',score:null,provenance:'Selected legacy initiative compatibility projection',reason:'Legacy initiative remains unqualified'};
             const hp=prepared.derived.hp as Record<string,unknown>;

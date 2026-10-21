@@ -3,6 +3,7 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+- Shared source/species movement and senses, truthful units and unavailable states in both layouts.
 - Prepared bounded equipped armor/shields and native post-passive Stealth disadvantage.
 - Shared bounded AC/initiative facts and rolls, fixed scores, and stale-context protection.
 - Shared source-derived HP/Hit Dice facts across cards and layouts; gated unqualified health/rest controls.

@@ -11,6 +11,8 @@ import {ArmorClassReadout} from '../blocks/ArmorClass';
 import Initiative from '../blocks/Initiative';
 import {armorClassProjection} from '../../../logic/preparation/defenses';
 import {HpReadout,HitDiceReadout} from '../shared/HealthFacts';
+import {movementProjection} from '../../../logic/preparation/movement';
+import {WalkingSpeedReadout} from '../shared/MovementFacts';
 
 /**
  * MobileHeader — compact header for the mobile character sheet view.
@@ -38,7 +40,7 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
     const subtitle = [derived.race, derived.classes].filter(Boolean).join(' · ');
     const facts = characterFactsProjection(derived);
-    const walk = derived.speed?.walk ?? 30;
+    const movement=movementProjection(derived);
     const ac=armorClassProjection(derived);
     const inspiration = derived.inspiration ?? false;
     const { openModal } = useModal();
@@ -180,7 +182,7 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
                 {/* Stat chip: Proficiency Bonus */}
                 <StatChip label="BONUS" title="PROFICIENCY" value={<CharacterFact fact={facts.proficiency} label="Proficiency bonus" />} />
                 {/* Stat chip: Walking Speed */}
-                <StatChip label="SPEED" title="WALKING" value={`${walk} ft.`} />
+                <StatChip label="SPEED" title="WALKING" value={<WalkingSpeedReadout fact={movement}/>} />
                 {/* Stat chip: Initiative */}
                 <StatChip label="INITIATIVE" value={<Initiative compact onRoll={onRoll}/>} bordered />
                 {/* Stat chip: Armor Class */}

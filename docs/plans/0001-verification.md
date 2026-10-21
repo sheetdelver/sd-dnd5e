@@ -1060,3 +1060,44 @@ DD/A/M gate closes; next executable M2 work is movement/senses source/default/
 species inheritance and shared truthful consumers. E01/wider Q00/E05/installed UI/
 native/operator gates remain open. Services are task-owned fixtures with cleanup;
 experimental0.4.1/compatibility and ADR status unchanged.
+
+### C19 — Shared movement and senses facts (2026-10-21)
+
+Predecessor C18 `3cc76bf`;38 original failures plus one later scalar-text failure,
+39 final maintained inputs. Independent expectations and exact-release comparisons
+precede implementation. R covers source/default/poison, stored species identities,
+zero/blank/null distinctions, source overrides, unit inheritance/default availability,
+hover, notes, bonuses/clamps, max-before-jump, armor Strength reduction and metric
+conversion, initial STR effects, independently unavailable jump, unrelated class
+failure, separate malformed/unqualified domains and context recovery/source
+preservation. Scalar notes fail-before with surrounding spaces and pass-after
+verified native trimming. DD-R01–06 behavior remains covered.
+
+Commands use pristine Core0.19.3/90c13e5 with `-- --core
+/tmp/dnd5e-core-baseline-iDcWjQ/core`. `npm test`:56 tooling assertions/7 tooling/
+22 module suites pass. `typecheck`: explicitly131 module/UI/server/test/hook files
+pass. `test:native-source -- --native ../../../../temp/dnd5e`:2242 records/591
+expressions unchanged. Native-checks/effects/health/defenses/equipment pass.
+`test:native-movement -- --native ../../../../temp/dnd5e --foundry
+/home/juvinious/projects/foundryvtt/foundryvtt-v14`:31 movement captures (30 complete,
+1 explicitly partial missing-initialized-STR diagnostic),34 sensory comparisons,
+exact scalar initialization and a separate unresolved local-reference diagnostic.
+Exact87e94db/Foundry14.367 only; reference HEAD is ahead. Constructor/embedded/Item/
+condition/constant-expression stubs and phase limits are recorded. This is S,
+not a full native source model or runtime acceptance test.
+
+`test:mounted` passes earlier protections plus84 actual movement/sense cases at
+1440/390, including unavailable/recovery, units, jump/hover/details and zero writes
+through the SDK seam. Artifacts `/tmp/dnd5e-mounted-YBulT9`. `test:public-rolls`
+remains2969 accepted,1 rejected unary candidate and40 bounded tied-index diagnostics;
+artifacts `/tmp/dnd5e-public-rolls-2LWZIL`, synthetic transport/native writes0.
+All exact dice/entropy/value/count/flag/total/distribution assertions remain.
+`check:package` passes isolated module check, managed types and all bundles;
+portable evidence records script/fixture/source/archive hashes. Harness cleanup
+stops task-owned processes; no production settings or live Foundry are used.
+
+Broader conditions/movement/Item effects, migrations, final/rule/filter phases,
+custom formulas, travel/canvas and other M2 workflows remain open. No complete
+DD/A/M gate closes. Continue the existing Q00 roll/formula qualification and
+remaining M2 preparation domains before M3 dependencies. E01, wider E05 and
+installed/native/operator acceptance remain open; experimental0.4.1 unchanged.

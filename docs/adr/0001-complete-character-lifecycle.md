@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment are bounded slices. Movement and final/filters/Item phases, broader expressions and ranges remain open | RV01–RV04 retained; C06–C18 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and ranges remain open | RV01–RV04 retained; C06–C19 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -918,3 +918,34 @@ and [portable record](../audits/evidence/2026-10-21-c18-equipment.json).
 No complete gate closes. Continue M2 movement/senses, then remaining rule/filter/
 final/Item and Q00 dependencies. E01/wider E05/native/operator gates and ADR-0001
 remain open; experimental0.4.1/compatibility unchanged.
+
+### C19 — Shared movement and senses facts (2026-10-21)
+
+C18 is `3cc76bf`. C19 advances DD-01/02/03/24/34 and A02/A03/A18 partially.
+Thirty-eight original inputs failed before; the final39 cases include a separately
+reproduced scalar-text cleaning failure. One shared source/default/species path
+replaces modern30ft/raw-sense fallbacks. It retains independent movement/sensory
+availability and the separately known jump prerequisite. Class/proficiency failure
+does not erase unrelated known speed. Source, canonical owned species identity,
+edition and extension data remain unchanged.
+
+Exact LocalDocumentField lookup uses the stored owned ID. Missing required local
+references stay unavailable; neither a name nor the first race Item substitutes.
+Source FormulaField numeric0 cleans to truthy string"0" and blocks species speed
+inheritance, while blank/null/missing can inherit. Senses numeric0 blocks
+inheritance; null/missing can inherit. This corrects the overly broad C18 local
+handoff wording about zero. Native species units fill absent Actor units but do
+not convert inherited numeric values into an Actor's explicitly selected unit.
+Numeric bonuses do not create a speed from0; armor strength reduction converts
+10ft into current units. Nonpersisted multiplier starts1 despite poison. Native
+max/slowed are computed before jump is overwritten from prepared Strength.
+Movement and sensory notes use verified scalar trimming without changing source.
+
+Desktop/mobile share walk, additional movement and sensory readouts; mobile Skills
+now exposes sensory facts. Unknown context/data shows reasons and recovers with
+current preparation. Detailed evidence/commands: [C19 ledger](../plans/0001-verification.md#c19--shared-movement-and-senses-facts-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c19-movement-senses.json).
+No complete DD/A/M gate closes. Conditions, movement/Item effects, legacy migration,
+custom formulas/units/types, travel/canvas and broader final/filter rules remain
+open. Continue dependency-ready M2/Q00; E01 and wider E05/native/operator gates
+remain open. Experimental0.4.1/compatibility and ADR-0001 status are unchanged.

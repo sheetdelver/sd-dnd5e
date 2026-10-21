@@ -508,3 +508,24 @@ methods/getters, known constant arithmetic and explicit empty dependencies. Sour
 schema/default and prepared phases are identified; labels/price/mount/description
 phases are no-ops. It does not boot native Item/Actor DataModels or qualify Item
 activities/effects/final phases, collection hydration or native/operator behavior.
+
+### Movement, senses and species initialization (C19)
+
+Exact ScalarString clean/cast/default methods establish numeric0 -> string"0",
+null -> undefined, blank -> blank, and text trimming. The controlled oracle uses
+an explicit option-merging constructor, migration/sanitization disabled and no
+full schema validation. Exact LocalDocumentField.initialize looks up the requested
+ID; fallback returns its string, not another Item. Character.prepareEmbeddedData
+runs prepareRace before filling movement/sense defaults. Movement takes a species
+speed only for a falsey initialized Actor operand; senses require null. Species
+hover is additive and unit inheritance copies values without conversion.
+
+AttributesFields.prepareMovement clamps base speeds, applies constant bonus only
+to positive post-reduction speeds, converts armor reduction, computes max/slowed,
+then overwrites jump from Strength. The31 movement captures include30 complete
+method returns and one explicitly labeled incomplete initialized-STR diagnostic;
+only its independently calculated speed fields compare. Jump remains unavailable
+there. Thirty-four sensory comparisons and one unresolved-reference diagnostic
+are separate. Empty conditions/status reducers, lightweight owned Items/collection,
+no-op embedded super, constant-only Roll and separately prepared STR-effect16 are
+stubs. No native DataModel/Document/engine/operator acceptance is established.

@@ -237,3 +237,11 @@ property/magic getters, Actor skill-before-armor phases, first-source selection,
 registry eligibility and fresh counts. Known constant lookup/explicit defaults
 and empty rule/condition/flag stubs are limits, not native model acceptance.
 Actor/Item source is preserved; prepared-looking getter/field poison is ignored.
+
+C19 `movement-senses.json`:39 independent inputs; source scalar cleaning, exact
+local species identity, phase-specific inheritance, units/bonuses/armor reduction,
+max-before-jump, separate availability and poison/source preservation. The oracle
+compares30 complete movement methods plus1 labeled incomplete-STR diagnostic,
+34 sensory cases and scalar/reference methods. No DataModel/runtime/operator
+acceptance; see portable C19 limits. Numeric source0 is initialized string"0"
+for a FormulaField, unlike an omitted operand. Never erase that distinction.

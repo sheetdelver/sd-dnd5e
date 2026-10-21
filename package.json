@@ -14,6 +14,7 @@
     "test:native-effects": "node scripts/native-effect-oracle.mjs",
     "test:native-health": "node scripts/native-health-oracle.mjs",
     "test:native-defenses": "node scripts/native-defenses-oracle.mjs",
-    "test:native-equipment": "node scripts/native-equipment-oracle.mjs"
+    "test:native-equipment": "node scripts/native-equipment-oracle.mjs",
+    "test:native-movement": "node scripts/native-movement-oracle.mjs"
   }
 }

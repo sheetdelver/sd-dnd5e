@@ -1,20 +1,16 @@
 'use client';
 
 import React from 'react';
+import type {SensesFacts} from '../../../logic/preparation/movement';
+import {sensesProjection} from '../../../logic/preparation/movement';
+import {SensesReadout} from '../shared/MovementFacts';
 
-interface SensesData {
-    darkvision?: number;
-    blindsight?: number;
-    tremorsense?: number;
-    truesight?: number;
-    special?: string;
-}
 
 interface Props {
     perception?: number | null;
     investigation?: number | null;
     insight?: number | null;
-    senses?: SensesData;
+    senses?: SensesFacts;
 }
 
 export default function PassiveSenses({ perception, investigation, insight, senses }: Props) {
@@ -24,12 +20,6 @@ export default function PassiveSenses({ perception, investigation, insight, sens
         { label: 'Insight', value: insight },
     ];
 
-    const specialSenses: string[] = [];
-    if (senses?.darkvision) specialSenses.push(`Darkvision ${senses.darkvision} ft.`);
-    if (senses?.blindsight) specialSenses.push(`Blindsight ${senses.blindsight} ft.`);
-    if (senses?.tremorsense) specialSenses.push(`Tremorsense ${senses.tremorsense} ft.`);
-    if (senses?.truesight) specialSenses.push(`Truesight ${senses.truesight} ft.`);
-    if (senses?.special) specialSenses.push(senses.special);
 
     return (
         <div className="block-card">
@@ -59,7 +49,7 @@ export default function PassiveSenses({ perception, investigation, insight, sens
                 ))}
             </div>
             {items.some(sense => sense.value == null) && <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Unavailable passive checks require supported preparation inputs.</p>}
-            {specialSenses.length > 0 && (
+            {(
                 <div style={{
                     marginTop: '8px',
                     paddingTop: '8px',
@@ -68,7 +58,7 @@ export default function PassiveSenses({ perception, investigation, insight, sens
                     color: 'var(--text-secondary)',
                     textAlign: 'center',
                 }}>
-                    {specialSenses.join(' · ')}
+                    <SensesReadout fact={senses??sensesProjection({})}/>
                 </div>
             )}
         </div>

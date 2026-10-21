@@ -597,3 +597,34 @@ and [portable record](evidence/2026-10-21-c18-equipment.json).
 No complete gate closes. Continue M2 movement/senses, then remaining rule/filter/
 final/Item and Q00 dependencies. E01/wider E05/native/operator gates and ADR-0001
 remain open; experimental0.4.1/compatibility unchanged.
+
+### C19 — Shared movement and senses facts (2026-10-21)
+
+C18 is `3cc76bf`. C19 advances DD-01/02/03/24/34 and A02/A03/A18 partially.
+Thirty-eight original inputs failed before; the final39 cases include a separately
+reproduced scalar-text cleaning failure. One shared source/default/species path
+replaces modern30ft/raw-sense fallbacks. It retains independent movement/sensory
+availability and the separately known jump prerequisite. Class/proficiency failure
+does not erase unrelated known speed. Source, canonical owned species identity,
+edition and extension data remain unchanged.
+
+Exact LocalDocumentField lookup uses the stored owned ID. Missing required local
+references stay unavailable; neither a name nor the first race Item substitutes.
+Source FormulaField numeric0 cleans to truthy string"0" and blocks species speed
+inheritance, while blank/null/missing can inherit. Senses numeric0 blocks
+inheritance; null/missing can inherit. This corrects the overly broad C18 local
+handoff wording about zero. Native species units fill absent Actor units but do
+not convert inherited numeric values into an Actor's explicitly selected unit.
+Numeric bonuses do not create a speed from0; armor strength reduction converts
+10ft into current units. Nonpersisted multiplier starts1 despite poison. Native
+max/slowed are computed before jump is overwritten from prepared Strength.
+Movement and sensory notes use verified scalar trimming without changing source.
+
+Desktop/mobile share walk, additional movement and sensory readouts; mobile Skills
+now exposes sensory facts. Unknown context/data shows reasons and recovers with
+current preparation. Detailed evidence/commands: [C19 ledger](../plans/0001-verification.md#c19--shared-movement-and-senses-facts-2026-10-21)
+and [portable record](evidence/2026-10-21-c19-movement-senses.json).
+No complete DD/A/M gate closes. Conditions, movement/Item effects, legacy migration,
+custom formulas/units/types, travel/canvas and broader final/filter rules remain
+open. Continue dependency-ready M2/Q00; E01 and wider E05/native/operator gates
+remain open. Experimental0.4.1/compatibility and ADR-0001 status are unchanged.

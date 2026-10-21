@@ -1,0 +1,3515 @@
+{
+  "checkpoint": "C19",
+  "precedingImplementation": "3cc76bf",
+  "failingBefore": {
+    "implementation": "3cc76bf",
+    "originalCases": [
+      "initialized-defaults",
+      "explicit-source",
+      "owned-species-inheritance",
+      "explicit-movement-senses-zero",
+      "blank-walk-inherits",
+      "numeric-zero-is-initialized-string",
+      "string-zero-blocks-inheritance",
+      "null-walk-inherits",
+      "species-without-stored-reference",
+      "explicit-selected-owned-species",
+      "species-units-metric",
+      "inheritance-does-not-convert-units",
+      "metric-default",
+      "hover-and-special",
+      "constant-bonus",
+      "bonus-does-not-create-speed",
+      "negative-bonus-clamps",
+      "slowed-at-half",
+      "jump-overwritten-after-max",
+      "prepared-looking-poison",
+      "armor-strength-reduction",
+      "armor-strength-satisfied",
+      "armor-reduction-metric",
+      "strength-effect-before-movement",
+      "missing-strength-independent-speed",
+      "class-unrelated-to-movement",
+      "explicit-units-independent-setting",
+      "formula-speed-open",
+      "formula-bonus-open",
+      "malformed-movement-open",
+      "legacy-movement-open",
+      "unknown-movement-unit",
+      "missing-strength-armor-open",
+      "malformed-sense-open",
+      "legacy-sense-open",
+      "unknown-sense-unit",
+      "unresolved-species-open",
+      "units-setting-unavailable"
+    ],
+    "additionalScalarCleaning": {
+      "inputMovementSpecial": " Jump freely ",
+      "before": " Jump freely ",
+      "expectedAndAfter": "Jump freely",
+      "sourceUnchanged": true
+    }
+  },
+  "native": {
+    "evidence": "S controlled exact source scalar cleaning/local reference/embedded inheritance/movement methods; no native DataModel/Documents/engine or operator acceptance",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": {
+      "generation": 14,
+      "build": 367,
+      "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "numberSha256": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820"
+    },
+    "referenceFallbackDiagnostic": {
+      "requested": "Missing species",
+      "returned": "Missing species",
+      "substitutedItem": false
+    },
+    "scalarInitialization": {
+      "numericZero": "0",
+      "null": "undefined",
+      "blank": ""
+    },
+    "observations": [
+      {
+        "id": "initialized-defaults",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "explicit-source",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "owned-species-inheritance",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "fromSpecies": {
+            "walk": "30"
+          },
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "explicit-movement-senses-zero",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 40,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 40,
+          "max": 40,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "blank-walk-inherits",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "fromSpecies": {
+            "walk": "30"
+          },
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "numeric-zero-is-initialized-string",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "string-zero-blocks-inheritance",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "null-walk-inherits",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "fromSpecies": {
+            "walk": "30"
+          },
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "species-without-stored-reference",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "explicit-selected-owned-species",
+        "reference": "raceFixture0002",
+        "movement": {
+          "speeds": {
+            "walk": 35,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "fromSpecies": {
+            "walk": "35"
+          },
+          "speed": 35,
+          "max": 35,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 90,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "species-units-metric",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 9,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "m",
+          "fromSpecies": {
+            "walk": "9"
+          },
+          "speed": 9,
+          "max": 9,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 18,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "m"
+        }
+      },
+      {
+        "id": "inheritance-does-not-convert-units",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "m",
+          "fromSpecies": {
+            "walk": "30"
+          },
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "m"
+        }
+      },
+      {
+        "id": "metric-default",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "m",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "m"
+        }
+      },
+      {
+        "id": "hover-and-special",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 60,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": true,
+          "units": "ft",
+          "speed": 30,
+          "max": 60,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "Actor note;Species note",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "constant-bonus",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 35,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 65,
+            "jump": 5,
+            "swim": 0
+          },
+          "bonus": "5",
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 35,
+          "max": 65,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "bonus-does-not-create-speed",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 35,
+            "jump": 5,
+            "swim": 0
+          },
+          "bonus": "5",
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 35,
+          "slowed": true
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "negative-bonus-clamps",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "bonus": "-40",
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "slowed-at-half",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 15,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "bonus": "-15",
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 15,
+          "max": 15,
+          "slowed": true
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "jump-overwritten-after-max",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 30,
+          "max": 100,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "prepared-looking-poison",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "armor-strength-reduction",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 20,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 20,
+          "max": 20,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "armor-strength-satisfied",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 8,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "armor-reduction-metric",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 6,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "m",
+          "speed": 6,
+          "max": 6,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "strength-effect-before-movement",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 8,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "missing-strength-independent-speed",
+        "reference": null,
+        "incompleteMethodDiagnostic": "Missing initialized STR throws after independent speed calculation; jump is not qualified",
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 0,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "class-unrelated-to-movement",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "explicit-units-independent-setting",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 30,
+          "max": 30,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "formula-speed-open",
+        "reference": null,
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "formula-bonus-open",
+        "reference": null,
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "malformed-movement-open",
+        "reference": null,
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "legacy-movement-open",
+        "reference": null,
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "unknown-movement-unit",
+        "reference": null,
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "missing-strength-armor-open",
+        "reference": null,
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 0,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "",
+          "units": "ft"
+        }
+      },
+      {
+        "id": "malformed-sense-open",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        }
+      },
+      {
+        "id": "legacy-sense-open",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        }
+      },
+      {
+        "id": "unknown-sense-unit",
+        "reference": null,
+        "movement": {
+          "speeds": {
+            "walk": 0,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": false,
+          "units": "ft",
+          "speed": 0,
+          "max": 0,
+          "slowed": true
+        }
+      },
+      {
+        "id": "special-scalar-cleaning",
+        "reference": "raceFixture0001",
+        "movement": {
+          "speeds": {
+            "walk": 30,
+            "burrow": 0,
+            "climb": 0,
+            "fly": 60,
+            "jump": 5,
+            "swim": 0
+          },
+          "multiplier": 1,
+          "hover": true,
+          "special": "Jump freely",
+          "units": "ft",
+          "speed": 30,
+          "max": 60,
+          "slowed": false
+        },
+        "senses": {
+          "ranges": {
+            "blindsight": 0,
+            "darkvision": 60,
+            "tremorsense": 0,
+            "truesight": 0
+          },
+          "special": "Actor note;Species note",
+          "units": "ft"
+        }
+      }
+    ],
+    "stubs": [
+      "Primitive field option-merging constructor; exact scalar clean/default/cast methods with migration/sanitization disabled; no full schema validation",
+      "Native Character embedded base no-op, exact-ID Map collection and lightweight Item class; no native Documents",
+      "Constant-only simplifyBonus Roll stub; unknown expressions fail; condition-free Set.reduce",
+      "Native species raw scalar/defaults explicitly initialized; no Item effects/final phases",
+      "Strength effect case starts after separately qualified initial numeric phase16; missing initialized strength produces a separately recorded incomplete-method diagnostic; jump remains unqualified",
+      "Independent movement/senses domains compared separately when the other is unavailable"
+    ],
+    "sourceHashes": {
+      "module/data/shared/movement-field.mjs": "7d44de85078342175ba22a50cae778541968c3db0ac983dac91138d07957a1b2",
+      "module/data/shared/senses-field.mjs": "16aa4b9878b456c5a8a93bffb4347834bf8bf97e462823d2846a8d9c24c80f31",
+      "module/data/fields/local-document-field.mjs": "8ee48700a28eda8ddba241e8a68da6c4d82ea54e070b1148605e37b8cd6c4f16",
+      "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/actor/templates/details.mjs": "249cec9385d4205d778f16c7a490cc0f65f2cd7481aad10ddda19a4243f758ff",
+      "module/data/item/race.mjs": "73f269bde89980ae136df13d06e3dbeff6e64b2a86a7fc5f6c477f00357b2ced",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134"
+    }
+  },
+  "regression": {
+    "fixtureCases": 39,
+    "toolingAssertions": 56,
+    "toolingSuites": 7,
+    "moduleSuites": 22,
+    "typedFiles": 131,
+    "sourceAndMutabilityPreserved": true,
+    "independentAvailabilityAndRecovery": true
+  },
+  "mounted": {
+    "evidence": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "playwright": "1.56.1",
+    "browser": "143.0.7499.4",
+    "rows": [
+      {
+        "width": 1440,
+        "id": "initialized-defaults",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "explicit-source",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "owned-species-inheritance",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "explicit-movement-senses-zero",
+        "walking": 40,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "blank-walk-inherits",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "numeric-zero-is-initialized-string",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "string-zero-blocks-inheritance",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "null-walk-inherits",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "species-without-stored-reference",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "explicit-selected-owned-species",
+        "walking": 35,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 90,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "species-units-metric",
+        "walking": 9,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 18,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "inheritance-does-not-convert-units",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "metric-default",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "hover-and-special",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "Actor note;Species note",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "constant-bonus",
+        "walking": 35,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "bonus-does-not-create-speed",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "negative-bonus-clamps",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "slowed-at-half",
+        "walking": 15,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "jump-overwritten-after-max",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "prepared-looking-poison",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "armor-strength-reduction",
+        "walking": 20,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "armor-strength-satisfied",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "armor-reduction-metric",
+        "walking": 6,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "strength-effect-before-movement",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "missing-strength-independent-speed",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "class-unrelated-to-movement",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "explicit-units-independent-setting",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "formula-speed-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "formula-bonus-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "malformed-movement-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "legacy-movement-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "unknown-movement-unit",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "missing-strength-armor-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "malformed-sense-open",
+        "walking": 0,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "legacy-sense-open",
+        "walking": 0,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "unknown-sense-unit",
+        "walking": 0,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "unresolved-species-open",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "units-setting-unavailable",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "special-scalar-cleaning",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "Actor note;Species note",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "initialized-defaults",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "explicit-source",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "owned-species-inheritance",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "explicit-movement-senses-zero",
+        "walking": 40,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "blank-walk-inherits",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "numeric-zero-is-initialized-string",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "string-zero-blocks-inheritance",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "null-walk-inherits",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "species-without-stored-reference",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "explicit-selected-owned-species",
+        "walking": 35,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 90,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "species-units-metric",
+        "walking": 9,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 18,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "inheritance-does-not-convert-units",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "metric-default",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "hover-and-special",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "Actor note;Species note",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "constant-bonus",
+        "walking": 35,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "bonus-does-not-create-speed",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "negative-bonus-clamps",
+        "walking": 0,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "slowed-at-half",
+        "walking": 15,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "jump-overwritten-after-max",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "prepared-looking-poison",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "armor-strength-reduction",
+        "walking": 20,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "armor-strength-satisfied",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "armor-reduction-metric",
+        "walking": 6,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "strength-effect-before-movement",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "missing-strength-independent-speed",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "class-unrelated-to-movement",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "explicit-units-independent-setting",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "formula-speed-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "formula-bonus-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "malformed-movement-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "legacy-movement-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "unknown-movement-unit",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "missing-strength-armor-open",
+        "walking": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "malformed-sense-open",
+        "walking": 0,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "legacy-sense-open",
+        "walking": 0,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "unknown-sense-unit",
+        "walking": 0,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "unresolved-species-open",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "units-setting-unavailable",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "special-scalar-cleaning",
+        "walking": 30,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "Actor note;Species note",
+          "units": "ft"
+        },
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "walking": null,
+        "senses": "unavailable",
+        "recovery": true,
+        "fixtureWrites": 0
+      }
+    ],
+    "previousRegressionCounts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56,
+      "focusRows": 2,
+      "combinationRows": 80,
+      "effectRows": 22,
+      "numericEffectRows": 102,
+      "effectModeRows": 58,
+      "healthRows": 58,
+      "defenseRows": 102,
+      "equipmentRows": 90
+    },
+    "artifactRoot": "/tmp/dnd5e-mounted-YBulT9"
+  },
+  "isolatedPublicHost": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "qualified-plain-d20-numeric-profile",
+    "equalIndexDiagnostics": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "selectionMismatches": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "caseCount": 2969,
+    "requestCount": 2970,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "manualModeCases": 18,
+    "toolCases": 24,
+    "selectedCases": 152,
+    "effectCases": 3,
+    "numericEffectCases": 504,
+    "initiativeCases": 144,
+    "equipmentCases": 148,
+    "fixedScoreCases": 8,
+    "modeEffectCases": 600,
+    "constantFormulaCases": 19,
+    "bonusEffectCases": 456,
+    "histogram": {
+      "adv": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39
+      ],
+      "dis": [
+        39,
+        37,
+        35,
+        33,
+        31,
+        29,
+        27,
+        25,
+        23,
+        21,
+        19,
+        17,
+        15,
+        13,
+        11,
+        9,
+        7,
+        5,
+        3,
+        1
+      ]
+    },
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "hashes": {
+    "tests/fixtures/native-6.0.6/movement-senses.json": "9d63d44bbc853139ef5ee2914876a9b8c39432c88fc4a7f33f2ddad0cf9d0ee3",
+    "src/logic/preparation/movement.ts": "6baa1bc660240bfca24511dfa2ddf9f6d17503ee882d319fe40a027f9785012f",
+    "src/logic/adapter.ts": "5ef7e96641d90a4f47bacf3ef4ba2e2d8e2a0029a71643b16380234b6c3016ba",
+    "src/tests/movement-senses.test.ts": "6c123a9415730dcf3d9d4290ec93f4af91521263dd4abbf652244a1363f005d7",
+    "src/tests/fixtures/movement-scenarios.ts": "069734a11308de771ca398742668af24b29276d112f4270cce1b86e5221e8100",
+    "src/ui/components/shared/MovementFacts.tsx": "f4af8fe99d227712dc58d7261085f9d0b219ba9472f143e7fdb87e506e2af640",
+    "src/ui/components/blocks/WalkingSpeed.tsx": "48f3e01bcba6ef1aef68f4b5de35ba00afd7d0d1d10fff604a2f086286e298bd",
+    "src/ui/components/blocks/PassiveSenses.tsx": "c06818a11cb098d8cfb2688de70a3ffbaaaadc449ca8823ccaf5d4ec1f66749b",
+    "src/ui/components/page/MobileHeader.tsx": "57dccede04ec0e044405be865416db34952dc20a63d3f1e2e134392538a3580a",
+    "src/ui/components/tabs/mobile/Skills.tsx": "a4443635705ed279bc7d7d08c9d891bcf5ce0ec9fbad4054908e1673a8650eff",
+    "scripts/native-movement-oracle.mjs": "1cd6d9e98e1e111e5421376fe73562446a3900d8ce6eb358ec103fc5a823e602",
+    "scripts/test-mounted.mjs": "bf6126c802dcf2ff82b591310296845e20dc0e3b00ae3ff14184c29d09494547"
+  },
+  "archive": {
+    "path": "/tmp/dnd5e-package-82MVzJ/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "35d9e41b0675b85162f26b14ea41fab97c59f6cf25e0bb4c8c7771ea03333e9d"
+  },
+  "limits": [
+    "Exact scalar/local reference/embedded/movement methods with option-merge, Item, empty-condition, constant-Roll stubs; no native DataModel/Documents/engine/operator acceptance",
+    "31 movement captures:30 complete,1 incomplete initialized-STR diagnostic with independently calculated speed; jump unavailable",
+    "34 sensory comparisons and separate unresolved-reference diagnostic; required unresolved source not replaced by name or first owned Item",
+    "Initial STR effect case starts at separately qualified prepared16; no movement/Item/final/condition effects or legacy migration qualification",
+    "Mounted actual module via SDK seam; no installed Core/native UI or canvas/travel automation",
+    "Public-host synthetic transport; earlier strict dice/entropy/selection/value/count/flags/totals/distributions preserved;40 equal-value diagnostics plain profile only",
+    "No complete DD/A/M gate closes; ADR-0001/E01/wider Q00/E05/native/operator gates remain open"
+  ]
+}

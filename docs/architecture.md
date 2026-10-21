@@ -449,3 +449,22 @@ prepared equipment identity participates in intent retirement. AC registry
 eligibility, shield contribution, caps and warnings use the same equipment result.
 Both headers/blocks format one fact; no UI arithmetic or additional world cache.
 Source identity, metadata, extension fields and original Item values remain intact.
+
+### Movement/senses source and phase boundary (C19)
+
+`prepareMovement606` creates detached movement and sensory facts. Literal
+FormulaField initialization stays distinct from numeric preparation so source0
+becomes string"0" and is not accidentally treated as missing during inheritance.
+Species resolve by exact owned source ID; unresolved required references never
+select the first or same-name Item. Actor and species unit provenance stay separate
+and the native inheritance phase performs no implicit numeric unit conversion.
+Movement multiplier ignores nonpersisted source poison; max/slowed precede derived
+jump. Armor reduction consumes the same selected armor identity plus verified
+source strength and initialized ability values. Scalar notes trim in preparation,
+preserving original source. Movement/senses and jump availability are independent.
+
+Modern speed/senses no longer expose synthetic30ft or raw flat aliases. One shared
+readout drives both layouts and mobile sensory details. Explicit selected legacy
+retains a labeled unqualified compatibility projection. Legacy alias migration,
+conditions, Item/movement effects, wider formulas/units and canvas/travel automation
+remain unavailable or separate ADR scope; these read facts do not authorize writes.

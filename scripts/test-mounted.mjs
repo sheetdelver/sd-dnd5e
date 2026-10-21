@@ -26,6 +26,7 @@ import {modeEffectCases,modeEffectSource} from ${JSON.stringify(join(moduleRoot,
 import {healthCases,healthSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/health-scenarios.ts'))};
 import {defenseCases,defenseSource,defenseContext} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/defense-scenarios.ts'))};
 import {equipmentCases,equipmentSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/equipment-scenarios.ts'))};
+import {movementCases,movementSource,movementContext} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/movement-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -73,6 +74,8 @@ const numericEffects=[...numericEffectCases.map(row=>({id:row.id,expected:row.ex
 const modeEffects=modeEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(modeEffectSource(row))}));
 const healthActors=healthCases.map(row=>({...row,actor:prepare(healthSource(row))}));
 for(const {id,context} of unavailableContexts())healthActors.push({id,actor:prepare(healthSource(healthCases[0]),context),hpUnavailable:true,hdUnavailable:true});
+const movementActors=movementCases.map((row,index)=>({...row,actor:adapter.prepareActorData(movementSource(row),{...movementContext(row),sourceRevision:3000+index})}));
+const movementUnavailable=unavailableContexts().map(({id,context})=>({id,expected:{movement:null,senses:null},actor:adapter.prepareActorData(movementSource(movementCases[0]),context)}));
 const equipmentActors=equipmentCases.map((row,index)=>({...row,actor:adapter.prepareActorData(equipmentSource(row),{...skillContext(),sourceRevision:2000+index})}));
 const equivalentArmorSource=equipmentSource(equipmentCases.find(row=>row.id==='stealth-disadvantage-after-passive'));const sameArmor=equivalentArmorSource.items.find(item=>item.type==='equipment');sameArmor._id='different-owned-armor';sameArmor.uuid='Actor.'+equivalentArmorSource._id+'.Item.'+sameArmor._id;const equipmentEquivalent=adapter.prepareActorData(equivalentArmorSource,{...skillContext(),sourceRevision:2000+equipmentCases.findIndex(row=>row.id==='stealth-disadvantage-after-passive')});
 const defenses=defenseCases.map(row=>({...row,actor:adapter.prepareActorData(defenseSource(row),{...defenseContext(row),sourceRevision:1000+defenseCases.indexOf(row)})}));
@@ -81,11 +84,11 @@ const defenseUnavailable=unavailableContexts().map(({id,context})=>({id,actor:ad
 const combinedUnavailable=unavailableContexts().map(({id,context})=>({id,actor:prepare(combinedSource(combinedCases[8]),context)}));
 const removed=combinedSource(combinedCases[8]);delete removed.system.tools.thief;combinedUnavailable.push({id:'selected-tool-removed',actor:prepare(removed)});
 const removedSkill=combinedSource(combinedCases[8]);delete removedSkill.system.skills.prc;combinedUnavailable.push({id:'selected-skill-removed',actor:prepare(removedSkill)});
-process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent}));`);
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable}));`);
 const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8', maxBuffer:16*1024*1024 });
 if (result.error) throw result.error;
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -94,7 +97,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], effectModeRows = [], healthRows = [], defenseRows = [], equipmentRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], effectModeRows = [], healthRows = [], defenseRows = [], equipmentRows = [], movementRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -509,6 +512,24 @@ try {
         await page.evaluate(actor=>window.skillFixture.render(actor,true),equipmentEquivalent);assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld()),'retired');
         await page.evaluate(actor=>window.skillFixture.render(actor,true),armorActor);assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld()),'retired');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
 
+        for(const row of [...movementActors,...movementUnavailable]){
+            await render(row.actor);const e=row.expected;
+            const walking=await page.getByLabel('Walking speed',{exact:true}).innerText();
+            assert.ok(walking.startsWith(e.movement?e.movement.walk+' '+e.movement.units:'—'),row.id+' walking');
+            await tab('Skills');const sensory=await page.getByLabel('Senses',{exact:true}).innerText();
+            if(e.senses){
+                for(const [key,label] of [['blindsight','Blindsight'],['darkvision','Darkvision'],['tremorsense','Tremorsense'],['truesight','Truesight']])if(e.senses[key]>0)assert.ok(sensory.includes(label+' '+e.senses[key]+' '+e.senses.units),row.id+' senses');
+                if(e.senses.special)assert.ok(sensory.includes(e.senses.special),row.id+' special');
+                if(!e.senses.special&&!['blindsight','darkvision','tremorsense','truesight'].some(key=>e.senses[key]>0))assert.equal(sensory,'No additional senses',row.id);
+            }else assert.ok(sensory.startsWith('Unavailable:'),row.id+' sensory unavailable');
+            const detail=await page.getByLabel('Movement details',{exact:true}).innerText();
+            if(e.movement?.jump!==null&&e.movement)assert.ok(detail.includes('Jump '+e.movement.jump+' '+e.movement.units),row.id+' jump');
+            if(e.movement?.hover)assert.ok(detail.includes('Hover'),row.id+' hover');
+            await render(movementActors[0].actor);assert.equal(await page.getByLabel('Walking speed',{exact:true}).innerText(),'0 ft');
+            assert.equal(await page.evaluate(()=>window.skillFixture.updates.length),0);
+            movementRows.push({width,id:row.id,walking:e.movement?e.movement.walk:null,senses:e.senses??'unavailable',recovery:true,fixtureWrites:0});
+        }
+
         // Retained callbacks must not survive context, settings or public UUID
         // changes even when Actor IDs/source revisions and numeric totals match.
         const base=defenses[0].actor;
@@ -524,6 +545,6 @@ try {
     writeFileSync(join(artifacts, 'focus.json'),JSON.stringify(focusRows,null,2));
     for(const row of focusRows)assert.equal(row.afterPointerLeaves,'2d20kh1+5','DD-R06/'+row.width+'; artifacts '+artifacts);
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows, effectModeRows, healthRows, defenseRows, equipmentRows }, null, 2));
-    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} eligibility and ${numericEffectRows.length} field and ${effectModeRows.length} mode effect cases, ${healthRows.length} health and ${defenseRows.length} AC/initiative and ${equipmentRows.length} equipped armor projections and retained-callback fences PASS; artifacts ${artifacts}\n`);
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows, effectModeRows, healthRows, defenseRows, equipmentRows, movementRows }, null, 2));
+    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} eligibility and ${numericEffectRows.length} field and ${effectModeRows.length} mode effect cases, ${healthRows.length} health and ${defenseRows.length} AC/initiative and ${equipmentRows.length} equipped armor and ${movementRows.length} movement/senses projections and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }
