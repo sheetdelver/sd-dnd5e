@@ -1137,3 +1137,51 @@ availability through the shared compiler, update DD-R01 normal cases without
 losing static/passive, context/stale-intent and malformed coverage. Keep bounded
 adv/dis and other unqualified behavior gated; no new evaluator/host result rewrite.
 No full DD/A/M gate closes; E01/wider Q00/E05/ADR-0001 remain open.
+
+### C21 — Qualified normal configured die ranges (2026-10-21)
+
+Predecessor C20 `ad9fa95`;30 maintained same-input scope cases fail-before and
+pass-after. R covers source/manual/cancelled/automatic modes, all five numeric
+roll kinds, every local/applicable global min/max scope, mixed/crossed ranges,
+static/passive independence, malformed/unknown requests, current context/source
+recovery, missing readiness, preserved source/nonpersisted-field protections and
+selected legacy limits. Existing temporary normal-range assertions are explicitly
+superseded; malformed/context/stale/adv-dis restrictions stay intact.
+
+On pristine Core0.19.3/90c13e5 use `-- --core
+/tmp/dnd5e-core-baseline-iDcWjQ/core`. `npm test` passes60 tooling assertions,
+8 tooling/23 module suites. `typecheck` explicitly covers133 module/UI/server/
+test/hook files. `test:native-source` remains2242 records/591 expressions. Native
+checks/effects/health/defenses/equipment/movement pass. `test:native-ranges` at
+exact87e94db and static Foundry14.367 verifies15380 cases/465 distributions,
+including8820 normal cases for every nullable bound pair. Stubs/phase limits are
+retained; this is controlled S, not native engine/DataModel acceptance.
+
+`test:public-rolls` passes11978 accepted requests, including9009 normal-range
+requests (8820 matrix,90 source/manual scopes,65 initial-effect compositions,
+2 selected checks,20 ordered tiebreakers and12 initiative cases). All441 normal
+range distributions, exact raw faces/entropy/counts/flags/retained identity/totals
+and host serialization pass. Earlier plain distributions/40 equal-index diagnostics,
+8 fixed-score no-die cases, numeric limits and1 rejected unary candidate remain.
+Artifacts `/tmp/dnd5e-public-rolls-HJ9hIz`. Separate `test:public-ranges` retains
+6560 strict candidates: bounded adv/dis still UNQUALIFIED due320 equal-face index
+differences; all unequal/data/count/flag/total/distribution assertions pass. This
+reuses no plain-profile exception and requests no Core change solely for ties.
+
+`test:mounted` passes prior consumers plus180 source/manual range cases at1440/390
+with default/explicit-choice distinction, disabled modes, preview/Enter/shortcut
+agreement and retained context/source callback fences. Artifacts
+`/tmp/dnd5e-mounted-PD2TXR`. SDK presentation seam, not installed Core/native UI.
+`test:initiative-contract` executes the exact released public-hook consumer:
+bounded d20 is advantage-capable; a module throw prevents fallback. The module
+therefore gates bounded HUD formulas while sheet/direct Normal remains available.
+No formula disguising/private imports/host rewrite. The source reproduction does
+not establish installed/public combat endpoint acceptance. This limitation stays
+open under E05/A18; no new Core defect/extension is asserted solely from ties.
+
+`check:package` passes isolated module check, managed typing and all bundles.
+Portable evidence records source/script/fixture/archive hashes and distinctions;
+harness cleanup stops task-owned services. Node24 local; Node22 CI/native/operator
+unrun. No full DD/A/M gate closes. Next independent M2 work: source/default Item
+effect eligibility and remaining rule/filter/final domains, then M3 prerequisites.
+E01/wider Q00/E05/ADR-0001 stay open;0.4.1/compatibility unchanged.

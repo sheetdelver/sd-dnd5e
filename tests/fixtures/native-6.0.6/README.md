@@ -252,3 +252,11 @@ raw faces, count/rerolled and exact retained identity. Normal160 pass; bounded
 adv/dis320 equal-index mismatches stay unqualified (no plain-profile exception).
 Controlled injected-result S is separate from synthetic public-host execution,
 installed UI and native/operator acceptance. C20 has no runtime scope expansion.
+
+C21 keeps C20's strict bounded-selection gate and adds all441 nullable1–20 bound
+pairs/20 faces for normal mode. The maintained module matrix covers30 source
+scope cases and explicit Normal overrides; static/passives/context/malformed/
+source/legacy protections remain. Public helper assertions include exact Roll/
+Die metadata and441 complete distributions. Formula-only HUD integration is a
+separate controlled public-consumer limit and stays gated for bounds. Earlier
+normal unavailable evidence is historical; it is not deleted or called support.

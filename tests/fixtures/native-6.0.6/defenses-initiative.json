@@ -628,7 +628,7 @@
           "min": 10
         }
       },
-      "executionUnavailable": true
+      "executionUnavailable": false
     },
     {
       "id": "range-attributes.init.roll-max",
@@ -647,7 +647,7 @@
           "max": 10
         }
       },
-      "executionUnavailable": true
+      "executionUnavailable": false
     },
     {
       "id": "range-abilities.dex.check.roll-min",
@@ -666,7 +666,7 @@
           "min": 10
         }
       },
-      "executionUnavailable": true
+      "executionUnavailable": false
     },
     {
       "id": "range-abilities.dex.check.roll-max",
@@ -685,7 +685,7 @@
           "max": 10
         }
       },
-      "executionUnavailable": true
+      "executionUnavailable": false
     },
     {
       "id": "range-rolls.ability.check-min",
@@ -704,7 +704,7 @@
           "min": 10
         }
       },
-      "executionUnavailable": true
+      "executionUnavailable": false
     },
     {
       "id": "range-rolls.ability.check-max",
@@ -723,7 +723,7 @@
           "max": 10
         }
       },
-      "executionUnavailable": true
+      "executionUnavailable": false
     },
     {
       "id": "fixed-ignores-die-bounds",

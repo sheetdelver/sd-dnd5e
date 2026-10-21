@@ -15,7 +15,7 @@ for(const row of modeEffectCases){
   assert.equal(adapter.getRollData(prepared,'tool','thief')?.formula,formula(e.toolMode,4),row.id);
   assert.equal(adapter.getRollData(prepared,'ability','wis')?.formula,formula(e.abilityMode,2),row.id);
   for(const [advantage,mode] of [['normal',0],['adv',1],['dis',-1]] as const)assert.equal(adapter.getRollData(prepared,'skill','prc',{tool:'thief',advantage,situationalBonus:'2'})?.formula,formula(mode,5)+'+(2)',row.id);
-  const bounded=structuredClone(source);setSkillRoll(bounded,'skills.prc.roll',{min:10});assert.equal(adapter.getRollData(adapter.prepareActorData(bounded,skillContext()),'skill','prc'),null,row.id);
+  const bounded=structuredClone(source);setSkillRoll(bounded,'skills.prc.roll',{...(bounded.system as any).skills.prc.roll,min:10});const boundPrepared=adapter.prepareActorData(bounded,skillContext());assert.equal(adapter.getRollData(boundPrepared,'skill','prc')?.formula??null,e.mode===0?'1d20min10+5':null,row.id);assert.equal(adapter.getRollData(boundPrepared,'skill','prc',{advantage:'normal'})?.formula,'1d20min10+5');
   for(const {context} of unavailableContexts())assert.equal(adapter.getRollData(adapter.prepareActorData(source,context),'skill','prc'),null,row.id);
   assert.equal(adapter.getRollData(adapter.prepareActorData(source,skillContext()),'skill','prc')?.formula,formula(e.mode,5));
  }else assert.equal(adapter.getRollData(prepared,'skill','prc'),null,row.id);

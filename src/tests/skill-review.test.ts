@@ -11,20 +11,21 @@ import { rollScopes, setSkillRoll, skillContext, skillSource, skillWorld, unavai
 
 const adapter = new DnD5eAdapter(), failures: string[] = [];
 const skill = (actor: PreparedActorData) => (actor.derived.skills as Record<string, PreparedSkill & { label: string }>).prc;
-function check(id: string, actor: PreparedActorData, totals: boolean) {
+function check(id: string, actor: PreparedActorData, totals: boolean, expected:string|null=null) {
     try {
         assert.equal(skill(actor).total, totals ? 5 : null);
         assert.equal(actor.derived.passivePerception, totals ? 15 : null);
-        assert.equal(adapter.getRollData(actor, 'skill', 'prc'), null);
-        assert.ok(skill(actor).unavailableReason);
+        assert.equal(adapter.getRollData(actor, 'skill', 'prc')?.formula??null, expected);
+        if(expected===null)assert.ok(skill(actor).unavailableReason);
     } catch { failures.push(`${id}: total=${skill(actor).total}, passive=${actor.derived.passivePerception}, roll=${adapter.getRollData(actor, 'skill', 'prc')?.formula}`); }
 }
-// Unchanged review input/expectation. Enumerate all eleven before asserting so
-// the failing-before evidence covers both findings in a single maintained run.
+// Original review inputs retained. C21 supersedes the temporary normal-range
+// block after independent exact public-host qualification; malformed/context
+// and bounded-selection restrictions remain explicit.
 for (const scope of rollScopes) for (const field of ['min', 'max']) {
     const input = skillSource(); setSkillRoll(input, scope, { [field]: 10 });
     const before = structuredClone(input);
-    check(`DD-R01 ${scope}.${field}`, adapter.prepareActorData(input, skillContext()), true);
+    check(`DD-R01 ${scope}.${field}`, adapter.prepareActorData(input, skillContext()), true,`1d20${field}10+5`);
     assert.deepEqual(input, before);
 }
 for (const { id, context } of unavailableContexts()) check(`DD-R02 ${id}`, adapter.prepareActorData(skillSource(), context), false);
@@ -55,7 +56,7 @@ assert.equal(adapter.getRollData(bounded, 'skill', 'prc', { advantage: 'adv' }),
 assert.equal(adapter.getRollData(bounded, 'skill', 'prc', { advantage: 'dis' }), null);
 for (const range of [{ min: 1, max: 20 }, { min: 20, max: 1 }, { min: 10, max: 10 }]) {
     const actor = skillSource(); setSkillRoll(actor, rollScopes[0], range);
-    assert.equal(adapter.getRollData(adapter.prepareActorData(actor, skillContext()), 'skill', 'prc'), null);
+    assert.equal(adapter.getRollData(adapter.prepareActorData(actor, skillContext()), 'skill', 'prc')?.formula, `1d20min${range.min}max${range.max}+5`);
 }
 for (const { context } of unavailableContexts()) {
     const source = skillSource(), before = structuredClone(source);

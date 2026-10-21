@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {DnD5eAdapter} from '../logic/adapter';
-import {defenseCases,defenseSource,defenseContext} from './fixtures/defense-scenarios';
+import {defenseCases,defenseSource,defenseContext,defenseRangeSuffix} from './fixtures/defense-scenarios';
 import {unavailableContexts} from './fixtures/skill-scenarios';
 import {preparedRollFormula,preparedRollAvailable,rollIntentSignature} from '../ui/components/shared/skillIntent';
 const adapter=new DnD5eAdapter(),failures:string[]=[];
@@ -8,9 +8,9 @@ for(const row of defenseCases){
  const source=defenseSource(row),before=structuredClone(source),prepared=adapter.prepareActorData(source,defenseContext(row)),d=prepared.derived as any,e=row.expected;
  if(d.ac!==e.ac||d.initiative!==e.total){failures.push(row.id);continue;}
  if(e.total!==null){assert.equal(d.initiativeFacts.score,e.score,row.id);if(row.calculation)assert.equal(d.armorClass.calculation,row.calculation,row.id);}
- const expected=e.total===null||row.executionUnavailable?null:e.fixed?String(e.rollBonus):`${e.mode===1?'2d20kh1':e.mode===-1?'2d20kl1':'1d20'}${e.total!<0?'':'+'}${e.total}${row.settings?.tie&&!e.fixed?'+0.14':''}`;
+ const suffix=defenseRangeSuffix(row),expected=e.total===null||row.executionUnavailable?null:e.fixed?String(e.rollBonus):`${e.mode===1?'2d20kh1':e.mode===-1?'2d20kl1':'1d20'}${suffix}${e.total!<0?'':'+'}${e.total}${row.settings?.tie&&!e.fixed?'+0.14':''}`;
  assert.equal(adapter.getRollData(prepared,'initiative','initiative')?.formula??null,expected,row.id);
- if(expected===null)assert.throws(()=>adapter.getInitiativeFormula(prepared),row.id);else assert.equal(adapter.getInitiativeFormula(prepared),expected,row.id);
+ if(expected===null||suffix)assert.throws(()=>adapter.getInitiativeFormula(prepared),row.id);else assert.equal(adapter.getInitiativeFormula(prepared),expected,row.id);
  for(const {context} of unavailableContexts()){
   const lost=adapter.prepareActorData(source,context);assert.equal(lost.derived.ac,null);assert.equal(lost.derived.initiative,null);assert.equal(adapter.getRollData(lost,'initiative','initiative'),null);assert.throws(()=>adapter.getInitiativeFormula(lost));
  }
@@ -21,7 +21,7 @@ for(const row of defenseCases){
  assert.equal(adapter.getRollData(prepared,'initiative','initiative',{ability:'missing'}),null);
  if(expected!==null){
   if(e.fixed){assert.equal(adapter.getRollData(prepared,'initiative','initiative',{advantage:'adv'}),null);assert.equal(adapter.getRollData(prepared,'initiative','initiative',{situationalBonus:'2'}),null);}
-  else for(const [advantage,die] of [['normal','1d20'],['adv','2d20kh1'],['dis','2d20kl1']] as const)assert.equal(adapter.getRollData(prepared,'initiative','initiative',{advantage,situationalBonus:'2'})?.formula,`${die}${e.total!<0?'':'+'}${e.total}${row.settings?.tie?'+0.14':''}+(2)`,row.id);
+  else for(const [advantage,die] of [['normal','1d20'],['adv','2d20kh1'],['dis','2d20kl1']] as const)assert.equal(adapter.getRollData(prepared,'initiative','initiative',{advantage,situationalBonus:'2'})?.formula??null,suffix&&advantage!=='normal'?null:`${die}${suffix}${e.total!<0?'':'+'}${e.total}${row.settings?.tie?'+0.14':''}+(2)`,row.id);
  }
  assert.deepEqual(source,before,row.id);
 }

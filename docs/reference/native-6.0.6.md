@@ -542,3 +542,22 @@ ordered semantics. The exact-method oracle verifies8 tables/6560 ordered cases/
 findSplice and formula reset are explicit stubs, not native engine acceptance.
 Core0.19.3 strict normal range execution passes160 cases. Bounded adv/dis remain
 unqualified due320 equal-index differences; plain-profile equivalence is unchanged.
+
+### Complete normal bound pairs and surface limits (C21)
+
+The exact-method range oracle now additionally verifies all441 nullable1–20 bound
+pairs across20 faces:15380 total ordered cases/465 distributions with the C20
+matrix. Source field validation/aggregation, native modifier order, raw result,
+count/rerolled, active state and contribution remain distinct. Public execution
+uses actual module-compiled formulas for those8820 normal cases,30 applicable
+scope checks with source/manual modes, combined selections, qualified initial
+effects and ordered initiative tiebreakers. Bounded selection still has the C20
+strict identity gate; plain tie equivalence never extends to it.
+
+Core0.19.3's released formula-hook consumer is separately executed as controlled
+source with a base-adapter identity stub. A leading bounded d20 yields
+advantageAvailable=true and the string hook has no mode-capability result.
+Throwing yields module-unavailable without Core fallback. This is a documented
+integration limit, not a new Core defect solely from tied indices. Module HUD
+bounds remain gated; character-sheet Normal/direct adapter coverage is separate
+from installed combat/native/operator acceptance.

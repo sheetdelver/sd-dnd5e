@@ -34,6 +34,7 @@ interface SkillData {
     label: string;
     formula?: string | null;
     unavailableReason?: string;
+    defaultUnavailableReason?:string;
 }
 
 interface Props {
@@ -54,7 +55,7 @@ export default function Skills({ skills, onRoll }: Props) {
         const intent = review(key);
         if (!intent) return;
         if (e.shiftKey) {
-            void intent.onConfirm();
+            if(intent.quickAvailable)void intent.onConfirm();
             return;
         }
         const abilityName = ABILITY_FULL_NAME[skill.ability] ?? skill.ability;
@@ -109,7 +110,7 @@ export default function Skills({ skills, onRoll }: Props) {
                     <button
                         key={key}
                         disabled={!canRoll(key)}
-                        title={skill.unavailableReason}
+                        title={skill.unavailableReason??skill.defaultUnavailableReason}
                         onClick={(e) => handleClick(e, key)}
                         style={{
                             display: 'grid',
@@ -141,7 +142,7 @@ export default function Skills({ skills, onRoll }: Props) {
                         {/* Skill name */}
                         <span style={{ fontSize: '12px', color: 'var(--text-primary)' }}>
                             {skill.label}
-                            {skill.unavailableReason && <small style={{ display: 'block', color: 'var(--text-muted)' }}>{skill.unavailableReason}</small>}
+                            {(skill.unavailableReason??skill.defaultUnavailableReason) && <small style={{ display: 'block', color: 'var(--text-muted)' }}>{skill.unavailableReason??skill.defaultUnavailableReason}</small>}
                         </span>
                         {/* Bonus value */}
                         <span style={{

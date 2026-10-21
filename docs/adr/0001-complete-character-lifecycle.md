@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded-mode execution remain open; C20 qualifies normal ranges | RV01–RV04 retained; C06–C19 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges | RV01–RV04 retained; C06–C21 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -979,3 +979,43 @@ This checkpoint changes verification only; DD-R01 execution stays gated until
 C21 applies normal bounded compilation consistently across consumers. No full
 gate closes. ADR-0001/E01/wider Q00/E05/native/operator acceptance stay open;
 experimental0.4.1/compatibility and the parked runtime remain unchanged.
+
+### C21 — Qualified normal configured die ranges (2026-10-21)
+
+C20 is `ad9fa95`. C21 advances Q00/M2, DD-02/24/27/34 and A02/A18 partially.
+All30 original normal-bound source cases failed before and now pass across skill,
+tool, ability, save and initiative scopes. `d20SourceRange` validates persisted
+1–20 integer fields and combines greatest minimum/least maximum. One shared
+compiler emits ordered min/max modifiers before the separately prepared bonus;
+it preserves crossed bounds instead of approximating a clamp/bonus. Static skill
+values/passives remain independent. All441 nullable bound pairs and20 faces
+(8820 normal cases) compare with pinned native methods and real public execution.
+
+Execution readiness is distinct from reviewability. A source/automatic bounded
+adv/dis default stays unavailable, its shortcut dispatches nothing, and its dialog
+can offer an explicitly selected Normal roll. No source default silently changes.
+The shared resolver/adapter revalidates the actual requested mode; malformed
+ranges, missing context/formulas, flags and other unqualified rules cannot be
+rescued by a Normal override. Disabled modes, previews, numeric bonuses, combined/
+alternate requests, effect preparation and current-source callbacks use one path.
+Bound/context changes retire dialogs and held callbacks, including equal-total/
+revision source changes. Existing selected legacy range limits are preserved.
+
+The public Core0.19.3 formula-only initiative HUD hook cannot declare Normal-only
+modes; its consumer marks a leading bounded d20 as advantage-capable. A controlled
+released-consumer reproduction records this. The module therefore explicitly gates
+its HUD hook for configured bounds while the character-sheet/direct Normal check
+remains qualified. It neither disguises the formula to influence private host
+logic nor exposes unqualified overrides. No Core defect/extension or compatibility
+change is justified solely by the tied-index issue. Future HUD coverage needs a
+qualified mode-capability decision; this gate stays open under wider E05/A18.
+
+Evidence/commands/limits: [C21 ledger](../plans/0001-verification.md#c21--qualified-normal-configured-die-ranges-2026-10-21),
+[portable record](../audits/evidence/2026-10-21-c21-normal-ranges.json).
+DD-R01's temporary normal-range restriction is superseded only for these qualified
+profiles; DD-R01–06 malformed/context/stale protections remain. Bounded adv/dis,
+other formulas/flags/groups/effect phases and full lifecycle acceptance remain
+open. Next independent M2 work: source/default Item eligibility and remaining
+rule/filter/final preparation, then dependency-ready M3 qualification. E01 and
+wider Q00/E05/native/operator gates remain open; ADR-0001 and experimental0.4.1/
+compatibility are unchanged.

@@ -5,7 +5,7 @@ import {readFileSync,writeFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {coreRoot,option} from './lib/toolchain.mjs';
 import {readRelease,nativeCommit,sha256} from './lib/native-release.mjs';
-import {rangeFixture,rangeCases} from './lib/range-expectations.mjs';
+import {rangeFixture,rangeCases,normalRangeMatrix} from './lib/range-expectations.mjs';
 const args=process.argv.slice(2),repo=option(args,'--native'),foundry=option(args,'--foundry');if(!repo||!foundry)throw Error('Supply static --native and --foundry references');
 const files=readRelease(repo),require=createRequire(join(coreRoot(args),'package.json')),ts=require('typescript'),release=JSON.parse(readFileSync(join(foundry,'package.json'),'utf8')).release;assert.equal(release.generation,14);assert.equal(release.build,367);assert.equal(rangeFixture.nativeCommit,nativeCommit);
 const dieSource=readFileSync(join(foundry,'client/dice/terms/die.mjs'),'utf8'),diceSource=readFileSync(join(foundry,'client/dice/terms/dice.mjs'),'utf8');
@@ -26,7 +26,8 @@ CONFIG.Dice.D20Roll=D20Roll;globalThis.native={D20Die,D20Roll,RangeFields};`,san
 const ranges=[];
 for(const row of rangeFixture.ranges){const model=Object.fromEntries(row.scopes.map((value,i)=>['scope'+i,value])),range=sandbox.native.RangeFields.combineFields(model,Object.keys(model));assert.equal(range.minimum,row.minimum??-Infinity);assert.equal(range.maximum,row.maximum??Infinity);ranges.push({id:row.id,minimum:row.minimum,maximum:row.maximum,contributions:row.contributions});}
 const observations=[],histograms={};
-for(const row of rangeCases()){
+const cases=[...rangeCases(),...normalRangeMatrix()];
+for(const row of cases){
     const {D20Die,D20Roll}=sandbox.native,die=new D20Die();
     const roll=new D20Roll();Object.assign(roll,{options:{advantageMode:row.mode,minimum:row.minimum??-Infinity,maximum:row.maximum??Infinity},d20:die,validD20Roll:true});roll.configureModifiers();
     assert.deepEqual(Array.from(die.modifiers),[...(row.mode?[row.mode===1?'adv':'dis']:[]),...(row.minimum===null?[]:[`min${row.minimum}`]),...(row.maximum===null?[]:[`max${row.maximum}`])]);
@@ -37,6 +38,6 @@ for(const row of rangeCases()){
     const histogram=histograms[row.id+'/'+row.mode]??={};histogram[row.total]=(histogram[row.total]??0)+1;
     if(row.mode===0||row.faces[0]===row.faces[1])observations.push({id:row.id,mode:row.mode,faces:row.faces,results:die.results,total:die.total+5});
 }
-const evidence={evidence:'S exact release d20 configuration/selection + Foundry14.367 min/max/total methods over independently specified raw results; no native DataModel/engine/operator acceptance',nativeCommit,foundry:{generation:14,build:367,dieSha256:sha256(dieSource),diceSha256:sha256(diceSource)},caseCount:rangeCases().length,ranges,observations,histograms,
+const evidence={evidence:'S exact release d20 configuration/selection + Foundry14.367 min/max/total methods over independently specified raw results; no native DataModel/engine/operator acceptance',nativeCommit,foundry:{generation:14,build:367,dieSha256:sha256(dieSource),diceSha256:sha256(diceSource)},caseCount:cases.length,normalMatrixCases:normalRangeMatrix().length,ranges,observations,histograms,
     stubs:['Constructor/evaluated/raw entropy-result injection; exact methods do not request entropy for this profile','Range-only AdvantageModeField stub; source/manual mode combination separately qualified earlier','Array.findSplice with initially empty modifiers; resetFormula no-op','No rerolls/flags/effects/groups/distinguishable metadata; no extension of plain tied-index equivalence'],sourceHashes:Object.fromEntries(['module/dice/basic-die.mjs','module/dice/d20-die.mjs','module/dice/d20-roll.mjs','module/data/shared/d20-roll-modification-field.mjs'].map(p=>[p,sha256(files.get(p))]))};
 const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: ${evidence.caseCount} exact bounded d20 cases / ${Object.keys(histograms).length} distributions PASS\n`);

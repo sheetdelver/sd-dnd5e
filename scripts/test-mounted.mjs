@@ -24,9 +24,10 @@ import {numericEffectCases,numericEffectSource} from ${JSON.stringify(join(modul
 import {bonusEffectCases,bonusEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/bonus-effect-scenarios.ts'))};
 import {modeEffectCases,modeEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/mode-effect-scenarios.ts'))};
 import {healthCases,healthSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/health-scenarios.ts'))};
-import {defenseCases,defenseSource,defenseContext} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/defense-scenarios.ts'))};
+import {defenseCases,defenseSource,defenseContext,defenseRangeSuffix} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/defense-scenarios.ts'))};
 import {equipmentCases,equipmentSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/equipment-scenarios.ts'))};
 import {movementCases,movementSource,movementContext} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/movement-scenarios.ts'))};
+import {normalRangeCases,rangeSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/range-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -78,17 +79,19 @@ const movementActors=movementCases.map((row,index)=>({...row,actor:adapter.prepa
 const movementUnavailable=unavailableContexts().map(({id,context})=>({id,expected:{movement:null,senses:null},actor:adapter.prepareActorData(movementSource(movementCases[0]),context)}));
 const equipmentActors=equipmentCases.map((row,index)=>({...row,actor:adapter.prepareActorData(equipmentSource(row),{...skillContext(),sourceRevision:2000+index})}));
 const equivalentArmorSource=equipmentSource(equipmentCases.find(row=>row.id==='stealth-disadvantage-after-passive'));const sameArmor=equivalentArmorSource.items.find(item=>item.type==='equipment');sameArmor._id='different-owned-armor';sameArmor.uuid='Actor.'+equivalentArmorSource._id+'.Item.'+sameArmor._id;const equipmentEquivalent=adapter.prepareActorData(equivalentArmorSource,{...skillContext(),sourceRevision:2000+equipmentCases.findIndex(row=>row.id==='stealth-disadvantage-after-passive')});
-const defenses=defenseCases.map(row=>({...row,actor:adapter.prepareActorData(defenseSource(row),{...defenseContext(row),sourceRevision:1000+defenseCases.indexOf(row)})}));
+const rangeActors=normalRangeCases.flatMap((row,index)=>[-1,0,1].map(mode=>({...row,sourceMode:mode,actor:adapter.prepareActorData(rangeSource(row,mode),{...skillContext(),sourceRevision:4000+index*3+mode+1})})));
+const rangeChanged=adapter.prepareActorData(rangeSource(normalRangeCases[1],1),{...skillContext(),sourceRevision:4002});
+const defenses=defenseCases.map(row=>({...row,rangeSuffix:defenseRangeSuffix(row),actor:adapter.prepareActorData(defenseSource(row),{...defenseContext(row),sourceRevision:1000+defenseCases.indexOf(row)})}));
 const initiativeBaseline=adapter.prepareActorData(defenseSource(defenseCases[0]),{...defenseContext(defenseCases[0]),sourceRevision:9000});
 const defenseUnavailable=unavailableContexts().map(({id,context})=>({id,actor:adapter.prepareActorData(defenseSource(defenseCases[0]),context),expected:{ac:null,total:null}}));
 const combinedUnavailable=unavailableContexts().map(({id,context})=>({id,actor:prepare(combinedSource(combinedCases[8]),context)}));
 const removed=combinedSource(combinedCases[8]);delete removed.system.tools.thief;combinedUnavailable.push({id:'selected-tool-removed',actor:prepare(removed)});
 const removedSkill=combinedSource(combinedCases[8]);delete removedSkill.system.skills.prc;combinedUnavailable.push({id:'selected-skill-removed',actor:prepare(removedSkill)});
-process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable}));`);
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, rangeActors, rangeChanged}));`);
 const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8', maxBuffer:16*1024*1024 });
 if (result.error) throw result.error;
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, rangeActors, rangeChanged } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -97,7 +100,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], effectModeRows = [], healthRows = [], defenseRows = [], equipmentRows = [], movementRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], effectModeRows = [], healthRows = [], defenseRows = [], equipmentRows = [], movementRows = [], rangeRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -143,15 +146,15 @@ try {
             assert.match(await page.locator('dialog[open]').innerText(), /1d20\+5/);
             await render(states[id]);
             await page.waitForFunction(() => !document.querySelector('dialog[open]'), undefined, { timeout: 1500 });
-            assert.equal(await skill.isDisabled(), true, `${width}/${id} controls`);
+            const bounded=id.startsWith('range-');assert.equal(await skill.isDisabled(), !bounded, `${width}/${id} controls`);
             assert.match(await skill.innerText(), id.startsWith('range-') ? /\+5/ : /—/);
             await skill.dispatchEvent('click', { shiftKey: true });
-            assert.equal(await page.evaluate(() => window.skillFixture.calls.length), 0, 'Unavailable shortcut dispatches no request');
+            const dispatched=await page.evaluate(()=>window.skillFixture.calls.splice(0));assert.equal(dispatched.length,bounded?1:0,'Shortcut follows qualified default only');if(bounded)assert.equal(dispatched[0].formula,'1d20'+(id.endsWith('-min')?'min10':'max10')+'+5');
             await render(states.supported);
             assert.equal(await skill.isEnabled(), true);
             await skill.click({ modifiers: ['Shift'] });
             assert.equal(await page.evaluate(() => window.skillFixture.calls.splice(0).length), 1);
-            rows.push({ width, id, staleDialogRetired: true, shortcutBlocked: true, recovery: true });
+            rows.push({ width, id, staleDialogRetired: true, shortcutBlocked: !bounded, qualifiedNormalRange:bounded, recovery: true });
         }
         // Also retain a real mounted consumer callback across loss and recovery;
         // closing DOM alone must not allow that old intent to become executable.
@@ -173,14 +176,14 @@ try {
                 assert.match(await page.locator('dialog[open]').innerText(), kind === 'ability' ? /1d20\+5/ : /1d20\+10/);
                 await render(abilityStates[id]);
                 await page.waitForFunction(() => !document.querySelector('dialog[open]'), undefined, { timeout: 1500 });
-                assert.equal(await control.isDisabled(), true);
+                const bounded=/^(check|save)-/.test(id);assert.equal(await control.isDisabled(),!bounded);
                 await control.dispatchEvent('click', { shiftKey: true });
-                assert.equal(await page.evaluate(() => window.skillFixture.calls.length), 0);
+                const dispatched=await page.evaluate(()=>window.skillFixture.calls.splice(0));assert.equal(dispatched.length,bounded?1:0);if(bounded)assert.equal(dispatched[0].formula,'1d20'+(id.endsWith('-min')?'min10':'max10')+'+'+(kind==='ability'?5:10));
                 await render(abilityStates.supported);
                 assert.equal(await control.isEnabled(), true);
                 await control.click({ modifiers: ['Shift'] });
                 assert.equal(await page.evaluate(() => window.skillFixture.calls.splice(0).length), 1);
-                rows.push({ width, kind, id, staleDialogRetired: true, shortcutBlocked: true, recovery: true });
+                rows.push({ width, kind, id, staleDialogRetired: true, shortcutBlocked: !bounded, qualifiedNormalRange:bounded, recovery: true });
             }
             await control.click();
             await page.getByRole('button', { name: /^normal$/i }).click();
@@ -280,14 +283,14 @@ try {
         for(const [id,actor] of Object.entries(tools).filter(([id])=>id!=='supported')) {
             await render(tools.supported);await toolControl.click();await page.locator('dialog[open]').waitFor();
             await render(actor);await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
-            assert.equal(await toolControl.isDisabled(),true,id);
+            const bounded=id.startsWith('range-');assert.equal(await toolControl.isDisabled(),!bounded,id);
             assert.match(await toolControl.innerText(),id.startsWith('range-')?/\+5/:/—/);
             assert.ok(await toolControl.getAttribute('title'));
-            await toolControl.dispatchEvent('click',{shiftKey:true});assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+            await toolControl.dispatchEvent('click',{shiftKey:true});const dispatched=await page.evaluate(()=>window.skillFixture.calls.splice(0));assert.equal(dispatched.length,bounded?1:0);if(bounded)assert.equal(dispatched[0].formula,'1d20'+(id.endsWith('-min')?'min10':'max10')+'+5');
             await render(tools.supported);assert.equal(await toolControl.isEnabled(),true);
             await toolControl.click({modifiers:['Shift']});const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));
             assert.equal(calls.length,1);assert.equal(calls[0].type,'tool');assert.equal(calls[0].key,'thief');assert.equal(calls[0].formula,'1d20+5');
-            toolRows.push({width,id,disabled:true,staleDialogRetired:true,recovery:true});
+            toolRows.push({width,id,disabled:!bounded,qualifiedNormalRange:bounded,staleDialogRetired:true,recovery:true});
         }
         for(const row of toolExamples) {
             await render(row.actor);const control=page.getByRole('region',{name:'Tool checks',exact:true}).getByRole('button');
@@ -468,7 +471,7 @@ try {
             healthRows.push({width,id:row.id,hp:hp??'unavailable',hitDice:hd??'unavailable',unqualifiedCommandsDisabled:true,recovery:true});
         }
 
-        const initiativeFormula=row=>row.expected.fixed?String(row.expected.rollBonus):`${row.expected.mode===1?'2d20kh1':row.expected.mode===-1?'2d20kl1':'1d20'}${row.expected.total<0?'':'+'}${row.expected.total}${row.settings?.tie&&!row.expected.fixed?'+0.14':''}`;
+        const initiativeFormula=row=>row.expected.fixed?String(row.expected.rollBonus):`${row.expected.mode===1?'2d20kh1':row.expected.mode===-1?'2d20kl1':'1d20'}${row.rangeSuffix??''}${row.expected.total<0?'':'+'}${row.expected.total}${row.settings?.tie&&!row.expected.fixed?'+0.14':''}`;
         for(const row of [...defenses,...defenseUnavailable]){
             await render(initiativeBaseline);await page.getByRole('button',{name:'Roll initiative',exact:true}).click();await render(row.actor);await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
             const e=row.expected,available=e.total!==null&&!row.executionUnavailable,control=page.getByRole('button',{name:'Roll initiative',exact:true});
@@ -478,8 +481,8 @@ try {
             if(available){
                 await control.click();const dialog=page.locator('dialog[open]');assert.ok((await dialog.innerText()).includes(initiativeFormula(row)),row.id+' preview');
                 if(e.fixed){assert.equal(await dialog.getByRole('button',{name:'Advantage',exact:true}).isDisabled(),true);assert.equal(await dialog.getByRole('button',{name:'Disadvantage',exact:true}).isDisabled(),true);assert.equal(await dialog.getByRole('textbox',{name:'Situational bonus'}).isDisabled(),true);}
-                else {await dialog.getByRole('textbox',{name:'Situational bonus'}).fill('2');await dialog.getByRole('button',{name:'Disadvantage',exact:true}).focus();assert.ok((await dialog.innerText()).includes('2d20kl1'+(e.total<0?'':'+')+e.total+(row.settings?.tie?'+0.14':'')+'+(2)'));}
-                await dialog.getByRole('button',{name:e.fixed?'Normal':'Disadvantage',exact:true}).click();const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));assert.equal(calls[0].formula,e.fixed?String(e.rollBonus):'2d20kl1'+(e.total<0?'':'+')+e.total+(row.settings?.tie?'+0.14':'')+'+(2)');
+                else {await dialog.getByRole('textbox',{name:'Situational bonus'}).fill('2');await dialog.getByRole('button',{name:row.rangeSuffix?'Normal':'Disadvantage',exact:true}).focus();assert.ok((await dialog.innerText()).includes((row.rangeSuffix?'1d20'+row.rangeSuffix:'2d20kl1')+(e.total<0?'':'+')+e.total+(row.settings?.tie?'+0.14':'')+'+(2)'));if(row.rangeSuffix)assert.equal(await dialog.getByRole('button',{name:'Advantage',exact:true}).isDisabled(),true);}
+                await dialog.getByRole('button',{name:e.fixed||row.rangeSuffix?'Normal':'Disadvantage',exact:true}).click();const calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));assert.equal(calls[0].formula,e.fixed?String(e.rollBonus):(row.rangeSuffix?'1d20'+row.rangeSuffix:'2d20kl1')+(e.total<0?'':'+')+e.total+(row.settings?.tie?'+0.14':'')+'+(2)');
                 await control.click({modifiers:['Shift']});assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,initiativeFormula(row));
             }else{await control.dispatchEvent('click',{shiftKey:true});assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);}
             await render(defenses[0].actor);assert.equal(await page.getByRole('button',{name:'Roll initiative',exact:true}).isEnabled(),true);
@@ -530,6 +533,25 @@ try {
             movementRows.push({width,id:row.id,walking:e.movement?e.movement.walk:null,senses:e.senses??'unavailable',recovery:true,fixtureWrites:0});
         }
 
+        for(const row of rangeActors){
+            await render(row.actor);await tab(row.kind==='ability'||row.kind==='save'?'Abilities':'Skills');
+            const control=row.kind==='skill'?skill:row.kind==='tool'?toolControl:page.getByRole('button',{name:row.kind==='ability'?'Wisdom Check':row.kind==='save'?'Wisdom Saving Throw':'Roll initiative',exact:true});
+            assert.equal(await control.isEnabled(),true,row.id+' reviewable');
+            await control.click({modifiers:['Shift']});let calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));assert.equal(calls.length,row.sourceMode===0?1:0,row.id+' qualified default only');if(calls.length)assert.equal(calls[0].formula,row.formula);
+            await control.click();const dialog=page.locator('dialog[open]');
+            assert.equal(await dialog.getByRole('button',{name:'Normal',exact:true}).isEnabled(),true);
+            for(const name of ['Advantage','Disadvantage']){const button=dialog.getByRole('button',{name,exact:true});assert.equal(await button.isDisabled(),true);await button.dispatchEvent('click');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);}
+            if(row.sourceMode===0)assert.ok((await dialog.innerText()).includes(row.formula),row.id+' default preview');else assert.ok((await dialog.innerText()).includes('Choose Normal'),row.id+' default reason');
+            await dialog.getByRole('textbox',{name:'Situational bonus'}).fill('-1.5');assert.equal(await dialog.getByRole('textbox',{name:'Situational bonus'}).getAttribute('aria-invalid'),'false');
+            await dialog.getByRole('button',{name:'Normal',exact:true}).focus();assert.ok((await dialog.innerText()).includes(row.formula+'+(-1.5)'));
+            await dialog.getByRole('button',{name:'Normal',exact:true}).press('Enter');calls=await page.evaluate(()=>window.skillFixture.calls.splice(0));assert.equal(calls.length,1);assert.equal(calls[0].formula,row.formula+'+(-1.5)');
+            rangeRows.push({width,id:row.id,sourceMode:row.sourceMode,defaultAvailable:row.sourceMode===0,explicitNormal:true,boundedSelectionBlocked:true});
+        }
+        const boundedSkill=rangeActors.find(row=>row.kind==='skill'&&row.sourceMode===1).actor;
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),boundedSkill);await skill.click();await page.evaluate(()=>window.skillFixture.hold());
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),states['snapshot-absent']);await page.evaluate(actor=>window.skillFixture.render(actor,true),boundedSkill);assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld({advantage:'normal'})),'retired');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+        await skill.click();await page.evaluate(()=>window.skillFixture.hold());await page.evaluate(actor=>window.skillFixture.render(actor,true),rangeChanged);assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld({advantage:'normal'})),'retired');await page.evaluate(actor=>window.skillFixture.render(actor,true),boundedSkill);assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld({advantage:'normal'})),'retired');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+
         // Retained callbacks must not survive context, settings or public UUID
         // changes even when Actor IDs/source revisions and numeric totals match.
         const base=defenses[0].actor;
@@ -545,6 +567,6 @@ try {
     writeFileSync(join(artifacts, 'focus.json'),JSON.stringify(focusRows,null,2));
     for(const row of focusRows)assert.equal(row.afterPointerLeaves,'2d20kh1+5','DD-R06/'+row.width+'; artifacts '+artifacts);
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows, effectModeRows, healthRows, defenseRows, equipmentRows, movementRows }, null, 2));
-    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} eligibility and ${numericEffectRows.length} field and ${effectModeRows.length} mode effect cases, ${healthRows.length} health and ${defenseRows.length} AC/initiative and ${equipmentRows.length} equipped armor and ${movementRows.length} movement/senses projections and retained-callback fences PASS; artifacts ${artifacts}\n`);
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows, effectModeRows, healthRows, defenseRows, equipmentRows, movementRows, rangeRows }, null, 2));
+    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} eligibility and ${numericEffectRows.length} field and ${effectModeRows.length} mode effect cases, ${healthRows.length} health and ${defenseRows.length} AC/initiative and ${equipmentRows.length} equipped armor and ${movementRows.length} movement/senses and ${rangeRows.length} normal-range projections and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }

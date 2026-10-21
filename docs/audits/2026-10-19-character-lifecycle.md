@@ -76,7 +76,7 @@ report and its [portable ledger](evidence/2026-10-19-c01-c03-review.json).
 
 | ID | Finding | Disposition |
 | --- | --- | --- |
-| DD-R01 | Configured native skill die min/max values are ignored in all four applicable roll scopes. | Corrected C04 via explicit execution-unavailable state, with static totals/passives preserved; native range execution remains Q00 work. |
+| DD-R01 | Configured native skill die min/max values are ignored in all four applicable roll scopes. | Corrected C04 via explicit unavailable state; C21 qualifies normal bound execution and explicit Normal overrides with unchanged static/passives. Bounded adv/dis and HUD range execution remain gated. |
 | DD-R02 | Missing/unavailable/unsupported context restores old +1/passive11 skills and permits `1d20+1`, despite lifecycle diagnostics; supported baseline is +5/passive15. | Corrected C04: explicit unavailable preparation/execution, separate legacy selection, mounted intent retirement and recovery. |
 
 C04 evidence is in the verification ledger and [portable correction record](evidence/2026-10-19-c04-corrections.json). No new Core dependency is established;
@@ -169,7 +169,7 @@ IDs remain stable through implementation. Baseline status describes the **workfl
 | --- | --- | --- | --- |
 | DD-01 | Preparation and version boundary — **partial** | `src/logic/adapter.ts:prepareActorData/normalizeActorData` delegates to Base adapter; prepared-looking source/defaults mask missing level, AC, HP, DC and movement. No selected native-version gate. P partial, R incomplete, S host-backed. | Module rules/projection, M1–M2; exact 6.0.6 source fixtures produce native numbers or explicit unavailable states, with unchanged source. |
 | DD-02 | Abilities, saves, skills, tools, expertise/passives — **partial, confirmed errors** | `buildAbilities/buildSkills/buildPassive/getRollData`; multiplier mistaken for total, missing native bonuses/rules. Native `CreatureTemplate.prepareSkill`, proficiency model. | Module M2/M4; value/expertise/half/dice/advantage and all configured skills/tools agree across sheet/card/roll and native oracle. |
-| DD-03 | AC, initiative, senses, movement — **partial** | Adapter and header fallbacks; no armor/effect/formula preparation. Native attribute and movement/senses fields. | Module M2; armor/unarmored/custom, speed types/units, initiative tiebreaker/conditions, sense ranges tested. |
+| DD-03 | AC, initiative, senses, movement — **partial** | C17–C19 shared AC/init/equipment/movement/senses facts replace modern fallbacks in the bounded profile. Conditions, broader effects/formulas and complete native parity remain open. | Module M2; armor/unarmored/custom, speed types/units, initiative tiebreaker/conditions, sense ranges tested. |
 | DD-04 | HP/temp HP, damage/healing, death saves — **partial** | `HitPoints.tsx`, `HPModal.tsx` do local arithmetic; source maximum may be null. No complete death-save/damage-rule pipeline. | Module M3/M4; resistance/immunity/vulnerability choices, temp/max modifiers, zero HP/death/revival and exact receipts; no unauthorized target updates. |
 | DD-05 | Conditions, defenses, active effects — **stub/absent** | `Conditions.tsx`, `Defenses.tsx` static; adapter doesn't implement native phases/rule filters. | Module M2/M4; actual conditions/defenses, effect eligibility/order/duration, exhaustion and concentration shown and executed, no source mutation during prep. |
 | DD-06 | Proficiencies, mastery, languages — **stub/partial** | `Proficiencies.tsx` displays fixed universal grants; UI attack heuristic assumes proficiency. Native traits/weapon mastery. | Module M2/M6; source-specific grants and restrictions; duplicate grants preserve source identities and validate replacement choices. |
@@ -658,3 +658,43 @@ This checkpoint changes verification only; DD-R01 execution stays gated until
 C21 applies normal bounded compilation consistently across consumers. No full
 gate closes. ADR-0001/E01/wider Q00/E05/native/operator acceptance stay open;
 experimental0.4.1/compatibility and the parked runtime remain unchanged.
+
+### C21 — Qualified normal configured die ranges (2026-10-21)
+
+C20 is `ad9fa95`. C21 advances Q00/M2, DD-02/24/27/34 and A02/A18 partially.
+All30 original normal-bound source cases failed before and now pass across skill,
+tool, ability, save and initiative scopes. `d20SourceRange` validates persisted
+1–20 integer fields and combines greatest minimum/least maximum. One shared
+compiler emits ordered min/max modifiers before the separately prepared bonus;
+it preserves crossed bounds instead of approximating a clamp/bonus. Static skill
+values/passives remain independent. All441 nullable bound pairs and20 faces
+(8820 normal cases) compare with pinned native methods and real public execution.
+
+Execution readiness is distinct from reviewability. A source/automatic bounded
+adv/dis default stays unavailable, its shortcut dispatches nothing, and its dialog
+can offer an explicitly selected Normal roll. No source default silently changes.
+The shared resolver/adapter revalidates the actual requested mode; malformed
+ranges, missing context/formulas, flags and other unqualified rules cannot be
+rescued by a Normal override. Disabled modes, previews, numeric bonuses, combined/
+alternate requests, effect preparation and current-source callbacks use one path.
+Bound/context changes retire dialogs and held callbacks, including equal-total/
+revision source changes. Existing selected legacy range limits are preserved.
+
+The public Core0.19.3 formula-only initiative HUD hook cannot declare Normal-only
+modes; its consumer marks a leading bounded d20 as advantage-capable. A controlled
+released-consumer reproduction records this. The module therefore explicitly gates
+its HUD hook for configured bounds while the character-sheet/direct Normal check
+remains qualified. It neither disguises the formula to influence private host
+logic nor exposes unqualified overrides. No Core defect/extension or compatibility
+change is justified solely by the tied-index issue. Future HUD coverage needs a
+qualified mode-capability decision; this gate stays open under wider E05/A18.
+
+Evidence/commands/limits: [C21 ledger](../plans/0001-verification.md#c21--qualified-normal-configured-die-ranges-2026-10-21),
+[portable record](evidence/2026-10-21-c21-normal-ranges.json).
+DD-R01's temporary normal-range restriction is superseded only for these qualified
+profiles; DD-R01–06 malformed/context/stale protections remain. Bounded adv/dis,
+other formulas/flags/groups/effect phases and full lifecycle acceptance remain
+open. Next independent M2 work: source/default Item eligibility and remaining
+rule/filter/final preparation, then dependency-ready M3 qualification. E01 and
+wider Q00/E05/native/operator gates remain open; ADR-0001 and experimental0.4.1/
+compatibility are unchanged.

@@ -52,7 +52,7 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
         const intent = review(key);
         if (!intent) return;
         if (e.shiftKey) {
-            void intent.onConfirm();
+            if(intent.quickAvailable)void intent.onConfirm();
             return;
         }
         openModal('roll', {
@@ -80,7 +80,7 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                         key={key}
                         aria-label={`${ABILITY_FULL_NAME[key] ?? key} Check`}
                         disabled={!canRoll(key)}
-                        title={ab.check?.unavailableReason}
+                        title={ab.check?.unavailableReason??ab.check?.defaultUnavailableReason}
                         onClick={(e) => handleClick(e, key)}
                         style={{
                             background: 'var(--surface-card)',
@@ -127,7 +127,7 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                             {ab.score ?? '—'}
                         </div>
                         {ab.check?.total != null && <small>Check {ab.check.total >= 0 ? '+' : ''}{ab.check.total}</small>}
-                        {ab.check?.unavailableReason && <small style={{ display: 'block' }}>{ab.check.unavailableReason}</small>}
+                        {(ab.check?.unavailableReason??ab.check?.defaultUnavailableReason) && <small style={{ display: 'block' }}>{ab.check?.unavailableReason??ab.check?.defaultUnavailableReason}</small>}
                     </button>
                 );
             })}

@@ -37,8 +37,13 @@ export function preparedRollFormula(actor:unknown,kind:PreparedRollKind,key:stri
     if ((kind==='skill'||kind==='tool')&&record(derived?.lifecycle)?.profile==='2024') {
         return derived?.checkConfiguration ? skillToolRoll(derived.checkConfiguration as SkillToolModel,kind,key,options) : null;
     }
-    return numericD20Roll(preparedRollCheck(actor,kind,key),options);
+    return numericD20Roll(configuredRollCheck(actor,kind,key),options);
 }
 export function preparedRollAvailable(actor: unknown, kind: PreparedRollKind, key: string): boolean {
     return Boolean(preparedRollCheck(actor, kind, key));
+}
+/** Review can expose an explicitly selected qualified mode when the configured
+ * default is unavailable. This never authorizes a default/shortcut fallback. */
+export function preparedRollReviewable(actor:unknown,kind:PreparedRollKind,key:string):boolean {
+    return preparedRollAvailable(actor,kind,key)||['normal','adv','dis'].some(advantage=>!!preparedRollFormula(actor,kind,key,{advantage}));
 }

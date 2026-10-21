@@ -1,8 +1,9 @@
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericD20Roll } from './d20-configuration';
+import type {PreparedNumericD20} from './d20-configuration';
 import { prepareSkillToolModel606, configureSkillToolCheck, type SkillToolModel } from './skill-tool';
-export interface PreparedSkill {
+export interface PreparedSkill extends PreparedNumericD20 {
     ability:string; prof:number|null; total:number|null; passive:number|null;
     formula:string|null; sourceMode?:-1|0|1;passiveMode?:-1|0|1; unavailableReason?:string;
 }

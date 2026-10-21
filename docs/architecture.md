@@ -5,10 +5,10 @@ and UI API 3.1; the remaining API ranges are declared there. Its experimental
 designation is intentional and must not be removed as release housekeeping.
 
 The adapter enters Core's deterministic preparation pipeline without writing
-derived values back to Foundry. Current normalization still depends on some
-prepared-looking inputs and fallback values. Sheets, cards, item rows and modals
-also contain overlapping raw reads and calculations; they do not yet implement
-one complete native rule interpretation.
+derived values back to Foundry. Bounded modern numeric, health, AC/init, equipment and movement/senses domains
+now share source/default/qualified-effect preparation. Remaining activity,
+spellcasting, trait and legacy surfaces still include raw reads/fallbacks; a
+complete native rule interpretation is not implemented.
 Core owns authorization, world/session lifecycle, roll execution and shared
 chat/media/dice presentation. Use public SDK contracts, not private host APIs.
 
@@ -30,11 +30,15 @@ target, not a new compatibility claim for module 0.4.1. See the
   unqualified rules and unknown contexts disable these controls with reasons.
   Weapon/spell controls currently request `item` rolls that the adapter does not
   resolve. They are not complete native activity execution.
-- Rest controls currently perform partial HP/temp-HP changes only. Hit-dice,
-  slot, resource and item-use recovery remain unimplemented.
+- Modern health/rest mutation controls are gated pending M3/M4. Selected legacy
+  retains partial HP/temp-HP compatibility; complete HD/slot/resource/Item recovery
+  remains unimplemented.
 - Conditions, defenses, proficiencies and appearance include placeholder
   presentation. Modern spell preparation/properties and physical Item weight
   schemas are incompletely read. The active audit records reproducible examples.
+- Normal configured d20 bounds use the shared compiler and explicit mode
+  readiness. Bounded adv/dis stays gated. The formula-only HUD hook is gated for
+  bounds because it cannot express Normal-only overrides; sheet Normal is available.
 - Versioned native world settings are declared and decoded from immutable public
   host snapshots. No maintenance migration is needed for these pure projections.
 
@@ -479,3 +483,24 @@ Normal bounded d20 is qualified; bounded advantage/disadvantage remains gated
 under its strict criterion. The plain equal-value index equivalence is unchanged.
 C20 adds no runtime compiler behavior; C21 must share normal-range compilation
 across preparation, preview and dispatch before removing those normal gates.
+
+### Normal-range compiler and explicit mode readiness (C21)
+
+`prepareD20Configuration` shares source-range validation/aggregation and compilation
+across skills/tools/abilities/saves/initiative. Only a qualified Normal mode emits
+configured min/max modifiers. `unavailableReason` blocks an entire request;
+`defaultUnavailableReason` identifies a known but unqualified default mode, allowing
+an explicitly selected Normal alternative without context/data fallback.
+`preparedRollReviewable` and default execution readiness are distinct; shortcuts
+require the latter. Dialog mode buttons use requested-mode resolution, not the
+availability of the currently previewed mode. Held callbacks still validate the
+current identity/source/context token before dispatch.
+
+The formula-only public initiative HUD hook cannot restrict overrides, so configured
+range formulas are explicitly unavailable there. Character-sheet checks consume
+the same prepared normal formula. No synthetic leading term, host rewrite, private
+runtime import or compatibility bump disguises this limitation. Fixed no-die
+initiative remains separately qualified. Earlier checkpoint descriptions of all
+range execution being unavailable are historical; C21 supersedes normal profiles
+only. Wider formulas/flags/groups/ranges/phase and installed/native/operator gates
+remain open.

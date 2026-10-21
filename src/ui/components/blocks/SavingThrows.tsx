@@ -32,7 +32,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
         const intent = review(key);
         if (!intent) return;
         if (e.shiftKey) {
-            void intent.onConfirm();
+            if(intent.quickAvailable)void intent.onConfirm();
             return;
         }
         openModal('roll', {
@@ -60,7 +60,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                             aria-label={`${ABILITY_FULL_NAME[key] ?? key} Saving Throw`}
                             onClick={(e) => handleClick(e, key)}
                             disabled={!canRoll(key)}
-                            title={ab?.saveRoll?.unavailableReason}
+                            title={ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason}
                             style={{
                                 textAlign: 'center',
                                 padding: '8px 4px',
@@ -94,7 +94,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                             <div style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--text-primary)' }}>
                                 {formatted}
                             </div>
-                            {ab?.saveRoll?.unavailableReason && <small>{ab.saveRoll.unavailableReason}</small>}
+                            {(ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason) && <small>{ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason}</small>}
                         </button>
                     );
                 })}

@@ -18,17 +18,17 @@ export default function Tools({ onRoll }: {onRoll?: (type:string,key:string,opti
         {!preparation?.reason && !Object.keys(tools).length && <p>No tool checks in actor source.</p>}
         {Object.values(tools).map(tool => <div key={tool.key} style={{marginBottom:'8px'}}>
             <button type="button" aria-label={`${tool.label} Tool Check`} disabled={!canRoll(tool.key)}
-                title={`${tool.provenance}; identity: ${tool.key}${tool.unavailableReason ? `; ${tool.unavailableReason}` : ''}`}
+                title={`${tool.provenance}; identity: ${tool.key}${(tool.unavailableReason??tool.defaultUnavailableReason) ? `; ${tool.unavailableReason??tool.defaultUnavailableReason}` : ''}`}
                 style={{width:'100%',textAlign:'left'}}
                 onClick={event => {
                     const intent = review(tool.key); if (!intent) return;
-                    if (event.shiftKey) {void intent.onConfirm(); return;}
+                    if (event.shiftKey) {if(intent.quickAvailable)void intent.onConfirm(); return;}
                     openModal('roll',{rollType:'tool',rollKey:tool.key,label:`${ABILITY_FULL_NAME[tool.ability] ?? tool.ability} (${tool.label}) Check`,subtitle:actor?.name,formula:tool.formula,...intent});
                 }}>
                 <span>{tool.label}</span>{' '}<small>{tool.ability.toUpperCase()} · Proficiency {tool.prof === null ? '—' : `${tool.prof}×`}</small>{' '}
                 <strong>{tool.total === null ? '—' : `${tool.total < 0 ? '' : '+'}${tool.total}`}</strong>
             </button>
-            {tool.unavailableReason && <small style={{display:'block'}}>{tool.unavailableReason}</small>}
+            {(tool.unavailableReason??tool.defaultUnavailableReason) && <small style={{display:'block'}}>{tool.unavailableReason??tool.defaultUnavailableReason}</small>}
         </div>)}
     </section>;
 }

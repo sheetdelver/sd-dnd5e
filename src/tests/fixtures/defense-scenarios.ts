@@ -1,6 +1,13 @@
 import fixture from '../../../tests/fixtures/native-6.0.6/defenses-initiative.json';
 import {skillSource,skillWorld,skillContext} from './skill-scenarios';
 export const defenseCases=fixture.cases;
+/** Independent test expectation from persisted scope literals, not module output. */
+export function defenseRangeSuffix(row:typeof defenseCases[number]):string {
+ if(row.expected.fixed)return '';
+ const scopes=Object.values(row.bounds??{}) as Array<{min?:unknown;max?:unknown}>;
+ const minima=scopes.map(s=>s.min).filter((n):n is number=>typeof n==='number'),maxima=scopes.map(s=>s.max).filter((n):n is number=>typeof n==='number');
+ return (minima.length?'min'+Math.max(...minima):'')+(maxima.length?'max'+Math.min(...maxima):'');
+}
 export function defenseSource(row:typeof defenseCases[number]){
  const actor=skillSource(),system=actor.system as Record<string,any>;
  system.abilities={dex:{value:14,proficient:0},con:{value:14,proficient:0},wis:{value:16,proficient:0},cha:{value:10,proficient:0}};

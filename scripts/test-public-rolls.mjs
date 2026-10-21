@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {verifyPlainD20} from './lib/plain-d20-equivalence.mjs';
+import {normalRangeMatrix,verifyRange} from './lib/range-expectations.mjs';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, symlinkSync } from 'node:fs';
@@ -92,8 +93,10 @@ import effectFixture from ${JSON.stringify(join(moduleRoot,'tests/fixtures/nativ
 import {numericEffectCases,numericEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/effect-scenarios.ts'))};
 import {bonusEffectCases,bonusEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/bonus-effect-scenarios.ts'))};
 import {modeEffectCases,modeEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/mode-effect-scenarios.ts'))};
-import {defenseCases,defenseSource,defenseContext} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/defense-scenarios.ts'))};
+import {defenseCases,defenseSource,defenseContext,defenseRangeSuffix} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/defense-scenarios.ts'))};
 import {equipmentCases,equipmentSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/equipment-scenarios.ts'))};
+import {normalRangeCases,rangeSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/range-scenarios.ts'))};
+import {normalRangeMatrix} from ${JSON.stringify(join(moduleRoot,'scripts/lib/range-expectations.mjs'))};
 const adapter=new DnD5eAdapter(), cases=[];
 function add(mode,faces,total=5,bonus=undefined){const actor=skillSource();setSkillRoll(actor,'skills.prc.roll',{mode,bonus:total-5});const prepared=adapter.prepareActorData(actor,skillContext());const options=bonus===undefined?{}:{situationalBonus:String(bonus)};const formula=adapter.getRollData(prepared,'skill','prc',options)?.formula;if(!formula)throw new Error('Unavailable normal formula');const selected=mode===1?Math.max(...faces):mode===-1?Math.min(...faces):faces[0];cases.push({formula,faces,expected:selected+total+(bonus??0),mode,total,bonus});}
 for(const mode of [-1,1])for(let a=1;a<=20;a++)for(let b=1;b<=20;b++)add(mode,[a,b]);
@@ -142,9 +145,11 @@ for(const row of modeEffectCases.filter(row=>row.expected)){
 
 for(const row of defenseCases.filter(row=>row.expected.total!==null&&!row.executionUnavailable)){
  const e=row.expected,prepared=adapter.prepareActorData(defenseSource(row),defenseContext(row));
- for(const manual of e.fixed?[undefined,'normal']:[undefined,'normal','adv','dis']){
-  const options=manual?{advantage:manual,...(!e.fixed?{situationalBonus:'2'}:{})}:{},formula=manual?adapter.getRollData(prepared,'initiative','initiative',options)?.formula:adapter.getInitiativeFormula(prepared),mode=e.fixed?0:manual==='adv'?1:manual==='dis'?-1:manual==='normal'?0:e.mode,faces=e.fixed?[]:mode===0?[7]:[3,18],bonus=manual&&!e.fixed?2:0;
-  cases.push({formula,faces,expected:e.fixed?e.rollBonus:((mode===1?18:mode===-1?3:7)+e.total)+(row.settings?.tie ? .14 : 0)+bonus,mode,total:e.rollBonus,...(bonus?{bonus}:{}),initiativeCase:row.id,fixed:e.fixed});
+ const suffix=defenseRangeSuffix(row),scopes=Object.values(row.bounds??{}),minima=scopes.map(value=>value.min).filter(value=>typeof value==='number'),maxima=scopes.map(value=>value.max).filter(value=>typeof value==='number'),rangeBounds=suffix?{minimum:minima.length?Math.max(...minima):null,maximum:maxima.length?Math.min(...maxima):null}:undefined;
+ for(const manual of e.fixed||suffix?[undefined,'normal']:[undefined,'normal','adv','dis']){
+  const options=manual?{advantage:manual,...(!e.fixed?{situationalBonus:'2'}:{})}:{},formula=manual||suffix?adapter.getRollData(prepared,'initiative','initiative',options)?.formula:adapter.getInitiativeFormula(prepared),mode=e.fixed?0:manual==='adv'?1:manual==='dis'?-1:manual==='normal'?0:e.mode,faces=e.fixed?[]:mode===0?[7]:[3,18],bonus=manual&&!e.fixed?2:0;
+  let selected=mode===1?18:mode===-1?3:7,contribution=selected;if(rangeBounds?.minimum!==null&&rangeBounds?.minimum!==undefined&&selected<rangeBounds.minimum)contribution=rangeBounds.minimum;if(rangeBounds?.maximum!==null&&rangeBounds?.maximum!==undefined&&selected>rangeBounds.maximum)contribution=rangeBounds.maximum;
+  cases.push({formula,faces,expected:e.fixed?e.rollBonus:(contribution+e.total)+(row.settings?.tie ? .14 : 0)+bonus,mode,total:e.rollBonus,...(bonus?{bonus}:{}),...(rangeBounds?{rangeBounds}:{}),initiativeCase:row.id,fixed:e.fixed});
  }
  if(row.id==='tie-breaker')for(let face=1;face<=20;face++)cases.push({formula:adapter.getInitiativeFormula(prepared),faces:[face],expected:(face+e.total)+.14,mode:0,total:e.rollBonus,initiativeCase:'tie-all-faces'});
 }
@@ -156,14 +161,45 @@ for(const row of equipmentCases.filter(row=>row.expected.skill!==null)){
   cases.push({formula,faces,expected:(mode===1?18:mode===-1?3:7)+total+bonus,mode,total,...(bonus?{bonus}:{}),equipmentCase:row.id});
  }
 }
+for(const [family,rows,make] of [['numeric',numericEffectCases,numericEffectSource],['bonus',bonusEffectCases,bonusEffectSource],['mode',modeEffectCases,modeEffectSource]])for(const row of rows.filter(row=>row.expected)){
+ const actor=make(row);actor.system.skills.prc.roll={...actor.system.skills.prc.roll,min:10};const total=row.expected.skill??5;
+ const formula=adapter.getRollData(adapter.prepareActorData(actor,skillContext()),'skill','prc',{advantage:'normal'})?.formula;
+ if(formula!=='1d20min10'+(total<0?'':'+')+total)throw Error('Prepared effect/bound composition mismatch '+family+'/'+row.id);
+ cases.push({formula,faces:[7],expected:10+total,mode:0,total,rangeBounds:{minimum:10,maximum:null},normalRangeEffectCase:family+'/'+row.id});
+}
+let previousRange,rangeFormula;
+for(const row of normalRangeMatrix()){
+ if(row.id!==previousRange){const actor=skillSource();setSkillRoll(actor,'skills.prc.roll',{min:row.minimum,max:row.maximum});rangeFormula=adapter.getRollData(adapter.prepareActorData(actor,skillContext()),'skill','prc')?.formula;if(rangeFormula!==row.formula)throw Error('Normal range source formula mismatch '+row.id);previousRange=row.id;}
+ cases.push({formula:rangeFormula,faces:row.faces,expected:row.total,mode:0,total:5,rangeBounds:{minimum:row.minimum,maximum:row.maximum},normalRangeMatrixCase:row.id});
+}
+for(const row of normalRangeCases)for(const sourceMode of [-1,0,1]){
+ const prepared=adapter.prepareActorData(rangeSource(row,sourceMode),skillContext());
+ if(sourceMode!==0&&adapter.getRollData(prepared,row.kind,row.key)!==null)throw Error('Unsupported bounded default executed');
+ for(const advantage of ['adv','dis'])if(adapter.getRollData(prepared,row.kind,row.key,{advantage})!==null)throw Error('Unsupported bounded mode executed');
+ const formula=adapter.getRollData(prepared,row.kind,row.key,{advantage:'normal',situationalBonus:'-1.5'})?.formula;if(formula!==row.formula+'+(-1.5)')throw Error('Bounded manual Normal mismatch '+row.id);
+ cases.push({formula,faces:[7],expected:(row.field==='min'?10:7)+row.total-1.5,mode:0,total:row.total,bonus:-1.5,rangeBounds:{minimum:row.field==='min'?10:null,maximum:row.field==='max'?10:null},normalRangeScopeCase:row.id,sourceMode});
+}
+for(const kind of ['skill','tool']){
+ const actor=toolSource();setSkillRoll(actor,kind==='skill'?'skills.prc.roll':'tools.thief.roll',{min:10});const prepared=adapter.prepareActorData(actor,skillContext()),key=kind==='skill'?'prc':'thief',selection={[kind==='skill'?'tool':'skill']:kind==='skill'?'thief':'prc'};
+ if(adapter.getRollData(prepared,kind,key,selection)!==null)throw Error('Bounded automatic advantage executed');
+ const formula=adapter.getRollData(prepared,kind,key,{...selection,advantage:'normal'})?.formula;if(formula!=='1d20min10+5')throw Error('Combined normal bounds mismatch');
+ cases.push({formula,faces:[7],expected:15,mode:0,total:5,rangeBounds:{minimum:10,maximum:null},normalRangeSelectedCase:kind});
+}
+const tiedActor=rangeSource(normalRangeCases.find(row=>row.kind==='initiative'&&row.field==='min'));
+const tieContext=skillContext();tieContext.world.settings['dnd5e.initiativeDexTiebreaker']={status:'world',value:true};
+const tiedPrepared=adapter.prepareActorData(tiedActor,tieContext),tiedFormula=adapter.getRollData(tiedPrepared,'initiative','initiative')?.formula;if(tiedFormula!=='1d20min10+2+0.14')throw Error('Range/tiebreaker order mismatch');
+for(let face=1;face<=20;face++)cases.push({formula:tiedFormula,faces:[face],expected:((face<10?10:face)+2)+.14,mode:0,total:2.14,rangeBounds:{minimum:10,maximum:null},normalRangeTieCase:true});
 process.stdout.write(JSON.stringify(cases));`);
-    const generated=spawnSync(process.execPath,[join(core,'node_modules/tsx/dist/cli.mjs'),'--tsconfig',join(core,'tsconfig.json'),driver],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH}});
+    const generated=spawnSync(process.execPath,[join(core,'node_modules/tsx/dist/cli.mjs'),'--tsconfig',join(core,'tsconfig.json'),driver],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH},maxBuffer:64*1024*1024});
+    if(generated.error)throw generated.error;
     assert.equal(generated.status,0,generated.stderr);const cases=JSON.parse(generated.stdout);
-    const response=await fetch(origin+'/api/modules/q00/probe',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,Cookie:cookie},body:JSON.stringify({cases})});
-    const payload=await response.json(); assert.equal(response.status,200,JSON.stringify(payload));assert.equal(payload.failure,undefined,JSON.stringify(payload.failure));
+    const payload={results:[]};
+    for(let start=0;start<cases.length;start+=128){const response=await fetch(origin+'/api/modules/q00/probe',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,Cookie:cookie},body:JSON.stringify({cases:cases.slice(start,start+128)})});const batch=await response.json();assert.equal(response.status,200,JSON.stringify(batch));assert.equal(batch.failure,undefined,JSON.stringify(batch.failure));assert.equal(batch.results.length,Math.min(128,cases.length-start));payload.results.push(...batch.results);}
     writeFileSync(join(root,'observed.json'),JSON.stringify(payload,null,2));
+    const normalLookup=new Map(normalRangeMatrix().map(row=>[[row.minimum,row.maximum,row.faces[0]].join('/'),row]));
     const selectionMismatches=[],candidateRejections=[];
-    const histogram={adv:Array(20).fill(0),dis:Array(20).fill(0)};
+    const histogram={adv:Array(20).fill(0),dis:Array(20).fill(0)},normalHistogram={},normalExpectedHistogram={};
+    for(const row of normalRangeMatrix()){const group=normalExpectedHistogram[row.id]??={};group[row.total]=(group[row.total]??0)+1;}
     for(let i=0;i<cases.length;i++){
         if(cases[i].expectedRejection){assert.equal(cases[i].formula,'1d20+(-(3))');assert.match(payload.results[i].rejected,/Invalid or unsupported dice formula/);assert.equal(payload.results[i].remaining,1);candidateRejections.push({formula:cases[i].formula,message:payload.results[i].rejected,adaptation:'Known constant operation compiles to numeric -3; binary-zero expression separately qualified'});continue;}
         const row=cases[i], observed=payload.results[i];
@@ -173,6 +209,7 @@ process.stdout.write(JSON.stringify(cases));`);
             const serialized=JSON.parse(observed.rolls[0]);assert.match(row.formula,/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/);assert.equal(row.faces.length,0);assert.equal(serialized.formula,row.formula);assert.equal(serialized.total,row.expected);
             assert.equal([...(serialized.terms??[]),...(serialized.dice??[])].filter(term=>term.class==='Die'||term.class==='RollGroup').length,0);continue;
         }
+        if(row.rangeBounds){const expected=normalLookup.get([row.rangeBounds.minimum,row.rangeBounds.maximum,row.faces[0]].join('/'));assert.ok(expected);verifyRange(JSON.parse(observed.rolls[0]),{...expected,formula:row.formula,total:row.expected});if(row.normalRangeMatrixCase){const group=normalHistogram[row.normalRangeMatrixCase]??={};group[observed.total]=(group[observed.total]??0)+1;}continue;}
         const serialized=JSON.parse(observed.rolls[0]), die=serialized.terms.find(term=>term.class==='Die') ?? serialized.dice.find(term=>term.class==='Die');
         assert.equal(serialized.total,row.expected);assert.equal(serialized.formula,row.formula);
         assert.deepEqual(die.results.map(result=>result.result),row.faces);
@@ -181,12 +218,13 @@ process.stdout.write(JSON.stringify(cases));`);
         const selected=row.mode===1?Math.max(...row.faces):row.mode===-1?Math.min(...row.faces):row.faces[0];
         if(i<800)histogram[row.mode===1?'adv':'dis'][selected-1]++;
     }
+    assert.deepEqual(normalHistogram,normalExpectedHistogram,'441 complete normal range distributions');
     assert.deepEqual(histogram.adv,Array.from({length:20},(_,i)=>2*i+1));
     assert.deepEqual(histogram.dis,Array.from({length:20},(_,i)=>39-2*i));
     const invalid=await fetch(origin+'/api/modules/q00/probe',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,Cookie:cookie},body:JSON.stringify({cases:[{formula:'1d20+1000000001',faces:[1]}]})});
     assert.ok(invalid.status>=400,'Host numeric literal bound rejects without fallback');
     assert.deepEqual(writes,[],'Silent rolls dispatch no synthetic native writes/chat');
-    writeFileSync(join(root,'evidence.json'),JSON.stringify({evidence:'Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance',result:'qualified-plain-d20-numeric-profile',equalIndexDiagnostics:selectionMismatches,selectionMismatches,coreVersion,coreCommit,caseCount:cases.length-candidateRejections.length,requestCount:cases.length,candidateRejections,controlledPairs:800,normalFaces:20,sourceModeCases:81,manualModeCases:18,toolCases:cases.filter(row=>row.toolCase).length,selectedCases:cases.filter(row=>row.selectedCase).length,effectCases:cases.filter(row=>row.effectCase).length,numericEffectCases:cases.filter(row=>row.numericEffectCase).length,initiativeCases:cases.filter(row=>row.initiativeCase).length,equipmentCases:cases.filter(row=>row.equipmentCase).length,fixedScoreCases:cases.filter(row=>row.fixed).length,modeEffectCases:cases.filter(row=>row.modeEffectCase).length,constantFormulaCases:cases.filter(row=>row.constantFormulaCase).length,bonusEffectCases:cases.filter(row=>row.bonusEffectCase).length,histogram,numericLiteralBoundaryRejected:true,nativeWrites:0,limits:['Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI','Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance']},null,2));
+    writeFileSync(join(root,'evidence.json'),JSON.stringify({evidence:'Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance',result:'qualified-plain-d20-numeric-profile',equalIndexDiagnostics:selectionMismatches,selectionMismatches,coreVersion,coreCommit,caseCount:cases.length-candidateRejections.length,requestCount:cases.length,candidateRejections,controlledPairs:800,normalFaces:20,sourceModeCases:81,manualModeCases:18,toolCases:cases.filter(row=>row.toolCase).length,selectedCases:cases.filter(row=>row.selectedCase).length,effectCases:cases.filter(row=>row.effectCase).length,numericEffectCases:cases.filter(row=>row.numericEffectCase).length,initiativeCases:cases.filter(row=>row.initiativeCase).length,equipmentCases:cases.filter(row=>row.equipmentCase).length,normalRangeCases:cases.filter(row=>row.rangeBounds).length,normalRangeMatrixCases:cases.filter(row=>row.normalRangeMatrixCase).length,normalRangeScopeCases:cases.filter(row=>row.normalRangeScopeCase).length,normalRangeEffectCases:cases.filter(row=>row.normalRangeEffectCase).length,fixedScoreCases:cases.filter(row=>row.fixed).length,modeEffectCases:cases.filter(row=>row.modeEffectCase).length,constantFormulaCases:cases.filter(row=>row.constantFormulaCase).length,bonusEffectCases:cases.filter(row=>row.bonusEffectCase).length,histogram,normalRangeDistributions:normalHistogram,numericLiteralBoundaryRejected:true,nativeWrites:0,limits:['Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI','Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance']},null,2));
     process.stdout.write(`Public-host controlled rolls: ${cases.length-candidateRejections.length} totals/serialized faces and distributions PASS; ${candidateRejections.length} rejected-candidate diagnostics; ${selectionMismatches.length} nonblocking equal-index diagnostics\n`);
 } catch(error) {process.stderr.write(logs.slice(-9000));throw error;}
 finally {

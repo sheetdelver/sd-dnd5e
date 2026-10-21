@@ -35,7 +35,8 @@ for (const type of ['check', 'save']) for (const scope of ['ability', 'global'])
     target[field] = 10;
     const prepared = prepare(actor);
     const rollType = type === 'check' ? 'ability' : 'save';
-    assert.equal(adapter.getRollData(prepared, rollType, baseRow.ability), null);
+    assert.equal(adapter.getRollData(prepared, rollType, baseRow.ability)?.formula, `1d20${field}10+${type==='check'?5:10}`);
+    assert.equal(adapter.getRollData(prepared,rollType,baseRow.ability,{advantage:'adv'}),null);
     assert.equal(ability(prepared)[type === 'check' ? 'check' : 'saveRoll'].total, type === 'check' ? 5 : 10);
 }
 for (const { context } of unavailableContexts()) {

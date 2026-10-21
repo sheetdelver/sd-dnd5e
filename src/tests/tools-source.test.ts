@@ -49,7 +49,13 @@ for(const scope of scopes) {
     for(const roll of [{},{min:null,max:null},{bonus:2,mode:0}]) {
         const source=toolSource();setSkillRoll(source,scope,roll);assert.ok(adapter.getRollData(prepare(source),'tool','thief'));
     }
-    for(const roll of [{min:10},{max:15},{min:12,max:14},{min:0},{max:'10'},{mode:2},{mode:null},{mode:'1'},{bonus:'1d4'},{bonus:'1+2'}]) {
+    for(const roll of [{min:10},{max:15},{min:12,max:14}]) {
+        const source=toolSource();setSkillRoll(source,scope,roll);const bounded=prepare(source);
+        assert.equal(adapter.getRollData(bounded,'tool','thief')?.formula,'1d20'+('min' in roll?'min'+roll.min:'')+('max' in roll?'max'+roll.max:'')+'+5');
+        assert.equal(adapter.getRollData(bounded,'tool','thief',{advantage:'adv'}),null);
+        assert.equal(check(bounded).total,5,'Bounds never become a static bonus');
+    }
+    for(const roll of [{min:0},{max:'10'},{mode:2},{mode:null},{mode:'1'},{bonus:'1d4'},{bonus:'1+2'}]) {
         const source=toolSource();setSkillRoll(source,scope,roll);
         const unavailable=prepare(source);assert.equal(adapter.getRollData(unavailable,'tool','thief'),null);
         assert.ok(check(unavailable).unavailableReason);

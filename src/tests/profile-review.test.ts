@@ -58,7 +58,8 @@ assert.equal(adapter.getRollData(adapter.prepareActorData(persisted, skillContex
 system.skills.prc.value = 2;
 assert.equal(adapter.getRollData(adapter.prepareActorData(persisted, skillContext()), 'skill', 'prc')?.formula, '1d20+10');
 system.rolls.ability.check.min = 10;
-assert.equal(adapter.getRollData(adapter.prepareActorData(persisted, skillContext()), 'skill', 'prc'), null);
+assert.equal(adapter.getRollData(adapter.prepareActorData(persisted, skillContext()), 'skill', 'prc')?.formula,'1d20min10+10');
+assert.equal(adapter.getRollData(adapter.prepareActorData(persisted,skillContext()),'skill','prc',{advantage:'adv'}),null);
 delete system.rolls.ability.check.min; system.rolls.ability.check.mode = 9;
 assert.equal(adapter.getRollData(adapter.prepareActorData(persisted, skillContext()), 'skill', 'prc'), null);
 console.log('R: DD-R03 fact availability and DD-R04 source/default invariance PASS; review failures:', failures);

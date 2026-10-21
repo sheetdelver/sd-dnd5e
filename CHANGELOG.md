@@ -3,6 +3,7 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+- Qualified normal d20 bounds and explicit Normal choices; kept unsupported modes and HUD bounds gated.
 - Shared source/species movement and senses, truthful units and unavailable states in both layouts.
 - Prepared bounded equipped armor/shields and native post-passive Stealth disadvantage.
 - Shared bounded AC/initiative facts and rolls, fixed scores, and stale-context protection.

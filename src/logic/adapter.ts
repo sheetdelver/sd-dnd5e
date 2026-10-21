@@ -343,7 +343,11 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             return signBonus(init.value??init.mod??0);
         }
         const check=actor.derived.initiativeCheck as any;
-        if(lifecycle?.status!=='supported'||lifecycle.profile!=='2024'||!check?.formula||check.unavailableReason)throw new SdkError('validation',check?.unavailableReason??'Initiative preparation unavailable');
+        if(lifecycle?.status!=='supported'||lifecycle.profile!=='2024'||!check?.formula||check.unavailableReason)throw new SdkError('validation',check?.unavailableReason??check?.defaultUnavailableReason??'Initiative preparation unavailable');
+        // The public HUD hook supplies only a formula, not mode restrictions.
+        // Preserve its default/override authority without exposing an unqualified
+        // bounded advantage/disadvantage request. Sheet Normal remains available.
+        if(check.range)throw new SdkError('validation','Initiative with die bounds is available from the character sheet using Normal; HUD mode restrictions are not qualified');
         return check.formula;
     }
 

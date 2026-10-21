@@ -16,7 +16,9 @@ for (const row of fixture.cases) {
     const bounded = structuredClone(source); (bounded.system as any).skills.prc.roll.min = 10;
     const blocked = adapter.prepareActorData(bounded, skillContext());
     assert.equal((blocked.derived.skillChecks as any).prc.passive, row.expectedPassive);
-    assert.equal(adapter.getRollData(blocked, 'skill', 'prc'), null);
+    assert.equal(adapter.getRollData(blocked, 'skill', 'prc')?.formula??null,row.expectedMode===0?'1d20min10+5':null);
+    assert.equal(adapter.getRollData(blocked,'skill','prc',{advantage:'normal'})?.formula,'1d20min10+5');
+    assert.equal(adapter.getRollData(blocked,'skill','prc',{advantage:'adv'}),null);
     assert.deepEqual(source, before);
 }
 assert.equal(failures, 0, 'Independent81 source mode/passive cases');

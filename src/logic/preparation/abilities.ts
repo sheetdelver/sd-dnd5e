@@ -3,7 +3,7 @@ import { prepareNumericEffects606, type NumericEffects } from './numeric-effects
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
-import { abilityRollScopes, d20RangeReason, sourceD20Mode, numericD20Formula, numericD20ExecutionReason, type PreparedNumericD20 } from './d20-configuration';
+import { abilityRollScopes, prepareD20Configuration, sourceD20Mode, type PreparedNumericD20 } from './d20-configuration';
 
 export interface PreparedNumericAbility {
     score: number | null; mod: number | null; save: number | null; saveProficient: boolean | null;
@@ -38,8 +38,7 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready') return { ability: key, total: null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
             const total = mod + Math.floor(profile.proficiency * Math.max(...multipliers as number[])) + (bonuses[0] as number) + (bonuses[1] as number);
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
-            unavailableReason = d20RangeReason(abilityRollScopes(actor, key, type,effects.modes)) ?? numericD20ExecutionReason(total, mode.mode);
-            return { ability: key, total, sourceMode: mode.mode, formula: unavailableReason ? null : numericD20Formula(total, mode.mode), ...(unavailableReason ? { unavailableReason } : {}) };
+            return {ability:key,total,sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,abilityRollScopes(actor,key,type,effects.modes))};
         }
         const check = prepare('check'), saveRoll = prepare('save');
         const saveMultiplier = Math.max(typeof data.proficient === 'number' ? data.proficient : 0, typeof record(globals.save)?.proficiency === 'number' ? record(globals.save)!.proficiency as number : 0);

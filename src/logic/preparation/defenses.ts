@@ -4,7 +4,7 @@ import {numericFact,numericCharacterProfile,type NumericFact} from './character-
 import {numericAbilityValue,numericConstant,qualifiedNumericTotal} from './numeric';
 import {prepareNumericEffects606,type NumericEffects} from './numeric-effects';
 import {initializedModeState,resolvedEffectMode} from './mode-effects';
-import {sourceD20Mode,d20RangeReason,numericD20Formula,numericD20ExecutionReason,numericD20Roll,type PreparedNumericD20} from './d20-configuration';
+import {sourceD20Mode,prepareD20Configuration,numericD20Roll,type PreparedNumericD20} from './d20-configuration';
 export interface ArmorClassFact extends NumericFact {calculation?:string;formula?:string;base?:number;armorId?:string;shieldId?:string;warnings?:string[]}
 export interface InitiativeFact extends NumericFact {ability:string;score:number|null;fixed?:boolean;tiebreaker?:number}
 const acProvenance='release-6.0.6 AttributesFields.armorClass / prepareArmorClass / CONFIG.armorClasses';
@@ -94,12 +94,10 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     if(!fixed&&(!tie||tie.status==='unavailable'||typeof tie.value!=='boolean'))executionReason??='Initiative tiebreaker setting unavailable';
     const tiebreaker=!fixed&&tie?.status!=='unavailable'&&tie?.value===true&&numeric?numeric.score/100:0;
     const bonus=fixed?score:total===null?null:total+tiebreaker;
-    executionReason??=d20RangeReason(scopes,!fixed);
-    if(bonus!==null&&mode.mode!==undefined)executionReason??=numericD20ExecutionReason(bonus,mode.mode);
     if(bonus!==null&&!qualifiedNumericTotal(bonus))executionReason??='Initiative roll result outside qualified numeric representation';
     fact.fixed=fixed;fact.tiebreaker=tiebreaker;
-    const formula=executionReason||bonus===null||mode.mode===undefined?null:fixed?String(bonus):numericD20Formula(total!,mode.mode,tiebreaker);
-    return {fact,check:{ability:key,total:fixed?score:total,...(tiebreaker?{trailingBonus:tiebreaker}:{}),sourceMode:fixed?0:mode.mode,fixed,formula,...(executionReason?{unavailableReason:executionReason}:{})}};
+    const configuration=bonus!==null&&mode.mode!==undefined?prepareD20Configuration((fixed?score:total)!,fixed?0:mode.mode,scopes,tiebreaker,!fixed):{formula:null};
+    return {fact,check:{ability:key,total:fixed?score:total,...(tiebreaker?{trailingBonus:tiebreaker}:{}),sourceMode:fixed?0:mode.mode,fixed,...configuration,...(executionReason?{formula:null,unavailableReason:executionReason}:{})}};
 }
 export function initiativeRoll(check:PreparedNumericD20|undefined,options:Record<string,unknown>={}):string|null {
     if(!record(options)||Object.keys(options).some(key=>!['advantage','situationalBonus','rollMode','speaker'].includes(key)))return null;

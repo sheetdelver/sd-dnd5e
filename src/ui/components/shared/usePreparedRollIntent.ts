@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useSheet } from './SheetContext';
-import { preparedRollAvailable, preparedRollCheck, preparedRollFormula, configuredRollCheck, rollIntentSignature, type PreparedRollKind } from './skillIntent';
+import { preparedRollAvailable, preparedRollReviewable, preparedRollFormula, configuredRollCheck, rollIntentSignature, type PreparedRollKind } from './skillIntent';
 import type { SkillToolModel } from '../../../logic/preparation/skill-tool';
 import { ABILITY_FULL_NAME } from './abilityNames';
 
@@ -10,7 +10,7 @@ export function usePreparedRollIntent(kind: PreparedRollKind, onRoll?: (type: st
     const latest = useRef({ signature, token: {}, actor, onRoll, alive: true });
     latest.current = { signature, token: latest.current.signature === signature ? latest.current.token : {}, actor, onRoll, alive: latest.current.alive };
     useEffect(() => { latest.current.alive = true; return () => { latest.current.alive = false; latest.current.token = {}; }; }, []);
-    const canRoll = (key: string) => Boolean(onRoll && preparedRollAvailable(actor, kind, key));
+    const canRoll = (key: string) => Boolean(onRoll && preparedRollReviewable(actor, kind, key));
     function review(key: string) {
         if (!canRoll(key)) return null;
         const reviewed = latest.current;
@@ -26,11 +26,11 @@ export function usePreparedRollIntent(kind: PreparedRollKind, onRoll?: (type: st
                 {value:'',label:'Default ability'},...Object.entries(model.abilities).map(([value,entry])=>({value,label:(ABILITY_FULL_NAME[value]??value)+(entry.score===null||entry.reason?' (source unavailable)':''),disabled:entry.score===null||!!entry.reason})),
             ]},
         ] : undefined;
-        return { preparedIntentSignature: signature, resolveFormula, configFields,
+        return { preparedIntentSignature: signature, resolveFormula, configFields,quickAvailable:preparedRollAvailable(actor,kind,key),
             resolveCheck:resolveFormula ? (options:Record<string,unknown>)=>configuredRollCheck(reviewed.actor,kind,key,options) : undefined,
-            preparedDefaultMode: preparedRollCheck(actor, kind, key)?.sourceMode ?? 0, onConfirm: async (options?: Record<string, unknown>) => {
+            preparedDefaultMode: configuredRollCheck(actor, kind, key)?.sourceMode ?? 0, onConfirm: async (options?: Record<string, unknown>) => {
             const current = latest.current;
-            if (!current.alive || current.token !== reviewed.token || !current.onRoll || !preparedRollAvailable(current.actor, kind, key)) throw new Error('Roll intent changed; review current values');
+            if (!current.alive || current.token !== reviewed.token || !current.onRoll || !preparedRollReviewable(current.actor, kind, key)) throw new Error('Roll intent changed; review current values');
             if (resolveFormula && !resolveFormula(options ?? {})) throw new Error('Roll options require Q00 qualification');
             await current.onRoll(kind, key, options);
         } };

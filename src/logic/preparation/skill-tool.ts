@@ -6,7 +6,7 @@ import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
 import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
-import { sourceD20Mode, d20RangeReason, numericD20Formula, numericD20ExecutionReason, numericD20Roll, type PreparedNumericD20 } from './d20-configuration';
+import { sourceD20Mode, prepareD20Configuration, numericD20Roll, type PreparedNumericD20 } from './d20-configuration';
 
 export type SkillToolKind = 'skill' | 'tool';
 interface Entry { ability:string; prof:number|null; label:string; roll:unknown; reason?:string; primaryReason?:string; passiveBonus?:number|null }
@@ -105,6 +105,5 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     if (reason||!primary||primary.prof===null||model.proficiency===null||mode.mode===undefined||data?.score==null||data.mod===null) return {...base,prof:null,total:null,formula:null,unavailableReason:reason??'Check preparation unavailable'};
     const prof=Math.max(primary.prof,secondary?.prof??0,targets.check,...(kind==='skill'||other==='skill'&&secondary?[targets.skill]:[]),...(kind==='tool'||other==='tool'&&secondary?[targets.tool]:[])), total=data.mod+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0);
     if (!qualifiedNumericTotal(total)) return {...base,prof,total:null,formula:null,unavailableReason:'Numeric result outside qualified roll representation'};
-    const unavailableReason=d20RangeReason(scopes)??numericD20ExecutionReason(total,mode.mode);
-    return {...base,prof,total,sourceMode:mode.mode,passiveMode:passive.mode,formula:unavailableReason?null:numericD20Formula(total,mode.mode),...(unavailableReason?{unavailableReason}:{})};
+    return {...base,prof,total,sourceMode:mode.mode,passiveMode:passive.mode,...prepareD20Configuration(total,mode.mode,scopes)};
 }

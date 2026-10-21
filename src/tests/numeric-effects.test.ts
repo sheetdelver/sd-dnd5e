@@ -20,7 +20,7 @@ for(const row of numericEffectCases){
         for(const advantage of ['normal','adv','dis'])assert.equal(adapter.getRollData(prepared,'skill','prc',{tool:'thief',advantage,situationalBonus:'2'})?.formula,`${advantage==='adv'?'2d20kh1':advantage==='dis'?'2d20kl1':'1d20'}+${e.combined}+(2)`);
         const modes=structuredClone(source);setSkillRoll(modes,'skills.prc.roll',{mode:1});setSkillRoll(modes,'rolls.ability.check',{mode:-1});
         assert.equal(adapter.getRollData(adapter.prepareActorData(modes,skillContext()),'skill','prc',{tool:'thief'})?.formula,`1d20+${e.combined}`,row.id);
-        setSkillRoll(modes,'skills.prc.roll',{min:10});assert.equal(adapter.getRollData(adapter.prepareActorData(modes,skillContext()),'skill','prc'),null,row.id);
+        setSkillRoll(modes,'skills.prc.roll',{min:10});const boundPrepared=adapter.prepareActorData(modes,skillContext());assert.equal(adapter.getRollData(boundPrepared,'skill','prc'),null,row.id);assert.equal(adapter.getRollData(boundPrepared,'skill','prc',{advantage:'normal'})?.formula,`1d20min10+${e.skill}`,row.id);
         const cleared=structuredClone(source);cleared.effects=[];assert.equal(adapter.getRollData(adapter.prepareActorData(cleared,skillContext()),'skill','prc')?.formula,row.id==='global-positive-automatic'?'1d20+2':'1d20+5',row.id);
     }else{assert.equal(formula,null,row.id);assert.ok((prepared.derived as any).skills.prc.unavailableReason,row.id);}
     assert.deepEqual(source,before,row.id);
