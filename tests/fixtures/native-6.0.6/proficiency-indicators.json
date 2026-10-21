@@ -1,0 +1,115 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Persisted local multiplier and initialized global0 -> native prepareAbility/Skill/Proficiency numeric methods -> module formatting; marker is effective roll proficiency, not a new training grant.",
+  "cases": [
+    {
+      "id": "one-and-half",
+      "value": 1.5,
+      "prof": 1.5,
+      "total": 6,
+      "passive": 16,
+      "glyph": "1\u00bd\u00d7",
+      "description": "One and a half proficiency (1.5\u00d7)",
+      "saveProficient": false,
+      "saveTotal": 2,
+      "saveGlyph": "\u25cb"
+    },
+    {
+      "id": "none",
+      "value": 0,
+      "prof": 0,
+      "total": 2,
+      "passive": 12,
+      "glyph": "\u25cb",
+      "description": "No proficiency (0\u00d7)",
+      "saveProficient": false,
+      "saveTotal": 2,
+      "saveGlyph": "\u25cb"
+    },
+    {
+      "id": "half",
+      "value": 0.5,
+      "prof": 0.5,
+      "total": 3,
+      "passive": 13,
+      "glyph": "\u25d0",
+      "description": "Half proficiency (0.5\u00d7)",
+      "saveProficient": false,
+      "saveTotal": 2,
+      "saveGlyph": "\u25cb"
+    },
+    {
+      "id": "single",
+      "value": 1,
+      "prof": 1,
+      "total": 5,
+      "passive": 15,
+      "glyph": "\u25cf",
+      "description": "Proficient (1\u00d7)",
+      "saveProficient": false,
+      "saveTotal": 2,
+      "saveGlyph": "\u25cb"
+    },
+    {
+      "id": "double",
+      "value": 2,
+      "prof": 2,
+      "total": 8,
+      "passive": 18,
+      "glyph": "\u25c9",
+      "description": "Double proficiency (2\u00d7)",
+      "saveProficient": false,
+      "saveTotal": 2,
+      "saveGlyph": "\u25cb"
+    },
+    {
+      "id": "save-proficient",
+      "value": 1,
+      "prof": 1,
+      "total": 5,
+      "passive": 15,
+      "glyph": "\u25cf",
+      "description": "Proficient (1\u00d7)",
+      "saveProficient": true,
+      "saveTotal": 5,
+      "saveGlyph": "\u25cf"
+    },
+    {
+      "id": "malformed-fraction",
+      "value": 1.25,
+      "prof": null,
+      "total": null,
+      "passive": null,
+      "glyph": "\u2014",
+      "description": "Unavailable",
+      "saveProficient": false,
+      "saveTotal": 2,
+      "saveGlyph": "\u25cb"
+    },
+    {
+      "id": "malformed-string",
+      "value": "1",
+      "prof": null,
+      "total": null,
+      "passive": null,
+      "glyph": "\u2014",
+      "description": "Unavailable",
+      "saveProficient": false,
+      "saveTotal": 2,
+      "saveGlyph": "\u25cb"
+    },
+    {
+      "id": "bounded-default-unqualified",
+      "value": 1.5,
+      "prof": 1.5,
+      "total": 6,
+      "passive": 21,
+      "glyph": "1\u00bd\u00d7",
+      "description": "One and a half proficiency (1.5\u00d7)",
+      "saveProficient": false,
+      "saveTotal": 2,
+      "saveGlyph": "\u25cb",
+      "bounded": true
+    }
+  ]
+}

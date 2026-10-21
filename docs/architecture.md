@@ -567,3 +567,14 @@ actual constant FormulaField construction. Reduced numeric operands are not
 persisted field strings or claimed native prepared model data. The existing shared
 compiler and current-source intent fences consume these results. Native/operator
 acceptance, actual damage commands and unqualified final/Item phases remain open.
+
+### Roll proficiency formatting
+
+Skills and saving throws share `ProficiencyIndicator`, a formatter of already-
+prepared effective coefficients. It preserves0 versus unknown, handles the native
+1.5 coefficient explicitly and labels2 as double proficiency without inferring a
+particular grant. Saving throws map their known boolean to a display coefficient;
+null remains unavailable. Static coefficient and execution availability stay
+separate, including bounded source advantage. This is not the actor proficiency
+bonus or stored armor/weapon/tool training; those distinct values never derive
+from the marker. Preparation/preview/shortcut/direct execution are unchanged.

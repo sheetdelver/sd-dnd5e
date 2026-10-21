@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { coreRoot, moduleRoot, option } from './lib/toolchain.mjs';
 
 const args = process.argv.slice(2), core = coreRoot(args);
+const indicatorDiagnosticsOnly=args.includes('--indicator-diagnostics');
 const browserTools = option(args, '--browser-tools', process.env.DND5E_BROWSER_TOOLS);
 if (!browserTools) throw new Error('Supply --browser-tools PATH containing test-only playwright (not a module runtime dependency)');
 const toolRequire = createRequire(join(browserTools, 'package.json'));
@@ -32,6 +33,7 @@ import {normalRangeCases,rangeSource} from ${JSON.stringify(join(moduleRoot,'src
 import {speciesCases,speciesSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/species-scenarios.ts'))};
 import {defenseTraitCases,defenseTraitSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/defense-trait-scenarios.ts'))};
 import {traitEffectCases,traitEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/trait-effect-scenarios.ts'))};
+import {proficiencyIndicatorCases,proficiencyIndicatorSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/proficiency-indicator-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -86,6 +88,8 @@ const equivalentArmorSource=equipmentSource(equipmentCases.find(row=>row.id==='s
 const defenseTraits=defenseTraitCases.map(row=>{const actor=prepare(defenseTraitSource(row));return {...row,actor,card:adapter.getActorCardData(actor)};});
 for(const row of traitEffectCases){const actor=prepare(traitEffectSource(row));defenseTraits.push({id:'trait-effect:'+row.id,expected:Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,row.expectedOperands?{}:null])),actor,card:adapter.getActorCardData(actor)});}
 for(const {id,context} of unavailableContexts()){const actor=prepare(defenseTraitSource(defenseTraitCases[1]),context);defenseTraits.push({id,expected:Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,null])),actor,card:adapter.getActorCardData(actor)});}
+const indicatorActors=proficiencyIndicatorCases.map(row=>({...row,actor:prepare(proficiencyIndicatorSource(row))}));
+for(const {id,context} of unavailableContexts())indicatorActors.push({id,prof:null,total:null,glyph:'—',saveGlyph:'—',actor:prepare(proficiencyIndicatorSource(proficiencyIndicatorCases[0]),context)});
 const speciesActors=speciesCases.map(row=>{const actor=prepare(speciesSource(row));return {...row,actor,card:adapter.getActorCardData(actor)};});
 for(const {id,context} of unavailableContexts()){const actor=prepare(speciesSource(speciesCases[0]),context);speciesActors.push({id,expected:{status:'unavailable',display:'Species unavailable',id:null},actor,card:adapter.getActorCardData(actor)});}
 const rangeActors=normalRangeCases.flatMap((row,index)=>[-1,0,1].map(mode=>({...row,sourceMode:mode,actor:adapter.prepareActorData(rangeSource(row,mode),{...skillContext(),sourceRevision:4000+index*3+mode+1})})));
@@ -96,11 +100,11 @@ const defenseUnavailable=unavailableContexts().map(({id,context})=>({id,actor:ad
 const combinedUnavailable=unavailableContexts().map(({id,context})=>({id,actor:prepare(combinedSource(combinedCases[8]),context)}));
 const removed=combinedSource(combinedCases[8]);delete removed.system.tools.thief;combinedUnavailable.push({id:'selected-tool-removed',actor:prepare(removed)});
 const removedSkill=combinedSource(combinedCases[8]);delete removedSkill.system.skills.prc;combinedUnavailable.push({id:'selected-skill-removed',actor:prepare(removedSkill)});
-process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, rangeActors, rangeChanged}));`);
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, rangeActors, rangeChanged}));`);
 const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8', maxBuffer:16*1024*1024 });
 if (result.error) throw result.error;
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, rangeActors, rangeChanged } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, rangeActors, rangeChanged } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -109,7 +113,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], effectModeRows = [], healthRows = [], defenseRows = [], equipmentRows = [], movementRows = [], rangeRows = [], speciesRows = [], defenseTraitRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], effectModeRows = [], healthRows = [], defenseRows = [], equipmentRows = [], movementRows = [], rangeRows = [], speciesRows = [], defenseTraitRows = [], indicatorRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -147,6 +151,31 @@ try {
             await page.getByRole('button', { name: /Skills/ }).click();
         }
         const skill = page.locator('button').filter({ hasText: 'Perception' });
+        const tab = async name => { if (width < 1024) { await page.getByRole('button', {name:'▲',exact:true}).click(); await page.getByRole('button',{name:new RegExp(name)}).click(); } };
+        for(const row of indicatorActors){
+            await render(row.actor);await tab('Skills');
+            if(indicatorDiagnosticsOnly){
+                const observedSkill=await skill.locator('span').first().innerText();await tab('Abilities');
+                const observedSave=await page.getByRole('button',{name:'Wisdom Saving Throw',exact:true}).locator('div').first().innerText();
+                indicatorRows.push({width,id:row.id,observedSkill,expectedSkill:row.glyph,observedSave,expectedSave:row.saveGlyph});continue;
+            }
+            assert.equal(await skill.locator('span').first().innerText(),row.glyph,row.id+'/skill marker');
+            const skillIndicator=skill.getByLabel('Perception roll proficiency',{exact:true});
+            assert.equal(await skillIndicator.getAttribute('data-proficiency'),row.prof===null?'unavailable':String(row.prof));
+            assert.ok(await skillIndicator.getAttribute('title'));
+            if(row.prof!==null)assert.equal(await skillIndicator.getAttribute('title'),row.description);
+            if(row.prof===1.5){const size=await skillIndicator.boundingBox();assert.ok(size.width<=28,'Fractional indicator fits its column');}
+            if(row.total!==null&&!row.bounded){await skill.click({modifiers:['Shift']});assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,'1d20+'+row.total);}
+            else {await skill.dispatchEvent('click',{shiftKey:true});assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);}
+            if(row.bounded){await skill.click();const dialog=page.locator('dialog[open]');await dialog.getByRole('button',{name:'Normal',exact:true}).click();assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,'1d20min10+6');}
+            await tab('Abilities');const save=page.getByRole('button',{name:'Wisdom Saving Throw',exact:true});
+            assert.equal(await save.locator('div').first().innerText(),row.saveGlyph,row.id+'/save marker');
+            assert.ok(await save.getByLabel('Wisdom saving throw roll proficiency',{exact:true}).getAttribute('title'));
+            await render(indicatorActors[0].actor);await tab('Skills');assert.equal(await skill.locator('span').first().innerText(),'1½×');
+            indicatorRows.push({width,id:row.id,skillMarker:row.glyph,saveMarker:row.saveGlyph,actualConsumers:true,recovery:true});
+        }
+        if(indicatorDiagnosticsOnly){await context.close();continue;}
+        await render(states.supported);await tab('Skills');
         await verifyOptions(skill, 'skill', 5);
         for (const id of Object.keys(states).filter(id => id !== 'supported')) {
             await render(states.supported);
@@ -256,7 +285,6 @@ try {
             assert.equal(await page.evaluate(()=>window.skillFixture.updates.length),0);await dialog.getByRole('button',{name:'Close',exact:true}).click();
             defenseTraitRows.push({width,id:'live-read-only-context-and-source',recovery:true,zeroWrites:true});
         }
-        const tab = async name => { if (width < 1024) { await page.getByRole('button', {name:'▲',exact:true}).click(); await page.getByRole('button',{name:new RegExp(name)}).click(); } };
         for (const kind of ['skill','ability','save']) {
             await render(kind==='skill'?states.supported:abilityStates.supported);
             await tab(kind==='skill'?'Skills':'Abilities');
@@ -634,6 +662,7 @@ try {
     writeFileSync(join(artifacts, 'focus.json'),JSON.stringify(focusRows,null,2));
     for(const row of focusRows)assert.equal(row.afterPointerLeaves,'2d20kh1+5','DD-R06/'+row.width+'; artifacts '+artifacts);
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows, effectModeRows, healthRows, defenseRows, equipmentRows, movementRows, rangeRows, speciesRows, defenseTraitRows }, null, 2));
-    process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} eligibility and ${numericEffectRows.length} field and ${effectModeRows.length} mode effect cases, ${healthRows.length} health and ${defenseRows.length} AC/initiative and ${equipmentRows.length} equipped armor and ${movementRows.length} movement/senses and ${defenseTraitRows.length} defense traits and ${speciesRows.length} species identity and ${rangeRows.length} normal-range projections and retained-callback fences PASS; artifacts ${artifacts}\n`);
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows, effectModeRows, healthRows, defenseRows, equipmentRows, movementRows, rangeRows, speciesRows, defenseTraitRows, indicatorRows }, null, 2));
+    if(indicatorDiagnosticsOnly)process.stdout.write('Mounted indicator diagnostics only: '+indicatorRows.filter(row=>row.observedSkill!==row.expectedSkill||row.observedSave!==row.expectedSave).length+' mismatching rows; artifacts '+artifacts+'\n');
+    else     process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} eligibility and ${numericEffectRows.length} field and ${effectModeRows.length} mode effect cases, ${healthRows.length} health and ${defenseRows.length} AC/initiative and ${equipmentRows.length} equipped armor and ${movementRows.length} movement/senses and ${indicatorRows.length} proficiency indicators and ${defenseTraitRows.length} defense traits and ${speciesRows.length} species identity and ${rangeRows.length} normal-range projections and retained-callback fences PASS; artifacts ${artifacts}\n`);
 } finally { await browser.close(); }

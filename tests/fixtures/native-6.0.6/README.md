@@ -293,3 +293,10 @@ records native string construction independently. Exact applyChange/delta/cleani
 equality/Set methods and later trait normalization compare ordered values; source
 raw-array parsing is a separate diagnostic. Source remains unchanged, active
 conditions/final/filter/Item phases remain gated, and legacy is not expanded.
+
+C26 `proficiency-indicators.json`:9 source profiles (7 independently qualified
+numeric skill/save/passive cases,2 malformed skill boundaries), plus3 context-loss
+states in mounted tests. Actual before UI mislabels1.5 and null as zero; the new
+shared marker formats existing prepared values only. Static bounded coefficients
+remain distinct from default execution readiness. Native methods are controlled
+arithmetic/source-default comparisons, not engine/operator or full legacy proof.

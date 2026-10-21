@@ -113,6 +113,21 @@ for (const row of modeFixture.cases) {
     assert.equal(observed.total, row.expectedTotal); assert.equal(observed.passive, row.expectedPassive);
     modes++;
 }
+// C26 persisted fractional skill/source save proficiency, separate from UI.
+const indicatorFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/proficiency-indicators.json'),'utf8'));assert.equal(indicatorFixture.nativeCommit,nativeCommit);
+assert.match(files.get('module/data/actor/templates/creature.mjs'),/min: 0, max: 2, step: 0.5, initial: 0/);
+const indicatorObservations=[];
+for(const row of indicatorFixture.cases.filter(row=>row.prof!==null)){
+ const model=Object.create(CreatureTemplate.prototype);
+ model.attributes={prof:Proficiency.calculateMod(5)};
+ model.abilities={wis:{value:14,proficient:row.saveProficient?1:0,max:null,attack:{roll:{}},check:{roll:{mode:0}},save:{roll:{mode:0}}}};
+ model.skills={prc:{value:row.value,ability:'wis',roll:row.bounded?{mode:1,min:10}:{mode:0},bonuses:{passive:''}}};
+ model.rolls={ability:Object.fromEntries(['check','save','skill','tool'].map(key=>[key,{proficiency:0,mode:0}]))};
+ model.parent={flags:{dnd5e:{}},conditionRollReduction:0,coverBonus:0,hasConditionEffect:()=>false,_isRemarkableAthlete:()=>false};model._source=structuredClone({abilities:model.abilities,skills:model.skills,rolls:model.rolls});
+ model.prepareAbilities();const skill=model.prepareSkill('prc',{skillData:model.skills.prc,rollData:{},originalSkills:{}});
+ const observed={id:row.id,prof:skill.prof.multiplier,total:skill.total,passive:skill.passive,saveProf:model.abilities.wis.save.prof.multiplier,save:model.abilities.wis.save.value};
+ assert.equal(observed.prof,row.prof,row.id);assert.equal(observed.total,row.total,row.id);assert.equal(observed.passive,row.passive,row.id);assert.equal(observed.saveProf,row.saveProficient?1:0,row.id);assert.equal(observed.save,row.saveTotal,row.id);indicatorObservations.push(observed);
+}
 // Tool source phase: explicit declarations qualify defaults; plain stubs do
 // not instantiate Foundry fields. Arithmetic below starts after initialization.
 const toolSchema = files.get('module/data/actor/templates/creature.mjs').match(/tools: new MappingField\([\s\S]*?entryLabel:[^\n]+/)[0];
@@ -242,9 +257,9 @@ for (const adv of [false,true]) for (let a = 1; a <= 20; a++) for (let b = 1; b 
     selections++;
 }
 const evidence = { evidence: 'S controlled exact native methods, not native/SDK engine execution', nativeCommit,
-    selectionCases, selectedModeCases, nativeAbilityDialogChoices, manualModeCases, declarations, abilities, tools, toolModeCombinations, combinedToolCases, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
+    indicatorObservations,selectionCases, selectedModeCases, nativeAbilityDialogChoices, manualModeCases, declarations, abilities, tools, toolModeCombinations, combinedToolCases, sourceModeCombinations: modes, orderedD20Selections: selections, range: { minimum: 12, maximum: 14 },
     stubs: ['Numeric literal classification only; unknown evaluation fails', 'No applied rules/conditions/cover/flags', 'Empty ability compatibility shims; Remarkable Athlete false', 'Tool defaults checked as schema syntax then explicitly initialized; no Foundry DataModel construction', 'Property traversal and plain count merging', 'Actor build capture with no dice evaluation or hooks; no travel, transformations or flags', 'Native skill dialog context uses empty base context and a StringField options stub; not a DOM/DataModel', 'Native in-place ability form changes retain process mode; module configures fresh selected requests'],
     limits: fixture.exclusions };
 const output = option(args, '--write-evidence');
 if (output) writeFileSync(output, JSON.stringify(evidence, null, 2) + '\n');
-process.stdout.write(`S: ${abilities.length} native intermediate/source-default ability/save cases, ${modes} source-mode combinations and ${selections} ordered d20 selections, ${tools.length} tools/${toolModeCombinations} modes/${combinedToolCases} intermediate combinations/${selectionCases.length} selected request builds/${selectedModeCases} selected modes PASS; no native/SDK engine acceptance\n`);
+process.stdout.write(`S: ${indicatorObservations.length} source proficiency indicator operands and ${abilities.length} native intermediate/source-default ability/save cases, ${modes} source-mode combinations and ${selections} ordered d20 selections, ${tools.length} tools/${toolModeCombinations} modes/${combinedToolCases} intermediate combinations/${selectionCases.length} selected request builds/${selectedModeCases} selected modes PASS; no native/SDK engine acceptance\n`);

@@ -626,3 +626,15 @@ strings are captured separately from reduced module operands. A closed two-formu
 Roll stub supplies independent arithmetic for source-method construction comparisons;
 public Core execution separately verifies those candidates. No arbitrary expression
 or native engine/DataModel/Actor-lifecycle acceptance follows.
+
+### Fractional roll coefficient presentation (C26)
+
+The skill NumberField allows0–2 in0.5 steps, including1.5. Exact native Proficiency
+and prepareAbilities/prepareSkill methods independently verify level5/proficiency3,
+Wisdom14 coefficients0/.5/1/1.5/2: totals2/3/5/6/8 and normal passives12/13/15/16/18.
+Saving proficiency0/1 gives2/5. Configured skill advantage gives passive21 for1.5;
+its minimum die does not add another passive bonus. These7 source/default method
+cases are separate from malformed source/UI availability tests and native engine
+acceptance. Empty flags/rules/conditions and Remarkable Athlete=false are explicit
+stubs; nonpersisted global coefficients initialize0. Module marker choices are
+presentation of those prepared values, not a new native training interpretation.

@@ -6,6 +6,7 @@ import { useSheet } from '../shared/SheetContext';
 import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 import type { PreparedNumericD20 } from '../../../logic/preparation/d20-configuration';
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
+import ProficiencyIndicator from '../shared/ProficiencyIndicator';
 
 const SAVE_ORDER = ['str', 'dex', 'con', 'int', 'wis', 'cha'] as const;
 const SAVE_LABEL: Record<string, string> = {
@@ -52,7 +53,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                 {SAVE_ORDER.map(key => {
                     const ab = abilities?.[key];
                     const save = ab?.save ?? null;
-                    const proficient = ab?.saveProficient ?? false;
+                    const proficient = ab?.saveProficient;
                     const formatted = save === null ? '—' : save >= 0 ? `+${save}` : `${save}`;
                     return (
                         <button
@@ -79,9 +80,8 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                         >
                             <div style={{
                                 fontSize: '9px',
-                                color: proficient ? 'var(--prof-full)' : 'var(--text-muted)',
                             }}>
-                                {proficient ? '●' : '○'}
+                                <ProficiencyIndicator value={proficient===true?1:proficient===false?0:null} label={`${ABILITY_FULL_NAME[key]??key} saving throw roll proficiency`} reason={ab?.saveRoll?.unavailableReason}/>
                             </div>
                             <div style={{
                                 fontSize: '10px',

@@ -3,6 +3,7 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+- Distinguished fractional and unavailable skill/save proficiency indicators.
 - Applied qualified initial defense Set and constant adjustment effects through shared preparation.
 - Prepared bounded defense traits and numeric adjustments with a live mobile readout.
 - Shared stored species identity across cards, headers, movement and senses.

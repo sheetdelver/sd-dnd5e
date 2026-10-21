@@ -1379,3 +1379,47 @@ final and Item phases and damage commands remain open. Next M2: truthful shared
 proficiency/training/language preparation and displays, then remaining rule phases
 and dependency-ready M3/Q02. E01/wider Q00/E05/ADR-0001 open; experimental0.4.1 and
 compatibility unchanged.
+
+### C26 — Truthful roll proficiency indicators (2026-10-21)
+
+Predecessor C25 `7e147f2`. Completed bounded M2 DD-02/06/27/34, A02/A21 display
+subrequirements: fractional and unknown effective roll coefficients, shared skill/
+save formatting, labels and reasons. Maintained actual mounted before diagnostic
+records24 rows at1440/390 with14 wrong skill cells and6 wrong save cells (14
+mismatching rows). Diagnostic flag `--indicator-diagnostics` reports observations
+only and never prints qualification PASS; normal suite assertions stay strict.
+Before source1.5 showed zero; null/unavailable showed zero/false. After24 actual
+states pass, including known0, fractional1.5, malformed source, unsupported context,
+recovery and known static coefficient with unqualified bounded default execution.
+No rule/source/formula/mode/permission or host serialization changes.
+
+Use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (pristine released0.19.3/
+90c13e5). `npm test` passes60 tooling assertions,8 tooling/28 module suites;
+`typecheck` explicitly passes151 module/UI/server/test/hook files. `test:native-source
+-- --native ../../../../temp/dnd5e` remains2242 records/591 expressions at exact
+87e94db release6.0.6. `test:native-checks` adds7 independently expected source/default
+numeric skill/save/passive observations and preserves16 intermediate/source-default
+ability cases,81 source modes,800 ordered selections,8 tools/81 tool modes,
+20 intermediate combinations,38 selected builds and324 selected modes. Empty rules/
+flags/conditions, explicit nonpersisted0 defaults, athlete=false and no DataModel/
+engine are retained limits. Two malformed skill inputs are module availability
+boundaries, not proof of native source coercion. Initial harness-only function-clone/
+athlete-stub setup errors were corrected before comparison success.
+
+`test:mounted` with the standard test-only browser-tools/Chromium options passes24
+indicator rows and all prior suites, actual skill/save consumers, accessible labels,
+1.5 column fit, shortcuts and recovery. Artifacts `/tmp/dnd5e-mounted-RTBOOA`;
+before diagnostic `/tmp/dnd5e-mounted-T5q0ui`. SDK seam, not installed UI.
+`test:public-rolls` passes14510 accepted requests, including46 indicator-profile
+requests,9043 normal-range requests/441 distributions,1 rejected unary and40
+plain tied-index diagnostics. Artifacts `/tmp/dnd5e-public-rolls-36Dsfl`; synthetic
+public-host primitive regression, not native/installed endpoint acceptance.
+
+`check:package` passes isolated module/public-boundary check, managed typing and
+bundles. Archive `/tmp/dnd5e-package-w8TkOb/data/dist/modules/dnd5e-0.4.1.tgz`,
+SHA256 `8b1691cf3b6c393f4627e12dea940245c1eb92d9a381e361a915c8a38908df17`. [Portable evidence](../audits/evidence/2026-10-21-c26-proficiency-indicators.json)
+records fixture/script/source/artifact identities and distinctions. Task services
+stopped; Node24 local, Node22 CI/native/operator unrun. No full DD/A/M gate closes.
+Next M2: replace fixed training/languages panel with shared source preparation;
+remaining conditions/rule/filter/final/Item phases and M3+ remain open. E01/wider
+Q00/E05/ADR-0001 open; experimental0.4.1 and compatibility unchanged.

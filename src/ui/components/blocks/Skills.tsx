@@ -5,6 +5,7 @@ import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
 import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
+import ProficiencyIndicator from '../shared/ProficiencyIndicator';
 
 /**
  * Skills block — full skill list with columnar layout.
@@ -17,15 +18,6 @@ const SKILL_ORDER = [
     'acr', 'ani', 'arc', 'ath', 'dec', 'his', 'ins', 'itm',
     'inv', 'med', 'nat', 'prc', 'prf', 'per', 'rel', 'slt', 'ste', 'sur',
 ];
-
-// Proficiency multiplier → dot indicator
-const PROF_DOT: Record<string, string> = { '0': '○', '0.5': '◐', '1': '●', '2': '◉' };
-const PROF_DOT_COLOR: Record<string, string> = {
-    '0': 'var(--prof-none)',
-    '0.5': 'var(--prof-half)',
-    '1': 'var(--prof-full)',
-    '2': 'var(--prof-expert)',
-};
 
 interface SkillData {
     total: number | null;
@@ -103,9 +95,6 @@ export default function Skills({ skills, onRoll }: Props) {
             {/* Skill rows */}
             {ordered.map((key, i) => {
                 const skill = skills[key];
-                const profKey = String(skill.prof);
-                const dot = PROF_DOT[profKey] ?? '○';
-                const dotColor = PROF_DOT_COLOR[profKey] ?? 'var(--prof-none)';
                 return (
                     <button
                         key={key}
@@ -129,7 +118,7 @@ export default function Skills({ skills, onRoll }: Props) {
                         onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                     >
                         {/* Proficiency indicator */}
-                        <span style={{ fontSize: '12px', color: dotColor }}>{dot}</span>
+                        <span style={{fontSize:'12px'}}><ProficiencyIndicator value={skill.prof} label={`${skill.label} roll proficiency`} reason={skill.unavailableReason}/></span>
                         {/* Ability modifier */}
                         <span style={{
                             fontSize: '10px',

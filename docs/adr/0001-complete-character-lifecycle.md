@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects | RV01–RV04 retained; C06–C25 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators | RV01–RV04 retained; C06–C26 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1131,3 +1131,30 @@ application is added. No full DD/A/M/installed/native/operator gate closes. Next
 remaining proficiencies/languages/conditions and rule/filter/final/Item preparation,
 then dependency-ready M3/Q02. E01 and wider Q00/E05 remain open; ADR-0001,
 experimental0.4.1 and compatibility unchanged.
+
+### C26 — Truthful roll proficiency indicators (2026-10-21)
+
+C25 is `7e147f2`. C26 advances the existing M2 read-surface work, DD-02/06/27/34
+and A02/A21 partially. Skill coefficient1.5 previously fell through to the empty
+untrained dot; null/unavailable skill or saving-throw proficiency also appeared as
+zero/false. One shared formatting component now renders all qualified coefficients,
+an explicit1½× marker, and an unavailable state with accessible labels/reasons.
+Saving-throw nullable state is preserved. This formats already-prepared effective
+roll proficiency, not stored training or a new grant. No rule/formula/mode/source
+calculation or execution gate changes.
+
+The maintained mounted diagnostic captures14 mismatching rows/20 wrong cells at
+1440/390 before correction; the normal maintained suite retains strict assertions.
+Pinned numeric methods independently establish the source coefficient/total/passive/
+save expectations, including half and1.5 rounding and bounded source advantage.
+Known static coefficient remains visible when its default bounded execution mode
+is unqualified; explicit Normal still uses the existing compiler. Source/global
+nonpersisted poison and context recovery remain covered.
+
+[C26 ledger](../plans/0001-verification.md#c26--truthful-roll-proficiency-indicators-2026-10-21)
+and [portable evidence](../audits/evidence/2026-10-21-c26-proficiency-indicators.json)
+separate regression/controlled-source/mounted/public-host results. No full gate or
+native/operator acceptance closes. The larger Proficiencies panel still contains
+fixed grants; next M2 work replaces it with shared source training/languages,
+then remaining conditions/rule/filter/final/Item phases. E01/wider Q00/E05 remain
+open; ADR-0001, experimental0.4.1 and compatibility unchanged.
