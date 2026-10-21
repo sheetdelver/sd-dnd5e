@@ -4,10 +4,11 @@ Status: **active implementation; investigation retained, acceptance open**. Date
 
 Owning plan: [accepted module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
 
-## Current implementation — C12–C14 (2026-10-21)
+## Current implementation — C12–C15 (2026-10-21)
 
 C12 `d0cf3f2` qualifies eligibility/phase order; C13 `b50a717` adds initial numeric
-fields; C14 (Git checkpoint below) adds constant add/subtract/override bonuses.
+fields; C14 `c6339ef` adds constant bonuses; C15 (Git checkpoint below) qualifies bounded
+initial effect modes and native passive/dispatch scope differences.
 DD-R01–DD-R06 remain corrected. Partial M2 work and evidence are recorded below;
 no new independent review or complete acceptance is implied. E01 and wider Q00/
 E05, final effects, filters, Item preparation and later lifecycle milestones stay
@@ -441,3 +442,39 @@ The rejected nested unary candidate is recorded alongside its qualified binary
 and numeric adaptations; no required Core extension follows. Next: effect mode
 counts/override/suppression with separate passive/roll scope ordering. ADR-0001
 and full gates remain open; metadata unchanged.
+
+### C15 — Initial effect modes and passive phases (2026-10-21)
+
+C14 implementation is `c6339ef`. C15 adds the bounded initial AdvantageModeField
+profile, preserving source mode separately from module-produced effect counts.
+Raw modeCounts/override/suppression poison is ignored, not reclassified as source.
+Nineteen original maintained requests failed before;25 independently specified
+supported cases now match exact native field/dispatch/passive methods. Four
+malformed/delta/custom/final cases stay unavailable. Numeric deltas are limited
+to-1/0/1 and qualified operation branches; no wider no-op behavior is claimed.
+
+Counts include positive/negative sources across scopes; add/subtract are not flat
+mode arithmetic. Upgrade/downgrade suppress the opposite direction, override
+remains ordered, and multiply is the qualified no-op. Automatic combined
+advantage enters the same native count merge. Both primary skill/tool checks,
+local/global tool scopes and ability/save modes use one shared interpretation.
+Native passive and execution phases are deliberately distinct: passive ordering
+is ability/local/global-check/global-skill; fresh execution is ability/global-
+check/global-primary/local. An override can therefore choose opposite modes in
+the two phases. Native passive resolveMode also returns an override before
+suppression; dispatch booleans still mask it. Maintained fixtures assert these
+surprising outcomes instead of forcing totals to look consistent.
+
+The detached NumericEffects result holds initialized trusted count states.
+The shared check model combines them using the appropriate phase; passive
+projection consumes passiveMode while preview/button/shortcut/direct execution
+consume sourceMode. Explicit manual modes continue to override configured modes.
+Source remains unchanged; invalid context/ranges/custom/final rules refuse
+execution. Source/context changes retire dialogs and callbacks, and recovery
+requires a fresh intent. No browser evaluator, transport or second cache is added.
+
+Evidence/commands/limits: [C15 ledger](../plans/0001-verification.md#c15--initial-effect-modes-and-passive-phases-2026-10-21)
+and [portable record](evidence/2026-10-21-c15-effect-modes.json).
+No full gate closes. Continue source/advancement HP/HD facts and health projections
+in M2, with final/Item/filter/time and other unqualified behavior still unavailable.
+E01/wider Q00/E05 and native/operator acceptance remain open; metadata unchanged.

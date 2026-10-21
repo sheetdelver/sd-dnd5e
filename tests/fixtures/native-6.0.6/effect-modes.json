@@ -1,0 +1,654 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Initialized source modes -> initial native AdvantageModeField counts -> distinct passive and dispatch scope combination",
+  "cases": [
+    {
+      "id": "local-add-adv",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 1,
+        "passive": 20,
+        "combinedMode": 1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "local-add-dis",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": -1,
+        "passive": 10,
+        "combinedMode": 0,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "local-source-cancel",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": 1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 0,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "add-counts-cancel",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "initial"
+        },
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "initial"
+        },
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 0,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "subtract-source",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": 1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "subtract",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "negative-counts-cross-scope",
+      "sourceModes": {
+        "system.rolls.ability.check.mode": 1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "subtract",
+          "value": 1,
+          "phase": "initial"
+        },
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "subtract",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 0,
+        "toolMode": 1,
+        "abilityMode": 1,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "local-override-last",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "override",
+          "value": 1,
+          "phase": "initial"
+        },
+        {
+          "key": "system.rolls.ability.check.mode",
+          "type": "override",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 1,
+        "passive": 10,
+        "combinedMode": 1,
+        "toolMode": -1,
+        "abilityMode": -1,
+        "combinedToolMode": -1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "global-type-passive-last",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "override",
+          "value": -1,
+          "phase": "initial"
+        },
+        {
+          "key": "system.rolls.ability.skill.mode",
+          "type": "override",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": -1,
+        "passive": 20,
+        "combinedMode": -1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "normal-override",
+      "sourceModes": {
+        "system.rolls.ability.check.mode": 1,
+        "system.skills.prc.roll.mode": -1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "override",
+          "value": 0,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 0,
+        "toolMode": 1,
+        "abilityMode": 1,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "downgrade-zero",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": 1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "downgrade",
+          "value": 0,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 0,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "downgrade-dis",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": 1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "downgrade",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": -1,
+        "passive": 10,
+        "combinedMode": -1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "upgrade-zero",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": -1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "upgrade",
+          "value": 0,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "upgrade-adv",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": -1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "upgrade",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 1,
+        "passive": 20,
+        "combinedMode": 1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "override-adv-suppressed",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "override",
+          "value": 1,
+          "phase": "initial"
+        },
+        {
+          "key": "system.rolls.ability.skill.mode",
+          "type": "downgrade",
+          "value": 0,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 20,
+        "combinedMode": 0,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "override-dis-suppressed",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "override",
+          "value": -1,
+          "phase": "initial"
+        },
+        {
+          "key": "system.rolls.ability.skill.mode",
+          "type": "upgrade",
+          "value": 0,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 10,
+        "combinedMode": 0,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "multiply-noop",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": -1
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "multiply",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": -1,
+        "passive": 10,
+        "combinedMode": 0,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "global-check-add",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.rolls.ability.check.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 1,
+        "passive": 20,
+        "combinedMode": 1,
+        "toolMode": 1,
+        "abilityMode": 1,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "ability-check-add",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.abilities.wis.check.roll.mode",
+          "type": "add",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": -1,
+        "passive": 10,
+        "combinedMode": 0,
+        "toolMode": 0,
+        "abilityMode": -1,
+        "combinedToolMode": 0,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "source-poison-counts",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": 0
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 1,
+        "passive": 20,
+        "combinedMode": 1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "malformed-source",
+      "sourceModes": {
+        "system.skills.prc.roll.mode": 2
+      },
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": null
+    },
+    {
+      "id": "unsupported-delta",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "expected": null
+    },
+    {
+      "id": "custom-open",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "custom",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": null
+    },
+    {
+      "id": "final-open",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "final"
+        }
+      ],
+      "expected": null
+    },
+    {
+      "id": "tool-local-add-adv",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.tools.thief.roll.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": 1,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "tool-local-add-dis",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.tools.thief.roll.mode",
+          "type": "add",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": -1,
+        "abilityMode": 0,
+        "combinedToolMode": 0,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "global-tool-override",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.rolls.ability.tool.mode",
+          "type": "override",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": -1,
+        "abilityMode": 0,
+        "combinedToolMode": -1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "tool-override-order",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.tools.thief.roll.mode",
+          "type": "override",
+          "value": 1,
+          "phase": "initial"
+        },
+        {
+          "key": "system.rolls.ability.tool.mode",
+          "type": "override",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": 1,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
+    },
+    {
+      "id": "ability-save-add",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.abilities.wis.save.roll.mode",
+          "type": "add",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 1
+      }
+    },
+    {
+      "id": "global-save-add",
+      "sourceModes": {},
+      "changes": [
+        {
+          "key": "system.rolls.ability.save.mode",
+          "type": "add",
+          "value": -1,
+          "phase": "initial"
+        }
+      ],
+      "expected": {
+        "mode": 0,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": -1
+      }
+    }
+  ]
+}

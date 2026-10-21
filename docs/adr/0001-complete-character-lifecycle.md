@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant check-bonus effects are bounded slices. Effect modes/final/filters/Item phases, broader expressions and ranges remain open | RV01–RV04 retained; C06–C14 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive phase order are bounded slices. HP/HD/AC/init/movement and final/filters/Item phases, broader expressions and ranges remain open | RV01–RV04 retained; C06–C15 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -764,3 +764,39 @@ The rejected nested unary candidate is recorded alongside its qualified binary
 and numeric adaptations; no required Core extension follows. Next: effect mode
 counts/override/suppression with separate passive/roll scope ordering. ADR-0001
 and full gates remain open; metadata unchanged.
+
+### C15 — Initial effect modes and passive phases (2026-10-21)
+
+C14 implementation is `c6339ef`. C15 adds the bounded initial AdvantageModeField
+profile, preserving source mode separately from module-produced effect counts.
+Raw modeCounts/override/suppression poison is ignored, not reclassified as source.
+Nineteen original maintained requests failed before;25 independently specified
+supported cases now match exact native field/dispatch/passive methods. Four
+malformed/delta/custom/final cases stay unavailable. Numeric deltas are limited
+to-1/0/1 and qualified operation branches; no wider no-op behavior is claimed.
+
+Counts include positive/negative sources across scopes; add/subtract are not flat
+mode arithmetic. Upgrade/downgrade suppress the opposite direction, override
+remains ordered, and multiply is the qualified no-op. Automatic combined
+advantage enters the same native count merge. Both primary skill/tool checks,
+local/global tool scopes and ability/save modes use one shared interpretation.
+Native passive and execution phases are deliberately distinct: passive ordering
+is ability/local/global-check/global-skill; fresh execution is ability/global-
+check/global-primary/local. An override can therefore choose opposite modes in
+the two phases. Native passive resolveMode also returns an override before
+suppression; dispatch booleans still mask it. Maintained fixtures assert these
+surprising outcomes instead of forcing totals to look consistent.
+
+The detached NumericEffects result holds initialized trusted count states.
+The shared check model combines them using the appropriate phase; passive
+projection consumes passiveMode while preview/button/shortcut/direct execution
+consume sourceMode. Explicit manual modes continue to override configured modes.
+Source remains unchanged; invalid context/ranges/custom/final rules refuse
+execution. Source/context changes retire dialogs and callbacks, and recovery
+requires a fresh intent. No browser evaluator, transport or second cache is added.
+
+Evidence/commands/limits: [C15 ledger](../plans/0001-verification.md#c15--initial-effect-modes-and-passive-phases-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c15-effect-modes.json).
+No full gate closes. Continue source/advancement HP/HD facts and health projections
+in M2, with final/Item/filter/time and other unqualified behavior still unavailable.
+E01/wider Q00/E05 and native/operator acceptance remain open; metadata unchanged.

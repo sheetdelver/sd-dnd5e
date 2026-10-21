@@ -11,7 +11,7 @@ export function prepareNumericTools606(actor:unknown,context:RulesContext,model=
     const reason=raw!==undefined&&!record(raw)?'Tool source mapping malformed':model.reason;
     const checks=Object.fromEntries(Object.keys(model.tools).map(key=>[key,{
         ...configureSkillToolCheck(model,'tool',key),key,
-        provenance:'release-6.0.6 tool schema / prepareTools / Actor roll builder; source-only',
+        provenance:'release-6.0.6 schema / prepareTools / Actor builder; initialized source and qualified initial effects',
     }]));
     return {checks,status:reason?'unavailable':'ready',...(reason?{reason}:{})};
 }

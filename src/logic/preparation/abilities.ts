@@ -10,7 +10,7 @@ export interface PreparedNumericAbility {
 }
 /** Bounded CommonTemplate.prepareAbilities numeric check/save semantics at
  * 87e94db. Raw source mod/check.value/save.value and AC cover are not source
- * inputs. Cover is zero only in this no-status/no-effect qualified profile.
+ * inputs. Cover is zero only in the qualified profile without status/cover effects.
  */
 export function prepareNumericAbilities606(actor: unknown, context: RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)): Record<string, PreparedNumericAbility> {
     const system = effects.system, abilities = record(system.abilities) ?? {};
@@ -28,7 +28,7 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             if (data[type] != null && !record(data[type]) || globals[type] != null && !record(globals[type])) unavailableReason = 'Malformed native ability roll configuration';
             const bonuses = [roll.bonus, global.bonus].map(numericConstant);
             if (bonuses.some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
-            const mode = sourceD20Mode(abilityRollScopes(actor, key, type));
+            const mode = sourceD20Mode(abilityRollScopes(actor, key, type,effects.modes));
             if (mode.reason) unavailableReason = mode.reason;
             const base = type === 'check' ? 0 : data.proficient;
             const multipliers = [base, global.proficiency].filter(value => value !== undefined);
@@ -36,7 +36,7 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready') return { ability: key, total: null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
             const total = mod + Math.floor(profile.proficiency * Math.max(...multipliers as number[])) + (bonuses[0] as number) + (bonuses[1] as number);
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
-            unavailableReason = d20RangeReason(abilityRollScopes(actor, key, type)) ?? numericD20ExecutionReason(total, mode.mode);
+            unavailableReason = d20RangeReason(abilityRollScopes(actor, key, type,effects.modes)) ?? numericD20ExecutionReason(total, mode.mode);
             return { ability: key, total, sourceMode: mode.mode, formula: unavailableReason ? null : numericD20Formula(total, mode.mode), ...(unavailableReason ? { unavailableReason } : {}) };
         }
         const check = prepare('check'), saveRoll = prepare('save');

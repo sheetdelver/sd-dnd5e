@@ -1,3 +1,4 @@
+import { initializedModeState, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
 
 export interface PreparedNumericD20 {
@@ -20,19 +21,26 @@ export function numericD20Roll(check: PreparedNumericD20 | undefined, options: R
     const base = `${die}${check.total < 0 ? '' : '+'}${check.total}`;
     return bonus === undefined ? base : `${base}+(${String(bonus).trim()})`;
 }
-/** Source fields only. No effect counts/suppression/overrides are accepted from
- * raw source. Presence in both directions cancels regardless of multiplicity.
- */
-export function sourceD20Mode(scopes: readonly { path: string; value: unknown }[], automaticAdvantage = false): { mode: -1 | 0 | 1; reason?: undefined } | { mode?: undefined; reason: string } {
-    const modes: number[] = automaticAdvantage ? [1] : [];
-    for (const {path, value} of scopes) {
-        if (value !== undefined && value !== null && !record(value)) return { reason: `Malformed source roll configuration: ${path}` };
-        const mode = record(value)?.mode;
-        if (mode === undefined) continue;
-        if (typeof mode !== 'number' || ![-1, 0, 1].includes(mode)) return { reason: `Malformed source roll mode: ${path}` };
-        modes.push(mode);
+/** Source modes plus qualified prepared effect counts. Raw modeCounts and
+ * overrides are never trusted. Combination preserves native source multiplicity,
+ * suppression, ordered overrides and the distinct passive/dispatch phases. */
+export interface D20ModeScope {path:string;value:unknown;effectMode?:EffectModeState}
+export function sourceD20Mode(scopes:readonly D20ModeScope[],automaticAdvantage=false,purpose:'roll'|'passive'='roll'): {mode:-1|0|1;reason?:undefined}|{mode?:undefined;reason:string} {
+    let override:-1|0|1|null=null,advantages=Number(automaticAdvantage),disadvantages=0,suppressAdvantages=false,suppressDisadvantages=false;
+    for(const {path,value,effectMode} of scopes){
+        if(value!==undefined&&value!==null&&!record(value))return {reason:`Malformed source roll configuration: ${path}`};
+        const state=effectMode??initializedModeState(record(value)?.mode);
+        if(!state)return {reason:`Malformed source roll mode: ${path}`};
+        if(state.override!==null)override=state.override;
+        advantages+=state.advantages.count+Number(state.source===1);disadvantages+=state.disadvantages.count+Number(state.source===-1);
+        suppressAdvantages||=state.advantages.suppressed;suppressDisadvantages||=state.disadvantages.suppressed;
     }
-    return { mode: ((modes.includes(1) ? 1 : 0) - (modes.includes(-1) ? 1 : 0)) as -1 | 0 | 1 };
+    // Native passive uses resolveMode's override before suppression; dispatch
+    // uses combineFields' separate booleans, which suppression can still mask.
+    if(purpose==='passive'&&override!==null)return {mode:override};
+    const adv=(override===1||override===null&&advantages>0)&&!suppressAdvantages;
+    const dis=(override===-1||override===null&&disadvantages>0)&&!suppressDisadvantages;
+    return {mode:(Number(adv)-Number(dis)) as -1|0|1};
 }
 export function numericD20Formula(total: number, mode: -1 | 0 | 1): string {
     return `${mode === 1 ? '2d20kh1' : mode === -1 ? '2d20kl1' : '1d20'}${total < 0 ? '' : '+'}${total}`;
@@ -41,10 +49,10 @@ export function numericD20ExecutionReason(total: number, mode: -1 | 0 | 1): stri
     if (Math.abs(total) > 1_000_000_000) return 'Numeric roll bonus exceeds the supported host limit';
     return undefined;
 }
-export function abilityRollScopes(actor: unknown, ability: string, type: 'check' | 'save') {
+export function abilityRollScopes(actor: unknown, ability: string, type: 'check' | 'save',modes:Readonly<Record<string,EffectModeState>>={}) {
     const system = record(record(actor)?.system), data = record(record(system?.abilities)?.[ability]);
     return [{ path: `abilities.${ability}.${type}.roll`, value: record(data?.[type])?.roll },
-        { path: `rolls.ability.${type}`, value: record(record(system?.rolls)?.ability)?.[type] }];
+        { path: `rolls.ability.${type}`, value: record(record(system?.rolls)?.ability)?.[type] }].map(scope=>({...scope,effectMode:modes['system.'+scope.path+'.mode']}));
 }
 
 /** Exact 6.0.6 D20RollModificationField: min/max default null, integer 1–20.

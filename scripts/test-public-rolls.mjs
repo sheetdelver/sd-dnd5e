@@ -91,6 +91,7 @@ import {combinedCases,combinedSource,combinedOptions} from ${JSON.stringify(join
 import effectFixture from ${JSON.stringify(join(moduleRoot,'tests/fixtures/native-6.0.6/effect-phases.json'))};
 import {numericEffectCases,numericEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/effect-scenarios.ts'))};
 import {bonusEffectCases,bonusEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/bonus-effect-scenarios.ts'))};
+import {modeEffectCases,modeEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/mode-effect-scenarios.ts'))};
 const adapter=new DnD5eAdapter(), cases=[];
 function add(mode,faces,total=5,bonus=undefined){const actor=skillSource();setSkillRoll(actor,'skills.prc.roll',{mode,bonus:total-5});const prepared=adapter.prepareActorData(actor,skillContext());const options=bonus===undefined?{}:{situationalBonus:String(bonus)};const formula=adapter.getRollData(prepared,'skill','prc',options)?.formula;if(!formula)throw new Error('Unavailable normal formula');const selected=mode===1?Math.max(...faces):mode===-1?Math.min(...faces):faces[0];cases.push({formula,faces,expected:selected+total+(bonus??0),mode,total,bonus});}
 for(const mode of [-1,1])for(let a=1;a<=20;a++)for(let b=1;b<=20;b++)add(mode,[a,b]);
@@ -127,6 +128,15 @@ for(const row of bonusEffectCases.filter(row=>row.expected)){
   cases.push({formula,faces,expected:(mode===1?18:mode===-1?3:7)+total+bonus,mode,total,...(bonus?{bonus}:{}),bonusEffectCase:row.id});
  }
 }
+
+for(const row of modeEffectCases.filter(row=>row.expected)){
+ const e=row.expected,prepared=adapter.prepareActorData(modeEffectSource(row),skillContext());
+ for(const [kind,key,total,sourceMode,combined] of [['skill','prc',5,e.mode,false],['tool','thief',4,e.toolMode,false],['ability','wis',2,e.abilityMode,false],['save','wis',2,e.saveMode,false],['skill','prc',5,e.combinedMode,true],['tool','thief',5,e.combinedToolMode,true]])for(const manual of [undefined,'normal','adv','dis']){
+  const options={...(combined?{ability:'wis',[kind==='skill'?'tool':'skill']:kind==='skill'?'thief':'prc'}:{}),...(manual?{advantage:manual,situationalBonus:'2'}:{})};
+  const formula=adapter.getRollData(prepared,kind,key,options)?.formula,mode=manual==='adv'?1:manual==='dis'?-1:manual==='normal'?0:sourceMode,faces=mode===0?[7]:[3,18],bonus=manual?2:0;
+  cases.push({formula,faces,expected:(mode===1?18:mode===-1?3:7)+total+bonus,mode,total,...(bonus?{bonus}:{}),modeEffectCase:row.id});
+ }
+}
 process.stdout.write(JSON.stringify(cases));`);
     const generated=spawnSync(process.execPath,[join(core,'node_modules/tsx/dist/cli.mjs'),'--tsconfig',join(core,'tsconfig.json'),driver],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH}});
     assert.equal(generated.status,0,generated.stderr);const cases=JSON.parse(generated.stdout);
@@ -153,7 +163,7 @@ process.stdout.write(JSON.stringify(cases));`);
     const invalid=await fetch(origin+'/api/modules/q00/probe',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,Cookie:cookie},body:JSON.stringify({cases:[{formula:'1d20+1000000001',faces:[1]}]})});
     assert.ok(invalid.status>=400,'Host numeric literal bound rejects without fallback');
     assert.deepEqual(writes,[],'Silent rolls dispatch no synthetic native writes/chat');
-    writeFileSync(join(root,'evidence.json'),JSON.stringify({evidence:'Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance',result:'qualified-plain-d20-numeric-profile',equalIndexDiagnostics:selectionMismatches,selectionMismatches,coreVersion,coreCommit,caseCount:cases.length-candidateRejections.length,requestCount:cases.length,candidateRejections,controlledPairs:800,normalFaces:20,sourceModeCases:81,manualModeCases:18,toolCases:cases.filter(row=>row.toolCase).length,selectedCases:cases.filter(row=>row.selectedCase).length,effectCases:cases.filter(row=>row.effectCase).length,numericEffectCases:cases.filter(row=>row.numericEffectCase).length,constantFormulaCases:cases.filter(row=>row.constantFormulaCase).length,bonusEffectCases:cases.filter(row=>row.bonusEffectCase).length,histogram,numericLiteralBoundaryRejected:true,nativeWrites:0,limits:['Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI','Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance']},null,2));
+    writeFileSync(join(root,'evidence.json'),JSON.stringify({evidence:'Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance',result:'qualified-plain-d20-numeric-profile',equalIndexDiagnostics:selectionMismatches,selectionMismatches,coreVersion,coreCommit,caseCount:cases.length-candidateRejections.length,requestCount:cases.length,candidateRejections,controlledPairs:800,normalFaces:20,sourceModeCases:81,manualModeCases:18,toolCases:cases.filter(row=>row.toolCase).length,selectedCases:cases.filter(row=>row.selectedCase).length,effectCases:cases.filter(row=>row.effectCase).length,numericEffectCases:cases.filter(row=>row.numericEffectCase).length,modeEffectCases:cases.filter(row=>row.modeEffectCase).length,constantFormulaCases:cases.filter(row=>row.constantFormulaCase).length,bonusEffectCases:cases.filter(row=>row.bonusEffectCase).length,histogram,numericLiteralBoundaryRejected:true,nativeWrites:0,limits:['Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI','Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance']},null,2));
     process.stdout.write(`Public-host controlled rolls: ${cases.length-candidateRejections.length} totals/serialized faces and distributions PASS; ${candidateRejections.length} rejected-candidate diagnostics; ${selectionMismatches.length} nonblocking equal-index diagnostics\n`);
 } catch(error) {process.stderr.write(logs.slice(-9000));throw error;}
 finally {

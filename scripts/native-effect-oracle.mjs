@@ -86,7 +86,8 @@ ${['prepareAbilities','calculateAbilityCheckProficiency','calculateToolProficien
 static shimAbilityData(){} }
 class CreatureTemplate extends CommonTemplate {
 ${['prepareSkill','prepareTools'].map(m=>n(creature,'CreatureTemplate',m)).join('\n')} }
-class AdvantageModeField {
+class AdvantageModeField extends NumericField {
+${['_applyChangeAdd','_applyChangeSubtract','_applyChangeMultiply','_applyChangeOverride','_applyChangeUpgrade','_applyChangeDowngrade'].map(m=>n('module/data/fields/advantage-mode-field.mjs','AdvantageModeField',m)).join('\n')}
 ${['combineFields','getCounts','resolveMode'].map(m=>n('module/data/fields/advantage-mode-field.mjs','AdvantageModeField',m)).join('\n')} }
 class D20RollModificationField {
 ${['combineFields','#makeRulesIterator'].map(m=>n('module/data/shared/d20-roll-modification-field.mjs','D20RollModificationField',m)).join('\n')}
@@ -98,7 +99,7 @@ class NativeDispatch {
 ${['#rollSkillTool','_buildSkillToolConfig'].map(m=>n('module/documents/actor/actor.mjs','Actor5e',m)).join('\n')}
 run(...args){return this.#rollSkillTool(...args);}
 }
-globalThis.numeric={NumericField,CreatureTemplate,CommonTemplate,NativeDispatch,NativeParts,NativeFormula};`,sandbox);
+globalThis.numeric={NumericField,CreatureTemplate,CommonTemplate,NativeDispatch,NativeParts,NativeFormula,AdvantageModeField};`,sandbox);
 const {NumericField,CreatureTemplate,CommonTemplate,NativeDispatch,NativeParts}=sandbox.numeric,numericObservations=[];
 sandbox.foundry.utils.setProperty=(obj,path,value)=>{const keys=path.split('.');let cursor=obj;for(const key of keys.slice(0,-1))cursor=cursor[key]??={};cursor[keys.at(-1)]=value;};
 sandbox.foundry.utils.getType=value=>value&&typeof value==='object'?'Object':typeof value;
@@ -149,5 +150,26 @@ for(const row of bonusFixture.cases.filter(row=>row.expected)){
  assert.equal(formula,row.expectedFormula,row.id);
  constantObservations.push({id:row.id,formula,independentExpectedNumeric:row.expectedBonus});
 }
-const evidence={constantObservations,numericObservations,evidence:'S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance',nativeCommit,foundry:release,observations,priorities,foundrySources:Object.fromEntries([...core].map(([path,source])=>[path,sha256(source)])),stubs:['Explicit initialized effect defaults; no Foundry DataModel initialization','Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions','Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime' ,'Untimed empty-condition effects only','Empty roll data; hidden/dependent/rider/antimagic absent','Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation','Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle','Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host']};
-const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: effect eligibility/phase capture ${observations.length} plus ${numericObservations.length} numeric field/derived and ${constantObservations.length} constant FormulaField constructions PASS\n`);
+
+const modeFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/effect-modes.json'),'utf8')),modeObservations=[];
+for(const row of modeFixture.cases.filter(row=>row.expected)){
+ const model=Object.assign(Object.create(CreatureTemplate.prototype),{abilities:{wis:{value:14,proficient:0},dex:{value:12,proficient:0}},skills:{prc:{value:1,ability:'wis',roll:{mode:0},bonuses:{passive:''}}},tools:{thief:{value:1,ability:'dex',roll:{mode:0}}},attributes:{prof:3,ac:{cover:0}},rolls:{ability:Object.fromEntries(['check','save','skill','tool'].map(key=>[key,{proficiency:0,mode:0}]))}});
+ for(const ability of Object.values(model.abilities)){ability.attack={roll:{}};ability.check={roll:{mode:0}};ability.save={roll:{mode:0}};ability.max=null;}
+ const actor=Object.assign(new NativeDispatch(),{system:model,flags:{dnd5e:{}},getFlag:()=>undefined,getRollData:()=>({roll:{}}),addConditionRollReduction:()=>{},conditionRollReduction:0,coverBonus:0,hasConditionEffect:()=>false,_isRemarkableAthlete:()=>false});
+ for(const [path,value] of Object.entries(row.sourceModes))set(actor,path,value);
+ const raw=structuredClone({system:{abilities:model.abilities,skills:model.skills,tools:model.tools,rolls:model.rolls}});actor._source=raw;model._source=raw.system;model.parent=actor;
+ for(const change of row.changes.map((change,order)=>({...change,order})).sort((a,b)=>priorities[a.type]-priorities[b.type]||a.order-b.order)){
+  const field=Object.assign(new sandbox.numeric.AdvantageModeField(),{nullable:false,choices:[-1,0,1]});set(actor,change.key,field.applyChange(get(actor,change.key),actor,change));
+ }
+ model.prepareAbilities();model.skills.prc=model.prepareSkill('prc',{rollData:{},originalSkills:{}});model.prepareTools();
+ const modes=[];for(const config of [{skill:'prc'},{skill:'prc',tool:'thief'},{tool:'thief'},{primary:'tool',skill:'prc',tool:'thief',ability:'wis'}]){
+  await actor.run(config.primary??(config.skill?'skill':'tool'),config);modes.push(Number(builtCapture.process.advantage)-Number(builtCapture.process.disadvantage));
+ }
+ const abilityMode=sandbox.numeric.AdvantageModeField.combineFields(model,['abilities.wis.check.roll.mode','rolls.ability.check.mode']);
+ const saveMode=sandbox.numeric.AdvantageModeField.combineFields(model,['abilities.wis.save.roll.mode','rolls.ability.save.mode']);
+ const observed={mode:modes[0],passive:model.skills.prc.passive,combinedMode:modes[1],toolMode:modes[2],abilityMode:Number(abilityMode.advantage)-Number(abilityMode.disadvantage),combinedToolMode:modes[3],saveMode:Number(saveMode.advantage)-Number(saveMode.disadvantage)};
+ assert.deepEqual(observed,row.expected,row.id);modeObservations.push({id:row.id,observed});
+}
+
+const evidence={modeObservations,constantObservations,numericObservations,evidence:'S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance',nativeCommit,foundry:release,observations,priorities,foundrySources:Object.fromEntries([...core].map(([path,source])=>[path,sha256(source)])),stubs:['Explicit initialized effect defaults; no Foundry DataModel initialization','Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions','Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime' ,'Untimed empty-condition effects only','Empty roll data; hidden/dependent/rider/antimagic absent','Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation','Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle','Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host']};
+const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: effect eligibility/phase capture ${observations.length} plus ${numericObservations.length} numeric field/derived and ${constantObservations.length} constant FormulaField constructions and ${modeObservations.length} effect-mode/passive cases PASS\n`);

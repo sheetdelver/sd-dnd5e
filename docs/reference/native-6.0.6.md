@@ -423,3 +423,27 @@ host separately qualifies expected constant expressions and actual module rolls.
 Raw nested unary `1d20+(-(3))` is a maintained negative candidate; binary-zero
 `1d20+(0-(3))` and the numeric reduction pass. No extra host contract is needed
 for this constant operation subset. Source and host serialization remain intact.
+
+### Trusted effect-mode counts and phase ordering (C15)
+
+`NumericEffects.modes` and `SkillToolModel.modeStates` carry qualified initialized
+source modes plus actual module-produced counts, ordered overrides and suppression.
+They never accept raw source modeCounts as overrides. `applyEffectMode` implements
+the qualified initial field operations; `sourceD20Mode` merges those states with
+source counts and automatic combined advantage. The result is not obtained by
+adding numeric-1/0/1 values or collapsing each field before merging.
+
+Static skill passives use the native passive scope order and resolveMode override
+semantics. Fresh skill/tool execution uses the native dispatch scope order and
+its advantage/disadvantage booleans, where suppression can mask an override.
+Prepared passiveMode and execution sourceMode can therefore differ; both are
+independently qualified. UI formats these shared results and keeps manual mode
+buttons explicit. Count/provenance changes participate in intent retirement.
+Ability/save and tool scopes use the same trusted count semantics.
+
+Twenty-five controlled native comparisons and mounted/public-host requests cover
+source poison, negative counts, automatic advantage, cross-scope suppression and
+override precedence, including different passive/roll outcomes. Four explicit
+unqualified cases remain gated. Initial literal deltas-1/0/1 only; final/effect
+filters/time/Item dependencies/custom hooks and wider values remain separate work.
+No native DataModel/Document or operator parity is inferred from these methods.

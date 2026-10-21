@@ -851,3 +851,60 @@ no complete gate closes. ADR-0001 stays open, experimental0.4.1/compatibility un
 Next M2/Q00: native effect mode counts/override/suppression and distinct passive
 versus fresh-roll combination order. Final effects, filters/status/time/Item
 preparation, broader expressions/ranges/flags and E01 remain open.
+
+### C15 — Initial effect modes and passive phases (2026-10-21)
+
+C14 implementation is `c6339ef`. C15 adds the bounded initial AdvantageModeField
+profile, preserving source mode separately from module-produced effect counts.
+Raw modeCounts/override/suppression poison is ignored, not reclassified as source.
+Nineteen original maintained requests failed before;25 independently specified
+supported cases now match exact native field/dispatch/passive methods. Four
+malformed/delta/custom/final cases stay unavailable. Numeric deltas are limited
+to-1/0/1 and qualified operation branches; no wider no-op behavior is claimed.
+
+Counts include positive/negative sources across scopes; add/subtract are not flat
+mode arithmetic. Upgrade/downgrade suppress the opposite direction, override
+remains ordered, and multiply is the qualified no-op. Automatic combined
+advantage enters the same native count merge. Both primary skill/tool checks,
+local/global tool scopes and ability/save modes use one shared interpretation.
+Native passive and execution phases are deliberately distinct: passive ordering
+is ability/local/global-check/global-skill; fresh execution is ability/global-
+check/global-primary/local. An override can therefore choose opposite modes in
+the two phases. Native passive resolveMode also returns an override before
+suppression; dispatch booleans still mask it. Maintained fixtures assert these
+surprising outcomes instead of forcing totals to look consistent.
+
+The detached NumericEffects result holds initialized trusted count states.
+The shared check model combines them using the appropriate phase; passive
+projection consumes passiveMode while preview/button/shortcut/direct execution
+consume sourceMode. Explicit manual modes continue to override configured modes.
+Source remains unchanged; invalid context/ranges/custom/final rules refuse
+execution. Source/context changes retire dialogs and callbacks, and recovery
+requires a fresh intent. No browser evaluator, transport or second cache is added.
+
+`npm test` passes56 tooling assertions/7 tooling/18 module suites; explicit typing
+covers117 files. Exact source2242/591 and prior native-check comparisons pass.
+`test:native-effects` retains5 order/20 numeric/40 selected-build/19 constructor
+cases plus25 effect-mode cases through actual pinned AdvantageModeField methods,
+prepareSkill and Actor dispatch. Initialized plain models, dropped schema-foreign
+poison, empty applied rules/conditions/flags and capture-only builds are stubs.
+These controlled methods do not establish native Document/DataModel or engine parity.
+Mounted actual consumers pass previous protections plus58 mode cases at1440/390;
+all19 original defects and6 added scope cases are covered. The SDK presentation
+seam does not establish installed UI acceptance. Public Core0.19.3 passes2677
+accepted numeric outcomes (600 new mode requests), one exact rejected unary
+candidate and40 equal-index diagnostics. Ordered faces/entropy/retained count/
+value/states/totals/distributions and host serialization remain strict.
+
+Isolated module check/package passes public boundaries, managed typing and all
+bundles. All host tools use pristine Core0.19.3/90c13e5 via `-- --core
+/tmp/dnd5e-core-baseline-iDcWjQ/core`; oracle is87e94db release-6.0.6 and static
+Foundry14.367, never reference HEAD or a live service. Harness cleanup stops task
+services. [Portable C15 evidence](../audits/evidence/2026-10-21-c15-effect-modes.json)
+contains original failures, independent observations and artifact identities.
+This advances DD-02/24/27/34, A02/A18 partially, closing no complete DD/A/M gate.
+Next executable M2 slice: independent character HP/HD source/advancement facts and
+truthful health projections before M3 health commands. Other M2 domains, final
+phases/filters/status/time/Item preparation, broader formulas/ranges/flags, E01
+and wider Q00/E05 remain open. ADR-0001/full acceptance remain open; experimental
+0.4.1/compatibility unchanged; native/operator/release acceptance is not claimed.
