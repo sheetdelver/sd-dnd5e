@@ -1,3 +1,4 @@
+import { numericAbilityValue } from './numeric';
 import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
@@ -20,8 +21,9 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
         const data = record(value) ?? {}, rawScore = data.value;
         let reason = profile.status === 'unavailable' ? profile.reason : undefined;
         if (!['str','dex','con','int','wis','cha'].includes(key)) reason = 'Ability outside qualified profile';
-        if (typeof rawScore !== 'number' || !Number.isInteger(rawScore) || rawScore < 0 || rawScore > 30) reason = 'Ability source score unavailable';
-        const score = reason ? null : rawScore as number, mod = score === null ? null : Math.floor((score - 10) / 2);
+        const numeric=numericAbilityValue(rawScore);
+        if (!numeric) reason = 'Ability source score unavailable';
+        const score = reason ? null : numeric!.score, mod = reason ? null : numeric!.mod;
         function prepare(type: 'check' | 'save'): PreparedNumericD20 {
             let unavailableReason = reason;
             const local = record(data[type]) ?? {}, roll = record(local.roll) ?? {}, global = record(globals[type]) ?? {};

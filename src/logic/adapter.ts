@@ -1,3 +1,4 @@
+import { prepareHealth606, hpProjection } from './preparation/health';
 import {
     BaseSystemAdapter,
     resolveImage,
@@ -149,7 +150,10 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             prepared.derived.characterFacts = facts;
             prepared.derived.level = facts.level.value;
             prepared.derived.profBonus = facts.proficiency.value;
+            const health=prepareHealth606(actor,rules,effects);prepared.derived.hp=health.hp;prepared.derived.hitDice=health.hitDice;
         } else {
+            const hp=prepared.derived.hp as Record<string,unknown>;
+            prepared.derived.hp={...hp,status:'legacy-unqualified',effectiveMax:hp.max,tempmax:0,provenance:'Selected legacy compatibility HP projection',reason:'Legacy HP remain unqualified'};
             prepared.derived.characterFacts = Object.fromEntries([['level', prepared.derived.level], ['proficiency', prepared.derived.profBonus]].map(([key, value]) => [key, {
                 status: 'legacy-unqualified', value, display: key === 'proficiency' ? `+${value}` : String(value),
                 provenance: 'Selected legacy compatibility projection', reason: 'Legacy level/proficiency remain unqualified',
@@ -318,7 +322,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
 
     getActorCardData(actor: PreparedActorData): ActorCardData {
         const s = actor.system as Partial<D5eSystem>;
-        const hp = s?.attributes?.hp;
+        const hp = hpProjection(actor.derived);
         const ac = s?.attributes?.ac?.value ?? 10;
         const facts = characterFactsProjection(actor.derived);
         const level = facts.level.value;
@@ -344,9 +348,9 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             blocks: [
                 {
                     title: 'HP',
-                    value: hp?.value ?? 0,
-                    subValue: `/ ${hp?.max ?? 0}`,
-                    valueClass: 'text-green-400',
+                    value: hp.value ?? '—',
+                    subValue: hp.effectiveMax!==null?`/ ${hp.effectiveMax}`:hp.reason,
+                    valueClass: hp.status==='unavailable'?'text-muted-foreground':'text-green-400',
                 },
                 {
                     title: 'AC',

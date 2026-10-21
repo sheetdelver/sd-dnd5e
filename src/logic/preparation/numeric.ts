@@ -10,3 +10,8 @@ export function numericConstant(input: unknown): number | null {
 export function qualifiedNumericTotal(value: number): boolean {
     return Number.isFinite(value) && /^-?\d+(?:\.\d+)?$/.test(String(value));
 }
+/** Common initialized ability score/modifier qualification, independent of
+ * unrelated check execution gates such as equipped armor or encumbrance. */
+export function numericAbilityValue(value:unknown):{score:number;mod:number}|null {
+    return typeof value==='number'&&Number.isInteger(value)&&value>=0&&value<=30?{score:value,mod:Math.floor((value-10)/2)}:null;
+}

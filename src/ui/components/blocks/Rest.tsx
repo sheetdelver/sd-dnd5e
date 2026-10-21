@@ -39,9 +39,11 @@ type RestApplyResult = {
 export default function Rest({ variant = 'bar', subtitle }: Props) {
     const { openModal } = useModal();
     const { actor, onUpdate } = useSheet();
-    const canApply = Boolean(onUpdate);
+    const canApply = Boolean(onUpdate&&actor?.derived.lifecycle?.profile==='legacy-limited');
+    const reason=canApply?undefined:'Rest rules are not available for this profile yet.';
 
     const open = (initialType: 'short' | 'long') => {
+        if(!canApply)return;
         openModal('rest', {
             initialType,
             subtitle: subtitle ?? actor?.name,
@@ -76,7 +78,7 @@ export default function Rest({ variant = 'bar', subtitle }: Props) {
                 onClick={() => open('long')}
                 disabled={!canApply}
                 aria-label="Rest"
-                title="Rest"
+                title={reason??'Rest'}
                 style={{
                     width: '32px',
                     height: '32px',
@@ -100,25 +102,27 @@ export default function Rest({ variant = 'bar', subtitle }: Props) {
 
     return (
         <div style={{ display: 'flex', gap: 'var(--space-sm)', flexShrink: 0 }}>
-            <RestButton onClick={() => open('short')} disabled={!canApply}>
+            <RestButton onClick={() => open('short')} disabled={!canApply} title={reason}>
                 ☾ Short Rest
             </RestButton>
-            <RestButton onClick={() => open('long')} disabled={!canApply}>
+            <RestButton onClick={() => open('long')} disabled={!canApply} title={reason}>
                 ☀ Long Rest
             </RestButton>
         </div>
     );
 }
 
-function RestButton({ onClick, disabled, children }: {
+function RestButton({ onClick, disabled, title, children }: {
     onClick: () => void;
     disabled?: boolean;
     children: React.ReactNode;
+    title?:string;
 }) {
     return (
         <button
             type="button"
             onClick={onClick}
+            title={title}
             disabled={disabled}
             style={{
                 display: 'flex',

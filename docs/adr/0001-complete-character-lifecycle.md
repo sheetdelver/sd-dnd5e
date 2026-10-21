@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive phase order are bounded slices. HP/HD/AC/init/movement and final/filters/Item phases, broader expressions and ranges remain open | RV01–RV04 retained; C06–C15 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD facts are bounded slices. AC/init/movement and final/filters/Item phases, broader expressions and ranges remain open | RV01–RV04 retained; C06–C16 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -800,3 +800,43 @@ and [portable record](../audits/evidence/2026-10-21-c15-effect-modes.json).
 No full gate closes. Continue source/advancement HP/HD facts and health projections
 in M2, with final/Item/filter/time and other unqualified behavior still unavailable.
 E01/wider Q00/E05 and native/operator acceptance remain open; metadata unchanged.
+
+### C16 — Shared character HP and Hit Dice facts (2026-10-21)
+
+C15 implementation is `94a1bec`. C16 advances the M2 health foundation for
+DD-01/02/03/24/25/34 and A02/A03/A18 partially. Twenty-two original source cases
+failed before. The final26 cases include17 complete HP/HD expectations and9
+independently unavailable/partial dispositions. Explicit HP overrides bypass CON,
+class choices and unused bonus formulas. Calculated maxima use exact owned class
+HitPoints selections, the shared initialized ability modifier, per-level/overall
+constant bonuses and native per-level minimum1/final floor. Base maximum and
+effective maximum stay distinct; current HP clamps to effective maximum without
+writing source. Negative derived maxima, null/default current/max/tempmax,
+multiclass levels, negative CON and initial CON effects are independently covered.
+
+HD initializes verified d6/0/empty additional defaults, then derives each owned
+class pool and by-size totals. Negative additional HD and overspent pools clamp
+as native. Actor/class prepared-looking max/value/bySize and CON mod/level poison
+are ignored. Source values, extension fields, canonical identities and object
+mutability remain unchanged. HP/HD availability is separate: a literal HP override
+can remain known with unavailable HD, or HD remain known while HP choices/CON are
+missing. Unresolved armor checks do not hide independently qualified health facts.
+Malformed/future/incomplete choices, unknown additional expressions, invalid or
+duplicate persisted class identifiers and unqualified world/token UUIDs stay
+explicitly unavailable; no name or same-name grant inference occurs.
+
+One `prepareHealth606` result drives cards and desktop/mobile HP/HD consumers.
+Cards no longer reconstruct HP from raw source; headers/blocks show effective
+maximum and unavailable reasons. The old unsupported-context synthetic regression
+now expects unavailable prepared HP while asserting its source17 is unchanged;
+its prior carry-through was unqualified behavior, not a native oracle. Selected
+legacy HP remains a separately labeled compatibility projection with its existing
+limits. Modern HP editing and incomplete rest shortcuts are disabled until M3/M4
+reliable command/rule qualification; populated health facts do not qualify those
+actions. This is UI gating, not a claim of complete generic-write command coverage.
+
+Evidence/commands/limits: [C16 ledger](../plans/0001-verification.md#c16--shared-character-hp-and-hit-dice-facts-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c16-health.json).
+No complete gate closes. Continue bounded native AC/initiative qualification;
+modern health/rest commands await M3/M4. E01/wider Q00/E05 and native/operator
+acceptance remain open. ADR-0001 and version/compatibility remain unchanged.

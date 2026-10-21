@@ -7,6 +7,7 @@ import { useSheetSetting } from '../shared/useSheetSetting';
 import Rest from '../blocks/Rest';
 import { characterFactsProjection } from '../../../logic/preparation/character-profile';
 import CharacterFact from '../shared/CharacterFact';
+import {HpReadout,HitDiceReadout} from '../shared/HealthFacts';
 
 /**
  * MobileHeader — compact header for the mobile character sheet view.
@@ -33,7 +34,6 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
     const subtitle = [derived.race, derived.classes].filter(Boolean).join(' · ');
     const facts = characterFactsProjection(derived);
-    const hp = derived.hp ?? { value: 0, max: 0 };
     const walk = derived.speed?.walk ?? 30;
     const initiative = derived.initiative ?? 0;
     const ac = derived.ac ?? 10;
@@ -152,7 +152,7 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         lineHeight: 1.1,
                         fontVariantNumeric: 'tabular-nums',
                     }}>
-                        {hp.value}<span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '14px' }}>/</span>{hp.max}
+                        <HpReadout hp={derived.hp}/>
                     </span>
                     <span style={{
                         fontSize: '8px',
@@ -160,6 +160,7 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         textTransform: 'uppercase' as const,
                         letterSpacing: '0.05em',
                     }}>
+                        <HitDiceReadout hitDice={derived.hitDice}/><br/>
                         {inspiration ? '★ HEROIC INSPIRATION' : 'NO INSPIRATION'}
                     </span>
                 </div>

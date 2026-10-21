@@ -908,3 +908,68 @@ truthful health projections before M3 health commands. Other M2 domains, final
 phases/filters/status/time/Item preparation, broader formulas/ranges/flags, E01
 and wider Q00/E05 remain open. ADR-0001/full acceptance remain open; experimental
 0.4.1/compatibility unchanged; native/operator/release acceptance is not claimed.
+
+### C16 — Shared character HP and Hit Dice facts (2026-10-21)
+
+C15 implementation is `94a1bec`. C16 advances the M2 health foundation for
+DD-01/02/03/24/25/34 and A02/A03/A18 partially. Twenty-two original source cases
+failed before. The final26 cases include17 complete HP/HD expectations and9
+independently unavailable/partial dispositions. Explicit HP overrides bypass CON,
+class choices and unused bonus formulas. Calculated maxima use exact owned class
+HitPoints selections, the shared initialized ability modifier, per-level/overall
+constant bonuses and native per-level minimum1/final floor. Base maximum and
+effective maximum stay distinct; current HP clamps to effective maximum without
+writing source. Negative derived maxima, null/default current/max/tempmax,
+multiclass levels, negative CON and initial CON effects are independently covered.
+
+HD initializes verified d6/0/empty additional defaults, then derives each owned
+class pool and by-size totals. Negative additional HD and overspent pools clamp
+as native. Actor/class prepared-looking max/value/bySize and CON mod/level poison
+are ignored. Source values, extension fields, canonical identities and object
+mutability remain unchanged. HP/HD availability is separate: a literal HP override
+can remain known with unavailable HD, or HD remain known while HP choices/CON are
+missing. Unresolved armor checks do not hide independently qualified health facts.
+Malformed/future/incomplete choices, unknown additional expressions, invalid or
+duplicate persisted class identifiers and unqualified world/token UUIDs stay
+explicitly unavailable; no name or same-name grant inference occurs.
+
+One `prepareHealth606` result drives cards and desktop/mobile HP/HD consumers.
+Cards no longer reconstruct HP from raw source; headers/blocks show effective
+maximum and unavailable reasons. The old unsupported-context synthetic regression
+now expects unavailable prepared HP while asserting its source17 is unchanged;
+its prior carry-through was unqualified behavior, not a native oracle. Selected
+legacy HP remains a separately labeled compatibility projection with its existing
+limits. Modern HP editing and incomplete rest shortcuts are disabled until M3/M4
+reliable command/rule qualification; populated health facts do not qualify those
+actions. This is UI gating, not a claim of complete generic-write command coverage.
+
+`npm test` passes56 tooling assertions/7 tooling/19 module suites; explicit module/
+UI/server/hook typing covers121 files. Pinned source2242/591, prior native-checks
+and all effect comparisons pass. `test:native-health` matches17 independent cases
+against exact prepareAbilities, class HD preparation, HP advancement, Actor.classes,
+HitDice and AttributesFields.prepareHitPoints plus the verbatim character HP branch.
+Explicit defaults, numeric-literal-only HD Roll, empty rules/flags/conditions,
+no-op class spellcasting, Set.reduce/Math.clamp and initialized class identity are
+stubs. The CON effect case starts after its separately qualified initial numeric
+phase at explicitly specified16. No native Document/DataModel/runtime is booted.
+
+Mounted fixtures pass earlier protections plus58 health cases at1440/390, including
+context loss/recovery, partial facts and disabled heal/damage/rest controls with
+zero fixture writes. This is the actual module UI through an SDK presentation
+seam, not installed Core/native UI acceptance. Public-host2677 accepted rolls,
+one maintained rejected unary candidate and40 equal-index diagnostics remain
+unchanged after the shared modifier refactor. All faces/entropy/selection/counts/
+flags/totals/distributions and host serialization stay strict. Isolated check/
+package passes boundaries, managed types and all bundles. Pristine Core0.19.3/
+90c13e5 at `/tmp/dnd5e-core-baseline-iDcWjQ/core` remains clean; commands use
+`-- --core` that path. Native oracle is exact87e94db, not reference HEAD; static
+Foundry14.367 is read only. Task fixtures stop services in cleanup.
+
+[Portable C16 evidence](../audits/evidence/2026-10-21-c16-health.json) retains
+inputs, failures, controlled observations, source/script/archive hashes and limits.
+Next M2 work: independently qualify armor class and initiative source/default
+preparation, their native Item dependencies and shared read/execution consumers.
+Do not trust raw prepared-looking ac.value/init.mod/init.total or default10/0.
+Broader M2 effects/final/filter/Item/status/time/formula work, E01, wider Q00/E05,
+M3 onward and native/operator gates remain open. No full DD/A/M gate closes;
+ADR-0001 stays open, experimental0.4.1/compatibility unchanged.

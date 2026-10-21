@@ -15,6 +15,7 @@ import Tools from '../../src/ui/components/blocks/Tools';
 type Confirm = (options: Record<string, unknown>) => Promise<void>;
 interface Fixture {
     render(actor: PreparedActorData, probe?: boolean | 'ability' | 'save' | 'tool'): void;
+    updates:Array<{path:string;value:unknown}>;
     calls: Array<{ type: string; key: string; options: unknown; formula?: string | null }>;
     hold(): void;
     submitHeld(options?: Record<string, unknown>): Promise<string>;
@@ -23,7 +24,7 @@ declare global { interface Window { skillFixture: Fixture } }
 const root = createRoot(document.getElementById('root')!);
 let held: Confirm | undefined, current: Confirm | undefined;
 const fixture: Fixture = {
-    calls: [],
+    calls: [], updates:[],
     hold() { held = current; if (!held) throw new Error('No open intent'); },
     async submitHeld(options = {advantage: 'normal'}) { try { if (!held) throw new Error('No held intent'); await held(options); return 'dispatched'; } catch { return 'retired'; } },
     render(actor, probe = false) {
@@ -33,7 +34,7 @@ const fixture: Fixture = {
                 : probe === 'save' ? <SavingThrows abilities={actor.derived.abilities as any} onRoll={onRoll} />
                     : probe === 'tool' ? <Tools onRoll={onRoll} />
                     : <Skills skills={actor.derived.skills as any} onRoll={onRoll} />}<Probe /><ModalHost />
-        </ModalProvider></SheetProvider> : <Sheet actor={actor} onRoll={onRoll} onUpdate={async () => {}} isOwner />));
+        </ModalProvider></SheetProvider> : <Sheet actor={actor} onRoll={onRoll} onUpdate={async (path,value) => {fixture.updates.push({path,value});}} isOwner />));
     },
 };
 function Probe() {

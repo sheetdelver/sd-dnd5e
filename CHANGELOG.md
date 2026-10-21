@@ -3,6 +3,7 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+- Shared source-derived HP/Hit Dice facts across cards and layouts; gated unqualified health/rest controls.
 - Shared qualified effect-mode counts, suppression and native passive scope ordering.
 - Applied bounded constant check/passive bonus effects through shared preparation.
 - Applied qualified initial numeric effects to shared checks and proficiency.

@@ -384,3 +384,28 @@ override precedence, including different passive/roll outcomes. Four explicit
 unqualified cases remain gated. Initial literal deltas-1/0/1 only; final/effect
 filters/time/Item dependencies/custom hooks and wider values remain separate work.
 No native DataModel/Document or operator parity is inferred from these methods.
+
+### Character health facts and command boundary (C16)
+
+`prepareHealth606` reads immutable source, initialized defaults and the shared
+initial numeric effect operands. HP override and class-advancement calculations
+are identified separately. It preserves base max, effective max, clamped current,
+temp, damage and percentage without persistence. HD keeps exact class IDs/UUIDs,
+persisted identifiers, source die/spent/additional and independently derived pools.
+Raw Actor/class HD totals, HP effectiveMax/damage/pct and CON mod/details.level
+are not source overrides. `numericAbilityValue` is shared with checks and saves.
+
+HP and HD availability are independent. HP override need not evaluate unused
+advancement/CON/bonus rules. Calculated HP requires complete current-level owned
+HitPoints choices, canonical unique persisted class identifiers and known CON.
+World character identity, standard d6/d8/d10/d12 HD, integer constant additional
+HD and scalar HP bonuses define this bounded profile. Malformed/incomplete/future
+choices, duplicate/missing identifiers, broader formulas, Item/effect/status/time
+phases and token Actor UUIDs stay explicitly unavailable until qualified.
+
+Cards use `hpProjection`; shared `HpReadout`/`HitDiceReadout` format prepared facts
+in both layouts. Unknown context never selects old HP defaults. Selected legacy
+retains its separate unqualified projection. Modern health/rest controls are
+gated pending M3/M4; generic writes and native healing/rest rules are not qualified
+by these displays. Source/default native comparisons are controlled method/phase
+fixtures, not native Documents/DataModel/engine or installed/operator acceptance.
