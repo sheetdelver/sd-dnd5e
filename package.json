@@ -18,6 +18,7 @@
     "test:native-movement": "node scripts/native-movement-oracle.mjs",
     "test:native-ranges": "node scripts/native-range-oracle.mjs",
     "test:public-ranges": "node scripts/test-public-ranges.mjs",
-    "test:initiative-contract": "node scripts/public-initiative-capabilities.mjs"
+    "test:initiative-contract": "node scripts/public-initiative-capabilities.mjs",
+    "test:native-traits": "node scripts/native-traits-oracle.mjs"
   }
 }

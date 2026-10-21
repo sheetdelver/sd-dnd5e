@@ -2,6 +2,7 @@ import { prepareArmorClass606,prepareInitiative606,initiativeRoll,armorClassProj
 import { prepareHealth606, hpProjection } from './preparation/health';
 import {prepareMovement606,movementKeys,senseKeys} from './preparation/movement';
 import {prepareSpeciesIdentity606,speciesProjection,legacySpeciesIdentity} from './preparation/species-identity';
+import {prepareDefenseTraits606,defensesProjection} from './preparation/defense-traits';
 import {
     BaseSystemAdapter, SdkError,
     resolveImage,
@@ -142,6 +143,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         prepared.derived.speciesIdentity=species;
         prepared.derived.race=species.name??'';
         const effects=prepareNumericEffects606(actor);
+        prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
         prepared.derived.equipmentPreparation=effects.equipment;
         prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied};
         const checkModel = prepareSkillToolModel606(actor,rules,effects);
@@ -371,6 +373,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const ac = armorClassProjection(actor.derived);
         const facts = characterFactsProjection(actor.derived);
         const level = facts.level.value;
+        const defenses=defensesProjection(actor.derived);
 
         const classes = actor.items
             .filter((i: FoundryItem) => i.type === 'class')
@@ -410,6 +413,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                     title: 'Prof',
                     value: facts.proficiency.display, subValue: facts.proficiency.reason,
                 },
+                {title:'Defenses',value:defenses.summary,subValue:defenses.reason},
             ],
         };
     }

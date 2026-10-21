@@ -1283,3 +1283,50 @@ services stopped. Node24 local; Node22 CI/native/operator unrun.
 Next M2/Q02a: remaining trait/defense/condition, rule/filter/final and Item
 preparation. No source/default label implies those rules are ready. E01 and wider
 Q00/E05 remain open; ADR-0001, experimental0.4.1 and compatibility unchanged.
+
+### C24 — Condition-free defense traits (2026-10-21)
+
+Predecessor C23 `3bbf52d`. Completed bounded subrequirements DD-05/27/34,
+A02/A04 shared source/default defense preparation and truthful consumers.28 new
+source contracts fail against the predecessor's absent projection/constant UI
+placeholder; all pass after. These are feature-gap contracts, not28 independent
+native arithmetic defects. Cases cover ALL/overlap, duplicates/order/defaults,
+custom text, physical bypasses, constants, partial/malformed/unknown availability,
+class/armor independence, initial-effect gates, source/poison and context recovery.
+Condition immunity has no bypass field; extra raw bypasses there are ignored.
+
+Use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (pristine released0.19.3/
+90c13e5). `npm test`:60 tooling assertions,8 tooling/26 module suites pass.
+`npm run typecheck`:145 explicit module/UI/server/test/hook files pass. An initial
+R-array inference error was corrected with an explicit expected-array type before
+successful typing/package validation; source behavior was unchanged.
+`test:native-source -- --native ../../../../temp/dnd5e` remains2242 records/
+591 expressions at exact87e94db release6.0.6. New `test:native-traits` with that
+native path and static `--foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14`
+passes24 controlled source/default captures (15 complete,9 independently available
+domains) plus exact registry/English metadata and native trait presentation checks.
+4 fully unavailable profiles are explicit boundaries. Primitive constructors,
+schema-default delegation, empty conditions, fixed trait-registry slice, key-label/
+formatter/Set.map stubs and no validation/DataModel/Document boot are recorded.
+Partial observations do not initialize missing domains as native acceptance.
+
+`test:mounted -- --browser-tools /tmp/sd-dice-preview-tools --chromium
+/home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell`
+passes63 new defense cases at1440/390 and all prior suites. Actual desktop readouts,
+mobile button/accessible dialog, current source/context changes while open, recovery,
+card projections and zero readout writes pass. Artifacts
+`/tmp/dnd5e-mounted-mSM2nT`; controlled SDK seam, not installed Core/native UI.
+
+`test:public-rolls` retains13634 accepted requests,1656 Item effects,9009 normal
+ranges/441 distributions,1 rejected unary candidate and40 plain tie diagnostics.
+Artifacts `/tmp/dnd5e-public-rolls-oK0jJd`. This is existing public roll regression,
+not new damage/condition execution qualification. `check:package` passes isolated
+module/public-boundary check, managed typing and all bundles. Archive `/tmp/dnd5e-package-da9nUs/data/dist/modules/dnd5e-0.4.1.tgz`,
+SHA256 `5708bbad8832ab77c4fbe320f3888355fa64c1a18e14f1d5d2d1459ca4f5aedc`. [Portable evidence](../audits/evidence/2026-10-21-c24-defense-traits.json)
+retains source/script/fixture/artifact hashes, phase stubs and limits. No task
+services retained. Node24 local; Node22 CI/native/operator unrun.
+
+No full DD/A/M gate closes. Next M2/Q02a: initial trait-set/constant modifier effects,
+then remaining condition/proficiency/language and rule/filter/final/Item phases.
+Damage application remains M4. E01/wider Q00/E05/ADR-0001 open; experimental0.4.1
+and compatibility unchanged.

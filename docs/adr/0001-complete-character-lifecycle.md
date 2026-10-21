@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity | RV01–RV04 retained; C06–C23 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits | RV01–RV04 retained; C06–C24 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1073,3 +1073,32 @@ without weakening movement/rule gates. No full DD/A/M or installed/native/operat
 gate closes. Next: remaining trait/defense/condition and rule/filter/final/Item
 preparation under M2/Q02a. E01 and wider Q00/E05 remain open; experimental0.4.1,
 compatibility and ADR-0001's open status are unchanged.
+
+### C24 — Condition-free defense traits and presentation (2026-10-21)
+
+C23 is `3bbf52d`. C24 advances M2, DD-05/27/34 and A02/A04 partially.
+The constant “No active defenses” placeholder is replaced by one shared detached
+projection for damage resistances/immunities/vulnerabilities, condition immunities
+and numeric damage adjustments. Verified String/Set/schema defaults precede exact
+condition-free native ALL/overlap normalization. Physical-only bypass metadata,
+custom semicolon text, duplicates and source order are retained. UI/cards consume
+prepared displays; they do not compute trait rules. The mobile Defenses button
+opens the shared accessible frame and reads current facts while open.
+
+Category availability is explicit. Unknown/malformed immunity also gates dependent
+resistance normalization; independent categories can remain known. Unqualified
+modifier expressions do not erase known source immunities. Class or armor failure
+alone does not erase independently qualified defenses. Non-schema/prepared-looking
+fields, including condition-immunity bypass poison, never become source overrides.
+No Actor/Item/effect source is mutated. No damage application or condition-effect
+execution is implied by a readout. Active conditions, unqualified initial/final/
+Item/filter/flag phases, broader expressions and general legacy remain gated.
+
+[C24 ledger](../plans/0001-verification.md#c24--condition-free-defense-traits-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c24-defense-traits.json) distinguish
+independent source expectations, controlled primitive/normalization/presentation
+methods, actual mounted consumers, public roll regression and packaging. No full
+DD/A/M or installed/native/operator gate closes. Next: qualified initial trait-set
+and constant modifier effects, then remaining conditions/proficiencies/languages,
+rule/filter/final/Item phases under M2/Q02a. E01/wider Q00/E05 remain open;
+ADR-0001, experimental0.4.1 and compatibility unchanged.

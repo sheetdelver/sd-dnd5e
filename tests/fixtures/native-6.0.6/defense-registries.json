@@ -1,0 +1,57 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "damage": {
+    "acid": "Acid",
+    "bludgeoning": "Bludgeoning",
+    "cold": "Cold",
+    "fire": "Fire",
+    "force": "Force",
+    "lightning": "Lightning",
+    "necrotic": "Necrotic",
+    "piercing": "Piercing",
+    "poison": "Poison",
+    "psychic": "Psychic",
+    "radiant": "Radiant",
+    "slashing": "Slashing",
+    "thunder": "Thunder"
+  },
+  "conditions": {
+    "bleeding": "Bleeding",
+    "blinded": "Blinded",
+    "burning": "Burning",
+    "charmed": "Charmed",
+    "cursed": "Cursed",
+    "dehydration": "Dehydration",
+    "deafened": "Deafened",
+    "diseased": "Diseased",
+    "exhaustion": "Exhaustion",
+    "falling": "Falling",
+    "frightened": "Frightened",
+    "grappled": "Grappled",
+    "incapacitated": "Incapacitated",
+    "invisible": "Invisible",
+    "malnutrition": "Malnutrition",
+    "paralyzed": "Paralyzed",
+    "petrified": "Petrified",
+    "poisoned": "Poisoned",
+    "prone": "Prone",
+    "restrained": "Restrained",
+    "silenced": "Silenced",
+    "stunned": "Stunned",
+    "suffocation": "Suffocation",
+    "surprised": "Surprised",
+    "transformed": "Transformed",
+    "unconscious": "Unconscious"
+  },
+  "bypasses": {
+    "ada": "Adamantine",
+    "mgc": "Magical",
+    "sil": "Silvered"
+  },
+  "physical": [
+    "bludgeoning",
+    "piercing",
+    "slashing"
+  ],
+  "allDamage": "All Damage"
+}

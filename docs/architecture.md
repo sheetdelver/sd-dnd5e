@@ -33,7 +33,7 @@ target, not a new compatibility claim for module 0.4.1. See the
 - Modern health/rest mutation controls are gated pending M3/M4. Selected legacy
   retains partial HP/temp-HP compatibility; complete HD/slot/resource/Item recovery
   remains unimplemented.
-- Conditions, defenses, proficiencies and appearance include placeholder
+- Conditions, proficiencies and appearance include placeholder
   presentation. Modern spell preparation/properties and physical Item weight
   schemas are incompletely read. The active audit records reproducible examples.
 - Normal configured d20 bounds use the shared compiler and explicit mode
@@ -531,3 +531,21 @@ and malformed references have separate statuses/reasons. Both headers expose the
 same fact and diagnostics; cards and `getRaceData` share it. Selected legacy first-
 Item presentation remains explicitly unqualified. Item effects/grants/prepared
 traits do not follow from a source identity label.
+
+### Defense traits
+
+`prepareDefenseTraits606` initializes detached source String/Set defaults and
+performs condition-free native ALL/immunity/resistance normalization. Damage and
+condition registry identities/English labels are pinned source facts; unknown IDs
+are unavailable, never inferred from names. Damage bypasses annotate physical types
+only; SimpleTraitField condition immunities cannot acquire a bypass property from
+raw poison. Custom text and constant FormulaField damage adjustments preserve
+native order/cleaning. Broader expressions remain unavailable per category.
+
+The same prepared category displays feed cards, desktop `Defenses` and the live
+mobile `DefensesModal`. Modal content reads current context/source without stored
+fact snapshots or write callbacks; accessible heading association uses the shared
+frame. A known trait remains independently readable when class/armor preparation
+fails. Unqualified active conditions/effect phases gate affected facts; this does
+not implement damage application, condition rules or legacy expansion. Preparation
+never persists values or creates a second document cache.

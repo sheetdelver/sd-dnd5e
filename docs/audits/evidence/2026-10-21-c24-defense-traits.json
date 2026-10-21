@@ -1,0 +1,1625 @@
+{
+  "checkpoint": "C24",
+  "precedingImplementation": "3bbf52d",
+  "requirementsPartial": [
+    "M2",
+    "DD-05",
+    "DD-27",
+    "DD-34",
+    "A02",
+    "A04"
+  ],
+  "R": {
+    "sourceCases": 28,
+    "failingBefore": {
+      "implementation": "3bbf52d",
+      "cases": [
+        "empty-defaults",
+        "resistance-immunity-overlap",
+        "all-resistance",
+        "all-immunity-clears-resistance",
+        "all-vulnerability-independent",
+        "custom-and-physical-bypasses",
+        "trimmed-deduplicated-sets",
+        "null-field-defaults",
+        "constant-damage-adjustments",
+        "numeric-scalar-adjustment",
+        "known-defense-independent-invalid-class",
+        "known-defense-independent-armor",
+        "qualified-initial-effect",
+        "disabled-condition-effect",
+        "malformed-resistance-value",
+        "unknown-immunity-gates-resistance",
+        "malformed-immunity-gates-resistance",
+        "unknown-condition-immunity",
+        "unknown-bypass",
+        "custom-field-malformed",
+        "damage-expression-gated",
+        "damage-reference-gated",
+        "unknown-damage-adjustment",
+        "active-condition",
+        "trait-change",
+        "final-change",
+        "malformed-traits-container",
+        "prepared-field-poison"
+      ],
+      "qualification": "New defense projection absent; prior desktop UI always said No active defenses and mobile button was disabled. New source contracts are feature-gap regressions, not28 independent native defects."
+    },
+    "passingAfter": true,
+    "toolingAssertions": 60,
+    "toolingSuites": 8,
+    "moduleSuites": 26,
+    "explicitTypedFiles": 145,
+    "sourcePreserved": true,
+    "nonSchemaPoisonIgnored": true,
+    "independentAvailability": true
+  },
+  "S": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": {
+      "generation": 14,
+      "build": 367,
+      "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01"
+    },
+    "registry": {
+      "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+      "damage": {
+        "acid": "Acid",
+        "bludgeoning": "Bludgeoning",
+        "cold": "Cold",
+        "fire": "Fire",
+        "force": "Force",
+        "lightning": "Lightning",
+        "necrotic": "Necrotic",
+        "piercing": "Piercing",
+        "poison": "Poison",
+        "psychic": "Psychic",
+        "radiant": "Radiant",
+        "slashing": "Slashing",
+        "thunder": "Thunder"
+      },
+      "conditions": {
+        "bleeding": "Bleeding",
+        "blinded": "Blinded",
+        "burning": "Burning",
+        "charmed": "Charmed",
+        "cursed": "Cursed",
+        "dehydration": "Dehydration",
+        "deafened": "Deafened",
+        "diseased": "Diseased",
+        "exhaustion": "Exhaustion",
+        "falling": "Falling",
+        "frightened": "Frightened",
+        "grappled": "Grappled",
+        "incapacitated": "Incapacitated",
+        "invisible": "Invisible",
+        "malnutrition": "Malnutrition",
+        "paralyzed": "Paralyzed",
+        "petrified": "Petrified",
+        "poisoned": "Poisoned",
+        "prone": "Prone",
+        "restrained": "Restrained",
+        "silenced": "Silenced",
+        "stunned": "Stunned",
+        "suffocation": "Suffocation",
+        "surprised": "Surprised",
+        "transformed": "Transformed",
+        "unconscious": "Unconscious"
+      },
+      "bypasses": {
+        "ada": "Adamantine",
+        "mgc": "Magical",
+        "sil": "Silvered"
+      },
+      "physical": [
+        "bludgeoning",
+        "piercing",
+        "slashing"
+      ],
+      "allDamage": "All Damage"
+    },
+    "observations": [
+      {
+        "id": "empty-defaults",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "resistance-immunity-overlap",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [
+              "cold"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [
+              "fire"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dr",
+            "key": "cold",
+            "label": "Cold",
+            "icons": []
+          },
+          {
+            "category": "di",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "all-resistance",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [
+              "ALL"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dr",
+            "key": "ALL",
+            "label": "All Damage",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "all-immunity-clears-resistance",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [
+              "ALL"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "di",
+            "key": "ALL",
+            "label": "All Damage",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "all-vulnerability-independent",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [
+              "cold"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [
+              "fire"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [
+              "ALL"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dr",
+            "key": "cold",
+            "label": "Cold",
+            "icons": []
+          },
+          {
+            "category": "di",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          },
+          {
+            "category": "dv",
+            "key": "ALL",
+            "label": "All Damage",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "custom-and-physical-bypasses",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [
+              "bludgeoning",
+              "fire"
+            ],
+            "custom": [
+              "custom one",
+              "custom two",
+              "custom one"
+            ],
+            "bypasses": [
+              "mgc",
+              "sil"
+            ]
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [
+              "poisoned",
+              "charmed"
+            ],
+            "custom": [
+              "Custom condition"
+            ],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dr",
+            "key": "bludgeoning",
+            "label": "Bludgeoning",
+            "icons": [
+              {
+                "icon": "mgc",
+                "label": "Bypassed by Magical Sources"
+              },
+              {
+                "icon": "sil",
+                "label": "Bypassed by Silvered Sources"
+              }
+            ]
+          },
+          {
+            "category": "dr",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          },
+          {
+            "category": "dr",
+            "key": null,
+            "label": "custom one",
+            "icons": []
+          },
+          {
+            "category": "dr",
+            "key": null,
+            "label": "custom two",
+            "icons": []
+          },
+          {
+            "category": "dr",
+            "key": null,
+            "label": "custom one",
+            "icons": []
+          },
+          {
+            "category": "ci",
+            "key": "poisoned",
+            "label": "Poisoned",
+            "icons": []
+          },
+          {
+            "category": "ci",
+            "key": "charmed",
+            "label": "Charmed",
+            "icons": []
+          },
+          {
+            "category": "ci",
+            "key": null,
+            "label": "Custom condition",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "trimmed-deduplicated-sets",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [
+              "fire",
+              "cold"
+            ],
+            "custom": [],
+            "bypasses": [
+              "ada"
+            ]
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [
+              "blinded"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "di",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          },
+          {
+            "category": "di",
+            "key": "cold",
+            "label": "Cold",
+            "icons": []
+          },
+          {
+            "category": "ci",
+            "key": "blinded",
+            "label": "Blinded",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "null-field-defaults",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "constant-damage-adjustments",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {
+              "fire": 2.5,
+              "bludgeoning": -3
+            },
+            "bypasses": [
+              "mgc"
+            ]
+          }
+        },
+        "presentation": [
+          {
+            "category": "dm",
+            "key": "fire",
+            "label": "DND5E.DAMAGE.Type.Fire +2.5",
+            "icons": []
+          },
+          {
+            "category": "dm",
+            "key": "bludgeoning",
+            "label": "DND5E.DAMAGE.Type.Bludgeoning -3",
+            "icons": [
+              {
+                "icon": "mgc",
+                "label": "Bypassed by Magical Sources"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "numeric-scalar-adjustment",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {
+              "fire": 2,
+              "poison": -1.5
+            },
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dm",
+            "key": "fire",
+            "label": "DND5E.DAMAGE.Type.Fire +2",
+            "icons": []
+          },
+          {
+            "category": "dm",
+            "key": "poison",
+            "label": "DND5E.DAMAGE.Type.Poison -1.5",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "known-defense-independent-invalid-class",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [
+              "fire"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dr",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "known-defense-independent-armor",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [
+              "cold"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "di",
+            "key": "cold",
+            "label": "Cold",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "qualified-initial-effect",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [
+              "fire"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dr",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "disabled-condition-effect",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [
+              "fire"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dr",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "malformed-resistance-value",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "unknown-immunity-gates-resistance",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "malformed-immunity-gates-resistance",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "unknown-condition-immunity",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "unknown-bypass",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "custom-field-malformed",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "damage-expression-gated",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [
+              "fire"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "di",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          }
+        ]
+      },
+      {
+        "id": "damage-reference-gated",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "unknown-damage-adjustment",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": false,
+        "categories": {
+          "dr": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          }
+        },
+        "presentation": []
+      },
+      {
+        "id": "prepared-field-poison",
+        "phase": "Condition-free explicitly initialized fields; other unavailable domains omitted",
+        "complete": true,
+        "categories": {
+          "dr": {
+            "values": [
+              "fire"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "di": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "dv": {
+            "values": [],
+            "custom": [],
+            "bypasses": []
+          },
+          "ci": {
+            "values": [
+              "poisoned"
+            ],
+            "custom": [],
+            "bypasses": []
+          },
+          "dm": {
+            "amount": {},
+            "bypasses": []
+          }
+        },
+        "presentation": [
+          {
+            "category": "dr",
+            "key": "fire",
+            "label": "Fire",
+            "icons": []
+          },
+          {
+            "category": "ci",
+            "key": "poisoned",
+            "label": "Poisoned",
+            "icons": []
+          }
+        ]
+      }
+    ],
+    "sourceHashes": {
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200"
+    },
+    "englishSha256": "ab2545d9500f8019e0a752af4ab252073f3cdc18008c5e82bcb6ec71af5e82a4",
+    "stubs": [
+      "Primitive option-merging constructors; exact String clean/default and Array/Set initialization, source arrays cleaned elementwise; no DataModel or validation boot",
+      "Schema default container clean delegates only verified child defaults; Schema key/migration/validation logic not emulated",
+      "Condition-free Actor stub: empty statuses and hasConditionEffect=false; initial/final/Item effects not executed here",
+      "Partial cases compare independent ready domains only, initializing unavailable domains empty; unknown immunity also gates resistance in module",
+      "Exact simplifyBonus numeric-literal fast path only; unqualified expressions never reach a Roll/evaluator",
+      "Exact native trait presentation in edit mode with fixed subset trait registry, empty communication/masteries, key-label lookup stub from independently captured English registry, deepClone identity read-only stub, Set.map wrapper, en-US number formatter; physical bypasses compared separately",
+      "Native English registry capture at exact commit; no game locale/runtime or installed sheet/operator acceptance"
+    ]
+  },
+  "U": {
+    "category": "Actual desktop defense readout/mobile live read-only modal in controlled SDK seam; cards are projection assertions, not installed Core rendering",
+    "artifacts": "/tmp/dnd5e-mounted-mSM2nT",
+    "evidenceSha256": "905c94d4076d6496a320149cf748e32be1a02ab139e3df02f18e8d3e93c6b550",
+    "defenseTraitRows": [
+      {
+        "width": 1440,
+        "id": "empty-defaults",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "resistance-immunity-overlap",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "all-resistance",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "all-immunity-clears-resistance",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "all-vulnerability-independent",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-and-physical-bypasses",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "trimmed-deduplicated-sets",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "null-field-defaults",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-damage-adjustments",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "numeric-scalar-adjustment",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "known-defense-independent-invalid-class",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "known-defense-independent-armor",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "qualified-initial-effect",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "disabled-condition-effect",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-resistance-value",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-immunity-gates-resistance",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-immunity-gates-resistance",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-condition-immunity",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-bypass",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-field-malformed",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "damage-expression-gated",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "damage-reference-gated",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-damage-adjustment",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "active-condition",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "trait-change",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "final-change",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-traits-container",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "prepared-field-poison",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "empty-defaults",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "resistance-immunity-overlap",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "all-resistance",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "all-immunity-clears-resistance",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "all-vulnerability-independent",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-and-physical-bypasses",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "trimmed-deduplicated-sets",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "null-field-defaults",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-damage-adjustments",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "numeric-scalar-adjustment",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "known-defense-independent-invalid-class",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "known-defense-independent-armor",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "qualified-initial-effect",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "disabled-condition-effect",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-resistance-value",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-immunity-gates-resistance",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-immunity-gates-resistance",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-condition-immunity",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-bypass",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-field-malformed",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "damage-expression-gated",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "damage-reference-gated",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-damage-adjustment",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "active-condition",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "trait-change",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "final-change",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-traits-container",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "prepared-field-poison",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "actualConsumers": true,
+        "cardProjection": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "live-read-only-context-and-source",
+        "recovery": true,
+        "zeroWrites": true
+      }
+    ],
+    "priorSuitesRetained": true
+  },
+  "I": {
+    "category": "Synthetic real public Core roll regression; no damage/condition execution or new defense endpoint acceptance",
+    "artifacts": "/tmp/dnd5e-public-rolls-oK0jJd",
+    "evidenceSha256": "e43fb9fce1e2a3498aa142c015d32aa95c157dba132323dd70396dfd36b53f26",
+    "accepted": 13634,
+    "normalRanges": 9009,
+    "normalRangeDistributions": 441,
+    "itemEffects": 1656,
+    "unaryRejected": 1,
+    "plainTieDiagnostics": 40,
+    "nativeWrites": 0
+  },
+  "sourceInventory": {
+    "records": 2242,
+    "expressions": 591
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-da9nUs/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "5708bbad8832ab77c4fbe320f3888355fa64c1a18e14f1d5d2d1459ca4f5aedc",
+    "moduleCheck": true,
+    "managedTyping": true,
+    "bundles": true
+  },
+  "hashes": {
+    "src/logic/preparation/defense-traits.ts": "e7de86c6304ce712d29ba12dde98cf89a223e2f5187e169fc26defe1be94249d",
+    "src/logic/native/6.0.6/defense-identities.ts": "ce54afb5fca6e57dfca5855cc3a22d0ed2e66e0195e5d22516917b9637438599",
+    "src/logic/adapter.ts": "99e3c7d54ff4da9c9f648de9314d476b60cb8081f4642c0d2fe4e04c12373668",
+    "src/ui/components/blocks/Defenses.tsx": "763f99efc15acbc5ff834ef2966cbd2d59734cab3c6cd4f47c47d12a2ed878bc",
+    "src/ui/components/modals/DefensesModal.tsx": "a3d3f2a89b0c19ad3f5d0f756de97d03daaeaf2764d558a4185acc11aa47d620",
+    "src/ui/components/shared/BaseModal.tsx": "6181135bec17e6fb1b6d47e11c7d038b1d773b1b44dd99136a573f7145b77650",
+    "src/ui/components/shared/ModalHost.tsx": "8f0ad60c5fe85bdd10e9ecdc991b62f1b83c9b6649eb6ae63d97bba1781c6c52",
+    "src/ui/components/shared/useModal.ts": "1a8ecdf0120b7d378011e48aafa16ac2958d23928792e84f61097bb455d3070a",
+    "src/ui/components/page/MobileHeader.tsx": "df7369796ab7292f4b3a5510abfa775f4fb5336f6cac711cfb8e0f28a154835e",
+    "src/tests/defense-traits.test.ts": "47bd3a1fc1bd08187edd705e2ae4cdebfd938fd1dbda40e68d6e1e3f8b683243",
+    "src/tests/fixtures/defense-trait-scenarios.ts": "ebc9aa297827d12903aa23756f2a130b37bce8b976cb50105ee43a78823b130a",
+    "tests/fixtures/native-6.0.6/defense-traits.json": "48a3a2615351575c45db375231e06ae9bc0b64fc400103c699f81043c7179bcf",
+    "tests/fixtures/native-6.0.6/defense-registries.json": "84f3649aa0b4882a1cc13a9c10dc4f747d8acd99ae98e831ea18c1ded54c2c22",
+    "scripts/native-traits-oracle.mjs": "2fb68c68eaa57e4a918207767a31ed4f4031f057aac28311fe1c04f67104fc12",
+    "scripts/test-mounted.mjs": "20aa88afa3835635dfa33d33ae51761b665285ea38aa03148fe8b5f5f497269e"
+  },
+  "commands": [
+    "npm test -- --core <pristineCore0.19.3>",
+    "npm run typecheck -- --core <pristineCore0.19.3>",
+    "npm run test:native-source -- --core <pristineCore0.19.3> --native <release6.0.6>",
+    "npm run test:native-traits -- --core <pristineCore0.19.3> --native <release6.0.6> --foundry <static14.367> --write-evidence temp/c24-native-traits.json",
+    "npm run test:mounted -- --core <pristineCore0.19.3> --browser-tools /tmp/sd-dice-preview-tools --chromium <installedChromium143>",
+    "npm run test:public-rolls -- --core <pristineCore0.19.3>",
+    "npm run check:package -- --core <pristineCore0.19.3>"
+  ],
+  "limits": [
+    "Condition-free source/default preparation only; active conditions, unqualified initial trait/final/Item/filter/flag phases remain unavailable",
+    "Constant numeric damage adjustments only; no second dice/expression evaluator and no automatic damage application",
+    "Native14.367 primitive and exact6.0.6 methods with explicit stubs; partial observations omit unavailable domains and do not prove complete native model initialization",
+    "CI has no bypass field; extra prepared-looking source fields ignored; conservative dependent resistance gate when immunity unavailable",
+    "Selected legacy defense preparation remains unavailable; unknown context never selects legacy",
+    "No installed/native/operator/full DD/A/M acceptance or release readiness; E01/wider Q00/E05/ADR remain open",
+    "Experimental0.4.1 and compatibility unchanged; no Core/sibling/native writes or live Foundry; task services cleaned"
+  ]
+}

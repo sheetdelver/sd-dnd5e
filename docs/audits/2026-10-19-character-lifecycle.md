@@ -167,16 +167,16 @@ IDs remain stable through implementation. Baseline status describes the **workfl
 
 | ID | Feature / workflow and current status | Evidence and missing behavior / impact | Owning layer; dependency; observable acceptance |
 | --- | --- | --- | --- |
-| DD-01 | Preparation and version boundary — **partial** | `src/logic/adapter.ts:prepareActorData/normalizeActorData` delegates to Base adapter; prepared-looking source/defaults mask missing level, AC, HP, DC and movement. No selected native-version gate. P partial, R incomplete, S host-backed. | Module rules/projection, M1–M2; exact 6.0.6 source fixtures produce native numbers or explicit unavailable states, with unchanged source. |
-| DD-02 | Abilities, saves, skills, tools, expertise/passives — **partial, confirmed errors** | `buildAbilities/buildSkills/buildPassive/getRollData`; multiplier mistaken for total, missing native bonuses/rules. Native `CreatureTemplate.prepareSkill`, proficiency model. | Module M2/M4; value/expertise/half/dice/advantage and all configured skills/tools agree across sheet/card/roll and native oracle. |
+| DD-01 | Preparation and version boundary — **partial** | C02 supplies exact-version context/source boundaries; C04–C24 replace modern numeric/health/AC/init/movement/species/defense fallbacks in bounded shared profiles. Remaining traits, effects/filters, activities and complete native preparation are open. | Module rules/projection, M1–M2; exact 6.0.6 source fixtures produce native numbers or explicit unavailable states, with unchanged source. |
+| DD-02 | Abilities, saves, skills, tools, expertise/passives — **partial** | C04–C15/C21 share qualified numeric source/default/initial-effect preparation and execution, selected checks/abilities, source/manual modes, passives and normal bounds. DD-R01–06 are corrected; broader expressions, conditions, final/filter/Item phases, proficiency dice and bounded adv/dis remain open. | Module M2/M4; value/expertise/half/dice/advantage and all configured skills/tools agree across sheet/card/roll and native oracle. |
 | DD-03 | AC, initiative, senses, movement — **partial** | C17–C19 shared AC/init/equipment/movement/senses facts replace modern fallbacks in the bounded profile. Conditions, broader effects/formulas and complete native parity remain open. | Module M2; armor/unarmored/custom, speed types/units, initiative tiebreaker/conditions, sense ranges tested. |
-| DD-04 | HP/temp HP, damage/healing, death saves — **partial** | `HitPoints.tsx`, `HPModal.tsx` do local arithmetic; source maximum may be null. No complete death-save/damage-rule pipeline. | Module M3/M4; resistance/immunity/vulnerability choices, temp/max modifiers, zero HP/death/revival and exact receipts; no unauthorized target updates. |
-| DD-05 | Conditions, defenses, active effects — **stub/absent** | `Conditions.tsx`, `Defenses.tsx` static; adapter doesn't implement native phases/rule filters. | Module M2/M4; actual conditions/defenses, effect eligibility/order/duration, exhaustion and concentration shown and executed, no source mutation during prep. |
+| DD-04 | HP/temp HP, damage/healing, death saves — **partial** | C16 shares truthful HP/HD facts; modern health/rest writes are gated pending M3/M4. Legacy HPModal arithmetic remains limited. No complete death-save/damage-rule/receipt pipeline. | Module M3/M4; resistance/immunity/vulnerability choices, temp/max modifiers, zero HP/death/revival and exact receipts; no unauthorized target updates. |
+| DD-05 | Conditions, defenses, active effects — **partial** | C12–C15/C22 qualify bounded initial effects/eligibility; C24 prepares condition-free defense traits and numeric adjustments for cards/desktop/mobile. Conditions remain a placeholder; active-condition/filter/final/Item phases and execution remain open. | Module M2/M4; actual conditions/defenses, effect eligibility/order/duration, exhaustion and concentration shown and executed, no source mutation during prep. |
 | DD-06 | Proficiencies, mastery, languages — **stub/partial** | `Proficiencies.tsx` displays fixed universal grants; UI attack heuristic assumes proficiency. Native traits/weapon mastery. | Module M2/M6; source-specific grants and restrictions; duplicate grants preserve source identities and validate replacement choices. |
 | DD-07 | Short/long/new-day rests — **partial, incomplete** | `Rest.tsx`, `RestModal.tsx`; short rest no mutation, long rest only HP/temp HP. Native `_rest` and five recovery functions. | Module M4, world settings/E04 for automatic time; class HD, resources, slots, uses/effect expiry all match reviewed rest plan and native results. |
 | DD-08 | Feat/item/activity uses and recharge — **partial display / absent execution** | `itemRows.ts` expects numeric max/value; native uses formula max/spent/recovery. | Module M4; spend/refund where supported, recharge outcomes, rest/day/dawn/dusk recovery without duplicate use or roll. |
 | DD-09 | Inventory, containers, equipment, currency, weight/attunement — **partial** | Sheet categorization drops containers; scalar weight reads; ItemModal uses Actor path/captured item. No complete acquire/move/split/delete/currency workflow. | Module M3; embedded mutations, links/cycle prevention, exact duplicates, identification, limits and recalculation; no false save acknowledgement. |
-| DD-10 | Activity selection and execution — **absent** | `getRollData('item')` null; manifest lacks server entry; native has 13 activity types. | Module M4/M7, E02/E04 as qualified; explicit per-type disposition, exact activity IDs, consumption/roll/effect/card ordering and failures. |
+| DD-10 | Activity selection and execution — **absent** | `getRollData('item')` remains null; the server entry provides read-only catalog metadata, with no activity command route. Native has13 activity types. | Module M4/M7, E02/E04 as qualified; explicit per-type disposition, exact activity IDs, consumption/roll/effect/card ordering and failures. |
 | DD-11 | Weapon attack, damage, criticals, ammunition — **partial display / absent action** | `itemRows.ts:computeAttackBonus/getWeaponAttackModes` duplicates heuristic rules; parseInt truncates formulas; old damage.parts. | Module M2/M4; native modes/mastery, ability/proficiency, crit/damage types, ammo and two-weapon choices produce same plans and receipts. |
 | DD-12 | Spell identity/metadata/owned inventory — **partial, confirmed errors** | `toSpellRows`, `SpellModal` read old preparation/components; duplicate/catalog/owned identities not modeled. | Module M1/M5; exact owned IDs retained even source inaccessible, correct modern metadata, no catalog filtering away owned spells. |
 | DD-13 | Spellbook, preparation, slots, pact magic — **absent workflow** | Spell tab only level/filter display; native `SpellcastingField`, `SpellcastingModel`, registry absent from module. | Module M5/M6; source grants/class progression/preparation caps, learned/prepared distinctions, slot pools and multiclass rounding match profile. |
@@ -735,3 +735,22 @@ fact; source preservation/poison, class/movement independence, context recovery 
 selected legacy boundaries are covered. See [C23 ledger](../plans/0001-verification.md#c23--shared-species-source-identity-2026-10-21)
 and [portable evidence](evidence/2026-10-21-c23-species.json). Item prepared-rule,
 installed UI/native/operator and full lifecycle acceptance remain open.
+
+### C24 — Bounded defense traits replace constant placeholders
+
+C23 `3bbf52d` precedes this M2 slice (DD-05/27/34, A02/A04 partial).28 maintained
+raw-source contracts reproduce the absent preparation/constant placeholder; after
+implementation they verify ALL/overlap normalization, source defaults, physical
+bypasses, custom text, numeric adjustments, category-level availability, poison,
+independent class/armor failures and context recovery.24 controlled source captures
+include15 complete condition-free profiles and9 independent-domain comparisons;
+other unavailable domains are explicitly omitted, not counted as native parity.
+
+One shared prepared projection drives cards, desktop readouts and the live mobile
+modal. Known source immunities survive an unrelated unsupported damage expression;
+unknown immunity does not leave resistance silently unnormalized. CI has no native
+bypass field, so raw poison there is ignored. Source is unchanged. Active conditions,
+trait effects, broader expressions, flag/filter/final/Item phases and actual damage
+commands remain unqualified. See [C24 ledger](../plans/0001-verification.md#c24--condition-free-defense-traits-2026-10-21)
+and [portable evidence](evidence/2026-10-21-c24-defense-traits.json). No full gate,
+installed UI/native/operator acceptance or release readiness is claimed.

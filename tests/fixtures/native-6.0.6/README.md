@@ -275,3 +275,13 @@ initialize an Item DataModel or derive its rule data. Source fallback text never
 becomes an Item UUID; source identity can remain independently visible when rules
 are unavailable. The resolver is shared with movement/senses, whose unresolved
 reference and other rule gates remain intact. Explicit legacy is separate.
+
+C24 `defense-traits.json`:28 independent source contracts;24 controlled native
+captures (15 complete condition-free,9 partial independent-domain comparisons),
+4 full unavailable profiles. `defense-registries.json` pins13 damage/26 condition/
+3 bypass identities, physical metadata and English labels at exact87e94db. The
+oracle executes primitive String/Set/default and exact normalization/presentation
+methods with explicit constructors, condition-free state, registry/key-label and
+formatter stubs. No native model boot/validation or expression engine acceptance.
+Custom duplicates/order, ALL overlap, category-specific unavailable states and
+non-schema CI-bypass poison are covered without changing source.

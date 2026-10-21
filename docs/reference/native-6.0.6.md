@@ -588,3 +588,21 @@ source label independence from class/Item-rule data. Wrong-type/duplicate/foreig
 malformed model inputs stay unqualified module boundaries, not claimed native
 parity. Item/Map/parent lookup and primitive constructors are explicit stubs. C19's
 movement/senses comparisons and incomplete-STR diagnostic remain separate phases.
+
+### Condition-free defense preparation (C24)
+
+SimpleTraitField initializes value Set/custom string; DamageTraitField adds bypass
+Set. TraitsFields.prepareResistImmune processes dr→di→dv, retaining only ALL when
+present, clearing resistance for ALL immunity and removing individual immune types
+from resistance. CI source fields remain separate; active condition processing,
+including petrification, is outside this subset. Source poison is not initialization.
+The exact native sheet trait method separately verifies physical-only bypass icons
+and numeric simplifyBonus presentation using explicit translation/formatter stubs.
+
+`test:native-traits` verifies pinned registries and24 controlled source captures
+(15 complete,9 independently available domains), primitive cleaning/Set defaults,
+normalization and presentation metadata. Unsupported domains are omitted explicitly,
+not initialized as proof of complete native models. Formula validation/expressions,
+DataModels/Documents, game locale, Item/final/filter/condition phases and installed/
+operator acceptance are absent. Runtime module uses its own shared pure preparation
+and public SDK only; the static native methods are test-only controlled sources.

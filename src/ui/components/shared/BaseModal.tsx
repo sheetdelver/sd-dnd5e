@@ -85,7 +85,7 @@ export default function BaseModal({ open, onClose, title, children, maxWidth = 4
                         paddingBottom: 'var(--space-sm)',
                         borderBottom: '1px solid var(--theme-border)',
                     }}>
-                        <h2 style={{
+                        <h2 id={labelledBy} style={{
                             margin: 0,
                             fontSize: '14px',
                             fontFamily: 'var(--font-heading)',

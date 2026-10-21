@@ -190,7 +190,7 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
 
                 {/* Defenses + Conditions + Rest — stacked on the right edge */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: 'auto', flexShrink: 0, alignItems: 'flex-end' }}>
-                    <button style={{
+                    <button onClick={()=>openModal('defenses')} style={{
                         padding: '3px 8px',
                         fontSize: '9px',
                         fontWeight: 700,
@@ -201,7 +201,7 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
                         borderRadius: '3px',
                         color: 'var(--text-primary)',
                         cursor: 'pointer',
-                    }} disabled>
+                    }}>
                         DEFENSES
                     </button>
                     <button style={{

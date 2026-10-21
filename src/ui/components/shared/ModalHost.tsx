@@ -11,6 +11,7 @@ import RestModal, { type RestModalProps } from '../modals/RestModal';
 import ItemModal, { type ItemModalProps } from '../modals/ItemModal';
 import SpellModal, { type SpellModalProps } from '../modals/SpellModal';
 import RichTextModal, { type RichTextModalProps } from '../modals/RichTextModal';
+import DefensesModal from '../modals/DefensesModal';
 
 /**
  * ModalHost — single mount point for the active modal.
@@ -32,6 +33,8 @@ export default function ModalHost() {
     if (activeId === null) return null;
 
     switch (activeId) {
+        case 'defenses':
+            return <DefensesModal onClose={closeModal} />;
         case 'theme':
             return (
                 <ThemeModal

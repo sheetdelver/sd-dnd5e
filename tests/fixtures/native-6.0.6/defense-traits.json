@@ -1,0 +1,1042 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "raw source -> explicit schema defaults/string/set initialization -> condition-free TraitsFields.prepareResistImmune; numeric-only damage modifier presentation separately",
+  "cases": [
+    {
+      "id": "empty-defaults",
+      "traits": {},
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "resistance-immunity-overlap",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire",
+            "cold"
+          ]
+        },
+        "di": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [
+            "cold"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [
+            "fire"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "all-resistance",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire",
+            "ALL",
+            "cold"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [
+            "ALL"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "all-immunity-clears-resistance",
+      "traits": {
+        "di": {
+          "value": [
+            "fire",
+            "ALL"
+          ]
+        },
+        "dr": {
+          "value": [
+            "ALL",
+            "cold"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [
+            "ALL"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "all-vulnerability-independent",
+      "traits": {
+        "dv": {
+          "value": [
+            "fire",
+            "ALL"
+          ]
+        },
+        "di": {
+          "value": [
+            "fire"
+          ]
+        },
+        "dr": {
+          "value": [
+            "cold"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [
+            "cold"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [
+            "fire"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [
+            "ALL"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "custom-and-physical-bypasses",
+      "traits": {
+        "dr": {
+          "value": [
+            "bludgeoning",
+            "fire"
+          ],
+          "bypasses": [
+            "mgc",
+            "sil"
+          ],
+          "custom": "  custom one ; custom two;custom one; "
+        },
+        "ci": {
+          "value": [
+            "poisoned",
+            "charmed"
+          ],
+          "custom": " Custom condition "
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [
+            "bludgeoning",
+            "fire"
+          ],
+          "custom": [
+            "custom one",
+            "custom two",
+            "custom one"
+          ],
+          "bypasses": [
+            "mgc",
+            "sil"
+          ]
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [
+            "poisoned",
+            "charmed"
+          ],
+          "custom": [
+            "Custom condition"
+          ],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "trimmed-deduplicated-sets",
+      "traits": {
+        "di": {
+          "value": [
+            " fire ",
+            "fire",
+            "cold"
+          ],
+          "bypasses": [
+            " ada ",
+            "ada"
+          ]
+        },
+        "ci": {
+          "value": [
+            " blinded ",
+            "blinded"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [
+            "fire",
+            "cold"
+          ],
+          "custom": [],
+          "bypasses": [
+            "ada"
+          ]
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [
+            "blinded"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "null-field-defaults",
+      "traits": {
+        "dr": {
+          "value": null,
+          "custom": null,
+          "bypasses": null
+        },
+        "di": null
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "constant-damage-adjustments",
+      "traits": {
+        "dm": {
+          "amount": {
+            "fire": "2.5",
+            "bludgeoning": "-3",
+            "cold": "0",
+            "acid": " "
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {
+            "fire": 2.5,
+            "bludgeoning": -3
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      }
+    },
+    {
+      "id": "numeric-scalar-adjustment",
+      "traits": {
+        "dm": {
+          "amount": {
+            "fire": 2,
+            "poison": -1.5
+          }
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {
+            "fire": 2,
+            "poison": -1.5
+          },
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "known-defense-independent-invalid-class",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [
+            "fire"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      },
+      "invalidClass": true
+    },
+    {
+      "id": "known-defense-independent-armor",
+      "traits": {
+        "di": {
+          "value": [
+            "cold"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [
+            "cold"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      },
+      "unknownArmor": true
+    },
+    {
+      "id": "qualified-initial-effect",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [
+            "fire"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      },
+      "effect": "numeric"
+    },
+    {
+      "id": "disabled-condition-effect",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [
+            "fire"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      },
+      "effect": "disabled-condition"
+    },
+    {
+      "id": "malformed-resistance-value",
+      "traits": {
+        "dr": {
+          "value": "fire"
+        }
+      },
+      "expected": {
+        "dr": null,
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "unknown-immunity-gates-resistance",
+      "traits": {
+        "di": {
+          "value": [
+            "homebrew"
+          ]
+        },
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": null,
+        "di": null,
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "malformed-immunity-gates-resistance",
+      "traits": {
+        "di": {
+          "value": [
+            42
+          ]
+        },
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": null,
+        "di": null,
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "unknown-condition-immunity",
+      "traits": {
+        "ci": {
+          "value": [
+            "custom"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": null,
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "unknown-bypass",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire"
+          ],
+          "bypasses": [
+            "unknown"
+          ]
+        }
+      },
+      "expected": {
+        "dr": null,
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "custom-field-malformed",
+      "traits": {
+        "dv": {
+          "custom": 42
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": null,
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      }
+    },
+    {
+      "id": "damage-expression-gated",
+      "traits": {
+        "di": {
+          "value": [
+            "fire"
+          ]
+        },
+        "dm": {
+          "amount": {
+            "cold": "1d4"
+          }
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [
+            "fire"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": null
+      }
+    },
+    {
+      "id": "damage-reference-gated",
+      "traits": {
+        "dm": {
+          "amount": {
+            "fire": "@attributes.prof"
+          }
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": null
+      }
+    },
+    {
+      "id": "unknown-damage-adjustment",
+      "traits": {
+        "dm": {
+          "amount": {
+            "ALL": "2"
+          }
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": null
+      }
+    },
+    {
+      "id": "active-condition",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": null,
+        "di": null,
+        "dv": null,
+        "ci": null,
+        "dm": null
+      },
+      "effect": "active-condition"
+    },
+    {
+      "id": "trait-change",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": null,
+        "di": null,
+        "dv": null,
+        "ci": null,
+        "dm": null
+      },
+      "effect": "trait-change"
+    },
+    {
+      "id": "final-change",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "expected": {
+        "dr": null,
+        "di": null,
+        "dv": null,
+        "ci": null,
+        "dm": null
+      },
+      "effect": "final-change"
+    },
+    {
+      "id": "malformed-traits-container",
+      "traits": 42,
+      "expected": {
+        "dr": null,
+        "di": null,
+        "dv": null,
+        "ci": null,
+        "dm": null
+      }
+    },
+    {
+      "id": "prepared-field-poison",
+      "traits": {
+        "dr": {
+          "value": [
+            "fire"
+          ],
+          "labels": [
+            "False label"
+          ],
+          "total": 99
+        },
+        "di": {
+          "value": [],
+          "prepared": [
+            "ALL"
+          ]
+        },
+        "ci": {
+          "value": [
+            "poisoned"
+          ],
+          "bypasses": [
+            "unknown"
+          ]
+        }
+      },
+      "expected": {
+        "dr": {
+          "values": [
+            "fire"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "di": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "dv": {
+          "values": [],
+          "custom": [],
+          "bypasses": []
+        },
+        "ci": {
+          "values": [
+            "poisoned"
+          ],
+          "custom": [],
+          "bypasses": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
+      },
+      "poison": true
+    }
+  ]
+}
