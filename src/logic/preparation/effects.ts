@@ -52,6 +52,18 @@ export function planEffects606(actor:unknown):EffectPlan {
             if(effect.changes!==undefined){fail(id,'legacy-unavailable','Legacy effect change migration requires qualification',parentId);continue;}
             const changes=system.changes===undefined?[]:system.changes;
             if(!Array.isArray(changes)){fail(id,'malformed','Effect changes source malformed',parentId);continue;}
+            const envelopes:Array<{change:Record<string,unknown>;key:string;phase:'initial'|'final';type:string;priority:number}>=[];
+            for(const rawChange of changes){
+                const change=record(rawChange);if(change?.key==='')continue;
+                if(!change||typeof change.key!=='string'||!change.key){fail(id,'malformed','Effect change key unavailable',parentId);continue;}
+                const phase=change.phase===undefined?'initial':change.phase,type=change.type===undefined?'add':change.type;
+                if(phase!=='initial'&&phase!=='final'||typeof type!=='string'||!Object.hasOwn(priorities,type)){
+                    fail(id,'change-unavailable','Effect change phase/type requires qualification',parentId);continue;
+                }
+                const priority=change.priority??priorities[type];
+                if(typeof priority!=='number'||!Number.isFinite(priority)){fail(id,'malformed','Effect priority source malformed',parentId);continue;}
+                envelopes.push({change,key:change.key,phase:phase as 'initial'|'final',type,priority});
+            }
             const condition=constantFilter606(system.conditions);
             if(condition.status==='unavailable'){
                 fail(id,'conditions-unavailable',condition.reason,parentId);continue;
@@ -61,21 +73,13 @@ export function planEffects606(actor:unknown):EffectPlan {
                 fail(id,'status-unavailable','Effect status/rider preparation unavailable',parentId);continue;
             }
             let any=false;
-            for(const rawChange of changes){
-                const change=record(rawChange);if(change?.key==='')continue;
-                if(!change||typeof change.key!=='string'||!change.key){fail(id,'malformed','Effect change key unavailable',parentId);continue;}
-                const phase=change.phase===undefined?'initial':change.phase,type=change.type===undefined?'add':change.type;
-                if(!['initial','final'].includes(String(phase))||typeof type!=='string'||!Object.hasOwn(priorities,type)){
-                    fail(id,'change-unavailable','Effect change phase/type requires qualification',parentId);continue;
-                }
-                const priority=change.priority??priorities[type];
-                if(typeof priority!=='number'||!Number.isFinite(priority)){fail(id,'malformed','Effect priority source malformed',parentId);continue;}
+            for(const {change,key,phase,type,priority} of envelopes){
                 const changeCondition=constantFilter606(change.conditions);
                 if(changeCondition.status==='unavailable'||change.replacement!==undefined&&change.replacement!==''){
                     fail(id,'conditions-unavailable','Effect change filters/replacement require Q02a qualification',parentId);continue;
                 }
-                if(!changeCondition.matches){decisions.push({id,parentId,key:change.key,status:'change-filtered',condition:changeCondition});continue;}
-                const entry:EffectChange={effectId:id,key:change.key,type,value:structuredClone(change.value),phase:phase as 'initial'|'final',priority,order:order++,condition:changeCondition};
+                if(!changeCondition.matches){decisions.push({id,parentId,key,status:'change-filtered',condition:changeCondition});continue;}
+                const entry:EffectChange={effectId:id,key,type,value:structuredClone(change.value),phase:phase as 'initial'|'final',priority,order:order++,condition:changeCondition};
                 (phase==='initial'?initial:final).push(entry);any=true;
             }
             decisions.push({id,parentId,status:any?'eligible':'no-changes',condition,...(eligibility?{eligibility}:{})});

@@ -1564,3 +1564,39 @@ explicit unavailable malformed/legacy boundary additions and guard-order correct
 callbacks. Artifacts `/tmp/dnd5e-mounted-ODhUJQ`; focused mode makes no full-suite
 claim. Final root regressions/typing/package pass; supported34 public workflows
 are unchanged. Task services stopped, no production listeners touched.
+
+### C30 — Effect-envelope gates (2026-10-21)
+
+Predecessor C29 `24c6bad`. Four maintained same-input false-effect cases enable
+baseline+5 before, then become unavailable after source-envelope normalization
+moves ahead of suppression.58 contracts preserve34 supported workflows and24
+boundaries. Completed bounded M2/Q02a DD-02/05/27/34,A02/A04/A21 subrequirements;
+no full DD/A/M gate closes. Guard truth does not establish source validation parity.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (released0.19.3/
+90c13e5). `npm test`:60 assertions,8 tooling/31 module suites PASS. `typecheck`:
+161 explicit module/UI/server/test/hook files PASS. `test:native-source -- --native
+../../../../temp/dnd5e`:2242 records/591 expressions PASS at exact87e94db. Native
+HEAD remains unused. `test:native-filters -- --native ../../../../temp/dnd5e
+--foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14`:44 guard observations
+including10 separately gated workflows,zero property reads and prior cache/change
+probes PASS. No source-envelope/native DataModel coercion acceptance follows.
+
+`test:mounted` with standard test-only browser arguments and `--filters-only`
+passes116 states at1440/390,including all8 new unavailable-control/readout states,
+actual skill/tool/training consumers, source/default previews, execution, recovery
+and retained-callback fences. Artifacts `/tmp/dnd5e-mounted-ZZ1jRe`; focused mode
+does not claim a full mounted rerun. C29 full-suite evidence is preserved.
+`test:public-rolls`:15960 accepted,9101 normal-range requests/441 distributions,
+1 unary candidate rejection,40 plain tied-index diagnostics,0 native writes PASS.
+Artifacts `/tmp/dnd5e-public-rolls-hA5rcn`; actual serialization/criteria unchanged.
+`check:package` passes isolated module/public-boundary checks,managed typing/bundles;
+archive `/tmp/dnd5e-package-QqNJR3/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`d697a40168896e89832422ea5feab794e559ceb7ad5e5eccfb7c20bbf65543c8`.
+[Portable evidence](../audits/evidence/2026-10-21-c30-effect-envelopes.json) records
+new source cases,commands,script/fixture/source/artifact identities and limits.
+Task services stopped;Node24local,Node22CI/installed/native/operator unrun.
+
+Next Q02a initial replacement-data/collection timing remains module work; no new
+Core dependency is inferred from limited simulateRoll or these guard tests. E01/
+wider Q00/E05/ADR-0001/full acceptance remain open. Experimental0.4.1 unchanged.

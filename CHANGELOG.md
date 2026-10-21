@@ -3,6 +3,7 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+- Preserved malformed change-envelope gates before effect suppression.
 - Qualified snapshot-invariant effect/change filters with explicit suppression and intent provenance.
 - Applied qualified initial training, language and mastery Set effects through shared preparation.
 - Replaced fixed training/language grants with shared source facts and explicit unresolved identities.

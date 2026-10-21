@@ -26,7 +26,7 @@ for(const row of filterCases){
         const changed=structuredClone(source);const effect=changed.effects![0] as any;
         if(row.scope==='change')effect.system.changes[0].conditions=row.conditions==='[]'?'{}':'[]';else effect.system.conditions=row.conditions==='[]'?'{}':'[]';
         assert.notEqual(rollIntentSignature(actor,'skill'),rollIntentSignature(adapter.prepareActorData(changed,skillContext()),'skill'),'Equal outcome/source context still retires different filter intent');
-    }else {assert.equal(formula,null,row.id);assert.ok(plan.reason,row.id);}
+    }else {if(formula!==null){failures.push(row.id);continue;}assert.ok(plan.reason,row.id);}
     assert.deepEqual(source,before,row.id);
 }
 console.log('Snapshot-invariant filter requests failing-before:',JSON.stringify(failures));assert.deepEqual(failures,[]);

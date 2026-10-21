@@ -12,6 +12,10 @@ export function filterSource(row:typeof filterCases[number]){
     if(row.legacy)effect.changes=[];
     if(row.malformedCollection)effect.system.changes=42;
     if(row.malformedPriority)change.priority='unknown';
+    if(row.badEnvelope==='priority')change.priority='unknown';
+    if(row.badEnvelope==='phase')change.phase='during';
+    if(row.badEnvelope==='type')change.type='mystery';
+    if(row.badEnvelope==='entry')effect.system.changes=[42];
     actor.effects=[effect];(actor.system as any).abilities.dex={value:14,proficient:0};(actor.system as any).tools={thief:{value:1,ability:'dex'}};
     return actor;
 }

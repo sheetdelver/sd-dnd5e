@@ -330,3 +330,12 @@ The oracle forbids property reads and separately probes effect caching versus fr
 change checks. It does not qualify a data-dependent snapshot, native source coercion
 or installed lifecycle. Boolean short-circuit never hides unknown branches. Depth/
 node/size bounds and source/provenance/callback preservation are maintained R tests.
+
+
+C30 extends `constant-filters.json` to58 contracts:34 supported workflows and24
+retained boundaries. Four false-effect envelope inputs previously produced+5 and
+now stay unavailable. The maintained regression gathers all four failing-before IDs;
+the shared normalization restores gates before suppression.44 native guard observations
+include10 unavailable workflows and do not qualify those source envelopes. Existing
+C29 historical hashes/counts stay preserved; final focused mounted checks cover58
+contracts at both widths.

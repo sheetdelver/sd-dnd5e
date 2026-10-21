@@ -654,3 +654,14 @@ lifetimes only because its trees read zero snapshot properties. It does not use 
 source/current derived data as a substitute for native initial/final getRollData.
 Data-dependent filters, active conditions/flags, Item/final preparation and wider
 formula semantics remain unqualified; Q02a/M2 stay open.
+
+
+### Effect envelope validation precedes suppression (C30)
+
+Before evaluating an effect guard, the shared plan validates/normalizes each nonempty
+change key, supported phase/type and finite priority. False guards can prove valid
+unknown targets inactive; they cannot make an unqualified change envelope authoritative.
+The same normalized fields feed later condition checks and ordering, preserving
+proven empty-key no-ops, source order and typed unavailable reasons. This restores
+four malformed/unqualified boundaries missed by C29's whole-effect shortcut. It
+adds no source coercion, evaluator, cache, persistence or new roll support.

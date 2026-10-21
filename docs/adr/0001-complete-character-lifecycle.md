@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters | RV01–RV04 retained; C06–C29 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates | RV01–RV04 retained; C06–C30 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1239,3 +1239,23 @@ actual initial replacement-data fields/collection timing before enabling depende
 comparisons; final/Item/condition/flag/broader-expression rules and M3+ remain open.
 E01/wider Q00/E05/native/operator/full acceptance and ADR-0001 remain open;
 experimental0.4.1 and compatibility unchanged.
+
+
+### C30 — Preserve source-envelope gates before suppression (2026-10-21)
+
+C29 is `24c6bad`. Before extending dependent filters, four maintained same-input
+regressions find that a false whole-effect guard skips malformed priority/entry or
+unqualified phase/type checks and permits+5. The shared plan now normalizes these
+fields before guard evaluation, preserving the established unavailable boundaries.
+Unknown targets behind valid false guards remain inactive; empty-key no-ops, phase/
+priority/source ordering and source data remain unchanged. This advances M2/Q02a,
+DD-02/05/27/34 and A02/A04/A21 partially, without adding broader rules support.
+
+[C30 ledger](../plans/0001-verification.md#c30--effect-envelope-gates-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c30-effect-envelopes.json)
+record all four failures-before/passes-after, retained positive filter/roll profiles,
+actual mounted consumers, controlled guard/source evidence and isolated checks.
+No new Core requirement or full gate closes. Next is still qualified initial
+replacement-data fields and collection timing before dependent filters; final/Item/
+conditions/flags, broader expressions and M3+ remain open. E01/wider Q00/E05/native/
+operator/full acceptance and ADR-0001 stay open; experimental0.4.1 unchanged.

@@ -850,3 +850,16 @@ and [portable record](evidence/2026-10-21-c29-constant-filters.json). Initial/fi
 replacement-data snapshots, active conditions/flags, Item phases and broader formulas
 remain open. No additional Core defect or complete M2/native/operator acceptance
 is inferred from these extracted methods or isolated fixtures.
+
+
+### C30 — False filters retain source qualification boundaries
+
+C29 `24c6bad` precedes this focused M2/Q02a correction (DD-02/05/27/34,
+A02/A04/A21 partial). Four false-effect inputs with malformed/unqualified envelopes
+incorrectly enabled+5 before. The shared plan now validates key/phase/type/priority
+before suppression and reuses normalized entries. All58 contracts preserve34
+supported workflows and24 boundaries; source and no-op/order behavior are unchanged.
+44 pinned guard observations remain separate from source validation/native parity.
+See [C30 ledger](../plans/0001-verification.md#c30--effect-envelope-gates-2026-10-21)
+and [portable evidence](evidence/2026-10-21-c30-effect-envelopes.json). No full gate or
+native/operator/release acceptance is claimed; dependent filters remain next work.

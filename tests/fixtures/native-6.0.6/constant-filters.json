@@ -290,6 +290,34 @@
       "scope": "change",
       "malformedPriority": true,
       "workflowUnavailable": true
+    },
+    {
+      "id": "false-effect-priority-envelope-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "badEnvelope": "priority",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "false-effect-phase-envelope-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "badEnvelope": "phase",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "false-effect-type-envelope-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "badEnvelope": "type",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "false-effect-entry-envelope-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "badEnvelope": "entry",
+      "workflowUnavailable": true
     }
   ]
 }

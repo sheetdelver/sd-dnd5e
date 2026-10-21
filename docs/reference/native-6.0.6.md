@@ -722,3 +722,13 @@ previously qualified numeric field/ability methods with independently expected g
 truth; no native Actor lifecycle, engine or operator acceptance follows. Native phase
 source shows initial status precollection and final Item/spell preparation boundaries;
 those data-dependent snapshots are not silently approximated by C29.
+
+
+### Retained source-envelope boundaries (C30)
+
+Four additional false-effect cases exercise malformed priority/entry and unqualified
+phase/type envelopes. Their expected module result is unavailable, preserving the
+preexisting gates used when the effect guard is true. Native guard truth is still
+false, but that alone does not qualify initialization/validation of wider source
+fields. The controlled oracle now records44 guard truths including10 separately
+gated source workflows; no native schema rejection or DataModel parity is claimed.
