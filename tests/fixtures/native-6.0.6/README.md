@@ -260,3 +260,11 @@ source/legacy protections remain. Public helper assertions include exact Roll/
 Die metadata and441 complete distributions. Formula-only HUD integration is a
 separate controlled public-consumer limit and stays gated for bounds. Earlier
 normal unavailable evidence is historical; it is not deleted or called support.
+
+C22 `item-effect-eligibility.json`:75 independent raw-source cases,69 qualified
+source/default suppression comparisons and6 explicit unavailable boundaries.
+Exact primitive clean/default methods and13 schema-template ownership checks
+precede the pinned getter. No source/prepared phase substitution, malformed
+coercion or native DataModel/creation hook acceptance. Extra fields outside the
+equippable schemas remain source poison; numeric initial changes retain C13–15
+qualification. Origin changes retire equal-total/revision roll intent.

@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges | RV01–RV04 retained; C06–C21 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility | RV01–RV04 retained; C06–C22 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1019,3 +1019,29 @@ open. Next independent M2 work: source/default Item eligibility and remaining
 rule/filter/final preparation, then dependency-ready M3 qualification. E01 and
 wider Q00/E05/native/operator gates remain open; ADR-0001 and experimental0.4.1/
 compatibility are unchanged.
+
+### C22 — Item effect source/default eligibility (2026-10-21)
+
+C21 is `d97f34b`. C22 advances M2/Q00, DD-02/24/27/34 and A02 partially.
+The initial eligibility plan previously consulted raw `equipped`/`attuned` fields.
+Exact release6.0.6 declares these on five equippable Item schemas; Foundry14.367
+initializes both to false. Omitted/null values could incorrectly admit an initial
+transferred effect. Conversely, extra equipped/attunement fields on other Item
+schemas could incorrectly suppress it. The source-only eligibility path now
+initializes only the declared fields before suppression, retains origin metadata,
+and ignores extra fields outside their schema. Exact StringField trimming and the
+consumable rod/trinket/wand exception are preserved. Source is never rewritten.
+
+Independent source/default cases and pinned getter comparisons are separate from
+C12's initialized phase traces and C13–15's later arithmetic. Malformed/coerced or
+legacy numeric attunement, unknown types, active dependencies, Item-target effects,
+filters, final phases and creation hooks remain unqualified. Proven inactive
+transfers do not block otherwise qualified checks. No new Core requirement follows.
+
+[C22 ledger](../plans/0001-verification.md#c22--item-effect-source-default-eligibility-2026-10-21)
+and [portable evidence](../audits/evidence/2026-10-21-c22-item-defaults.json)
+record failing-before/passing-after cases, actual consumer/host verification,
+commands, artifacts and phase limits. No full DD/A/M gate closes. Next: truthful
+shared identity/trait projections and remaining M2 rule/filter/final phases,
+followed by dependency-ready M3 qualification. E01, wider Q00/E05 and installed/
+native/operator acceptance remain open. ADR-0001 and experimental0.4.1 unchanged.

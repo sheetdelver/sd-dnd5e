@@ -21,6 +21,7 @@ import { toolCases, toolSource } from ${JSON.stringify(join(moduleRoot, 'src/tes
 import { combinedCases, combinedSource } from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/combined-scenarios.ts'))};
 import effectFixture from ${JSON.stringify(join(moduleRoot,'tests/fixtures/native-6.0.6/effect-phases.json'))};
 import {numericEffectCases,numericEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/effect-scenarios.ts'))};
+import {itemEffectCases,itemEffectSource,itemEffectExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/item-effect-scenarios.ts'))};
 import {bonusEffectCases,bonusEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/bonus-effect-scenarios.ts'))};
 import {modeEffectCases,modeEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/mode-effect-scenarios.ts'))};
 import {healthCases,healthSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/health-scenarios.ts'))};
@@ -71,7 +72,7 @@ const effectTool=toolSource();effectTool.effects=[{disabled:false}];tools.effect
 const toolModes=[];for(const mode of [-1,0,1]){const actor=toolSource();setSkillRoll(actor,'tools.thief.roll',{mode:mode===0?1:mode});if(mode===0)setSkillRoll(actor,'rolls.ability.tool',{mode:-1});toolModes.push({actor:adapter.prepareActorData(actor,{...skillContext(),sourceRevision:200+mode}),mode,formula:(mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20')+'+5'});}
 const combinations=combinedCases.map(row=>({...row,actor:prepare(combinedSource(row))}));
 const effectCases=effectFixture.cases.map((row,index)=>{const source=skillSource();source.effects=row.effects;source.items.push(...row.items);return {id:row.id,ready:row.expected.ready,actor:adapter.prepareActorData(source,{...skillContext(),sourceRevision:300+index})};});
-const numericEffects=[...numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))})),...bonusEffectCases.map(row=>({id:'constant:'+row.id,expected:row.expected,actor:prepare(bonusEffectSource(row))}))];
+const numericEffects=[...itemEffectCases.map(row=>({id:'item-default:'+row.id,expected:itemEffectExpected(row),actor:prepare(itemEffectSource(row))})),...numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))})),...bonusEffectCases.map(row=>({id:'constant:'+row.id,expected:row.expected,actor:prepare(bonusEffectSource(row))}))];
 const modeEffects=modeEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(modeEffectSource(row))}));
 const healthActors=healthCases.map(row=>({...row,actor:prepare(healthSource(row))}));
 for(const {id,context} of unavailableContexts())healthActors.push({id,actor:prepare(healthSource(healthCases[0]),context),hpUnavailable:true,hdUnavailable:true});
@@ -426,6 +427,17 @@ try {
             await render(states.supported);await tab('Skills');assert.equal(await skill.isEnabled(),true);
             numericEffectRows.push({width,id:row.id,ready:!!row.expected,actualConsumers:true,recovery:true});
         }
+
+        // Same revision/total, different source/default provenance also retires.
+        const defaultItem=numericEffects.find(row=>row.id==='item-default:tool-required-attuned-omitted').actor;
+        const explicitItem=numericEffects.find(row=>row.id==='item-default:tool-required-attuned-false').actor;
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),defaultItem);
+        await skill.click();await page.evaluate(()=>window.skillFixture.hold());
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),explicitItem);
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),defaultItem);
+        assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld()),'retired');
+        assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+        numericEffectRows.push({width,id:'item-default:equal-total-source-default-retirement',retainedCallbackFenced:true});
 
         const effectFormula=(mode,total)=>`${mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20'}+${total}`;
         for(const row of modeEffects){

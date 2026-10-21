@@ -1185,3 +1185,54 @@ harness cleanup stops task-owned services. Node24 local; Node22 CI/native/operat
 unrun. No full DD/A/M gate closes. Next independent M2 work: source/default Item
 effect eligibility and remaining rule/filter/final domains, then M3 prerequisites.
 E01/wider Q00/E05/ADR-0001 stay open;0.4.1/compatibility unchanged.
+
+### C22 — Item effect source-default eligibility (2026-10-21)
+
+Predecessor C21 `d97f34b`. Completed bounded subrequirements: DD-02/24/27/34,
+A02 source/default Item eligibility and shared qualified initial-effect operands.
+No full DD/A/M gate closes.75 independent source cases include41 failures against
+the predecessor; all now pass unchanged.69 states are independently compared with
+exact schema/default/getter methods;6 malformed/unknown cases stay unavailable.
+Origins distinguish default/source/null cleaning; extra fields outside the five
+equippable schemas cannot suppress effects. Source, canonical identity, ownership,
+numeric/nonpersisted poison and context recovery remain covered.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (pristine released
+Core0.19.3/90c13e5). `npm test`:60 tooling assertions,8 tooling/24 module suites;
+`npm run typecheck`:136 explicit module/UI/server/test/hook files, pass.
+`test:native-source -- --native ../../../../temp/dnd5e` matches2242 records/
+591 expressions at exact87e94db release6.0.6. `test:native-effects` with that
+`--native` and `--foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14`
+passes69 source/default suppression cases plus earlier5 phase/20 numeric/
+19 FormulaField/25 mode cases. Primitive constructor option merging, disabled
+migration/sanitization, hidden=false, parent group=false and no Item model/hooks
+are explicit oracle limits. Prior unrelated native-domain comparisons remain
+C21 evidence, not newly claimed native acceptance.
+
+`test:public-rolls`:13634 accepted, including1656 new source/default Item effect
+requests across independent/combined checks and manual modes;9009 normal range
+requests/441 distributions,1 rejected unary candidate and40 plain equal-index
+diagnostics unchanged. Actual host serialization/entropy/face/state/total checks
+pass. Artifacts `/tmp/dnd5e-public-rolls-ziGmQy`. This is synthetic public-host
+runtime integration, not installed actor endpoints/native/operator acceptance.
+
+`test:mounted -- --browser-tools /tmp/sd-dice-preview-tools --chromium
+/home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell`
+passes254 field cases (152 new Item-default/retirement rows) plus prior suites at
+`/tmp/dnd5e-mounted-Ox5mkI`: actual shared skill/tool/ability/save controls, previews, shortcuts,
+passives and context recovery in both1440/390 layouts. Final evidence includes
+source/default equal-total/revision held-callback retirement. Prior C21 suites
+remain intact. An initial invocation used the wrong browser option and failed
+before launching; the maintained `--chromium` invocation is the recorded success.
+
+`check:package`: isolated source/public-boundary check, managed typing and all
+bundles pass. Archive `/tmp/dnd5e-package-li5Xns/data/dist/modules/dnd5e-0.4.1.tgz`,
+SHA256 `c90d28ed2c1d279554323cb2624e613b7911659a751cf6143b91711380778714`.
+[Portable record](../audits/evidence/2026-10-21-c22-item-defaults.json) retains
+fixture/source/script/artifact identities and evidence categories. Node24 local;
+Node22 CI unrun. Task-owned services cleaned; no live Foundry used.
+
+Next executable M2 slice: shared truthful species identity projection, then
+remaining trait/rule/filter/final/Item domains and dependency-ready M3. E01,
+wider Q00/E05, installed/native/operator gates and ADR-0001 remain open;
+experimental0.4.1 and compatibility are unchanged.

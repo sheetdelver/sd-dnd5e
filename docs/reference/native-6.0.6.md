@@ -561,3 +561,17 @@ Throwing yields module-unavailable without Core fallback. This is a documented
 integration limit, not a new Core defect solely from tied indices. Module HUD
 bounds remain gated; character-sheet Normal/direct adapter coverage is separate
 from installed combat/native/operator acceptance.
+
+### Item source/default suppression (C22)
+
+`EquippableItemTemplate` declares equipped/attuned BooleanFields (initial false)
+and attunement StringField. Only consumable/container/equipment/tool/weapon mix it
+in; the other eight declared Item models do not expose these fields. Native
+`Item5e.areEffectsSuppressed` requires equip except for consumables other than
+rod/trinket/wand, then suppresses required attunement when unattuned. Explicit
+null equipped migrates false; exact primitive cleaning/defaults separately verify
+null booleans and trimmed strings. C22 fixtures compare69 source/default states
+with the pinned getter after that controlled initialization. Hidden=false and
+parent.isGroup=false are explicit stubs; malformed/coerced states, creation hooks,
+DataModels/Documents and full Item effect phases are not qualified. Earlier
+initialized phase/arithmetic comparisons remain separate evidence categories.

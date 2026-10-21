@@ -698,3 +698,21 @@ open. Next independent M2 work: source/default Item eligibility and remaining
 rule/filter/final preparation, then dependency-ready M3 qualification. E01 and
 wider Q00/E05/native/operator gates remain open; ADR-0001 and experimental0.4.1/
 compatibility are unchanged.
+
+### C22 — Source/default Item effect eligibility
+
+C21 `d97f34b` remains the normal-bound checkpoint. C22 corrects an independently
+reproduced eligibility discrepancy under DD-02/24/27/34 and A02: raw omissions
+were treated as prepared truthy eligibility, while non-schema source poison could
+suppress effects. Five equippable schemas initialize equipped/attuned false;
+other Item schemas have neither field. The shared effect plan now records those
+defaults/origins and applies exact suppression semantics for the qualified subset,
+including trimmed strings and consumable exceptions. It preserves source and
+shares the resulting numeric preparation across controls, previews and execution.
+
+Evidence is in the [C22 ledger](../plans/0001-verification.md#c22--item-effect-source-default-eligibility-2026-10-21)
+and [portable record](evidence/2026-10-21-c22-item-defaults.json). This supersedes
+C12's raw-omission behavior only; historical source/initialized evidence remains.
+Malformed/coerced legacy inputs, Item effects/final/filter/dependency phases and
+native creation/lifecycle hooks remain unavailable. No complete gate or native/
+operator acceptance is claimed, and E01/wider Q00/E05 remain open.

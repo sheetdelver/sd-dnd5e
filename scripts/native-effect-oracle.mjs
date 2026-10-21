@@ -32,6 +32,40 @@ getRollData(){return {};}}
 class NActor extends FActor {${['allApplicableEffects','applyActiveEffects'].map(m=>n('module/documents/actor/actor.mjs','Actor5e',m)).join('\n')} }
 globalThis.classes={NActor,NEffect,NItem};foundry.documents.ActiveEffect={implementation:FEffect};`,sandbox);
 const {NActor,NEffect,NItem}=sandbox.classes;
+// C22 source/default cases stay separate from initialized phase traces below.
+// Verify template ownership, initialize only these primitive fields, then invoke
+// the pinned getter. No Item DataModel or Document runtime is instantiated.
+const itemFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/item-effect-eligibility.json'),'utf8'));
+assert.equal(itemFixture.nativeCommit,nativeCommit);
+const equippableTypes=['consumable','container','equipment','tool','weapon'];
+const otherTypes=['background','class','facility','feat','loot','race','spell','subclass'];
+for(const type of [...equippableTypes,...otherTypes])assert.equal(/import EquippableItemTemplate/.test(files.get('module/data/item/'+type+'.mjs')),equippableTypes.includes(type),type);
+const template=files.get('module/data/item/templates/equippable-item.mjs');
+assert.match(template,/equipped: new BooleanField\(\{required: true/);
+assert.match(template,/attuned: new BooleanField\(/);
+assert.match(template,/attunement: new StringField\(\{required: true/);
+assert.match(template,/if \( \(source.equipped === null\) \|\| \(source.equipped === undefined\) \) source.equipped = false/);
+assert.match(files.get('module/data/item/fields/item-type-field.mjs'),/initial: options.value \?\? ""/);
+const initBox={};
+vm.runInNewContext(`class DataField {constructor(options={}){Object.assign(this,this.constructor._defaults,options);}
+static #cleanDefaultTrue=[];
+${['_defaults','getInitialValue','clean','_validateSpecial','_cleanType'].map(m=>f('common/data/fields.mjs','DataField',m)).join('\n')} }
+class BooleanField extends DataField {${['_defaults','_cast'].map(m=>f('common/data/fields.mjs','BooleanField',m)).join('\n')} }
+class StringField extends DataField {${['_defaults','getInitialValue','clean','_cast','_validateSpecial'].map(m=>f('common/data/fields.mjs','StringField',m)).join('\n')} }
+globalThis.fields={BooleanField,StringField};`,initBox);
+const itemEligibilityObservations=[];
+for(const row of itemFixture.cases.filter(row=>!row.reason)){
+ const data=structuredClone(row.system),system={};
+ if(equippableTypes.includes(row.type)){
+  const {BooleanField,StringField}=initBox.fields;
+  for(const key of ['equipped','attuned'])system[key]=new BooleanField().clean(data[key],{migrate:false,sanitize:false},{cleanOptions:true});
+  system.attunement=new StringField({required:true}).clean(data.attunement,{migrate:false,sanitize:false},{cleanOptions:true});
+  if(row.type==='consumable')system.type={value:new StringField({required:true,initial:''}).clean(data.type?.value,{migrate:false,sanitize:false},{cleanOptions:true})};
+ }
+ const item=Object.assign(new NItem(),{type:row.type,system,parent:{system:{isGroup:false}}});
+ assert.equal(!item.areEffectsSuppressed,row.applied,row.id);
+ itemEligibilityObservations.push({id:row.id,initialized:system,suppressed:item.areEffectsSuppressed});
+}
 const fixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/effect-phases.json'),'utf8'));assert.equal(fixture.nativeCommit,nativeCommit);
 const priorities={custom:0,multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50};
 for(const [key,value] of Object.entries(priorities))assert.match(core.get('common/constants.mjs'),new RegExp('\\b'+key+': '+value+'\\b'));
@@ -171,5 +205,5 @@ for(const row of modeFixture.cases.filter(row=>row.expected)){
  assert.deepEqual(observed,row.expected,row.id);modeObservations.push({id:row.id,observed});
 }
 
-const evidence={modeObservations,constantObservations,numericObservations,evidence:'S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance',nativeCommit,foundry:release,observations,priorities,foundrySources:Object.fromEntries([...core].map(([path,source])=>[path,sha256(source)])),stubs:['Explicit initialized effect defaults; no Foundry DataModel initialization','Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions','Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime' ,'Untimed empty-condition effects only','Empty roll data; hidden/dependent/rider/antimagic absent','Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation','Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle','Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host']};
-const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: effect eligibility/phase capture ${observations.length} plus ${numericObservations.length} numeric field/derived and ${constantObservations.length} constant FormulaField constructions and ${modeObservations.length} effect-mode/passive cases PASS\n`);
+const evidence={itemEligibilityObservations,itemSchemaHashes:Object.fromEntries([...equippableTypes,...otherTypes].map(type=>{const path="module/data/item/"+type+".mjs";return [path,sha256(files.get(path))];})),modeObservations,constantObservations,numericObservations,evidence:'S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance',nativeCommit,foundry:release,observations,priorities,foundrySources:Object.fromEntries([...core].map(([path,source])=>[path,sha256(source)])),stubs:['C22 exact primitive clean/defaults and Item suppression getter; all13 Item template ownerships checked; hidden=false, parent group=false, no Item DataModel/Document/hooks or malformed coercion qualification','Explicit initialized effect defaults; no Foundry DataModel initialization','Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions','Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime' ,'Untimed empty-condition effects only','Empty roll data; hidden/dependent/rider/antimagic absent','Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation','Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle','Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host']};
+const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: ${itemEligibilityObservations.length} source/default Item eligibility and effect eligibility/phase capture ${observations.length} plus ${numericObservations.length} numeric field/derived and ${constantObservations.length} constant FormulaField constructions and ${modeObservations.length} effect-mode/passive cases PASS\n`);

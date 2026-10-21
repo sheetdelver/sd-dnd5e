@@ -504,3 +504,16 @@ initiative remains separately qualified. Earlier checkpoint descriptions of all
 range execution being unavailable are historical; C21 supersedes normal profiles
 only. Wider formulas/flags/groups/ranges/phase and installed/native/operator gates
 remain open.
+
+### Item eligibility initialization
+
+The shared detached effect plan initializes equipped/attuned defaults only for
+release6.0.6's five EquippableItemTemplate schemas, before evaluating transferred
+Actor-effect suppression. Origin metadata distinguishes source, missing defaults
+and null cleaning and participates in roll intent identity. Other Item schemas
+cannot acquire those fields from extra raw source properties. Consumable type and
+attunement strings use qualified native trimming; rod/trinket/wand require equip,
+ordinary consumables do not. Required attunement still suppresses when unattuned.
+Malformed/unknown/legacy-coercion cases and active dependencies remain gated.
+This is source/default eligibility plus existing qualified initial changes, not
+Item model initialization, creation hooks, Item-target effects or final phases.

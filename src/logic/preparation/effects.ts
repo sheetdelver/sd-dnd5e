@@ -1,5 +1,6 @@
 import { record } from '../native/6.0.6/source';
-export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string}
+import {itemEffectState606,type ItemEffectState} from './item-effect-state';
+export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState}
 export interface EffectChange {effectId:string;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number}
 export interface EffectPlan {initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];reason?:string}
 const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50};
@@ -22,15 +23,16 @@ export function planEffects606(actor:unknown):EffectPlan {
             if(!effect||!id){fail(id,'malformed','Active effect source identity unavailable',parentId);continue;}
             if(effect.disabled!==undefined&&effect.disabled!==false){fail(id,'malformed','Active effect disabled state malformed',parentId);continue;}
             if(effect.system!==undefined&&!record(effect.system)){fail(id,'malformed','Effect system source malformed',parentId);continue;}
-            const system=record(effect.system)??{},itemSystem=record(item?.system)??{};
+            const system=record(effect.system)??{};
+            let eligibility:ItemEffectState|undefined;
             if(item){
                 // Source schema transfer defaults true; no Actor-target claim
                 // follows for Item-target/nontransfer effects.
                 if(effect.transfer!==undefined&&typeof effect.transfer!=='boolean'){fail(id,'malformed','Effect transfer state malformed',parentId);continue;}
                 if(effect.transfer===false||effect.type==='enchantment'){fail(id,'item-preparation-unavailable','Owned Item effect preparation unavailable',parentId);continue;}
-                const type=record(itemSystem.type)?.value;
-                const requireEquipped=item.type!=='consumable'||['rod','trinket','wand'].includes(String(type));
-                if(requireEquipped&&itemSystem.equipped===false||itemSystem.attunement==='required'&&itemSystem.attuned===false){decisions.push({id,parentId,status:'item-suppressed'});continue;}
+                eligibility=itemEffectState606(item);
+                if(eligibility.reason){fail(id,'item-preparation-unavailable',eligibility.reason,parentId);continue;}
+                if(eligibility.suppressed){decisions.push({id,parentId,status:'item-suppressed',eligibility});continue;}
                 // Hidden/dependent Items and riders need qualified Item phases.
                 if(Object.values(record(record(item.flags)?.dnd5e)??{}).some(Boolean)){fail(id,'item-preparation-unavailable','Item dependency/rider preparation unavailable',parentId);continue;}
             }
@@ -65,7 +67,7 @@ export function planEffects606(actor:unknown):EffectPlan {
                 const entry:EffectChange={effectId:id,key:change.key,type,value:structuredClone(change.value),phase:phase as 'initial'|'final',priority,order:order++};
                 (phase==='initial'?initial:final).push(entry);any=true;
             }
-            decisions.push({id,parentId,status:any?'eligible':'no-changes'});
+            decisions.push({id,parentId,status:any?'eligible':'no-changes',...(eligibility?{eligibility}:{})});
         }
     }
     collect(source.effects);
