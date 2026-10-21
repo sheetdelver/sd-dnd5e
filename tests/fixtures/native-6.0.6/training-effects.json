@@ -1,0 +1,740 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Initialized persisted training StringSets -> ordered initial typed-field operations -> native language presentation, no content resolution/grant inference",
+  "cases": [
+    {
+      "id": "armor-default-add",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "lgt"
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "lgt"
+        ]
+      }
+    },
+    {
+      "id": "armor-json-duplicates",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "[\"med\",\"shl\",\"lgt\"]"
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "lgt",
+          "med",
+          "shl"
+        ]
+      }
+    },
+    {
+      "id": "armor-initial-trim-subtract-untrimmed",
+      "source": {
+        "armorProf": {
+          "value": [
+            " lgt "
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "subtract",
+          "value": " lgt "
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "lgt"
+        ]
+      }
+    },
+    {
+      "id": "armor-subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "shl"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "subtract",
+          "value": "lgt"
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "shl"
+        ]
+      }
+    },
+    {
+      "id": "armor-override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "override",
+          "value": "[\"hvy\",\"hvy\"]"
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "hvy"
+        ]
+      }
+    },
+    {
+      "id": "armor-null-default",
+      "source": {
+        "armorProf": {
+          "value": null
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "med"
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "med"
+        ]
+      }
+    },
+    {
+      "id": "weapon-groups",
+      "source": {
+        "weaponProf": {
+          "value": [
+            "sim"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.value",
+          "type": "add",
+          "value": "mar"
+        }
+      ],
+      "expectedOperands": {
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ]
+      }
+    },
+    {
+      "id": "weapon-individual-source-key",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.value",
+          "type": "add",
+          "value": "longsword"
+        }
+      ],
+      "expectedOperands": {
+        "weaponProf.value": [
+          "longsword"
+        ]
+      }
+    },
+    {
+      "id": "armor-individual-source-key",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "plate"
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "plate"
+        ]
+      }
+    },
+    {
+      "id": "language-all",
+      "source": {
+        "languages": {
+          "value": [
+            "common"
+          ],
+          "custom": "Cant; Cant"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "ALL"
+        }
+      ],
+      "spoken": [
+        "All Languages",
+        "Cant",
+        "Cant"
+      ],
+      "expectedOperands": {
+        "languages.value": [
+          "common",
+          "ALL"
+        ]
+      }
+    },
+    {
+      "id": "language-children",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "[\"ignan\",\"aquan\"]"
+        }
+      ],
+      "spoken": [
+        "Primordial (Aquan, Ignan)"
+      ],
+      "expectedOperands": {
+        "languages.value": [
+          "ignan",
+          "aquan"
+        ]
+      }
+    },
+    {
+      "id": "language-parent",
+      "source": {
+        "languages": {
+          "value": [
+            "aquan"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "primordial"
+        }
+      ],
+      "spoken": [
+        "Primordial"
+      ],
+      "expectedOperands": {
+        "languages.value": [
+          "aquan",
+          "primordial"
+        ]
+      }
+    },
+    {
+      "id": "language-subtract",
+      "source": {
+        "languages": {
+          "value": [
+            "common",
+            "draconic"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "subtract",
+          "value": "common"
+        }
+      ],
+      "spoken": [
+        "Draconic"
+      ],
+      "expectedOperands": {
+        "languages.value": [
+          "draconic"
+        ]
+      }
+    },
+    {
+      "id": "language-initial-trim",
+      "source": {
+        "languages": {
+          "value": [
+            " common "
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "draconic"
+        }
+      ],
+      "spoken": [
+        "Common",
+        "Draconic"
+      ],
+      "expectedOperands": {
+        "languages.value": [
+          "common",
+          "draconic"
+        ]
+      }
+    },
+    {
+      "id": "language-config-order",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "[\"sign\",\"draconic\",\"common\"]"
+        }
+      ],
+      "spoken": [
+        "Common",
+        "Draconic",
+        "Common Sign Language"
+      ],
+      "expectedOperands": {
+        "languages.value": [
+          "sign",
+          "draconic",
+          "common"
+        ]
+      }
+    },
+    {
+      "id": "mastered-weapon",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.mastery.value",
+          "type": "add",
+          "value": "longsword"
+        }
+      ],
+      "expectedOperands": {
+        "weaponProf.mastery.value": [
+          "longsword"
+        ]
+      }
+    },
+    {
+      "id": "additional-mastery-properties",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.mastery.bonus",
+          "type": "add",
+          "value": "[\"vex\",\"sap\"]"
+        }
+      ],
+      "expectedOperands": {
+        "weaponProf.mastery.bonus": [
+          "vex",
+          "sap"
+        ]
+      }
+    },
+    {
+      "id": "mastery-value-upgrade-order",
+      "source": {
+        "weaponProf": {
+          "mastery": {
+            "value": [
+              "longsword",
+              "mace"
+            ]
+          }
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.mastery.value",
+          "type": "upgrade",
+          "value": "[\"mace\",\"longsword\"]"
+        }
+      ],
+      "expectedOperands": {
+        "weaponProf.mastery.value": [
+          "mace",
+          "longsword"
+        ]
+      }
+    },
+    {
+      "id": "mastery-bonus-downgrade",
+      "source": {
+        "weaponProf": {
+          "mastery": {
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.mastery.bonus",
+          "type": "downgrade",
+          "value": "vex"
+        }
+      ],
+      "expectedOperands": {
+        "weaponProf.mastery.bonus": [
+          "vex"
+        ]
+      }
+    },
+    {
+      "id": "set-multiply-native-noop",
+      "source": {
+        "weaponProf": {
+          "value": [
+            "sim"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.value",
+          "type": "multiply",
+          "value": "mar"
+        }
+      ],
+      "expectedOperands": {
+        "weaponProf.value": [
+          "sim"
+        ]
+      }
+    },
+    {
+      "id": "set-upgrade-incomparable-noop",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "upgrade",
+          "value": "shl"
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "lgt"
+        ]
+      }
+    },
+    {
+      "id": "set-downgrade-incomparable-noop",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "downgrade",
+          "value": "shl"
+        }
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "lgt"
+        ]
+      }
+    },
+    {
+      "id": "priority-order",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "shl",
+          "priority": 60
+        },
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "override",
+          "value": "lgt"
+        }
+      ],
+      "expectedApplied": [
+        [
+          "lgt"
+        ],
+        [
+          "lgt",
+          "shl"
+        ]
+      ],
+      "expectedOperands": {
+        "armorProf.value": [
+          "lgt",
+          "shl"
+        ]
+      }
+    },
+    {
+      "id": "same-priority-source-order",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "sign"
+        },
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "common"
+        }
+      ],
+      "spoken": [
+        "Common",
+        "Common Sign Language"
+      ],
+      "expectedApplied": [
+        [
+          "sign"
+        ],
+        [
+          "sign",
+          "common"
+        ]
+      ],
+      "expectedOperands": {
+        "languages.value": [
+          "sign",
+          "common"
+        ]
+      }
+    },
+    {
+      "id": "weapon-ALL-unqualified",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.value",
+          "type": "add",
+          "value": "ALL"
+        }
+      ]
+    },
+    {
+      "id": "mastery-bonus-is-not-weapon",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.mastery.bonus",
+          "type": "add",
+          "value": "longsword"
+        }
+      ]
+    },
+    {
+      "id": "mastery-value-is-not-property",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.mastery.value",
+          "type": "add",
+          "value": "vex"
+        }
+      ]
+    },
+    {
+      "id": "language-nonselectable-group",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "standard"
+        }
+      ]
+    },
+    {
+      "id": "unknown-delta",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "spaceArmor"
+        }
+      ]
+    },
+    {
+      "id": "unknown-existing",
+      "source": {
+        "armorProf": {
+          "value": [
+            "spaceArmor"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "lgt"
+        }
+      ]
+    },
+    {
+      "id": "coercion-delta",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "[1]"
+        }
+      ]
+    },
+    {
+      "id": "raw-array-delta",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": [
+            "common",
+            "draconic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reference-delta",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.languages.value",
+          "type": "add",
+          "value": "@traits.languages.value"
+        }
+      ]
+    },
+    {
+      "id": "custom-string-not-set",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.languages.custom",
+          "type": "add",
+          "value": "Cant"
+        }
+      ]
+    },
+    {
+      "id": "malformed-parent",
+      "source": {
+        "weaponProf": {
+          "mastery": 42
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.mastery.value",
+          "type": "add",
+          "value": "longsword"
+        }
+      ]
+    },
+    {
+      "id": "malformed-set",
+      "source": {
+        "armorProf": {
+          "value": 42
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "lgt"
+        }
+      ]
+    },
+    {
+      "id": "final-training",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "hvy",
+          "phase": "final"
+        }
+      ]
+    },
+    {
+      "id": "filtered-training",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.armorProf.value",
+          "type": "add",
+          "value": "hvy",
+          "conditions": "{\"level\":5}"
+        }
+      ]
+    },
+    {
+      "id": "prototype-key",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.weaponProf.value",
+          "type": "add",
+          "value": "toString"
+        }
+      ]
+    }
+  ]
+}

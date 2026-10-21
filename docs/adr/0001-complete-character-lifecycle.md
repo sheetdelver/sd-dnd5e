@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts | RV01–RV04 retained; C06–C27 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets | RV01–RV04 retained; C06–C28 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1185,3 +1185,30 @@ M2 work: qualified initial training/language/mastery Set effects using establish
 field semantics, then remaining conditions/rules/filter/final/Item phases and
 M3/Q02. E01/wider Q00/E05, installed/native/operator acceptance and ADR-0001 remain
 open; experimental0.4.1 and compatibility unchanged.
+
+
+### C28 — Initial persisted training Set effects (2026-10-21)
+
+C27 is `8ad3bbc`. This bounded M2/Q02a slice advances DD-02/06/27/34 and A02/A21
+partially. The existing initial typed-field path now applies qualified armor/weapon
+training, languages and separate mastery weapon/property Sets. A single pinned
+identity classifier serves preparation and effect validation; there is no duplicate
+world/content cache, grant inference, private index or new dice evaluator.
+
+24 independent expected source/default/field-operation cases are established and
+compared with exact pinned primitive/schema/native language methods before module
+support; all24 fail before and pass after.15 unknown/coerced/reference/custom-string/
+filtered/final boundaries stay unavailable. Priority/source order, null defaults,
+untrimmed comparisons, native no-op multiply and grouped/ALL language presentation
+are preserved. Source/nonpersisted poison, known static facts, context recovery and
+same-total stale intent retirement remain covered. Native source IDs can be wider
+than the bounded vocabulary; unavailable is not asserted native schema rejection.
+
+[C28 ledger](../plans/0001-verification.md#c28--initial-training-set-effects-2026-10-21)
+and [portable evidence](../audits/evidence/2026-10-21-c28-training-effects.json)
+separate regression, controlled methods, actual mounted consumers, isolated public
+host and package evidence. C27's pending initial training Set restriction is
+superseded only for these qualified targets. No full DD/A/M gate closes. Remaining
+conditions/rules/filter/final/Item phases, broader expressions and M3+ are open.
+E01/wider Q00/E05/installed/native/operator acceptance and ADR-0001 remain open;
+experimental0.4.1 and compatibility unchanged.

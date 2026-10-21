@@ -1466,3 +1466,50 @@ CI/installed UI/native/operator acceptance unrun. Task services cleaned.
 Next bounded M2: initial training/language/mastery Set effects, then remaining
 conditions/rules/filter/final/Item phases and dependency-ready M3/Q02. E01/wider
 Q00/E05/ADR-0001 remain open. Experimental0.4.1 and compatibility unchanged.
+
+### C28 — Initial training Set effects (2026-10-21)
+
+Predecessor C27 `8ad3bbc`. Completed bounded M2/Q02a DD-02/06/27/34,
+A02/A21 subrequirements: qualified persisted training/language/mastery targets in
+one typed initial-effect pipeline.39 declared contracts include24 previously
+unavailable requests and15 retained module boundaries; all24 fail before/pass after.
+Independent exact native operations agree before module implementation, then native
+language methods verify derived presentation. Known identity vocabularies are pinned
+metadata, not content access or a second source cache. Wider native StringField
+inputs are not claimed invalid; they remain unqualified by the module profile.
+
+Use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` for released0.19.3/90c13e5.
+`npm test`:60 tooling assertions,8 tooling/30 module suites PASS. `typecheck`:158
+explicit module/UI/server/test/hook files PASS. `test:native-source -- --native
+../../../../temp/dnd5e`:2242 records/591 expressions PASS at release6.0.6/87e94db.
+`test:native-traits -- --native ../../../../temp/dnd5e --foundry
+/home/juvinious/projects/foundryvtt/foundryvtt-v14`:24 new initial training Set,
+33 training,24 defense and33 prior trait-effect controlled comparisons plus pinned
+schema/registry checks PASS. Explicit initialized fields/validation wrappers,
+empty AppliedRules/flags/conditions, fixed English/unit formatter and no Item index
+remain limits; not native engine/DataModel/Actor/operator acceptance.
+
+The maintained mounted suite verifies both actual panels/cards and numeric controls,
+preview/manual/source choices, context recovery and equal-total callback retirement.
+The public-host suite adds600 requests (576 check/mode/bonus plus24 normal bounds)
+with independent totals and existing strict face/entropy/distribution criteria;
+15110 accepted requests total,9067 normal-range requests/441 distributions,1 unary
+candidate rejection and40 plain tied-index diagnostics PASS. A harness metadata
+variable-shadowing issue initially mislabeled new rows as defense cases; formulas/
+results passed, and final coverage assertions distinguish the576+24 training rows.
+No host serialization was rewritten. Artifact identities are in the portable record.
+
+`check:package` passes isolated module/public-boundary checks, managed typing and
+bundles; archive `/tmp/dnd5e-package-iUKz01/data/dist/modules/dnd5e-0.4.1.tgz`,
+SHA256 `f40fc1c068509e71b8d422f2ccf1359b2c3c03f86d80e70ce06d5a2edfda0da6`.
+[Portable evidence](../audits/evidence/2026-10-21-c28-training-effects.json) records
+commands, source/script/fixture hashes, mounted/public-host artifacts and distinctions.
+Task services stopped; Node24 local, Node22 CI/installed/native/operator unrun.
+No full DD/A/M gate closes. Conditions, data-dependent filters, final/Item phases,
+broader expressions and M3+ remain; E01/wider Q00/E05/ADR-0001 open. Experimental
+0.4.1 and compatibility unchanged.
+
+C28 mounted artifacts `/tmp/dnd5e-mounted-YxVl0n`:156 training readout states,
+420 numeric effect states and all prior suites/fences PASS at1440/390. Final
+public-host artifacts `/tmp/dnd5e-public-rolls-Hp8vFd` include maintained576/24
+new-case coverage assertions. No task listeners/processes remain.

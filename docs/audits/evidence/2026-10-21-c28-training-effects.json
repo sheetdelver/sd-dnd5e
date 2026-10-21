@@ -1,0 +1,2121 @@
+{
+  "checkpoint": "C28",
+  "precedingImplementation": "8ad3bbc",
+  "requirementsPartial": [
+    "M2",
+    "Q02a",
+    "DD-02",
+    "DD-06",
+    "DD-27",
+    "DD-34",
+    "A02",
+    "A21"
+  ],
+  "baseline": {
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundryStatic": {
+      "generation": 14,
+      "build": 367,
+      "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+      "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+    },
+    "node": "24.21.0",
+    "Node22CI": "unrun"
+  },
+  "failingBefore": {
+    "implementation": "8ad3bbc",
+    "sameInputContracts": 39,
+    "supportedRequestsFailing": 24,
+    "retainedUnavailable": 15,
+    "exit": 1,
+    "logSha256": "acece988a5430a16e83456823d372b0f30bd6ec9f5f64d5bdfaeefe4691cebd5"
+  },
+  "controlledNativeMethods": {
+    "command": "npm run test:native-traits -- --core <released0.19.3> --native <exact-release> --foundry <static14.367> --write-evidence <output>",
+    "observations": [
+      {
+        "id": "armor-default-add",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [],
+            "delta": "lgt",
+            "value": [
+              "lgt"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "armor-json-duplicates",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [
+              "lgt"
+            ],
+            "delta": "[\"med\",\"shl\",\"lgt\"]",
+            "value": [
+              "lgt",
+              "med",
+              "shl"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "armor-initial-trim-subtract-untrimmed",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [
+              "lgt"
+            ],
+            "delta": " lgt ",
+            "value": [
+              "lgt"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "armor-subtract",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [
+              "lgt",
+              "shl"
+            ],
+            "delta": "lgt",
+            "value": [
+              "shl"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "armor-override",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [
+              "lgt"
+            ],
+            "delta": "[\"hvy\",\"hvy\"]",
+            "value": [
+              "hvy"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "armor-null-default",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [],
+            "delta": "med",
+            "value": [
+              "med"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "weapon-groups",
+        "applied": [
+          {
+            "key": "system.traits.weaponProf.value",
+            "before": [
+              "sim"
+            ],
+            "delta": "mar",
+            "value": [
+              "sim",
+              "mar"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "weapon-individual-source-key",
+        "applied": [
+          {
+            "key": "system.traits.weaponProf.value",
+            "before": [],
+            "delta": "longsword",
+            "value": [
+              "longsword"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "armor-individual-source-key",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [],
+            "delta": "plate",
+            "value": [
+              "plate"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "language-all",
+        "applied": [
+          {
+            "key": "system.traits.languages.value",
+            "before": [
+              "common"
+            ],
+            "delta": "ALL",
+            "value": [
+              "common",
+              "ALL"
+            ]
+          }
+        ],
+        "spoken": [
+          "All Languages",
+          "Cant",
+          "Cant"
+        ]
+      },
+      {
+        "id": "language-children",
+        "applied": [
+          {
+            "key": "system.traits.languages.value",
+            "before": [],
+            "delta": "[\"ignan\",\"aquan\"]",
+            "value": [
+              "ignan",
+              "aquan"
+            ]
+          }
+        ],
+        "spoken": [
+          "Primordial (Aquan, Ignan)"
+        ]
+      },
+      {
+        "id": "language-parent",
+        "applied": [
+          {
+            "key": "system.traits.languages.value",
+            "before": [
+              "aquan"
+            ],
+            "delta": "primordial",
+            "value": [
+              "aquan",
+              "primordial"
+            ]
+          }
+        ],
+        "spoken": [
+          "Primordial"
+        ]
+      },
+      {
+        "id": "language-subtract",
+        "applied": [
+          {
+            "key": "system.traits.languages.value",
+            "before": [
+              "common",
+              "draconic"
+            ],
+            "delta": "common",
+            "value": [
+              "draconic"
+            ]
+          }
+        ],
+        "spoken": [
+          "Draconic"
+        ]
+      },
+      {
+        "id": "language-initial-trim",
+        "applied": [
+          {
+            "key": "system.traits.languages.value",
+            "before": [
+              "common"
+            ],
+            "delta": "draconic",
+            "value": [
+              "common",
+              "draconic"
+            ]
+          }
+        ],
+        "spoken": [
+          "Common",
+          "Draconic"
+        ]
+      },
+      {
+        "id": "language-config-order",
+        "applied": [
+          {
+            "key": "system.traits.languages.value",
+            "before": [],
+            "delta": "[\"sign\",\"draconic\",\"common\"]",
+            "value": [
+              "sign",
+              "draconic",
+              "common"
+            ]
+          }
+        ],
+        "spoken": [
+          "Common",
+          "Draconic",
+          "Common Sign Language"
+        ]
+      },
+      {
+        "id": "mastered-weapon",
+        "applied": [
+          {
+            "key": "system.traits.weaponProf.mastery.value",
+            "before": [],
+            "delta": "longsword",
+            "value": [
+              "longsword"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "additional-mastery-properties",
+        "applied": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "before": [],
+            "delta": "[\"vex\",\"sap\"]",
+            "value": [
+              "vex",
+              "sap"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mastery-value-upgrade-order",
+        "applied": [
+          {
+            "key": "system.traits.weaponProf.mastery.value",
+            "before": [
+              "longsword",
+              "mace"
+            ],
+            "delta": "[\"mace\",\"longsword\"]",
+            "value": [
+              "mace",
+              "longsword"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mastery-bonus-downgrade",
+        "applied": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "before": [
+              "sap",
+              "vex"
+            ],
+            "delta": "vex",
+            "value": [
+              "vex"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set-multiply-native-noop",
+        "applied": [
+          {
+            "key": "system.traits.weaponProf.value",
+            "before": [
+              "sim"
+            ],
+            "delta": "mar",
+            "value": [
+              "sim"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set-upgrade-incomparable-noop",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [
+              "lgt"
+            ],
+            "delta": "shl",
+            "value": [
+              "lgt"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set-downgrade-incomparable-noop",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [
+              "lgt"
+            ],
+            "delta": "shl",
+            "value": [
+              "lgt"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "priority-order",
+        "applied": [
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [],
+            "delta": "lgt",
+            "value": [
+              "lgt"
+            ]
+          },
+          {
+            "key": "system.traits.armorProf.value",
+            "before": [
+              "lgt"
+            ],
+            "delta": "shl",
+            "value": [
+              "lgt",
+              "shl"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "same-priority-source-order",
+        "applied": [
+          {
+            "key": "system.traits.languages.value",
+            "before": [],
+            "delta": "sign",
+            "value": [
+              "sign"
+            ]
+          },
+          {
+            "key": "system.traits.languages.value",
+            "before": [
+              "sign"
+            ],
+            "delta": "common",
+            "value": [
+              "sign",
+              "common"
+            ]
+          }
+        ],
+        "spoken": [
+          "Common",
+          "Common Sign Language"
+        ]
+      }
+    ],
+    "priorComparisons": {
+      "training": 33,
+      "defense": 24,
+      "traitEffects": 33
+    },
+    "sourceHashes": {
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/documents/actor/trait.mjs": "a638c34db4c3e4255bfbbd1952d7a3231dd9ea35038c51b9b7cc0d77658bd635",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200"
+    },
+    "englishSha256": "ab2545d9500f8019e0a752af4ab252073f3cdc18008c5e82bcb6ec71af5e82a4",
+    "sha256": "76af781746a062e3edced722ccdedc31fa0c4ae5481112f831b394221c842da0",
+    "stubs": [
+      "C28 exact initial Set methods on explicitly initialized persisted training targets followed by native languages; no custom String, unknown-key, coercion, filtered/final or full DataModel claim",
+      "C27 exact prepareLanguages, trait keyLabel and sheet presentation; canonical English, base Item index deliberately unavailable, fixed subset trait config, independent unit-format adapter; partial range cases compare spoken domain only",
+      "C27 absent AppliedRules collection is empty, no filtered bonus/effect semantics claimed; prototype-key native inherited-function lookup is recorded as diagnostic, never a usable label",
+      "C27 local Tool.value is captured as effectValue by exact prepareTools; prepared value becomes effective multiplier; globals/local override cases start after C13-qualified initial operations, not raw nonpersisted source overrides",
+      "C27 masteryOptions getter is only a conditional example (longsword/sap), not module Item/activity execution",
+      "C25 exact DataField.applyChange and field delta/operation/cleaning methods, native equality and Set.map/equals; validation wrapper checks known primitive strings only; references/object equality throw outside profile; no full DataModel validation",
+      "Primitive option-merging constructors; exact String clean/default and Array/Set initialization, source arrays cleaned elementwise; no DataModel or validation boot",
+      "Schema default container clean delegates only verified child defaults; Schema key/migration/validation logic not emulated",
+      "Condition-free Actor stub: empty statuses and hasConditionEffect=false; initial/final/Item effects not executed here",
+      "Partial cases compare independent ready domains only, initializing unavailable domains empty; unknown immunity also gates resistance in module",
+      "C24 simplifyBonus numeric-literal fast path; C25 two independently declared constant-expression totals in a closed Roll stub, not a native engine or module evaluator",
+      "Exact native trait presentation in edit mode with fixed subset trait registry, empty communication/masteries, key-label lookup stub from independently captured English registry, deepClone identity read-only stub, exact native Set.map/equals, en-US number formatter; physical bypasses compared separately",
+      "Native English registry capture at exact commit; no game locale/runtime or installed sheet/operator acceptance"
+    ]
+  },
+  "regression": {
+    "command": "npm test -- --core <released0.19.3>",
+    "toolingAssertions": 60,
+    "toolingSuites": 8,
+    "moduleSuites": 30,
+    "result": "PASS",
+    "sourcePreservation": "raw source and stale nonpersisted roll/tool/language presentation fields unchanged; poison cannot override initialized/prepared results",
+    "recovery": "supported/unavailable/supported; training changes retire equal-numeric intents"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core <released0.19.3>",
+    "explicitSourceUiServerTestHookFiles": 158,
+    "result": "PASS"
+  },
+  "nativeSourceInventory": {
+    "command": "npm run test:native-source -- --core <released0.19.3> --native <exact-release>",
+    "records": 2242,
+    "candidateExpressions": 591,
+    "result": "PASS"
+  },
+  "mounted": {
+    "command": "npm run test:mounted -- --core <released0.19.3> --browser-tools <test-only> --chromium <Chromium143>",
+    "artifacts": "/tmp/dnd5e-mounted-YxVl0n",
+    "sha256": "9db28dfc29f1e3850465d25806d7e094676c857848acd2cc323fd25823f191a4",
+    "widths": [
+      1440,
+      390
+    ],
+    "trainingRows": 156,
+    "numericEffectRows": 420,
+    "newTrainingRows": [
+      {
+        "width": 1440,
+        "id": "training-set:armor-default-add",
+        "observed": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:armor-json-duplicates",
+        "observed": {
+          "armor": "Light; Medium; Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light; Medium; Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:armor-initial-trim-subtract-untrimmed",
+        "observed": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:armor-subtract",
+        "observed": {
+          "armor": "Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:armor-override",
+        "observed": {
+          "armor": "Heavy",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Heavy",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:armor-null-default",
+        "observed": {
+          "armor": "Medium",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Medium",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:weapon-groups",
+        "observed": {
+          "armor": "None",
+          "weapons": "Simple; Martial",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "Simple; Martial",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:weapon-individual-source-key",
+        "observed": {
+          "armor": "None",
+          "weapons": "longsword (label unresolved)",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "longsword (label unresolved)",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:armor-individual-source-key",
+        "observed": {
+          "armor": "plate (label unresolved)",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "plate (label unresolved)",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:language-all",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "All Languages; Cant; Cant",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "All Languages; Cant; Cant",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:language-children",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Primordial (Aquan, Ignan)",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Primordial (Aquan, Ignan)",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:language-parent",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Primordial",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Primordial",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:language-subtract",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Draconic",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Draconic",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:language-initial-trim",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Draconic",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Draconic",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:language-config-order",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Draconic; Common Sign Language",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Draconic; Common Sign Language",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:mastered-weapon",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "longsword (label unresolved)"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "longsword (label unresolved)"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:additional-mastery-properties",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "Additional option: Vex (requires a mastered weapon with a base mastery); Additional option: Sap (requires a mastered weapon with a base mastery)"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "Additional option: Vex (requires a mastered weapon with a base mastery); Additional option: Sap (requires a mastered weapon with a base mastery)"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:mastery-value-upgrade-order",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "mace (label unresolved); longsword (label unresolved)"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "mace (label unresolved); longsword (label unresolved)"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:mastery-bonus-downgrade",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "Additional option: Vex (requires a mastered weapon with a base mastery)"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "Additional option: Vex (requires a mastered weapon with a base mastery)"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:set-multiply-native-noop",
+        "observed": {
+          "armor": "None",
+          "weapons": "Simple",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "Simple",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:set-upgrade-incomparable-noop",
+        "observed": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:set-downgrade-incomparable-noop",
+        "observed": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:priority-order",
+        "observed": {
+          "armor": "Light; Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light; Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:same-priority-source-order",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Common Sign Language",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Common Sign Language",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:weapon-ALL-unqualified",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:mastery-bonus-is-not-weapon",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:mastery-value-is-not-property",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:language-nonselectable-group",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:unknown-delta",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:unknown-existing",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:coercion-delta",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:raw-array-delta",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:reference-delta",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:custom-string-not-set",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:malformed-parent",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:malformed-set",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:final-training",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:filtered-training",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "training-set:prototype-key",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:armor-default-add",
+        "observed": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:armor-json-duplicates",
+        "observed": {
+          "armor": "Light; Medium; Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light; Medium; Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:armor-initial-trim-subtract-untrimmed",
+        "observed": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:armor-subtract",
+        "observed": {
+          "armor": "Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:armor-override",
+        "observed": {
+          "armor": "Heavy",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Heavy",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:armor-null-default",
+        "observed": {
+          "armor": "Medium",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Medium",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:weapon-groups",
+        "observed": {
+          "armor": "None",
+          "weapons": "Simple; Martial",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "Simple; Martial",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:weapon-individual-source-key",
+        "observed": {
+          "armor": "None",
+          "weapons": "longsword (label unresolved)",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "longsword (label unresolved)",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:armor-individual-source-key",
+        "observed": {
+          "armor": "plate (label unresolved)",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "plate (label unresolved)",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:language-all",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "All Languages; Cant; Cant",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "All Languages; Cant; Cant",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:language-children",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Primordial (Aquan, Ignan)",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Primordial (Aquan, Ignan)",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:language-parent",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Primordial",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Primordial",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:language-subtract",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Draconic",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Draconic",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:language-initial-trim",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Draconic",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Draconic",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:language-config-order",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Draconic; Common Sign Language",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Draconic; Common Sign Language",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:mastered-weapon",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "longsword (label unresolved)"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "longsword (label unresolved)"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:additional-mastery-properties",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "Additional option: Vex (requires a mastered weapon with a base mastery); Additional option: Sap (requires a mastered weapon with a base mastery)"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "Additional option: Vex (requires a mastered weapon with a base mastery); Additional option: Sap (requires a mastered weapon with a base mastery)"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:mastery-value-upgrade-order",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "mace (label unresolved); longsword (label unresolved)"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "mace (label unresolved); longsword (label unresolved)"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:mastery-bonus-downgrade",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "Additional option: Vex (requires a mastered weapon with a base mastery)"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "Additional option: Vex (requires a mastered weapon with a base mastery)"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:set-multiply-native-noop",
+        "observed": {
+          "armor": "None",
+          "weapons": "Simple",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "Simple",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:set-upgrade-incomparable-noop",
+        "observed": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:set-downgrade-incomparable-noop",
+        "observed": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:priority-order",
+        "observed": {
+          "armor": "Light; Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "Light; Shields",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "None",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:same-priority-source-order",
+        "observed": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Common Sign Language",
+          "mastery": "None"
+        },
+        "expected": {
+          "armor": "None",
+          "weapons": "None",
+          "tools": "Thieves' tools (1\u00d7 proficiency)",
+          "languages": "Common; Common Sign Language",
+          "mastery": "None"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:weapon-ALL-unqualified",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:mastery-bonus-is-not-weapon",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:mastery-value-is-not-property",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:language-nonselectable-group",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:unknown-delta",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:unknown-existing",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:coercion-delta",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:raw-array-delta",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:reference-delta",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:custom-string-not-set",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:malformed-parent",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:malformed-set",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:final-training",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:filtered-training",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "training-set:prototype-key",
+        "observed": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "expected": {
+          "armor": "Unavailable",
+          "weapons": "Unavailable",
+          "tools": "Unavailable",
+          "languages": "Unavailable",
+          "mastery": "Unavailable"
+        },
+        "sourceReadOnly": true,
+        "recovery": true
+      }
+    ],
+    "priorSuites": "all retained including DD-R01\u201306, ranges/modes/selection/held callback fences",
+    "kind": "actual module consumers against SDK seam, not installed UI"
+  },
+  "publicHost": {
+    "command": "npm run test:public-rolls -- --core <released0.19.3>",
+    "artifacts": "/tmp/dnd5e-public-rolls-Hp8vFd",
+    "sha256": "0518872bef9be7383e30612fd90d27d23a541a54b6bb1dfc2c52e6d5a6a2d0ea",
+    "result": "PASS",
+    "accepted": 15110,
+    "requests": 15111,
+    "newCheckModeBonus": 576,
+    "newNormalRanges": 24,
+    "normalRangeRequests": 9067,
+    "normalRangeDistributions": 441,
+    "plainEqualIndexDiagnostics": 40,
+    "unaryCandidateRejections": 1,
+    "nativeWrites": 0,
+    "qualification": "ordered faces, entropy, retained value/count/states, totals/distributions and unequal indices unchanged; actual serialization preserved",
+    "harnessMetadataCorrection": "First run executed all600 new requests correctly but inner kind shadowed family metadata. Final family names and576/24 coverage assertions correct classification."
+  },
+  "package": {
+    "command": "npm run check:package -- --core <released0.19.3>",
+    "result": "isolated module/public boundary, managed typing and bundles PASS",
+    "archive": "/tmp/dnd5e-package-iUKz01/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "f40fc1c068509e71b8d422f2ccf1359b2c3c03f86d80e70ce06d5a2edfda0da6"
+  },
+  "fileHashes": {
+    "tests/fixtures/native-6.0.6/training-effects.json": "d0679dc504e7a96929f1cd27bd83a7b9568670eb2e60d7315c7ded4dea5e146d",
+    "src/tests/fixtures/training-effect-scenarios.ts": "6a2aad5ef8a46cac04b067caac66315e8205de737297edd42d1e35f11d0cfa34",
+    "src/tests/training-effects.test.ts": "0d25f447354b35576c58ee8b0dfadbd233357d9052e1c0650cc17d960f0831f2",
+    "src/logic/preparation/training-fields.ts": "9fb0303bec8e77871e5441d0a959f13783f39aff08a1ece48d39ba2a5c0618cc",
+    "src/logic/preparation/training.ts": "fa6130b32b96b88cfc5c30be00fb5a8a1a35d46e860973e748767d534169c2cb",
+    "src/logic/preparation/numeric-effects.ts": "1b79373798eca9e1f85219720c1a2be7c5d3d281da00bd823e5901d1f68d13a4",
+    "scripts/native-traits-oracle.mjs": "4672ff31591cf3bc0d2b635dc072467455e2b37a52fc77d206b355e1e0150ad9",
+    "scripts/test-public-rolls.mjs": "a607238ddbc9c78701f130a38ac0dd647156858be7ee83611a599f66ad0dde9e",
+    "scripts/test-mounted.mjs": "167892b581347781bc600af7bc926bab2ce7d43c488dfd3d240ce1cccb6a7ee2"
+  },
+  "limits": [
+    "Only registered exact training identity vocabularies; no inference from names/global roll coefficients",
+    "Native wider StringField values are not claimed invalid;15 availability cases are module boundaries",
+    "Specific base Item labels unresolved; known UUID metadata grants no content access",
+    "No active Item mastery/weapon execution, private index, cache, or new dice evaluator",
+    "Initial typed-field comparisons do not establish DataModel/native lifecycle parity",
+    "Filtered/final/condition/Item phases, broader expressions and M3+ remain open",
+    "E01/wider Q00/E05/installed/native/operator/full acceptance and ADR-0001 remain open",
+    "Experimental0.4.1 and compatibility unchanged; task services stopped"
+  ]
+}

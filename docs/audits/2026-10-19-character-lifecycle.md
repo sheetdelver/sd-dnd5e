@@ -172,7 +172,7 @@ IDs remain stable through implementation. Baseline status describes the **workfl
 | DD-03 | AC, initiative, senses, movement — **partial** | C17–C19 shared AC/init/equipment/movement/senses facts replace modern fallbacks in the bounded profile. Conditions, broader effects/formulas and complete native parity remain open. | Module M2; armor/unarmored/custom, speed types/units, initiative tiebreaker/conditions, sense ranges tested. |
 | DD-04 | HP/temp HP, damage/healing, death saves — **partial** | C16 shares truthful HP/HD facts; modern health/rest writes are gated pending M3/M4. Legacy HPModal arithmetic remains limited. No complete death-save/damage-rule/receipt pipeline. | Module M3/M4; resistance/immunity/vulnerability choices, temp/max modifiers, zero HP/death/revival and exact receipts; no unauthorized target updates. |
 | DD-05 | Conditions, defenses, active effects — **partial** | C12–C15/C22 qualify bounded initial effects/eligibility; C24 prepares condition-free defense traits and C25 applies qualified initial trait-set/constant-adjustment effects for shared cards/desktop/mobile and numeric readiness. Conditions remain a placeholder; active-condition/filter/final/Item phases and execution remain open. | Module M2/M4; actual conditions/defenses, effect eligibility/order/duration, exhaustion and concentration shown and executed, no source mutation during prep. |
-| DD-06 | Proficiencies, mastery, languages — **stub/partial** | C26 corrects fractional/unavailable effective roll indicators; `Proficiencies.tsx` still displays fixed universal grants, and UI attack heuristics remain. Source training/languages/mastery still need shared preparation. | Module M2/M6; source-specific grants and restrictions; duplicate grants preserve source identities and validate replacement choices. |
+| DD-06 | Proficiencies, mastery, languages — **partial** | C26 corrects fractional/unavailable effective roll indicators; C27 shares source/local training, languages and conditional mastery metadata across cards and both layouts; C28 applies qualified initial training Sets. Specific content labels, complete grants/replacements and Item attack/mastery execution remain open; UI attack heuristics still need replacement. | Module M2/M6; source-specific grants and restrictions; duplicate grants preserve source identities and validate replacement choices. |
 | DD-07 | Short/long/new-day rests — **partial, incomplete** | `Rest.tsx`, `RestModal.tsx`; short rest no mutation, long rest only HP/temp HP. Native `_rest` and five recovery functions. | Module M4, world settings/E04 for automatic time; class HD, resources, slots, uses/effect expiry all match reviewed rest plan and native results. |
 | DD-08 | Feat/item/activity uses and recharge — **partial display / absent execution** | `itemRows.ts` expects numeric max/value; native uses formula max/spent/recovery. | Module M4; spend/refund where supported, recharge outcomes, rest/day/dawn/dusk recovery without duplicate use or roll. |
 | DD-09 | Inventory, containers, equipment, currency, weight/attunement — **partial** | Sheet categorization drops containers; scalar weight reads; ItemModal uses Actor path/captured item. No complete acquire/move/split/delete/currency workflow. | Module M3; embedded mutations, links/cycle prevention, exact duplicates, identification, limits and recalculation; no false save acknowledgement. |
@@ -814,3 +814,21 @@ and [portable evidence](evidence/2026-10-21-c27-training.json). Effects beyond e
 initial numeric local coefficients, active conditions/flags/filter/final/Item rules,
 legacy expansion and native/operator/full acceptance remain open. No version,
 compatibility or Core changes; E01 and wider Q00/E05 remain external/open as before.
+
+
+### C28 — Qualified training effects share the prepared result
+
+C27 `8ad3bbc` precedes this M2/Q02a slice (DD-02/06/27/34, A02/A21 partial).
+The shared initial pipeline now handles the independently qualified persisted
+training/language/mastery Sets.39 contracts include24 previously unavailable
+supported requests and15 precise retained boundaries. Exact primitive methods and
+native language preparation establish independent expectations; no module output
+is used as its oracle. Identity domains, local/effective proficiency, initialized
+source and applied values remain separate. Specific Item labels remain unresolved,
+and mastery metadata does not claim active Item options.
+
+See [C28 ledger](../plans/0001-verification.md#c28--initial-training-set-effects-2026-10-21)
+and [portable record](evidence/2026-10-21-c28-training-effects.json). Context/source
+recovery, retained-callback fences and source poison protection remain. This closes
+no full gate; remaining filter/condition/final/Item/broader-expression and command
+phases remain open, as do E01/wider Q00/E05/native/operator/full ADR acceptance.

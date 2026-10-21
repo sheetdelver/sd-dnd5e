@@ -312,3 +312,12 @@ initial effect phase; raw nonpersisted99 never initializes an override. Partial
 malformed ranges compare spoken labels only. The prototype-key inherited-function
 native diagnostic is retained without inventing a grant. Malformed/source/context
 and all preservation tests are module R boundaries, not native coercion parity.
+
+
+C28 `training-effects.json`:39 independent contracts (24 supported,15 explicitly
+unqualified). Expected operands/presentation are declared before implementation and
+compared with exact initialized native typed-field operations and prepareLanguages.
+Before all24 supported requests are unavailable; after the shared pipeline supplies
+both panel/card facts and unchanged numeric checks. Source defaults and local/effective
+coefficients remain distinct; stale nonpersisted fields cannot grant training.
+The15 boundaries are module availability limits, not native validation parity.

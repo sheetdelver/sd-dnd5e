@@ -607,3 +607,26 @@ are conditional stored options, not additional mastered weapons or active Item
 execution. Source/mastery fields are persisted; nonpersisted source poison is
 ignored. Effects outside the qualified initial local tool subset still gate facts;
 source trait-set effects await their own bounded qualification.
+
+
+### Initial training Set effects (C28)
+
+The same ordered initial-effect pipeline now accepts persisted armorProf.value,
+weaponProf.value, languages.value and weaponProf.mastery.value/bonus targets.
+`trainingSetField606` provides one pinned identity vocabulary for target validation
+and language selection; it is immutable rule metadata, never a world/content cache.
+Registered armor/weapon group or base identity keys and language ALL/selectable
+keys are distinct from mastery weapon/property identities. Native StringField
+accepts wider IDs, but effects outside this independently qualified vocabulary
+remain unavailable rather than inventing grants. Specific Item labels still stay
+unresolved as established by C27; a known UUID is not content permission.
+
+Source/default/null-cleaned origins, untrimmed delta comparisons, JSON parsing,
+priority/order, typed-field results and later presentation stay separate. Existing
+Set add/subtract/override/superset/subset and multiply no-op semantics are reused;
+no new evaluator or UI-only application exists. Source/raw nonpersisted poison is
+unchanged. Cards, both panels, previews and execution share the detached results,
+and source changes retire intents even when numeric totals are equal. Filtered,
+final, unknown/coerced/reference/custom-string targets and condition/Item phases
+remain explicitly unavailable. This supersedes C27's pending initial training Set
+restriction only within the declared identity/operation profile.

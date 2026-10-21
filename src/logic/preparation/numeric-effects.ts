@@ -7,12 +7,13 @@ import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
 import {prepareEquipment606,type EquipmentPreparation} from './equipment';
 import {DAMAGE_LABELS_606,CONDITION_LABELS_606,BYPASS_LABELS_606} from '../native/6.0.6/defense-identities';
 import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
+import {trainingSetField606} from './training-fields';
 export interface NumericEffects {
     system:Record<string,unknown>;globals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;
     applied:Array<{effectId:string;key:string;phase:'initial';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned'}>;
 }
-/** Qualified initial numeric/defense trait fields. This detached initialized operand
+/** Qualified initial numeric/defense/training trait fields. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
  * starts at verified0 despite stale nonpersisted source values (DD-R04).
  * Only constant FormulaField add/subtract/override is reduced by operation,
@@ -28,7 +29,8 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
         if(keys[1]==='traits'){
             const key=keys[2],field=keys[3];
-            const set=keys.length===4&&(['dr','di','dv','ci'].includes(key)&&field==='value'||['dr','di','dv','dm'].includes(key)&&field==='bypasses');
+            const training=trainingSetField606(keys.slice(2).join('.'));
+            const set=Boolean(training)||keys.length===4&&(['dr','di','dv','ci'].includes(key)&&field==='value'||['dr','di','dv','dm'].includes(key)&&field==='bypasses');
             const amount=key==='dm'&&keys.length===5&&field==='amount'&&Object.hasOwn(DAMAGE_LABELS_606,keys[4]);
             if(!set&&!amount)return null;
             let container=system;
@@ -40,7 +42,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
             if(set){
                 const value=container[name];origins[change.key]??=value===undefined?'default':value===null?'null-cleaned':'source';
                 const labels=field==='bypasses'?BYPASS_LABELS_606:key==='ci'?CONDITION_LABELS_606:DAMAGE_LABELS_606;
-                return {object:container,field:name,set:true,valid:value=>Object.hasOwn(labels,value)||field==='value'&&key!=='ci'&&value==='ALL'};
+                return {object:container,field:name,set:true,valid:training??(value=>Object.hasOwn(labels,value)||field==='value'&&key!=='ci'&&value==='ALL')};
             }
             // FormulaField scalar source cleaning, distinct from a prepared
             // expression reduction. Null/missing initializes undefined.

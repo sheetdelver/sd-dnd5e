@@ -4,6 +4,7 @@ import type {RulesContext} from '../rules-context';
 import type {NumericEffects} from './numeric-effects';
 import type {SkillToolModel} from './skill-tool';
 import {initializeTraitSet606} from './trait-fields';
+import {trainingSetField606} from './training-fields';
 
 export const trainingKeys=['armor','weapons','tools','languages','mastery'] as const;
 export type TrainingKey=typeof trainingKeys[number];
@@ -25,10 +26,7 @@ const unresolved=(key:string,reference?:string):TrainingEntry=>({kind:'source-ke
 const referenceFor=(references:Readonly<Record<string,string>>,key:string)=>Object.hasOwn(references,key)?references[key]:undefined;
 type LanguageNode=string|{label:string;selectable?:boolean;children?:Readonly<Record<string,LanguageNode>>};
 const languageTree=TRAINING_606.languages as Readonly<Record<string,LanguageNode>>;
-function selectableLanguageKeys(tree:Readonly<Record<string,LanguageNode>>,out=new Set<string>()):Set<string>{
-    for(const [key,node] of Object.entries(tree)){if(typeof node==='string'||node.selectable!==false)out.add(key);if(typeof node!=='string'&&node.children)selectableLanguageKeys(node.children,out);}return out;
-}
-const languageKeys=selectableLanguageKeys(languageTree);
+const validLanguage=trainingSetField606('languages.value')!;
 const unitTypes:Record<string,string>={ft:'foot',m:'meter',mi:'mile',km:'kilometer'};
 
 /** Independent source/local training, not effective roll proficiency. No class,
@@ -84,7 +82,7 @@ export function prepareTraining606(actor:unknown,context:RulesContext,effects:Nu
             else process(key,node);
         }
         spoken.push(...custom);
-        const unknown=values.filter(value=>value!=='ALL'&&!languageKeys.has(value)),reasons:string[]=[];
+        const unknown=values.filter(value=>value!=='ALL'&&!validLanguage(value)),reasons:string[]=[];
         if(unknown.length)reasons.push('Stored language keys are unresolved or nonselectable; no grant inferred');
         const communications:Array<{key:string;value:number;units:string;label:string}>=[];
         const rawCommunication=data.communication,communication=rawCommunication==null?{}:record(rawCommunication);

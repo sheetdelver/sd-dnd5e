@@ -675,3 +675,23 @@ flags; no base Item index; fixed English/unit formatter; and explicit initializa
 are declared stubs. Partial malformed/default-range cases compare only the independent
 spoken domain. No DataModel, native engine, installed sheet or native/operator parity
 is claimed. Unknown context, malformed and source-preservation tests remain R.
+
+
+### Initial persisted training Set targets (C28)
+
+C27's exact CharacterData/SimpleTrait/TraitsFields schema assertions establish
+persisted source targets independently of roll proficiency's nonpersisted defaults.
+The C28 oracle applies exact Foundry14.367 field methods to24 independently declared
+initialized training cases before native language preparation. It verifies defaults,
+null cleaning, JSON/plain deltas, duplicate order, whitespace-before-clean comparison,
+all six Set operations, equal-member reorder and priority/source order. Mastery
+value contains base weapon identities; bonus contains mastery property identities.
+Native language preparation independently supplies ALL, grouped Primordial and
+configuration-ordered labels after those field operations.
+
+15 module unavailable cases are not native schema rejection claims: native strings
+can contain wider keys and coercions. Unknown/coerced/reference identities, raw array
+deltas, nonselectable language categories, incorrect mastery domains, custom-string
+operations and filtered/final phases remain unqualified. The harness uses explicit
+initialization and the previously declared primitive validation wrappers, not a
+DataModel or an installed native lifecycle. No base Item index or pack access occurs.
