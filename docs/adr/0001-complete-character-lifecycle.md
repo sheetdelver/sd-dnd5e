@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets | RV01–RV04 retained; C06–C28 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters | RV01–RV04 retained; C06–C29 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1211,4 +1211,31 @@ host and package evidence. C27's pending initial training Set restriction is
 superseded only for these qualified targets. No full DD/A/M gate closes. Remaining
 conditions/rules/filter/final/Item phases, broader expressions and M3+ are open.
 E01/wider Q00/E05/installed/native/operator acceptance and ADR-0001 remain open;
+experimental0.4.1 and compatibility unchanged.
+
+
+### C29 — Snapshot-invariant boolean filters (2026-10-21)
+
+C28 is `ece9970`. This bounded M2/Q02a slice advances DD-02/05/06/27/34 and
+A02/A04/A21 partially. It qualifies empty/default and boolean-only effect/change
+FiltersField trees through the shared plan.40 independent native guard observations
+make zero property reads; separate exact method probes establish cached first-effect
+versus fresh phase-change evaluation. Only snapshot-invariant trees bypass the
+unqualified replacement-data dependency. Data-dependent, malformed/unknown branches
+remain unavailable even where a boolean short-circuit could hide them.
+
+54 maintained source contracts include34 supported workflows,32 failing before and
+2 existing defaults, plus20 retained boundaries. False effects contribute neither
+changes nor statuses; false changes skip only themselves. Existing type/duration/
+flag/Item eligibility and malformed-source gates remain. Definitions/default origins/
+results are recorded in the shared plan; equivalent-outcome edits retire old intents.
+No source write, private transport, cache, new dice evaluator or Core requirement.
+
+[C29 ledger](../plans/0001-verification.md#c29--snapshot-invariant-filters-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c29-constant-filters.json)
+distinguish regression, controlled methods, mounted consumers, isolated public host
+and package evidence. No full DD/A/M gate closes. Next bounded Q02a work qualifies
+actual initial replacement-data fields/collection timing before enabling dependent
+comparisons; final/Item/condition/flag/broader-expression rules and M3+ remain open.
+E01/wider Q00/E05/native/operator/full acceptance and ADR-0001 remain open;
 experimental0.4.1 and compatibility unchanged.

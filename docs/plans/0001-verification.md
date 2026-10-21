@@ -1513,3 +1513,54 @@ C28 mounted artifacts `/tmp/dnd5e-mounted-YxVl0n`:156 training readout states,
 420 numeric effect states and all prior suites/fences PASS at1440/390. Final
 public-host artifacts `/tmp/dnd5e-public-rolls-Hp8vFd` include maintained576/24
 new-case coverage assertions. No task listeners/processes remain.
+
+### C29 — Snapshot-invariant filters (2026-10-21)
+
+Predecessor C28 `ece9970`. Completed bounded M2/Q02a DD-02/05/06/27/34,
+A02/A04/A21 subrequirements: invariant boolean-only effect/change guards with
+shared suppression/filter provenance and equal-outcome intent retirement.54 source
+contracts include34 supported workflows:32 fail before,2 existing defaults remain
+correct;20 availability boundaries stay gated.40 native guard observations include
+6 separately gated workflows; native schema rejection is not inferred for wider
+shapes. Every branch must qualify, independently of boolean short-circuit outcome.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (released0.19.3,
+90c13e5). `npm test`:60 tooling assertions,8 tooling/31 module suites PASS.
+`typecheck`:161 explicit module/UI/server/test/hook files PASS. `test:native-source
+-- --native ../../../../temp/dnd5e`:2242 records/591 expressions PASS at exact
+release6.0.6/87e94db. `test:native-filters -- --native ../../../../temp/dnd5e
+--foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14`:40 guards,zero property
+reads and distinct cache/fresh-change probes PASS. The oracle initializes native
+JSON strings in its VM realm; initial helper/cross-realm setup errors were corrected
+before success. Explicit JSON/default initialization, superclass eligibility=true,
+identity replacement data and no source Item are stubs. The cache callback probe
+establishes lifetime only, not any native phase snapshot or dependent filter.
+`test:native-effects` with the same static references preserves69 Item schema
+eligibility,5 phase,20 numeric,19 FormulaField and25 mode/passive comparisons PASS.
+
+`test:public-rolls`:15960 accepted requests total,including816 new check/mode/bonus
+and34 normal-bound requests.9101 normal-range requests/441 distributions,1 rejected
+unary candidate and40 plain tied-index diagnostics PASS,actual host serialization
+unchanged,zero native writes. Artifacts `/tmp/dnd5e-public-rolls-X5yZhb`; synthetic
+public SDK primitive regression only. Mounted actual consumer evidence is recorded
+separately in the portable record. `check:package` passes isolated module/public
+boundary checks,managed typing and bundles. Archive
+`/tmp/dnd5e-package-wdCCZz/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`6841fada9bcc0da6a67c243de0425ba0d01810318297f399a04f2c959283bf10`.
+[Portable record](../audits/evidence/2026-10-21-c29-constant-filters.json) preserves
+source/script/fixture/artifact identities, observations and limits without ignored
+files. Node24 local;Node22 CI/installed UI/native/operator unrun.
+
+No full DD/A/M gate closes. Next Q02a qualifies actual initial replacement-data
+fields and collection timing before dependent comparisons; final/Item/condition/
+flag/broader-expression work and M3+ remain. E01/wider Q00/E05/full acceptance and
+ADR-0001 remain open;experimental0.4.1 and compatibility unchanged.
+
+C29 full mounted run `/tmp/dnd5e-mounted-epEqU9` passes all prior suites plus
+258 training/524 numeric states with the initial51-case filter table. After3
+explicit unavailable malformed/legacy boundary additions and guard-order correction,
+`test:mounted -- --filters-only` passes108 final states across all54 contracts at
+1440/390, actual skill/tool/training readouts, preview/execution, recovery and held
+callbacks. Artifacts `/tmp/dnd5e-mounted-ODhUJQ`; focused mode makes no full-suite
+claim. Final root regressions/typing/package pass; supported34 public workflows
+are unchanged. Task services stopped, no production listeners touched.

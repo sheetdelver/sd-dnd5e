@@ -630,3 +630,27 @@ and source changes retire intents even when numeric totals are equal. Filtered,
 final, unknown/coerced/reference/custom-string targets and condition/Item phases
 remain explicitly unavailable. This supersedes C27's pending initial training Set
 restriction only within the declared identity/operation profile.
+
+
+### Snapshot-invariant effect/change filters (C29)
+
+`constantFilter606` qualifies only root empty JSON definitions and correctly shaped
+boolean-only AND/NAND/OR/NOR/XOR/NOT trees. Every branch is validated before boolean
+logic; a true OR cannot hide an unqualified property comparison. Unknown operators,
+malformed/coerced definitions, data-dependent paths and bounded-size/depth/node
+excess remain unavailable. This pure boolean guard is not a roll evaluator or a
+replacement-data snapshot. No ambient locale, property lookup, clock or cache exists.
+
+The shared effect plan records original definition/default provenance and result.
+A false effect suppresses its changes/status contribution; a false change skips only
+that change. Existing type/duration/flag/Item eligibility and malformed-status gates
+are preserved. Unknown targets or final phases behind a proven false guard are not
+applied. Source definition changes retire held intents even when outcomes/totals
+agree and a fixture retains the same source revision. Source is never rewritten.
+
+Pinned native methods show effect conditions cache their first evaluation, while
+change conditions use current phase replacementData. C29 is safe across those
+lifetimes only because its trees read zero snapshot properties. It does not use raw
+source/current derived data as a substitute for native initial/final getRollData.
+Data-dependent filters, active conditions/flags, Item/final preparation and wider
+formula semantics remain unqualified; Q02a/M2 stay open.

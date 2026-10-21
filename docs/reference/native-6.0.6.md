@@ -695,3 +695,30 @@ deltas, nonselectable language categories, incorrect mastery domains, custom-str
 operations and filtered/final phases remain unqualified. The harness uses explicit
 initialization and the previously declared primitive validation wrappers, not a
 DataModel or an installed native lifecycle. No base Item index or pack access occurs.
+
+
+### Snapshot-invariant filter profile (C29)
+
+Native FiltersField is a JSONField with initial"{}"; initialize parses it into Filter
+or returnsnull on parse failure. Filter.check has a root isEmpty fast path, otherwise
+performCheck uses implicit root AND or explicit operators. Empty AND/NOR are true;
+NAND/OR/XOR false. XOR is odd parity, including3 true operands. NOT takes one node.
+Native accepts wider/malformed shapes with various results; the module qualifies
+only exact declared boolean shapes and never claims its boundaries are schema errors.
+
+Exact Filter/functions, FiltersField initialization/default assertion and native
+isEmpty/getType helpers independently establish40 guard observations. All supported
+checks must make zero property reads: the oracle's getProperty throws. Effect model
+evaluateCondition/prepareBaseData/isSuppressed plus document shouldApplyChange show
+first-effect caching and per-change fresh checks. A separate callback cache probe
+shows false initial remains false at final until reset; fresh change checks differ.
+That callback proves method lifetime, not a data-dependent Filter/snapshot profile.
+
+Superclass eligibility=true, replacement adapter identity, no source Item and fixed
+add skipConditions=false are explicit stubs. Primitive persisted JSON/default strings
+are initialized without a full DataModel.6 guard observations belong to workflows
+still gated for statuses/flags/malformed source. Source workflow arithmetic composes
+previously qualified numeric field/ability methods with independently expected guard
+truth; no native Actor lifecycle, engine or operator acceptance follows. Native phase
+source shows initial status precollection and final Item/spell preparation boundaries;
+those data-dependent snapshots are not silently approximated by C29.

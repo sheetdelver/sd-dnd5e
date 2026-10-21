@@ -1,0 +1,295 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Snapshot-invariant boolean-only FiltersField definitions, effect first-evaluation cache vs per-change checks. Data-dependent paths and unqualified branches remain unavailable.",
+  "cases": [
+    {
+      "id": "default",
+      "truth": true
+    },
+    {
+      "id": "empty-object",
+      "conditions": "{}",
+      "truth": true
+    },
+    {
+      "id": "empty-array",
+      "conditions": "[]",
+      "truth": true
+    },
+    {
+      "id": "AND-empty",
+      "conditions": "{\"o\":\"AND\",\"v\":[]}",
+      "truth": true
+    },
+    {
+      "id": "NAND-empty",
+      "conditions": "{\"o\":\"NAND\",\"v\":[]}",
+      "truth": false
+    },
+    {
+      "id": "OR-empty",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false
+    },
+    {
+      "id": "NOR-empty",
+      "conditions": "{\"o\":\"NOR\",\"v\":[]}",
+      "truth": true
+    },
+    {
+      "id": "XOR-empty",
+      "conditions": "{\"o\":\"XOR\",\"v\":[]}",
+      "truth": false
+    },
+    {
+      "id": "AND-mixed",
+      "conditions": "{\"o\":\"AND\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+      "truth": false
+    },
+    {
+      "id": "NAND-mixed",
+      "conditions": "{\"o\":\"NAND\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+      "truth": true
+    },
+    {
+      "id": "OR-mixed",
+      "conditions": "{\"o\":\"OR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+      "truth": true
+    },
+    {
+      "id": "NOR-mixed",
+      "conditions": "{\"o\":\"NOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+      "truth": false
+    },
+    {
+      "id": "XOR-mixed",
+      "conditions": "{\"o\":\"XOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+      "truth": true
+    },
+    {
+      "id": "AND-both-true",
+      "conditions": "{\"o\":\"AND\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+      "truth": true
+    },
+    {
+      "id": "NAND-both-true",
+      "conditions": "{\"o\":\"NAND\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+      "truth": false
+    },
+    {
+      "id": "OR-both-true",
+      "conditions": "{\"o\":\"OR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+      "truth": true
+    },
+    {
+      "id": "NOR-both-true",
+      "conditions": "{\"o\":\"NOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+      "truth": false
+    },
+    {
+      "id": "XOR-both-true",
+      "conditions": "{\"o\":\"XOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+      "truth": false
+    },
+    {
+      "id": "xor-three-true",
+      "conditions": "{\"o\":\"XOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+      "truth": true
+    },
+    {
+      "id": "not-true",
+      "conditions": "{\"o\":\"NOT\",\"v\":{\"o\":\"AND\",\"v\":[]}}",
+      "truth": false
+    },
+    {
+      "id": "not-false",
+      "conditions": "{\"o\":\"NOT\",\"v\":{\"o\":\"OR\",\"v\":[]}}",
+      "truth": true
+    },
+    {
+      "id": "not-not-true",
+      "conditions": "{\"o\":\"NOT\",\"v\":{\"o\":\"NOT\",\"v\":{\"o\":\"AND\",\"v\":[]}}}",
+      "truth": true
+    },
+    {
+      "id": "implicit-root-and",
+      "conditions": "[{\"o\":\"AND\",\"v\":[]},{\"o\":\"NOT\",\"v\":{\"o\":\"OR\",\"v\":[]}}]",
+      "truth": true
+    },
+    {
+      "id": "implicit-root-and-false",
+      "conditions": "[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]",
+      "truth": false
+    },
+    {
+      "id": "whitespace-empty",
+      "conditions": " { } ",
+      "truth": true
+    },
+    {
+      "id": "false-effect-unknown-target",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false,
+      "unknownTarget": true
+    },
+    {
+      "id": "false-effect-final-target",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false,
+      "final": true
+    },
+    {
+      "id": "false-effect-status",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false,
+      "statuses": [
+        "poisoned"
+      ]
+    },
+    {
+      "id": "false-effect-rider-status",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false,
+      "rider": [
+        "poisoned"
+      ]
+    },
+    {
+      "id": "false-change-unknown-target",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false,
+      "scope": "change",
+      "unknownTarget": true
+    },
+    {
+      "id": "false-change-final-target",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false,
+      "scope": "change",
+      "final": true
+    },
+    {
+      "id": "true-change",
+      "conditions": "{\"o\":\"AND\",\"v\":[]}",
+      "truth": true,
+      "scope": "change"
+    },
+    {
+      "id": "false-change",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false,
+      "scope": "change"
+    },
+    {
+      "id": "false-change-retains-other-change",
+      "conditions": "{\"o\":\"OR\",\"v\":[]}",
+      "truth": false,
+      "scope": "change",
+      "otherBonus": true
+    },
+    {
+      "id": "dependent",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14}"
+    },
+    {
+      "id": "hidden-dependent",
+      "conditions": "{\"o\":\"OR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"k\":\"abilities.wis.value\",\"v\":14}]}"
+    },
+    {
+      "id": "unknown-operator",
+      "conditions": "{\"o\":\"MAYBE\",\"v\":[]}"
+    },
+    {
+      "id": "malformed-NOT",
+      "conditions": "{\"o\":\"NOT\",\"v\":[]}"
+    },
+    {
+      "id": "malformed-child",
+      "conditions": "{\"o\":\"AND\",\"v\":[{}]}"
+    },
+    {
+      "id": "unexpected-key",
+      "conditions": "{\"o\":\"AND\",\"v\":[],\"k\":\"ignored-by-native\"}"
+    },
+    {
+      "id": "raw-null",
+      "conditions": "null"
+    },
+    {
+      "id": "primitive",
+      "conditions": "false"
+    },
+    {
+      "id": "prototype-operator",
+      "conditions": "{\"o\":\"toString\",\"v\":[]}"
+    },
+    {
+      "id": "object-operator",
+      "conditions": "{\"o\":{\"toString\":123},\"v\":[]}"
+    },
+    {
+      "id": "invalid-json",
+      "conditions": "{"
+    },
+    {
+      "id": "raw-object",
+      "conditions": {
+        "o": "AND",
+        "v": []
+      }
+    },
+    {
+      "id": "null-source",
+      "conditions": null
+    },
+    {
+      "id": "too-long",
+      "conditions": "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 {}"
+    },
+    {
+      "id": "true-effect-status-gated",
+      "conditions": "{\"o\": \"AND\", \"v\": []}",
+      "truth": true,
+      "statuses": [
+        "poisoned"
+      ],
+      "workflowUnavailable": true
+    },
+    {
+      "id": "false-effect-malformed-status-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "statuses": 42,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "false-effect-flags-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "flags": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "false-effect-legacy-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "legacy": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "false-effect-malformed-collection-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "malformedCollection": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "false-change-malformed-priority-gated",
+      "conditions": "{\"o\": \"OR\", \"v\": []}",
+      "truth": false,
+      "scope": "change",
+      "malformedPriority": true,
+      "workflowUnavailable": true
+    }
+  ]
+}

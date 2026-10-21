@@ -832,3 +832,21 @@ and [portable record](evidence/2026-10-21-c28-training-effects.json). Context/so
 recovery, retained-callback fences and source poison protection remain. This closes
 no full gate; remaining filter/condition/final/Item/broader-expression and command
 phases remain open, as do E01/wider Q00/E05/native/operator/full ADR acceptance.
+
+
+### C29 — Boolean guards do not invent phase snapshots
+
+C28 `ece9970` precedes this bounded M2/Q02a slice (DD-02/05/06/27/34,
+A02/A04/A21 partial).40 pinned guards/zero property reads establish only invariant
+boolean definitions. Native first-effect cache and fresh change checks remain distinct.
+Of54 source contracts,34 supported workflows include32 predecessor failures and
+2 unchanged defaults;20 unqualified workflows remain gated. False guards can prove
+an otherwise unknown change inactive, while type/duration/flag/Item/malformed gates
+are preserved. Every branch is validated; unknown dependent work is never hidden
+by short-circuiting. Shared provenance retires equal-outcome callbacks.
+
+See [C29 ledger](../plans/0001-verification.md#c29--snapshot-invariant-filters-2026-10-21)
+and [portable record](evidence/2026-10-21-c29-constant-filters.json). Initial/final
+replacement-data snapshots, active conditions/flags, Item phases and broader formulas
+remain open. No additional Core defect or complete M2/native/operator acceptance
+is inferred from these extracted methods or isolated fixtures.

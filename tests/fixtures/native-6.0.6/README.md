@@ -321,3 +321,12 @@ Before all24 supported requests are unavailable; after the shared pipeline suppl
 both panel/card facts and unchanged numeric checks. Source defaults and local/effective
 coefficients remain distinct; stale nonpersisted fields cannot grant training.
 The15 boundaries are module availability limits, not native validation parity.
+
+
+C29 `constant-filters.json`:54 source contracts,34 supported workflows (32 fail before,
+2 existing defaults) and20 retained module boundaries.40 independently pinned guard
+observations include6 workflows gated separately for statuses/flags/malformed source.
+The oracle forbids property reads and separately probes effect caching versus fresh
+change checks. It does not qualify a data-dependent snapshot, native source coercion
+or installed lifecycle. Boolean short-circuit never hides unknown branches. Depth/
+node/size bounds and source/provenance/callback preservation are maintained R tests.

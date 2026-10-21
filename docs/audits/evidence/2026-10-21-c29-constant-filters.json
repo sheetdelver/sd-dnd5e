@@ -1,0 +1,2184 @@
+{
+  "checkpoint": "C29",
+  "precedingImplementation": "ece9970",
+  "requirementsPartial": [
+    "M2",
+    "Q02a",
+    "DD-02",
+    "DD-05",
+    "DD-06",
+    "DD-27",
+    "DD-34",
+    "A02",
+    "A04",
+    "A21"
+  ],
+  "baseline": {
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundryStatic": {
+      "generation": 14,
+      "build": 367,
+      "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0"
+    },
+    "node": "24.21.0",
+    "Node22CI": "unrun"
+  },
+  "failingBefore": {
+    "implementation": "ece9970 effects planner; new test guards do not feed predecessor module calculations",
+    "sourceContracts": 54,
+    "supportedWorkflows": 34,
+    "failingRequests": 32,
+    "unchangedDefaults": 2,
+    "retainedUnavailable": 20,
+    "exit": 1,
+    "logSha256": "dd6491bdfeb6db19d0b9537c9c657b6b413d764d9bdf623e27b7d858034d656f"
+  },
+  "controlledNativeFilters": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": {
+      "generation": 14,
+      "build": 367,
+      "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0"
+    },
+    "observations": [
+      {
+        "id": "default",
+        "definition": "{}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "empty-object",
+        "definition": "{}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "empty-array",
+        "definition": "[]",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "AND-empty",
+        "definition": "{\"o\":\"AND\",\"v\":[]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "NAND-empty",
+        "definition": "{\"o\":\"NAND\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "OR-empty",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "NOR-empty",
+        "definition": "{\"o\":\"NOR\",\"v\":[]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "XOR-empty",
+        "definition": "{\"o\":\"XOR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "AND-mixed",
+        "definition": "{\"o\":\"AND\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "NAND-mixed",
+        "definition": "{\"o\":\"NAND\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "OR-mixed",
+        "definition": "{\"o\":\"OR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "NOR-mixed",
+        "definition": "{\"o\":\"NOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "XOR-mixed",
+        "definition": "{\"o\":\"XOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "AND-both-true",
+        "definition": "{\"o\":\"AND\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "NAND-both-true",
+        "definition": "{\"o\":\"NAND\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "OR-both-true",
+        "definition": "{\"o\":\"OR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "NOR-both-true",
+        "definition": "{\"o\":\"NOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "XOR-both-true",
+        "definition": "{\"o\":\"XOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "xor-three-true",
+        "definition": "{\"o\":\"XOR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]},{\"o\":\"AND\",\"v\":[]}]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "not-true",
+        "definition": "{\"o\":\"NOT\",\"v\":{\"o\":\"AND\",\"v\":[]}}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "not-false",
+        "definition": "{\"o\":\"NOT\",\"v\":{\"o\":\"OR\",\"v\":[]}}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "not-not-true",
+        "definition": "{\"o\":\"NOT\",\"v\":{\"o\":\"NOT\",\"v\":{\"o\":\"AND\",\"v\":[]}}}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "implicit-root-and",
+        "definition": "[{\"o\":\"AND\",\"v\":[]},{\"o\":\"NOT\",\"v\":{\"o\":\"OR\",\"v\":[]}}]",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "implicit-root-and-false",
+        "definition": "[{\"o\":\"AND\",\"v\":[]},{\"o\":\"OR\",\"v\":[]}]",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "whitespace-empty",
+        "definition": " { } ",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "false-effect-unknown-target",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "false-effect-final-target",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "false-effect-status",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "false-effect-rider-status",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "false-change-unknown-target",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "false-change-final-target",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "true-change",
+        "definition": "{\"o\":\"AND\",\"v\":[]}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "false-change",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "false-change-retains-other-change",
+        "definition": "{\"o\":\"OR\",\"v\":[]}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Qualified guard only, initialized eligibility/snapshots are explicit stubs"
+      },
+      {
+        "id": "true-effect-status-gated",
+        "definition": "{\"o\": \"AND\", \"v\": []}",
+        "truth": true,
+        "shouldApplyChange": true,
+        "effectReplacementCalls": 1,
+        "workflow": "Module boundary; only filter truth compared"
+      },
+      {
+        "id": "false-effect-malformed-status-gated",
+        "definition": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Module boundary; only filter truth compared"
+      },
+      {
+        "id": "false-effect-flags-gated",
+        "definition": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Module boundary; only filter truth compared"
+      },
+      {
+        "id": "false-effect-legacy-gated",
+        "definition": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Module boundary; only filter truth compared"
+      },
+      {
+        "id": "false-effect-malformed-collection-gated",
+        "definition": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Module boundary; only filter truth compared"
+      },
+      {
+        "id": "false-change-malformed-priority-gated",
+        "definition": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "shouldApplyChange": false,
+        "effectReplacementCalls": 1,
+        "workflow": "Module boundary; only filter truth compared"
+      }
+    ],
+    "propertyReads": 0,
+    "effectCacheProbe": {
+      "initial": false,
+      "finalBeforeReset": false,
+      "finalAfterReset": true,
+      "replacementCalls": 2
+    },
+    "changeProbe": {
+      "initial": false,
+      "final": true
+    },
+    "sourceHashes": {
+      "module/filter.mjs": "f80fcb3066fe319389225c6101e31ae8738a14f7f1baab56fde9c2e60b051cbf",
+      "module/data/fields/filters-field.mjs": "51d68d61bf4dba27ec81f4392b8f85ad6e9cf894b44e265e087600e16073a256",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79"
+    },
+    "stubs": [
+      "Exact Filter functions, FiltersField.initialize/default schema assertion, effect evaluateCondition/cache reset and document shouldApplyChange methods only",
+      "Primitive field initialization receives persisted JSON strings/default{} explicitly; no DataModel source cleaning/validation boot",
+      "Property reads throw; supported trees must be snapshot-invariant even with changed snapshots; data-dependent/unknown/malformed branches not qualified",
+      "Document superclass eligibility returns true, no replacement-source Item and changeTypes.add skipConditions=false; module eligibility/phase tests remain separate",
+      "Replacement-data adapter is identity; no claim that raw source/current derived values equal native initial/final getRollData",
+      "Cache/fresh-change callback probes establish method lifetime only, not data-dependent filters, statuses/rider lifecycle, clocks, native engine or operator acceptance"
+    ]
+  },
+  "controlledNativeFilterArtifactSha256": "0ec60df9bb56444c4b1adc7feaf10a4ad3ec6b94ffa3d31e86758eebac7ed82d",
+  "priorNativeEffects": {
+    "command": "npm run test:native-effects -- --core <released0.19.3> --native <exact-release> --foundry <static14.367> --write-evidence <output>",
+    "itemEligibility": 69,
+    "phases": 5,
+    "numericFieldDerived": 20,
+    "constantFormula": 19,
+    "modePassive": 25,
+    "sha256": "d240f958d2d7a304d297d342b0b5e3abd8d923d7126d8181ca37d5d1d737afa7",
+    "result": "PASS"
+  },
+  "regression": {
+    "command": "npm test -- --core <released0.19.3>",
+    "toolingAssertions": 60,
+    "toolingSuites": 8,
+    "moduleSuites": 31,
+    "result": "PASS",
+    "sourcePreservation": "all raw source unchanged, nonpersisted roll99 poison ignored",
+    "boundaries": "malformed/legacy collections and malformed priorities explicitly gate before false-guard shortcut; all branches qualify independently of short-circuit"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core <released0.19.3>",
+    "explicitModuleUiServerTestHookFiles": 161,
+    "result": "PASS"
+  },
+  "nativeSourceInventory": {
+    "command": "npm run test:native-source -- --core <released0.19.3> --native <exact-release>",
+    "records": 2242,
+    "expressions": 591,
+    "result": "PASS"
+  },
+  "mountedFull": {
+    "artifacts": "/tmp/dnd5e-mounted-epEqU9",
+    "sha256": "5898806cb8df514247553b53ad1cf9ffa19d0f502f9e867a6f0c09f0c56bb2e1",
+    "sourceContractVersion": "51-case table before final3 unavailable malformed/legacy boundary additions",
+    "trainingRows": 258,
+    "numericEffectRows": 524,
+    "newFilterRows": [
+      {
+        "width": 1440,
+        "id": "constant-filter:default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:empty-object",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:empty-array",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:AND-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NAND-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:OR-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NOR-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:XOR-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:AND-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NAND-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:OR-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NOR-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:XOR-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:AND-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NAND-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:OR-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NOR-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:XOR-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:xor-three-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:not-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:not-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:not-not-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:implicit-root-and",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:implicit-root-and-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:whitespace-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-unknown-target",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-final-target",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-status",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-rider-status",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change-unknown-target",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change-final-target",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:true-change",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change-retains-other-change",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:dependent",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:hidden-dependent",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:unknown-operator",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:malformed-NOT",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:malformed-child",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:unexpected-key",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:raw-null",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:primitive",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:prototype-operator",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:object-operator",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:invalid-json",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:raw-object",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:null-source",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:too-long",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:true-effect-status-gated",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-malformed-status-gated",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-flags-gated",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:equal-outcome-filter-identity-retirement",
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:empty-object",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:empty-array",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:AND-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NAND-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:OR-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NOR-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:XOR-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:AND-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NAND-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:OR-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NOR-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:XOR-mixed",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:AND-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NAND-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:OR-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NOR-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:XOR-both-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:xor-three-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:not-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:not-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:not-not-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:implicit-root-and",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:implicit-root-and-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:whitespace-empty",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-unknown-target",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-final-target",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-status",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-rider-status",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change-unknown-target",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change-final-target",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:true-change",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change-retains-other-change",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:dependent",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:hidden-dependent",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:unknown-operator",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:malformed-NOT",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:malformed-child",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:unexpected-key",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:raw-null",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:primitive",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:prototype-operator",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:object-operator",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:invalid-json",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:raw-object",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:null-source",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:too-long",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:true-effect-status-gated",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-malformed-status-gated",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-flags-gated",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:equal-outcome-filter-identity-retirement",
+        "retainedCallbackFenced": true
+      }
+    ],
+    "result": "All prior mounted suites and new51 filter workflows PASS, actual module consumers with SDK seam"
+  },
+  "mountedFinalFocused": {
+    "command": "npm run test:mounted -- --core <released0.19.3> --browser-tools <test-only> --chromium <Chromium143> --filters-only",
+    "artifacts": "/tmp/dnd5e-mounted-ODhUJQ",
+    "sha256": "8ee20e3b707b9a6191cd658c7aec8f7842a768687f1bebdb4fe8ce667a6e24cb",
+    "sourceContracts": 54,
+    "rows": [
+      {
+        "width": 1440,
+        "id": "constant-filter:default",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:empty-object",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:empty-array",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:AND-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NAND-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:OR-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NOR-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:XOR-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:AND-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NAND-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:OR-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NOR-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:XOR-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:AND-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NAND-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:OR-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:NOR-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:XOR-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:xor-three-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:not-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:not-false",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:not-not-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:implicit-root-and",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:implicit-root-and-false",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:whitespace-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-unknown-target",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-final-target",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-status",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-rider-status",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change-unknown-target",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change-final-target",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:true-change",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change-retains-other-change",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:dependent",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:hidden-dependent",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:unknown-operator",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:malformed-NOT",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:malformed-child",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:unexpected-key",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:raw-null",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:primitive",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:prototype-operator",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:object-operator",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:invalid-json",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:raw-object",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:null-source",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:too-long",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:true-effect-status-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-malformed-status-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-flags-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-legacy-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-effect-malformed-collection-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 1440,
+        "id": "constant-filter:false-change-malformed-priority-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:default",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:empty-object",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:empty-array",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:AND-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NAND-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:OR-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NOR-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:XOR-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:AND-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NAND-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:OR-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NOR-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:XOR-mixed",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:AND-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NAND-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:OR-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:NOR-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:XOR-both-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:xor-three-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:not-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:not-false",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:not-not-true",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:implicit-root-and",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:implicit-root-and-false",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:whitespace-empty",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-unknown-target",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-final-target",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-status",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-rider-status",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change-unknown-target",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change-final-target",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:true-change",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change-retains-other-change",
+        "ready": true,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:dependent",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:hidden-dependent",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:unknown-operator",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:malformed-NOT",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:malformed-child",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:unexpected-key",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:raw-null",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:primitive",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:prototype-operator",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:object-operator",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:invalid-json",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:raw-object",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:null-source",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:too-long",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:true-effect-status-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-malformed-status-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-flags-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-legacy-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-effect-malformed-collection-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      },
+      {
+        "width": 390,
+        "id": "constant-filter:false-change-malformed-priority-gated",
+        "ready": false,
+        "actualSkillToolTrainingConsumers": true,
+        "previewExecutionAgreement": true,
+        "recovery": true,
+        "retainedCallbackFenced": false
+      }
+    ],
+    "result": "108 final skill/tool/training, preview/execution/recovery/fence states PASS",
+    "scope": "Focused final guard validation, does not claim full-suite coverage under this flag"
+  },
+  "publicHost": {
+    "command": "npm run test:public-rolls -- --core <released0.19.3>",
+    "artifacts": "/tmp/dnd5e-public-rolls-X5yZhb",
+    "sha256": "0c84aa7280c6bbf616c9dd034387d6ed1b3a67ab5944768d52b88456ce5757f0",
+    "accepted": 15960,
+    "newCheckModeBonus": 816,
+    "newNormalRanges": 34,
+    "normalRangeRequests": 9101,
+    "normalDistributions": 441,
+    "plainEqualIndexDiagnostics": 40,
+    "candidateRejections": 1,
+    "nativeWrites": 0,
+    "result": "PASS, unchanged serialized faces/entropy/values/count/states/totals/distributions and unequal selection identity; equal plain-index diagnostics nonblocking",
+    "scope": "34 supported workflows unchanged after final3 boundary additions; no new native transport/installed endpoints"
+  },
+  "package": {
+    "command": "npm run check:package -- --core <released0.19.3>",
+    "archive": "/tmp/dnd5e-package-wdCCZz/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "6841fada9bcc0da6a67c243de0425ba0d01810318297f399a04f2c959283bf10",
+    "result": "isolated module/public-boundary checks, managed typing and bundles PASS"
+  },
+  "fileHashes": {
+    "tests/fixtures/native-6.0.6/constant-filters.json": "864cc7c4c7f280a2dd003556e435371216b6e923902476e65627c0e5c641c175",
+    "src/logic/preparation/constant-filters.ts": "8c7d1220f2d3d716fbc5f6163e7b02157f3acf3fb3e232cef3559f6e5a76f5f2",
+    "src/logic/preparation/effects.ts": "5eb28e127dccf495c15b926e1a9c30898582987ba16cd4ada14baaafe961499c",
+    "src/tests/constant-filters.test.ts": "86e5e33f92002230332fc32e3fa7637572b028a23c8d1f1efc476603708e4f94",
+    "src/tests/fixtures/filter-scenarios.ts": "92fb1a4d9bbd68e5645f165959f5f6aa7a42d611fe95e28a2875aa1bfba55860",
+    "scripts/native-filter-oracle.mjs": "6fcd0b6ef8e9faab020af9f7f6c0f053e760cb1452aef54c6d0d8f963b8c28e6",
+    "scripts/test-mounted.mjs": "38ef9fb98a66d4616cd99e663f04383d202a6eaa2caf358f4a5162e1771c6f98",
+    "scripts/test-public-rolls.mjs": "8ab33e300ba675a5f833eb95073aa97945447f9d26f01746a5cd29f6472f834e",
+    "package.json": "a536f96ca033b01f761c8b8a13b497d3508c9c40ad280debc676473923e70548"
+  },
+  "limitations": [
+    "Boolean-only filters read no replacementData; not an evaluator for arbitrary data-dependent filters",
+    "Every branch must qualify; no guessing missing properties or raw-source/derived-data substitution",
+    "Effects native first-evaluation cache and fresh per-change checks separately recorded; callbacks prove lifetime only",
+    "Initialized JSON/default primitive and Document eligibility/replacement stubs are explicit; no DataModel/Actor/native/operator parity",
+    "Legacy, malformed collections/priority/statuses, unknown flags/time/Item eligibility remain gated",
+    "Native accepts wider strings/filter shapes; module availability boundaries are not schema rejection claims",
+    "Installed UI/native/operator/Node22CI/full DD/A/M acceptance unrun/open",
+    "E01/wider Q00/E05 and ADR-0001 remain open; experimental0.4.1 and compatibility unchanged",
+    "Task-owned services stopped; production listeners untouched"
+  ]
+}
