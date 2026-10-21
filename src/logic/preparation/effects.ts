@@ -1,10 +1,11 @@
+import {conditionSource606,type ConditionSource606} from './conditions';
 import { record } from '../native/6.0.6/source';
 import {constantFilter606,initialFieldFilter606,type ConstantFilter,type ConstantFilterResult} from './constant-filters';
 import {initialFilterData606} from './initial-filter-data';
 import {itemEffectState606,type ItemEffectState} from './item-effect-state';
 export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState;condition?:ConstantFilter;key?:string}
 export interface EffectChange {effectId:string;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number;condition?:ConstantFilter}
-export interface EffectPlan {initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];reason?:string}
+export interface EffectPlan {initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];conditions?:ConditionSource606[];reason?:string}
 const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50};
 /** Source-only eligibility/phase plan for exact6.0.6/Foundry14.367.
  * No Item preparation, snapshot-dependent filters, statuses or time are fabricated. Item-targeted
@@ -12,6 +13,7 @@ const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,su
  * Field/phase qualification is handled separately by numeric-effects. */
 export function planEffects606(actor:unknown):EffectPlan {
     const source=record(actor)??{},initial:EffectChange[]=[],final:EffectChange[]=[],decisions:EffectDecision[]=[];
+    const conditions:ConditionSource606[]=[];
     let reason:string|undefined,order=0;
     const initialRead=initialFilterData606(actor);
     const fail=(id:string,status:string,message:string,parentId?:string)=>{reason??=message;decisions.push({id,parentId,status,reason:message});};
@@ -23,7 +25,7 @@ export function planEffects606(actor:unknown):EffectPlan {
             const effect=record(raw),id=typeof effect?._id==='string'?effect._id:'';
             if(effect?.disabled===true){decisions.push({id,parentId,status:'disabled'});continue;}
             if(!effect||!id){fail(id,'malformed','Active effect source identity unavailable',parentId);continue;}
-            if(effect.disabled!==undefined&&effect.disabled!==false){fail(id,'malformed','Active effect disabled state malformed',parentId);continue;}
+            if(effect.disabled!==undefined&&effect.disabled!==false&&!(effect.type==='condition'&&effect.disabled===null)){fail(id,'malformed','Active effect disabled state malformed',parentId);continue;}
             if(effect.system!==undefined&&!record(effect.system)){fail(id,'malformed','Effect system source malformed',parentId);continue;}
             const system=record(effect.system)??{};
             let eligibility:ItemEffectState|undefined;
@@ -38,7 +40,8 @@ export function planEffects606(actor:unknown):EffectPlan {
                 // Hidden/dependent Items and riders need qualified Item phases.
                 if(Object.values(record(record(item.flags)?.dnd5e)??{}).some(Boolean)){fail(id,'item-preparation-unavailable','Item dependency/rider preparation unavailable',parentId);continue;}
             }
-            if(effect.type!==undefined&&effect.type!=='base'){fail(id,'type-unavailable','Active effect type preparation unavailable',parentId);continue;}
+            const conditionType=effect.type==='condition'&&!item;
+            if(effect.type!==undefined&&effect.type!=='base'&&!conditionType){fail(id,'type-unavailable','Active effect type preparation unavailable',parentId);continue;}
             const duration=record(effect.duration);
             if(effect.start!=null||duration&&Object.entries(duration).some(([key,value])=>!['units','value','expiry','expired'].includes(key)||key==='value'&&value!=null||key==='expiry'&&value!=null||key==='expired'&&value!==false)){
                 fail(id,'duration-unavailable','Effect duration/expiry preparation unavailable',parentId);continue;
@@ -48,7 +51,7 @@ export function planEffects606(actor:unknown):EffectPlan {
                 fail(id,'conditions-unavailable','Effect conditions/dependencies require Q02a qualification',parentId);continue;
             }
             const rider=system.rider==null?{}:record(system.rider),statuses=effect.statuses,riderStatuses=rider?.statuses;
-            if(!rider||[statuses,riderStatuses].some(value=>value!==undefined&&(!Array.isArray(value)||value.some(entry=>typeof entry!=='string')))){
+            if(!rider||[statuses,riderStatuses].some(value=>value!==undefined&&!(conditionType&&value===null)&&(!Array.isArray(value)||value.some(entry=>typeof entry!=='string')))){
                 fail(id,'status-unavailable','Effect status/rider source malformed',parentId);continue;
             }
             if(effect.changes!==undefined){fail(id,'legacy-unavailable','Legacy effect change migration requires qualification',parentId);continue;}
@@ -65,6 +68,12 @@ export function planEffects606(actor:unknown):EffectPlan {
                 const priority=change.priority??priorities[type];
                 if(typeof priority!=='number'||!Number.isFinite(priority)){fail(id,'malformed','Effect priority source malformed',parentId);continue;}
                 envelopes.push({change,key:change.key,phase:phase as 'initial'|'final',type,priority});
+            }
+            if(conditionType){
+                if(envelopes.length){fail(id,'condition-change-unavailable','Condition changes require separate qualification',parentId);continue;}
+                const prepared=conditionSource606(effect,id);
+                if('reason'in prepared){fail(id,'condition-source-unavailable',prepared.reason,parentId);continue;}
+                conditions.push(prepared);decisions.push({id,status:'condition-source-qualified',condition:prepared.condition});continue;
             }
             const firstInitial=envelopes.some(entry=>entry.phase==='initial');
             const activeStatus=(statuses as unknown[]|undefined)?.length||(riderStatuses as unknown[]|undefined)?.length;
@@ -97,5 +106,5 @@ export function planEffects606(actor:unknown):EffectPlan {
     collect(source.effects);
     if(Array.isArray(source.items))for(const raw of source.items){const item=record(raw);if(item)collect(item.effects,item);}
     for(const changes of [initial,final])changes.sort((a,b)=>a.priority-b.priority||a.order-b.order);
-    return {initial,final,decisions,...(reason?{reason}:{})};
+    return {initial,final,decisions,...(conditions.length?{conditions}:{}),...(reason?{reason}:{})};
 }

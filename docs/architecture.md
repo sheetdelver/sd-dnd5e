@@ -807,3 +807,29 @@ suppression. Type/name does not grant an absent status. Three primitive,93 phase
 mode and372 default-build captures provide groundwork only. Manual/alternate/
 initiative/source-boundary qualification and runtime/UI integration remain open;
 no dice evaluator,world cache or Native preparation runtime is introduced.
+
+
+### Shared bounded condition preparation (C37)
+
+C37 supersedes C36's runtime restriction only for Actor-owned nonleveled poisoned
+documents: explicit type/status identity,verified primitive defaults,constant guard,
+no timing/flags/riders/own changes. Effect admission still validates all change
+envelopes before suppression. Nonpersisted source level/isSuppressed/hasLevels and
+raw prepared-looking condition maps never supply prepared facts; source is unchanged.
+
+`conditions.ts` captures statuses before initial CI writes,then filters final CI.
+Removing initial immunity cannot add an omitted status retroactively. After initial
+effects,poisoned adds native disadvantage counts to existing ability checks before
+skill/tool passives; overrides/suppression survive. The shared configuration/compiler
+continues to own selected checks,alternate abilities,manual choices and execution.
+Saves are unchanged. Initiative score uses its own source mode; initiative roll mode
+also includes ability-check mode. Explicit Normal bounds retain their separate gate.
+
+`derived.conditions` carries effective status,availability,source/default and phase
+provenance. Desktop Conditions and the live mobile Conditions modal format it without
+recomputing rules. Known condition facts can remain visible when an unrelated malformed
+mode prevents rolls. Context,flags,legacy exhaustion and unknown status sources gate
+the projection. Source/context changes retire held roll intents and require a fresh
+action after recovery. No condition writes,second cache,dice evaluator or native
+preparation runtime. Other conditions/levels,dependent filters,Item/final phases and
+broader formulas remain dependency-ordered M2 work; C37 is not complete condition support.

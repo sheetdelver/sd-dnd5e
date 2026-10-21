@@ -959,3 +959,18 @@ manual/alternate/initiative/source-boundary qualification precedes integration.
 See [C36 ledger](../plans/0001-verification.md#c36--condition-phase-foundation-2026-10-21)
 and [portable record](evidence/2026-10-21-c36-condition-foundation.json). These model/
 method captures are not full native/operator acceptance. All full gates remain open.
+
+
+### C37 disposition — bounded poisoned condition integration
+
+C36 is `92b58ff`. DD-02/05/27/34,A02/A04/A21 advance partially through one
+shared Actor poisoned status/check/passive path,plus live desktop/mobile readouts.
+125 same-input condition/projection failures pass after;14 unsupported workflows
+stay gated. Pinned manual/alternate/fractional/mode-effect/initiative comparisons
+precede integration. Source preserved,nonpersisted poison ignored,initial status
+collection distinct from final immunity and current Document.active. No condition
+editing or other-condition/level/flag/clock/Item/final/formula qualification follows.
+[C37 ledger](../plans/0001-verification.md#c37--bounded-poisoned-condition-2026-10-21)
+and [portable evidence](evidence/2026-10-21-c37-poisoned-condition.json) distinguish
+regression,controlled native-method,mounted UI,isolated public-host and packaging
+evidence. Full rules/ADR gates and E01/E02/wider Q00/E05 remain open.

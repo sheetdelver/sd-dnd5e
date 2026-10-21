@@ -835,3 +835,27 @@ mode cases and372 native default configurations compare independently declared
 outcomes;3 primitive captures verify defaults/source99 handling. No evaluated dice,
 full DataModel/native runtime/operator acceptance. Manual,alternate-ability and
 initiative configuration remain required before shipping condition execution.
+
+
+### Poisoned runtime profile qualification (C37)
+
+C37 extends the pinned C36 harness with324 alternate-ability configurations,50
+fractional/expertise combined checks,14 mode-effect builds,9 D20Dialog manual action
+finalizations and4 initiative configurations. Native Proficiency.hasProficiency tests
+base>0 and multiplier>0: .5 on both selected operands grants automatic advantage.
+Ability-phase condition counts preserve initial overrides/suppression; source/manual
+modes still follow the native builder/dialog instead of adding all normalized flags.
+
+Poisoned applies check disadvantage before passives,not a flat passive adjustment.
+AttributesFields.prepareInitiative.score uses init.roll.mode only; the initiative
+roll builder also combines ability-check modes. Poisoned can produce score12 with
+a disadvantage roll,source init advantage gives score17 with a Normal roll,and fixed
+initiative remains12 without a die. Tie contribution .14 is retained in its profile.
+
+C37 integrates only the constant-guard,untimed Actor poisoned envelope and immutable
+precollection/final-CI behavior described above. Source/default/initialized/prepared
+and caller facts stay separate. Controlled model hooks,guard callbacks,clock defaults,
+custom-rule absence and roll-build callbacks remain stubs; the CI executor is synthetic.
+No native dice engine,full DataModel/native boot or installed/operator acceptance.
+The public-host harness independently evaluates compiled formulas with real Core0.19.3
+primitives and preserves actual serialized results. See the [C37 record](../audits/evidence/2026-10-21-c37-poisoned-condition.json).

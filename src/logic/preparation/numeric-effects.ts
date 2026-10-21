@@ -1,3 +1,4 @@
+import {prepareConditions606,type ConditionPreparation606} from './conditions';
 import { initializedModeState, applyEffectMode, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
 import { planEffects606, type EffectPlan, type EffectChange } from './effects';
@@ -9,7 +10,7 @@ import {DAMAGE_LABELS_606,CONDITION_LABELS_606,BYPASS_LABELS_606} from '../nativ
 import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 export interface NumericEffects {
-    system:Record<string,unknown>;globals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
+    system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;
     applied:Array<{effectId:string;key:string;phase:'initial';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned'}>;
 }
@@ -151,5 +152,18 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         field.object[field.field]=value;if(formula!==undefined)formulas[change.key]=formula;
         applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(formula!==undefined?{formula}:{})});
     }
-    return {system,globals,plan,applied,modes,initialized,equipment:prepareEquipment606(actor),...(reason?{reason}:{})};
+    // Common.prepareAbilities mutates condition counts after initial effects and
+    // before skill/tool passives. Keep this provenance separate from initial writes.
+    const conditions=prepareConditions606(actor,system,plan.conditions??[],reason);
+    reason??=conditions.reason;
+    for(const modifier of conditions.modes){
+        const keys=modifier.path.split('.');let parent=system;
+        for(const key of keys.slice(1,-1)){if(parent[key]===undefined)parent[key]={};const value=record(parent[key]);if(!value){reason??='Condition ability mode container malformed';break;}parent=value;}
+        if(reason)break;
+        const field=keys.at(-1)!,state=modes[modifier.path]??initializedModeState(parent[field]);
+        if(!state){reason??='Condition ability mode source malformed';break;}
+        const value=applyEffectMode(state,'add',modifier.mode);if(value===null){reason??='Condition mode preparation unavailable';break;}
+        parent[field]=value;modes[modifier.path]=state;
+    }
+    return {system,conditions,globals,plan,applied,modes,initialized,equipment:prepareEquipment606(actor),...(reason?{reason}:{})};
 }

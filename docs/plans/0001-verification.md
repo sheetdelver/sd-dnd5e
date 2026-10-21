@@ -1830,3 +1830,48 @@ remain stopped. No full DataModel/native/installed/operator acceptance or comple
 DD/A/M gate closure. Next qualify manual/alternate/initiative/source boundaries,
 then integrate the supported condition profile. E01/E02/wider Q00/E05/full acceptance
 stay open;experimental0.4.1 and compatibility unchanged.
+
+
+### C37 — Bounded poisoned condition (2026-10-21)
+
+Parent `92b58ff`; partial M2/Q02a,DD-02/05/27/34,A02/A04/A21.125 final-input
+condition/projection contracts fail archived C36 and pass after;14 unqualified cases
+retain gates. The final duplicate input has two distinct document IDs; the builder's
+initial one-document gap was corrected before the final before/after,focused UI and
+public-host runs. Source preservation,raw virtual poison,CI timing,manual/selected/
+alternate checks,context/identity retirement and Normal-only bounds are maintained.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (released0.19.3/90c13e5).
+`npm test`:60 assertions,8 tooling/36 module suites PASS. `typecheck`:176 explicit
+module/UI/server/test/hook files PASS. `test:native-source`:2242records/591expressions
+at87e94db PASS. `test:native-checks`,`test:native-effects`,`test:native-initial-filters`
+retain prior comparisons (initial119) PASS. `test:native-conditions` with pinned native/
+static14.367 adds324 alternate,50 proficiency,14 mode-effect,9 manual-dialog and4
+initiative configurations;3 primitive,93 phase/mode,372 default builds retained PASS.
+Model/guard/clock/custom-rule/roll callbacks and synthetic CI executor stay explicit;
+these are controlled method comparisons,not full DataModel/native acceptance.
+
+Full `test:mounted` at1440/390 PASS:1172 field/624 training plus50 transitions,8 preview,
+16 fact,18 source-mode,56 tool,80 selected,22 eligibility,58 effect-mode,58 health,
+102 AC/initiative,90 armor,84 movement,24 proficiency,149 defense,40 species,180 range
+states and retained callbacks; `/tmp/dnd5e-mounted-jj9qUx`. It predates the duplicate
+fixture-builder correction only; final `--conditions-only` at1440/390 uses corrected
+inputs and passes280 readout/preview/execution/recovery states,`/tmp/dnd5e-mounted-YWuxe3`.
+Two prior full attempts caught test expectations/setup errors (new modes assumed
+Normal; broad replacement escaped its loop); original equipment Normal assertion is
+restored. These are not product/Core defects. Final runtime is identical in both runs.
+
+Final `test:public-rolls`:22114 accepted,3000 condition checks/125 Normal-bound/4
+condition initiative requests,40 plain equal-index diagnostics,1 unary candidate
+rejection,0 native writes; `/tmp/dnd5e-public-rolls-YaT0CH`. Actual host serialization
+unchanged; all strict plain-d20 invariants/distributions retained. `check:package`:
+isolated public-boundary/module checks,managed typing and logic/UI/server bundles PASS;
+`/tmp/dnd5e-package-EUnmkH/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`5789128ac3d19dec1cc26cb95dd518d34428dc920d802693f9deffb0523d47b0`.
+[Portable record](../audits/evidence/2026-10-21-c37-poisoned-condition.json) embeds
+final inputs,before IDs,native/mounted/public captures,hashes and evidence limits.
+Task-owned services stopped; production listeners untouched. Experimental0.4.1 and
+compatibility unchanged. Other conditions/levels,flags/time/dependent guards,Item/
+final phases and broader expressions remain open; next qualify modern exhaustion's
+source/map/status/reduction/movement/config phases before bounded integration.
+E01/E02/wider Q00/E05/full DD/A/M and installed/native/operator acceptance stay open.

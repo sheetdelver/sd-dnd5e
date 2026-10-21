@@ -204,7 +204,7 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
                     }}>
                         DEFENSES
                     </button>
-                    <button style={{
+                    <button onClick={()=>openModal('conditions')} style={{
                         padding: '3px 8px',
                         fontSize: '9px',
                         fontWeight: 700,
@@ -215,7 +215,7 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
                         borderRadius: '3px',
                         color: 'var(--text-primary)',
                         cursor: 'pointer',
-                    }} disabled>
+                    }}>
                         CONDITIONS
                     </button>
                     {/* Campfire Rest button — mobile-only, opens RestModal. */}

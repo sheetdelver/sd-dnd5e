@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default | RV01–RV04 retained; C06–C31 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts | RV01–RV04 retained; C06–C37 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1458,3 +1458,36 @@ Next qualify manual choices,alternate abilities,initiative and complete source
 boundaries before integrating this bounded condition profile into shared preparation
 and consumers. No native/operator acceptance,Core extension or complete rules claim.
 E01/E02/wider Q00/E05,full M2/M3+ acceptance and ADR-0001 stay open.
+
+
+### C37 — Shared bounded poisoned condition preparation (2026-10-21)
+
+C36 is `92b58ff`. Partial M2/Q02a,DD-02/05/27/34,A02/A04/A21: Actor-owned
+nonleveled poisoned documents now feed shared status and numeric preparation. Raw
+source, primitive defaults, initial status snapshot, final immunity filtering and
+ability-phase mode counts remain distinct. Missing statuses do not acquire a status
+from the condition type/name. Initial immunity removal cannot retroactively collect
+a status. Source IDs/default provenance retire same-result roll intent.
+
+Pinned qualification adds324 alternate-ability,50 fractional/expertise combined,
+14 mode-effect,9 manual-dialog and4 initiative configurations to C36's3 primitive,
+93 phase/mode and372 default-build captures. Both positive proficiencies,including
+.5, grant combined advantage. Poisoned affects checks before passives; saves stay
+unchanged. Initiative roll mode includes ability-check disadvantage while the score
+uses its own mode; fixed-score and tie configurations remain separate.
+
+125 declared workflows fail C36's condition/projection contract and pass after;14
+unqualified workflows retain execution gates. Desktop condition readouts and the
+live mobile Conditions dialog share the projection. Sheets,previews,shortcuts and
+direct execution consume existing shared modes,including explicit Normal bounds.
+The generic mounted loop's prior Normal-only expectation was extended with explicit
+independent per-check modes; existing cases retain their original expectations.
+
+This qualifies only constant-guard,untimed Actor poisoned documents with empty own
+changes/riders and known source fields. Other conditions,leveled exhaustion,dependent
+guards,flags,Item status behavior,travel pace,final phases and broader expressions
+remain unavailable. Condition editing is separate command work. [C37 evidence](../audits/evidence/2026-10-21-c37-poisoned-condition.json)
+and [ledger](../plans/0001-verification.md#c37--bounded-poisoned-condition-2026-10-21)
+separate maintained regression,controlled native methods,mounted UI,isolated public
+host and package checks. No installed/native/operator acceptance or complete DD/A/M
+gate closes. E01/E02/wider Q00/E05/full ADR remain open;experimental0.4.1 unchanged.

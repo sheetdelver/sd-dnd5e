@@ -11,6 +11,7 @@ import RestModal, { type RestModalProps } from '../modals/RestModal';
 import ItemModal, { type ItemModalProps } from '../modals/ItemModal';
 import SpellModal, { type SpellModalProps } from '../modals/SpellModal';
 import RichTextModal, { type RichTextModalProps } from '../modals/RichTextModal';
+import ConditionsModal from '../modals/ConditionsModal';
 import DefensesModal from '../modals/DefensesModal';
 
 /**
@@ -33,6 +34,8 @@ export default function ModalHost() {
     if (activeId === null) return null;
 
     switch (activeId) {
+        case 'conditions':
+            return <ConditionsModal onClose={closeModal} />;
         case 'defenses':
             return <DefensesModal onClose={closeModal} />;
         case 'theme':

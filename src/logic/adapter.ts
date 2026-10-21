@@ -1,3 +1,4 @@
+import {projectConditions606} from './preparation/conditions';
 import { prepareArmorClass606,prepareInitiative606,initiativeRoll,armorClassProjection } from './preparation/defenses';
 import { prepareHealth606, hpProjection } from './preparation/health';
 import {prepareMovement606,movementKeys,senseKeys} from './preparation/movement';
@@ -145,8 +146,9 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         prepared.derived.race=species.name??'';
         const effects=prepareNumericEffects606(actor);
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
+        prepared.derived.conditions=projectConditions606(actor,rules,effects.conditions);
         prepared.derived.equipmentPreparation=effects.equipment;
-        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied,initialized:effects.initialized};
+        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied,initialized:effects.initialized,conditions:effects.conditions};
         const checkModel = prepareSkillToolModel606(actor,rules,effects);
         prepared.derived.checkConfiguration = checkModel;
         prepared.derived.training=prepareTraining606(actor,rules,effects,checkModel);
