@@ -5,12 +5,14 @@ import { initializedAbilityRolls606 } from './roll-initialization';
 import { numericConstant, qualifiedNumericTotal } from './numeric';
 import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
 import {prepareEquipment606,type EquipmentPreparation} from './equipment';
+import {DAMAGE_LABELS_606,CONDITION_LABELS_606,BYPASS_LABELS_606} from '../native/6.0.6/defense-identities';
+import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 export interface NumericEffects {
     system:Record<string,unknown>;globals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;
-    applied:Array<{effectId:string;key:string;phase:'initial';before:number;value:number;formula?:string}>;
+    applied:Array<{effectId:string;key:string;phase:'initial';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned'}>;
 }
-/** Qualified initial numeric fields only. This detached initialized operand
+/** Qualified initial numeric/defense trait fields. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
  * starts at verified0 despite stale nonpersisted source values (DD-R04).
  * Only constant FormulaField add/subtract/override is reduced by operation,
@@ -20,9 +22,33 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
     let reason=plan.reason;
     const formulas:Record<string,string>={},modes:Record<string,EffectModeState>={};
+    const origins:Record<string,'source'|'default'|'null-cleaned'>={};
     if(plan.final.length)reason??='Final effect field/phase preparation unavailable';
-    function target(change:EffectChange):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean}|null {
+    function target(change:EffectChange):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;valid?:(value:string)=>boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
+        if(keys[1]==='traits'){
+            const key=keys[2],field=keys[3];
+            const set=keys.length===4&&(['dr','di','dv','ci'].includes(key)&&field==='value'||['dr','di','dv','dm'].includes(key)&&field==='bypasses');
+            const amount=key==='dm'&&keys.length===5&&field==='amount'&&Object.hasOwn(DAMAGE_LABELS_606,keys[4]);
+            if(!set&&!amount)return null;
+            let container=system;
+            for(const part of keys.slice(1,-1)){
+                if(container[part]==null)container[part]={};
+                const child=record(container[part]);if(!child)return null;container=child;
+            }
+            const name=keys.at(-1)!;
+            if(set){
+                const value=container[name];origins[change.key]??=value===undefined?'default':value===null?'null-cleaned':'source';
+                const labels=field==='bypasses'?BYPASS_LABELS_606:key==='ci'?CONDITION_LABELS_606:DAMAGE_LABELS_606;
+                return {object:container,field:name,set:true,valid:value=>Object.hasOwn(labels,value)||field==='value'&&key!=='ci'&&value==='ALL'};
+            }
+            // FormulaField scalar source cleaning, distinct from a prepared
+            // expression reduction. Null/missing initializes undefined.
+            const value=container[name];
+            if(value==null)container[name]=undefined;
+            else if(typeof value==='string')container[name]=value.trim();
+            return {object:container,field:name,formula:true};
+        }
         // D20 roll bonus FormulaFields and skill passive bonuses have separate
         // operation semantics. Never send their text to a module evaluator.
         function rollBonus(container:Record<string,unknown>,path:string[]):Record<string,unknown>|null {
@@ -65,6 +91,14 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     for(const change of plan.initial){
         const field=target(change),raw=change.value;
+        if(field?.set){
+            const before=initializeTraitSet606(field.object[field.field]);
+            const appliedSet=before&&field.valid?applyTraitSet606(before,change.type,raw,field.valid):null;
+            if(!before||!appliedSet){reason??=`Initial trait effect source/delta/operation requires qualification: ${change.key}`;continue;}
+            field.object[field.field]=appliedSet.value;
+            applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value:appliedSet.value,delta:appliedSet.delta,initializedFrom:origins[change.key]});
+            continue;
+        }
         const delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         const operand=field?.object[field.field],before=field?.formula?numericConstant(operand):field?.mode&&operand===undefined?0:operand;
         if(!field||typeof before!=='number'||!Number.isFinite(before)||delta===null||Math.abs(delta)>1_000_000_000){reason??=`Initial numeric effect target/value requires qualification: ${change.key}`;continue;}

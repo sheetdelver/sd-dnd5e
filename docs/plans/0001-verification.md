@@ -1330,3 +1330,52 @@ No full DD/A/M gate closes. Next M2/Q02a: initial trait-set/constant modifier ef
 then remaining condition/proficiency/language and rule/filter/final/Item phases.
 Damage application remains M4. E01/wider Q00/E05/ADR-0001 open; experimental0.4.1
 and compatibility unchanged.
+
+### C25 — Initial defense trait effects (2026-10-21)
+
+Predecessor C24 `3d46c79`. Completed bounded M2/Q02a, DD-05/27/34 and A02/A04
+subrequirements: persisted defense StringSet initial effects and constant dm.amount
+add/subtract/override through one shared typed-field pipeline.43 source contracts:
+33 unchanged-input requests fail against C24 and pass after;10 stay explicitly
+unavailable. R covers ordered before/delta/after values, native multiply no-op,
+superset/subset and equal-set reordering, post-comparison trimming, JSON strings,
+nonpersisted poison, source preservation, later normalization, context recovery,
+normal bounds/unsupported combined bounded modes, equal-result intent retirement
+and the unchanged explicit legacy boundary.
+
+Use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (pristine released0.19.3/
+90c13e5). `npm test` passes60 tooling assertions,8 tooling/27 module suites;
+`typecheck` explicitly passes148 module/UI/server/test/hook files. `test:native-source
+-- --native ../../../../temp/dnd5e` remains2242 records/591 expressions at exact
+87e94db release6.0.6. `test:native-traits` with that native path and static
+`--foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14` passes existing24
+source defense captures plus33 ordered initial field cases and a separate raw-array
+native diagnostic. Exact DataField.applyChange, Array/Set cast/operation/cleaning,
+String initialization, native equality/Set.map/equals and native FormulaField string
+construction are captured. Primitive validators/reference wrappers and independent
+closed two-formula Roll totals are explicit limits. Source native string/Set fields
+are not mislabeled reduced module operands or complete native prepared snapshots.
+
+`test:public-rolls` passes14464 accepted requests, including792 trait-effect checks,
+5 independently specified native formula candidates and33 strict normal-bound
+compositions.9042 normal-range requests/441 distributions,1 rejected unary candidate
+and40 plain equal-index diagnostics pass unchanged criteria; no host serialization
+rewrite. Artifacts `/tmp/dnd5e-public-rolls-0D8hQK`. This qualifies public primitive
+composition only, not installed actor/damage endpoints or native/operator behavior.
+
+`test:mounted -- --browser-tools /tmp/sd-dice-preview-tools --chromium
+/home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell`
+passes342 field rows (88 new trait-effect/fence rows),149 defense rows (86 new),
+all prior numeric/mode/equipment/movement/species/range suites and current-source
+callback fences at1440/390. Artifacts `/tmp/dnd5e-mounted-1ws1cz`; actual shared
+controls/readouts in SDK seam, not installed UI. `check:package` passes isolated
+module/public-boundary check, managed typing and bundles. Archive `/tmp/dnd5e-package-Q1XPH3/data/dist/modules/dnd5e-0.4.1.tgz`,
+SHA256 `45a6c2b2710f6222c8ca848d2b66e3af30a21fa717c25d1e440c2a38cf1b7ce8`. [Portable evidence](../audits/evidence/2026-10-21-c25-trait-effects.json)
+records command/source/script/fixture/artifact identities and exact phase limits.
+Task-owned services cleaned; Node24 local, Node22 CI/native/operator unrun.
+
+No full DD/A/M gate closes. Initial conditions, broader expressions/flags/filters,
+final and Item phases and damage commands remain open. Next M2: truthful shared
+proficiency/training/language preparation and displays, then remaining rule phases
+and dependency-ready M3/Q02. E01/wider Q00/E05/ADR-0001 open; experimental0.4.1 and
+compatibility unchanged.

@@ -606,3 +606,23 @@ not initialized as proof of complete native models. Formula validation/expressio
 DataModels/Documents, game locale, Item/final/filter/condition phases and installed/
 operator acceptance are absent. Runtime module uses its own shared pure preparation
 and public SDK only; the static native methods are test-only controlled sources.
+
+### Initial defense field operations (C25)
+
+Foundry14.367 ActiveEffect change values are AnyField data. ArrayField first tries
+JSON.parse(raw), wraps a non-array or falls back to [raw], then casts each element.
+SetField wraps that in a Set. DataField.applyChange performs the operation before
+clean/revalidate/initialize; native equality uses Set.equals membership, and Set.map
+retains size. Whitespace therefore affects subtract/superset/subset comparisons
+before StringField trimming. Equal-member upgrade/downgrade retains delta order.
+Set multiply inherits a no-op; it is not intersection. Native raw array ['fire',
+'cold'] becomes one “fire,cold” member, not the parsed JSON-string pair.
+
+The C25 oracle executes33 supported ordered field cases plus that separate raw-
+array diagnostic with exact field/equality/Set methods. Existing24 condition-free
+source comparisons remain. Primitive validation/reference wrappers are explicit;
+reference/object equality paths outside the profile throw. Native constant modifier
+strings are captured separately from reduced module operands. A closed two-formula
+Roll stub supplies independent arithmetic for source-method construction comparisons;
+public Core execution separately verifies those candidates. No arbitrary expression
+or native engine/DataModel/Actor-lifecycle acceptance follows.

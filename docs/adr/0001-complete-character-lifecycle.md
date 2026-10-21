@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits | RV01–RV04 retained; C06–C24 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects | RV01–RV04 retained; C06–C25 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1102,3 +1102,32 @@ DD/A/M or installed/native/operator gate closes. Next: qualified initial trait-s
 and constant modifier effects, then remaining conditions/proficiencies/languages,
 rule/filter/final/Item phases under M2/Q02a. E01/wider Q00/E05 remain open;
 ADR-0001, experimental0.4.1 and compatibility unchanged.
+
+### C25 — Initial trait-set and constant adjustment effects (2026-10-21)
+
+C24 is `3d46c79`. C25 advances M2/Q02a, DD-05/27/34 and A02/A04 partially.
+The existing shared initial-effect pipeline now accepts the qualified persisted
+StringSet defense targets and constant damage-adjustment FormulaFields. Source
+initialization, native deltas, prepared operand arrays/reduced constants and later
+defense normalization remain separate. Source and nonpersisted poison are unchanged.
+The same operands feed numeric readiness, cards, readouts, previews and execution;
+there is no UI-only application path or extra cache/evaluator.
+
+Native ArrayField parses JSON before element casting. Raw arrays are not equivalent
+to JSON array strings. Set comparisons precede StringField trimming: subtracting
+“ fire ” does not remove existing “fire”; equal-member upgrade/downgrade can change
+order. Add/subtract/override/superset/subset behavior and native multiply no-op are
+qualified by exact field methods, including native equality and Set primitives.
+Constant modifier add/subtract/override records the actual native formula string
+separately from the module's reduced operand. Unknown/reference/coerced deltas,
+non-schema targets, broader formula operations and final/active-condition phases
+stay unavailable; explicit legacy behavior is unchanged and remains unqualified.
+
+[C25 ledger](../plans/0001-verification.md#c25--initial-defense-trait-effects-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c25-trait-effects.json) retain
+failing-before/passing-after, ordered field/native-source, actual mounted/public-
+host and package evidence. No source persistence or automatic damage/condition
+application is added. No full DD/A/M/installed/native/operator gate closes. Next:
+remaining proficiencies/languages/conditions and rule/filter/final/Item preparation,
+then dependency-ready M3/Q02. E01 and wider Q00/E05 remain open; ADR-0001,
+experimental0.4.1 and compatibility unchanged.

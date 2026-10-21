@@ -546,6 +546,24 @@ The same prepared category displays feed cards, desktop `Defenses` and the live
 mobile `DefensesModal`. Modal content reads current context/source without stored
 fact snapshots or write callbacks; accessible heading association uses the shared
 frame. A known trait remains independently readable when class/armor preparation
-fails. Unqualified active conditions/effect phases gate affected facts; this does
+fails. Qualified initial trait-set/constant-adjustment effects use the shared pipeline.
+Unqualified active conditions/effect phases gate affected facts; this does
 not implement damage application, condition rules or legacy expansion. Preparation
 never persists values or creates a second document cache.
+
+### Initial trait effect operands
+
+The detached initial-effect pipeline uses the same StringSet initialization helper
+as defense preparation. Literal Set deltas parse JSON before casting; comparisons
+use untrimmed operands, with post-operation cleaning and native order preserved.
+Registered value/bypass fields alone are accepted; CI cannot gain a bypass field.
+Native multiply is a qualified no-op, while upgrade/downgrade require superset/
+subset membership and can reorder equal sets. Raw arrays, references and unknown
+IDs remain unavailable. This is a bounded typed-field adaptation, not a native
+DataModel, condition/filter implementation or another dice evaluator.
+
+Applied provenance records source/default origins, before/delta/after arrays and
+actual constant FormulaField construction. Reduced numeric operands are not
+persisted field strings or claimed native prepared model data. The existing shared
+compiler and current-source intent fences consume these results. Native/operator
+acceptance, actual damage commands and unqualified final/Item phases remain open.

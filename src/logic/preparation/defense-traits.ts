@@ -3,6 +3,7 @@ import {DAMAGE_LABELS_606,CONDITION_LABELS_606,BYPASS_LABELS_606,PHYSICAL_DAMAGE
 import type {RulesContext} from '../rules-context';
 import {numericConstant,qualifiedNumericTotal} from './numeric';
 import {prepareNumericEffects606,type NumericEffects} from './numeric-effects';
+import {initializeTraitSet606} from './trait-fields';
 
 export const defenseKeys=['dr','di','dv','ci','dm'] as const;
 export type DefenseKey=typeof defenseKeys[number];
@@ -15,11 +16,6 @@ export interface DefenseFacts {status:'ready'|'partial'|'unavailable';provenance
 const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; condition-free initial fields and constant damage adjustments only';
 const unavailable=(reason:string):UnavailableCategory=>({status:'unavailable',values:null,custom:null,bypasses:null,amount:null,entries:null,display:'Unavailable',reason});
 const physical=new Set<string>(PHYSICAL_DAMAGE_606);
-function stringSet(raw:unknown):string[]|null {
-    if(raw==null)return [];
-    if(!Array.isArray(raw)||raw.some(value=>typeof value!=='string'))return null;
-    return [...new Set(raw.map(value=>value.trim()))];
-}
 function finish(values:string[],custom:string[],bypasses:string[],amount:Record<string,number>={}):ReadyCategory {
     const entries:DefenseEntry[]=[...values.map(key=>({key,label:key==='ALL'?ALL_DAMAGE_LABEL_606:DAMAGE_LABELS_606[key]??CONDITION_LABELS_606[key],bypasses:physical.has(key)?bypasses:[]})),...custom.map(label=>({label,bypasses:[]}))];
     for(const [key,value] of Object.entries(amount))entries.push({key,label:`${DAMAGE_LABELS_606[key]} ${value>=0?'+':''}${value}`,bypasses:physical.has(key)?bypasses:[]});
@@ -45,7 +41,7 @@ export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effec
         const rawEntry=traits![key],entry=rawEntry==null?{}:record(rawEntry);
         if(!entry){categories[key]=unavailable(`${defenseLabels[key]} source mapping malformed`);continue;}
         // SimpleTraitField (ci) has no persisted bypasses field.
-        const bypasses=key==='ci'?[]:stringSet(entry.bypasses);
+        const bypasses=key==='ci'?[]:initializeTraitSet606(entry.bypasses);
         if(!bypasses||bypasses.some(value=>!Object.hasOwn(BYPASS_LABELS_606,value))){categories[key]=unavailable(`${defenseLabels[key]} bypass source malformed or outside qualified registry`);continue;}
         if(key==='dm'){
             const rawAmount=entry.amount,amount=rawAmount==null?{}:record(rawAmount),prepared:Record<string,number>={};
@@ -58,7 +54,7 @@ export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effec
             }
             categories[key]=reason?unavailable(reason):finish([],[],bypasses,prepared);continue;
         }
-        const values=stringSet(entry.value),custom=entry.custom??'';
+        const values=initializeTraitSet606(entry.value),custom=entry.custom??'';
         if(!values||typeof custom!=='string'){categories[key]=unavailable(`${defenseLabels[key]} source value/custom malformed`);continue;}
         const labels=key==='ci'?CONDITION_LABELS_606:DAMAGE_LABELS_606;
         if(values.some(value=>!Object.hasOwn(labels,value)&&!(key!=='ci'&&value==='ALL'))){categories[key]=unavailable(`${defenseLabels[key]} value outside qualified registry`);continue;}

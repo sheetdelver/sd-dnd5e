@@ -285,3 +285,11 @@ methods with explicit constructors, condition-free state, registry/key-label and
 formatter stubs. No native model boot/validation or expression engine acceptance.
 Custom duplicates/order, ALL overlap, category-specific unavailable states and
 non-schema CI-bypass poison are covered without changing source.
+
+C25 `trait-effects.json`:43 source contracts,33 qualified initial field cases and
+10 explicit unavailable boundaries. expectedOperands are detached arrays/reduced
+module constants, not native Set/FormulaField model snapshots. expectedFormula
+records native string construction independently. Exact applyChange/delta/cleaning/
+equality/Set methods and later trait normalization compare ordered values; source
+raw-array parsing is a separate diagnostic. Source remains unchanged, active
+conditions/final/filter/Item phases remain gated, and legacy is not expanded.

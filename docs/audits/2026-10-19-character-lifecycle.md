@@ -171,7 +171,7 @@ IDs remain stable through implementation. Baseline status describes the **workfl
 | DD-02 | Abilities, saves, skills, tools, expertise/passives — **partial** | C04–C15/C21 share qualified numeric source/default/initial-effect preparation and execution, selected checks/abilities, source/manual modes, passives and normal bounds. DD-R01–06 are corrected; broader expressions, conditions, final/filter/Item phases, proficiency dice and bounded adv/dis remain open. | Module M2/M4; value/expertise/half/dice/advantage and all configured skills/tools agree across sheet/card/roll and native oracle. |
 | DD-03 | AC, initiative, senses, movement — **partial** | C17–C19 shared AC/init/equipment/movement/senses facts replace modern fallbacks in the bounded profile. Conditions, broader effects/formulas and complete native parity remain open. | Module M2; armor/unarmored/custom, speed types/units, initiative tiebreaker/conditions, sense ranges tested. |
 | DD-04 | HP/temp HP, damage/healing, death saves — **partial** | C16 shares truthful HP/HD facts; modern health/rest writes are gated pending M3/M4. Legacy HPModal arithmetic remains limited. No complete death-save/damage-rule/receipt pipeline. | Module M3/M4; resistance/immunity/vulnerability choices, temp/max modifiers, zero HP/death/revival and exact receipts; no unauthorized target updates. |
-| DD-05 | Conditions, defenses, active effects — **partial** | C12–C15/C22 qualify bounded initial effects/eligibility; C24 prepares condition-free defense traits and numeric adjustments for cards/desktop/mobile. Conditions remain a placeholder; active-condition/filter/final/Item phases and execution remain open. | Module M2/M4; actual conditions/defenses, effect eligibility/order/duration, exhaustion and concentration shown and executed, no source mutation during prep. |
+| DD-05 | Conditions, defenses, active effects — **partial** | C12–C15/C22 qualify bounded initial effects/eligibility; C24 prepares condition-free defense traits and C25 applies qualified initial trait-set/constant-adjustment effects for shared cards/desktop/mobile and numeric readiness. Conditions remain a placeholder; active-condition/filter/final/Item phases and execution remain open. | Module M2/M4; actual conditions/defenses, effect eligibility/order/duration, exhaustion and concentration shown and executed, no source mutation during prep. |
 | DD-06 | Proficiencies, mastery, languages — **stub/partial** | `Proficiencies.tsx` displays fixed universal grants; UI attack heuristic assumes proficiency. Native traits/weapon mastery. | Module M2/M6; source-specific grants and restrictions; duplicate grants preserve source identities and validate replacement choices. |
 | DD-07 | Short/long/new-day rests — **partial, incomplete** | `Rest.tsx`, `RestModal.tsx`; short rest no mutation, long rest only HP/temp HP. Native `_rest` and five recovery functions. | Module M4, world settings/E04 for automatic time; class HD, resources, slots, uses/effect expiry all match reviewed rest plan and native results. |
 | DD-08 | Feat/item/activity uses and recharge — **partial display / absent execution** | `itemRows.ts` expects numeric max/value; native uses formula max/spent/recovery. | Module M4; spend/refund where supported, recharge outcomes, rest/day/dawn/dusk recovery without duplicate use or roll. |
@@ -754,3 +754,24 @@ trait effects, broader expressions, flag/filter/final/Item phases and actual dam
 commands remain unqualified. See [C24 ledger](../plans/0001-verification.md#c24--condition-free-defense-traits-2026-10-21)
 and [portable evidence](evidence/2026-10-21-c24-defense-traits.json). No full gate,
 installed UI/native/operator acceptance or release readiness is claimed.
+
+### C25 — Initial trait effects through the shared pipeline
+
+C24 `3d46c79` precedes this M2/Q02a slice (DD-05/27/34, A02/A04 partial).
+Persisted defense value/bypass Set targets and constant dm.amount fields now join
+one ordered initial-effect path.43 maintained source contracts include33 requests
+that were unavailable before and now pass, plus10 explicit unavailable boundaries.
+Exact primitive applyChange/delta/operation/cleaning/equality/initialization methods
+qualify pre-clean comparisons, JSON string parsing, order and later normalization.
+The raw-array native diagnostic returns one “fire,cold” member; the module keeps it
+unavailable instead of inventing two IDs. Native FormulaField strings and reduced
+module constants are recorded separately, not mislabeled native model snapshots.
+
+Existing controls/readouts consume the shared result. Nonpersisted poison, strict
+normal bounds, source/manual choices, context recovery and equal-result source
+callback retirement remain covered. Active conditions, final/Item/filter phases,
+references, unknown/coerced deltas and broader expression operations stay gated.
+Legacy execution is unchanged and its defense projection remains unavailable.
+See [C25 ledger](../plans/0001-verification.md#c25--initial-defense-trait-effects-2026-10-21)
+and [portable evidence](evidence/2026-10-21-c25-trait-effects.json). This closes no
+full acceptance gate and creates no new Core dependency or release claim.
