@@ -355,3 +355,25 @@ mounted SDK seam and isolated public host remain separate evidence. No installed
 UI/native/operator or release acceptance. Effects/flags/ranges/dice/expressions/
 pace/Item activities/legacy expansion, E01 and wider Q00/E05 remain open. Continue
 independent effect eligibility/phase-order and numeric modifier work in M2/Q00.
+
+### C12 — Effect eligibility and phase foundation (2026-10-21)
+
+C11 behavior and DD-R01–DD-R06 remain covered. This M2/Q00 slice replaces the
+blanket active-effect-presence gate with a detached eligibility/phase plan. An
+empty Actor effect, disabled effect, or provably unequipped/unattuned transferred
+Item effect no longer hides otherwise qualified checks. Active changes remain
+unavailable pending field/phase qualification. Nontransfer/Item-target effects
+remain unavailable: Item preparation can alter class and other Actor operands.
+No effect is applied to persisted source and no alternate world cache is added.
+
+Eleven independent cases cover defaults, suppression, initial/final order,
+stable explicit/default priorities, Item preparation, conditions, duration,
+statuses, legacy change migration and unknown types. Two same-input regressions
+failed before (empty Actor effect and unequipped transfer) and pass after.
+Controlled exact6.0.6/Foundry14.367 methods capture five eligibility/order cases;
+initialized defaults, empty conditions/roll data and trace-only change application
+are explicit stubs. No Document/DataModel/runtime/operator parity follows.
+
+Evidence and commands: [C12 verification ledger](../plans/0001-verification.md#c12--effect-eligibility-and-phase-foundation-2026-10-21)
+and [portable record](evidence/2026-10-21-c12-effects.json).
+M2/Q00 and ADR-0001 remain open. Next: initial numeric field/proficiency effects.

@@ -1,5 +1,6 @@
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
+import { planEffects606 } from './effects';
 
 /** Qualified constant part of native simplifyBonus. Never evaluates expressions. */
 export function numericConstant(input: unknown): number | null {
@@ -40,8 +41,7 @@ export function characterFacts606(actor: unknown, context: RulesContext): Charac
         else level += levels;
     }
     if (level > 20) reason ??= 'Class levels above 20 unsupported';
-    const effects = [source.effects, ...(items ?? []).map(item => record(item)?.effects)];
-    if (effects.some(list => list !== undefined && (!Array.isArray(list) || list.some(effect => record(effect)?.disabled !== true)))) reason ??= 'Active effect preparation unavailable';
+    reason ??= planEffects606(actor).reason;
     if (Object.values(record(record(source.flags)?.dnd5e) ?? {}).some(Boolean)) reason ??= 'Native flag or transformation preparation unavailable';
     const levelFact = numericFact(reason ? null : level, reason);
     const setting = context.settings['dnd5e.proficiencyModifier'];

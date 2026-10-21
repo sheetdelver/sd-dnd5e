@@ -363,3 +363,23 @@ regressions compare arithmetic separately; isolated public rolls qualify the
 compiled numeric requests. No native engine, DataModel or operator acceptance
 follows, and C09's broader exclusions remain except the explicitly qualified
 combination/ability selections.
+
+### Effect source and phase order (C12)
+
+Native release87e94db is paired with read-only static Foundry14.367 sources for
+this comparison. Foundry stores changes in `system.changes` with initial phase,
+add type and operation-specific priority defaults. Native Actor initial processing
+prepares embedded data first; final processing prepares Item final attributes and
+spellcasting before final changes. Actor effects precede transferred Item effects,
+then applicable active changes are stably sorted by priority. Native unequipped/
+required-unattuned Item suppression is checked separately from Actor eligibility.
+Nontransfer Item changes can still affect Item preparation feeding Actor facts.
+
+`test:native-effects` extracts exact methods into controlled classes: five cases
+capture order only, with explicitly initialized defaults, a host Function realm
+bridge for the embedded-data callback, empty filters/roll data and trace-only
+field application. It reads static files and verifies14.367; it never starts
+Foundry or resumes the parked runtime experiment. Hashes are recorded in C12.
+The eleven maintained module fixtures include explicit unavailable outcomes for
+unsupported phases of Item preparation, filters, status/time, migration and type.
+No schema initialization or native Document/operator acceptance is established.

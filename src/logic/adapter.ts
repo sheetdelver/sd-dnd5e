@@ -23,6 +23,7 @@ import { prepareNumericTools606 } from './preparation/tools';
 import { SKILL_LABELS } from './preparation/check-identities';
 import { prepareSkillToolModel606, configureSkillToolCheck, skillToolRoll, type SkillToolModel } from './preparation/skill-tool';
 import { characterFacts606, characterFactsProjection } from './preparation/character-profile';
+import { planEffects606 } from './preparation/effects';
 
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
@@ -128,6 +129,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             // Schema context readiness does not qualify the old numeric projection.
             preparation: 'legacy-projection-unqualified' };
         const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
+        prepared.derived.effectPreparation = planEffects606(actor);
         const checkModel = prepareSkillToolModel606(actor,rules);
         prepared.derived.checkConfiguration = checkModel;
         const tools = prepareNumericTools606(actor,rules,checkModel);

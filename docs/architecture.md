@@ -304,3 +304,15 @@ makes no claim of native UI identity. The source/context/model participates in
 intent signatures, so secondary source loss retires the whole modal and retained
 callbacks; recovery requires a new review. R/S/mounted/public-host evidence does
 not close installed UI or native/operator gates.
+
+### Effect eligibility and phase boundary (C12)
+
+`planEffects606` emits detached initial/final changes, stable priority order and
+per-effect eligibility decisions in `derived.effectPreparation`. Modern source
+uses `system.changes`; initialized missing phase/type/priority use initial/add/
+native operation priority. Source remains unchanged. Only proven disabled,
+no-change or Item-suppressed effects can currently leave numeric checks ready.
+Actual active field changes, filters, statuses, time-dependent expiry, legacy
+migration and owned Item preparation stay explicitly unavailable. Nontransfer
+Item effects are not harmless: they can change class data before Actor preparation.
+This is a static eligibility foundation, not completed effect support.

@@ -702,3 +702,43 @@ archive is retained in evidence; build-root JS comments and one Tailwind utility
 differ, so byte identity is not claimed. No Core source was changed by this task.
 Both secondary source-loss directions retire callbacks even at unchanged fixture
 revision numbers; final mounted80 cases include those fences.
+
+### C12 — Effect eligibility and phase foundation (2026-10-21)
+
+C11 behavior and DD-R01–DD-R06 remain covered. This M2/Q00 slice replaces the
+blanket active-effect-presence gate with a detached eligibility/phase plan. An
+empty Actor effect, disabled effect, or provably unequipped/unattuned transferred
+Item effect no longer hides otherwise qualified checks. Active changes remain
+unavailable pending field/phase qualification. Nontransfer/Item-target effects
+remain unavailable: Item preparation can alter class and other Actor operands.
+No effect is applied to persisted source and no alternate world cache is added.
+
+Eleven independent cases cover defaults, suppression, initial/final order,
+stable explicit/default priorities, Item preparation, conditions, duration,
+statuses, legacy change migration and unknown types. Two same-input regressions
+failed before (empty Actor effect and unequipped transfer) and pass after.
+Controlled exact6.0.6/Foundry14.367 methods capture five eligibility/order cases;
+initialized defaults, empty conditions/roll data and trace-only change application
+are explicit stubs. No Document/DataModel/runtime/operator parity follows.
+
+`npm test` passes56 tooling assertions in7 suites and15 module suites; explicit
+`npm run typecheck` covers108 files. `test:native-source` retains2242 records/591
+candidate expressions; `test:native-checks` retains16 ability phases/81 modes/
+800 ordered selections/8 tools/81 tool modes/20 intermediate combinations/
+38 selected builds/324 selected modes. `test:native-effects -- --native
+../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14`
+passes5 controlled static-source cases, pinned to87e94db and Foundry14.367.
+Mounted fixtures pass earlier protections plus22 effect/recovery cases at1440/390;
+isolated public-host1098 requests pass with40 equal-index diagnostics unchanged.
+Isolated check/package passes all boundaries/types/bundles; the first check found
+and then corrected test-harness console logging. All host runs use pristine
+Core0.19.3/90c13e5 via `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core`.
+
+See [portable C12 evidence](../audits/evidence/2026-10-21-c12-effects.json) for
+hashes, observations, archive identity and evidence limits. This advances DD-02/
+24/27/34 and A02/A18 partially, closing no complete requirement or acceptance
+gate. E01, Q02a filters, active field arithmetic and wider Q00/E05 remain open.
+Next executable phase: independently qualify initial numeric effect fields and
+proficiency targets, then consume their detached prepared operands through the
+same ability/check configuration path. ADR-0001 remains open; experimental0.4.1
+and compatibility unchanged. No installed UI/native/operator acceptance claimed.

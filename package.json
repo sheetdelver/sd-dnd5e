@@ -10,6 +10,7 @@
     "check:package": "node scripts/check-package.mjs",
     "test:mounted": "node scripts/test-mounted.mjs",
     "test:native-checks": "node scripts/native-check-oracle.mjs",
-    "test:public-rolls": "node scripts/test-public-rolls.mjs"
+    "test:public-rolls": "node scripts/test-public-rolls.mjs",
+    "test:native-effects": "node scripts/native-effect-oracle.mjs"
   }
 }

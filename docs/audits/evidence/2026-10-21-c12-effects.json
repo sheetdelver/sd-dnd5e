@@ -1,0 +1,454 @@
+{
+  "checkpoint": "C12",
+  "baseline": "5468f7e0c29568aa0d1f66cf3973fac58b473899",
+  "native": {
+    "evidence": "S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": {
+      "generation": 14,
+      "channel": "stable",
+      "suffix": "Stable",
+      "build": 367,
+      "node_version": 24
+    },
+    "observations": [
+      {
+        "id": "no-op-actor",
+        "initial": [
+          "embedded"
+        ],
+        "final": [
+          "spellcasting"
+        ]
+      },
+      {
+        "id": "disabled-unknown",
+        "initial": [
+          "embedded"
+        ],
+        "final": [
+          "spellcasting"
+        ]
+      },
+      {
+        "id": "unequipped-transfer",
+        "initial": [
+          "embedded"
+        ],
+        "final": [
+          "item-final",
+          "spellcasting"
+        ]
+      },
+      {
+        "id": "actor-initial-final",
+        "initial": [
+          "embedded",
+          "system.abilities.wis.value"
+        ],
+        "final": [
+          "spellcasting",
+          "system.rolls.ability.check.proficiency"
+        ]
+      },
+      {
+        "id": "stable-priorities",
+        "initial": [
+          "embedded",
+          "four",
+          "two",
+          "three",
+          "one"
+        ],
+        "final": [
+          "spellcasting"
+        ]
+      }
+    ],
+    "priorities": {
+      "custom": 0,
+      "multiply": 10,
+      "add": 20,
+      "subtract": 20,
+      "downgrade": 30,
+      "upgrade": 40,
+      "override": 50
+    },
+    "foundrySources": {
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/constants.mjs": "861a4a121ffb5713ab265b49282ff6ca8aa64036c5f9dad27208af98433dbdcf"
+    },
+    "stubs": [
+      "Explicit initialized effect defaults; no Foundry DataModel initialization",
+      "Untimed empty-condition effects only",
+      "Empty roll data; hidden/dependent/rider/antimagic absent",
+      "Change application captures order only, no field arithmetic; no hooks/token-size/spellcasting/Item derivation"
+    ]
+  },
+  "fixture": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": {
+      "generation": 14,
+      "build": 367
+    },
+    "cases": [
+      {
+        "id": "no-op-actor",
+        "effects": [
+          {
+            "_id": "effectA",
+            "type": "base",
+            "disabled": false,
+            "system": {
+              "changes": []
+            }
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": true,
+          "decisions": [
+            "no-changes"
+          ]
+        }
+      },
+      {
+        "id": "disabled-unknown",
+        "effects": [
+          {
+            "_id": "disabled",
+            "disabled": true,
+            "changes": [
+              {
+                "mode": 2
+              }
+            ]
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": true,
+          "decisions": [
+            "disabled"
+          ]
+        }
+      },
+      {
+        "id": "unequipped-transfer",
+        "effects": [],
+        "items": [
+          {
+            "_id": "toolItem",
+            "type": "equipment",
+            "system": {
+              "equipped": false
+            },
+            "effects": [
+              {
+                "_id": "effectA",
+                "type": "base",
+                "disabled": false,
+                "system": {
+                  "changes": [
+                    {
+                      "key": "system.abilities.wis.value",
+                      "value": "2",
+                      "type": "add"
+                    }
+                  ]
+                },
+                "transfer": true
+              }
+            ]
+          }
+        ],
+        "expected": {
+          "ready": true,
+          "decisions": [
+            "item-suppressed"
+          ]
+        }
+      },
+      {
+        "id": "actor-initial-final",
+        "effects": [
+          {
+            "_id": "effectA",
+            "type": "base",
+            "disabled": false,
+            "system": {
+              "changes": [
+                {
+                  "key": "system.abilities.wis.value",
+                  "value": "2",
+                  "type": "add",
+                  "priority": 20
+                },
+                {
+                  "key": "system.rolls.ability.check.proficiency",
+                  "value": 2,
+                  "type": "override",
+                  "phase": "final",
+                  "priority": 50
+                }
+              ]
+            }
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": false,
+          "decisions": [
+            "eligible"
+          ],
+          "initial": [
+            "system.abilities.wis.value"
+          ],
+          "final": [
+            "system.rolls.ability.check.proficiency"
+          ]
+        }
+      },
+      {
+        "id": "stable-priorities",
+        "effects": [
+          {
+            "_id": "effectA",
+            "type": "base",
+            "disabled": false,
+            "system": {
+              "changes": [
+                {
+                  "key": "one",
+                  "type": "override",
+                  "value": 1
+                },
+                {
+                  "key": "two",
+                  "type": "multiply",
+                  "value": 2
+                },
+                {
+                  "key": "three",
+                  "type": "add",
+                  "value": 3,
+                  "priority": 10
+                },
+                {
+                  "key": "four",
+                  "type": "subtract",
+                  "value": 4,
+                  "priority": -1
+                }
+              ]
+            }
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": false,
+          "decisions": [
+            "eligible"
+          ],
+          "initial": [
+            "four",
+            "two",
+            "three",
+            "one"
+          ],
+          "final": []
+        }
+      },
+      {
+        "id": "nontransfer-item",
+        "effects": [],
+        "items": [
+          {
+            "_id": "classItem",
+            "type": "class",
+            "system": {
+              "levels": 1
+            },
+            "effects": [
+              {
+                "_id": "effectA",
+                "type": "base",
+                "disabled": false,
+                "system": {
+                  "changes": [
+                    {
+                      "key": "system.levels",
+                      "value": 5,
+                      "type": "override"
+                    }
+                  ]
+                },
+                "transfer": false
+              }
+            ]
+          }
+        ],
+        "expected": {
+          "ready": false,
+          "decisions": [
+            "item-preparation-unavailable"
+          ]
+        }
+      },
+      {
+        "id": "conditional",
+        "effects": [
+          {
+            "_id": "effectA",
+            "type": "base",
+            "disabled": false,
+            "system": {
+              "conditions": "{\"k\":\"foo\",\"v\":true}",
+              "changes": []
+            }
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": false,
+          "decisions": [
+            "conditions-unavailable"
+          ]
+        }
+      },
+      {
+        "id": "timed",
+        "effects": [
+          {
+            "_id": "effectA",
+            "type": "base",
+            "disabled": false,
+            "system": {
+              "changes": []
+            },
+            "duration": {
+              "value": 60,
+              "units": "seconds",
+              "expiry": "turnStart"
+            }
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": false,
+          "decisions": [
+            "duration-unavailable"
+          ]
+        }
+      },
+      {
+        "id": "statuses",
+        "effects": [
+          {
+            "_id": "effectA",
+            "type": "base",
+            "disabled": false,
+            "system": {
+              "changes": []
+            },
+            "statuses": [
+              "poisoned"
+            ]
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": false,
+          "decisions": [
+            "status-unavailable"
+          ]
+        }
+      },
+      {
+        "id": "legacy-changes",
+        "effects": [
+          {
+            "_id": "effectA",
+            "type": "base",
+            "disabled": false,
+            "system": {
+              "changes": []
+            },
+            "changes": [
+              {
+                "key": "system.abilities.wis.value",
+                "mode": 2,
+                "value": "2"
+              }
+            ]
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": false,
+          "decisions": [
+            "legacy-unavailable"
+          ]
+        }
+      },
+      {
+        "id": "unknown-type",
+        "effects": [
+          {
+            "_id": "effectA",
+            "type": "custom",
+            "disabled": false,
+            "system": {
+              "changes": []
+            }
+          }
+        ],
+        "items": [],
+        "expected": {
+          "ready": false,
+          "decisions": [
+            "type-unavailable"
+          ]
+        }
+      }
+    ]
+  },
+  "failingBefore": [
+    "no-op-actor",
+    "unequipped-transfer"
+  ],
+  "passingAfter": 11,
+  "checks": {
+    "toolingAssertions": 56,
+    "toolingSuites": 7,
+    "moduleSuites": 15,
+    "typecheckedFiles": 108,
+    "mountedEffectCases": 22,
+    "publicRolls": 1098,
+    "nonblockingEqualIndexDiagnostics": 40,
+    "sourceRecords": 2242,
+    "sourceCandidateExpressions": 591,
+    "isolatedPackage": "passed"
+  },
+  "hashes": {
+    "tests/fixtures/native-6.0.6/effect-phases.json": "7b1eda6c600e1ec477e0774a9e17692e27acf26dc0447340ff5060a004fa60c6",
+    "src/logic/preparation/effects.ts": "c44f982b75373af96454e3f5593055e7caf78ccb67a4545511f5044a9b7ecaec",
+    "src/tests/effect-phases.test.ts": "ad940d7b286137fb49809e9e8db85ef86b5cf3388598af82a4f0de6c3244caec",
+    "scripts/native-effect-oracle.mjs": "3183529e11d64e5b6416fa5a49662ab4b96279d9c2df528a25a7c4641b789962",
+    "scripts/test-mounted.mjs": "2d38dfd340d2e69bb9533b215b80623d8ad5607f6611a86306a555c95314c58a",
+    "scripts/test-public-rolls.mjs": "b7935d9d9305bad7ec09ecb2fcaf13a59713f1e5963fd6c9138be742c7693ed8"
+  },
+  "archive": {
+    "path": "/tmp/dnd5e-package-RIfHHM/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "56a5c763bc4885530932ba4419b7595c1c94d864791eb227d16ae84813e9b373"
+  },
+  "limits": [
+    "Controlled static methods with explicit initialization and trace-only field application; no native DataModel/Document or dice runtime acceptance",
+    "Mounted SDK presentation seam; not installed UI acceptance",
+    "Isolated public Core0.19.3 synthetic transport; no live Foundry",
+    "No active field arithmetic support claimed; no full DD/A/M gate closed"
+  ]
+}
