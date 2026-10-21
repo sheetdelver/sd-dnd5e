@@ -365,7 +365,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
 | M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default | RV01–RV04 retained; C06–C31 separate R/S/mounted/isolated-host evidence |
-| M3 | Q02 public-contract qualification begun; journal/gameplay routes not implemented | C32 public receipts/failures/race; native ID/concurrency and acceptance remain open |
+| M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
 | M6 | Not started | Builder/advancement class-level matrix |
@@ -1329,3 +1329,42 @@ record commands, hashes and limits. No production command route, new Core import
 version change or native/operator acceptance. Continue module journal/serialization/
 intent foundation independently while E02 native/concurrency gates remain open.
 E01, wider Q00/E05, full M2/M3+ and ADR-0001 remain open.
+
+
+### C33 — Durable command admission and inspectable outcomes (2026-10-21)
+
+C32 is `d00a6ff`. M3/DD-20/24/25/35,A17/A18 now have a shared server-only
+journal foundation. Trusted request/world identities scope module/instance/world/
+caller/Actor/operation keys. Strict server-plan digests bind intent, fingerprints
+and ordered steps; the journal stores no Actor cache or client-supplied source patch.
+Actor queues serialize module commands across callers while other Actors proceed.
+Current ownership is required before inspection and each dispatch; context is
+checked after asynchronous domain/source/owner revalidation. Persist-and-readback
+must succeed before dispatch. Same-ID changed intent rejects; duplicates return
+the current outcome without replay. No gameplay review/execute route is exposed.
+
+Exact acknowledgement identities are retained before ancillary validation and
+journal bookkeeping. Unknown first outcomes fence uncertain; prior confirmed steps
+produce partial. Confirmation and persistence failure stop continuation. Persisted
+executing state fences after restart without guessing IDs. A process-session marker
+retires old reviewed intent, including when zero-write retirement could not be
+saved; fresh operation/review is required. This is separate from future draft resume.
+Owner-loss attempts retire review without returning private journal contents.
+Corrupt records never become empty drafts. There is no automatic resume/reconcile,
+rollback, global maintenance or claim of native/cross-process locking.
+
+The public `GET commands/status` route uses this same coordinator and current owner/
+caller scope. Domain drivers must still recompute native rules, exact choices and
+source/dependency fingerprints and provide a qualified confirmation policy. Core
+primary equality cannot solve C32's external-edit race; affected source-derived
+writes remain gated by E02's native precondition/conflict-policy decision.
+
+[C33 ledger](../plans/0001-verification.md#c33--command-journal-foundation-2026-10-21)
+and [portable evidence](../audits/evidence/2026-10-21-c33-command-journal.json)
+record28 maintained state/storage/identity/queue cases and29 isolated public-host
+observations (20 retainedC32,9 actual-module additions), real storage faults/restarts,
+source/typing/package identities and development failure corrections. No production
+creation/inventory/health/activity workflow or installed/native/operator acceptance.
+Next continue independent Q02a initial collection-filter/condition/final/Item rules,
+and domain-specific command qualification as dependencies permit. E01/E02/wider
+Q00/E05, full M2/M3+ acceptance and ADR-0001 remain open.

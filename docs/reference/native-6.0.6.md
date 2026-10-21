@@ -774,3 +774,12 @@ edit cases establish SDK behavior, not native keepId/embedded relationship polic
 flag persistence or atomic compare support. Native command/receipt/operator fixtures
 remain separately required. Exact release87e94db stays the rules oracle; no reference
 checkout/runtime was started or modified by this investigation.
+
+
+### Command foundation versus native rules (C33)
+
+The journal/status implementation adds no native rule interpretation and does not
+qualify native create IDs, flag correlation or concurrency. Its domain-driver
+interface requires server-derived rules/fingerprints and exact confirmation; those
+are not supplied by a generic JSON plan. Pinned rules fixtures and native/operator
+command acceptance remain separate from synthetic public-host infrastructure tests.

@@ -25,7 +25,8 @@ target, not a new compatibility claim for module 0.4.1. See the
 
 - The UI manifest registers the sheet, initiative modal and stylesheet. It has
   no builder/tool/dashboard action. The server entry exposes read-only D&D content
-  metadata routes; rules-bearing write commands remain unimplemented.
+  metadata and caller-owned command-status routes. C33 supplies server journal/queue
+  infrastructure; domain review/execute and rules-bearing writes remain unimplemented.
 - Bounded source-derived numeric ability/save/skill formulas are available;
   unqualified rules and unknown contexts disable these controls with reasons.
   Weapon/spell controls currently request `item` rolls that the adapter does not
@@ -717,3 +718,34 @@ stale desired value. Actor queues serialize module commands only. Derived-resour
 commands need E02's verified native precondition or an explicit conflict-policy
 decision. C32 is synthetic public-host qualification; production journal/routes and
 native ID/concurrency/operator acceptance remain open.
+
+
+### Server operation journal foundation (C33)
+
+`src/server/commands/journal.ts` uses public request-runtime DataStore/documents and
+server-only crypto for strict JSON digests and review-session identity. Keys bind
+module/instance/world/caller/Actor/operation; records contain intent, relevant
+fingerprints, ordered step descriptions, context identity, receipts and outcomes,
+never a second Actor/world cache. Request-bound domain handlers must construct
+plans and revalidate current rules/sources/choices themselves. No generic write
+endpoint accepts client patches, formulas, costs or ownership.
+
+The shared coordinator queues Actors across callers; unrelated Actors proceed.
+Ownership precedes journal inspection and every write. Domain/owner reads finish
+before the synchronous context fence. Persistence must be read back before each
+dispatch; steps are individually acknowledged/confirmed and failures stop further
+writes. Duplicate IDs return current state; changed intent conflicts. Parsed exact
+IDs survive later detail/bookkeeping failures in the returned/local fenced record.
+Executing records fence after restart; missing receipts cannot be invented. Prior-
+process reviewed records retire, preventing reuse after failed zero-write retirement.
+Draft resume and exact-ID reconciliation are future domain work, with fresh review.
+
+`GET /api/modules/dnd5e/commands/status?actorId=…&operationId=…` is inspection only,
+requires current owner access and returns only the current caller's operation.
+Corrupt records fail closed; source/owner/context changes retire or fence intent.
+No automatic replay, speculative rollback or global maintenance mode. Plans are
+bounded64KiB/64steps, receipts256 ASCII identities of256 characters plus4KiB details;
+aggregate records have8MiB/131072-node/depth24 limits. Future domain handlers must
+qualify their acknowledgement shape and bounds before writes. Module-process
+serialization is not native/cross-process atomicity; C32/E02's external-edit gap and
+native ID/freshness/confirmation gates remain open.

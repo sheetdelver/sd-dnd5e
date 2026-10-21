@@ -1,0 +1,1158 @@
+{
+  "checkpoint": "C33",
+  "date": "2026-10-21",
+  "parent": "d00a6ff",
+  "requirements": "M3/DD-20/24/25/35,A17/A18 infrastructure only; no complete gameplay/creation gate",
+  "regression": {
+    "command": "npm test -- --core <released0.19.3>",
+    "result": "60 assertions/8 tooling/33 module suites PASS",
+    "journalCases": [
+      {
+        "id": "confirmed-duplicate-no-replay",
+        "phase": "confirmed",
+        "dispatches": 2
+      },
+      {
+        "id": "scope-caller",
+        "phase": "reviewed",
+        "dispatches": 0
+      },
+      {
+        "id": "scope-world",
+        "phase": "reviewed",
+        "dispatches": 0
+      },
+      {
+        "id": "scope-instance",
+        "phase": "reviewed",
+        "dispatches": 0
+      },
+      {
+        "id": "stale-revision",
+        "phase": "rejected-zero-write",
+        "dispatches": 0
+      },
+      {
+        "id": "stale-epoch",
+        "phase": "rejected-zero-write",
+        "dispatches": 0
+      },
+      {
+        "id": "context-changes-during-validation",
+        "phase": "rejected-zero-write",
+        "dispatches": 0
+      },
+      {
+        "id": "stale-source-fresh-intent",
+        "phase": "confirmed",
+        "dispatches": 2
+      },
+      {
+        "id": "review-storage-throw",
+        "phase": "rejected-zero-write",
+        "dispatches": 0
+      },
+      {
+        "id": "review-storage-silent",
+        "phase": "rejected-zero-write",
+        "dispatches": 0
+      },
+      {
+        "id": "review-storage-read",
+        "phase": "reviewed",
+        "dispatches": 0
+      },
+      {
+        "id": "reviewed-restart-requires-fresh-intent",
+        "phase": "rejected-zero-write",
+        "dispatches": 1
+      },
+      {
+        "id": "unpersisted-zero-write-retirement-survives-restart",
+        "phase": "rejected-zero-write",
+        "dispatches": 0
+      },
+      {
+        "id": "execution-admission-storage-failure",
+        "phase": "rejected-zero-write",
+        "dispatches": 0
+      },
+      {
+        "id": "unknown-first-never-replayed",
+        "phase": "uncertain",
+        "dispatches": 1
+      },
+      {
+        "id": "partial-second-unknown",
+        "phase": "partial",
+        "dispatches": 2
+      },
+      {
+        "id": "ack-persistence-failure-retains-ids",
+        "phase": "uncertain",
+        "dispatches": 1
+      },
+      {
+        "id": "confirmation-false",
+        "phase": "uncertain",
+        "dispatches": 1
+      },
+      {
+        "id": "confirmation-throw",
+        "phase": "uncertain",
+        "dispatches": 1
+      },
+      {
+        "id": "second-source-stale-fences-only-this-operation",
+        "phase": "partial",
+        "dispatches": 2
+      },
+      {
+        "id": "owner-loss-status-private",
+        "phase": "rejected-zero-write",
+        "dispatches": 0
+      },
+      {
+        "id": "owner-loss-between-steps",
+        "phase": "partial",
+        "dispatches": 1
+      },
+      {
+        "id": "corrupt-journal-never-reinitialized",
+        "phase": "reviewed",
+        "dispatches": 0
+      },
+      {
+        "id": "empty-ack-is-unknown",
+        "phase": "uncertain",
+        "dispatches": 1
+      },
+      {
+        "id": "invalid-receipt-details-retain-known-ids",
+        "phase": "uncertain",
+        "dispatches": 1
+      },
+      {
+        "id": "receipt-envelope-rejects-unqualified-payload",
+        "phase": "uncertain",
+        "dispatches": 1
+      },
+      {
+        "id": "multiple-large-exact-receipts",
+        "phase": "confirmed",
+        "dispatches": 3
+      },
+      {
+        "id": "actor-queue-isolation-recovery",
+        "phase": "confirmed",
+        "dispatches": 4
+      }
+    ],
+    "additionalAssertions": "strict canonical JSON/plan/receipt bounds, current-owner read-only status route, method/query/privacy gates",
+    "developmentFailuresBeforeCorrection": [
+      {
+        "case": "context-changes-during-validation",
+        "before": "partial: first write dispatched after context changed during asynchronous step validation",
+        "after": "rejected-zero-write,0dispatch; synchronous context checked after asynchronous reads",
+        "artifactSha256": "116a36cff15711ca96909e840c432a2350f46ae34788fb94b2f69245c5c0ee8a"
+      },
+      {
+        "case": "reviewed-restart-requires-fresh-intent",
+        "before": "confirmed: prior-process review remained executable",
+        "after": "rejected-zero-write,0dispatch of old intent; separate fresh intent works",
+        "artifactSha256": "92eac36cd1b8d5e62fff0be77296f7566d868a1c7dfe739fdfe1faa902dbfe64"
+      }
+    ]
+  },
+  "publicHost": {
+    "kind": "Isolated public Core host contract qualification; synthetic transport/backend, not native/operator acceptance",
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "artifactRoot": "/tmp/dnd5e-public-commands-zwg5wA",
+    "artifactSha256": "39e4b3152c78d803f8ba10d3e6469206dc9e898856909c13aabb3d7ddcb7133f",
+    "historicalC32CasesRetained": 20,
+    "newActualModuleJournalCases": [
+      {
+        "case": "module-journal-real-status-route",
+        "status": {
+          "operation": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "confirmed",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-confirm",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "receipt": {
+                  "details": {
+                    "step": "one"
+                  },
+                  "ids": [
+                    "Q02Embedded00001"
+                  ]
+                },
+                "state": "confirmed",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "receipt": {
+                  "details": {
+                    "step": "two"
+                  },
+                  "ids": [
+                    "Q02Embedded00002"
+                  ]
+                },
+                "state": "confirmed",
+                "summary": "Second synthetic item"
+              }
+            ]
+          }
+        },
+        "rejectedMethod": 405
+      },
+      {
+        "case": "module-journal-confirmed-duplicate-and-changed-intent",
+        "results": [
+          {
+            "caller": "fixtureplayer",
+            "value": {
+              "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+              "contextRevision": 1,
+              "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+              "phase": "confirmed",
+              "plan": {
+                "fingerprints": {
+                  "fixture": "reviewed-v1"
+                },
+                "intent": {
+                  "kind": "isolated-journal-fixture",
+                  "variant": "same"
+                },
+                "steps": [
+                  {
+                    "id": "one",
+                    "kind": "fixture",
+                    "summary": "First synthetic item"
+                  },
+                  {
+                    "id": "two",
+                    "kind": "fixture",
+                    "summary": "Second synthetic item"
+                  }
+                ]
+              },
+              "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+              "schema": 1,
+              "scope": {
+                "actor": "Q02Actor00000001",
+                "caller": "fixtureplayer",
+                "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+                "module": "q02",
+                "operation": "journal-confirm",
+                "world": "q02world"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "receipt": {
+                    "details": {
+                      "step": "one"
+                    },
+                    "ids": [
+                      "Q02Embedded00001"
+                    ]
+                  },
+                  "state": "confirmed",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "receipt": {
+                    "details": {
+                      "step": "two"
+                    },
+                    "ids": [
+                      "Q02Embedded00002"
+                    ]
+                  },
+                  "state": "confirmed",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "valueType": "object"
+          },
+          {
+            "caller": "fixtureplayer",
+            "value": {
+              "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+              "contextRevision": 1,
+              "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+              "phase": "confirmed",
+              "plan": {
+                "fingerprints": {
+                  "fixture": "reviewed-v1"
+                },
+                "intent": {
+                  "kind": "isolated-journal-fixture",
+                  "variant": "same"
+                },
+                "steps": [
+                  {
+                    "id": "one",
+                    "kind": "fixture",
+                    "summary": "First synthetic item"
+                  },
+                  {
+                    "id": "two",
+                    "kind": "fixture",
+                    "summary": "Second synthetic item"
+                  }
+                ]
+              },
+              "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+              "schema": 1,
+              "scope": {
+                "actor": "Q02Actor00000001",
+                "caller": "fixtureplayer",
+                "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+                "module": "q02",
+                "operation": "journal-confirm",
+                "world": "q02world"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "receipt": {
+                    "details": {
+                      "step": "one"
+                    },
+                    "ids": [
+                      "Q02Embedded00001"
+                    ]
+                  },
+                  "state": "confirmed",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "receipt": {
+                    "details": {
+                      "step": "two"
+                    },
+                    "ids": [
+                      "Q02Embedded00002"
+                    ]
+                  },
+                  "state": "confirmed",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "valueType": "object"
+          }
+        ],
+        "changed": {
+          "caller": "fixtureplayer",
+          "thrown": {
+            "name": "SdkError",
+            "message": "Operation ID already binds another intent",
+            "code": "conflict",
+            "status": 409
+          }
+        },
+        "dispatches": 2
+      },
+      {
+        "case": "module-journal-zero-write-stale-and-fresh-intent",
+        "stale": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "rejected-zero-write",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reason": "Current ownership, context, choices or source changed; fresh review required",
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-stale",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "fresh": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "confirmed",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-fresh",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "receipt": {
+                  "details": {
+                    "step": "one"
+                  },
+                  "ids": [
+                    "Q02Embedded00003"
+                  ]
+                },
+                "state": "confirmed",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "receipt": {
+                  "details": {
+                    "step": "two"
+                  },
+                  "ids": [
+                    "Q02Embedded00004"
+                  ]
+                },
+                "state": "confirmed",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "staleDispatches": 0
+      },
+      {
+        "case": "module-journal-rechecks-between-steps",
+        "result": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "partial",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reason": "Current ownership, context, choices or source changed before step",
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-partial",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "receipt": {
+                  "details": {
+                    "step": "one"
+                  },
+                  "ids": [
+                    "Q02Embedded00005"
+                  ]
+                },
+                "state": "confirmed",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "dispatching",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "dispatches": 1
+      },
+      {
+        "case": "module-journal-lost-ack-fenced-no-replay",
+        "result": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "uncertain",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reason": "Step outcome unknown; inspect before any further write",
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-lost",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "state": "unknown",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "dispatches": 1
+      },
+      {
+        "case": "module-journal-real-post-ack-storage-fault",
+        "result": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "uncertain",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reason": "Acknowledgement retained; journal persistence unavailable",
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-real-fault",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "receipt": {
+                  "details": {
+                    "step": "one"
+                  },
+                  "ids": [
+                    "Q02Embedded00007"
+                  ]
+                },
+                "state": "acknowledged",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "dispatches": 1
+      },
+      {
+        "case": "module-journal-actual-namespace-failure-zero-dispatch",
+        "result": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "rejected-zero-write",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reason": "Review persistence unavailable; use fresh intent",
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-unavailable",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "dispatches": 0
+      },
+      {
+        "case": "module-journal-owner-loss-private-and-retired",
+        "hidden": {
+          "caller": "fixtureplayer",
+          "thrown": {
+            "name": "SdkError",
+            "message": "Current Actor ownership required",
+            "code": "permission_denied",
+            "status": 403
+          }
+        },
+        "ownerLoss": {
+          "caller": "fixtureplayer",
+          "thrown": {
+            "name": "SdkError",
+            "message": "Current Actor ownership required",
+            "code": "permission_denied",
+            "status": 403
+          }
+        },
+        "restored": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "rejected-zero-write",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reason": "Ownership lost before dispatch; fresh review required",
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-owner-loss",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "dispatches": 0
+      },
+      {
+        "case": "module-journal-actual-host-restart-fences-executing-and-terminal",
+        "unknown": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "uncertain",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-real-fault",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "state": "dispatching",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "Second synthetic item"
+              }
+            ],
+            "reason": "Interrupted execution; inspect exact outcomes before any new intent"
+          },
+          "valueType": "object"
+        },
+        "lost": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "uncertain",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reason": "Step outcome unknown; inspect before any further write",
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-lost",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "state": "unknown",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "confirmed": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "confirmed",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-confirm",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "receipt": {
+                  "details": {
+                    "step": "one"
+                  },
+                  "ids": [
+                    "Q02Embedded00001"
+                  ]
+                },
+                "state": "confirmed",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "receipt": {
+                  "details": {
+                    "step": "two"
+                  },
+                  "ids": [
+                    "Q02Embedded00002"
+                  ]
+                },
+                "state": "confirmed",
+                "summary": "Second synthetic item"
+              }
+            ]
+          },
+          "valueType": "object"
+        },
+        "retiredReview": {
+          "caller": "fixtureplayer",
+          "value": {
+            "contextDigest": "ee0814d3c5eefe2a2eb2e2defb8ba0c1455c5eebbf9c5eeb887c40af134c89eb",
+            "contextRevision": 1,
+            "digest": "125780145f6600fad510397d03d7c75ae8089055b8e0179926a387318ed3d5dc",
+            "phase": "rejected-zero-write",
+            "plan": {
+              "fingerprints": {
+                "fixture": "reviewed-v1"
+              },
+              "intent": {
+                "kind": "isolated-journal-fixture",
+                "variant": "same"
+              },
+              "steps": [
+                {
+                  "id": "one",
+                  "kind": "fixture",
+                  "summary": "First synthetic item"
+                },
+                {
+                  "id": "two",
+                  "kind": "fixture",
+                  "summary": "Second synthetic item"
+                }
+              ]
+            },
+            "reviewSession": "809d6464-3979-4d4a-9122-ebcd1ab19bbe",
+            "schema": 1,
+            "scope": {
+              "actor": "Q02Actor00000001",
+              "caller": "fixtureplayer",
+              "instance": "d28ac17867111e270f526d7ae5d4b7617ac6140eeb08eb6705d46a915b423b3b",
+              "module": "q02",
+              "operation": "journal-reviewed-restart",
+              "world": "q02world"
+            },
+            "steps": [
+              {
+                "id": "one",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "First synthetic item"
+              },
+              {
+                "id": "two",
+                "kind": "fixture",
+                "state": "planned",
+                "summary": "Second synthetic item"
+              }
+            ],
+            "reason": "Review belongs to a previous process; fresh intent required"
+          },
+          "valueType": "object"
+        },
+        "knownAckIdBeforeRestart": "Q02Embedded00007",
+        "dispatches": 0,
+        "qualification": "Executing record survives; acknowledgement lost from failed persistence is not guessed or redispatched. Response before restart retains exactID; recovery remains inspect-only."
+      }
+    ],
+    "totalObservations": 29,
+    "syntheticAppliedWrites": 26,
+    "wireAttemptsIncludingReads": 64,
+    "writeCallers": [
+      "fixtureplayer"
+    ],
+    "result": "29 expected capability/limitation observations; actual coordinator/public status route/current request runtime, real isolated filesystem faults and actual host restarts"
+  },
+  "typing": {
+    "result": "PASS:167 explicit module/UI/server/test/hook files"
+  },
+  "sourceOracle": {
+    "result": "2242 records/591 expressions unchanged at exact87e94db; no native command/ID/CAS qualification claimed"
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-gigJL6/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "dca8c4bb9c9884a8c50311b535c2e79c80cb1881daab9034a742a98303adfb85",
+    "result": "isolated module/public-boundary/managed typing and bundles PASS; compiled server includes public read-only status route"
+  },
+  "fileHashes": {
+    "src/server/commands/journal.ts": "657d50ac21de89ed5ab14cf6730fbcc7c8366e429f79aaeaeab88d04d48f9fc2",
+    "src/server/routes/commands.ts": "113334b6aebf3e1cab159ad26202a7981b724d822ed228bffc51886b14952946",
+    "module/server.ts": "feb435080af796e6813f0b2adcbd75e32bc3b54e59e327321e78284e54deb824",
+    "src/tests/command-journal.test.ts": "60b6ef06d927c239f0da2e5f43ef8f4b8c71b80b112a8c699d6c9265d07ac0ae",
+    "scripts/test-public-commands.mjs": "fc7a6f4d83eeee728671322d7667df422babf28e597fcfaaa964d0345814b2de"
+  },
+  "publicSdkHashes": {
+    "src/shared/sdk/runtime.ts": "b76307f81bc7daa58753c8c4c3d1b2d3af7a8ccd8c304d0178823b63178f0297",
+    "src/shared/sdk/server.ts": "f3150b794f05e7e18e0062b409bbd861e374d69099c2f4e9a24de659ddbe305b",
+    "src/shared/sdk/world.ts": "bcb8a526ff961b1a55dab429b477efa53e3110dfab463752dc72bac574faa826"
+  },
+  "limits": [
+    "Server infrastructure only: no generic write route or production domain review/execute handler; domain drivers must recompute current rules/fingerprints and qualify confirmation",
+    "No native ID/flag persistence, source creation/migration, transaction, cross-process queue, native atomic compare, gameplay workflow or operator acceptance",
+    "Actor queue serializes module commands only; external native edits still require E02 verified precondition or explicit conflict-policy decision",
+    "Exact parsed IDs retained in live returned/fenced operation; if storage fails and process dies, durable executing record fences and cannot invent/recover missing IDs",
+    "Prior-process reviewed intent retires; future draft resume must produce fresh review/operation ID; no automatic reconcile/resume/rollback",
+    "Input plan64KiB/64steps; receipts<=256 ASCII identities<=256chars and ancillary<=4KiB; bounded aggregate8MiB. Domain handler must qualify write receipt shape and limits before dispatch",
+    "No UI changed or installed UI/native/operator evidence; C31 mounted/public-roll evidence retained distinctly",
+    "E01,widerQ00/E05,E02/fullM2/M3+ and ADR0001 remain open; experimental0.4.1/compatibility unchanged",
+    "Task-owned services stopped; Core/sibling/native repositories read-only"
+  ]
+}

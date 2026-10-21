@@ -186,7 +186,7 @@ IDs remain stable through implementation. Baseline status describes the **workfl
 | DD-17 | Descriptions, links, privacy — **partial/unverified** | Notes/Characteristics/ItemModal/SpellModal use `dangerouslySetInnerHTML`; no module-side demonstrated SDK processing. Concealed/unidentified content not projected by D&D rules. | Module M1/M3/M7; SDK processing, exact readable links, secret/identification and observer projections checked. Raw rendering is a review risk; exploitability not tested. |
 | DD-18 | Dashboard builder integration — **absent** | `module/ui.tsx`; test asserts tools absent. Siblings expose declared tools + dashboardActions. | Module M6, public Core tool host already available; one declared builder page navigable from dashboard with theme/background and clear prerequisites. |
 | DD-19 | Guided choices and final validation — **absent** | No creation choice engine, native advancement/starting-equipment graph not interpreted. | Module M6; species/background/class/abilities/skills/equipment/spells/feats complete and server revalidated; prior-choice changes invalidate dependent intent. |
-| DD-20 | Draft/resume/create/retry/recovery — **absent** | No caller-bound creation route or durable workflow record. SDK commit is not atomic. | Module M3/M6, E02 qualification; exact create ownership/IDs, one logical submission, zero-write restart and uncertain-write review, reconnect-safe draft. |
+| DD-20 | Draft/resume/create/retry/recovery — **partial infrastructure** | C33 adds durable scoped command admission/inspection, duplicate and restart fences. No creation route or resumable builder draft. SDK commit is not atomic. | Module M3/M6, E02 qualification; exact create ownership/IDs, one logical submission, zero-write restart and uncertain-write review, reconnect-safe draft. |
 | DD-21 | Level/XP/subclass/feature advancement — **absent** | Class/level display only; native nine advancement types, originalClass and grant links missing. | Module M6; 1–20 progression and xpBoons mode, grants/HP/spells/choices/metadata persist and reopen natively without re-granting. |
 | DD-22 | Multiclass/edit/replacements/respec boundary — **absent** | No rules or reverse/restore support. Native advancement manager includes level changes and recursive grants. | Module M6/M7; multiclass prerequisites/levels/slots, supported retraining and dependent reversal; unrestricted conversion/respec separately decided. |
 | DD-23 | Desktop/mobile equivalent workflows — **partial** | `Sheet.tsx`, StandardView/MobileView, duplicate tabs; mobile fixed footer not registered, controls/placeholders differ. | Module M7; shared view/action models, keyboard and 360/390/768/1440 layouts, no tool obstruction or loss of draft on resize. |
@@ -201,7 +201,7 @@ IDs remain stable through implementation. Baseline status describes the **workfl
 | DD-32 | Companions, summons, transformations, other Actors — **absent specialized support** | Generic sheet can receive non-PC data; no type-specific capability guard; native NPC/group/vehicle/encounter/facility workflows differ. | Module M7 + E04; supported PC-linked creature lifecycle; explicit read-only/unsupported other types, no fabricated PC rules. |
 | DD-33 | License/content redistribution — **partial provenance** | Fonts documented; upstream MIT does not cover all images/purchased content. | Module M0/M8; package asset/license inventory, no restricted/premium data shipped, lawful neutral fallbacks and attribution. |
 | DD-34 | Shared projection instead of repeated rules — **partial, contradiction confirmed** | Architecture claims sheets/cards/rolls share prepared model, but Sheet/itemRows/modals re-filter/recalculate/raw-read. | Module M1–M7; single rule result consumed by card, desktop, mobile, detail and command preview; equal-source contract tests. |
-| DD-35 | Multi-document consistency and uncertain writes — **absent module handling** | SDK `documents.commit` prechecks then dispatches operations sequentially; no transaction/rollback or CAS contract. Default update callback swallows rejection. | Module M3, E02 qualification; exact readback/IDs and status, no replay after unknown writes, conflicting current edits never overwritten by stale plan. |
+| DD-35 | Multi-document consistency and uncertain writes — **partial infrastructure** | C32 reproduces receipt/race limits; C33 journals individual steps, retains exact acknowledgements and fences partial/unknown outcomes. Gameplay write paths and E02 native/conflict qualification remain open. | Module M3, E02 qualification; exact readback/IDs and status, no replay after unknown writes, conflicting current edits never overwritten by stale plan. |
 | DD-36 | Runtime limits and broader Foundry features — **unsupported/undecided** | Native methods depend on game/CONFIG/Hooks/Document classes/canvas. Scene/Setting not ordinary SDK store types. | Module M0/M7 + E04; explicit portable versus external/native-only table. No browser service, arbitrary macro execution or “import upstream and it works” assumption. |
 
 ### Separate assessment by concern
@@ -899,3 +899,19 @@ unqualified. See [C32 ledger](../plans/0001-verification.md#c32--public-command-
 and [portable observations](evidence/2026-10-21-c32-command-contracts.json).
 Next: shared durable admission/state/Actor serialization with exact acknowledgements,
 zero-write rejection and operation-specific unknown fencing, before gameplay routes.
+
+
+### C33 disposition — command infrastructure, not gameplay completion
+
+C32 is `d00a6ff`. DD-20/24/25/35,A17/A18 advance partially with server-plan
+binding, durable admission/readback, current caller/owner/context/domain preflight,
+per-Actor queues, exact receipt retention, status and zero-write/partial/uncertain
+fences. Prior-process reviews require fresh intent; interrupted execution never
+replays. Real public-host faults/restart exercise the actual module coordinator;
+its read-only status route is packaged and owner/caller scoped. No domain write
+handler, native create/embedded-ID policy or concurrency acceptance is established.
+See [C33 ledger](../plans/0001-verification.md#c33--command-journal-foundation-2026-10-21)
+and [portable record](evidence/2026-10-21-c33-command-journal.json). Development
+regressions caught and corrected context changes during async validation and
+prior-process review reuse. All earlier roll/preparation coverage remains. No full
+gate closes; E01/E02/wider Q00/E05/installed/native/operator acceptance stay open.

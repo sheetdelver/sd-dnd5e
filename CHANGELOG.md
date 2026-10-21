@@ -3,6 +3,7 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+- Added scoped command journaling, Actor queues and caller-owned status inspection.
 - Added isolated public command/receipt, persistence and concurrency qualification.
 - Qualified bounded initial numeric filters and shared save-proficiency defaults.
 - Preserved malformed change-envelope gates before effect suppression.

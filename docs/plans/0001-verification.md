@@ -1679,3 +1679,42 @@ change; C31 mounted/public-roll results remain historical, not newly rerun evide
 Task-owned host/socket services stopped; production listeners untouched. E02 is open
 pending native compare qualification or explicit conflict-policy decision; E01/wider
 Q00/E05 and all full acceptance gates remain open. Next is module journal foundation.
+
+
+### C33 — Command journal foundation (2026-10-21)
+
+Parent `d00a6ff`; partial M3/DD-20/24/25/35,A17/A18. Maintained journal tests
+assert28 state/storage/identity/queue cases plus strict JSON/plan/receipt bounds and
+actual status-route method/query/privacy gates. They cover duplicate/changed intent,
+caller/world/instance isolation, revision/epoch/source loss/fresh intent, async
+context changes, real receipt IDs, partial/unknown steps, confirmation/storage faults,
+restart fences, corrupt records and Actor queue isolation across callers.384 IDs
+across three receipts remain intact. Two meaningful development failures were fixed:
+async step-context change first dispatched a stale write; prior-process review first
+executed rather than requiring fresh intent. These are infrastructure regressions,
+not claims of native parity or28 failing-before domain cases.
+
+`npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core`:60 assertions,8 tooling/
+33 module suites PASS. `typecheck`:167 explicit module/UI/server/test/hook files
+PASS. `test:native-source`:2242 records/591 expressions at exact87e94db PASS; no
+native rules changed. `test:public-commands`:29 observations,20 retainedC32 and9
+new actual-module cases through released0.19.3/90c13e5 public request runtime. Actual
+read-only status routing, duplicate submission, stale/fresh intent, between-step
+revalidation, applied/lost ACK, post-ACK real filesystem failure, namespace failure,
+owner loss and actual host restart all match expectations. Exact IDs survive in
+response/local fence; executing disk state after failed persistence never guesses
+or replays missing receipts. Prior-process reviewed state retires.26 synthetic
+applied writes/64 wire attempts including reads; all writes use caller player socket.
+Artifacts `/tmp/dnd5e-public-commands-zwg5wA`; no live/native writes or operator proof.
+
+`check:package`:isolated module/public-boundary checks,managed typing,bundles PASS;
+archive `/tmp/dnd5e-package-gigJL6/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`dca8c4bb9c9884a8c50311b535c2e79c80cb1881daab9034a742a98303adfb85`.
+Compiled server includes shared journal and inspection route. No UI changes; C31
+mounted/public-roll evidence is retained distinctly, not newly rerun. [Portable
+record](../audits/evidence/2026-10-21-c33-command-journal.json) includes asserted
+outcomes,host observations,development failures,hashes and limits. Task services
+stopped; Core/sibling/native references untouched. No generic/domain write route,
+cross-native atomicity, automatic recovery or full DD/A/M completion. E01/E02/wider
+Q00/E05 and native/operator acceptance remain open. Continue independent M2/Q02a
+collection/condition/final/Item preparation and qualified domain commands afterward.
