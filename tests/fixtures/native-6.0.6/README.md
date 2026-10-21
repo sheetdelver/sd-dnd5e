@@ -245,3 +245,10 @@ compares30 complete movement methods plus1 labeled incomplete-STR diagnostic,
 34 sensory cases and scalar/reference methods. No DataModel/runtime/operator
 acceptance; see portable C19 limits. Numeric source0 is initialized string"0"
 for a FormulaField, unlike an omitted operand. Never erase that distinction.
+
+C20 `d20-ranges.json`:8 independent20-face contribution tables;6560 ordered native
+method/public-host comparisons and24 distributions. Source modifiers preserve
+raw faces, count/rerolled and exact retained identity. Normal160 pass; bounded
+adv/dis320 equal-index mismatches stay unqualified (no plain-profile exception).
+Controlled injected-result S is separate from synthetic public-host execution,
+installed UI and native/operator acceptance. C20 has no runtime scope expansion.

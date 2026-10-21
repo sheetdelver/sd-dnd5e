@@ -1101,3 +1101,39 @@ custom formulas, travel/canvas and other M2 workflows remain open. No complete
 DD/A/M gate closes. Continue the existing Q00 roll/formula qualification and
 remaining M2 preparation domains before M3 dependencies. E01, wider E05 and
 installed/native/operator acceptance remain open; experimental0.4.1 unchanged.
+
+### C20 — Strict bounded d20 qualification (2026-10-21)
+
+Predecessor C19 `b896406`. `d20-ranges.json` contains8 independently expected
+20-face contribution tables, with source aggregation and crossed/same/no-op bounds.
+`test:native-ranges -- --native ../../../../temp/dnd5e --foundry
+/home/juvinious/projects/foundryvtt/foundryvtt-v14` verifies6560 ordered cases and24
+complete distributions. Exact87e94db configuration/selection and Foundry14.367
+count/total methods consume explicitly injected results. Constructor, empty rules/
+flags, array helper and resetFormula are stubs; no native dice engine runs.
+
+`test:public-ranges` uses pristine Core0.19.3/90c13e5 through the real public request
+SDK with isolated temp configuration/synthetic transport/controlled entropy. All
+6560 requests pass raw faces, entropy consumption, count/rerolled/other flags,
+state consistency, totals and distributions. Strict selection passes all160
+normal requests; adv/dis each has160 equal-face index differences among3200
+requests. Those profiles are explicitly UNQUALIFIED, not passing by the plain
+profile exception. Every unequal pair matches. Actual observations/host JSON
+remain unchanged. Artifacts `/tmp/dnd5e-public-ranges-MG447Q`; native writes0.
+No Core defect or compatibility change follows solely from tied identity.
+
+`npm test`:59 tooling assertions/8 tooling/22 module suites pass. `typecheck`:
+explicitly131 module/UI/server/test/hook files pass. `test:native-source`:2242/591
+unchanged. `check:package` passes isolated check, managed typing and all bundles.
+Use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` for host tools. C19's mounted
+84 movement/sense plus prior consumers and public2969 plain-profile results remain
+applicable: C20 has no runtime/UI changes. Native/operator/installed acceptance is
+not implied. Harness cleanup stops task-owned processes. Portable record retains
+tables, source/script hashes, strict profile counts/distributions and representative
+source/host differences without requiring ignored artifacts.
+
+Next executable C21: implement only qualified normal-range compilation and mode
+availability through the shared compiler, update DD-R01 normal cases without
+losing static/passive, context/stale-intent and malformed coverage. Keep bounded
+adv/dis and other unqualified behavior gated; no new evaluator/host result rewrite.
+No full DD/A/M gate closes; E01/wider Q00/E05/ADR-0001 remain open.

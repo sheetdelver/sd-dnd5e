@@ -468,3 +468,14 @@ readout drives both layouts and mobile sensory details. Explicit selected legacy
 retains a labeled unqualified compatibility projection. Legacy alias migration,
 conditions, Item/movement effects, wider formulas/units and canvas/travel automation
 remain unavailable or separate ADR scope; these read facts do not authorize writes.
+
+### Range execution qualification boundary (C20)
+
+The test-only range tables/oracle are independent of module preparation. Native
+range contributions preserve raw faces and ordered count modifiers, including
+crossed bounds. A separate public-host harness preserves actual serialization
+and checks entropy, counts/flags, totals, distributions and exact selection.
+Normal bounded d20 is qualified; bounded advantage/disadvantage remains gated
+under its strict criterion. The plain equal-value index equivalence is unchanged.
+C20 adds no runtime compiler behavior; C21 must share normal-range compilation
+across preparation, preview and dispatch before removing those normal gates.

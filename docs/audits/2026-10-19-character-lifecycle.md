@@ -628,3 +628,33 @@ No complete DD/A/M gate closes. Conditions, movement/Item effects, legacy migrat
 custom formulas/units/types, travel/canvas and broader final/filter rules remain
 open. Continue dependency-ready M2/Q00; E01 and wider E05/native/operator gates
 remain open. Experimental0.4.1/compatibility and ADR-0001 status are unchanged.
+
+### C20 — Strict bounded d20 qualification (2026-10-21)
+
+C19 is `b896406`. This advances Q00/M2, DD-02/24/27/34 and A02 partially.
+Eight independent per-face contribution tables cover min, max, combined/aggregated,
+same and crossed bounds. Exact release d20 configuration/BasicDie selection plus
+Foundry14.367 minimum/maximum/total methods match6560 ordered cases and24 complete
+distributions. Native min/max test original faces sequentially, setting count/
+rerolled even on discarded results. Crossed bounds therefore cannot be replaced
+by a generic clamp or flat bonus. Source range aggregation stays distinct from
+die configuration, injected raw results and recorded contributions.
+
+A separate isolated public-host harness compares exact entropy, ordered raw faces,
+counts/flags, totals and distributions without rewriting serialization. All160
+normal bounded rolls match strictly. Of6400 advantage/disadvantage requests,
+320 equal-face pairs keep the second index rather than native first. All other
+strict assertions pass. These two profiles remain unqualified; the reviewed
+plain-d20 equal-index exception is NOT extended to configured ranges. This alone
+is not a new Core defect/dependency or compatibility decision. The existing public
+Core contract can execute the qualified normal bounded subset. Wider E05 remains
+open; no Core or runtime evaluator is added.
+
+Maintained comparator tests explicitly reject count/face/flag/state errors and
+equal-index differences for this bounded profile. Evidence/commands/limits:
+[C20 ledger](../plans/0001-verification.md#c20--strict-bounded-d20-qualification-2026-10-21),
+[portable record](evidence/2026-10-21-c20-range-qualification.json).
+This checkpoint changes verification only; DD-R01 execution stays gated until
+C21 applies normal bounded compilation consistently across consumers. No full
+gate closes. ADR-0001/E01/wider Q00/E05/native/operator acceptance stay open;
+experimental0.4.1/compatibility and the parked runtime remain unchanged.

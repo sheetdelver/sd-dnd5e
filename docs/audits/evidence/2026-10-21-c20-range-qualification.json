@@ -1,0 +1,1871 @@
+{
+  "checkpoint": "C20",
+  "precedingImplementation": "b896406",
+  "native": {
+    "evidence": "S exact release d20 configuration/selection + Foundry14.367 min/max/total methods over independently specified raw results; no native DataModel/engine/operator acceptance",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": {
+      "generation": 14,
+      "build": 367,
+      "dieSha256": "7eb048bdf7ed057e7de1d05fa5cbdfffebd374eeab7b16da1e742742a8984c20",
+      "diceSha256": "bb4e63aefeb76310c6e1954e14e05ae22c9a2bff57632fde1bcdbea41ae24312"
+    },
+    "caseCount": 6560,
+    "ranges": [
+      {
+        "id": "minimum",
+        "minimum": 10,
+        "maximum": null,
+        "contributions": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "maximum",
+        "minimum": null,
+        "maximum": 15,
+        "contributions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      {
+        "id": "combined",
+        "minimum": 10,
+        "maximum": 15,
+        "contributions": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      {
+        "id": "crossed",
+        "minimum": 15,
+        "maximum": 10,
+        "contributions": [
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      {
+        "id": "no-op-extremes",
+        "minimum": 1,
+        "maximum": 20,
+        "contributions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "crossed-extremes",
+        "minimum": 20,
+        "maximum": 1,
+        "contributions": [
+          20,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "same-bound",
+        "minimum": 10,
+        "maximum": 10,
+        "contributions": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      {
+        "id": "combined-scopes",
+        "minimum": 12,
+        "maximum": 14,
+        "contributions": [
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          13,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14
+        ]
+      }
+    ],
+    "observations": [
+      {
+        "id": "minimum",
+        "mode": 0,
+        "faces": [
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "minimum",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "minimum",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "maximum",
+        "mode": 0,
+        "faces": [
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true
+          }
+        ],
+        "total": 6
+      },
+      {
+        "id": "maximum",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true
+          }
+        ],
+        "total": 6
+      },
+      {
+        "id": "maximum",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true
+          }
+        ],
+        "total": 6
+      },
+      {
+        "id": "combined",
+        "mode": 0,
+        "faces": [
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "combined",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "combined",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "crossed",
+        "mode": 0,
+        "faces": [
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 15,
+            "rerolled": true
+          }
+        ],
+        "total": 20
+      },
+      {
+        "id": "crossed",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 15,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 15,
+            "rerolled": true
+          }
+        ],
+        "total": 20
+      },
+      {
+        "id": "crossed",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 15,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 15,
+            "rerolled": true
+          }
+        ],
+        "total": 20
+      },
+      {
+        "id": "no-op-extremes",
+        "mode": 0,
+        "faces": [
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true
+          }
+        ],
+        "total": 6
+      },
+      {
+        "id": "no-op-extremes",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true
+          }
+        ],
+        "total": 6
+      },
+      {
+        "id": "no-op-extremes",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true
+          }
+        ],
+        "total": 6
+      },
+      {
+        "id": "crossed-extremes",
+        "mode": 0,
+        "faces": [
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 20,
+            "rerolled": true
+          }
+        ],
+        "total": 25
+      },
+      {
+        "id": "crossed-extremes",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 20,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 20,
+            "rerolled": true
+          }
+        ],
+        "total": 25
+      },
+      {
+        "id": "crossed-extremes",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 20,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 20,
+            "rerolled": true
+          }
+        ],
+        "total": 25
+      },
+      {
+        "id": "same-bound",
+        "mode": 0,
+        "faces": [
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "same-bound",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "same-bound",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 10,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 10,
+            "rerolled": true
+          }
+        ],
+        "total": 15
+      },
+      {
+        "id": "combined-scopes",
+        "mode": 0,
+        "faces": [
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 12,
+            "rerolled": true
+          }
+        ],
+        "total": 17
+      },
+      {
+        "id": "combined-scopes",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 12,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 12,
+            "rerolled": true
+          }
+        ],
+        "total": 17
+      },
+      {
+        "id": "combined-scopes",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "results": [
+          {
+            "result": 1,
+            "active": true,
+            "count": 12,
+            "rerolled": true
+          },
+          {
+            "result": 1,
+            "active": false,
+            "discarded": true,
+            "count": 12,
+            "rerolled": true
+          }
+        ],
+        "total": 17
+      }
+    ],
+    "histograms": {
+      "minimum/0": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      },
+      "minimum/1": {
+        "15": 100,
+        "16": 21,
+        "17": 23,
+        "18": 25,
+        "19": 27,
+        "20": 29,
+        "21": 31,
+        "22": 33,
+        "23": 35,
+        "24": 37,
+        "25": 39
+      },
+      "minimum/-1": {
+        "15": 300,
+        "16": 19,
+        "17": 17,
+        "18": 15,
+        "19": 13,
+        "20": 11,
+        "21": 9,
+        "22": 7,
+        "23": 5,
+        "24": 3,
+        "25": 1
+      },
+      "maximum/0": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 6
+      },
+      "maximum/1": {
+        "6": 1,
+        "7": 3,
+        "8": 5,
+        "9": 7,
+        "10": 9,
+        "11": 11,
+        "12": 13,
+        "13": 15,
+        "14": 17,
+        "15": 19,
+        "16": 21,
+        "17": 23,
+        "18": 25,
+        "19": 27,
+        "20": 204
+      },
+      "maximum/-1": {
+        "6": 39,
+        "7": 37,
+        "8": 35,
+        "9": 33,
+        "10": 31,
+        "11": 29,
+        "12": 27,
+        "13": 25,
+        "14": 23,
+        "15": 21,
+        "16": 19,
+        "17": 17,
+        "18": 15,
+        "19": 13,
+        "20": 36
+      },
+      "combined/0": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 6
+      },
+      "combined/1": {
+        "15": 100,
+        "16": 21,
+        "17": 23,
+        "18": 25,
+        "19": 27,
+        "20": 204
+      },
+      "combined/-1": {
+        "15": 300,
+        "16": 19,
+        "17": 17,
+        "18": 15,
+        "19": 13,
+        "20": 36
+      },
+      "crossed/0": {
+        "15": 10,
+        "20": 10
+      },
+      "crossed/1": {
+        "15": 300,
+        "20": 100
+      },
+      "crossed/-1": {
+        "15": 100,
+        "20": 300
+      },
+      "no-op-extremes/0": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      },
+      "no-op-extremes/1": {
+        "6": 1,
+        "7": 3,
+        "8": 5,
+        "9": 7,
+        "10": 9,
+        "11": 11,
+        "12": 13,
+        "13": 15,
+        "14": 17,
+        "15": 19,
+        "16": 21,
+        "17": 23,
+        "18": 25,
+        "19": 27,
+        "20": 29,
+        "21": 31,
+        "22": 33,
+        "23": 35,
+        "24": 37,
+        "25": 39
+      },
+      "no-op-extremes/-1": {
+        "6": 39,
+        "7": 37,
+        "8": 35,
+        "9": 33,
+        "10": 31,
+        "11": 29,
+        "12": 27,
+        "13": 25,
+        "14": 23,
+        "15": 21,
+        "16": 19,
+        "17": 17,
+        "18": 15,
+        "19": 13,
+        "20": 11,
+        "21": 9,
+        "22": 7,
+        "23": 5,
+        "24": 3,
+        "25": 1
+      },
+      "crossed-extremes/0": {
+        "6": 19,
+        "25": 1
+      },
+      "crossed-extremes/1": {
+        "6": 399,
+        "25": 1
+      },
+      "crossed-extremes/-1": {
+        "6": 361,
+        "25": 39
+      },
+      "same-bound/0": {
+        "15": 20
+      },
+      "same-bound/1": {
+        "15": 400
+      },
+      "same-bound/-1": {
+        "15": 400
+      },
+      "combined-scopes/0": {
+        "17": 12,
+        "18": 1,
+        "19": 7
+      },
+      "combined-scopes/1": {
+        "17": 144,
+        "18": 25,
+        "19": 231
+      },
+      "combined-scopes/-1": {
+        "17": 336,
+        "18": 15,
+        "19": 49
+      }
+    },
+    "stubs": [
+      "Constructor/evaluated/raw entropy-result injection; exact methods do not request entropy for this profile",
+      "Range-only AdvantageModeField stub; source/manual mode combination separately qualified earlier",
+      "Array.findSplice with initially empty modifiers; resetFormula no-op",
+      "No rerolls/flags/effects/groups/distinguishable metadata; no extension of plain tied-index equivalence"
+    ],
+    "sourceHashes": {
+      "module/dice/basic-die.mjs": "067771399a616cc6ee6c65fda675a6e97d342ec67fb1cad2f186f4f5dbf2f03a",
+      "module/dice/d20-die.mjs": "d7c7db5b5361ce2402addeddfa4ce5fd852fbf800f612cdf9a6893fb7cbea2f0",
+      "module/dice/d20-roll.mjs": "d4e8b0c05995229b123f20cc93d6f35199047f5e18cee16803f0d42b7710e605",
+      "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe"
+    },
+    "captureCountBeforeRepresentativeSelection": 480
+  },
+  "isolatedPublicHost": {
+    "evidence": "Isolated public Core runtime.rolls with synthetic transport and controlled entropy; no installed/native/operator acceptance",
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "caseCount": 6560,
+    "profiles": {
+      "0": {
+        "requests": 160,
+        "strictSelectionDifferences": 0,
+        "status": "qualified-controlled-public-host"
+      },
+      "1": {
+        "requests": 3200,
+        "strictSelectionDifferences": 160,
+        "status": "unqualified-exact-selection"
+      },
+      "-1": {
+        "requests": 3200,
+        "strictSelectionDifferences": 160,
+        "status": "unqualified-exact-selection"
+      }
+    },
+    "histograms": {
+      "minimum/0": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      },
+      "minimum/1": {
+        "15": 100,
+        "16": 21,
+        "17": 23,
+        "18": 25,
+        "19": 27,
+        "20": 29,
+        "21": 31,
+        "22": 33,
+        "23": 35,
+        "24": 37,
+        "25": 39
+      },
+      "minimum/-1": {
+        "15": 300,
+        "16": 19,
+        "17": 17,
+        "18": 15,
+        "19": 13,
+        "20": 11,
+        "21": 9,
+        "22": 7,
+        "23": 5,
+        "24": 3,
+        "25": 1
+      },
+      "maximum/0": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 6
+      },
+      "maximum/1": {
+        "6": 1,
+        "7": 3,
+        "8": 5,
+        "9": 7,
+        "10": 9,
+        "11": 11,
+        "12": 13,
+        "13": 15,
+        "14": 17,
+        "15": 19,
+        "16": 21,
+        "17": 23,
+        "18": 25,
+        "19": 27,
+        "20": 204
+      },
+      "maximum/-1": {
+        "6": 39,
+        "7": 37,
+        "8": 35,
+        "9": 33,
+        "10": 31,
+        "11": 29,
+        "12": 27,
+        "13": 25,
+        "14": 23,
+        "15": 21,
+        "16": 19,
+        "17": 17,
+        "18": 15,
+        "19": 13,
+        "20": 36
+      },
+      "combined/0": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 6
+      },
+      "combined/1": {
+        "15": 100,
+        "16": 21,
+        "17": 23,
+        "18": 25,
+        "19": 27,
+        "20": 204
+      },
+      "combined/-1": {
+        "15": 300,
+        "16": 19,
+        "17": 17,
+        "18": 15,
+        "19": 13,
+        "20": 36
+      },
+      "crossed/0": {
+        "15": 10,
+        "20": 10
+      },
+      "crossed/1": {
+        "15": 300,
+        "20": 100
+      },
+      "crossed/-1": {
+        "15": 100,
+        "20": 300
+      },
+      "no-op-extremes/0": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      },
+      "no-op-extremes/1": {
+        "6": 1,
+        "7": 3,
+        "8": 5,
+        "9": 7,
+        "10": 9,
+        "11": 11,
+        "12": 13,
+        "13": 15,
+        "14": 17,
+        "15": 19,
+        "16": 21,
+        "17": 23,
+        "18": 25,
+        "19": 27,
+        "20": 29,
+        "21": 31,
+        "22": 33,
+        "23": 35,
+        "24": 37,
+        "25": 39
+      },
+      "no-op-extremes/-1": {
+        "6": 39,
+        "7": 37,
+        "8": 35,
+        "9": 33,
+        "10": 31,
+        "11": 29,
+        "12": 27,
+        "13": 25,
+        "14": 23,
+        "15": 21,
+        "16": 19,
+        "17": 17,
+        "18": 15,
+        "19": 13,
+        "20": 11,
+        "21": 9,
+        "22": 7,
+        "23": 5,
+        "24": 3,
+        "25": 1
+      },
+      "crossed-extremes/0": {
+        "6": 19,
+        "25": 1
+      },
+      "crossed-extremes/1": {
+        "6": 399,
+        "25": 1
+      },
+      "crossed-extremes/-1": {
+        "6": 361,
+        "25": 39
+      },
+      "same-bound/0": {
+        "15": 20
+      },
+      "same-bound/1": {
+        "15": 400
+      },
+      "same-bound/-1": {
+        "15": 400
+      },
+      "combined-scopes/0": {
+        "17": 12,
+        "18": 1,
+        "19": 7
+      },
+      "combined-scopes/1": {
+        "17": 144,
+        "18": 25,
+        "19": 231
+      },
+      "combined-scopes/-1": {
+        "17": 336,
+        "18": 15,
+        "19": 49
+      }
+    },
+    "selectionDifferences": [
+      {
+        "id": "minimum",
+        "formula": "2d20kh1min10+5",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "minimum",
+        "formula": "2d20kl1min10+5",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "maximum",
+        "formula": "2d20kh1max15+5",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "maximum",
+        "formula": "2d20kl1max15+5",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "combined",
+        "formula": "2d20kh1min10max15+5",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "combined",
+        "formula": "2d20kl1min10max15+5",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "crossed",
+        "formula": "2d20kh1min15max10+5",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "crossed",
+        "formula": "2d20kl1min15max10+5",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "no-op-extremes",
+        "formula": "2d20kh1min1max20+5",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "no-op-extremes",
+        "formula": "2d20kl1min1max20+5",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "crossed-extremes",
+        "formula": "2d20kh1min20max1+5",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "crossed-extremes",
+        "formula": "2d20kl1min20max1+5",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "same-bound",
+        "formula": "2d20kh1min10max10+5",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "same-bound",
+        "formula": "2d20kl1min10max10+5",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "combined-scopes",
+        "formula": "2d20kh1min12max14+5",
+        "mode": 1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      },
+      {
+        "id": "combined-scopes",
+        "formula": "2d20kl1min12max14+5",
+        "mode": -1,
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": 0,
+        "observedKept": 1
+      }
+    ],
+    "rawFacesCountsFlagsTotalsDistributionsPass": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Bounded strict profile has no equal-value index exception",
+      "No host result/formula/serialization rewriting; observations preserved",
+      "No effects/flags/groups/rerolls/proficiency dice/custom terms or general formula/preparation acceptance"
+    ],
+    "selectionDifferenceGroups": [
+      {
+        "id": "minimum",
+        "mode": 1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "minimum",
+        "mode": -1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "maximum",
+        "mode": 1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "maximum",
+        "mode": -1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "combined",
+        "mode": 1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "combined",
+        "mode": -1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "crossed",
+        "mode": 1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "crossed",
+        "mode": -1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "no-op-extremes",
+        "mode": 1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "no-op-extremes",
+        "mode": -1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "crossed-extremes",
+        "mode": 1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "crossed-extremes",
+        "mode": -1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "same-bound",
+        "mode": 1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "same-bound",
+        "mode": -1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "combined-scopes",
+        "mode": 1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": "combined-scopes",
+        "mode": -1,
+        "count": 20,
+        "equalFaces": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    ],
+    "selectionDifferenceCount": 320
+  },
+  "regression": {
+    "toolingAssertions": 59,
+    "toolingSuites": 8,
+    "moduleSuites": 22,
+    "typedFiles": 131,
+    "comparatorRejectsWrongDataAndEqualIndex": true,
+    "moduleRuntimeChanged": false
+  },
+  "hashes": {
+    "tests/fixtures/native-6.0.6/d20-ranges.json": "5a0043f9045a5c13ac55c6f4df5f84383bb055addae24bab4454ec233ca7af73",
+    "scripts/lib/range-expectations.mjs": "0318f77e94bf3449471a1a8547653a4b7bc8184708ee394fa20518d18ac4807b",
+    "scripts/native-range-oracle.mjs": "a89b45d65684d03ac1ed29ab7be95154353f54466e6e3d02f253e3121b7acb9d",
+    "scripts/test-public-ranges.mjs": "0ca44b9309f251550f438ed6f8b39b54977bac070aba78182e0c6ccaca15d52e",
+    "scripts/range-expectations.test.mjs": "45197b16a3a0ab94c9f8ebf9689e60243b4db0c4422c40007f0a719178866756"
+  },
+  "archive": {
+    "path": "/tmp/dnd5e-package-4vbiFt/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "4de05f3eee9305a8d1907344414f0973d16eb10cd0359c6a1db69a687b14f1ce"
+  },
+  "limits": [
+    "Complete6560 assertions/24 histograms;24 representative native captures and16 representative host index differences recorded; maintained tables/generator reproduce full matrix",
+    "160 normal bounded cases strict pass;6400 advantage/disadvantage requests remain unqualified due320 tied-index differences",
+    "No extension of plain-profile equivalence; all unequal indices, entropy/raw faces/counts/flags/totals/distributions strict",
+    "Controlled source methods with explicit constructor/injected-result/helpers and no native engine",
+    "Synthetic public-host transport; actual host serialization preserved, native writes0",
+    "No new Core defect/dependency/version/compatibility decision; wider Q00/E05 and ADR-0001 remain open",
+    "C20 verification only; module range execution still unavailable until shared compiler change"
+  ]
+}

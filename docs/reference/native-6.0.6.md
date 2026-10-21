@@ -529,3 +529,16 @@ there. Thirty-four sensory comparisons and one unresolved-reference diagnostic
 are separate. Empty conditions/status reducers, lightweight owned Items/collection,
 no-op embedded super, constant-only Roll and separately prepared STR-effect16 are
 stubs. No native DataModel/Document/engine/operator acceptance is established.
+
+### Configured d20 ranges (C20)
+
+Native D20RollModificationField combines maximum=min(all max), minimum=max(all min).
+D20Roll.configureModifiers applies BasicDie advantage selection before D20Die
+applyRange's minimum then maximum. Foundry Die.minimum/maximum compare each
+original result and assign count/rerolled, including inactive dice; total uses
+active count if present, otherwise original result. Crossed bounds retain these
+ordered semantics. The exact-method oracle verifies8 tables/6560 ordered cases/
+24 distributions. Constructor/raw-result injection, empty flag/rule configuration,
+findSplice and formula reset are explicit stubs, not native engine acceptance.
+Core0.19.3 strict normal range execution passes160 cases. Bounded adv/dis remain
+unqualified due320 equal-index differences; plain-profile equivalence is unchanged.
