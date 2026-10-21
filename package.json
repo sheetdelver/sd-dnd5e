@@ -22,6 +22,7 @@
     "test:native-traits": "node scripts/native-traits-oracle.mjs",
     "test:native-filters": "node scripts/native-filter-oracle.mjs",
     "test:native-initial-filters": "node scripts/native-initial-filter-oracle.mjs",
-    "test:public-commands": "node scripts/test-public-commands.mjs"
+    "test:public-commands": "node scripts/test-public-commands.mjs",
+    "test:native-conditions": "node scripts/native-condition-oracle.mjs"
   }
 }

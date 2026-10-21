@@ -1,0 +1,1131 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "scope": "Controlled native ConditionData/Actor initial status aggregation/CI query/Common ability+Creature skill/tool preparation only; no module implementation or native/operator acceptance yet",
+  "profiles": [
+    {
+      "id": "active",
+      "statuses": [
+        "poisoned"
+      ],
+      "immunities": [],
+      "expectedStatuses": [
+        "poisoned"
+      ],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0,
+      "expectedLevel": null,
+      "effectivePoisoned": true
+    },
+    {
+      "id": "disabled",
+      "statuses": [
+        "poisoned"
+      ],
+      "disabled": true,
+      "immunities": [],
+      "expectedStatuses": [],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 1,
+      "expectedLevel": null,
+      "effectivePoisoned": false
+    },
+    {
+      "id": "immune",
+      "statuses": [
+        "poisoned"
+      ],
+      "immunities": [
+        "poisoned"
+      ],
+      "expectedStatuses": [],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 1,
+      "expectedLevel": null,
+      "effectivePoisoned": false
+    },
+    {
+      "id": "guard-false",
+      "statuses": [
+        "poisoned"
+      ],
+      "immunities": [],
+      "guard": "{\"o\":\"OR\",\"v\":[]}",
+      "expectedStatuses": [],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 1,
+      "expectedLevel": null,
+      "effectivePoisoned": false
+    },
+    {
+      "id": "empty-statuses-no-inference",
+      "statuses": [],
+      "immunities": [],
+      "expectedStatuses": [],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 1,
+      "expectedLevel": null,
+      "effectivePoisoned": false
+    },
+    {
+      "id": "missing-statuses-default",
+      "immunities": [],
+      "expectedStatuses": [],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 1,
+      "expectedLevel": null,
+      "effectivePoisoned": false
+    },
+    {
+      "id": "duplicate-active",
+      "statuses": [
+        "poisoned"
+      ],
+      "duplicate": true,
+      "immunities": [],
+      "expectedStatuses": [
+        "poisoned"
+      ],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0,
+      "expectedLevel": null,
+      "effectivePoisoned": true
+    },
+    {
+      "id": "nonleveled-source99",
+      "statuses": [
+        "poisoned"
+      ],
+      "level": 99,
+      "immunities": [],
+      "expectedStatuses": [
+        "poisoned"
+      ],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0,
+      "expectedLevel": null,
+      "effectivePoisoned": true
+    },
+    {
+      "id": "wrong-name-no-inference",
+      "statuses": [
+        "poisoned"
+      ],
+      "name": "Not a condition name",
+      "immunities": [],
+      "expectedStatuses": [
+        "poisoned"
+      ],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0,
+      "expectedLevel": null,
+      "effectivePoisoned": true
+    },
+    {
+      "id": "case-sensitive-immunity",
+      "statuses": [
+        "poisoned"
+      ],
+      "immunities": [
+        "Poisoned"
+      ],
+      "expectedStatuses": [
+        "poisoned"
+      ],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0,
+      "expectedLevel": null,
+      "effectivePoisoned": true
+    },
+    {
+      "id": "initial-ci-add",
+      "statuses": [
+        "poisoned"
+      ],
+      "immunities": [],
+      "ciChange": "add",
+      "expectedInitialStatuses": [
+        "poisoned"
+      ],
+      "expectedStatuses": [],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 1,
+      "expectedLevel": null,
+      "effectivePoisoned": false
+    },
+    {
+      "id": "initial-ci-remove-does-not-add-status",
+      "statuses": [
+        "poisoned"
+      ],
+      "immunities": [
+        "poisoned"
+      ],
+      "ciChange": "remove",
+      "expectedInitialStatuses": [],
+      "expectedStatuses": [],
+      "expectedSkill": 5,
+      "expectedCheck": 2,
+      "expectedSave": 2,
+      "expectedTool": 5,
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 1,
+      "expectedLevel": null,
+      "effectivePoisoned": false
+    }
+  ],
+  "sourceScopeOrder": [
+    "abilities.wis.check.roll.mode",
+    "skills.prc.roll.mode",
+    "rolls.ability.check.mode",
+    "rolls.ability.skill.mode"
+  ],
+  "sourceModes": [
+    {
+      "modes": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        -1,
+        0,
+        -1
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        -1,
+        0,
+        0
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        -1,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        -1,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        -1,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        -1,
+        -1
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        -1,
+        0
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        0,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        -1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        0,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        0,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        -1,
+        1,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        -1,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        -1,
+        0
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expectedMode": -1,
+      "expectedPassive": 10,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        -1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        -1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        0,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        -1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        0,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        0,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        -1,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        -1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        -1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        0,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        -1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        -1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        0,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        1,
+        -1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    },
+    {
+      "modes": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expectedMode": 0,
+      "expectedPassive": 15,
+      "expectedCombinedMode": 0
+    }
+  ]
+}

@@ -1426,3 +1426,35 @@ passive interactions before enabling active condition behavior; broader expressi
 remaining initial/final/Item rules and domain commands remain dependency ordered.
 E01/E02/wider Q00/E05,full M2/M3+ acceptance and ADR-0001 stay open;experimental0.4.1
 and compatibility unchanged.
+
+
+### C36 — Condition source and status-phase qualification (2026-10-21)
+
+C35 is `e7d12a4`. M0/M2 Q02a,DD-05/27/34,A02/A04 advance in qualification
+only. A maintained pinned-method harness separates primitive ConditionData/source
+initialization,Actor initial status collection,CI suppression/normalization and
+numeric ability/skill/tool mode/passive preparation. Three primitive captures and
+93 phase/mode cases pass,plus372 actual native default skill/tool/combined builds.
+No production condition gate is removed by this checkpoint.
+
+Poisoned's check disadvantage is added as native mode counts,not a flat passive
+bonus or a lost normalized flag. Source advantage cancels; combined trained skill/
+tool automatic advantage cancels the condition's disadvantage. Saves stay unchanged.
+Missing statuses do not acquire a status from a type/name. Source level99 on this
+nonleveled condition becomes prepared null. Explicit disabled/guard/CI cases and
+81 source-mode vectors retain independent expectations and exact source hashes.
+
+Native status aggregation precedes sorted initial CI writes. Adding immunity later
+removes the collected status; removing initial immunity does not retroactively add
+a status omitted during collection. Document.active after mutation can therefore
+differ from effective Actor status. The CI change executor in the probe is synthetic;
+actual native aggregation/suppression/normalization/query methods establish timing,
+not complete field/write/runtime acceptance.
+
+[C36 ledger](../plans/0001-verification.md#c36--condition-phase-foundation-2026-10-21)
+and [portable captures](../audits/evidence/2026-10-21-c36-condition-foundation.json)
+state schema/model/guard/clock/custom-rule/roll-builder stubs and remaining gates.
+Next qualify manual choices,alternate abilities,initiative and complete source
+boundaries before integrating this bounded condition profile into shared preparation
+and consumers. No native/operator acceptance,Core extension or complete rules claim.
+E01/E02/wider Q00/E05,full M2/M3+ acceptance and ADR-0001 stay open.

@@ -815,3 +815,23 @@ class names/identifier metadata never supplies levels. The30 class captures cove
 thresholds,no-class,multiclass,false predicates and name poison;31 retained scalar/
 58 Set captures give119 total. Model/validation/HD/XP stubs and excluded namespaces
 are explicit. This does not establish full native source boot or operator acceptance.
+
+
+### ConditionData and initial Actor statuses (C36)
+
+ConditionData.level is nullable/integer/min1/initialnull;type is required/nonblank.
+BaseActiveEffect.disabled is BooleanField and statuses a SetField of required,
+nonblank StringFields. Primitive cleaning/defaults are captured separately from
+ConditionData.prepareDerivedData: nonleveled poisoned sets prepared levelnull,
+without inventing a missing status from type/name. Suppression includes CI and the
+base condition/expiry result. Actor clearData clears statuses; native initial
+precollection and Foundry initial collection both precede sorted changes. Later
+prepareResistImmune removes final immunities. Add/remove CI timing probes explicitly
+use a synthetic change executor; other methods are pinned source.
+
+CommonTemplate.prepareAbilities adds disadvantage through AdvantageModeField.setMode;
+counts/overrides/suppression survive into skill/tool builders and passives.93 status/
+mode cases and372 native default configurations compare independently declared
+outcomes;3 primitive captures verify defaults/source99 handling. No evaluated dice,
+full DataModel/native runtime/operator acceptance. Manual,alternate-ability and
+initiative configuration remain required before shipping condition execution.

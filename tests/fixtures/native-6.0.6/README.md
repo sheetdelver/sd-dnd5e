@@ -372,3 +372,12 @@ now explicitly supersedes its old class-level-not-qualified boundary:31 supporte
 19 unqualified scalar cases,with source/global poison still ignored. Together with
 58 collection captures,the maintained native initial-field comparison records119.
 Historical C31–C34 counts/hashes remain unchanged in their portable records.
+
+
+C36 `poisoned-condition.json` independently declares12 status/CI profiles and81
+source-mode vectors. Native condition/default/Actor collection/query/Common/Creature
+methods compare93 captures and372 skill/tool/combined default configurations;3
+primitive cleaning/default traces are separate. Effective Actor status differs from
+Document.active after some CI changes. CI change execution,constant guard callback,
+model hooks/custom-rule absence and roll-build callbacks are declared stubs. No
+module condition implementation or native/operator acceptance is implied.

@@ -945,3 +945,17 @@ are verified in actual headers/proficiency displays at both widths. See [C35 led
 and [portable record](evidence/2026-10-21-c35-initial-class-filters.json).
 No full lifecycle,condition/effect/formula support or native/operator acceptance is
 claimed. E01/E02/wider Q00/E05 and ADR closeout remain open.
+
+
+### C36 disposition — condition qualification foundation
+
+C35 is `e7d12a4`. DD-05/27/34,A02/A04 advance in controlled-source evidence:
+3 primitive source/default,93 status/mode/passive cases and372 native default
+configurations pass. Status collection before CI changes is distinguished from
+later Document.active/effective status,including add/remove immunity probes. Source
+modes,combined proficiency advantage cancellation,empty-status noninference and
+nonleveled source99 initialization are explicit. No module availability/UI change;
+manual/alternate/initiative/source-boundary qualification precedes integration.
+See [C36 ledger](../plans/0001-verification.md#c36--condition-phase-foundation-2026-10-21)
+and [portable record](evidence/2026-10-21-c36-condition-foundation.json). These model/
+method captures are not full native/operator acceptance. All full gates remain open.

@@ -34,8 +34,8 @@ target, not a new compatibility claim for module 0.4.1. See the
 - Modern health/rest mutation controls are gated pending M3/M4. Selected legacy
   retains partial HP/temp-HP compatibility; complete HD/slot/resource/Item recovery
   remains unimplemented.
-- Conditions, proficiencies and appearance include placeholder
-  presentation. Modern spell preparation/properties and physical Item weight
+- Conditions and appearance include placeholder presentation. Proficiencies now
+  expose bounded source facts; modern spell preparation/properties and physical Item weight
   schemas are incompletely read. The active audit records reproducible examples.
 - Normal configured d20 bounds use the shared compiler and explicit mode
   readiness. Bounded adv/dis stays gated. The formula-only HUD hook is gated for
@@ -789,3 +789,21 @@ Class identity/source inputs enter intent provenance even when totals do not cha
 No class-specific namespace,Proficiency object,grant lookup,alternate edition or
 class-mutating effect qualification is implied. Missing actor.items is outside the
 public FoundryActor contract and tested only at the pure initializer boundary.
+
+
+### Condition-phase boundary established by C36
+
+Active condition behavior remains gated. Controlled native captures establish that
+ConditionData source/default initialization,Actor status aggregation and current
+Document.active are distinct phases. Initial collection precedes sorted CI writes;
+final immunity can remove a status,but later removal of initial immunity does not
+add an omitted status retroactively. An eventual shared condition model must retain
+that snapshot and then apply qualified immunity filtering,not recompute solely from
+final active documents or trust prepared-looking source statuses/levels.
+
+Poisoned adds native ability-check disadvantage counts before skill/tool/passive
+preparation; source/manual/combined mode semantics must retain overrides and
+suppression. Type/name does not grant an absent status. Three primitive,93 phase/
+mode and372 default-build captures provide groundwork only. Manual/alternate/
+initiative/source-boundary qualification and runtime/UI integration remain open;
+no dice evaluator,world cache or Native preparation runtime is introduced.

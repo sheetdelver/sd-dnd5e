@@ -1801,3 +1801,32 @@ Services stopped;production listeners untouched. No complete DD/A/M gate closes.
 Next qualify condition-data/status lifecycle and mode/passive interactions,then
 remaining rule/formula/Item phases. E01/E02/wider Q00/E05/full acceptance stay open;
 experimental0.4.1/compatibility unchanged.
+
+
+### C36 — Condition phase foundation (2026-10-21)
+
+Parent `e7d12a4`; M0/M2 Q02a,DD-05/27/34,A02/A04 qualification only.
+`npm run test:native-conditions -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native
+../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14`
+passes3 primitive cleaning/default captures,12 status/CI cases and81 mode vectors,
+plus372 actual native skill/tool/combined default configurations. Exact release
+87e94db and static14.367 sources are hashed. Native status aggregation before CI
+writes and normalization/query after them are separate; the CI change executor is
+synthetic and does not qualify native field/write atomicity. Guard callbacks/model
+hooks/clock defaults/custom-rule absence/roll-build callbacks and unrelated domains
+are explicit stubs. Harness helper/getter/schema-path setup errors were corrected
+before successful capture; no product bug or new Core defect was inferred.
+
+`npm test`:60 assertions,8 tooling/35 module suites PASS. `typecheck`:172 explicit
+module/UI/server/test/hook files PASS. `test:native-source`:2242 records/591 expressions
+at87e94db PASS. `check:package`:isolated module/public-boundary checks,managed typing,
+bundles PASS; `/tmp/dnd5e-package-57Kgnu/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`716e9b18da31d28ad61ca0634df6a2f28764a73ba786ec2204518c8da9a3ec5f`.
+[Portable record](../audits/evidence/2026-10-21-c36-condition-foundation.json) embeds
+independent profiles,phase/configuration captures,source/script hashes and limits.
+No production rule/UI change; C35 mounted/public-host evidence retained distinctly,
+not newly rerun or enlarged. The harness starts no service; prior task services
+remain stopped. No full DataModel/native/installed/operator acceptance or complete
+DD/A/M gate closure. Next qualify manual/alternate/initiative/source boundaries,
+then integrate the supported condition profile. E01/E02/wider Q00/E05/full acceptance
+stay open;experimental0.4.1 and compatibility unchanged.
