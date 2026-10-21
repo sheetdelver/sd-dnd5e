@@ -360,11 +360,11 @@ Every milestone produces a reviewable checkpoint: updated DD status with paths/s
 
 Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M7 consumes the same contracts and must finish before M9. E01 can be proposed while pure SRD work proceeds; E02 is resolved during M3, before larger lifecycle writes. E03/E04 are bounded in M7 and must not become an unreviewed generic native-runtime project.
 
-| Gate | State at planning checkpoint | Required evidence location |
+| Gate | Current phase state | Required evidence location |
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected combined checks/alternate abilities within the numeric source profile. Effects, expressions and ranges remain open | RV01–RV04 retained; C06–C11 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant check-bonus effects are bounded slices. Effect modes/final/filters/Item phases, broader expressions and ranges remain open | RV01–RV04 retained; C06–C14 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -737,3 +737,30 @@ and [portable record](../audits/evidence/2026-10-21-c13-numeric-effects.json).
 No full gate closes. Next: constant FormulaField check bonuses; final phases,
 filters, Item preparation and wider expressions remain open. E01 and wider Q00/E05
 remain open. ADR-0001 stays open with experimental0.4.1/compatibility unchanged.
+
+### C14 — Constant check-bonus field effects (2026-10-21)
+
+C13 implementation checkpoint is `b50a717`. Nineteen independently specified
+constant FormulaField cases now pass; the original16 requests failed before.
+Four expression/final/multiply cases remain unavailable. Exact native casts and
+add/subtract/override string operations match all19 expected constructions,
+including signed decimals, empty defaults, sequences and priority order.
+
+The existing detached effect path now reduces only known constant operands by
+the qualified operation and retains the native constructed formula as separate
+provenance. It does not parse arbitrary expressions or add a dice evaluator.
+Applicable local skill/tool, ability check/save, global check/save/skill/tool
+and skill passive bonus fields share this path. Only primary selected scopes
+contribute: a skill-local bonus never leaks into a primary tool check or vice
+versa. Passive-only changes leave check totals unchanged. Raw prepared poison,
+source preservation, mode/manual overrides, range gates, malformed global scopes
+and stale intent recovery remain covered. C13's former `bonus-field` unavailable
+case is explicitly advanced to +7/passive17 and compared with the C14 +2 case;
+its historical C13 evidence remains unchanged.
+
+Evidence/commands/limits: [C14 ledger](../plans/0001-verification.md#c14--constant-check-bonus-field-effects-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c14-constant-bonuses.json).
+The rejected nested unary candidate is recorded alongside its qualified binary
+and numeric adaptations; no required Core extension follows. Next: effect mode
+counts/override/suppression with separate passive/roll scope ordering. ADR-0001
+and full gates remain open; metadata unchanged.

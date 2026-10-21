@@ -4,6 +4,15 @@ Status: **active implementation; investigation retained, acceptance open**. Date
 
 Owning plan: [accepted module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
 
+## Current implementation — C12–C14 (2026-10-21)
+
+C12 `d0cf3f2` qualifies eligibility/phase order; C13 `b50a717` adds initial numeric
+fields; C14 (Git checkpoint below) adds constant add/subtract/override bonuses.
+DD-R01–DD-R06 remain corrected. Partial M2 work and evidence are recorded below;
+no new independent review or complete acceptance is implied. E01 and wider Q00/
+E05, final effects, filters, Item preparation and later lifecycle milestones stay
+open. Native/operator testing is still unperformed under the offline authority.
+
 ## Current independent review — C08/C09 (RV04)
 
 The [C08/C09 review](evidence/2026-10-20-c08-c09-review.md) at `1c81d05`
@@ -405,3 +414,30 @@ and [portable record](evidence/2026-10-21-c13-numeric-effects.json).
 No full gate closes. Next: constant FormulaField check bonuses; final phases,
 filters, Item preparation and wider expressions remain open. E01 and wider Q00/E05
 remain open. ADR-0001 stays open with experimental0.4.1/compatibility unchanged.
+
+### C14 — Constant check-bonus field effects (2026-10-21)
+
+C13 implementation checkpoint is `b50a717`. Nineteen independently specified
+constant FormulaField cases now pass; the original16 requests failed before.
+Four expression/final/multiply cases remain unavailable. Exact native casts and
+add/subtract/override string operations match all19 expected constructions,
+including signed decimals, empty defaults, sequences and priority order.
+
+The existing detached effect path now reduces only known constant operands by
+the qualified operation and retains the native constructed formula as separate
+provenance. It does not parse arbitrary expressions or add a dice evaluator.
+Applicable local skill/tool, ability check/save, global check/save/skill/tool
+and skill passive bonus fields share this path. Only primary selected scopes
+contribute: a skill-local bonus never leaks into a primary tool check or vice
+versa. Passive-only changes leave check totals unchanged. Raw prepared poison,
+source preservation, mode/manual overrides, range gates, malformed global scopes
+and stale intent recovery remain covered. C13's former `bonus-field` unavailable
+case is explicitly advanced to +7/passive17 and compared with the C14 +2 case;
+its historical C13 evidence remains unchanged.
+
+Evidence/commands/limits: [C14 ledger](../plans/0001-verification.md#c14--constant-check-bonus-field-effects-2026-10-21)
+and [portable record](evidence/2026-10-21-c14-constant-bonuses.json).
+The rejected nested unary candidate is recorded alongside its qualified binary
+and numeric adaptations; no required Core extension follows. Next: effect mode
+counts/override/suppression with separate passive/roll scope ordering. ADR-0001
+and full gates remain open; metadata unchanged.

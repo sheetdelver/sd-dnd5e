@@ -798,3 +798,56 @@ separately from numeric NumberFields; broader expressions/filters and Item phase
 stay open. E01 and wider Q00/E05 remain external/open. No complete DD/A/M gate
 closes. ADR-0001 remains open; experimental0.4.1/compatibility unchanged; no native/
 operator or release acceptance claimed.
+
+### C14 — Constant check-bonus field effects (2026-10-21)
+
+C13 implementation checkpoint is `b50a717`. Nineteen independently specified
+constant FormulaField cases now pass; the original16 requests failed before.
+Four expression/final/multiply cases remain unavailable. Exact native casts and
+add/subtract/override string operations match all19 expected constructions,
+including signed decimals, empty defaults, sequences and priority order.
+
+The existing detached effect path now reduces only known constant operands by
+the qualified operation and retains the native constructed formula as separate
+provenance. It does not parse arbitrary expressions or add a dice evaluator.
+Applicable local skill/tool, ability check/save, global check/save/skill/tool
+and skill passive bonus fields share this path. Only primary selected scopes
+contribute: a skill-local bonus never leaks into a primary tool check or vice
+versa. Passive-only changes leave check totals unchanged. Raw prepared poison,
+source preservation, mode/manual overrides, range gates, malformed global scopes
+and stale intent recovery remain covered. C13's former `bonus-field` unavailable
+case is explicitly advanced to +7/passive17 and compared with the C14 +2 case;
+its historical C13 evidence remains unchanged.
+
+`npm test` passes56 tooling assertions/7 tooling suites/17 module suites; explicit
+`npm run typecheck` covers114 files. Exact source2242/591 and all prior native
+checks pass. `test:native-effects` retains5 phase,20 numeric field/derived and40
+selected-build comparisons plus19 native FormulaField constructions. These
+constructions do not run native Roll validation/evaluation. Independent expected
+constant reductions are instead separately qualified through the public host.
+Mounted fixtures pass prior protections and102 effect-field cases at1440/390,
+including46 new constant-bonus cases, actual consumers, primary-type differences,
+manual previews/execution, shortcuts and context/source recovery.
+
+Isolated public Core0.19.3 passes2077 accepted numeric rolls, strict faces/entropy/
+retention/states/totals/distributions and40 equal-index diagnostics. This includes
+456 constant-effect requests,19 independent constructor expressions and24 requests
+for the newly supported prior +2 fixture. One negative candidate is retained:
+`1d20+(-(3))` is rejected before entropy consumption. Its explicit binary form
+`1d20+(0-(3))` passes, as does the module's normal numeric reduction `1d20+2` for
+a skill with base+5 and constant bonus-3. This is a representable deterministic
+adaptation, not a required Core extension. The expected rejection is asserted
+only for that exact synthetic input. Existing failed-request HTTP/literal-limit
+checks remain strict. Actual host serialization is untouched. Wider E05 stays open.
+
+`npm run check:package` passes public boundaries, managed types and all bundles.
+Commands use pristine Core0.19.3/90c13e5 with `-- --core
+/tmp/dnd5e-core-baseline-iDcWjQ/core`; native87e94db and static Foundry14.367 only.
+Services close in cleanup; no live connection. [Portable C14 evidence](../audits/evidence/2026-10-21-c14-constant-bonuses.json)
+records failures, constructions, candidate disposition, artifact hashes and limits.
+R, controlled S, mounted SDK seam and isolated public-host evidence do not close
+installed UI/native/operator gates. DD-02/24/27/34 and A02/A18 advance partially;
+no complete gate closes. ADR-0001 stays open, experimental0.4.1/compatibility unchanged.
+Next M2/Q00: native effect mode counts/override/suppression and distinct passive
+versus fresh-roll combination order. Final effects, filters/status/time/Item
+preparation, broader expressions/ranges/flags and E01 remain open.

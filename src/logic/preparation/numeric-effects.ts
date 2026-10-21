@@ -1,24 +1,48 @@
 import { record } from '../native/6.0.6/source';
 import { planEffects606, type EffectPlan, type EffectChange } from './effects';
 import { initializedAbilityRolls606 } from './roll-initialization';
-import { numericConstant } from './numeric';
+import { numericConstant, qualifiedNumericTotal } from './numeric';
 import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
 export interface NumericEffects {
     system:Record<string,unknown>;globals:Record<string,Record<string,unknown>>;
     plan:EffectPlan;reason?:string;
-    applied:Array<{effectId:string;key:string;phase:'initial';before:number;value:number}>;
+    applied:Array<{effectId:string;key:string;phase:'initial';before:number;value:number;formula?:string}>;
 }
 /** Qualified initial numeric fields only. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
  * starts at verified0 despite stale nonpersisted source values (DD-R04).
- * FormulaField, final changes, custom hooks and Item phases remain unavailable. */
+ * Only constant FormulaField add/subtract/override is reduced by operation,
+ * without parsing arbitrary expressions. Final/custom/Item phases stay gated. */
 export function prepareNumericEffects606(actor:unknown):NumericEffects {
     const source=record(actor)??{},system=structuredClone(record(source.system)??{}),plan=planEffects606(actor);
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
     let reason=plan.reason;
+    const formulas:Record<string,string>={};
     if(plan.final.length)reason??='Final effect field/phase preparation unavailable';
-    function target(change:EffectChange):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[]}|null {
+    function target(change:EffectChange):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
+        // D20 roll bonus FormulaFields and skill passive bonuses have separate
+        // operation semantics. Never send their text to a module evaluator.
+        function rollBonus(container:Record<string,unknown>,path:string[]):Record<string,unknown>|null {
+            let target=container;
+            for(const key of path){
+                if(target[key]===undefined||key==='roll'&&target[key]===null)target[key]={};
+                const child=record(target[key]);if(!child)return null;target=child;
+            }
+            return target;
+        }
+        let bonus:Record<string,unknown>|null=null;
+        if(keys[1]==='rolls'&&keys[2]==='ability'&&keys.length===5&&keys[4]==='bonus'&&Object.hasOwn(globals,keys[3])){
+            if([system.rolls,record(system.rolls)?.ability,record(record(system.rolls)?.ability)?.[keys[3]]].some(value=>value!=null&&!record(value)))return null;
+            bonus=globals[keys[3]];
+        }else if(keys[1]==='abilities'&&keys.length===6&&['str','dex','con','int','wis','cha'].includes(keys[2])&&['check','save'].includes(keys[3])&&keys[4]==='roll'&&keys[5]==='bonus'){
+            const ability=record(record(system.abilities)?.[keys[2]]);if(ability)bonus=rollBonus(ability,[keys[3],'roll']);
+        }else if(['skills','tools'].includes(keys[1])&&keys.length===5&&keys[3]==='roll'&&keys[4]==='bonus'&&Object.hasOwn(keys[1]==='skills'?SKILL_LABELS:TOOL_LABELS_606,keys[2])){
+            const entry=record(record(system[keys[1]])?.[keys[2]]);if(entry)bonus=rollBonus(entry,['roll']);
+        }else if(keys[1]==='skills'&&keys.length===5&&keys[3]==='bonuses'&&keys[4]==='passive'&&Object.hasOwn(SKILL_LABELS,keys[2])){
+            const entry=record(record(system.skills)?.[keys[2]]);if(entry){const bonuses=rollBonus(entry,['bonuses']);if(bonuses)return {object:bonuses,field:'passive',formula:true};}
+        }
+        if(bonus)return {object:bonus,field:'bonus',formula:true};
         if(keys[1]==='rolls'&&keys[2]==='ability'&&keys.length===5&&keys[4]==='proficiency'&&Object.hasOwn(globals,keys[3])){
             if([system.rolls,record(system.rolls)?.ability,record(record(system.rolls)?.ability)?.[keys[3]]].some(value=>value!=null&&!record(value)))return null;
             return {object:globals[keys[3]],field:'proficiency',choices:keys[3]==='save'?[0,1]:[0,.5,1,2]};
@@ -39,8 +63,16 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     for(const change of plan.initial){
         const field=target(change),raw=change.value;
         const delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
-        const before=field?.object[field.field];
+        const operand=field?.object[field.field],before=field?.formula?numericConstant(operand):operand;
         if(!field||typeof before!=='number'||!Number.isFinite(before)||delta===null||Math.abs(delta)>1_000_000_000){reason??=`Initial numeric effect target/value requires qualification: ${change.key}`;continue;}
+        let formula:string|undefined;
+        if(field.formula){
+            if(operand===null||!qualifiedNumericTotal(delta)||!['add','subtract','override'].includes(change.type)){
+                reason??=`Constant FormulaField operation/source requires qualification: ${change.key}`;continue;
+            }
+            const previous=formulas[change.key]??(operand===undefined?'':String(operand).trim()),deltaText=String(raw).trim();
+            formula=change.type==='override'?deltaText:change.type==='subtract'?(previous?`${previous} - (${deltaText})`:`-(${deltaText})`):previous?`${previous} ${deltaText.startsWith('-')?'-':'+'} ${deltaText.replace(/^[+-]/,'').trim()}`:deltaText;
+        }
         if(field.integer&&!Number.isInteger(before)||field.min!==undefined&&before<field.min||field.max!==undefined&&before>field.max||field.step!==undefined&&(before-(field.min??0))%field.step!==0){
             reason??=`Effect source initialization requires qualification: ${change.key}`;continue;
         }
@@ -62,7 +94,8 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         if(!Number.isFinite(value)||Math.abs(value)>1_000_000_000||field.choices&&!field.choices.includes(value)){
             reason??=`Effect result outside qualified numeric field choices: ${change.key}`;continue;
         }
-        field.object[field.field]=value;applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value});
+        field.object[field.field]=value;if(formula!==undefined)formulas[change.key]=formula;
+        applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(formula!==undefined?{formula}:{})});
     }
     return {system,globals,plan,applied,...(reason?{reason}:{})};
 }

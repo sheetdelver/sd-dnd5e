@@ -405,3 +405,21 @@ check half proficiency can make both independent proficiencies positive despite
 local0. Twenty independent numeric fixtures compare these cases and forty exact
 native dispatch/build captures. Native source, module regressions and public-host
 roll execution remain separate; no native/operator acceptance is claimed.
+
+### Constant FormulaField adaptation (C14)
+
+Qualified initial add/subtract/override effects on constant roll/passive bonus
+operands now share the detached NumericEffects path. Applied provenance keeps
+the native FormulaField construction; effective numeric operands feed checks,
+saves, tools, skills, passives and fresh configured requests. This is operation
+reduction on known scalar inputs, not an arbitrary expression parser. Nonempty
+unknown expressions, references, multiply/upgrade/downgrade/custom FormulaField
+operations and final phases remain unavailable. Numeric NumberFields retain
+their separately qualified C13 operations. Global bonus effects use detached
+initialized globals without laundering malformed source scopes into defaults.
+
+Pinned FormulaField construction is controlled source evidence only. The public
+host separately qualifies expected constant expressions and actual module rolls.
+Raw nested unary `1d20+(-(3))` is a maintained negative candidate; binary-zero
+`1d20+(0-(3))` and the numeric reduction pass. No extra host contract is needed
+for this constant operation subset. Source and host serialization remain intact.

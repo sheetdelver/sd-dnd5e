@@ -75,6 +75,10 @@ initialize(value){return value;}
 class NumericField extends Field {
 ${['_cast','_cleanType','_validateType','#isValidChoice','_castChangeDelta','_applyChangeSubtract','_applyChangeMultiply','_applyChangeUpgrade','_applyChangeDowngrade'].map(m=>f('common/data/fields.mjs','NumberField',m)).join('\n')}
 }
+class NativeFormula extends Field {
+${f('common/data/fields.mjs','StringField','_cast')}
+${['_castChangeDelta','_applyChangeAdd','_applyChangeSubtract'].map(m=>n('module/data/fields/formula-field.mjs','FormulaField',m)).join('\n')}
+}
 ${files.get('module/documents/actor/proficiency.mjs').replace('export default class','class')}
 ${simplify}
 class CommonTemplate {
@@ -94,7 +98,7 @@ class NativeDispatch {
 ${['#rollSkillTool','_buildSkillToolConfig'].map(m=>n('module/documents/actor/actor.mjs','Actor5e',m)).join('\n')}
 run(...args){return this.#rollSkillTool(...args);}
 }
-globalThis.numeric={NumericField,CreatureTemplate,CommonTemplate,NativeDispatch,NativeParts};`,sandbox);
+globalThis.numeric={NumericField,CreatureTemplate,CommonTemplate,NativeDispatch,NativeParts,NativeFormula};`,sandbox);
 const {NumericField,CreatureTemplate,CommonTemplate,NativeDispatch,NativeParts}=sandbox.numeric,numericObservations=[];
 sandbox.foundry.utils.setProperty=(obj,path,value)=>{const keys=path.split('.');let cursor=obj;for(const key of keys.slice(0,-1))cursor=cursor[key]??={};cursor[keys.at(-1)]=value;};
 sandbox.foundry.utils.getType=value=>value&&typeof value==='object'?'Object':typeof value;
@@ -108,7 +112,7 @@ const set=(obj,path,value)=>{const parts=path.split('.');let cursor=obj;for(cons
 // here. These stubs do not instantiate the full Foundry DataModel.
 assert.match(files.get(common),/integer: true, min: 0, initial: 10/);
 assert.match(files.get(creature),/min: 0, max: 2, step: 0.5, initial: 0/);
-for(const row of numericFixture.cases.filter(row=>row.expected)){
+for(const row of numericFixture.cases.filter(row=>row.expected&&row.id!=='bonus-field')){
  const source={system:{abilities:{wis:{value:14,proficient:0},dex:{value:12,proficient:0}},skills:{prc:{ability:'wis',value:1,roll:{},bonuses:{passive:''}}},tools:{thief:{ability:'dex',value:1,roll:{}}},rolls:{ability:Object.fromEntries(['check','save','skill','tool'].map(key=>[key,{proficiency:0}]))}}};
  for(const [path,value] of Object.entries(row.patches))set(source,path,value);
  const changes=row.changes.map((change,order)=>({...change,priority:priorities[change.type],order})).sort((a,b)=>a.priority-b.priority||a.order-b.order),applied=[];
@@ -137,5 +141,13 @@ for(const row of numericFixture.cases.filter(row=>row.expected)){
 }
 assert.equal(warnings.length,0);
 
-const evidence={numericObservations,evidence:'S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance',nativeCommit,foundry:release,observations,priorities,foundrySources:Object.fromEntries([...core].map(([path,source])=>[path,sha256(source)])),stubs:['Explicit initialized effect defaults; no Foundry DataModel initialization','Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions','Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime' ,'Untimed empty-condition effects only','Empty roll data; hidden/dependent/rider/antimagic absent','Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation','Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle']};
-const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: effect eligibility/phase capture ${observations.length} plus ${numericObservations.length} numeric field/derived cases PASS\n`);
+const bonusFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/constant-bonus-effects.json'),'utf8')),constantObservations=[];
+for(const row of bonusFixture.cases.filter(row=>row.expected)){
+ const field=new sandbox.numeric.NativeFormula();let formula=row.before??undefined;
+ const changes=[row,...(row.extraChanges??[])].map((change,order)=>({...change,order})).sort((a,b)=>(priorities[a.type]-priorities[b.type])||a.order-b.order);
+ for(const change of changes){const delta=field._castChangeDelta(change.value);formula=field['_applyChange'+change.type[0].toUpperCase()+change.type.slice(1)](formula,delta);}
+ assert.equal(formula,row.expectedFormula,row.id);
+ constantObservations.push({id:row.id,formula,independentExpectedNumeric:row.expectedBonus});
+}
+const evidence={constantObservations,numericObservations,evidence:'S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance',nativeCommit,foundry:release,observations,priorities,foundrySources:Object.fromEntries([...core].map(([path,source])=>[path,sha256(source)])),stubs:['Explicit initialized effect defaults; no Foundry DataModel initialization','Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions','Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime' ,'Untimed empty-condition effects only','Empty roll data; hidden/dependent/rider/antimagic absent','Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation','Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle','Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host']};
+const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: effect eligibility/phase capture ${observations.length} plus ${numericObservations.length} numeric field/derived and ${constantObservations.length} constant FormulaField constructions PASS\n`);

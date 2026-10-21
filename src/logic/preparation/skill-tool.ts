@@ -33,7 +33,7 @@ function rollInput(value:unknown):unknown {
 export function prepareSkillToolModel606(actor:unknown, context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):SkillToolModel {
     const system=effects.system, profile=numericCharacterProfile(actor,context,effects);
     let reason=profile.status==='ready'?undefined:profile.reason;
-    const rawGlobals=record(record(system.rolls)?.ability) ?? {};
+    const rawGlobals=effects.globals,sourceGlobals=record(record(system.rolls)?.ability)??{};
     if ([system.rolls,record(system.rolls)?.ability].some(value=>value!=null&&!record(value))) reason ??= 'Roll source container malformed';
     const abilities=Object.fromEntries(abilityKeys.map(key=>{
         const raw=record(record(system.abilities)?.[key]), check=raw?.check, score=raw?.value;
@@ -53,7 +53,7 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
         }));
     }
     return {reason,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
-        globals:{check:rollInput(rawGlobals.check),skill:rollInput(rawGlobals.skill),tool:rollInput(rawGlobals.tool)}};
+        globals:Object.fromEntries(['check','skill','tool'].map(key=>[key,sourceGlobals[key]!=null&&!record(sourceGlobals[key])?false:rollInput(rawGlobals[key])])) as SkillToolModel['globals']};
 }
 /** Native fresh #rollSkillTool + _buildSkillToolConfig source-only profile.
  * Only primary local/global type scopes contribute. Secondary supplies its
