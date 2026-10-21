@@ -1600,3 +1600,55 @@ Task services stopped;Node24local,Node22CI/installed/native/operator unrun.
 Next Q02a initial replacement-data/collection timing remains module work; no new
 Core dependency is inferred from limited simulateRoll or these guard tests. E01/
 wider Q00/E05/ADR-0001/full acceptance remain open. Experimental0.4.1 unchanged.
+
+### C31 — Initial scalar filters (2026-10-21)
+
+Predecessor C30 `52fa7b9`. Completed bounded M2/Q02a DD-02/05/27/34,
+A02/A04/A21 subrequirements: qualified scalar pre-initial projection, exact/numeric
+leaves through one grammar, verified save default0 shared with numeric preparation,
+read/default provenance and same-outcome intent retirement.50 contracts include30
+failures before/passes after and20 retained boundaries. One invariant predicate's
+skill already worked before; its saving throw was unavailable until the proven
+missing coefficient0 initialized in the shared path. Two prior C29 known-field
+examples are now qualified via `initialTruth`; pure constant helper/oracle and the
+unknown-branch gate remain strict. Source/poison/context/legacy boundaries preserved.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (released0.19.3/
+90c13e5). `npm test`:60 assertions,8 tooling/32 module suites PASS. `typecheck`:
+164 explicit module/UI/server/test/hook files PASS. `test:native-source -- --native
+../../../../temp/dnd5e`:2242 records/591 expressions at exact87e94db PASS.
+`test:native-initial-filters -- --native ../../../../temp/dnd5e --foundry
+/home/juvinious/projects/foundryvtt/foundryvtt-v14`:30 independent primitive-schema/
+base/embedded/getRollData/initial collection/field captures PASS. All reads precede
+first field application, including priority10 global-floor/earlier-score changes.
+Raw mod/global99, explicit/default initialized values and later operands are separate.
+Helper/schema-regex setup errors were corrected before successful comparison.
+Primitive/model-shell/unrelated-domain/clone/overrides stubs are recorded: no full
+DataModel/native source lifecycle or engine acceptance. Optional parents, final-only,
+Item/status/flags/derived/class/coercion paths remain unavailable.
+
+`test:native-effects` preserves69 Item,5 phase,20 numeric,19 FormulaField and25
+mode/passive cases PASS; `test:native-checks` preserves7 indicator,16 source/default/
+intermediate ability,81 source modes,800 selections,8tools/81modes/20intermediate/
+38selected/324modes PASS. `test:mounted` with standard test-only browser arguments
+passes the full suite at1440/390,including638 numeric-effect and372 training states,
+actual controls/readouts, selected/manual/shortcut execution and callback recovery.
+Artifacts `/tmp/dnd5e-mounted-JpNZH2`; SDK seam, not installed UI.
+
+`test:public-rolls`:16760 accepted requests,including720 initial-field check/mode/
+bonus and30 new normal-bound requests. Updated prior source filters include864+36
+requests because two formerly unqualified field examples now qualify.9133 normal-
+range requests/441 distributions,1 unary candidate rejection and40 plain equal-index
+diagnostics PASS,actual serialization unchanged,0 native writes. Artifacts
+`/tmp/dnd5e-public-rolls-iJSqOQ`; public primitive composition only. `check:package`
+passes isolated module/public-boundary checks,managed typing and bundles; archive
+`/tmp/dnd5e-package-W1HwUb/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`bf9cd7aabbcd08996030bb7b6217cf0498f1605ef063fb0ee0db769cbfb96b6a`.
+[Portable record](../audits/evidence/2026-10-21-c31-initial-filters.json) contains
+phase traces,commands,source/script/fixture/artifact identities and limits. Task
+services stopped;Node24 local,Node22CI/installed/native/operator unrun.
+
+No complete DD/A/M gate closes. Continue remaining Q02a rule/filter/condition/
+final/Item preparation and dependency-ready Q02 command outcome qualification.
+Limited simulateRoll is not evidence of a new necessary Core contract. E01/wider
+Q00/E05/full acceptance and ADR-0001 remain open;experimental0.4.1 unchanged.

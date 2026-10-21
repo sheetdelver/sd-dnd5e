@@ -1,7 +1,7 @@
 import { initializedModeState, applyEffectMode, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
 import { planEffects606, type EffectPlan, type EffectChange } from './effects';
-import { initializedAbilityRolls606 } from './roll-initialization';
+import { initializedAbilityRolls606,initializedSaveProficiency606 } from './roll-initialization';
 import { numericConstant, qualifiedNumericTotal } from './numeric';
 import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
 import {prepareEquipment606,type EquipmentPreparation} from './equipment';
@@ -10,7 +10,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 export interface NumericEffects {
     system:Record<string,unknown>;globals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
-    plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;
+    initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;
     applied:Array<{effectId:string;key:string;phase:'initial';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned'}>;
 }
 /** Qualified initial numeric/defense/training trait fields. This detached initialized operand
@@ -21,6 +21,14 @@ export interface NumericEffects {
 export function prepareNumericEffects606(actor:unknown):NumericEffects {
     const source=record(actor)??{},system=structuredClone(record(source.system)??{}),plan=planEffects606(actor);
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
+    const initialized:NumericEffects['initialized']=[];
+    for(const key of ['str','dex','con','int','wis','cha']){
+        const ability=record(record(system.abilities)?.[key]);
+        if(ability&&ability.proficient===undefined){
+            const value=initializedSaveProficiency606(ability);
+            if(value!==null){ability.proficient=value;initialized.push({key:`system.abilities.${key}.proficient`,value,origin:'schema-default'});}
+        }
+    }
     let reason=plan.reason;
     const formulas:Record<string,string>={},modes:Record<string,EffectModeState>={};
     const origins:Record<string,'source'|'default'|'null-cleaned'>={};
@@ -143,5 +151,5 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         field.object[field.field]=value;if(formula!==undefined)formulas[change.key]=formula;
         applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(formula!==undefined?{formula}:{})});
     }
-    return {system,globals,plan,applied,modes,equipment:prepareEquipment606(actor),...(reason?{reason}:{})};
+    return {system,globals,plan,applied,modes,initialized,equipment:prepareEquipment606(actor),...(reason?{reason}:{})};
 }

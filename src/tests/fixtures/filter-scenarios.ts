@@ -1,7 +1,8 @@
 import fixture from '../../../tests/fixtures/native-6.0.6/constant-filters.json';
 import {skillSource} from './skill-scenarios';
 export const filterCases=fixture.cases;
-export function filterSource(row:typeof filterCases[number]){
+export interface FilterSourceInput {id:string;conditions?:unknown;scope?:string;unknownTarget?:boolean;final?:boolean;statuses?:unknown;rider?:unknown;flags?:boolean;otherBonus?:boolean;legacy?:boolean;malformedCollection?:boolean;malformedPriority?:boolean;badEnvelope?:string}
+export function filterSource(row:FilterSourceInput){
     const actor=skillSource(),effect:any={_id:'filterEffect001',type:'base',system:{changes:[]}};
     const change:any={key:row.unknownTarget?'system.unknown.unqualified':'system.abilities.wis.value',type:'add',value:2,...(row.final?{phase:'final'}:{})};
     if(row.conditions!==undefined){if(row.scope==='change')change.conditions=structuredClone(row.conditions);else effect.system.conditions=structuredClone(row.conditions);}
@@ -20,5 +21,6 @@ export function filterSource(row:typeof filterCases[number]){
     return actor;
 }
 export function filterExpected(row:typeof filterCases[number]){
-    return row.truth===undefined||row.workflowUnavailable?undefined:{skill:row.truth||row.otherBonus?6:5,tool:5,check:row.truth?3:2,save:row.truth?3:2,passive:row.truth||row.otherBonus?16:15,combined:row.truth||row.otherBonus?6:5,combinedTool:row.truth?6:5,combinedMode:1};
+    const truth=row.truth??row.initialTruth;
+    return truth===undefined||row.workflowUnavailable?undefined:{skill:truth||row.otherBonus?6:5,tool:5,check:truth?3:2,save:truth?3:2,passive:truth||row.otherBonus?16:15,combined:truth||row.otherBonus?6:5,combinedTool:truth?6:5,combinedMode:1};
 }

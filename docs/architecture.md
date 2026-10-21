@@ -665,3 +665,35 @@ The same normalized fields feed later condition checks and ordering, preserving
 proven empty-key no-ops, source order and typed unavailable reasons. This restores
 four malformed/unqualified boundaries missed by C29's whole-effect shortcut. It
 adds no source coercion, evaluator, cache, persistence or new roll support.
+
+
+### Qualified initial scalar filter projection (C31)
+
+The shared filter grammar accepts a second bounded profile: exact and numeric
+comparison leaves over explicit integral0–30 ability scores, initialized save
+coefficients0/1 and nonpersisted global roll proficiency0 under explicit parent
+containers. `initialFilterData606` supplies only these scalar fields and origins;
+it is not full getRollData, current derived data, a content/world cache or an
+arbitrary property walker. Missing optional roll parents remain unavailable rather
+than borrowing C13's arithmetic floor0 as proof of path existence. No formulas,
+locale-sensitive comparisons, Item context or final snapshots are evaluated.
+
+Actor-owned effect predicates require a verified first initial evaluation with
+no active statuses/riders; per-change leaves require the initial phase. All
+conditions are checked before applying any initial change, matching the native
+collection/apply boundary. Constant trees retain their phase-invariant path. Every
+branch must qualify even when native boolean short-circuit could skip a branch.
+Definitions/read values/schema origins enter plan provenance and intent retirement.
+Final-only/no-initial effects, derived mods/classes, flags, missing/malformed fields
+and source Item replacement remain unavailable. C29's two known initial-field
+examples are now qualified; its constant-only helper still rejects dependent leaves.
+Unknown-field OR branches remain unavailable.
+
+`initializedSaveProficiency606` provides one proven missing-field default0 on an
+existing ability record. It is shared by the filter projection and detached numeric
+initialization, so saves/indicators/execution do not contradict the filter. Explicit
+persisted0/1 remain authoritative; null/coerced/out-of-profile values are gated.
+Defaults are recorded in effectPreparation.initialized and never written to source.
+Raw mod/global proficiency poison remains nonauthoritative; qualified effects can
+subsequently alter actual operands. This supersedes only the bounded C29 dependent
+filter restriction, not wider Q02a/M2 or legacy qualification.

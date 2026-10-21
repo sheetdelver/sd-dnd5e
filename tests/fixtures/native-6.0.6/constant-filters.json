@@ -189,11 +189,13 @@
     },
     {
       "id": "dependent",
-      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14}"
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14}",
+      "initialTruth": true
     },
     {
       "id": "hidden-dependent",
-      "conditions": "{\"o\":\"OR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"k\":\"abilities.wis.value\",\"v\":14}]}"
+      "conditions": "{\"o\":\"OR\",\"v\":[{\"o\":\"AND\",\"v\":[]},{\"k\":\"abilities.wis.value\",\"v\":14}]}",
+      "initialTruth": true
     },
     {
       "id": "unknown-operator",

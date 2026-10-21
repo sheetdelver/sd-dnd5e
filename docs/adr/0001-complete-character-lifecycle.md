@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates | RV01–RV04 retained; C06–C30 separate R/S/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default | RV01–RV04 retained; C06–C31 separate R/S/mounted/isolated-host evidence |
 | M3 | Not started; E02 qualification needed | Command/receipt/concurrency results |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1259,3 +1259,38 @@ No new Core requirement or full gate closes. Next is still qualified initial
 replacement-data fields and collection timing before dependent filters; final/Item/
 conditions/flags, broader expressions and M3+ remain open. E01/wider Q00/E05/native/
 operator/full acceptance and ADR-0001 stay open; experimental0.4.1 unchanged.
+
+
+### C31 — Initial scalar filter fields and schema save default (2026-10-21)
+
+C30 is `52fa7b9`. This advances M2/Q02a, DD-02/05/27/34 and A02/A04/A21
+partially. One grammar now supports bounded Actor-owned initial exact/numeric
+predicates over explicit ability scores, initialized save coefficients and global
+nonpersisted proficiency under explicit parents. Source/schema/default/prepared
+values and predicate/read provenance remain separate. No arbitrary property lookup,
+formula engine, private Core import, caller cache or source write is introduced.
+
+50 declared contracts include30 failures-before/passes-after and20 retained
+boundaries. Exact pinned schema/base/embedded/getRollData/effect/collection/field
+methods produce30 independent captures: all predicates are checked before any
+initial field mutation, not progressively against earlier effects. Effect first-
+evaluation cache and change phase snapshots stay distinct. Final-only/no-initial,
+Item replacement, status/flags, derived mods/classes, missing optional parents and
+malformed/coerced leaves remain unavailable; every branch must qualify.
+
+The verified missing persisted save coefficient0 now initializes once in the shared
+numeric path and the same helper feeds predicate reads. Applied effects can then
+alter prepared values; stale mod/global99 never supplies overrides. Source remains
+unchanged and default origins enter effect provenance/intents. C29's known initial
+field and known-branch OR examples are superseded by this qualified profile, while
+the constant-only helper and unknown-branch restrictions remain strict.
+
+[C31 ledger](../plans/0001-verification.md#c31--initial-scalar-filters-2026-10-21)
+and [portable evidence](../audits/evidence/2026-10-21-c31-initial-filters.json)
+separate maintained regression, controlled-source phase projection, actual mounted
+consumers, public-host primitives and package checks. Native DataModel/engine/
+operator parity is not claimed, and the preparation-runtime experiment remains
+parked. No full DD/A/M gate closes. Continue dependency-ready Q02a rule/filter/
+condition/final/Item preparation and bounded M3/Q02 receipt qualification. E01/
+wider Q00/E05/full acceptance and ADR-0001 remain open; experimental0.4.1 and
+compatibility unchanged.

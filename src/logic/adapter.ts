@@ -146,7 +146,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const effects=prepareNumericEffects606(actor);
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
         prepared.derived.equipmentPreparation=effects.equipment;
-        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied};
+        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied,initialized:effects.initialized};
         const checkModel = prepareSkillToolModel606(actor,rules,effects);
         prepared.derived.checkConfiguration = checkModel;
         prepared.derived.training=prepareTraining606(actor,rules,effects,checkModel);

@@ -863,3 +863,23 @@ supported workflows and24 boundaries; source and no-op/order behavior are unchan
 See [C30 ledger](../plans/0001-verification.md#c30--effect-envelope-gates-2026-10-21)
 and [portable evidence](evidence/2026-10-21-c30-effect-envelopes.json). No full gate or
 native/operator/release acceptance is claimed; dependent filters remain next work.
+
+
+### C31 — Initial predicates use qualified phase fields
+
+C30 `52fa7b9` precedes this M2/Q02a slice (DD-02/05/27/34,A02/A04/A21
+partial).50 source contracts include30 predecessor failures and20 retained limits.
+30 independent pinned captures distinguish explicit source, schema defaults,
+pre-initial fields and later applied values. Native collects/evaluates before
+applying changes: an earlier score/global-floor mutation cannot alter an initial
+predicate's input. A proven missing save coefficient0 now feeds shared preparation
+and predicates rather than leaving contradictory unavailable saving throws.
+
+C29's two known-initial examples become supported through the new profile, without
+weakening its constant-only oracle or unknown-branch qualification. Final/Item/
+status/flag/derived/malformed/missing-parent boundaries stay explicit. Definition/
+read/default provenance retires old callbacks; raw source/poison remains unchanged.
+See [C31 ledger](../plans/0001-verification.md#c31--initial-scalar-filters-2026-10-21)
+and [portable record](evidence/2026-10-21-c31-initial-filters.json). Controlled methods
+and isolated consumers do not establish full native/installed/operator acceptance;
+no complete milestone or release gate closes.

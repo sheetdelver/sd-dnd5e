@@ -1,0 +1,1800 @@
+{
+  "checkpoint": "C31",
+  "precedingImplementation": "52fa7b9",
+  "requirementsPartial": [
+    "M2",
+    "Q02a",
+    "DD-02",
+    "DD-05",
+    "DD-27",
+    "DD-34",
+    "A02",
+    "A04",
+    "A21"
+  ],
+  "baseline": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "foundry": "14.367 static source only",
+    "node": "24.21.0",
+    "Node22CI": "unrun"
+  },
+  "failingBefore": {
+    "sourceContracts": 50,
+    "supportedFailures": 30,
+    "unqualifiedBoundaries": 20,
+    "unchangedInputs": "Current maintained fixture/source builder against52fa7b9 production adapter/effects/numeric initialization, restored with finally",
+    "exit": 1,
+    "logSha256": "fb0a80360555daa43acafb5d4eb1593f1bb3970f9994d9d1407a296050d4ae4b",
+    "saveDefaultGap": "One invariant predicate already qualifies before; save remains unavailable because missing persisted coefficient had no shared initialization. Same independent schema expectation verifies both paths after."
+  },
+  "controlledNativeInitialProjection": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "observations": [
+      {
+        "id": "equal-initial-score",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "not-equal-initial-score",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "gt13",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "gt14",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "gte14",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "gte15",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "lt15",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "lt14",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "lte14",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "lte13",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "strict-exact-string",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "nonpersist-check",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "rolls.ability.check.proficiency",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "nonpersist-save",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "rolls.ability.save.proficiency",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "nonpersist-skill",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "rolls.ability.skill.proficiency",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "nonpersist-tool",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "rolls.ability.tool.proficiency",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "save-proficient-source",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.proficient",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "save-proficient-default",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": "[absent]",
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.proficient",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "effect-initial-snapshot-before-earlier-bonus",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 16
+          }
+        ],
+        "after": {
+          "score": 18,
+          "globalCheck": 0
+        },
+        "expectedSkill": 7,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "effect-initial-snapshot-not-progressive",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "change-initial-snapshot-before-earlier-bonus",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 16
+          }
+        ],
+        "after": {
+          "score": 18,
+          "globalCheck": 0
+        },
+        "expectedSkill": 7,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "change-initial-snapshot-not-progressive",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "nested-known-initial",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "read",
+            "path": "rolls.ability.check.proficiency",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "change-leaf",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "change-leaf-false",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "strict-exact-null",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "strict-exact-boolean",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "unknown-target-proven-inactive",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "abilities.wis.value",
+            "value": 14
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "known-branch-in-OR",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "unconditional-save-default",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": "[absent]",
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "global-floor-before-initial-effect",
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "rolls.ability.check.proficiency",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "rolls.ability.check.proficiency",
+            "before": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 2
+        },
+        "expectedSkill": 9,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      }
+    ],
+    "nativeSourceHashes": {
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/abstract/actor-data-model.mjs": "0905d4b45c1e30d21ca7890fa6c133db9d68d4c479253662f83901f2593c8f8a",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/filter.mjs": "f80fcb3066fe319389225c6101e31ae8738a14f7f1baab56fde9c2e60b051cbf",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360"
+    },
+    "foundrySourceHashes": {
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/utils/helpers.mjs": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820"
+    },
+    "stubs": [
+      "Primitive NumberField initialization/defaults and typed apply/clean methods; validation wrapper, no full DataModel source boot",
+      "Only explicit 0..30 score/save coefficient and schema-initialized nonpersisted roll proficiency queried; stale raw mod/global99 omitted by schema provenance, not prepared overrides",
+      "Exact Character base/embedded methods and Actor getRollData/initial collection methods; unrelated HitDice/AC/encumbrance/movement/senses constructor helpers and XP mapping are stubs, no claimed qualification of those domains here",
+      "Exact Common legacy bonus shims do not overwrite queried scalar fields; Creature classes/subclasses overlay is excluded after static source proof it does not overwrite abilities/rolls; those namespaces remain unavailable",
+      "Source Items preserve IDs but active effect/scale collections are empty initialized fixtures; no source Item replacement/permission/content behavior qualified",
+      "Exact effect suppression/cache, superclass phase gate, Filter checks and numeric field application; clone/overrides wrappers are explicitly limited and not native serialization acceptance",
+      "Expected post-effect scores and totals are independently declared; numeric derived arithmetic composes prior C13/C26 qualification, no native dice engine or installed/operator acceptance"
+    ]
+  },
+  "nativeInitialArtifactSha256": "2e73107e14f92812c7c96889a3395a77721899a9e4ee3f4b4442bcacdfcb6c92",
+  "regressions": {
+    "command": "npm test -- --core <released0.19.3>",
+    "toolingAssertions": 60,
+    "toolingSuites": 8,
+    "moduleSuites": 32,
+    "result": "PASS",
+    "preserved": "DD-R01\u201306,source/raw poison preservation,unknown context never legacy,source/current intent recovery",
+    "new": "Initial scalar comparisons,all-checks-before-apply rather than progressive mutation,default save initialization/provenance,optional-parent absence and final/Item boundaries",
+    "supersededC29Examples": [
+      "dependent",
+      "hidden-dependent"
+    ],
+    "supersession": "Source workflow initialTruth is independently qualified; constantFilter606 alone still rejects dependent leaves. Unknown derived-mod OR branch stays unavailable."
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core <released0.19.3>",
+    "explicitModuleUiServerTestHookFiles": 164,
+    "result": "PASS"
+  },
+  "priorNativeComparisons": {
+    "sourceInventory": "2242 records/591 expressions exact release PASS",
+    "effects": "69 source/default Item eligibility,5 phases,20 numeric,19 formula,25 modes/passives PASS",
+    "checks": "7 indicator,16 source/intermediate ability,81 source modes,800 selections,8tools/81modes/20intermediate/38selected/324modes PASS",
+    "effectsSha256": "d240f958d2d7a304d297d342b0b5e3abd8d923d7126d8181ca37d5d1d737afa7",
+    "checksSha256": "ba3037e1191f6d4558079a7ec0ccda8204dc473c50b4b07ed083645a029ab448"
+  },
+  "mounted": {
+    "command": "npm run test:mounted -- --core <released0.19.3> --browser-tools <test-only> --chromium <Chromium143>",
+    "artifacts": "/tmp/dnd5e-mounted-JpNZH2",
+    "sha256": "e4bb09dcf367465237bce1a0c7ea0a56b6056cf69bfe2b2d346a00d5d5dbc293",
+    "numericEffectRows": 638,
+    "trainingRows": 372,
+    "newInitialRows": [
+      {
+        "width": 1440,
+        "id": "initial-filter:equal-initial-score",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:not-equal-initial-score",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:gt13",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:gt14",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:gte14",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:gte15",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:lt15",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:lt14",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:lte14",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:lte13",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:strict-exact-string",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:nonpersist-check",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:nonpersist-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:nonpersist-skill",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:nonpersist-tool",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:save-proficient-source",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:save-proficient-default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:effect-initial-snapshot-before-earlier-bonus",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:effect-initial-snapshot-not-progressive",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:change-initial-snapshot-before-earlier-bonus",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:change-initial-snapshot-not-progressive",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:nested-known-initial",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:change-leaf",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:change-leaf-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:missing-score",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:null-score",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:malformed-score",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:outside-score-profile",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:Item-replacement",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:final-only-effect",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:final-change-filter",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:no-initial-change",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:active-status",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:actor-flag",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:prepared-mod-poison",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:class-level-not-qualified",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:unknown-identity",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:prototype-path",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:numeric-coercion",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:unsupported-contains",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:strict-exact-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:strict-exact-boolean",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:unknown-target-proven-inactive",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:unknown-target-active",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:missing-global-container",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:null-global-container",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:known-branch-in-OR",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:unknown-branch-in-OR",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:unconditional-save-default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-filter:global-floor-before-initial-effect",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:equal-initial-score",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:not-equal-initial-score",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:gt13",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:gt14",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:gte14",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:gte15",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:lt15",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:lt14",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:lte14",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:lte13",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:strict-exact-string",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:nonpersist-check",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:nonpersist-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:nonpersist-skill",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:nonpersist-tool",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:save-proficient-source",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:save-proficient-default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:effect-initial-snapshot-before-earlier-bonus",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:effect-initial-snapshot-not-progressive",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:change-initial-snapshot-before-earlier-bonus",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:change-initial-snapshot-not-progressive",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:nested-known-initial",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:change-leaf",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:change-leaf-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:missing-score",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:null-score",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:malformed-score",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:outside-score-profile",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:Item-replacement",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:final-only-effect",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:final-change-filter",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:no-initial-change",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:active-status",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:actor-flag",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:prepared-mod-poison",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:class-level-not-qualified",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:unknown-identity",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:prototype-path",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:numeric-coercion",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:unsupported-contains",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:strict-exact-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:strict-exact-boolean",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:unknown-target-proven-inactive",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:unknown-target-active",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:missing-global-container",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:null-global-container",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:known-branch-in-OR",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:unknown-branch-in-OR",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:unconditional-save-default",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-filter:global-floor-before-initial-effect",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      }
+    ],
+    "result": "Full maintained suite PASS at1440/390, actual desktop/mobile consumers with SDK seam; no installed UI claim"
+  },
+  "publicHost": {
+    "command": "npm run test:public-rolls -- --core <released0.19.3>",
+    "artifacts": "/tmp/dnd5e-public-rolls-iJSqOQ",
+    "sha256": "805efdf9a4a8e6754275957e55fa46acecdef04819cd741b709d4950c842c6b8",
+    "accepted": 16760,
+    "newInitialCheckModeBonus": 720,
+    "newInitialNormalRanges": 30,
+    "updatedPriorSourceFilterCases": 864,
+    "updatedPriorSourceNormalRanges": 36,
+    "normalRangeRequests": 9133,
+    "normalDistributions": 441,
+    "plainEqualIndexDiagnostics": 40,
+    "candidateRejections": 1,
+    "nativeWrites": 0,
+    "result": "PASS, strict ordered faces/entropy/value/count/states/totals/distributions and unequal indices; actual serialization unchanged,plain equal-value diagnostics only"
+  },
+  "package": {
+    "command": "npm run check:package -- --core <released0.19.3>",
+    "archive": "/tmp/dnd5e-package-W1HwUb/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "bf9cd7aabbcd08996030bb7b6217cf0498f1605ef063fb0ee0db769cbfb96b6a",
+    "result": "isolated module/public-boundary checks,managed typing and bundles PASS"
+  },
+  "fileHashes": {
+    "src/logic/preparation/initial-filter-data.ts": "cca0a16571a1f94fbf3a09c6705a83d78b8403a030aa9e3dfda82bcb39904a43",
+    "src/logic/preparation/constant-filters.ts": "16b945dd131b883959a0b4a4a4b21c82a3f8c3a274c07d20cae68ed41c7c755a",
+    "src/logic/preparation/effects.ts": "ae2a7cf4e5051918133c409f1f4d1161508dac161d0ea871e9f84b0456f4483b",
+    "src/logic/preparation/roll-initialization.ts": "ae147c9cbc8fa61d239f5580002c4e22e4365ccdaf7f6f9e1c60f93c59f6699a",
+    "src/logic/preparation/numeric-effects.ts": "7dbdd6f76c9785bacd67a60d90a0570b2a6f84af220b9131ec14852df15b049a",
+    "src/logic/adapter.ts": "394b5c7097fe0eaf2bef4297004b983fc1559c8e8a1590391ed37811123ca97c",
+    "src/tests/initial-filters.test.ts": "f0a818f97c375fe826e07d6780cfbc2d4ab70607765ad39575f12cd5bd3c82e1",
+    "src/tests/fixtures/initial-filter-scenarios.ts": "f06dd838a5ec9c715f3e3c51d422dac66d21c64ece2d12e55eeb4731b234b3ec",
+    "src/tests/fixtures/filter-scenarios.ts": "6078ba319ef282b84325e0026b53f107f3ec26f2f172bf097ddd6e889005f18e",
+    "tests/fixtures/native-6.0.6/initial-filters.json": "02bcd41fe53028c83cf9a152308362d3e39f8f9089f8d1308fa07cd28e065335",
+    "tests/fixtures/native-6.0.6/constant-filters.json": "1d2cdc57e2a2ce86c6f5c1ebfbebb7cd470c25a8ca72a8e0674e55d65c359edb",
+    "scripts/native-initial-filter-oracle.mjs": "de7cce12af941753442e638ab717e71377d27959c261c13679adc81ed237bd55",
+    "scripts/test-mounted.mjs": "4c85fc09770e181b1408def4016e20418f535cb0378737cf777ee1ab453709a0",
+    "scripts/test-public-rolls.mjs": "f3a3e028528286cf2f841856fa8f8b44d7b98c1a6918dba1dd04617b45d573c5",
+    "package.json": "fd6767c85d1458df6bbc11dea91d6dfebebe6627efb0d7d3340996e60d37778c"
+  },
+  "limitations": [
+    "Qualified scalar projection only, never full getRollData or raw source assumed prepared",
+    "Explicit score0\u201330 only; save source0/1 or verified missing0; global nonpersisted0 requires explicit schema parent containers",
+    "Actor-owned first-initial predicates only,no active status/rider/flags,Item replacement,final-only/no-initial/derived/class/coercion/unknown branch profile",
+    "Numeric read/default origins and effect applied values separate; raw source/mod/global poison unchanged",
+    "Model shell,primitive validation and unrelated domain/clone/overrides stubs explicit; no full DataModel/native runtime/engine/operator parity",
+    "Legacy remains deliberately limited; version/compatibility/experimental0.4.1 unchanged",
+    "E01/wider Q00/E05/full M2/M3+/acceptance and ADR-0001 remain open",
+    "Task-owned services stopped;production listeners untouched"
+  ]
+}

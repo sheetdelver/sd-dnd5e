@@ -39,6 +39,7 @@ import {proficiencyIndicatorCases,proficiencyIndicatorSource} from ${JSON.string
 import {trainingCases,trainingSource,trainingContext} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/training-scenarios.ts'))};
 import {trainingEffectCases,trainingEffectSource} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/training-effect-scenarios.ts'))};
 import {filterCases,filterSource,filterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/filter-scenarios.ts'))};
+import {initialFilterCases,initialFilterSource,initialFilterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/initial-filter-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -82,7 +83,7 @@ const effectTool=toolSource();effectTool.effects=[{disabled:false}];tools.effect
 const toolModes=[];for(const mode of [-1,0,1]){const actor=toolSource();setSkillRoll(actor,'tools.thief.roll',{mode:mode===0?1:mode});if(mode===0)setSkillRoll(actor,'rolls.ability.tool',{mode:-1});toolModes.push({actor:adapter.prepareActorData(actor,{...skillContext(),sourceRevision:200+mode}),mode,formula:(mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20')+'+5'});}
 const combinations=combinedCases.map(row=>({...row,actor:prepare(combinedSource(row))}));
 const effectCases=effectFixture.cases.map((row,index)=>{const source=skillSource();source.effects=row.effects;source.items.push(...row.items);return {id:row.id,ready:row.expected.ready,actor:adapter.prepareActorData(source,{...skillContext(),sourceRevision:300+index})};});
-const numericEffects=[...filterCases.map(row=>({id:'constant-filter:'+row.id,expected:filterExpected(row),actor:prepare(filterSource(row))})),...trainingEffectCases.map(row=>({id:'training-set:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(trainingEffectSource(row))})),...traitEffectCases.map(row=>({id:'trait-effect:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(traitEffectSource(row))})),...itemEffectCases.map(row=>({id:'item-default:'+row.id,expected:itemEffectExpected(row),actor:prepare(itemEffectSource(row))})),...numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))})),...bonusEffectCases.map(row=>({id:'constant:'+row.id,expected:row.expected,actor:prepare(bonusEffectSource(row))}))];
+const numericEffects=[...initialFilterCases.map(row=>({id:'initial-filter:'+row.id,expected:initialFilterExpected(row),actor:prepare(initialFilterSource(row))})),...filterCases.map(row=>({id:'constant-filter:'+row.id,expected:filterExpected(row),actor:prepare(filterSource(row))})),...trainingEffectCases.map(row=>({id:'training-set:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(trainingEffectSource(row))})),...traitEffectCases.map(row=>({id:'trait-effect:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(traitEffectSource(row))})),...itemEffectCases.map(row=>({id:'item-default:'+row.id,expected:itemEffectExpected(row),actor:prepare(itemEffectSource(row))})),...numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))})),...bonusEffectCases.map(row=>({id:'constant:'+row.id,expected:row.expected,actor:prepare(bonusEffectSource(row))}))];
 const modeEffects=modeEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(modeEffectSource(row))}));
 const healthActors=healthCases.map(row=>({...row,actor:prepare(healthSource(row))}));
 for(const {id,context} of unavailableContexts())healthActors.push({id,actor:prepare(healthSource(healthCases[0]),context),hpUnavailable:true,hdUnavailable:true});
@@ -94,6 +95,7 @@ const defenseTraits=defenseTraitCases.map(row=>{const actor=prepare(defenseTrait
 for(const row of traitEffectCases){const actor=prepare(traitEffectSource(row));defenseTraits.push({id:'trait-effect:'+row.id,expected:Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,row.expectedOperands?{}:null])),actor,card:adapter.getActorCardData(actor)});}
 for(const {id,context} of unavailableContexts()){const actor=prepare(defenseTraitSource(defenseTraitCases[1]),context);defenseTraits.push({id,expected:Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,null])),actor,card:adapter.getActorCardData(actor)});}
 const trainingActors=trainingCases.map(row=>{const actor=adapter.prepareActorData(trainingSource(row),trainingContext(row));return {id:row.id,actor,card:adapter.getActorCardData(actor)};});
+for(const row of initialFilterCases){const actor=prepare(initialFilterSource(row));trainingActors.push({id:'initial-filter:'+row.id,actor,card:adapter.getActorCardData(actor)});}
 for(const row of filterCases){const actor=prepare(filterSource(row));trainingActors.push({id:'constant-filter:'+row.id,actor,card:adapter.getActorCardData(actor)});}
 for(const row of trainingEffectCases){const actor=prepare(trainingEffectSource(row));trainingActors.push({id:'training-set:'+row.id,actor,card:adapter.getActorCardData(actor)});}
 for(const {id,context} of unavailableContexts()){const actor=prepare(trainingSource(trainingCases[1]),context);trainingActors.push({id,actor,card:adapter.getActorCardData(actor)});}
@@ -162,7 +164,7 @@ try {
         const skill = page.locator('button').filter({ hasText: 'Perception' });
         const tab = async name => { if (width < 1024) { await page.getByRole('button', {name:'▲',exact:true}).click(); await page.getByRole('button',{name:new RegExp(name)}).click(); } };
         if(filtersOnly){
-            for(const row of numericEffects.filter(row=>row.id.startsWith('constant-filter:'))){
+            for(const row of numericEffects.filter(row=>row.id.startsWith('constant-filter:')||row.id.startsWith('initial-filter:'))){
                 await render(row.actor);await tab('Skills');
                 assert.equal(await skill.isDisabled(),!row.expected,row.id);
                 const tool=page.getByRole('button',{name:"Thieves' tools Tool Check",exact:true});assert.equal(await tool.isDisabled(),!row.expected,row.id+'/tool');

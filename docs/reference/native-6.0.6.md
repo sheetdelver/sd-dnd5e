@@ -732,3 +732,35 @@ preexisting gates used when the effect guard is true. Native guard truth is stil
 false, but that alone does not qualify initialization/validation of wider source
 fields. The controlled oracle now records44 guard truths including10 separately
 gated source workflows; no native schema rejection or DataModel parity is claimed.
+
+
+### Initial scalar predicates and collection timing (C31)
+
+CommonTemplate's score is required/nonnullable/integer/min0/initial10; save
+coefficient is required/integer/min0/max1/initial0. C31 uses explicit valid scores,
+not guessed missing score defaults. Creature global roll proficiency is initial0,
+persisted:false. The profile requires explicit roll parent containers; it does not
+infer optional-path existence from an arithmetic fallback. The native controlled
+harness keeps raw mod/global99 separate from schema initialized fields and preserves
+its raw input. Missing persisted save coefficient initializes0 by exact NumberField
+methods, then shared module initialization feeds both predicates and saving throws.
+
+Exact Character base/embedded, ActorDataModel/Actor getRollData, effect suppression/
+first-cache/phase checks, Filter comparisons and Actor initial collection methods
+establish30 independent captures. Every filter read occurs before the first typed
+field application. Earlier Wisdom+2 cannot make a Wisdom16 predicate match during
+collection: Wisdom14 remains its input. A Wisdom14 predicate still matches before
+that earlier change and both+2 operations produce18. A priority10 global floor2
+still has initialized0 when its predicate is checked, then legitimately changes
+later prepared operands. This is distinct from stale raw source proficiency99.
+
+Only the qualified base-field projection is compared. Unrelated HD/AC/encumbrance/
+movement/senses helpers and XP mapping are explicit stubs; the Creature classes/
+subclasses overlay is excluded after source proof it does not overwrite queried
+abilities/rolls. Primitive validation/clone/overrides wrappers, empty active Item/
+scale collections and no status/Item replacement are limits. Expected post-effect
+scores/totals are declared independently; derived arithmetic composes the prior
+C13/C26 method qualification. This does not boot a DataModel, execute a native dice
+engine or revive the parked preparation runtime. No full native source/operator
+parity follows. Final-only/no-initial, Item, derived/mod, unsupported/unknown branch
+and malformed/coerced data cases remain module availability boundaries.

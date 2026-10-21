@@ -339,3 +339,15 @@ the shared normalization restores gates before suppression.44 native guard obser
 include10 unavailable workflows and do not qualify those source envelopes. Existing
 C29 historical hashes/counts stay preserved; final focused mounted checks cover58
 contracts at both widths.
+
+
+C31 `initial-filters.json`:50 contracts,30 supported source/default/initial scalar
+workflows (all fail before) and20 explicit unqualified boundaries. Native schema,
+base/embedded/getRollData/collection/field methods independently establish30 phase
+captures, including reads before earlier sorted changes and priority10 global floor.
+Raw mod/global99, initialized values and later operands are separate; source is
+unchanged. Missing save coefficient0 is shared with numeric preparation. Two known
+C29 examples gain `initialTruth` source-workflow expectations; the constant-only
+helper/oracle remains strict and unknown-field OR branches stay unavailable.
+Primitive/model-shell/domain stubs are declared; not full DataModel/source lifecycle
+or native/operator acceptance.

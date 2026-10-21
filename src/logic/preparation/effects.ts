@@ -1,5 +1,6 @@
 import { record } from '../native/6.0.6/source';
-import {constantFilter606,type ConstantFilter} from './constant-filters';
+import {constantFilter606,numericInitialFilter606,type ConstantFilter,type ConstantFilterResult} from './constant-filters';
+import {initialFilterData606} from './initial-filter-data';
 import {itemEffectState606,type ItemEffectState} from './item-effect-state';
 export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState;condition?:ConstantFilter;key?:string}
 export interface EffectChange {effectId:string;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number;condition?:ConstantFilter}
@@ -12,6 +13,7 @@ const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,su
 export function planEffects606(actor:unknown):EffectPlan {
     const source=record(actor)??{},initial:EffectChange[]=[],final:EffectChange[]=[],decisions:EffectDecision[]=[];
     let reason:string|undefined,order=0;
+    const initialRead=initialFilterData606(actor);
     const fail=(id:string,status:string,message:string,parentId?:string)=>{reason??=message;decisions.push({id,parentId,status,reason:message});};
     function collect(list:unknown,item?:Record<string,unknown>){
         if(list===undefined)return;
@@ -64,7 +66,14 @@ export function planEffects606(actor:unknown):EffectPlan {
                 if(typeof priority!=='number'||!Number.isFinite(priority)){fail(id,'malformed','Effect priority source malformed',parentId);continue;}
                 envelopes.push({change,key:change.key,phase:phase as 'initial'|'final',type,priority});
             }
-            const condition=constantFilter606(system.conditions);
+            const firstInitial=envelopes.some(entry=>entry.phase==='initial');
+            const activeStatus=(statuses as unknown[]|undefined)?.length||(riderStatuses as unknown[]|undefined)?.length;
+            const qualify=(raw:unknown,initial:boolean):ConstantFilterResult=>{
+                const invariant=constantFilter606(raw);if(invariant.status==='ready')return invariant;
+                if(item||activeStatus||!initial)return {status:'unavailable',reason:'Dependent filter initial Actor snapshot/first-evaluation phase requires qualification'};
+                return numericInitialFilter606(raw,initialRead);
+            };
+            const condition=qualify(system.conditions,firstInitial);
             if(condition.status==='unavailable'){
                 fail(id,'conditions-unavailable',condition.reason,parentId);continue;
             }
@@ -74,7 +83,7 @@ export function planEffects606(actor:unknown):EffectPlan {
             }
             let any=false;
             for(const {change,key,phase,type,priority} of envelopes){
-                const changeCondition=constantFilter606(change.conditions);
+                const changeCondition=qualify(change.conditions,phase==='initial');
                 if(changeCondition.status==='unavailable'||change.replacement!==undefined&&change.replacement!==''){
                     fail(id,'conditions-unavailable','Effect change filters/replacement require Q02a qualification',parentId);continue;
                 }
