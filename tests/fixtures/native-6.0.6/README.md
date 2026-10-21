@@ -361,3 +361,14 @@ initialization,filter and native initial collection/apply methods compare88 capt
 unknown literals,empty/any/all/subset/mixed trees and earlier-change/later-normalization
 phase separation are recorded. Unknown/malformed/nested/final/Item/status/flag cases
 remain unavailable. Serialized Set provenance is not a full native prepared snapshot.
+
+
+C35 `initial-class-filters.json`:44 contracts,30 supported explicit class-source
+workflows,13 unqualified Actor workflows and one helper-only missing-items input
+outside the SDK Actor contract.30 same-input failures on C34 pass after shared base
+facts. DetailsField nonpersisted level0 and actual Character base/class/Proficiency
+methods compare all thresholds,multiclass and no-class0/prof1. `initial-filters.json`
+now explicitly supersedes its old class-level-not-qualified boundary:31 supported/
+19 unqualified scalar cases,with source/global poison still ignored. Together with
+58 collection captures,the maintained native initial-field comparison records119.
+Historical C31–C34 counts/hashes remain unchanged in their portable records.

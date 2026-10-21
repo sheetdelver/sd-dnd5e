@@ -930,3 +930,18 @@ name inference,new evaluator or Core requirement. See [C34 ledger](../plans/0001
 and [portable record](evidence/2026-10-21-c34-initial-collection-filters.json).
 Native source-method comparisons are not native/operator acceptance; full lifecycle,
 E01/E02/wider Q00/E05 and ADR closeout remain open.
+
+
+### C35 disposition — class-source initialization shared with predicates
+
+C34 is `98f177a`. DD-01/02/27/34 and A02/A03/A04/A21 remain partial while
+base level/proficiency initialization is shared by facts,headers/cards and initial
+predicates.30 declared inputs fail C34 and pass after;14 boundaries remain,including
+one helper-only malformed Actor input outside the public SDK contract. One historical
+class-level scalar restriction is explicitly superseded. Source level/prof99 never
+becomes authoritative; explicit source class identities retire stale callbacks even
+when totals agree. Level0/prof1,multiclass,thresholds and unavailable/recovery values
+are verified in actual headers/proficiency displays at both widths. See [C35 ledger](../plans/0001-verification.md#c35--initial-class-facts-2026-10-21)
+and [portable record](evidence/2026-10-21-c35-initial-class-filters.json).
+No full lifecycle,condition/effect/formula support or native/operator acceptance is
+claimed. E01/E02/wider Q00/E05 and ADR closeout remain open.

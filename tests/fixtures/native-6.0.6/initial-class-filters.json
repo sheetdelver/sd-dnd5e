@@ -1,0 +1,626 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Independent explicit class levels + DetailsField nonpersisted level0 -> CharacterData.prepareBaseData/Proficiency.calculateMod -> pre-initial predicates. No raw prepared-looking level/prof overrides, class grants or full DataModel boot.",
+  "cases": [
+    {
+      "id": "level-0",
+      "levels": [
+        0
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":0}",
+      "truth": true,
+      "expectedLevel": 0,
+      "expectedProficiency": 1,
+      "expectedScore": 16,
+      "expectedSkill": 4,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 3
+    },
+    {
+      "id": "prof-0",
+      "levels": [
+        0
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":1}",
+      "truth": true,
+      "expectedLevel": 0,
+      "expectedProficiency": 1,
+      "expectedScore": 16,
+      "expectedSkill": 4,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 3
+    },
+    {
+      "id": "level-1",
+      "levels": [
+        1
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":1}",
+      "truth": true,
+      "expectedLevel": 1,
+      "expectedProficiency": 2,
+      "expectedScore": 16,
+      "expectedSkill": 5,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 4
+    },
+    {
+      "id": "prof-1",
+      "levels": [
+        1
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":2}",
+      "truth": true,
+      "expectedLevel": 1,
+      "expectedProficiency": 2,
+      "expectedScore": 16,
+      "expectedSkill": 5,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 4
+    },
+    {
+      "id": "level-4",
+      "levels": [
+        4
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":4}",
+      "truth": true,
+      "expectedLevel": 4,
+      "expectedProficiency": 2,
+      "expectedScore": 16,
+      "expectedSkill": 5,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 4
+    },
+    {
+      "id": "prof-4",
+      "levels": [
+        4
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":2}",
+      "truth": true,
+      "expectedLevel": 4,
+      "expectedProficiency": 2,
+      "expectedScore": 16,
+      "expectedSkill": 5,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 4
+    },
+    {
+      "id": "level-5",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "truth": true,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "prof-5",
+      "levels": [
+        5
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":3}",
+      "truth": true,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "level-8",
+      "levels": [
+        8
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":8}",
+      "truth": true,
+      "expectedLevel": 8,
+      "expectedProficiency": 3,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "prof-8",
+      "levels": [
+        8
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":3}",
+      "truth": true,
+      "expectedLevel": 8,
+      "expectedProficiency": 3,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "level-9",
+      "levels": [
+        9
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":9}",
+      "truth": true,
+      "expectedLevel": 9,
+      "expectedProficiency": 4,
+      "expectedScore": 16,
+      "expectedSkill": 7,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 6
+    },
+    {
+      "id": "prof-9",
+      "levels": [
+        9
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":4}",
+      "truth": true,
+      "expectedLevel": 9,
+      "expectedProficiency": 4,
+      "expectedScore": 16,
+      "expectedSkill": 7,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 6
+    },
+    {
+      "id": "level-12",
+      "levels": [
+        12
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":12}",
+      "truth": true,
+      "expectedLevel": 12,
+      "expectedProficiency": 4,
+      "expectedScore": 16,
+      "expectedSkill": 7,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 6
+    },
+    {
+      "id": "prof-12",
+      "levels": [
+        12
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":4}",
+      "truth": true,
+      "expectedLevel": 12,
+      "expectedProficiency": 4,
+      "expectedScore": 16,
+      "expectedSkill": 7,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 6
+    },
+    {
+      "id": "level-13",
+      "levels": [
+        13
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":13}",
+      "truth": true,
+      "expectedLevel": 13,
+      "expectedProficiency": 5,
+      "expectedScore": 16,
+      "expectedSkill": 8,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 7
+    },
+    {
+      "id": "prof-13",
+      "levels": [
+        13
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":5}",
+      "truth": true,
+      "expectedLevel": 13,
+      "expectedProficiency": 5,
+      "expectedScore": 16,
+      "expectedSkill": 8,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 7
+    },
+    {
+      "id": "level-16",
+      "levels": [
+        16
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":16}",
+      "truth": true,
+      "expectedLevel": 16,
+      "expectedProficiency": 5,
+      "expectedScore": 16,
+      "expectedSkill": 8,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 7
+    },
+    {
+      "id": "prof-16",
+      "levels": [
+        16
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":5}",
+      "truth": true,
+      "expectedLevel": 16,
+      "expectedProficiency": 5,
+      "expectedScore": 16,
+      "expectedSkill": 8,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 7
+    },
+    {
+      "id": "level-17",
+      "levels": [
+        17
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":17}",
+      "truth": true,
+      "expectedLevel": 17,
+      "expectedProficiency": 6,
+      "expectedScore": 16,
+      "expectedSkill": 9,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 8
+    },
+    {
+      "id": "prof-17",
+      "levels": [
+        17
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":6}",
+      "truth": true,
+      "expectedLevel": 17,
+      "expectedProficiency": 6,
+      "expectedScore": 16,
+      "expectedSkill": 9,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 8
+    },
+    {
+      "id": "level-20",
+      "levels": [
+        20
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":20}",
+      "truth": true,
+      "expectedLevel": 20,
+      "expectedProficiency": 6,
+      "expectedScore": 16,
+      "expectedSkill": 9,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 8
+    },
+    {
+      "id": "prof-20",
+      "levels": [
+        20
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":6}",
+      "truth": true,
+      "expectedLevel": 20,
+      "expectedProficiency": 6,
+      "expectedScore": 16,
+      "expectedSkill": 9,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 8
+    },
+    {
+      "id": "no-class-source",
+      "levels": [],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":0}",
+      "truth": true,
+      "expectedLevel": 0,
+      "expectedProficiency": 1,
+      "expectedScore": 16,
+      "expectedSkill": 4,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 3
+    },
+    {
+      "id": "multiclass-2-and-3",
+      "levels": [
+        2,
+        3
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"gte\",\"v\":5}",
+      "truth": true,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "multiclass-prof",
+      "levels": [
+        2,
+        3
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"gt\",\"v\":3}",
+      "truth": false,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "above-current-level",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"gt\",\"v\":5}",
+      "truth": false,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "level-less",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"lt\",\"v\":6}",
+      "scope": "change",
+      "truth": true,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "proficiency-less",
+      "levels": [
+        5
+      ],
+      "path": "attributes.prof",
+      "conditions": "{\"k\":\"attributes.prof\",\"o\":\"lte\",\"v\":2}",
+      "scope": "change",
+      "truth": false,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "class-label-poison",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "classPoison": true,
+      "truth": true,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "unknown-target-inactive",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"gt\",\"v\":20}",
+      "unknownTarget": true,
+      "truth": false,
+      "expectedLevel": 5,
+      "expectedProficiency": 3,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "invalid-class-30",
+      "levels": [
+        -1
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "invalid-class-31",
+      "levels": [
+        21
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "invalid-class-32",
+      "levels": [
+        10,
+        11
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "invalid-class-33",
+      "levels": [
+        1.5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "invalid-class-34",
+      "levels": [
+        "5"
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "invalid-class-35",
+      "levels": [
+        null
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "missing-class-level",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "omitLevel": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "missing-item-collection",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "missingItems": true,
+      "workflowUnavailable": true,
+      "inputOnly": true
+    },
+    {
+      "id": "proficiency-object-is-not-numeric-scalar",
+      "levels": [
+        5
+      ],
+      "path": "prof",
+      "conditions": "{\"k\":\"prof\",\"o\":\"exact\",\"v\":3}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "class-namespace-unqualified",
+      "levels": [
+        5
+      ],
+      "path": "classes.cleric.levels",
+      "conditions": "{\"k\":\"classes.cleric.levels\",\"o\":\"exact\",\"v\":5}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "final-snapshot",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "final": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "Item-snapshot",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "itemEffect": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "status-snapshot",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "statuses": [
+        "poisoned"
+      ],
+      "workflowUnavailable": true
+    },
+    {
+      "id": "transformation-flag",
+      "levels": [
+        5
+      ],
+      "path": "details.level",
+      "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+      "actorFlag": true,
+      "workflowUnavailable": true
+    }
+  ]
+}

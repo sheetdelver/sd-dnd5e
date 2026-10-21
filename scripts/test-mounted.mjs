@@ -10,6 +10,7 @@ const args = process.argv.slice(2), core = coreRoot(args);
 const indicatorDiagnosticsOnly=args.includes('--indicator-diagnostics');
 const trainingDiagnosticsOnly=args.includes('--training-diagnostics');
 const filtersOnly=args.includes('--filters-only');
+const classFactsOnly=args.includes('--class-facts-only');
 const browserTools = option(args, '--browser-tools', process.env.DND5E_BROWSER_TOOLS);
 if (!browserTools) throw new Error('Supply --browser-tools PATH containing test-only playwright (not a module runtime dependency)');
 const toolRequire = createRequire(join(browserTools, 'package.json'));
@@ -41,6 +42,7 @@ import {trainingEffectCases,trainingEffectSource} from ${JSON.stringify(join(mod
 import {filterCases,filterSource,filterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/filter-scenarios.ts'))};
 import {initialFilterCases,initialFilterSource,initialFilterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/initial-filter-scenarios.ts'))};
 import {initialCollectionFilterCases,initialCollectionFilterSource,initialCollectionFilterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/initial-collection-filter-scenarios.ts'))};
+import {initialClassFilterCases,initialClassFilterSource,initialClassFilterExpected} from ${JSON.stringify(join(moduleRoot,'src/tests/fixtures/initial-class-filter-scenarios.ts'))};
 const adapter = new DnD5eAdapter();
 const prepare = (input = skillSource(), context = skillContext()) => adapter.prepareActorData(input, context);
 const states = { supported: prepare() };
@@ -84,7 +86,7 @@ const effectTool=toolSource();effectTool.effects=[{disabled:false}];tools.effect
 const toolModes=[];for(const mode of [-1,0,1]){const actor=toolSource();setSkillRoll(actor,'tools.thief.roll',{mode:mode===0?1:mode});if(mode===0)setSkillRoll(actor,'rolls.ability.tool',{mode:-1});toolModes.push({actor:adapter.prepareActorData(actor,{...skillContext(),sourceRevision:200+mode}),mode,formula:(mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20')+'+5'});}
 const combinations=combinedCases.map(row=>({...row,actor:prepare(combinedSource(row))}));
 const effectCases=effectFixture.cases.map((row,index)=>{const source=skillSource();source.effects=row.effects;source.items.push(...row.items);return {id:row.id,ready:row.expected.ready,actor:adapter.prepareActorData(source,{...skillContext(),sourceRevision:300+index})};});
-const numericEffects=[...initialCollectionFilterCases.map(row=>({id:'initial-filter:collection:'+row.id,expected:initialCollectionFilterExpected(row),actor:prepare(initialCollectionFilterSource(row))})),...initialFilterCases.map(row=>({id:'initial-filter:'+row.id,expected:initialFilterExpected(row),actor:prepare(initialFilterSource(row))})),...filterCases.map(row=>({id:'constant-filter:'+row.id,expected:filterExpected(row),actor:prepare(filterSource(row))})),...trainingEffectCases.map(row=>({id:'training-set:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(trainingEffectSource(row))})),...traitEffectCases.map(row=>({id:'trait-effect:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(traitEffectSource(row))})),...itemEffectCases.map(row=>({id:'item-default:'+row.id,expected:itemEffectExpected(row),actor:prepare(itemEffectSource(row))})),...numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))})),...bonusEffectCases.map(row=>({id:'constant:'+row.id,expected:row.expected,actor:prepare(bonusEffectSource(row))}))];
+const numericEffects=[...initialClassFilterCases.filter(row=>!row.inputOnly).map(row=>({id:'initial-filter:class:'+row.id,expected:initialClassFilterExpected(row),actor:prepare(initialClassFilterSource(row))})),...initialCollectionFilterCases.map(row=>({id:'initial-filter:collection:'+row.id,expected:initialCollectionFilterExpected(row),actor:prepare(initialCollectionFilterSource(row))})),...initialFilterCases.map(row=>({id:'initial-filter:'+row.id,expected:initialFilterExpected(row),actor:prepare(initialFilterSource(row))})),...filterCases.map(row=>({id:'constant-filter:'+row.id,expected:filterExpected(row),actor:prepare(filterSource(row))})),...trainingEffectCases.map(row=>({id:'training-set:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(trainingEffectSource(row))})),...traitEffectCases.map(row=>({id:'trait-effect:'+row.id,expected:row.expectedOperands?{skill:5,tool:5,check:2,save:2,passive:15,combined:5,combinedTool:5,combinedMode:1}:undefined,actor:prepare(traitEffectSource(row))})),...itemEffectCases.map(row=>({id:'item-default:'+row.id,expected:itemEffectExpected(row),actor:prepare(itemEffectSource(row))})),...numericEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(numericEffectSource(row))})),...bonusEffectCases.map(row=>({id:'constant:'+row.id,expected:row.expected,actor:prepare(bonusEffectSource(row))}))];
 const modeEffects=modeEffectCases.map(row=>({id:row.id,expected:row.expected,actor:prepare(modeEffectSource(row))}));
 const healthActors=healthCases.map(row=>({...row,actor:prepare(healthSource(row))}));
 for(const {id,context} of unavailableContexts())healthActors.push({id,actor:prepare(healthSource(healthCases[0]),context),hpUnavailable:true,hdUnavailable:true});
@@ -95,7 +97,10 @@ const equivalentArmorSource=equipmentSource(equipmentCases.find(row=>row.id==='s
 const defenseTraits=defenseTraitCases.map(row=>{const actor=prepare(defenseTraitSource(row));return {...row,actor,card:adapter.getActorCardData(actor)};});
 for(const row of traitEffectCases){const actor=prepare(traitEffectSource(row));defenseTraits.push({id:'trait-effect:'+row.id,expected:Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,row.expectedOperands?{}:null])),actor,card:adapter.getActorCardData(actor)});}
 for(const {id,context} of unavailableContexts()){const actor=prepare(defenseTraitSource(defenseTraitCases[1]),context);defenseTraits.push({id,expected:Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,null])),actor,card:adapter.getActorCardData(actor)});}
+const classHeaderActors=initialClassFilterCases.filter(row=>!row.inputOnly).map(row=>{const actor=prepare(initialClassFilterSource(row)),e=initialClassFilterExpected(row);return {id:row.id,actor,card:adapter.getActorCardData(actor),expectedLevel:e?row.expectedLevel:null,expectedProficiency:e?row.expectedProficiency:null,expectedSkill:e?.skill};});
 const trainingActors=trainingCases.map(row=>{const actor=adapter.prepareActorData(trainingSource(row),trainingContext(row));return {id:row.id,actor,card:adapter.getActorCardData(actor)};});
+for(const row of initialClassFilterCases.filter(row=>!row.inputOnly)){const actor=prepare(initialClassFilterSource(row));trainingActors.push({id:'initial-filter:class:'+row.id,actor,card:adapter.getActorCardData(actor)});}
+const classEquivalentSource=initialClassFilterSource(initialClassFilterCases.find(row=>row.id==='level-5')!);classEquivalentSource.items[0]._id='differentClassID';const classEquivalent=prepare(classEquivalentSource);
 for(const row of initialCollectionFilterCases){const actor=prepare(initialCollectionFilterSource(row));trainingActors.push({id:'initial-filter:collection:'+row.id,actor,card:adapter.getActorCardData(actor)});}
 const equivalentSource=initialCollectionFilterSource(initialCollectionFilterCases[0]);equivalentSource.system.traits.dr.value.push('fire');
 const collectionEquivalent=prepare(equivalentSource);
@@ -115,11 +120,11 @@ const defenseUnavailable=unavailableContexts().map(({id,context})=>({id,actor:ad
 const combinedUnavailable=unavailableContexts().map(({id,context})=>({id,actor:prepare(combinedSource(combinedCases[8]),context)}));
 const removed=combinedSource(combinedCases[8]);delete removed.system.tools.thief;combinedUnavailable.push({id:'selected-tool-removed',actor:prepare(removed)});
 const removedSkill=combinedSource(combinedCases[8]);delete removedSkill.system.skills.prc;combinedUnavailable.push({id:'selected-skill-removed',actor:prepare(removedSkill)});
-process.stdout.write(JSON.stringify({skills: states, abilities, facts, collectionEquivalent, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, trainingActors, rangeActors, rangeChanged}));`);
-const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8', maxBuffer:16*1024*1024 });
+process.stdout.write(JSON.stringify({skills: states, abilities, facts, collectionEquivalent, classEquivalent, classHeaderActors, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, trainingActors, rangeActors, rangeChanged}));`);
+const result = spawnSync(process.execPath, [join(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(core, 'tsconfig.json'), driver], { cwd: core, encoding: 'utf8', maxBuffer:32*1024*1024 });
 if (result.error) throw result.error;
 if (result.status !== 0) throw new Error(result.stderr);
-const { skills: states, abilities: abilityStates, facts, collectionEquivalent, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, trainingActors, rangeActors, rangeChanged } = JSON.parse(result.stdout);
+const { skills: states, abilities: abilityStates, facts, collectionEquivalent, classEquivalent, classHeaderActors, modes, tools, toolExamples, toolModes, combinations, combinedUnavailable, effectCases, numericEffects, modeEffects, healthActors, defenses, defenseUnavailable, initiativeBaseline, equipmentActors, equipmentEquivalent, movementActors, movementUnavailable, speciesActors, defenseTraits, indicatorActors, trainingActors, rangeActors, rangeChanged } = JSON.parse(result.stdout);
 const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill-lifecycle.tsx')], bundle: true, write: false,
     platform: 'browser', format: 'iife', jsx: 'automatic', tsconfig: join(core, 'tsconfig.json'),
     plugins: [{ name: 'isolated-sdk-presentation', setup(build) {
@@ -128,7 +133,7 @@ const bundle = await build({ entryPoints: [join(moduleRoot, 'tests/browser/skill
 const code = bundle.outputFiles[0].text;
 writeFileSync(join(artifacts, 'fixture.js'), code);
 const executablePath = option(args, '--chromium', process.env.DND5E_CHROMIUM);
-const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], effectModeRows = [], healthRows = [], defenseRows = [], equipmentRows = [], movementRows = [], rangeRows = [], speciesRows = [], defenseTraitRows = [], indicatorRows = [], trainingRows = [], focusedFilterRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const rows = [], previewRows = [], factRows = [], modeRows = [], toolRows = [], focusRows = [], combinationRows = [], effectRows = [], numericEffectRows = [], effectModeRows = [], healthRows = [], defenseRows = [], equipmentRows = [], movementRows = [], rangeRows = [], speciesRows = [], defenseTraitRows = [], indicatorRows = [], trainingRows = [], focusedFilterRows = [], classFactRows = [], browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
     for (const width of [1440, 390]) {
         const context = await browser.newContext({ viewport: { width, height: 1000 } });
@@ -167,6 +172,24 @@ try {
         }
         const skill = page.locator('button').filter({ hasText: 'Perception' });
         const tab = async name => { if (width < 1024) { await page.getByRole('button', {name:'▲',exact:true}).click(); await page.getByRole('button',{name:new RegExp(name)}).click(); } };
+        if(classFactsOnly){
+            for(const row of classHeaderActors){
+                const level=row.expectedLevel===null?'—':String(row.expectedLevel),prof=row.expectedProficiency===null?'—':'+'+row.expectedProficiency;
+                assert.equal(row.card.blocks.find(block=>block.title==='Level').value,row.expectedLevel??'—',row.id+'/card level');
+                assert.equal(row.card.blocks.find(block=>block.title==='Prof').value,prof,row.id+'/card proficiency');
+                await render(row.actor);await tab('Skills');
+                const levelControl=page.getByLabel('Character level',{exact:true}),profControl=page.getByLabel('Proficiency bonus',{exact:true});
+                assert.equal(await levelControl.evaluate(node=>node.firstChild.textContent),level,row.id+'/header level');
+                assert.equal(await profControl.evaluate(node=>node.firstChild.textContent),prof,row.id+'/actual proficiency');
+                assert.ok(await levelControl.getAttribute('title'));assert.ok(await profControl.getAttribute('title'));
+                if(row.expectedSkill===undefined){assert.equal(await skill.isDisabled(),true);await skill.dispatchEvent('click',{shiftKey:true});assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);}
+                else {await skill.click();const dialog=page.locator('dialog[open]');assert.ok((await dialog.innerText()).includes('1d20+'+row.expectedSkill));await dialog.getByRole('button',{name:'Normal',exact:true}).click();assert.equal((await page.evaluate(()=>window.skillFixture.calls.splice(0)))[0].formula,'1d20+'+row.expectedSkill);}
+                await render(states['snapshot-absent']);assert.match(await levelControl.innerText(),/^—/);await render(row.actor);assert.equal(await levelControl.evaluate(node=>node.firstChild.textContent),level);
+                assert.equal(await page.evaluate(()=>window.skillFixture.updates.length),0);
+                classFactRows.push({width,id:row.id,level,proficiency:prof,actualCardHeaderProficiencySkillPreviewAndExecution:true,contextRecovery:true});
+            }
+            assert.deepEqual(errors,[]);await context.close();continue;
+        }
         if(filtersOnly){
             for(const row of numericEffects.filter(row=>row.id.startsWith('constant-filter:')||row.id.startsWith('initial-filter:'))){
                 await render(row.actor);await tab('Skills');
@@ -575,6 +598,13 @@ try {
         assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
         numericEffectRows.push({width,id:'trait-effect:equal-total-equal-set-retirement',retainedCallbackFenced:true});
 
+        const literalClass=numericEffects.find(row=>row.id==='initial-filter:class:level-5').actor;
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),literalClass);await skill.click();await page.evaluate(()=>window.skillFixture.hold());
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),classEquivalent);
+        await page.evaluate(actor=>window.skillFixture.render(actor,true),literalClass);
+        assert.equal(await page.evaluate(()=>window.skillFixture.submitHeld()),'retired');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);
+        numericEffectRows.push({width,id:'initial-filter:class:equal-facts-source-identity-retirement',retainedCallbackFenced:true});
+
         const literalCollection=numericEffects.find(row=>row.id==='initial-filter:collection:dr.value-has').actor;
         await page.evaluate(actor=>window.skillFixture.render(actor,true),literalCollection);await skill.click();await page.evaluate(()=>window.skillFixture.hold());
         await page.evaluate(actor=>window.skillFixture.render(actor,true),collectionEquivalent);
@@ -732,8 +762,9 @@ try {
     writeFileSync(join(artifacts, 'focus.json'),JSON.stringify(focusRows,null,2));
     for(const row of focusRows)assert.equal(row.afterPointerLeaves,'2d20kh1+5','DD-R06/'+row.width+'; artifacts '+artifacts);
     writeFileSync(join(artifacts, 'evidence.json'), JSON.stringify({ evidence: 'Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O',
-        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows, effectModeRows, healthRows, defenseRows, equipmentRows, movementRows, rangeRows, speciesRows, defenseTraitRows, indicatorRows, trainingRows, focusedFilterRows }, null, 2));
-    if(filtersOnly)process.stdout.write('Mounted focused filter fixtures: '+focusedFilterRows.length+' actual consumer/preview/execution/recovery states PASS; artifacts '+artifacts+'\n');
+        playwright: toolRequire('playwright/package.json').version, browser: browser.version(), rows, previewRows, factRows, modeRows, toolRows, focusRows, combinationRows, effectRows, numericEffectRows, effectModeRows, healthRows, defenseRows, equipmentRows, movementRows, rangeRows, speciesRows, defenseTraitRows, indicatorRows, trainingRows, focusedFilterRows, classFactRows }, null, 2));
+    if(classFactsOnly)process.stdout.write('Mounted focused class facts: '+classFactRows.length+' actual card/header/proficiency/skill/recovery states PASS; artifacts '+artifacts+'\n');
+    else if(filtersOnly)process.stdout.write('Mounted focused filter fixtures: '+focusedFilterRows.length+' actual consumer/preview/execution/recovery states PASS; artifacts '+artifacts+'\n');
     else if(trainingDiagnosticsOnly)process.stdout.write('Mounted training diagnostics only: '+trainingRows.filter(row=>JSON.stringify(row.observed)!==JSON.stringify(row.expected)).length+' mismatching rows; artifacts '+artifacts+'\n');
     else if(indicatorDiagnosticsOnly)process.stdout.write('Mounted indicator diagnostics only: '+indicatorRows.filter(row=>row.observedSkill!==row.expectedSkill||row.observedSave!==row.expectedSave).length+' mismatching rows; artifacts '+artifacts+'\n');
     else     process.stdout.write(`Mounted module fixtures: ${rows.length} transitions, ${previewRows.length} preview validations, ${factRows.length} fact projections, ${modeRows.length} source modes, ${toolRows.length} tool cases, ${combinationRows.length} selected checks, ${effectRows.length} eligibility and ${numericEffectRows.length} field and ${effectModeRows.length} mode effect cases, ${healthRows.length} health and ${defenseRows.length} AC/initiative and ${equipmentRows.length} equipped armor and ${movementRows.length} movement/senses and ${trainingRows.length} source training and ${indicatorRows.length} proficiency indicators and ${defenseTraitRows.length} defense traits and ${speciesRows.length} species identity and ${rangeRows.length} normal-range projections and retained-callback fences PASS; artifacts ${artifacts}\n`);

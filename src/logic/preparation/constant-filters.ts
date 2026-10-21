@@ -1,5 +1,7 @@
+import type {ClassSource606} from './class-initialization';
 import {record} from '../native/6.0.6/source';
-export type InitialFilterRead = {key:string;value:number;origin:'source'|'schema-default'|'nonpersisted-schema-default'}
+export type InitialFilterRead = {key:string;value:number;origin:'class-base-preparation';classSources:ClassSource606[]}
+    | {key:string;value:number;origin:'source'|'schema-default'|'nonpersisted-schema-default'}
     | {key:string;kind:'set';value:string[];sourceValue:string[]|null|'[absent]';origin:'schema-initialized-source'|'schema-default'};
 export interface ConstantFilter {status:'ready';origin:'default'|'source';definition:string;matches:boolean;phase?:'initial';reads?:InitialFilterRead[]}
 export type ConstantFilterResult=ConstantFilter|{status:'unavailable';reason:string};

@@ -1758,3 +1758,46 @@ limits. Task services stopped; production listeners untouched. No complete DD/A/
 gate closes. E01/E02/wider Q00/E05 and installed/native/operator/full acceptance stay
 open. Continue qualified initial fields,conditions/final/Item and broader formula
 work from ADR; source-derived commands retain E02's explicit concurrency boundary.
+
+
+### C35 — Initial class facts (2026-10-21)
+
+Parent `98f177a`; partial M2/Q02a,DD-01/02/27/34,A02/A03/A04/A21. Shared
+class initialization feeds existing facts/projections and initial level/proficiency
+predicates.44 contracts:30 unchanged-input failures-before/passes-after,13 unavailable
+Actor workflows and one helper-only missing-items case (SDK Actor requires items).
+Source level/prof99,labels,IDs,context recovery and raw preservation are checked.
+The old class-level-not-qualified scalar case now qualifies by independent pinned
+proof; classes namespace/Proficiency object and default1 class initialization remain
+unqualified. Initial mounted generation hit its16MiB test buffer before browser
+creation; the test-only cap is now32MiB. These fixture/qualification updates are
+explicit,not weakened unrelated assertions or a new Core defect claim.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (0.19.3/90c13e5).
+`npm test`:60 assertions,8 tooling/35 module suites PASS. `typecheck`:172 explicit
+module/UI/server/test/hook files PASS. `test:native-source`:2242 records/591 expressions
+at87e94db PASS. `test:native-initial-filters` with exact native/static14.367 references:
+119 captures PASS (31 scalar/58 Set/30 class). Native primitive/schema/base/collection/
+apply methods are phase evidence with declared model/validation/HD/XP stubs,not full
+DataModel/engine/operator acceptance. Native level0 gives proficiency1; all thresholds
+and multiclass sources agree without trusting stored derived-looking99 values.
+
+Full `test:mounted`:1440/390,894 field/624 training states plus prior focus/mode/
+selection/health/defense/range/recovery tests PASS; `/tmp/dnd5e-mounted-3pEBzy`.
+Focused `--class-facts-only`:86 actual card/header/proficiency/skill-preview/execution/
+context-recovery states PASS; `/tmp/dnd5e-mounted-i1u1mX`. Full run preceded addition
+of that focused-only branch; source/script identities are recorded separately.
+`test:public-rolls`:18985 accepted,including720 new class check/mode/bonus and30normal
+bound requests; updated old scalar cases744+31 include the newly qualified boundary.
+40 plain equal-index diagnostics,1 unary rejection,0 native writes; strict observed
+faces/entropy/value/count/states/totals/distributions and unequal indices retained.
+Artifacts `/tmp/dnd5e-public-rolls-fEwTBD`; synthetic public-host composition only.
+`check:package`:isolated module/public-boundary checks,managed typing,bundles PASS;
+archive `/tmp/dnd5e-package-10m9Fm/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`759db3c2787b9a913a4236db0616a4c384f0160882d9148457e7c3361574cceb`.
+[Portable evidence](../audits/evidence/2026-10-21-c35-initial-class-filters.json)
+contains baseline IDs,independent source traces,mounted rows,hashes and limits.
+Services stopped;production listeners untouched. No complete DD/A/M gate closes.
+Next qualify condition-data/status lifecycle and mode/passive interactions,then
+remaining rule/formula/Item phases. E01/E02/wider Q00/E05/full acceptance stay open;
+experimental0.4.1/compatibility unchanged.

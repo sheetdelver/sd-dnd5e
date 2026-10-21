@@ -770,3 +770,22 @@ nested object predicates,iterable coercion,Set equality,unknown paths,missing/ma
 parents and oversized/malformed members remain gated. No second interpreter/cache
 or browser dependency. Native primitive/model-shell and unrelated-domain stubs are
 explicit in the controlled evidence; full preparation parity is still open.
+
+
+### Shared base class initialization (C35)
+
+`initializeClassFacts606` owns explicit PC class level/proficiency arithmetic and
+class-source provenance. Character facts and initial predicate reads consume the
+same result; neither reconstructs values from raw details.level/attributes.prof,
+labels or prepared-looking fields. It has no effects/context/transport dependency,
+avoiding a cycle through effect planning. Existing context/effect/flag/equipment gates
+and caller projections remain separate. Explicit levels0–20 and total<=20 qualify;
+missing/coerced class values remain unavailable rather than assuming schema default1.
+
+Native nonpersisted details.level initializes0 before Character base summation;
+base attributes.prof is assigned by Proficiency.calculateMod (level0 produces1).
+Initial details.level/attributes.prof predicates capture those facts before changes.
+Class identity/source inputs enter intent provenance even when totals do not change.
+No class-specific namespace,Proficiency object,grant lookup,alternate edition or
+class-mutating effect qualification is implied. Missing actor.items is outside the
+public FoundryActor contract and tested only at the pure initializer boundary.

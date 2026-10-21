@@ -802,3 +802,16 @@ Actor collection checks precede all writes,including priority10 training Set cha
 ALL/immunity normalization is later and cannot replace initial input. Source defaults,
 initialized Sets and final fields are separately recorded. Model/validation/domain
 stubs remain explicit; this is not full DataModel/native engine/operator acceptance.
+
+
+### Base class fields before initial effects (C35)
+
+DetailsField.creature.level is integer/min0/initial0/persisted:false. ClassData.levels
+is required,nonnullable,integer/min0/initial1; C35 qualifies explicit0–20 only. Actual
+CharacterData.prepareBaseData sums class source levels into initialized level0 and
+assigns attributes.prof using Proficiency.calculateMod:floor((level+7)/4),including
+level0→1. Source level/prof99 is distinct from initialization and base preparation;
+class names/identifier metadata never supplies levels. The30 class captures cover
+thresholds,no-class,multiclass,false predicates and name poison;31 retained scalar/
+58 Set captures give119 total. Model/validation/HD/XP stubs and excluded namespaces
+are explicit. This does not establish full native source boot or operator acceptance.

@@ -1397,3 +1397,32 @@ native engine/operator acceptance. Continue source/schema-backed initial predica
 conditions/final/Item phases and wider Q00 formulas in dependency order; domain command
 work retains C33 admission/receipt protocol and E02 concurrency gates. E01/E02/wider
 Q00/E05,full M2/M3+ acceptance and ADR-0001 remain open;experimental0.4.1 unchanged.
+
+
+### C35 — Shared base class facts and initial predicates (2026-10-21)
+
+C34 is `98f177a`. M2/Q02a,DD-01/02/27/34,A02/A03/A04/A21 advance partially.
+One context-free class initializer now supplies the existing facts/projections and
+initial details.level/attributes.prof reads. It uses explicit class levels0–20 and
+total<=20; it never trusts old level/prof fields,names or prepared metadata. Context,
+effects,equipment,flags and caller projection remain separate gates. Typed class
+source identities enter predicate provenance,retiring equal-result identity edits.
+
+44 contracts cover30 same-input failures/passes-after,13 retained unavailable Actor
+workflows and one missing-items helper-only input outside the public Actor contract.
+Pinned ClassData/DetailsField initialization and actual Character base preparation/
+Proficiency.calculateMod compare30 class cases. Native level0 yields proficiency1;
+no plausible2 is substituted. Multiclass and every proficiency threshold agree.
+The former class-level-not-qualified initial-scalar case is now explicitly qualified;
+the classes namespace and Proficiency object remain unavailable. Missing class levels
+still gate rather than silently taking native schema default1 in this bounded profile.
+
+[C35 ledger](../plans/0001-verification.md#c35--initial-class-facts-2026-10-21)
+and [portable record](../audits/evidence/2026-10-21-c35-initial-class-filters.json)
+separate119 controlled phase captures,maintained regression,mounted consumers and
+isolated public rolls/package checks. No native DataModel/operator acceptance or
+full gate closure. Next qualify the condition-data/status lifecycle and its mode/
+passive interactions before enabling active condition behavior; broader expressions,
+remaining initial/final/Item rules and domain commands remain dependency ordered.
+E01/E02/wider Q00/E05,full M2/M3+ acceptance and ADR-0001 stay open;experimental0.4.1
+and compatibility unchanged.

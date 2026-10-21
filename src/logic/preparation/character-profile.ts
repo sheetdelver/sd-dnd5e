@@ -3,7 +3,8 @@ import type { RulesContext } from '../rules-context';
 import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 
 export { numericConstant, qualifiedNumericTotal } from './numeric';
-export const proficiencyBonus606=(level:number)=>Math.floor((level+7)/4);
+import {initializeClassFacts606,proficiencyBonus606} from './class-initialization';
+export {proficiencyBonus606} from './class-initialization';
 export interface NumericFact {
     status: 'ready' | 'unavailable' | 'legacy-unqualified';
     value: number | null; display: string; provenance: string; reason?: string;
@@ -21,16 +22,8 @@ export function characterFacts606(actor: unknown, context: RulesContext, effects
     let reason: string | undefined, level = 0;
     if (context.status !== 'supported' || context.profile !== '2024') reason = `Character rules context unavailable: ${context.reason ?? context.profile ?? 'unknown'}`;
     else if (source.type !== 'character') reason = 'Character rule profile unavailable';
-    const items = Array.isArray(source.items) ? source.items : null;
-    if (!items) reason ??= 'Class source collection unavailable';
-    for (const value of items ?? []) {
-        const item = record(value);
-        if (item?.type !== 'class') continue;
-        const levels = record(item.system)?.levels;
-        if (typeof levels !== 'number' || !Number.isInteger(levels) || levels < 0 || levels > 20) reason ??= 'Class level source unavailable';
-        else level += levels;
-    }
-    if (level > 20) reason ??= 'Class levels above 20 unsupported';
+    const initial=initializeClassFacts606(actor);
+    if(initial.status==='ready')level=initial.level;else reason??=initial.reason;
     reason ??= effects.reason;
     if (Object.values(record(record(source.flags)?.dnd5e) ?? {}).some(Boolean)) reason ??= 'Native flag or transformation preparation unavailable';
     const levelFact = numericFact(reason ? null : level, reason);

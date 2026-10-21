@@ -1,0 +1,3396 @@
+{
+  "checkpoint": "C35",
+  "date": "2026-10-21",
+  "parent": "98f177a",
+  "requirements": "M2/Q02a,DD-01/02/27/34,A02/A03/A04/A21 partial",
+  "fixture": {
+    "contracts": 44,
+    "supported": 30,
+    "unqualifiedActorWorkflows": 13,
+    "outsideSdkInputHelperOnly": 1,
+    "cases": [
+      {
+        "id": "level-0",
+        "levels": [
+          0
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":0}",
+        "truth": true,
+        "expectedLevel": 0,
+        "expectedProficiency": 1,
+        "expectedScore": 16,
+        "expectedSkill": 4,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 3
+      },
+      {
+        "id": "prof-0",
+        "levels": [
+          0
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":1}",
+        "truth": true,
+        "expectedLevel": 0,
+        "expectedProficiency": 1,
+        "expectedScore": 16,
+        "expectedSkill": 4,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 3
+      },
+      {
+        "id": "level-1",
+        "levels": [
+          1
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":1}",
+        "truth": true,
+        "expectedLevel": 1,
+        "expectedProficiency": 2,
+        "expectedScore": 16,
+        "expectedSkill": 5,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 4
+      },
+      {
+        "id": "prof-1",
+        "levels": [
+          1
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":2}",
+        "truth": true,
+        "expectedLevel": 1,
+        "expectedProficiency": 2,
+        "expectedScore": 16,
+        "expectedSkill": 5,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 4
+      },
+      {
+        "id": "level-4",
+        "levels": [
+          4
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":4}",
+        "truth": true,
+        "expectedLevel": 4,
+        "expectedProficiency": 2,
+        "expectedScore": 16,
+        "expectedSkill": 5,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 4
+      },
+      {
+        "id": "prof-4",
+        "levels": [
+          4
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":2}",
+        "truth": true,
+        "expectedLevel": 4,
+        "expectedProficiency": 2,
+        "expectedScore": 16,
+        "expectedSkill": 5,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 4
+      },
+      {
+        "id": "level-5",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "truth": true,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5
+      },
+      {
+        "id": "prof-5",
+        "levels": [
+          5
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":3}",
+        "truth": true,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5
+      },
+      {
+        "id": "level-8",
+        "levels": [
+          8
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":8}",
+        "truth": true,
+        "expectedLevel": 8,
+        "expectedProficiency": 3,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5
+      },
+      {
+        "id": "prof-8",
+        "levels": [
+          8
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":3}",
+        "truth": true,
+        "expectedLevel": 8,
+        "expectedProficiency": 3,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5
+      },
+      {
+        "id": "level-9",
+        "levels": [
+          9
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":9}",
+        "truth": true,
+        "expectedLevel": 9,
+        "expectedProficiency": 4,
+        "expectedScore": 16,
+        "expectedSkill": 7,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 6
+      },
+      {
+        "id": "prof-9",
+        "levels": [
+          9
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":4}",
+        "truth": true,
+        "expectedLevel": 9,
+        "expectedProficiency": 4,
+        "expectedScore": 16,
+        "expectedSkill": 7,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 6
+      },
+      {
+        "id": "level-12",
+        "levels": [
+          12
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":12}",
+        "truth": true,
+        "expectedLevel": 12,
+        "expectedProficiency": 4,
+        "expectedScore": 16,
+        "expectedSkill": 7,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 6
+      },
+      {
+        "id": "prof-12",
+        "levels": [
+          12
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":4}",
+        "truth": true,
+        "expectedLevel": 12,
+        "expectedProficiency": 4,
+        "expectedScore": 16,
+        "expectedSkill": 7,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 6
+      },
+      {
+        "id": "level-13",
+        "levels": [
+          13
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":13}",
+        "truth": true,
+        "expectedLevel": 13,
+        "expectedProficiency": 5,
+        "expectedScore": 16,
+        "expectedSkill": 8,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 7
+      },
+      {
+        "id": "prof-13",
+        "levels": [
+          13
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":5}",
+        "truth": true,
+        "expectedLevel": 13,
+        "expectedProficiency": 5,
+        "expectedScore": 16,
+        "expectedSkill": 8,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 7
+      },
+      {
+        "id": "level-16",
+        "levels": [
+          16
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":16}",
+        "truth": true,
+        "expectedLevel": 16,
+        "expectedProficiency": 5,
+        "expectedScore": 16,
+        "expectedSkill": 8,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 7
+      },
+      {
+        "id": "prof-16",
+        "levels": [
+          16
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":5}",
+        "truth": true,
+        "expectedLevel": 16,
+        "expectedProficiency": 5,
+        "expectedScore": 16,
+        "expectedSkill": 8,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 7
+      },
+      {
+        "id": "level-17",
+        "levels": [
+          17
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":17}",
+        "truth": true,
+        "expectedLevel": 17,
+        "expectedProficiency": 6,
+        "expectedScore": 16,
+        "expectedSkill": 9,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 8
+      },
+      {
+        "id": "prof-17",
+        "levels": [
+          17
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":6}",
+        "truth": true,
+        "expectedLevel": 17,
+        "expectedProficiency": 6,
+        "expectedScore": 16,
+        "expectedSkill": 9,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 8
+      },
+      {
+        "id": "level-20",
+        "levels": [
+          20
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":20}",
+        "truth": true,
+        "expectedLevel": 20,
+        "expectedProficiency": 6,
+        "expectedScore": 16,
+        "expectedSkill": 9,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 8
+      },
+      {
+        "id": "prof-20",
+        "levels": [
+          20
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"exact\",\"v\":6}",
+        "truth": true,
+        "expectedLevel": 20,
+        "expectedProficiency": 6,
+        "expectedScore": 16,
+        "expectedSkill": 9,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 8
+      },
+      {
+        "id": "no-class-source",
+        "levels": [],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":0}",
+        "truth": true,
+        "expectedLevel": 0,
+        "expectedProficiency": 1,
+        "expectedScore": 16,
+        "expectedSkill": 4,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 3
+      },
+      {
+        "id": "multiclass-2-and-3",
+        "levels": [
+          2,
+          3
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"gte\",\"v\":5}",
+        "truth": true,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5
+      },
+      {
+        "id": "multiclass-prof",
+        "levels": [
+          2,
+          3
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"gt\",\"v\":3}",
+        "truth": false,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5
+      },
+      {
+        "id": "above-current-level",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"gt\",\"v\":5}",
+        "truth": false,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5
+      },
+      {
+        "id": "level-less",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"lt\",\"v\":6}",
+        "scope": "change",
+        "truth": true,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5
+      },
+      {
+        "id": "proficiency-less",
+        "levels": [
+          5
+        ],
+        "path": "attributes.prof",
+        "conditions": "{\"k\":\"attributes.prof\",\"o\":\"lte\",\"v\":2}",
+        "scope": "change",
+        "truth": false,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5
+      },
+      {
+        "id": "class-label-poison",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "classPoison": true,
+        "truth": true,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 16,
+        "expectedSkill": 6,
+        "expectedAbility": 3,
+        "expectedSave": 3,
+        "expectedTool": 5
+      },
+      {
+        "id": "unknown-target-inactive",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"gt\",\"v\":20}",
+        "unknownTarget": true,
+        "truth": false,
+        "expectedLevel": 5,
+        "expectedProficiency": 3,
+        "expectedScore": 14,
+        "expectedSkill": 5,
+        "expectedAbility": 2,
+        "expectedSave": 2,
+        "expectedTool": 5
+      },
+      {
+        "id": "invalid-class-30",
+        "levels": [
+          -1
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "invalid-class-31",
+        "levels": [
+          21
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "invalid-class-32",
+        "levels": [
+          10,
+          11
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "invalid-class-33",
+        "levels": [
+          1.5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "invalid-class-34",
+        "levels": [
+          "5"
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "invalid-class-35",
+        "levels": [
+          null
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "missing-class-level",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "omitLevel": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "missing-item-collection",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "missingItems": true,
+        "workflowUnavailable": true,
+        "inputOnly": true
+      },
+      {
+        "id": "proficiency-object-is-not-numeric-scalar",
+        "levels": [
+          5
+        ],
+        "path": "prof",
+        "conditions": "{\"k\":\"prof\",\"o\":\"exact\",\"v\":3}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "class-namespace-unqualified",
+        "levels": [
+          5
+        ],
+        "path": "classes.cleric.levels",
+        "conditions": "{\"k\":\"classes.cleric.levels\",\"o\":\"exact\",\"v\":5}",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "final-snapshot",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "final": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "Item-snapshot",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "itemEffect": true,
+        "workflowUnavailable": true
+      },
+      {
+        "id": "status-snapshot",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "statuses": [
+          "poisoned"
+        ],
+        "workflowUnavailable": true
+      },
+      {
+        "id": "transformation-flag",
+        "levels": [
+          5
+        ],
+        "path": "details.level",
+        "conditions": "{\"k\":\"details.level\",\"o\":\"exact\",\"v\":5}",
+        "actorFlag": true,
+        "workflowUnavailable": true
+      }
+    ]
+  },
+  "before": {
+    "commit": "98f177a",
+    "failingIds": [
+      "level-0",
+      "prof-0",
+      "level-1",
+      "prof-1",
+      "level-4",
+      "prof-4",
+      "level-5",
+      "prof-5",
+      "level-8",
+      "prof-8",
+      "level-9",
+      "prof-9",
+      "level-12",
+      "prof-12",
+      "level-13",
+      "prof-13",
+      "level-16",
+      "prof-16",
+      "level-17",
+      "prof-17",
+      "level-20",
+      "prof-20",
+      "no-class-source",
+      "multiclass-2-and-3",
+      "multiclass-prof",
+      "above-current-level",
+      "level-less",
+      "proficiency-less",
+      "class-label-poison",
+      "unknown-target-inactive"
+    ],
+    "artifactSha256": "90539e60ce54e59bcc3e2747e5260648dd8342c643ff1d80af1712ea5e92e8f3",
+    "result": "30 maintained same-input expectations fail before implementation; all pass after. Baseline captured before runtime changes."
+  },
+  "regression": {
+    "command": "npm test -- --core <released0.19.3>",
+    "result": "60 assertions/8 tooling/35 module suites PASS",
+    "coverage": "source/default/prepared distinction;raw level/prof99 ignored;no-class0/prof1,multiclass,thresholds,malformed/missing class levels,source preservation/class-ID retirement,context recovery and prior DD-R protections",
+    "fixtureAdjustments": [
+      "Historical initial-filters class-level-not-qualified is now explicitly superseded by C35 with independent +6 expectation; classes namespace and Proficiency object remain gated",
+      "Missing actor.items violates public FoundryActor always-present contract: boundary is tested only through pure initializer,not adapter/UI; no new Core/module defect claim",
+      "Initial mounted aggregate exceeded16MiB spawn buffer before browser creation; test-only cap now32MiB. No product/runtime size/compatibility change"
+    ]
+  },
+  "controlledSource": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "command": "npm run test:native-initial-filters -- --core <released0.19.3> --native <exact6.0.6> --foundry <static14.367>",
+    "result": "119 captures:31 scalar (one previous class boundary newly qualified),58 collection,30 class",
+    "classObservations": [
+      {
+        "id": "level-0",
+        "classBase": true,
+        "classLevels": [
+          0
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 0,
+        "baseProficiency": 1,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 1
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 4,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-0",
+        "classBase": true,
+        "classLevels": [
+          0
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 0,
+        "baseProficiency": 1,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 1
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 1
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 4,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-1",
+        "classBase": true,
+        "classLevels": [
+          1
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 1,
+        "baseProficiency": 2,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 2
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 1
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-1",
+        "classBase": true,
+        "classLevels": [
+          1
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 1,
+        "baseProficiency": 2,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 2
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 2
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-4",
+        "classBase": true,
+        "classLevels": [
+          4
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 4,
+        "baseProficiency": 2,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 2
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 4
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-4",
+        "classBase": true,
+        "classLevels": [
+          4
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 4,
+        "baseProficiency": 2,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 2
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 2
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-5",
+        "classBase": true,
+        "classLevels": [
+          5
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 5
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-5",
+        "classBase": true,
+        "classLevels": [
+          5
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 3
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-8",
+        "classBase": true,
+        "classLevels": [
+          8
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 8,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 8
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-8",
+        "classBase": true,
+        "classLevels": [
+          8
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 8,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 3
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-9",
+        "classBase": true,
+        "classLevels": [
+          9
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 9,
+        "baseProficiency": 4,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 4
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 9
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 7,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-9",
+        "classBase": true,
+        "classLevels": [
+          9
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 9,
+        "baseProficiency": 4,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 4
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 4
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 7,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-12",
+        "classBase": true,
+        "classLevels": [
+          12
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 12,
+        "baseProficiency": 4,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 4
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 12
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 7,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-12",
+        "classBase": true,
+        "classLevels": [
+          12
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 12,
+        "baseProficiency": 4,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 4
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 4
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 7,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-13",
+        "classBase": true,
+        "classLevels": [
+          13
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 13,
+        "baseProficiency": 5,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 5
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 13
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 8,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-13",
+        "classBase": true,
+        "classLevels": [
+          13
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 13,
+        "baseProficiency": 5,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 5
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 5
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 8,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-16",
+        "classBase": true,
+        "classLevels": [
+          16
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 16,
+        "baseProficiency": 5,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 5
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 16
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 8,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-16",
+        "classBase": true,
+        "classLevels": [
+          16
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 16,
+        "baseProficiency": 5,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 5
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 5
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 8,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-17",
+        "classBase": true,
+        "classLevels": [
+          17
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 17,
+        "baseProficiency": 6,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 6
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 17
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 9,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-17",
+        "classBase": true,
+        "classLevels": [
+          17
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 17,
+        "baseProficiency": 6,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 6
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 6
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 9,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-20",
+        "classBase": true,
+        "classLevels": [
+          20
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 20,
+        "baseProficiency": 6,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 6
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 20
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 9,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "prof-20",
+        "classBase": true,
+        "classLevels": [
+          20
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 20,
+        "baseProficiency": 6,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 6
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 6
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 9,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "no-class-source",
+        "classBase": true,
+        "classLevels": [],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 0,
+        "baseProficiency": 1,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 1
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 0
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 4,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "multiclass-2-and-3",
+        "classBase": true,
+        "classLevels": [
+          2,
+          3
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 5
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "multiclass-prof",
+        "classBase": true,
+        "classLevels": [
+          2,
+          3
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 3
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "above-current-level",
+        "classBase": true,
+        "classLevels": [
+          5
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 5
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "level-less",
+        "classBase": true,
+        "classLevels": [
+          5
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 5
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "proficiency-less",
+        "classBase": true,
+        "classLevels": [
+          5
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "attributes.prof",
+            "value": 3
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "class-label-poison",
+        "classBase": true,
+        "classLevels": [
+          5
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 5
+          },
+          {
+            "event": "apply",
+            "path": "abilities.wis.value",
+            "before": 14
+          }
+        ],
+        "after": {
+          "score": 16,
+          "globalCheck": 0
+        },
+        "expectedSkill": 6,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      },
+      {
+        "id": "unknown-target-inactive",
+        "classBase": true,
+        "classLevels": [
+          5
+        ],
+        "ignoredSource": {
+          "level": 99,
+          "proficiency": 99
+        },
+        "baseLevel": 5,
+        "baseProficiency": 3,
+        "rawSourceOperands": {
+          "score": 14,
+          "saveProficient": 0,
+          "ignoredMod": 99,
+          "discardedGlobalCheck": 99
+        },
+        "before": {
+          "score": 14,
+          "saveProficient": 0,
+          "globalCheck": 0,
+          "actorProficiency": 3
+        },
+        "trace": [
+          {
+            "event": "read",
+            "path": "details.level",
+            "value": 5
+          }
+        ],
+        "after": {
+          "score": 14,
+          "globalCheck": 0
+        },
+        "expectedSkill": 5,
+        "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+      }
+    ],
+    "supersededBoundaryObservation": {
+      "id": "class-level-not-qualified",
+      "rawSourceOperands": {
+        "score": 14,
+        "saveProficient": 0,
+        "ignoredMod": 99,
+        "discardedGlobalCheck": 99
+      },
+      "before": {
+        "score": 14,
+        "saveProficient": 0,
+        "globalCheck": 0,
+        "actorProficiency": 3
+      },
+      "trace": [
+        {
+          "event": "read",
+          "path": "details.level",
+          "value": 5
+        },
+        {
+          "event": "apply",
+          "path": "abilities.wis.value",
+          "before": 14
+        }
+      ],
+      "after": {
+        "score": 16,
+        "globalCheck": 0
+      },
+      "expectedSkill": 6,
+      "phase": "Explicit schema-initialized qualified fields, native base/embedded and actual initial collection/apply methods; not a full DataModel/Actor lifecycle"
+    },
+    "nativeSourceHashes": {
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/abstract/actor-data-model.mjs": "0905d4b45c1e30d21ca7890fa6c133db9d68d4c479253662f83901f2593c8f8a",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/filter.mjs": "f80fcb3066fe319389225c6101e31ae8738a14f7f1baab56fde9c2e60b051cbf",
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+      "module/data/actor/templates/details.mjs": "249cec9385d4205d778f16c7a490cc0f65f2cd7481aad10ddda19a4243f758ff",
+      "module/data/item/class.mjs": "de7f04f5f868791c8174aa7558aa6741720728d0d296d7389d53236f188a47a4",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360"
+    },
+    "foundrySourceHashes": {
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/utils/helpers.mjs": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+      "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+    },
+    "artifactSha256": "527b6303953db19e43a8cde4e36f1308fb3592de92ef271df86d6bca41bc857f",
+    "stubs": [
+      "Primitive NumberField/StringField/ArrayField/SetField initialization/defaults and typed apply/clean methods; validation wrapper, no full DataModel source boot",
+      "Collection profile requires explicit trait parent containers; omitted/null values initialize empty Set, trimmed/de-duplicated members precede native has/hasany/hasall/subsetof/empty predicates; no nested predicate/coercion/final/Item snapshot qualification",
+      "Character base/embedded/prepareRace and Creature getRollData static source proof do not overwrite queried traits; later prepareResistImmune/label normalization not run before initial checks",
+      "Class profile qualifies explicit source levels0..20; missing/coerced/default1 class fields remain module boundaries; DetailsField nonpersisted level initializes0 before actual Character base sum,attributes.prof assignment overwrites poison99; unrelated max-level XP setting stub is milestone",
+      "Only explicit 0..30 score/save coefficient and schema-initialized nonpersisted roll proficiency queried; stale raw mod/global99 omitted by schema provenance, not prepared overrides",
+      "Exact Character base/embedded methods and Actor getRollData/initial collection methods; unrelated HitDice/AC/encumbrance/movement/senses constructor helpers and XP mapping are stubs, no claimed qualification of those domains here",
+      "Exact Common legacy bonus shims do not overwrite queried scalar fields; Creature classes/subclasses overlay is excluded after static source proof it does not overwrite abilities/rolls; those namespaces remain unavailable",
+      "Source Items preserve IDs but active effect/scale collections are empty initialized fixtures; no source Item replacement/permission/content behavior qualified",
+      "Exact effect suppression/cache, superclass phase gate, Filter checks and numeric field application; clone/overrides wrappers are explicitly limited and not native serialization acceptance",
+      "Expected post-effect scores and totals are independently declared; numeric derived arithmetic composes prior C13/C26 qualification, no native dice engine or installed/operator acceptance"
+    ]
+  },
+  "mounted": {
+    "full": {
+      "root": "/tmp/dnd5e-mounted-3pEBzy",
+      "artifactSha256": "0ebe044d06c499782e1ad41f827177be6f21d0413157cd1b03b80e6d9523bc43",
+      "executedScriptSha256": "01baac88ec394c3a9618374d14b79dbb2afd3294bc1d3500aa987d068ecc22d7",
+      "fieldRows": 894,
+      "trainingRows": 624,
+      "classRows": [
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-0",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-0",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-1",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-1",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-4",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-4",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-5",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-5",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-8",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-8",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-9",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-9",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-12",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-12",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-13",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-13",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-16",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-16",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-17",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-17",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-20",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:prof-20",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:no-class-source",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:multiclass-2-and-3",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:multiclass-prof",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:above-current-level",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:level-less",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:proficiency-less",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:class-label-poison",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:unknown-target-inactive",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:invalid-class-30",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:invalid-class-31",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:invalid-class-32",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:invalid-class-33",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:invalid-class-34",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:invalid-class-35",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:missing-class-level",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:proficiency-object-is-not-numeric-scalar",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:class-namespace-unqualified",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:final-snapshot",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:Item-snapshot",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:status-snapshot",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:transformation-flag",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "initial-filter:class:equal-facts-source-identity-retirement",
+          "retainedCallbackFenced": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-0",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-0",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-1",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-1",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-4",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-4",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-5",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-5",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-8",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-8",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-9",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-9",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-12",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-12",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-13",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-13",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-16",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-16",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-17",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-17",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-20",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:prof-20",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:no-class-source",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:multiclass-2-and-3",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:multiclass-prof",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:above-current-level",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:level-less",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:proficiency-less",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:class-label-poison",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:unknown-target-inactive",
+          "ready": true,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:invalid-class-30",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:invalid-class-31",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:invalid-class-32",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:invalid-class-33",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:invalid-class-34",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:invalid-class-35",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:missing-class-level",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:proficiency-object-is-not-numeric-scalar",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:class-namespace-unqualified",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:final-snapshot",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:Item-snapshot",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:status-snapshot",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:transformation-flag",
+          "ready": false,
+          "actualConsumers": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "initial-filter:class:equal-facts-source-identity-retirement",
+          "retainedCallbackFenced": true
+        }
+      ],
+      "result": "Full maintained suite1440/390 PASS,including894 field/624 training states and prior tests"
+    },
+    "focused": {
+      "root": "/tmp/dnd5e-mounted-i1u1mX",
+      "artifactSha256": "d9ca05592d18d8237edff462da6c210e6254178bc2e71e1620cecbee4d0ead22",
+      "flag": "--class-facts-only",
+      "rows": [
+        {
+          "width": 1440,
+          "id": "level-0",
+          "level": "0",
+          "proficiency": "+1",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-0",
+          "level": "0",
+          "proficiency": "+1",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-1",
+          "level": "1",
+          "proficiency": "+2",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-1",
+          "level": "1",
+          "proficiency": "+2",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-4",
+          "level": "4",
+          "proficiency": "+2",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-4",
+          "level": "4",
+          "proficiency": "+2",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-5",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-5",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-8",
+          "level": "8",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-8",
+          "level": "8",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-9",
+          "level": "9",
+          "proficiency": "+4",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-9",
+          "level": "9",
+          "proficiency": "+4",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-12",
+          "level": "12",
+          "proficiency": "+4",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-12",
+          "level": "12",
+          "proficiency": "+4",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-13",
+          "level": "13",
+          "proficiency": "+5",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-13",
+          "level": "13",
+          "proficiency": "+5",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-16",
+          "level": "16",
+          "proficiency": "+5",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-16",
+          "level": "16",
+          "proficiency": "+5",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-17",
+          "level": "17",
+          "proficiency": "+6",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-17",
+          "level": "17",
+          "proficiency": "+6",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-20",
+          "level": "20",
+          "proficiency": "+6",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "prof-20",
+          "level": "20",
+          "proficiency": "+6",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "no-class-source",
+          "level": "0",
+          "proficiency": "+1",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "multiclass-2-and-3",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "multiclass-prof",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "above-current-level",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "level-less",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "proficiency-less",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "class-label-poison",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "unknown-target-inactive",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "invalid-class-30",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "invalid-class-31",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "invalid-class-32",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "invalid-class-33",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "invalid-class-34",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "invalid-class-35",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "missing-class-level",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "proficiency-object-is-not-numeric-scalar",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "class-namespace-unqualified",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "final-snapshot",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "Item-snapshot",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "status-snapshot",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 1440,
+          "id": "transformation-flag",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-0",
+          "level": "0",
+          "proficiency": "+1",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-0",
+          "level": "0",
+          "proficiency": "+1",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-1",
+          "level": "1",
+          "proficiency": "+2",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-1",
+          "level": "1",
+          "proficiency": "+2",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-4",
+          "level": "4",
+          "proficiency": "+2",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-4",
+          "level": "4",
+          "proficiency": "+2",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-5",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-5",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-8",
+          "level": "8",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-8",
+          "level": "8",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-9",
+          "level": "9",
+          "proficiency": "+4",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-9",
+          "level": "9",
+          "proficiency": "+4",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-12",
+          "level": "12",
+          "proficiency": "+4",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-12",
+          "level": "12",
+          "proficiency": "+4",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-13",
+          "level": "13",
+          "proficiency": "+5",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-13",
+          "level": "13",
+          "proficiency": "+5",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-16",
+          "level": "16",
+          "proficiency": "+5",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-16",
+          "level": "16",
+          "proficiency": "+5",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-17",
+          "level": "17",
+          "proficiency": "+6",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-17",
+          "level": "17",
+          "proficiency": "+6",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-20",
+          "level": "20",
+          "proficiency": "+6",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "prof-20",
+          "level": "20",
+          "proficiency": "+6",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "no-class-source",
+          "level": "0",
+          "proficiency": "+1",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "multiclass-2-and-3",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "multiclass-prof",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "above-current-level",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "level-less",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "proficiency-less",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "class-label-poison",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "unknown-target-inactive",
+          "level": "5",
+          "proficiency": "+3",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "invalid-class-30",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "invalid-class-31",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "invalid-class-32",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "invalid-class-33",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "invalid-class-34",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "invalid-class-35",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "missing-class-level",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "proficiency-object-is-not-numeric-scalar",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "class-namespace-unqualified",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "final-snapshot",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "Item-snapshot",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "status-snapshot",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        },
+        {
+          "width": 390,
+          "id": "transformation-flag",
+          "level": "\u2014",
+          "proficiency": "\u2014",
+          "actualCardHeaderProficiencySkillPreviewAndExecution": true,
+          "contextRecovery": true
+        }
+      ],
+      "result": "86 actual card/header/proficiency/skill-preview/execution/context-recovery states at1440/390 PASS"
+    },
+    "limits": "Mounted module/SDK presentation seam,not installed Core UI. Full run preceded addition of focused-only header branch; script identities recorded separately."
+  },
+  "publicHost": {
+    "root": "/tmp/dnd5e-public-rolls-fEwTBD",
+    "artifactSha256": "f18b024990fd3551d60a8b31cf2d33126c12035228302b014772ce4a944ba246",
+    "accepted": 18985,
+    "classRequests": 720,
+    "classNormalBounds": 30,
+    "updatedPriorInitialRequests": 744,
+    "updatedPriorInitialBounds": 31,
+    "plainEqualIndexDiagnostics": 40,
+    "nativeWrites": 0,
+    "result": "18985 accepted,720newclass+30normalbound requests;prior scalar744+31 due newly qualified old boundary;40plain equal-index diagnostics/1unary rejection,actual serialization unchanged"
+  },
+  "typing": {
+    "result": "172 explicit module/UI/server/test/hook files PASS"
+  },
+  "sourceInventory": {
+    "result": "2242 records/591 expressions at exact87e94db PASS"
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-10m9Fm/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "759db3c2787b9a913a4236db0616a4c384f0160882d9148457e7c3361574cceb",
+    "result": "isolated module checks/public boundary/managed typing/bundles PASS"
+  },
+  "fileHashes": {
+    "src/logic/preparation/class-initialization.ts": "2aeddec1e1a3704121f7bced77732851cf05bf8494c2fbbafba8ab8906565ea2",
+    "src/logic/preparation/character-profile.ts": "71307db61074d5185862304a93d7238264b3b7cfdea975d8542ae710e519a2c2",
+    "src/logic/preparation/constant-filters.ts": "74a214bb10d10199f91ff5043c7dbcfeebb96846c75509735ab4d7781a25acc7",
+    "src/logic/preparation/initial-filter-data.ts": "725aa9c1f03e73f0549b16d5a88583fa3d13cef07ec2464d60982401dd981707",
+    "src/tests/initial-class-filters.test.ts": "8fce0b849c21016083d920a82fbbe118c46edfd722b01cc119092ee0bc8829b0",
+    "src/tests/fixtures/initial-class-filter-scenarios.ts": "64ef47667dbfb43393d58d0e7be006717568c39d190be8e507f6494799110ebb",
+    "tests/fixtures/native-6.0.6/initial-class-filters.json": "d0dc2f7792533477ead0c4b4f2ffb005392c0fa5964df81e4bf116e83184eb55",
+    "tests/fixtures/native-6.0.6/initial-filters.json": "3c87591b5318a70b4c34840e1f323e3647165c7a4640bee1ed796b4026652017",
+    "scripts/native-initial-filter-oracle.mjs": "5848c4cc1d401ec3a1a31612402ba1ed3941ae57a97cbc9282fe6511747c52c1",
+    "scripts/test-mounted.mjs": "46175ddd4cdd9c1e69f53e9248d64bf1a62f5f8ce940dfbedc3703067c118ace",
+    "scripts/test-public-rolls.mjs": "99e522bf69c12912a3e4acd10286986856f6bb6bdf5b1da296d0da6dfa207f40"
+  },
+  "limits": [
+    "Explicit class levels0..20 only,total<=20. Native source ClassData initial1 for missing fields is documented but remains outside this source profile",
+    "Shared class initializer supplies class-source provenance and base level/proficiency,not grants/identifier/name resolution or a world cache",
+    "Details.level nonpersisted initializes0 before Character base class sum;attributes.prof assigned by actual native base method. Raw99 remains unchanged and nonauthoritative",
+    "Context/effects/flags/equipment gates remain distinct from source initialization; class-mutating effects,prof object/classes namespace and final/Item/status snapshots remain unavailable",
+    "Primitive/model/validation/XP/HD/unrelated-domain stubs explicit; no full DataModel/native engine/operator acceptance",
+    "Source/mode/bounds and prior DD-R01\u201306 coverage retained;no new Core dependency,version/compatibility/experimental change",
+    "E01/E02/widerQ00/E05/fullM2/M3+ and ADR0001 remain open",
+    "Task-owned services stopped,production listeners untouched"
+  ]
+}

@@ -336,7 +336,14 @@
     {
       "id": "class-level-not-qualified",
       "conditions": "{\"k\": \"details.level\", \"v\": 5, \"o\": \"gte\"}",
-      "workflowUnavailable": true
+      "workflowUnavailable": false,
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "supersededBy": "C35 qualified details.level base-class field; classes namespace remains unavailable"
     },
     {
       "id": "unknown-identity",

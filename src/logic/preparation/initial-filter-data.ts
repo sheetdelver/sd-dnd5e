@@ -1,3 +1,4 @@
+import {initializeClassFacts606} from './class-initialization';
 import {record} from '../native/6.0.6/source';
 import {initializedSaveProficiency606} from './roll-initialization';
 import {initializeTraitSet606} from './trait-fields';
@@ -13,6 +14,10 @@ export function initialFilterData606(actor:unknown):(key:string)=>InitialFilterR
     return key=>{
         if(common)return null;
         const parts=key.split('.');
+        if(key==='details.level'||key==='attributes.prof'){
+            const base=initializeClassFacts606(actor);
+            return base.status==='ready'?{key,value:key==='details.level'?base.level:base.proficiency,origin:'class-base-preparation',classSources:base.classes}:null;
+        }
         if(parts.length===3&&parts[0]==='abilities'&&['str','dex','con','int','wis','cha'].includes(parts[1])){
             const ability=record(abilities?.[parts[1]]);if(!ability)return null;
             if(parts[2]==='value'){
