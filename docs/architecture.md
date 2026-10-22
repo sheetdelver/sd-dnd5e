@@ -1398,3 +1398,10 @@ the same prepared operands; source text, UUIDs, ownership and Item data remain u
 current consumers, combined skill/tool/manual/alternate-ability controls, stale callbacks
 and exact public-host/package identities. Item final preparation, active condition
 composition, dependent filters/riders and broader expressions remain outside this slice.
+
+
+C73 qualifies434 empty-feat final custom-field/cache cases through actual native
+Item final preparation, feat/Activities/UsesField methods and Actor phase dispatch.
+Empty collections/uses initialization and Item roll-data/spellcasting collaborators
+remain explicit; no expression/activity/recovery execution or full DataModel boot.
+[Record](audits/evidence/2026-10-22-c73-feat-final-foundation.json) preserves frozen results and limits. Runtime admission awaitsC74.

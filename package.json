@@ -24,6 +24,7 @@
     "test:native-initial-filters": "node scripts/native-initial-filter-oracle.mjs",
     "test:public-commands": "node scripts/test-public-commands.mjs",
     "test:native-conditions": "node scripts/native-condition-oracle.mjs",
-    "test:native-custom-traits": "node scripts/native-custom-traits-oracle.mjs"
+    "test:native-custom-traits": "node scripts/native-custom-traits-oracle.mjs",
+    "test:native-feat-final": "node scripts/native-feat-final-oracle.mjs"
   }
 }

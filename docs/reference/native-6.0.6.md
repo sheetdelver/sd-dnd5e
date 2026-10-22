@@ -1254,3 +1254,10 @@ mounted SDK seam and public-host execution remain separately identified in the
 Next Item-final qualification must include actual Item prepareFinalAttributes and its
 model/activity/uses collaborators before admission. Source-only feature final preparation
 already calls UsesField and activity preparation; an empty trace is insufficient.
+
+
+C73 qualifies434 empty-feat final custom-field/cache cases through actual native
+Item final preparation, feat/Activities/UsesField methods and Actor phase dispatch.
+Empty collections/uses initialization and Item roll-data/spellcasting collaborators
+remain explicit; no expression/activity/recovery execution or full DataModel boot.
+[Record](../audits/evidence/2026-10-22-c73-feat-final-foundation.json) preserves frozen results and limits. Runtime admission awaitsC74.

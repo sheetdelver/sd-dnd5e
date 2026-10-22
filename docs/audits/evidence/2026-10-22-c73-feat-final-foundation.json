@@ -1,0 +1,59 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "cases": 434,
+  "sourceHashes": {
+    "module/data/item/feat.mjs": "46146f7d121c1a889753856b0385b4652f404030853cdc4a504b93e85b93640a",
+    "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+    "module/data/item/templates/activities.mjs": "03d69007dfbd2598c7b8d195b654f7c6414dafff9e0c6a7616ed05d8972cec11",
+    "module/data/shared/uses-field.mjs": "1145cd0f0d0f16ead6d25920bba01f6917a0e7064a3a36bcb8f714454a0440a6",
+    "module/data/fields/activities-field.mjs": "537147517d83e63c8e00a990b777b10700f9dc9df377e03797801f2fcb659adc",
+    "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+    "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79"
+  },
+  "foundryHashes": {
+    "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+    "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+    "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+    "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "common/constants.mjs": "861a4a121ffb5713ab265b49282ff6ca8aa64036c5f9dad27208af98433dbdcf",
+    "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820"
+  },
+  "fixtureSha256": "755f32f5cdd65795753863fa729e582e1cebe02181f5c58451f62460aec9b600",
+  "limits": [
+    "Actual native/base Actor initial/final dispatch, native Item.prepareFinalAttributes/_prepareProficiency/_prepareLabels, feat getters/final preparation, Activities.prepareFinalActivityData, UsesField.prepareData/getStatblockLabel and primitive String/language/sheet methods.",
+    "Only empty activities and empty-capacity/recovery uses. Explicit verified spent0/default FormulaField missing/blank String initialization and empty collection shells; not full source DataModel/ActivitiesField boot. No effect/Item grants, Item target changes, activities, recharge/rest/use execution or arbitrary source schema coercion.",
+    "Item.getRollData deterministic call returns empty declared data; actual Uses.prepareData calls actual prepareFormulaValue but its absent/blank max returns before replacement/evaluation. Roll/replacement collaborators throw if called; no formula/dice equivalence claimed.",
+    "Actor spellcasting is a trace collaborator and other Item preparation is absent; this qualifies only this literal-field/empty-feat composition, not full Actor/Item preparation or native/operator acceptance. Runtime remains gated pending integration/source/consumer checks."
+  ],
+  "checkpoint": "C73",
+  "date": "2026-10-22",
+  "parent": "a0be77f8ba2e816dd3ad0dad556cea4faf585eea",
+  "requirements": "Qualification only;partial M0/M2 Q02a,DD-03/11/27/34,A03/A04; full gates open",
+  "expectationMethod": "217 unchanged C65/C66 frozen final String field/cache/label expectations, each with independently specified missing or explicit empty feat activities/uses. Native feat proficiency multiplier1 at Actor proficiency3; no capacity/recovery/activity execution. No module/captured output supplies expectations.",
+  "observations": [
+    "Actual empty-feat final attributes calculate Item proficiency3/multiplier1 and empty uses value0/labels. No capacity expression, replacement, dice or activity method may execute.",
+    "Actual Actor initial dispatch precedes language labels; actual Item final methods run before spellcasting trace and final Actor custom change. Earlier language labels remain unchanged; current field/formatter reflects final text.",
+    "434 cases reuse217 manually frozen final String results with missing/explicit-empty Item recipe. Initialized empty collection/uses shells and schema assertions are separate from full source DataModel boot; Item roll-data/speaker/spellcasting collaborators are declared."
+  ],
+  "checks": [
+    {
+      "command": "npm run test:native-feat-final -- --core <releasedCore> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c73-native-feat-final.json",
+      "result": "434 empty-feat final cases plus all retained effect/trait/custom matrices PASS; imported oracle cannot overwrite caller evidence"
+    },
+    {
+      "command": "npm run typecheck -- --core <releasedCore>",
+      "result": "213 explicit module/UI/server/test/hook files PASS"
+    }
+  ],
+  "artifacts": {
+    "scripts/native-feat-final-oracle.mjs": "f6eb3e7d79b4b60874c90d70530831d56de2e43ee95b6f73202ef9172a4c9566",
+    "scripts/native-effect-oracle.mjs": "a42477c82014cc87adb2eb844cf91e0ba855d65c18dbff6886ccd8d2940930e6",
+    "src/tests/fixtures/feat-custom-scenarios.ts": "e0f8c81eaed2cf8bfefcaa283518cb68737ccebddc130ccb2be5bd217d9d44af",
+    "tests/fixtures/native-6.0.6/feat-final-custom-strings.json": "755f32f5cdd65795753863fa729e582e1cebe02181f5c58451f62460aec9b600",
+    "temp/c73-native-feat-final.json": "abfa170adc953d990bfad322b25c195f22345ec69c3a08b0c61c14a5ad7b9ee9",
+    "temp/c73-native-feat-final.log": "f2d205610a4650f205abd7527d6e0bd1c96a3618bfbff80a102c166562909f7d",
+    "temp/c73-types.log": "5794ecb99619d5175245b04d3631b1a819bb2ba4f7c25251400c7e815982a709"
+  }
+}
