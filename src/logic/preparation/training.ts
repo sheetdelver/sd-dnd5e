@@ -66,7 +66,7 @@ export function prepareTraining606(actor:unknown,context:RulesContext,effects:Nu
         if(common)return empty(common);
         const raw=traits![key==='armor'?'armorProf':'weaponProf'],data=raw==null?{}:record(raw);
         if(!data)return empty(`${trainingLabels[key]} source mapping malformed`);
-        const preparedKeys=initializeTraitSet606(data.value),values=initializeTraitSet606(effects.finalTrainingSets?.[`system.traits.${key==='armor'?'armorProf':'weaponProf'}.value`]??data.value),custom=customLabels(data.custom);
+        const preparedKeys=initializeTraitSet606(data.value),values=initializeTraitSet606(effects.finalTrainingSets?.[`system.traits.${key==='armor'?'armorProf':'weaponProf'}.value`]??data.value),custom=customLabels(effects.finalTraitStrings?.[`system.traits.${key==='armor'?'armorProf':'weaponProf'}.custom`]??data.custom);
         if(!values||!custom)return empty(`${trainingLabels[key]} source value/custom malformed`);
         const labels:Readonly<Record<string,string>>=key==='armor'?TRAINING_606.armor:TRAINING_606.weapons;
         const refs:Readonly<Record<string,string>>=key==='armor'?TRAINING_606.armorReferences:TRAINING_606.weaponReferences;
@@ -88,8 +88,8 @@ export function prepareTraining606(actor:unknown,context:RulesContext,effects:Nu
         const no=(reason:string):LanguageCategory=>({...empty(reason),spoken:[],preparedSpoken:[],unresolved:[],communication:[]});
         if(common)return no(common);
         const raw=traits!.languages,data=raw==null?{}:record(raw);if(!data)return no('Language source mapping malformed');
-        const preparedKeys=initializeTraitSet606(data.value),values=initializeTraitSet606(effects.finalTrainingSets?.['system.traits.languages.value']??data.value),custom=customLabels(data.custom);if(!preparedKeys||!values||!custom)return no('Language source value/custom malformed');
-        const preparedSpoken=languageLabels606(preparedKeys,custom),spoken=languageLabels606(values,custom);
+        const preparedKeys=initializeTraitSet606(data.value),values=initializeTraitSet606(effects.finalTrainingSets?.['system.traits.languages.value']??data.value),preparedCustom=customLabels(data.custom),custom=customLabels(effects.finalTraitStrings?.['system.traits.languages.custom']??data.custom);if(!preparedKeys||!values||!preparedCustom||!custom)return no('Language source value/custom malformed');
+        const preparedSpoken=languageLabels606(preparedKeys,preparedCustom),spoken=languageLabels606(values,custom);
         const preparationNote=JSON.stringify(preparedSpoken)!==JSON.stringify(spoken)?`Earlier language labels: ${preparedSpoken.join('; ')||'None'}.`:undefined;
         const unknown=values.filter(value=>value!=='ALL'&&!validLanguage(value)),reasons:string[]=[];
         if(unknown.length)reasons.push('Stored language keys are unresolved or nonselectable; no grant inferred');

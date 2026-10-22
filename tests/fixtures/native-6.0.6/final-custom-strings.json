@@ -1,6 +1,6 @@
 {
   "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
-  "expectationMethod": "Manually frozen String results before actual-method comparisons; expansion across seven SimpleTraitField custom fields. Add concatenates raw literal delta then cleans, subtract removes the first exact substring then cleans, override cleans the raw delta; upgrade/downgrade/multiply keep the earlier string. No module output or captured native totals supplies expectations.",
+  "expectationMethod": "Manually frozen String results before actual-method comparisons; expansion across seven SimpleTraitField custom fields. Add concatenates raw literal delta then cleans, subtract removes the first exact substring then cleans, override cleans the raw delta; upgrade/downgrade/multiply keep the earlier string. No module output or captured native totals supplies expectations. C66 adds seven independently specified canonical-value prefix compositions using released English labels.",
   "cases": [
     {
       "id": "absent/dr.custom/add",
@@ -4277,6 +4277,244 @@
       ],
       "expectedCurrentLabels": [
         "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "canonical/dr.custom/add",
+      "field": "dr.custom",
+      "source": {
+        "custom": "  First ; Second  ",
+        "value": [
+          "fire"
+        ]
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "add",
+        "value": "; Added",
+        "phase": "final"
+      },
+      "expectedBefore": "First ; Second",
+      "expectedAfter": "First ; Second; Added",
+      "expectedPreparedLabels": [
+        "Fire",
+        "First",
+        "Second"
+      ],
+      "expectedCurrentLabels": [
+        "Fire",
+        "First",
+        "Second",
+        "Added"
+      ],
+      "expectedCustomLabels": [
+        "First",
+        "Second",
+        "Added"
+      ]
+    },
+    {
+      "id": "canonical/di.custom/add",
+      "field": "di.custom",
+      "source": {
+        "custom": "  First ; Second  ",
+        "value": [
+          "poison"
+        ]
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "add",
+        "value": "; Added",
+        "phase": "final"
+      },
+      "expectedBefore": "First ; Second",
+      "expectedAfter": "First ; Second; Added",
+      "expectedPreparedLabels": [
+        "Poison",
+        "First",
+        "Second"
+      ],
+      "expectedCurrentLabels": [
+        "Poison",
+        "First",
+        "Second",
+        "Added"
+      ],
+      "expectedCustomLabels": [
+        "First",
+        "Second",
+        "Added"
+      ]
+    },
+    {
+      "id": "canonical/dv.custom/add",
+      "field": "dv.custom",
+      "source": {
+        "custom": "  First ; Second  ",
+        "value": [
+          "cold"
+        ]
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "add",
+        "value": "; Added",
+        "phase": "final"
+      },
+      "expectedBefore": "First ; Second",
+      "expectedAfter": "First ; Second; Added",
+      "expectedPreparedLabels": [
+        "Cold",
+        "First",
+        "Second"
+      ],
+      "expectedCurrentLabels": [
+        "Cold",
+        "First",
+        "Second",
+        "Added"
+      ],
+      "expectedCustomLabels": [
+        "First",
+        "Second",
+        "Added"
+      ]
+    },
+    {
+      "id": "canonical/ci.custom/add",
+      "field": "ci.custom",
+      "source": {
+        "custom": "  First ; Second  ",
+        "value": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "add",
+        "value": "; Added",
+        "phase": "final"
+      },
+      "expectedBefore": "First ; Second",
+      "expectedAfter": "First ; Second; Added",
+      "expectedPreparedLabels": [
+        "Poisoned",
+        "First",
+        "Second"
+      ],
+      "expectedCurrentLabels": [
+        "Poisoned",
+        "First",
+        "Second",
+        "Added"
+      ],
+      "expectedCustomLabels": [
+        "First",
+        "Second",
+        "Added"
+      ]
+    },
+    {
+      "id": "canonical/armorProf.custom/add",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "  First ; Second  ",
+        "value": [
+          "lgt"
+        ]
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "add",
+        "value": "; Added",
+        "phase": "final"
+      },
+      "expectedBefore": "First ; Second",
+      "expectedAfter": "First ; Second; Added",
+      "expectedPreparedLabels": [
+        "Light",
+        "First",
+        "Second"
+      ],
+      "expectedCurrentLabels": [
+        "Light",
+        "First",
+        "Second",
+        "Added"
+      ],
+      "expectedCustomLabels": [
+        "First",
+        "Second",
+        "Added"
+      ]
+    },
+    {
+      "id": "canonical/weaponProf.custom/add",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "  First ; Second  ",
+        "value": [
+          "sim"
+        ]
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "add",
+        "value": "; Added",
+        "phase": "final"
+      },
+      "expectedBefore": "First ; Second",
+      "expectedAfter": "First ; Second; Added",
+      "expectedPreparedLabels": [
+        "Simple",
+        "First",
+        "Second"
+      ],
+      "expectedCurrentLabels": [
+        "Simple",
+        "First",
+        "Second",
+        "Added"
+      ],
+      "expectedCustomLabels": [
+        "First",
+        "Second",
+        "Added"
+      ]
+    },
+    {
+      "id": "canonical/languages.custom/add",
+      "field": "languages.custom",
+      "source": {
+        "custom": "  First ; Second  ",
+        "value": [
+          "common"
+        ]
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "add",
+        "value": "; Added",
+        "phase": "final"
+      },
+      "expectedBefore": "First ; Second",
+      "expectedAfter": "First ; Second; Added",
+      "expectedPreparedLabels": [
+        "Common",
+        "First",
+        "Second"
+      ],
+      "expectedCurrentLabels": [
+        "Common",
+        "First",
+        "Second",
+        "Added"
+      ],
+      "expectedCustomLabels": [
+        "First",
+        "Second",
+        "Added"
       ]
     }
   ]

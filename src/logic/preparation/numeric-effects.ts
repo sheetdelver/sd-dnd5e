@@ -1,5 +1,6 @@
 import {sourceRuleFlags606,type SourceRuleFlags606} from './rule-flags';
 import {preparedDefenseSets606} from './defense-sets';
+import {customTraitPath606,initializeCustomString606,applyCustomString606} from './trait-strings';
 import {prepareConditions606,currentConditionImmunities606,type ConditionPreparation606} from './conditions';
 import { initializedModeState, applyEffectMode, resolvedEffectMode, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
@@ -17,9 +18,10 @@ export interface NumericEffects {
     preparedDefenseSets?:Record<string,string[]>;
     finalDefenseSets?:Record<string,string[]>;
     finalTrainingSets?:Record<string,string[]>;
+    finalTraitStrings?:Record<string,string>;
     ruleFlags:SourceRuleFlags606;system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;executionBonuses:Record<string,number>;finalNumbers:Record<string,number>;checkExecutionReason?:string;
-    applied:Array<{effectId:string;key:string;phase:'initial'|'final';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
+    applied:Array<{effectId:string;key:string;phase:'initial'|'final';before:number|string|string[];value:number|string|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
 }
 /** Qualified initial numeric/defense/training trait fields. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
@@ -27,7 +29,7 @@ export interface NumericEffects {
  * Only constant FormulaField add/subtract/override is reduced by operation,
  * without parsing arbitrary expressions. Qualified final mode changes have a separate
  * execution snapshot, as do final global proficiency NumberFields and qualified
- * constant roll bonuses and persisted numeric fields. Earlier
+ * constant roll bonuses, persisted numeric fields and literal custom Strings. Earlier
  * prepared proficiency/passive operands never change; other final/Item fields stay gated. */
 export function prepareNumericEffects606(actor:unknown):NumericEffects {
     const source=record(actor)??{},system=structuredClone(record(source.system)??{}),plan=planEffects606(actor);
@@ -44,20 +46,22 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     let reason=plan.reason??ruleFlags.reason;
     const formulas:Record<string,string>={},modes:Record<string,EffectModeState>={};
     const origins:Record<string,'source'|'default'|'null-cleaned'>={};
-    function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;valid?:(value:string)=>boolean}|null {
+    function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;string?:boolean;valid?:(value:string)=>boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
         if(keys[1]==='traits'){
             const key=keys[2],field=keys[3];
             const training=trainingSetField606(keys.slice(2).join('.'));
             const set=Boolean(training)||keys.length===4&&(['dr','di','dv','ci'].includes(key)&&field==='value'||['dr','di','dv','dm'].includes(key)&&field==='bypasses');
             const amount=key==='dm'&&keys.length===5&&field==='amount'&&Object.hasOwn(DAMAGE_LABELS_606,keys[4]);
-            if(!set&&!amount)return null;
+            const string=customTraitPath606(change.key);
+            if(!set&&!amount&&!string)return null;
             let container=system;
             for(const part of keys.slice(1,-1)){
                 if(container[part]==null)container[part]={};
                 const child=record(container[part]);if(!child)return null;container=child;
             }
             const name=keys.at(-1)!;
+            if(string)return {object:container,field:name,string:true};
             if(set){
                 const value=container[name];origins[change.key]??=value===undefined?'default':value===null?'null-cleaned':'source';
                 const labels=field==='bypasses'?BYPASS_LABELS_606:key==='ci'?CONDITION_STATUS_LABELS_606:DAMAGE_LABELS_606;
@@ -112,6 +116,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     for(const change of plan.initial){
         const field=target(change),raw=change.value;
+        if(field?.string){reason??='Initial custom String effects require qualification';continue;}
         if(field?.set){
             const before=initializeTraitSet606(field.object[field.field]);
             const appliedSet=before&&field.valid?applyTraitSet606(before,change.type,raw,field.valid):null;
@@ -166,6 +171,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     let checkExecutionReason:string|undefined;
     let preparedDefenseSets:Record<string,string[]>|undefined,finalDefenseSets:Record<string,string[]>|undefined;
     const finalTrainingSets:Record<string,string[]>={};
+    const finalTraitStrings:Record<string,string>={};
     const changedDefenseSets=new Set<string>();
     function addExecutionMode(key:string,delta:number){
         const field=target({key});
@@ -179,6 +185,14 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     for(const change of plan.final){
         if(change.itemId!==undefined){reason??='Transferred Item final phase requires qualification';continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
+        if(field?.string){
+            if(conditions.status!=='ready'||conditions.sources.length||conditions.actorStatuses.length){reason??='Final custom Strings with conditions require qualification';continue;}
+            const previous=Object.hasOwn(finalTraitStrings,change.key),before=previous?finalTraitStrings[change.key]:initializeCustomString606(field.object[field.field]);
+            const value=before===null?null:applyCustomString606(before,change.type,raw);
+            if(value===null){reason??=`Final custom String source/delta/operation requires qualification: ${change.key}`;continue;}
+            finalTraitStrings[change.key]=value;
+            applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before!,value,operandPhase:previous?'final':'prepared',initializedFrom:field.object[field.field]===undefined?'default':'source'});continue;
+        }
         const training=change.key.startsWith('system.traits.')?trainingSetField606(change.key.slice('system.traits.'.length)):null;
         if(training&&field?.set){
             const previous=Object.hasOwn(finalTrainingSets,change.key),before=previous?finalTrainingSets[change.key]:initializeTraitSet606(field.object[field.field]);
@@ -246,7 +260,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
 }
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified

@@ -1688,3 +1688,17 @@ source invariance and consumer/recovery tests. Null/coercion, references, initia
 effects, conditions, Item phases and full native dispatcher/operator acceptance are
 not qualified. Partial M0/M2 Q02a,DD-03/11/27/34,A03/A04 only; all full gates stay open.
 Experimental0.4.1/compatibility/E01/E02/E04/widerQ00/E05 are unchanged.
+
+
+### C66 disposition — literal final custom fields (2026-10-22)
+
+C65's210 original inputs now pass module preparation;217 native/module comparisons
+include seven canonical-prefix compositions. Source/default/current Strings and earlier
+language caches stay distinct. Both layouts/cards use shared projections; mounted
+intent retirement covers source identity/value and all three unavailable contexts.
+Initial String effects, null/coercions, references, conditions and Item origins remain
+gated. [C66 evidence](evidence/2026-10-22-c66-final-custom.json) records exact checks and
+limits. The first repeated-change test had an incorrect explicit priority in its setup;
+it was corrected without changing expected order or frozen cases. An isolated socket
+closure is retained as failed evidence; a fresh complete public-host rerun passes. No
+Core defect/dependency follows. DD-R01–07 stay corrected; full ADR acceptance is open.

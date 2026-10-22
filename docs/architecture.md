@@ -1291,3 +1291,26 @@ differ from FormulaField semantics. Current custom fields and earlier language l
 are separate; a distinct formatting shell proves current labels, not Actor phase replay.
 Runtime stays gated pending C66. [Evidence](audits/evidence/2026-10-22-c65-final-custom-foundation.json) records exact source hashes and
 restricted source/default/empty-Set/sheet collaborators; no native/operator acceptance.
+
+
+### Literal final custom traits (C66)
+
+`trait-strings.ts` initializes the verified missing blank String default separately
+from source text, then applies qualified final literal StringField operations.
+`NumericEffects.finalTraitStrings` retains current custom values without mutating
+earlier `system` operands or source. Receipts keep before/value/phase/initialization
+and prepared-or-final operand provenance. Final string operations preserve native
+priority/order, raw-delta concatenation, first-substring subtraction and cleaning.
+This is plain custom text; it supplies no proficiency, identity or numeric formula.
+
+Shared defense/training projections consume those values. Language `preparedSpoken`
+formats earlier Sets/custom text while `spoken` formats current values with the same
+formatter; the existing earlier-label note explains a difference. Cards, both layouts,
+previews, shortcuts and direct execution retain one prepared intent path. No UI formula,
+additional data cache, evaluator or transport is added.
+
+The profile is condition-free Actor-owned final custom text for dr/di/dv/ci, armor,
+weapon and language traits. Initial String effects, null/coercions, reference expansion,
+condition compositions and Item origins stay gated. Seven canonical-prefix comparisons
+extend C65's empty-Set cases without inferring names or grants. [C66 evidence](audits/evidence/2026-10-22-c66-final-custom.json)
+keeps source/method, regression, mounted/public-host and packaging limits separate.

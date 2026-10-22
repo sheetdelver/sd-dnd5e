@@ -1,0 +1,142 @@
+{
+  "checkpoint": "C66",
+  "date": "2026-10-22",
+  "parent": "51e029593d10255249198252085670540ec007e7",
+  "requirements": "Partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21;no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "toolchain": "Node24.21/npm11.19;CI Node22 unrun",
+  "beforeAfter": {
+    "before": "210 original cases fail intentional custom-field gate on C64 runtime; C65 qualification checkpoint leaves runtime unchanged",
+    "after": "All217 pass,including unchanged210 plus7 independently specified canonical-prefix compositions",
+    "frozen210PrefixPreserved": true,
+    "fixture": "tests/fixtures/native-6.0.6/final-custom-strings.json"
+  },
+  "implementation": [
+    "One source/default initializer and plain String interpreter; no dice/formula evaluation. FinalTraitStrings is separate from earlier initialized operands and source. Receipts retain phase/current-or-earlier operand provenance.",
+    "Source strings and missing blank default only. Literal concatenation,first exact substring removal,override and native no-op modes follow actual StringField. Null/coercions,references,initial String phases,conditions and Item origins stay gated.",
+    "Current defense/armor/weapon text and earlier/current language labels share existing caller projections. No name inference, grant, duplicated UI formula or cache.",
+    "Regression covers source/nonpersisted poison invariance,context transitions,malformed inputs,repeated priority/order,current value/identity intents,source/manual numeric modes and normal-only bounds. Mounted consumers cover cards/desktop/mobile notes,focused hover-exit preview/Enter,shortcuts and retained callbacks."
+  ],
+  "checks": [
+    {
+      "command": "npm test -- --core <Core0.19.3>",
+      "result": "61 tooling assertions / 9 tooling suites / 48 module suites PASS",
+      "logSha256": "5110c23a1f595d32ad04dc79585e829117d31b6cfc6f8bbb89cf5fbd06b0f806"
+    },
+    {
+      "command": "npm run typecheck -- --core <Core0.19.3>",
+      "result": "206 explicit source/UI/server/test/hook files PASS",
+      "logSha256": "97167f5deccafffeec44899aa24b7fe1c574bae709a2934a48c3d5e4310b73c8"
+    },
+    {
+      "command": "npm run test:native-source -- --native <exact-release>",
+      "result": "2242 records / 591 candidate expressions PASS; not formula support",
+      "logSha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff"
+    },
+    {
+      "command": "npm run test:native-custom-traits -- --core <Core0.19.3> --native <exact-release> --foundry <static14.367> --write-evidence temp/c66-native-custom-final.json",
+      "result": "217 actual primitive/source/default/trait/sheet/cache/format cases + all retained trait matrices PASS",
+      "logSha256": "1408de99ddb7fbfcca07fd91f6e3d9d3ce40212fd0b835fefd66d46512ab0d9e"
+    },
+    {
+      "command": "npm run test:native-conditions -- --core <Core0.19.3> --native <exact-release> --foundry <static14.367> --write-evidence temp/c66-native-conditions.json",
+      "result": "All retained condition/mode/bonus/proficiency/number/flag/final CI/petrified native matrices PASS",
+      "logSha256": "f74c9d529a966025230ea30f473c285a3b2f76ce383e6ae5faee2e7883c76fee"
+    },
+    {
+      "command": "npm run test:mounted -- --core <Core0.19.3> --browser-tools <isolated-tools> --chromium <Chromium143> --final-custom-strings-only",
+      "result": "436 states at1440/390 PASS; current consumers, earlier labels/cards,84 preview/Enter/shortcut groups, identity/value/context held-intent recovery",
+      "logSha256": "119dbb8b230381f0f843fd6da671f607fb50e4d16e2f0987c7974f7a3135d455"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core <Core0.19.3>",
+      "result": "269325 accepted / 1 known unary candidate rejection / 40 equal-index diagnostics / 0native writes PASS;868custom manual/default+217normal bounds",
+      "logSha256": "c17819cd809aa37c066e2fbf6096aacbb349b31afd0ff2d0743951ac1a3fe343"
+    },
+    {
+      "command": "npm run check:package -- --core <Core0.19.3>",
+      "result": "isolated module check/managed package PASS",
+      "logSha256": "b73268218c4dab1bbb0c1b314f95de9b67f7f6e22d1d0be932d0742ea9d8f184"
+    }
+  ],
+  "c64FullMountedCompletion": {
+    "result": "PASS; built before C66 runtime integration,not C66 full retained UI evidence",
+    "path": "/tmp/dnd5e-mounted-K2rk2n/evidence.json",
+    "sha256": "0eb3c7f3389a51ecbca05ce82e06b666a4b644f35a54a17a7756a11179ae8d57",
+    "logSha256": "6e4b2847e2c01267d20081c12670d2914566013419e6f177255c9b58a3cbaa3e",
+    "counts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56,
+      "focusRows": 2,
+      "combinationRows": 80,
+      "effectRows": 22,
+      "numericEffectRows": 1172,
+      "effectModeRows": 58,
+      "healthRows": 58,
+      "defenseRows": 102,
+      "equipmentRows": 90,
+      "movementRows": 84,
+      "rangeRows": 180,
+      "speciesRows": 40,
+      "defenseTraitRows": 149,
+      "indicatorRows": 24,
+      "trainingRows": 624
+    }
+  },
+  "artifacts": {
+    "src/logic/preparation/trait-strings.ts": "c507b362894e30837a69110cbaddb00a4eab83f584451ebd45f23b8b088bd04f",
+    "src/logic/preparation/numeric-effects.ts": "44fb1ba15fc3427b72652ea996a22952954b1835992b5a132218c0d7c3473a29",
+    "src/logic/preparation/defense-traits.ts": "1d344e16d3fc26555b62dc6529273b35a20c5daac1417573239e4a937483cd57",
+    "src/logic/preparation/training.ts": "4307be93458d04cd20d68791756ed4c1d29fcf6e0deb4cdaf6228c130d98cff7",
+    "src/tests/final-custom-strings.test.ts": "d2c752332c7a9f732b6466791539ce9bf476fc9a0a3a2d416fe067ca9fa0f5fc",
+    "src/tests/fixtures/final-custom-scenarios.ts": "bee3c90abe51c564de2a70f6e20c98ccf9cc2baa2f450b16987855bd441e611e",
+    "scripts/native-custom-traits-oracle.mjs": "907064abc9bfff532e6352318023594c081b173af28477e885f8122b7d6e1d3e",
+    "scripts/test-mounted.mjs": "550647db55f65ae9be38b548fa0fa86ecb45c7e875274c937302b30e1ee1d46c",
+    "scripts/test-public-rolls.mjs": "2a64230f9b134edc93e1b878860e5b49b7cd37716871b7159dc3a0d386c03ef0",
+    "tests/fixtures/native-6.0.6/final-custom-strings.json": "69be205f37969fadf0b9438de3eead20a16f799798c3d335e77bd84a2c321b56",
+    "temp/c66-before.log": "f1b3ff78fa973c8e39284be4c9e0a4a1bd61eb5f1a1520a3b084dd3f302f9a8c",
+    "temp/c66-tests.log": "57ee6416f3457eb486fe11decbb8f94b0c823bcf3bcb402445da064e64ce21fd",
+    "temp/c66-public-rolls.log": "2bb8e90f9b051eec39993a7e802d6047f82145ecb382bc219d897d10f744f57a",
+    "temp/c66-native-custom-final.json": "d8dade88bcadff7390f759988c1d5c0aae3d46347a51d1394eb739ed33c8911f",
+    "temp/c66-native-conditions.json": "c67fa3960b84e1b4a3d3537c7fa82a2dce61ac718dba64ec7828f25d3e1c18f4",
+    "/tmp/dnd5e-mounted-MA8aUF/evidence.json": "2a14ce0f104d934d1df214b19670811b1ab7c1bded335f2506f753f491382a0e",
+    "/tmp/dnd5e-public-rolls-3DRyjW/evidence.json": "0e5a52936dac8e8aa5ad5926cd3a5e78dc8fb08b674ef545412b9d75122ab721",
+    "/tmp/dnd5e-package-z6TOYr/data/dist/modules/dnd5e-0.4.1.tgz": "b85d777428f01fa6579fb352c93c631ae0291ee427b36490154a8fb583efc2aa",
+    "temp/c66-listeners-final.log": "7ad2d015783641e67af9571f13132d1467b380134c291a49d602e360db71143e"
+  },
+  "nativeSourceHashes": {
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+  },
+  "foundry": {
+    "generation": 14,
+    "build": 367,
+    "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+    "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+  },
+  "primitiveOracleSha256": "57b4ef57a95fdbae52e80806d33d7e0053450587a071d7e4f8fa2ae3e9318dcf",
+  "investigationCorrections": [
+    "Repeated-change test initially assumed list order although its second change priority1 precedes native subtract default20. Set first priority explicitly0; independent expected order/values and original210 cases unchanged. The implementation preserved native priority throughout.",
+    "First C66 isolated public-host run closed a socket before completed qualification; no complete result or root cause is established. Failure log and synthetic fixture /tmp/dnd5e-public-rolls-YjIHmF retained. Fresh /tmp/dnd5e-public-rolls-3DRyjW run passes every269325 accepted request. No Core defect or new dependency is alleged."
+  ],
+  "limits": [
+    "Source strings and verified missing default only; null/coercions,references,expressions and initial String effects not qualified.",
+    "Actual primitive field methods on initialized shells; declared primitive constructors/validation wrapper inherited from maintained trait oracle,not full DataModel source boot.",
+    "Actual sheet on empty Sets plus seven canonical-value compositions and exact selected trait config entries. Labels use pinned registries already checked by the maintained trait oracle. Identity deepClone is read-only. Unknown keys/ranges,conditions,Item phases and full dispatcher remain outside this profile.",
+    "Language cache prepared once before final changes,with poisoned labels overwritten by actual method. Current labels use a separate formatting shell,not Actor phase replay.",
+    "This driver alone does not establish module/dice/installed/native/operator acceptance. Bounded runtime integration is verified separately in C66 regressions and consumer/public-host evidence.",
+    "C66 mounted436 use an isolated SDK presentation seam,not installed Core/native acceptance. C64 full retained mounted run is separately identified,not retroactively relabeled C66.",
+    "Actual req.runtime.rolls uses synthetic authentication/transport and dependency-controlled entropy. Existing homogeneous plain-d20 equivalence/distributions and actual host serialization remain unchanged. No broader range/effect/dice extension.",
+    "No source writes/live Foundry/production settings. All task-owned hosts/browsers stopped; pristine Core baseline remains clean.",
+    "Experimental0.4.1/compatibility unchanged. E01/E02/E04/widerQ00/E05 and all full ADR/DD/A/M/native/operator acceptance stay open. Next: qualify initial custom String/cache phases,then remaining M2 formula/Item/filter dependencies."
+  ]
+}

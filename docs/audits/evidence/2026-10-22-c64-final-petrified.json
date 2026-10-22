@@ -122,5 +122,33 @@
     "Full retained mounted run /tmp/dnd5e-mounted-K2rk2n is still running at code checkpoint; completion will be recorded separately. Focused202 are complete. Public host/browser owned by its harness closed in finally; no live Foundry.",
     "First implementation run retained six CI gates because raw delta whitespace was checked before String cleaning. Validation now checks cleaned identity while preserving the actual untrimmed Set operation; frozen expectations unchanged.",
     "Experimental0.4.1/compatibility unchanged. E01/E02/E04/widerQ00/E05,other M2 phases/fullADR/native/operator gates remain open."
-  ]
+  ],
+  "followUp": {
+    "result": "PASS; built before C66 runtime integration,not C66 full retained UI evidence",
+    "path": "/tmp/dnd5e-mounted-K2rk2n/evidence.json",
+    "sha256": "0eb3c7f3389a51ecbca05ce82e06b666a4b644f35a54a17a7756a11179ae8d57",
+    "logSha256": "6e4b2847e2c01267d20081c12670d2914566013419e6f177255c9b58a3cbaa3e",
+    "counts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56,
+      "focusRows": 2,
+      "combinationRows": 80,
+      "effectRows": 22,
+      "numericEffectRows": 1172,
+      "effectModeRows": 58,
+      "healthRows": 58,
+      "defenseRows": 102,
+      "equipmentRows": 90,
+      "movementRows": 84,
+      "rangeRows": 180,
+      "speciesRows": 40,
+      "defenseTraitRows": 149,
+      "indicatorRows": 24,
+      "trainingRows": 624
+    },
+    "record": "2026-10-22-c66-final-custom.json"
+  }
 }

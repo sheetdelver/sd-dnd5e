@@ -2913,3 +2913,31 @@ source invariance and consumer/recovery tests. Null/coercion, references, initia
 effects, conditions, Item phases and full native dispatcher/operator acceptance are
 not qualified. Partial M0/M2 Q02a,DD-03/11/27/34,A03/A04 only; all full gates stay open.
 Experimental0.4.1/compatibility/E01/E02/E04/widerQ00/E05 are unchanged.
+
+
+### C66 — final custom String integration (2026-10-22)
+
+Parent `51e0295`; partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21. All210 original
+cases fail before and pass after; seven canonical-prefix cases add independent labels
+and native-method comparisons. Regression covers source/poison preservation, absent
+initialization, malformed/null/reference/condition/initial-phase gates, repeated native
+priority/order, numeric source/manual modes, bounds and context recovery. Mounted
+checks exercise current defense/training/card consumers, earlier language notes,
+focused preview/Enter, shortcuts and held callbacks after identity/value/context changes.
+
+[C66 record](../audits/evidence/2026-10-22-c66-final-custom.json) records commands,
+results and hashes. C64's previously pending full retained mounted suite also passed;
+that earlier built fixture remains separate from C66's focused mounted run. First
+public-host socket closure and test-setup priority failure are preserved, followed by
+passing fresh runs; no host defect is established. No installed/native/operator gate
+closes. Initial String/cache qualification is next; other M2, E01/E02/E04/widerQ00/E05
+and full lifecycle acceptance stay open. Experimental0.4.1/compatibility unchanged.
+
+
+C66 completed:61 tooling assertions/9tooling/48module suites,206explicit typed files,
+exact2242/591,217custom String native cases plus retained trait/condition matrices PASS.
+Focused436 states at1440/390 and public269325accepted/1candidate/40tie diagnostics/
+0writes PASS. Isolated check/package PASS; archive SHA256
+`b85d777428f01fa6579fb352c93c631ae0291ee427b36490154a8fb583efc2aa`.
+C64 full mounted completion is separately captured in C64/C66 evidence. All owned
+fixtures stopped; baseline Core clean. No installed/native/operator acceptance.

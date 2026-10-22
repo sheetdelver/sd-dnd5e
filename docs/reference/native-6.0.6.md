@@ -1193,3 +1193,12 @@ differ from FormulaField semantics. Current custom fields and earlier language l
 are separate; a distinct formatting shell proves current labels, not Actor phase replay.
 Runtime stays gated pending C66. [Evidence](../audits/evidence/2026-10-22-c65-final-custom-foundation.json) records exact source hashes and
 restricted source/default/empty-Set/sheet collaborators; no native/operator acceptance.
+
+
+C66 retains C65's210 frozen inputs and adds seven canonical-value prefix compositions
+using pinned English registries.217 actual primitive/trait/sheet/format cases pass.
+Runtime custom Strings share these semantics; earlier language labels still precede
+final text. Repeated final operations follow qualified native priority and current
+operands. This is literal text preparation, not formula/reference evaluation, inferred
+training grants or full source DataModel/dispatcher acceptance. Initial Strings,
+conditions/Item composition and null/coercions remain unqualified. [Record](../audits/evidence/2026-10-22-c66-final-custom.json).

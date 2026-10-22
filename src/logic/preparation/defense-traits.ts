@@ -19,7 +19,7 @@ export interface DefenseFacts {
     preparation?:{fields:Record<string,string[]>;provenance:string;nativeResistanceDisplay?:{value:string;condition:'petrified';provenance:string}};
     preparationNote?:string;
 }
-const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; qualified condition grants,initial fields,final Sets and constant damage adjustments';
+const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; qualified condition grants,initial fields,final Sets/custom Strings and constant damage adjustments';
 const unavailable=(reason:string):UnavailableCategory=>({status:'unavailable',values:null,custom:null,bypasses:null,amount:null,entries:null,display:'Unavailable',reason});
 const physical=new Set<string>(PHYSICAL_DAMAGE_606);
 function finish(values:string[],custom:string[],bypasses:string[],amount:Record<string,number>={}):ReadyCategory {
@@ -60,7 +60,7 @@ export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effec
             }
             categories[key]=reason?unavailable(reason):finish([],[],bypasses,prepared);continue;
         }
-        const values=initializeTraitSet606(effects.finalDefenseSets?.[`system.traits.${key}.value`]??entry.value),custom=entry.custom??'';
+        const values=initializeTraitSet606(effects.finalDefenseSets?.[`system.traits.${key}.value`]??entry.value),custom=effects.finalTraitStrings?.[`system.traits.${key}.custom`]??entry.custom??'';
         if(!values||typeof custom!=='string'){categories[key]=unavailable(`${defenseLabels[key]} source value/custom malformed`);continue;}
         const labels=key==='ci'?CONDITION_STATUS_LABELS_606:DAMAGE_LABELS_606;
         if(values.some(value=>!Object.hasOwn(labels,value)&&!(key!=='ci'&&value==='ALL'))){categories[key]=unavailable(`${defenseLabels[key]} value outside qualified registry`);continue;}

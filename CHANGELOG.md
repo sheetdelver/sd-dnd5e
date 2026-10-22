@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share bounded final custom defense/training text while retaining earlier language labels.
+
 - Share bounded petrification/final defense fields while preserving earlier grants and current physical bypasses.
 
 - Share bounded final condition immunity while preserving earlier status and roll-adjustment snapshots.
