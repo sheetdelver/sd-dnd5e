@@ -2253,3 +2253,62 @@ effects remain gated. Next integrate qualified constant-guard Actor final mode f
 with separate passive/score and execution snapshots,then verify actual consumers. Other
 final fields/Item/filters/flags/time/expressions and E01/E02/widerQ00/E05/fullDD/A/M/ADR/
 nativeoperator gates remain open;experimental0.4.1/compatibility unchanged.
+
+### C48 — Shared bounded final mode execution (2026-10-21)
+
+Parent `1db9f32`;partial M2/Q02a,DD-02/03/27/34,A02/A04/A18/A21.1188 maintained
+source cases fail unchanged C47/pass after. Initial/condition modes,post-passive armor/
+initiative counts and final Actor-owned mode fields have distinct shared snapshots.
+Passives/fixed scores remain earlier results. Four additional exact late-counter
+cases and actual armor Stealth source/final interactions pass. Other final fields,
+Item-transferred final effects,Item phases/filters/time/flags/formulas stay gated.
+Effect-plan Item identity distinguishes final origins;source remains unchanged.
+
+The retained malformed-initiative case caught a global availability regression during
+implementation;local initiative failure with unrelated skill/fact availability is
+restored. The old final-open fixture is now qualified advantage/passive15;the native
+effect harness applies it after actual derivation. Missing/null/blank/non-numeric/
+unsupported fields,operations,filters and Item-origin cases remain unavailable.
+Context/source recovery,raw prepared-looking poison,manual/selected checks and all1188
+Normal-bound/fixed-score cases are maintained regressions. A test's unknown effect
+identity access was typed explicitly;no production typing suppression.
+
+Commands use released Core0.19.3/90c13e5 via --core. `npm test`:60 assertions,8 tooling/
+40 module suites PASS;`typecheck`:186 explicit module/UI/server/test/hook files PASS.
+Exact `test:native-source`:2242 records/591 expressions at87e94db PASS. Native checks,
+effects (69 Item eligibility/5 phase/20 numeric/19 constant/26 mode cases),initial119,
+conditions and actual Document/Character order traces PASS. Final-mode1188 comparisons
+include9504 actual check configurations plus1188 initiative configurations. Four new
+late-counter cases are controlled field intermediates;native armor preparation remains
+C18's separate source evidence,not silently replaced by those counters.
+
+`test:mounted -- --final-modes-only`:146 actual states at1440/390 PASS,
+`/tmp/dnd5e-mounted-dIu6iX`:68 sampled source actors at both widths,8 fixed-score states
+and2 live source/Item/context recovery states. Actual sheet passive values,skill/tool/
+ability/save/initiative previews,manual/selected execution,shortcuts and held callbacks
+agree. Full retained results are recorded below. These are module/SDK seam fixtures,
+not installed Core UI. The first full run was intentionally interrupted after adding
+the stricter Item-origin gate;only the restarted final run counts as evidence.
+
+`test:public-rolls`:130506 accepted PASS.42768 new final-mode requests plus1188 Normal
+bounds and1188 fixed-score requests;the newly qualified old final-open adds25 requests.
+40 plain equal-index diagnostics,1 unary rejected candidate,0 native writes. Strict
+ordered faces/entropy/value/count/states/totals/distributions and unequal indices remain;
+actual host serialization unchanged. Artifact `/tmp/dnd5e-public-rolls-X2C0eB`.
+`check:package`:isolated public-boundary/module checks,managed typing and logic/UI/server
+bundles PASS;`/tmp/dnd5e-package-oGyk45/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`c30eda25ef297bbc023918506f52c3cc1140e27e7fb34f16fb6ba5dc920b4be5`.
+[Portable record](../audits/evidence/2026-10-21-c48-final-modes.json) preserves before/input/
+source/method/artifact identities and declared stubs. No native boot/installed/operator
+acceptance or full gate closure. Node24.21/npm11.19;Node22 CI unrun. E01/E02/widerQ00/E05,
+other M2 fields/Item/final/filters/flags/expressions and later lifecycle work remain open;
+experimental0.4.1/compatibility unchanged. Next qualify further final numeric/proficiency/
+bonus fields with phase-specific prepared inputs rather than recomputing all values
+from final fields. This remains the existing M2 plan,not a new scope decision.
+
+Final retained `test:mounted` PASS,`/tmp/dnd5e-mounted-5TTZh6`:1172 field/624 training
+plus50 transitions,8 preview,16 fact,18 source-mode,56 tool,80 selected,22 eligibility,
+58 mode-effect,58 health,102 AC/init,90 armor,84 movement,24 proficiency,149 defense,
+40 species and180 Normal-range states and retained callbacks. This final run includes
+the stricter Item-origin boundary. All task-owned fixture processes/browser closed;
+pristine Core baseline remains clean;production listeners untouched.

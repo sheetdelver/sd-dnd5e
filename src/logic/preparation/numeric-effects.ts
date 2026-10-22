@@ -1,5 +1,5 @@
 import {prepareConditions606,type ConditionPreparation606} from './conditions';
-import { initializedModeState, applyEffectMode, type EffectModeState } from './mode-effects';
+import { initializedModeState, applyEffectMode, resolvedEffectMode, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
 import { planEffects606, type EffectPlan, type EffectChange } from './effects';
 import { initializedAbilityRolls606,initializedSaveProficiency606 } from './roll-initialization';
@@ -12,14 +12,15 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 export interface NumericEffects {
     system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
-    initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;
-    applied:Array<{effectId:string;key:string;phase:'initial';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned'}>;
+    initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;checkExecutionReason?:string;
+    applied:Array<{effectId:string;key:string;phase:'initial'|'final';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned'}>;
 }
 /** Qualified initial numeric/defense/training trait fields. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
  * starts at verified0 despite stale nonpersisted source values (DD-R04).
  * Only constant FormulaField add/subtract/override is reduced by operation,
- * without parsing arbitrary expressions. Final/custom/Item phases stay gated. */
+ * without parsing arbitrary expressions. Qualified final mode changes have a separate
+ * execution snapshot; other final/custom/Item fields stay gated. */
 export function prepareNumericEffects606(actor:unknown):NumericEffects {
     const source=record(actor)??{},system=structuredClone(record(source.system)??{}),plan=planEffects606(actor);
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
@@ -34,8 +35,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     let reason=plan.reason;
     const formulas:Record<string,string>={},modes:Record<string,EffectModeState>={};
     const origins:Record<string,'source'|'default'|'null-cleaned'>={};
-    if(plan.final.length)reason??='Final effect field/phase preparation unavailable';
-    function target(change:EffectChange):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;valid?:(value:string)=>boolean}|null {
+    function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;valid?:(value:string)=>boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
         if(keys[1]==='traits'){
             const key=keys[2],field=keys[3];
@@ -167,5 +167,31 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         const value=applyEffectMode(state,'add',modifier.mode);if(value===null){reason??='Condition mode preparation unavailable';break;}
         parent[field]=value;modes[modifier.path]=state;
     }
-    return {system,conditions,globals,plan,applied,modes,initialized,equipment:prepareEquipment606(actor),...(reason?{reason}:{})};
+    // Native passives and initiative scores precede armor/initiative/final modes.
+    // Keep their earlier count state separate; never move a final effect to initial.
+    const executionModes=structuredClone(modes),equipment=prepareEquipment606(actor);
+    let checkExecutionReason:string|undefined;
+    function addExecutionMode(key:string,delta:number){
+        const field=target({key});
+        if(!field?.mode)return false;
+        const state=executionModes[key]??initializedModeState(field.object[field.field]);
+        if(!state||applyEffectMode(state,'add',delta)===null)return false;
+        executionModes[key]=state;return true;
+    }
+    if(equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')&&!addExecutionMode('system.skills.ste.roll.mode',-1))checkExecutionReason='Equipped armor Stealth mode source malformed';
+    for(const modifier of conditions.modes)if(modifier.phase==='initiative')addExecutionMode(modifier.path,modifier.mode);
+    for(const change of plan.final){
+        if(change.itemId!==undefined){reason??='Transferred Item final mode phase requires qualification';continue;}
+        const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
+        if(!field?.mode||delta===null||![-1,0,1].includes(delta)){
+            reason??=`Final mode field/value requires qualification: ${change.key}`;continue;
+        }
+        const state=executionModes[change.key]??initializedModeState(field.object[field.field]);
+        const before=state?resolvedEffectMode(state):null,value=state?applyEffectMode(state,change.type,delta):null;
+        if(!state||before===null||value===null){reason??=`Final mode operation/source requires qualification: ${change.key}`;continue;}
+        executionModes[change.key]=state;
+        applied.push({effectId:change.effectId,key:change.key,phase:'final',before,value});
+    }
+    if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
+    return {system,conditions,globals,plan,applied,modes,executionModes,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
 }

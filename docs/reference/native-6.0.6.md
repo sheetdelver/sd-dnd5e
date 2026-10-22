@@ -1031,3 +1031,13 @@ Foundry ClientDocument/Actor prepareData and exact Character methods execute wit
 collaborators to qualify ordering separately. Direct field-change wrappers are explicit;
 no full effect/Item/filter/DataModel initialization or native/operator acceptance.
 [Record](../audits/evidence/2026-10-21-c47-final-modes-foundation.json) preserves hashes/stubs.
+
+
+C48 integrates only qualified Actor-owned final mode fields.1188 cases share C47's
+independent expectations;four additional exact late-derived counter/final field cases
+preserve a pre-counter passive snapshot (armor itself remains C18's separate evidence).
+The existing effect-modes final-open fixture now expects final advantage with unchanged
+passive15;native-effect-oracle applies initial and final changes on their respective
+sides of actual ability/skill/tool derivation. [Record](../audits/evidence/2026-10-21-c48-final-modes.json)
+separates regression/method/mounted/public evidence. Item-transferred final modes,
+Item-final preparation,other final fields/filters and native/operator gates remain open.

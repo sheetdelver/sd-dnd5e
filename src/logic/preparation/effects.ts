@@ -4,7 +4,7 @@ import {constantFilter606,initialFieldFilter606,type ConstantFilter,type Constan
 import {initialFilterData606} from './initial-filter-data';
 import {itemEffectState606,type ItemEffectState} from './item-effect-state';
 export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState;condition?:ConstantFilter;key?:string}
-export interface EffectChange {effectId:string;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number;condition?:ConstantFilter}
+export interface EffectChange {effectId:string;itemId?:string|null;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number;condition?:ConstantFilter}
 export interface EffectPlan {initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];conditions?:ConditionSource606[];reason?:string}
 const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50};
 /** Source-only eligibility/phase plan for exact6.0.6/Foundry14.367.
@@ -97,7 +97,7 @@ export function planEffects606(actor:unknown):EffectPlan {
                     fail(id,'conditions-unavailable','Effect change filters/replacement require Q02a qualification',parentId);continue;
                 }
                 if(!changeCondition.matches){decisions.push({id,parentId,key,status:'change-filtered',condition:changeCondition});continue;}
-                const entry:EffectChange={effectId:id,key,type,value:structuredClone(change.value),phase:phase as 'initial'|'final',priority,order:order++,condition:changeCondition};
+                const entry:EffectChange={effectId:id,...(item?{itemId:parentId??null}:{}),key,type,value:structuredClone(change.value),phase:phase as 'initial'|'final',priority,order:order++,condition:changeCondition};
                 (phase==='initial'?initial:final).push(entry);any=true;
             }
             decisions.push({id,parentId,status:any?'eligible':'no-changes',condition,...(eligibility?{eligibility}:{})});

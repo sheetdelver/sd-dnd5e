@@ -192,10 +192,10 @@ for(const row of modeFixture.cases.filter(row=>row.expected)){
  const actor=Object.assign(new NativeDispatch(),{system:model,flags:{dnd5e:{}},getFlag:()=>undefined,getRollData:()=>({roll:{}}),addConditionRollReduction:()=>{},conditionRollReduction:0,coverBonus:0,hasConditionEffect:()=>false,_isRemarkableAthlete:()=>false});
  for(const [path,value] of Object.entries(row.sourceModes))set(actor,path,value);
  const raw=structuredClone({system:{abilities:model.abilities,skills:model.skills,tools:model.tools,rolls:model.rolls}});actor._source=raw;model._source=raw.system;model.parent=actor;
- for(const change of row.changes.map((change,order)=>({...change,order})).sort((a,b)=>priorities[a.type]-priorities[b.type]||a.order-b.order)){
+ function applyPhase(phase){for(const change of row.changes.filter(change=>(change.phase??'initial')===phase).map((change,order)=>({...change,order})).sort((a,b)=>priorities[a.type]-priorities[b.type]||a.order-b.order)){
   const field=Object.assign(new sandbox.numeric.AdvantageModeField(),{nullable:false,choices:[-1,0,1]});set(actor,change.key,field.applyChange(get(actor,change.key),actor,change));
- }
- model.prepareAbilities();model.skills.prc=model.prepareSkill('prc',{rollData:{},originalSkills:{}});model.prepareTools();
+ }}
+ applyPhase('initial');model.prepareAbilities();model.skills.prc=model.prepareSkill('prc',{rollData:{},originalSkills:{}});model.prepareTools();applyPhase('final');
  const modes=[];for(const config of [{skill:'prc'},{skill:'prc',tool:'thief'},{tool:'thief'},{primary:'tool',skill:'prc',tool:'thief',ability:'wis'}]){
   await actor.run(config.primary??(config.skill?'skill':'tool'),config);modes.push(Number(builtCapture.process.advantage)-Number(builtCapture.process.disadvantage));
  }

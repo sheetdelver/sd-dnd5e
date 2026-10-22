@@ -79,7 +79,7 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     if(localMode)for(const modifier of effects.conditions.modes)if(modifier.phase==='initiative'&&modifier.path==='system.attributes.init.roll.mode')applyEffectMode(localMode,'add',modifier.mode);
     if(!localMode)reason??='Initiative source mode malformed';
     const rawGlobal=record(record(record(record(actor)?.system)?.rolls)?.ability)?.check;
-    const scopes=[{path:`abilities.${key}.check.roll`,value:record(abl?.check)?.roll},{path:'attributes.init.roll',value:data.roll},{path:'rolls.ability.check',value:rawGlobal!=null&&!record(rawGlobal)?false:global}].map(scope=>({...scope,effectMode:scope.path==='attributes.init.roll'?(localMode??undefined):effects.modes['system.'+scope.path+'.mode']}));
+    const scopes=[{path:`abilities.${key}.check.roll`,value:record(abl?.check)?.roll},{path:'attributes.init.roll',value:data.roll},{path:'rolls.ability.check',value:rawGlobal!=null&&!record(rawGlobal)?false:global}].map(scope=>({...scope,effectMode:effects.executionModes['system.'+scope.path+'.mode']}));
     const mode=sourceD20Mode(scopes),bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));
     reason??=mode.reason;
     if(bonuses.some(value=>value===null))reason??='Initiative bonus expression requires Q00 qualification';

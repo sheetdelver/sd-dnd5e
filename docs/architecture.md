@@ -344,8 +344,9 @@ NumberField ability score/save proficiency, known local skill/tool multipliers
 and global check/save/skill/tool proficiency targets. Finite numeric literal
 changes support add/subtract/multiply/override/upgrade/downgrade and bounded
 native cleaning. Invalid global choices, unsupported initial source values,
-FormulaFields, final changes, filters/status/time/dependencies/Item phases and
-custom operations remain explicit unavailable. Final source operands must never
+Unqualified FormulaFields,other final fields,filters/status/time/dependencies/Item
+phases and custom operations remain explicit unavailable. C48 qualifies only final
+Actor-owned roll-mode fields after earlier passive/score preparation. Final source operands must never
 be treated as initial inputs to recompute already-derived fields.
 
 ### Constant FormulaField adaptation (C14)
@@ -356,7 +357,7 @@ the native FormulaField construction; effective numeric operands feed checks,
 saves, tools, skills, passives and fresh configured requests. This is operation
 reduction on known scalar inputs, not an arbitrary expression parser. Nonempty
 unknown expressions, references, multiply/upgrade/downgrade/custom FormulaField
-operations and final phases remain unavailable. Numeric NumberFields retain
+operations and other final phases remain unavailable. Numeric NumberFields retain
 their separately qualified C13 operations. Global bonus effects use detached
 initialized globals without laundering malformed source scopes into defaults.
 
@@ -386,7 +387,7 @@ Ability/save and tool scopes use the same trusted count semantics.
 Twenty-five controlled native comparisons and mounted/public-host requests cover
 source poison, negative counts, automatic advantage, cross-scope suppression and
 override precedence, including different passive/roll outcomes. Four explicit
-unqualified cases remain gated. Initial literal deltas-1/0/1 only; final/effect
+unqualified cases remain gated. Literal deltas-1/0/1 only; C48 separately qualifies final Actor-owned mode fields. Other effect
 filters/time/Item dependencies/custom hooks and wider values remain separate work.
 No native DataModel/Document or operator parity is inferred from these methods.
 
@@ -447,7 +448,9 @@ as mechanics. Existing checks can proceed with this bounded equipment profile;
 unknown Item/effect/migration/formula dependencies retain explicit reasons.
 
 `SkillToolModel.modeStates` remains the initial passive phase;
-`executionModeStates` adds the exact post-passive armor Stealth count. This prevents
+`NumericEffects.executionModes` adds the exact post-passive armor Stealth count and
+initiative condition counts before qualified final mode changes. SkillToolModel
+formats this shared snapshot as `executionModeStates`. This prevents
 retroactively changing native passives while keeping fresh roll configuration,
 combined/alternate requests, previews and direct execution in agreement. The
 prepared equipment identity participates in intent retirement. AC registry
@@ -1007,3 +1010,28 @@ phase. The frozen1188-case qualification covers constant Actor fields and raw mo
 combination separately from source initialization and document phase order. Runtime final
 effects remain gated pending integration;other fields/filters/Item preparation are not
 qualified by these mode cases.
+
+
+### Shared final mode execution snapshot (C48)
+
+C48 supersedes C47's runtime restriction for qualified Actor-owned constant-guard
+final roll-mode fields. `NumericEffects.modes` preserves initial effects/ability
+condition counts used for passives and pre-final initiative scores. `executionModes`
+clones those states,adds post-passive armor Stealth and initiative condition counts,
+then applies final mode operations in the shared plan's priority/source order. Raw
+source and the earlier initialized operand snapshot remain unchanged. Final provenance
+records effect identity,key,phase,before/value; nonpersisted raw counts stay ignored.
+
+Skill/tool configuration,ability/save execution and initiative previews/direct adapter
+rolls consume that one execution map. Fixed initiative scores retain their earlier
+local-mode snapshot. Source/default,manual override,combined proficiency advantage,
+suppression/subtraction and Normal-only ranges retain existing compiler semantics.
+A malformed initiative source remains local to initiative; unrelated qualified facts
+are not hidden. Unknown final fields/values/filters or Item-transferred final modes
+remain explicitly unavailable. Effect-plan Item identity distinguishes those final
+origins; Item-target and Item-final preparation remain separate qualification work.
+
+No browser formula calculation,second cache/evaluator or write route is added. Both
+layouts consume the same projected totals/passives and modal compiler; changed source,
+ownership/context or unavailable final intent retires held callbacks and requires a
+fresh review. Earlier DD-R01–07 and plain-d20 equivalence boundaries remain.

@@ -1,6 +1,5 @@
 import { numericAbilityValue } from './numeric';
 import type { EffectModeState } from './mode-effects';
-import {initializedModeState,applyEffectMode} from './mode-effects';
 import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
@@ -35,7 +34,7 @@ function rollInput(value:unknown):unknown {
 }
 export function prepareSkillToolModel606(actor:unknown, context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):SkillToolModel {
     const system=effects.system, profile=numericCharacterProfile(actor,context,effects);
-    let reason=profile.status==='ready'?undefined:profile.reason;
+    let reason=(profile.status==='ready'?undefined:profile.reason)??effects.checkExecutionReason;
     const rawGlobals=effects.globals,sourceGlobals=record(record(system.rolls)?.ability)??{};
     if ([system.rolls,record(system.rolls)?.ability].some(value=>value!=null&&!record(value))) reason ??= 'Roll source container malformed';
     const abilities=Object.fromEntries(abilityKeys.map(key=>{
@@ -55,13 +54,7 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
                 ...(error?{reason:error}:{}),...(kind==='skill'?{passiveBonus,...(record(data?.bonuses)?.check||passiveBonus===null?{primaryReason:'Skill formula requires Q00 qualification'}:{})}:{})}];
         }));
     }
-    const executionModeStates=structuredClone(effects.modes);
-    if(effects.equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')){
-        const path='system.skills.ste.roll.mode';
-        const state=executionModeStates[path]??initializedModeState(record(record(record(system.skills)?.ste)?.roll)?.mode);
-        if(state){applyEffectMode(state,'add',-1);executionModeStates[path]=state;}
-        else reason??='Equipped armor Stealth mode source malformed';
-    }
+    const executionModeStates=structuredClone(effects.executionModes);
     return {reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
         globals:Object.fromEntries(['check','skill','tool'].map(key=>[key,sourceGlobals[key]!=null&&!record(sourceGlobals[key])?false:rollInput(rawGlobals[key])])) as SkillToolModel['globals']};
 }

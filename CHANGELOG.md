@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Apply qualified Actor-owned final roll modes through shared execution while preserving earlier passive and initiative-score values.
+
 - Qualify final roll-mode changes separately from prepared passive and initiative-score snapshots; runtime integration remains separate.
 
 - Correct Character phase ordering so late petrification immunity preserves earlier Poisoned check modes and passive scores.

@@ -516,7 +516,15 @@
           "phase": "final"
         }
       ],
-      "expected": null
+      "expected": {
+        "mode": 1,
+        "passive": 15,
+        "combinedMode": 1,
+        "toolMode": 0,
+        "abilityMode": 0,
+        "combinedToolMode": 1,
+        "saveMode": 0
+      }
     },
     {
       "id": "tool-local-add-adv",
