@@ -1189,3 +1189,37 @@ armor/weapon/mastery fields and conditional options remain dynamic. Raw prepared
 labels are not source authority. Runtime final training remains gated until C60
 shared snapshots/projections and tests. [Record](audits/evidence/2026-10-22-c59-final-training-sets-foundation.json) retains phase,constructor,
 content-index and explicit weapon-shell limits;no Item action/native acceptance.
+
+### Final training and language field/cache projections (C60)
+
+NumericEffects.finalTrainingSets holds qualified final armor/weapon/language/mastery
+values separately from initialized/initial-effect system operands. One existing Set
+interpreter applies primitive literal operations; receipts retain before/value/delta,
+phase, initialization origin and earlier-or-final operand provenance. No source write,
+content cache, name inference or Item action is added.
+
+Native languages.labels is an earlier preparation cache. LanguageCategory.preparedSpoken
+retains that result; spoken/display formats current qualified field values for callers.
+One environment-neutral formatter supplies both snapshots. A separate native formatting
+shell qualifies the current-value presentation without replaying actual native Actor
+preparation. An earlier-label note explains differing values in both layouts. sourceKeys
+is the existing current-local-key projection, not raw persistence data; preparedKeys
+is the earlier initialized/initial-effect operand. Commands must read original source
+and current authorized intent instead of persisting these projections.
+
+```mermaid
+flowchart LR
+  S[Persisted Actor source] --> I[Initialized and initial-effect operands]
+  I --> P[Earlier language labels]
+  I --> F[Final training Sets]
+  F --> C[Current caller labels]
+  P --> N[Earlier-label note]
+  C --> U[Shared sheets and cards]
+  N --> U
+```
+
+Mastery source choices remain separate from local weapon training. Current conditional
+mastery getter evidence does not authorize Item attacks/activities. Unknown IDs remain
+unresolved keys or unavailable operations; E01 content access is not bypassed.
+[Evidence](audits/evidence/2026-10-22-c60-final-training-sets.json) records the actual
+field/cache/getter, formatting-shell and mounted/public-host limits separately.

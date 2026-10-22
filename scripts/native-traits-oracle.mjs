@@ -202,7 +202,8 @@ for(const row of finalTrainingFixture.cases){
  const weapon=Object.assign(new box.native.NativeWeapon(),{parent:{actor:{system:model}},type:{baseItem:'longsword'},mastery:'sap'}),opts=weapon.masteryOptions;
  assert.deepEqual(opts?Array.from(opts,entry=>entry.value):null,row.expectedLongswordSapOptions,row.id+'/fresh conditional mastery options');
  if(opts)assert.equal(opts[0].rule,opts.length>1);
- finalTrainingObservations.push({id:row.id,current:row.expectedAfter,earlierSpoken:Array.from(model.traits.languages.labels.languages),display:JSON.parse(JSON.stringify(display)),masteryOptions:opts?Array.from(opts,entry=>entry.value):null});
+ const callerFormat={traits:{languages:{value:cleanSet(row.expectedAfter['languages.value']),custom:'',communication:{}}}};TraitsFields.prepareLanguages.call(callerFormat);assert.deepEqual(Array.from(callerFormat.traits.languages.labels.languages),row.expectedCallerSpoken,row.id+'/separate caller-format shell,not actual phase replay');
+ finalTrainingObservations.push({id:row.id,current:Object.fromEntries(Object.keys(row.expectedAfter).map(path=>[path,Array.from(get(model,'traits.'+path))])),callerFormattedFromSeparateShell:Array.from(callerFormat.traits.languages.labels.languages),earlierSpoken:Array.from(model.traits.languages.labels.languages),display:JSON.parse(JSON.stringify(display)),masteryOptions:opts?Array.from(opts,entry=>entry.value):null});
 }
 box.CONFIG.DND5E.traits=Object.fromEntries(['dr','di','dv','ci','dm'].map(k=>[k,{}]));box.Trait.keyLabel=(key,{trait})=>key==='ALL'?actualRegistry.allDamage:(trait==='ci'?actualRegistry.conditions:actualRegistry.damage)[key];
 const finalDefenseFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/final-defense-sets.json'),'utf8')),finalDefenseObservations=[];

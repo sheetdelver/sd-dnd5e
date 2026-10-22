@@ -413,3 +413,10 @@ then final Set operations then sheet/getter. Earlier cached language labels rema
 separate from current fields. Model label poison deliberately overwritten; no source
 DataModel stripping/boot claim. Conditional longsword/sap mastery getter is an explicit
 shell,not Item actions or grant inference. Runtime admission remains C60 work.
+
+C60 extends the90 final-training fixtures with independent current-key caller label
+expectations, keeping C59 native cached-label expectations unchanged. Actual native
+formatter calls on a separate shell check current presentation; the original model's
+earlier cache/sheet assertions remain intact. Runtime retains both. C27 unqualified-
+effect/C28 final-training original sources are retained; only obsolete unavailable
+expectations are superseded. No Item grant/action or full source/model boot claim.

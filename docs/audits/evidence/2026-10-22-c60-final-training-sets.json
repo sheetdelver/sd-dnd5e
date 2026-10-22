@@ -1,0 +1,201 @@
+{
+  "checkpoint": "C60",
+  "date": "2026-10-22",
+  "parent": "1356212c5556af06a4070e5be3aa4b8fc98ddd35",
+  "requirements": "Partial M2/Q02a DD-03/27/34,A03/A04/A18/A21;no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "before": {
+    "commit": "1356212c5556af06a4070e5be3aa4b8fc98ddd35",
+    "method": "Run maintained90-profile regression/helper/frozen caller-format fixture against C59 production code before runtime edits",
+    "profiles": 90,
+    "failures": 90,
+    "logSha256": "56626e416f3db53c0a202da65274437d1bbfdac07a7333293b99623a04d97ed8",
+    "reason": "Prior intentional final-training runtime gate;new support,not a Core defect"
+  },
+  "after": {
+    "profiles": 90,
+    "actorOnlyKnownTrainingSetTargets": 5,
+    "initializedAndFinalOperandsSeparate": true,
+    "repeatedFinalReceipts": true,
+    "rawSourceAndPoisonLabelsPreservedButNotTrusted": true,
+    "earlierPreparedLanguageLabelsRetained": true,
+    "currentCallerLabelsFormattedSeparately": true,
+    "singleEnvironmentNeutralLanguageFormatter": true,
+    "noActualNativePhaseReplay": true,
+    "weaponTrainingAndMasteryChoicesSeparate": true,
+    "noItemActionOrNameGrantInference": true,
+    "malformedUnknownReferenceItemAndContextGates": true,
+    "freshIntentRequiredAfterRecovery": true
+  },
+  "controlledSource": {
+    "trainingCases": 90,
+    "retainedFinalDefenseCases": 196,
+    "currentArraysCapturedFromActualModel": true,
+    "separateCallerFormattingShell": true,
+    "nativeSourceHashes": {
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/documents/actor/trait.mjs": "a638c34db4c3e4255bfbbd1952d7a3231dd9ea35038c51b9b7cc0d77658bd635",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200"
+    },
+    "foundry": {
+      "generation": 14,
+      "build": 367,
+      "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+      "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+    },
+    "englishSha256": "ab2545d9500f8019e0a752af4ab252073f3cdc18008c5e82bcb6ec71af5e82a4"
+  },
+  "checks": [
+    {
+      "command": "node scripts/test.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "61assertions/9tooling/46module suites PASS",
+      "logSha256": "47e706675b2b298cc2225fce6dcb49a9906dd5849ef566a4760a1ccc9cb1bf97"
+    },
+    {
+      "command": "node scripts/typecheck.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "201 explicit source/UI/server/test/hook files PASS",
+      "logSha256": "71c4be168539eb604e6337fcc55c57878847406a9ac940798cb32985f7809503"
+    },
+    {
+      "command": "node scripts/native-source.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+      "result": "2242records/591expressions exact inventory PASS",
+      "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+    },
+    {
+      "command": "node scripts/native-traits-oracle.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c60-native-traits-final.json",
+      "result": "90training/current-format +196finaldefense+retained25defense/24initialtrainingSets/33training-language/33initialtrait cases PASS",
+      "logSha256": "a6918d7be72a387458c87510c7e1c32b0a582df0c7e52af5d178dd6df1044eb1"
+    },
+    {
+      "command": "node scripts/test-mounted.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell --final-training-sets-only",
+      "result": "86 actual both-layout current values/earlier label notes/card/source/context/held-intent states PASS",
+      "logSha256": "bf45912d9ad35f983fc7e3b6b9117f5b4d74cde29321f2d4ff85faef4fedb4c9"
+    },
+    {
+      "command": "node scripts/test-mounted.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell",
+      "result": "50transitions/8previews/16facts/18modes/56tools/80selected/22eligibility/1172fields/58mode-effects/58health/102AC-init/90armor/84movement/624training/24indicators/149defenses/40species/180normalranges+heldcallbacks PASS",
+      "logSha256": "9a40eb784f03ac3701acf9bebf2f8aa84c3bb477d096e34452994eaebf1a9a88"
+    },
+    {
+      "command": "node scripts/test-public-rolls.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "262960accepted/1candidate rejection/40equal-index diagnostics/0native writes PASS",
+      "logSha256": "997ad498d4f447a80daa34fb9934d8e5aad04b7c32714b0eb8dbb28c53d402b7"
+    },
+    {
+      "command": "node scripts/check-package.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "isolated module check/managed package PASS",
+      "logSha256": "eccf19940f33481d355061a330157e84c79477edbbeefc744168003d5c7b3867"
+    }
+  ],
+  "artifacts": {
+    "scripts/native-traits-oracle.mjs": {
+      "sha256": "eb18f592a70fdb99f10d230ab6f9c3957f0ac92f136238513c789429af1db93d"
+    },
+    "scripts/test-mounted.mjs": {
+      "sha256": "d520b74d433e12de362815a95b676a2348df18faaaa8fe619177c8220b910814"
+    },
+    "scripts/test-public-rolls.mjs": {
+      "sha256": "71bb75b7c00655f36e7938f08b7836ffcd453c60780808783d3117fd7586ded6"
+    },
+    "tests/fixtures/native-6.0.6/final-training-sets.json": {
+      "sha256": "7c144cfa3614aeee14513d311b1bb2f20998bcbd2afb8198d8456282345c8cde"
+    },
+    "src/logic/preparation/numeric-effects.ts": {
+      "sha256": "a4448d4062ff9e7b130784f10501ba76694a79587ac850ab5f895c772a31a34d"
+    },
+    "src/logic/preparation/training.ts": {
+      "sha256": "c3dc71ae217ea259e0e46c68ddf13bc57be31c975348738bb33b42260581e3a4"
+    },
+    "src/ui/components/blocks/Proficiencies.tsx": {
+      "sha256": "73bbd8935d84ab2e77e2c32c07f5c743921987cdaf6d5c16f1f8c61e65fe9303"
+    },
+    "src/tests/final-training-sets.test.ts": {
+      "sha256": "aebbac90cd985e46ce8955a8bc8aa40dc34b7ba2356e05b011fd229aedf60d62"
+    },
+    "src/tests/fixtures/final-training-scenarios.ts": {
+      "sha256": "1c1642cd1620ad7a0473970267884ca4a32bd73180dba019097a12c5ed5e2f1b"
+    },
+    "temp/c60-native-traits-final.json": {
+      "sha256": "086ee60a03e9ad6d9ca77f9fb1c0ebb5e36ce91a9181a647ebe6ea97c90a442d"
+    },
+    "/tmp/dnd5e-mounted-6Ywyww/evidence.json": {
+      "sha256": "9a4c5f517054ca4c926074cbcf5685fd0ec41a785f1971d14dd6d7ca72f0f444"
+    },
+    "/tmp/dnd5e-mounted-6Ywyww/fixture.js": {
+      "sha256": "7c61f795792ccb56296d94080f57b39185adda966be9c2564fbff04dfdbf8f11"
+    },
+    "/tmp/dnd5e-mounted-ErcQg3/evidence.json": {
+      "sha256": "452a37f15a2cfc98099cf6e35f6c105ceb3e629fb45308990fbd9f64ff716f33"
+    },
+    "/tmp/dnd5e-mounted-ErcQg3/fixture.js": {
+      "sha256": "7c61f795792ccb56296d94080f57b39185adda966be9c2564fbff04dfdbf8f11"
+    },
+    "/tmp/dnd5e-public-rolls-QvUDMs/evidence.json": {
+      "sha256": "64df6cc5864caa1756f4d02d4c32a261c16c4392764cafc35bdb10a950ac688a"
+    },
+    "/tmp/dnd5e-public-rolls-QvUDMs/observed.json": {
+      "sha256": "9ba767f6c43a58f910cd610da9c0a22d1f6c975160eb0e8e67f26266eef800a4"
+    },
+    "/tmp/dnd5e-public-rolls-QvUDMs/transport.json": {
+      "sha256": "075effd842ecff55277048bdee4e8fe0400acef0cedcec6ecf1ab367f694e289"
+    },
+    "/tmp/dnd5e-package-WzaH0Z/data/dist/modules/dnd5e-0.4.1.tgz": {
+      "sha256": "2d9fb4d1062fbe8cfb15138c896a3b97c75be0f87975ce10c9d7be43ff354f3a"
+    }
+  },
+  "publicHost": {
+    "root": "/tmp/dnd5e-public-rolls-QvUDMs",
+    "accepted": 262960,
+    "requests": 262961,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "equalIndexDiagnostics": 40,
+    "nativeWrites": 0,
+    "newFinalTrainingChecks": 360,
+    "newNormalBounds": 90,
+    "criteria": "Exact ordered faces,entropy,retained value/count,active-discard states,totals,distributions. Unequal-pair index exact;equal-die index diagnostic only in homogeneous plain-d20 profile. Serialization unchanged."
+  },
+  "supersedes": [
+    "C59 intentional runtime final-training Set gate for this profile only",
+    "C27 original unqualified-effect source lgt+final hvy and C28 final-training original hvy input;historical fixtures/captures retained,only obsolete module/mounted unavailable expectations superseded"
+  ],
+  "failedRunDispositions": [
+    "Retained C28 final-training expected-unavailable row failed after admission;updated only that row with exact final receipt/current hvy keys.",
+    "Retained C27 unqualified-effect expected-unavailable row likewise failed;preserved original source and asserted current lgt+hvy/+5. Historical source-only native capture still separate.",
+    "No failed run counted as passing;no independent expectations,host serialization or unrelated gates weakened."
+  ],
+  "limits": [
+    "Only known initialized Actor-owned primitive literal Set operations. No Item transfer,broader String/Formula/reference/dependent rules or legacy expansion.",
+    "preparedSpoken is the native earlier cache;spoken/display is explicitly current-key caller formatting. Separate formatting-shell call is not an actual native Actor prepare phase. Native sheet cached-label behavior remains recorded unchanged.",
+    "sourceKeys remains historical current-local-key projection;preparedKeys is earlier initialized/initial-effect data. Neither replaces original source for writes.",
+    "Initialized models/actual field-method/getter construction with declared collaborators;no full DataModel/source boot/native dice/operator acceptance.",
+    "Native mastery getter uses explicit initialized longsword/sap shell,not Item attacks/activities or proficiency grants. Unknown base Item labels remain source keys;E01 not bypassed.",
+    "Mounted actual module components at1440/390,card projection,offline routes only;not installed Core dashboard/native/operator acceptance.",
+    "Real public req.runtime.rolls on temporary synthetic test module/auth/transport/entropy,not installed D&D actor endpoints/chat/native world.",
+    "Node24.21/npm11.19 tested;CI Node22 unrun locally.",
+    "Experimental0.4.1/Core>=0.19.3 unchanged;E01/E02/E04/widerQ00/E05 and all full ADR/DD/A/M gates open."
+  ],
+  "package": {
+    "path": "/tmp/dnd5e-package-WzaH0Z/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "2d9fb4d1062fbe8cfb15138c896a3b97c75be0f87975ce10c9d7be43ff354f3a",
+    "onlyTestsDocsAndOracleCaptureChangedAfterPackaging": true
+  },
+  "services": "All physical task-owned browsers and public hosts closed via driver finally;Core baseline clean;production settings/listeners untouched;no live Foundry."
+}

@@ -1139,3 +1139,14 @@ armor/weapon/mastery fields and conditional options remain dynamic. Raw prepared
 labels are not source authority. Runtime final training remains gated until C60
 shared snapshots/projections and tests. [Record](../audits/evidence/2026-10-22-c59-final-training-sets-foundation.json) retains phase,constructor,
 content-index and explicit weapon-shell limits;no Item action/native acceptance.
+
+C60 retains C59's actual earlier native cache/sheet comparison and adds a separate
+format-method shell for current qualified language values. Frozen caller expectations
+use released registry order; current field arrays are captured from the actual model.
+This is presentation qualification, not a native Actor phase replay. Module current
+spoken labels and earlier preparedSpoken remain distinct, including poisoned raw/model
+label invariance. The original C27/C28 final-heavy-armor source inputs are supported
+without rewriting historical fixtures/captures.
+[Record](../audits/evidence/2026-10-22-c60-final-training-sets.json) separates field/cache/
+getter construction, formatter calls, actual public host and UI/package evidence;
+Item actions, full DataModel/native/operator acceptance remain open.

@@ -48,7 +48,8 @@
         "hvy"
       ],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/armorProf.value/subtract",
@@ -90,7 +91,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/armorProf.value/override",
@@ -138,7 +140,8 @@
         "hvy"
       ],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/armorProf.value/upgrade",
@@ -186,7 +189,8 @@
         "hvy"
       ],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/armorProf.value/downgrade",
@@ -228,7 +232,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/armorProf.value/multiply",
@@ -270,7 +275,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.value/add",
@@ -318,7 +324,8 @@
         "mar",
         "sim"
       ],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.value/subtract",
@@ -360,7 +367,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.value/override",
@@ -408,7 +416,8 @@
         "mar",
         "sim"
       ],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.value/upgrade",
@@ -456,7 +465,8 @@
         "mar",
         "sim"
       ],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.value/downgrade",
@@ -498,7 +508,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.value/multiply",
@@ -540,7 +551,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.value/add",
@@ -590,7 +602,8 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
-      ]
+      ],
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.value/subtract",
@@ -632,7 +645,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.value/override",
@@ -682,7 +696,8 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
-      ]
+      ],
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.value/upgrade",
@@ -732,7 +747,8 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
-      ]
+      ],
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.value/downgrade",
@@ -774,7 +790,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.value/multiply",
@@ -816,7 +833,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.bonus/add",
@@ -861,7 +879,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.bonus/subtract",
@@ -903,7 +922,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.bonus/override",
@@ -948,7 +968,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.bonus/upgrade",
@@ -993,7 +1014,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.bonus/downgrade",
@@ -1035,7 +1057,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/weaponProf.mastery.bonus/multiply",
@@ -1077,7 +1100,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/languages.value/add",
@@ -1122,7 +1146,11 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": [
+        "Dwarvish",
+        "Elvish"
+      ]
     },
     {
       "id": "empty/languages.value/subtract",
@@ -1164,7 +1192,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/languages.value/override",
@@ -1209,7 +1238,11 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": [
+        "Dwarvish",
+        "Elvish"
+      ]
     },
     {
       "id": "empty/languages.value/upgrade",
@@ -1254,7 +1287,11 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": [
+        "Dwarvish",
+        "Elvish"
+      ]
     },
     {
       "id": "empty/languages.value/downgrade",
@@ -1296,7 +1333,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "empty/languages.value/multiply",
@@ -1338,7 +1376,8 @@
       "expectedSpokenBeforeAndAfter": [],
       "expectedArmorKeys": [],
       "expectedWeaponKeys": [],
-      "expectedLongswordSapOptions": null
+      "expectedLongswordSapOptions": null,
+      "expectedCallerSpoken": []
     },
     {
       "id": "local/armorProf.value/add",
@@ -1427,6 +1466,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -1512,6 +1555,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -1599,6 +1646,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -1684,6 +1735,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -1769,6 +1824,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -1854,6 +1913,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -1941,6 +2004,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2026,6 +2093,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2113,6 +2184,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2198,6 +2273,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2283,6 +2362,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2368,6 +2451,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2455,6 +2542,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2540,6 +2631,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2627,6 +2722,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2712,6 +2811,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2797,6 +2900,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2882,6 +2989,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -2969,6 +3080,10 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -3054,6 +3169,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -3141,6 +3260,10 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -3226,6 +3349,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -3311,6 +3438,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -3396,6 +3527,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -3482,6 +3617,11 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Dwarvish",
+        "Elvish"
       ]
     },
     {
@@ -3566,6 +3706,9 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common"
       ]
     },
     {
@@ -3651,6 +3794,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Dwarvish",
+        "Elvish"
       ]
     },
     {
@@ -3736,6 +3883,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -3821,6 +3972,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -3906,6 +4061,10 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "Common",
+        "Elvish"
       ]
     },
     {
@@ -4008,6 +4167,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4106,6 +4268,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4206,6 +4371,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4306,6 +4474,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4406,6 +4577,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4506,6 +4680,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4606,6 +4783,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4704,6 +4884,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4804,6 +4987,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -4904,6 +5090,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5004,6 +5193,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5104,6 +5296,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5204,6 +5399,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5302,6 +5500,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5402,6 +5603,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5502,6 +5706,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5602,6 +5809,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5702,6 +5912,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5802,6 +6015,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -5900,6 +6116,9 @@
       ],
       "expectedLongswordSapOptions": [
         "sap"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6000,6 +6219,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6100,6 +6322,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6200,6 +6425,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6300,6 +6528,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6402,6 +6633,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6502,6 +6736,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6602,6 +6839,10 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "Dwarvish",
+        "Elvish"
       ]
     },
     {
@@ -6702,6 +6943,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6802,6 +7046,9 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     },
     {
@@ -6902,7 +7149,11 @@
       "expectedLongswordSapOptions": [
         "sap",
         "vex"
+      ],
+      "expectedCallerSpoken": [
+        "All Languages"
       ]
     }
-  ]
+  ],
+  "callerProjectionExpectation": "Separately format current known language values using released registry order Common,Dwarvish,Elvish or ALL. Native earlier cache remains expectedSpokenBeforeAndAfter;this is caller formatting,not native phase replay."
 }

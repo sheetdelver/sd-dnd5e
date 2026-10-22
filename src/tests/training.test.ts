@@ -9,6 +9,13 @@ for(const row of trainingCases){
     assert.deepEqual(source,before,row.id);
     if(!facts){failures.push(row.id);continue;}
     assert.equal(adapter.getActorCardData(prepared).blocks?.find((stat:any)=>stat.title==='Training')?.value,facts.summary,row.id+'/card projection');
+    // C60 admits this unchanged C27 final-field input; its source-only native
+    // capture remains separate from the later final-effect comparisons.
+    if(row.id==='unqualified-effect'){
+        assert.equal(facts.status,'ready');assert.deepEqual(facts.categories.armor.sourceKeys,['lgt','hvy']);
+        assert.equal(adapter.getRollData(prepared,'skill','prc')?.formula,'1d20+5');
+        continue;
+    }
     if(e.allUnavailable){assert.equal(facts.status,'unavailable');continue;}
     for(const [kind,expected] of [['armor',e.armor],['weapons',e.weapons]] as const){
         const category=facts.categories[kind];

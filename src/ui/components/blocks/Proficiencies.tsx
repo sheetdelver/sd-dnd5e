@@ -15,6 +15,7 @@ export default function Proficiencies() {
                 <dt style={{fontWeight:600,fontSize:'11px',textTransform:'uppercase',marginBottom:'2px'}}>{trainingLabels[key]}</dt>
                 <dd aria-label={`Training: ${trainingLabels[key]}`} data-status={category.status} title={category.reason??facts.provenance} style={{margin:0,color:category.status==='unavailable'?'var(--text-muted)':'var(--text-secondary)'}}>
                     <span data-training-value>{category.display}</span>
+                    {category.preparationNote&&<small data-training-preparation-note style={{display:'block'}}>{category.preparationNote}</small>}
                     {category.reason&&<small style={{display:'block'}}>{category.reason}</small>}
                 </dd>
             </div>;})}

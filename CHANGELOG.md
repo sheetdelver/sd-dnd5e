@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share qualified final training Sets and current language labels while retaining earlier prepared labels.
+
 - Share bounded final defense Set effects after earlier native normalization.
 
 - Share bounded modern Jack of All Trades and Alert source rules across character checks and initiative.

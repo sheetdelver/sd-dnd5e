@@ -10,6 +10,13 @@ for(const row of trainingEffectCases){
     const source=trainingEffectSource(row),before=structuredClone(source),effects=prepareNumericEffects606(source),actor=adapter.prepareActorData(source,skillContext());
     assert.deepEqual(source,before);
     const formula=adapter.getRollData(actor,'skill','prc')?.formula??null;
+    // C60 supersedes this historical phase restriction with its original input.
+    if(row.id==='final-training'){
+        assert.equal(formula,'1d20+5');assert.equal(effects.reason,undefined);
+        assert.deepEqual((actor.derived as any).training.categories.armor.sourceKeys,['hvy']);
+        assert.deepEqual(effects.applied.map(entry=>[entry.phase,entry.before,entry.value]),[['final',[],['hvy']]]);
+        continue;
+    }
     if(row.expectedOperands){
         if(formula!=='1d20+5'){failures.push(row.id);continue;}
         assert.equal(effects.reason,undefined,row.id);

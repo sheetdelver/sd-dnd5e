@@ -2735,3 +2735,49 @@ results remain separate and unchanged. Runtime final training stays gated pendin
 C60 shared snapshots and consumer tests. Existing M2 dependency order continues;
 E01/E02/E04/widerQ00/E05,other effect/Item/filter/formula/condition phases and all full
 M/DD/A/ADR acceptance remain open. Experimental0.4.1 and compatibility unchanged.
+
+### C60 — shared final training Sets and truthful language projection (2026-10-22)
+
+C60 admits the five qualified Actor-owned final training Sets. Literal operations use
+initialized/initial-effect operands and repeated final results in one finalTrainingSets
+map, with source/default/null-cleaned and prepared/final provenance in applied records.
+Raw source and the earlier detached system remain unchanged. Current armor, weapon,
+mastery and language keys feed shared training facts; grants are not inferred from
+names, additional mastery choices or unresolved base Item references.
+
+Languages have two separate contracts. preparedSpoken preserves the earlier native
+label cache; spoken/display formats current qualified language values for the caller.
+One verified formatter handles both. A separate native formatting shell independently
+checks current-key presentation; it does not mutate the original model/cache or claim
+an extra native Actor preparation phase. Both layouts show current labels and an
+earlier-label note when they differ. Native sheet cache behavior remains preserved in
+evidence rather than being mistaken for current field data. The historical sourceKeys
+property denotes current local initialized/final keys; preparedKeys records the earlier
+operand. Neither is an instruction to persist a projection back over Actor source.
+
+The maintained90 independent profiles fail on C59 with the same inputs and pass after
+C60. Source/model label poison, fractional unrelated globals, enum identity, unknown/
+malformed/reference deltas, repeated changes, Item origins, context loss/recovery and
+held callbacks stay covered. C27's original unqualified-effect and C28's final-training
+inputs are retained and now support their final heavy-armor Set changes; only their
+obsolete unavailable expectations are superseded. Other unsupported gates remain.
+
+[Record](../audits/evidence/2026-10-22-c60-final-training-sets.json) separates regression, controlled native methods/formatting, mounted consumers,
+real public-host and isolated package evidence. Native sheet weapon/mastery presentation
+unions keys, while the module keeps local weapon training and mastered source choices
+separate so it cannot infer proficiency from a mastery choice. Item/mastery activities
+remain unqualified. Broader String/Formula/Item/filter/final-condition phases remain
+open, as do E01/E02/E04/widerQ00/E05 and all full M/DD/A/ADR/native/operator acceptance.
+Experimental0.4.1 and compatibility unchanged. Continue existing dependency-ready M2
+final condition-query/trait composition and bounded Q00 qualification next.
+
+C60 completed validation:61assertions/9tooling/46module suites and201 explicit
+source/UI/server/test/hook files PASS. Exact inventory2242/591 and native trait
+methods90training/current-format+196finaldefense+retained source domains PASS.
+Focused mounted86 at1440/390 and full retained mounted suite PASS. Real public-host
+262960accepted/1known candidate rejection/40equal-index diagnostics/0nativewrites
+PASS. Isolated check/package PASS; archive SHA256
+`2d9fb4d1062fbe8cfb15138c896a3b97c75be0f87975ce10c9d7be43ff354f3a`.
+All owned hosts/browsers closed. Historical-expectation failures and corrections
+remain identified;no failed runs count as passing. Experimental/version/compatibility
+unchanged;ADR/fullacceptance stays open.
