@@ -66,6 +66,6 @@ for (const value of ['1d4', '1+2', {}, true]) {
     const input = abilitySource(baseRow), data = input.system as Record<string, any>;
     data.abilities.wis.save.roll.bonus = value;
     const output = prepare(input);
-    assert.equal(ability(output).save, null); assert.equal(ability(output).check.total, 5);
+    assert.equal(ability(output).save,value==='1+2'?10:null,'C77 source arithmetic3 is qualified;other malformed/dice inputs stay gated'); assert.equal(ability(output).check.total, 5);
 }
 console.log('R/S: shared source ability/check/save preparation and explicit execution/context gates: PASS (bounded profile)');

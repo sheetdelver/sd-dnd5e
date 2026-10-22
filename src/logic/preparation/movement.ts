@@ -28,7 +28,7 @@ function literal(value:unknown):{text:string|undefined;number:number}|null {
     const text=String(value).trim(),number=numericConstant(text);
     return number!==null&&bounded(number)?{text,number}:null;
 }
-export function prepareMovement606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):{movement:MovementFacts;senses:SensesFacts} {
+export function prepareMovement606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor,context)):{movement:MovementFacts;senses:SensesFacts} {
     const source=record(actor)??{},system=effects.system,attributes=record(system.attributes)??{};
     let common:string|undefined;
     if(context.status!=='supported'||context.profile!=='2024')common=`Movement/senses rules context unavailable: ${context.reason??context.profile??'unknown'}`;

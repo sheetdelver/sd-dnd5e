@@ -1286,3 +1286,12 @@ Missing mapping/key defaults differ from existing partial-entry defaults. Native
 ability registry keys include optional Honor/Sanity;module qualification here covers
 6 standard abilities. Collection delegation/empty applied-rule collaborators are
 explicit;this does not claim complete DataModel source boot. [Evidence](../audits/evidence/2026-10-22-c76-source-initialization.json).
+
+
+C77 compares26 independent arithmetic/reference examples with exact native
+replaceFormulaData,simplifyBonus,prepareFormulaValue and ActorDataModel.getRollData
+(including native Proficiency),using actual Foundry14.367 Math sandbox evaluation.
+The deterministic test Roll collaborator and grammar-source checks do not execute
+the full native parser. This establishes controlled math/replacement evidence,
+separate from311995 real public-host numeric requests and mounted consumers.
+[Profile and evidence](../audits/evidence/2026-10-22-c77-deterministic-formulas.json).

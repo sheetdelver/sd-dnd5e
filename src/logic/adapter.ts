@@ -145,12 +145,12 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const species=oldSpecies?legacySpeciesIdentity(oldSpecies.name,oldSpecies._id,oldSpecies.img,oldSpecies.description):prepareSpeciesIdentity606(actor,rules);
         prepared.derived.speciesIdentity=species;
         prepared.derived.race=species.name??'';
-        const effects=prepareNumericEffects606(actor);
+        const effects=prepareNumericEffects606(actor,rules);
         prepared.derived.ownedItems=prepareOwnedItems606(actor,rules,effects);
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
         prepared.derived.conditions=projectConditions606(actor,rules,effects.conditions);
         prepared.derived.equipmentPreparation=effects.equipment;
-        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied,initialized:effects.initialized,sourceInitialization:effects.sourceInitialization,conditions:effects.conditions};
+        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied,initialized:effects.initialized,sourceInitialization:effects.sourceInitialization,formulaPreparation:effects.formulaPreparation,conditions:effects.conditions};
         const checkModel = prepareSkillToolModel606(actor,rules,effects);
         prepared.derived.checkConfiguration = checkModel;
         prepared.derived.training=prepareTraining606(actor,rules,effects,checkModel);

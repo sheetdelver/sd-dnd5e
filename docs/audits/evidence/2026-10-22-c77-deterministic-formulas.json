@@ -1,0 +1,113 @@
+{
+  "checkpoint": "C77 shared deterministic FormulaField preparation",
+  "parent": "5d883af6fdbd0c89618604ca2f75e06ba1c214b8",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirements": [
+    "M2/Q00 partial",
+    "DD-01\u201306/11/24/27/31/34 partial",
+    "A02\u2013A06 read preparation/A18/A21 partial"
+  ],
+  "beforeAfter": {
+    "input": "src/tests/fixtures/formula-scenarios.ts",
+    "maintainedRegression": "src/tests/formula-preparation.test.ts",
+    "before": "Perception total/passive unavailable;capacity/AC/movement formula unavailable",
+    "after": {
+      "perception": 11,
+      "passive": 23,
+      "tool": 13,
+      "itemCounter": "5/7",
+      "activityCounter": "1/2",
+      "armorClass": 16,
+      "walk": 30
+    },
+    "finalScoreSnapshot": {
+      "preparedTotal": 23,
+      "currentRollTotal": 25,
+      "passive": 35,
+      "ItemUses": "5/7"
+    },
+    "source": "Deeply preserved including old mod99/prof99/level99 poison;no writes."
+  },
+  "profile": {
+    "operators": [
+      "+",
+      "-",
+      "*",
+      "/",
+      "%",
+      "parentheses",
+      "unary signs"
+    ],
+    "functions": [
+      "floor",
+      "ceil",
+      "round",
+      "abs",
+      "min",
+      "max"
+    ],
+    "bindings": [
+      "prof from qualified class base and bonus setting",
+      "details.level from qualified class base",
+      "abilities.<standard>.value from correct phase",
+      "abilities.<standard>.mod from earlier qualified preparation"
+    ],
+    "executionFractionBoundary": "New expression-derived d20 bonuses require integer multiples1/1024 within +/-1e9;other fractions remain explicitly unavailable to avoid extending numeric grouping equivalence. Existing literal qualification unchanged.",
+    "otherLimits": [
+      "1024 input characters,256 tokens,32 nesting levels,16 function arguments;unknown grammar and missing references fail closed",
+      "No dice grammar,entropy,eval,dynamic functions,recursive source traversal or implicit missing-reference zero",
+      "NumberField/effect-delta semantics remain separately qualified;source expression composed with unqualified initial/final field effects remains gated",
+      "Item uses and static readouts use the earlier snapshot;fresh check/save/tool/init bonus formulas see current score values and earlier modifiers"
+    ]
+  },
+  "checks": {
+    "regression": {
+      "command": "npm test -- --core <Core0.19.3>",
+      "result": "56 module/9 tooling suites,61 tooling assertions PASS",
+      "sha256": "763d1ba5d126c085da9cf7fd1603a392e6322cdeead15d7ba1c48f85b29af94e"
+    },
+    "typing": {
+      "command": "npm run typecheck -- --core <Core0.19.3>",
+      "result": "227 explicit module/UI/server/test/hook files PASS",
+      "sha256": "79c0547f297356f804d383935f0d5f262a114b5b9e6cf890fbc86b00d062db6c"
+    },
+    "native": {
+      "command": "npm run test:native-formulas -- --core <Core0.19.3> --native <exact release> --foundry <static14.367>",
+      "result": "26 independent frozen arithmetic/reference cases through actual native replacement/simplify/capacity methods,actual Actor roll-data Proficiency and Foundry Math sandbox PASS",
+      "artifactSha256": "6ae3fe2bc4fb45072d90bbf53bea509ec90ded6715e353a600ed6b23b80afea9",
+      "fixture": "tests/fixtures/native-6.0.6/deterministic-formulas.json",
+      "fixtureSha256": "a3bb7146e26a8bd4567c35cd23b2b5ea5314b457f3e0d72e6394d5921fb9ebb7"
+    },
+    "sourceInventory": {
+      "result": "2242 records/591 candidate expressions PASS",
+      "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+    },
+    "mounted": {
+      "command": "npm run test:mounted-formulas -- --core <Core0.19.3> --chromium <isolated headless>",
+      "result": "1440/390 actual Sheet/check/tool/selected ability/preview/manual/shortcut/recovery/stale held callback/zero writes PASS",
+      "artifact": "/tmp/dnd5e-formulas-XF3lYS/evidence.json",
+      "sha256": "c07793118c66cb3b94a66a99d11929abed908c871c2aa82757bdfa38e3bded6f"
+    },
+    "retainedMounted": "Full C77 run still in progress at checkpoint. C76 full run failed source-default preview assertion while hover could select Normal;test now explicitly clears hover and mode focus before asserting restoration. No production mode change made.",
+    "public": {
+      "command": "npm run test:public-rolls -- --core <Core0.19.3>",
+      "result": "311995 accepted,1 known unary candidate rejection,40 bounded equal-value-index diagnostics,0 native writes PASS",
+      "preparedFormulaRequests": 42,
+      "sourceDefaultRequests": 144,
+      "artifact": "/tmp/dnd5e-public-rolls-dw2mg8/evidence.json",
+      "sha256": "ee2f4fbbce71330eb4587b2fd28915dc64dd87a14793a032784e0bbf96c0638b",
+      "failedAttempt": "Earlier Y9slGU synthetic host attempt closed during blocked synchronous case generation;no Core-defect claim. Async child generation keeps synthetic transport event loop responsive;all assertions retained."
+    },
+    "managed": {
+      "command": "npm run check:package -- --core <Core0.19.3>",
+      "result": "module check/package PASS",
+      "artifact": "/tmp/dnd5e-package-omBL9Z/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "69bc146ce16f55514d81335ce84d8d8121c14fa418c3b97b8534f8031fa20462"
+    }
+  },
+  "limits": [
+    "Frozen arithmetic results are independent;actual native methods and Foundry safeEval execute under declared deterministic Roll/collection collaborators,not the full Foundry grammar/parser/DataModel runtime.",
+    "No production dependency or second dice engine. Runtime uses pure deterministic rule arithmetic only;public dice execution remains through the existing shared compiler/SDK.",
+    "R/S/mounted SDK seam/isolated public-host/package evidence are distinct;no installed/native/operator acceptance. E01/E02/E04/widerQ00/E05,full M2 and ADR-0001 remain open. Experimental0.4.1/compatibility unchanged."
+  ]
+}

@@ -31,7 +31,7 @@ function basicReason(actor:unknown,context:RulesContext,effects:NumericEffects):
     if(attributes.exhaustion!==undefined&&attributes.exhaustion!==0||Array.isArray(source.statuses)&&source.statuses.length)return 'Condition stat preparation unavailable';
     return undefined;
 }
-export function prepareArmorClass606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):ArmorClassFact {
+export function prepareArmorClass606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor,context)):ArmorClassFact {
     const reason=basicReason(actor,context,effects);if(reason)return makeAc(null,reason);
     const source=record(actor)??{},attributes=record(effects.system.attributes),raw=attributes?.ac,data=record(raw)??{};
     if(raw!=null&&!record(raw))return makeAc(null,'Armor class source mapping malformed');
@@ -68,7 +68,7 @@ export function prepareArmorClass606(actor:unknown,context:RulesContext,effects:
     const value=Math.max(0,base+(shield?.value??0));
     return qualifiedNumericTotal(value)&&Math.abs(value)<=1_000_000_000?{...makeAc(value),base,calculation,formula,armorId:armor?.id,shieldId:shield?.id,warnings:equipment.warnings}:makeAc(null,'Armor result outside qualified numeric range');
 }
-export function prepareInitiative606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):{fact:InitiativeFact;check:PreparedNumericD20} {
+export function prepareInitiative606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor,context)):{fact:InitiativeFact;check:PreparedNumericD20} {
     const profile=numericCharacterProfile(actor,context,effects,effects.ruleFlags.initiativeAlert),system=effects.system,raw=record(system.attributes)?.init,data=record(raw)??{},ability=data.ability===undefined||data.ability===''?'dex':data.ability;
     const key=typeof ability==='string'?ability:'',abl=record(record(system.abilities)?.[key]),numeric=numericAbilityValue(abl?.value),roll=record(data.roll)??{},global=effects.globals.check;
     let reason=profile.status==='ready'?undefined:profile.reason;

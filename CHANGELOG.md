@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Prepare qualified arithmetic and Actor references consistently across checks, resources and character readouts.
+
 - Initialize sparse standard ability and skill source consistently across checks, effects and character readouts.
 
 - Share Item/activity counters, inventory facts, numeric attack readouts and current Item/spell details across both layouts.

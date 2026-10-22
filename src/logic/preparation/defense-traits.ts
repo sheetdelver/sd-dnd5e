@@ -30,7 +30,7 @@ function finish(values:string[],custom:string[],bypasses:string[],amount:Record<
 /** One detached qualified preparation path. Malformed/unknown domains remain
  * unavailable separately; unqualified effect phases gate every affected defense.
  * Native ALL/overlap normalization changes Sets, never the original source. */
-export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):DefenseFacts {
+export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor,context)):DefenseFacts {
     const source=record(actor)??{},system=effects.system,raw=system.traits;
     let common:string|undefined;
     if(context.status!=='supported'||context.profile!=='2024')common=`Defense rules context unavailable: ${context.reason??context.profile??'unknown'}`;

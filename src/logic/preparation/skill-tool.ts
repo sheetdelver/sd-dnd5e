@@ -35,7 +35,7 @@ function rollInput(value:unknown):unknown {
     const data=record(value);
     return data ? Object.fromEntries(['bonus','mode','min','max'].filter(key=>data[key]!==undefined).map(key=>[key,structuredClone(data[key])])) : false;
 }
-export function prepareSkillToolModel606(actor:unknown, context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):SkillToolModel {
+export function prepareSkillToolModel606(actor:unknown, context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor,context)):SkillToolModel {
     const system=effects.system, profile=numericCharacterProfile(actor,context,effects);
     let reason=(profile.status==='ready'?undefined:profile.reason)??effects.checkExecutionReason;
     const rawGlobals=effects.globals,sourceGlobals=record(record(system.rolls)?.ability)??{};

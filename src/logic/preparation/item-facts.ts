@@ -1,3 +1,5 @@
+import {preparedFormulaBindings606} from './formula-fields';
+import {deterministicFormula606,type FormulaBindings606} from './deterministic-formula';
 import {spellMetadata606,type SpellMetadata} from './spell-metadata';
 import {weaponModes606,itemAttack606,type AttackFacts} from './item-combat';
 import type {NumericEffects} from './numeric-effects';
@@ -22,10 +24,10 @@ const nat=(value:unknown,fallback:number,integer=false):number|null=>value===und
 const emptyUses=(status:UsesFacts['status'],reason?:string):UsesFacts=>({status,reason,max:null,spent:null,remaining:null,limited:null,capacitySource:null,origin:'schema-default',recovery:status==='not-applicable'?na<RecoveryFact[]>():fact<RecoveryFact[]>(null,reason??'Uses preparation unavailable'),display:status==='not-applicable'?'Not applicable':'Unavailable',provenance});
 /** The counter is independent of its recovery recipe. Source uses.value/label
  * are nonpersisted; neither can supply an override or hide a malformed maximum. */
-export function prepareUses606(raw:unknown,reason?:string):UsesFacts {
+export function prepareUses606(raw:unknown,reason?:string,bindings:FormulaBindings606={}):UsesFacts {
  const data=raw===undefined?{}:record(raw);if(!data)return emptyUses('unavailable','Uses source mapping malformed');
  const source=data.max,capacity=source==null?undefined:typeof source==='string'?source.trim():typeof source==='number'&&Number.isFinite(source)?String(source):null;
- const spent=nat(data.spent,0,true),max=capacity===undefined||capacity===''?0:numericConstant(capacity);
+ const spent=nat(data.spent,0,true),max=capacity===undefined||capacity===''?0:deterministicFormula606(capacity,bindings);
  const counterReason=reason??(capacity===null||max===null||max<0||max>1e9?'Uses maximum expression requires deterministic formula qualification':spent===null?'Uses spent source must be a nonnegative integer':undefined);
  const recovery:RecoveryFact[]=[];let recoveryReason:string|undefined;
  if(data.recovery!==undefined&&!Array.isArray(data.recovery))recoveryReason='Uses recovery collection malformed';
@@ -58,7 +60,7 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
   const w=physical?fact(weightValue!==null&&quantity!==null&&typeof units==='string'?{value:weightValue,units,stack:type==='container'?null:weightValue*quantity}:null,weightReason,data.weight===undefined?'schema-default':'source'):na<{value:number;units:string;stack:number|null}>();
   const eligibility=itemEffectState606(item),equipped=equippable?fact(typeof data.equipped==='boolean'?data.equipped:false,common??eligibility.reason,data.equipped==null?'schema-default':'source'):na<boolean>(),attuned=equippable?fact(typeof data.attuned==='boolean'?data.attuned:false,common??eligibility.reason,data.attuned==null?'schema-default':'source'):na<boolean>();
   const itemEffects=item.effects===undefined?[]:item.effects,itemEffectReason=!Array.isArray(itemEffects)||itemEffects.some((effect:unknown)=>{const e=record(effect);return !e||e.disabled!==true&&(e.transfer===false||e.type==='enchantment');})?'Owned Item-target effects require Item preparation qualification':undefined;
-  const uses=hasActivities?prepareUses606(data.uses,common??itemEffectReason):emptyUses('not-applicable');
+  const uses=hasActivities?prepareUses606(data.uses,common??itemEffectReason,preparedFormulaBindings606(effects)):emptyUses('not-applicable');
   const activities:ActivityFacts[]=[];let activityReason=common??itemEffectReason;
   const collection=data.activities===undefined?{}:record(data.activities);
   if(!collection)activityReason??='Activity source mapping malformed';
@@ -66,7 +68,7 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
    if(!a||typeof aid!=='string'||aid!==key||!aid||typeof atype!=='string'||!activityTypes.includes(atype as typeof activityTypes[number])){activityReason??='Activity identity/type unavailable';continue;}
    const activation=record(a.activation),activationType=activation?.type===undefined?null:typeof activation.type==='string'?activation.type:null;
    const reason=common??itemEffectReason??(a.activation!==undefined&&!activation?'Activity activation source malformed':undefined);
-   activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:activationType,uses:prepareUses606(a.uses,reason),status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects)}:{})});
+   activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:activationType,uses:prepareUses606(a.uses,reason,preparedFormulaBindings606(effects)),status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects)}:{})});
   }
   activities.sort((a,b)=>a.sort-b.sort);
   if(activityReason)for(const a of activities){a.status='unavailable';a.reason??=activityReason;}

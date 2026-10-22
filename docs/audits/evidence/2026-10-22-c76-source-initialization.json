@@ -66,5 +66,9 @@
     "Only6 standard ability/18 skill mappings qualified;optional Honor/Sanity,custom registries,malformed/coerced/null mappings remain unavailable. Selected legacy behavior unchanged.",
     "R/S/mounted SDK seam/public synthetic host/managed package evidence remain distinct from installed/native/operator acceptance. Full M2/ADR acceptance remains open.",
     "Experimental0.4.1,compatibility unchanged;Core/sibling/native repositories read-only. E01/E02/E04/widerQ00/E05 open."
-  ]
+  ],
+  "supplementalRetainedMounted": {
+    "result": "C76 full run failed a range default-preview assertion while a mode could still be hovered. C77 clears pointer/mode focus before checking restoration;no runtime change or acceptance claim. C77 full rerun pending at its checkpoint.",
+    "failedLogSha256": "023454c120eedb30333e7547d039c777716c3b74f2d1180aaa09a521c2f9e2ba"
+  }
 }

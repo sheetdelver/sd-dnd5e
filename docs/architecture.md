@@ -1448,3 +1448,17 @@ Six standard abilities default10/0 and18 skills use keyed defaults only for miss
 entries;an existing partial skill instead uses dex. This is not source persistence,
 a migration write or a second source cache. Unknown tools/abilities are not inferred.
 See [C76 evidence](audits/evidence/2026-10-22-c76-source-initialization.json) for phase distinctions and superseded missing-key gates.
+
+
+### Deterministic FormulaFields
+
+`deterministic-formula.ts` implements bounded pure arithmetic for rule preparation,
+without a dice grammar/evaluator,entropy,eval or runtime dependencies. Explicit
+bindings come from qualified class base/ability preparation;unknown references stay
+unavailable. `formula-fields.ts` folds only declared FormulaField paths in detached
+operands and records original expressions/results. NumberFields and effect deltas
+retain typed semantics. Prepared and fresh execution bindings preserve final-score/
+earlier-modifier order;earlier passive/Item facts do not replay after final effects.
+New expression-derived d20 bonuses are bounded dyadic multiples1/1024;broader fractions
+remain gated. Item uses retain raw capacity identity while using this same arithmetic.
+See [C77 profile/evidence](audits/evidence/2026-10-22-c77-deterministic-formulas.json) for exact vocabulary and remaining boundaries.

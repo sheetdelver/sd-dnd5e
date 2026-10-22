@@ -1,3 +1,5 @@
+import {prepareFormulaFields606,type FormulaPreparation606} from './formula-fields';
+import type {RulesContext} from '../rules-context';
 import {initializeCheckSource606,type SourceInitialization606} from './source-initialization';
 import {featFinalCustomReason606} from './feat-final-profile';
 import {sourceRuleFlags606,type SourceRuleFlags606} from './rule-flags';
@@ -17,6 +19,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
+    formulaPreparation?:FormulaPreparation606;
     sourceInitialization:SourceInitialization606;
     preparedDefenseSets?:Record<string,string[]>;
     finalDefenseSets?:Record<string,string[]>;
@@ -34,7 +37,7 @@ export interface NumericEffects {
  * execution snapshot, as do final global proficiency NumberFields and qualified
  * constant roll bonuses, persisted numeric fields and literal custom Strings. Earlier
  * prepared proficiency/passive operands never change; other final/Item fields stay gated. */
-export function prepareNumericEffects606(actor:unknown):NumericEffects {
+export function prepareNumericEffects606(actor:unknown,context?:RulesContext):NumericEffects {
     const source=record(actor)??{},initializedSource=initializeCheckSource606(source.system),system=initializedSource.system,sourceInitialization=initializedSource.initialization,plan=planEffects606(actor);
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
     const initialized:NumericEffects['initialized']=sourceInitialization.defaults.filter(entry=>entry.path.endsWith('.proficient')).map(entry=>({key:'system.'+entry.path,value:entry.value as number,origin:'schema-default'}));
@@ -277,7 +280,8 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    return {sourceInitialization,ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    const result:NumericEffects={sourceInitialization,ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    return context?prepareFormulaFields606(actor,context,result):result;
 }
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified

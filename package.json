@@ -25,6 +25,8 @@
     "test:public-commands": "node scripts/test-public-commands.mjs",
     "test:native-conditions": "node scripts/native-condition-oracle.mjs",
     "test:native-custom-traits": "node scripts/native-custom-traits-oracle.mjs",
+    "test:native-formulas": "node scripts/native-formula-oracle.mjs",
+    "test:mounted-formulas": "node scripts/test-mounted-formulas.mjs",
     "test:native-defaults": "node scripts/native-source-initialization-oracle.mjs",
     "test:mounted-defaults": "node scripts/test-mounted-source-defaults.mjs",
     "test:native-items": "node scripts/native-item-facts-oracle.mjs",

@@ -20,7 +20,7 @@ const integer=(value:unknown,min=0):value is number=>typeof value==='number'&&Nu
 /** Source-only health/HD facts, with qualified initial ability effects. HP and
  * HD availability are separate: explicit HP overrides do not need CON, class
  * selections or bonus evaluation. No health/rest command is authorized here. */
-export function prepareHealth606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):{hp:PreparedHp;hitDice:PreparedHitDice} {
+export function prepareHealth606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor,context)):{hp:PreparedHp;hitDice:PreparedHitDice} {
     const source=record(actor)??{},system=effects.system,attributes=record(system.attributes)??{};
     let common:string|undefined;
     if(context.status!=='supported'||context.profile!=='2024')common=`Health rules context unavailable: ${context.reason??context.profile??'unknown'}`;

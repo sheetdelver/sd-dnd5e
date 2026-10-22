@@ -1,3 +1,5 @@
+import {deterministicFormula606} from './deterministic-formula';
+import {preparedFormulaBindings606} from './formula-fields';
 import {record} from '../native/6.0.6/source';
 import type {NumericEffects} from './numeric-effects';
 import type {RulesContext} from '../rules-context';
@@ -29,7 +31,7 @@ export function itemAttack606(actor:unknown,item:unknown,activity:unknown,contex
  if(!attack)return no('Attack source mapping malformed');
  if(context.status!=='supported'||context.profile!=='2024')return no('Attack rules context unavailable');
  if(effects.reason)return no(effects.reason);
- const bonus=numericConstant(attack.bonus);if(bonus===null)return no('Attack bonus expression requires formula qualification');
+ const bonus=deterministicFormula606(attack.bonus,preparedFormulaBindings606(effects));if(bonus===null)return no('Attack bonus expression requires formula qualification');
  if(attack.flat!==undefined&&typeof attack.flat!=='boolean')return no('Flat attack source malformed');
  if(attack.flat)return yes({ability:null,proficiency:0,total:bonus,display:(bonus<0?'':'+')+bonus,formula:String(bonus)});
  const profile=numericCharacterProfile(actor,context,effects);if(profile.status!=='ready')return no(profile.reason);
@@ -57,7 +59,7 @@ export function itemAttack606(actor:unknown,item:unknown,activity:unknown,contex
  for(const rawScope of scopes){if(rawScope!=null&&!record(rawScope))return no('Attack roll scope malformed');const value=numericConstant(record(rawScope)?.bonus);if(value===null)return no('Attack scope bonus expression requires formula qualification');bonuses.push(value);}
  const attunement=s.attunement??'',attuned=s.attuned??false;
  if(typeof attunement!=='string'||typeof attuned!=='boolean')return no('Item magic eligibility source malformed');
- const magic=raw.type==='weapon'&&properties.includes('mgc')&&(attuned||attunement!=='required')?numericConstant(s.magicalBonus):0;
+ const magic=raw.type==='weapon'&&properties.includes('mgc')&&(attuned||attunement!=='required')?deterministicFormula606(s.magicalBonus,preparedFormulaBindings606(effects)):0;
  if(magic===null)return no('Magical bonus expression requires formula qualification');
  const total=mod+coefficient*profile.proficiency+bonus+magic+bonuses.reduce((a,b)=>a+b,0)+effects.conditions.rollReduction;
  if(!Number.isFinite(total)||Math.abs(total)>1e9)return no('Attack total outside qualified numeric bounds');

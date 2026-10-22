@@ -17,7 +17,7 @@ export function numericFact(value: number | null, reason?: string): NumericFact 
 /** Class facts are independent of unresolved equipped armor/encumbrance rules.
  * Effects/transformations remain unqualified, including possible stat changes.
  */
-export function characterFacts606(actor: unknown, context: RulesContext, effects:NumericEffects=prepareNumericEffects606(actor)): CharacterFacts {
+export function characterFacts606(actor: unknown, context: RulesContext, effects:NumericEffects=prepareNumericEffects606(actor,context)): CharacterFacts {
     const source = record(actor) ?? {}, system = record(source.system) ?? {};
     let reason: string | undefined, level = 0;
     if (context.status !== 'supported' || context.profile !== '2024') reason = `Character rules context unavailable: ${context.reason ?? context.profile ?? 'unknown'}`;
@@ -38,7 +38,7 @@ export function characterFactsProjection(derived: Record<string, any>): Characte
     return derived.characterFacts ?? { level: numericFact(null, 'Level preparation unavailable'), proficiency: numericFact(null, 'Proficiency preparation unavailable') };
 }
 /** Common source-only PC roll prerequisites, shared by skills/checks/saves. */
-export function numericCharacterProfile(actor: unknown, context: RulesContext, effects:NumericEffects=prepareNumericEffects606(actor),requiresProficiency=true):
+export function numericCharacterProfile(actor: unknown, context: RulesContext, effects:NumericEffects=prepareNumericEffects606(actor,context),requiresProficiency=true):
     { status: 'ready'; level: number; proficiency: number } | { status: 'unavailable'; reason: string } {
     const source = record(actor) ?? {}, system = record(source.system) ?? {}, facts = characterFacts606(actor, context,effects);
     if (facts.level.value === null || requiresProficiency && facts.proficiency.value === null) return { status: 'unavailable', reason: facts.level.reason ?? facts.proficiency.reason ?? 'Character facts unavailable' };

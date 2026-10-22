@@ -1058,6 +1058,7 @@ try {
             await control.click();const dialog=page.locator('dialog[open]');
             assert.equal(await dialog.getByRole('button',{name:'Normal',exact:true}).isEnabled(),true);
             for(const name of ['Advantage','Disadvantage']){const button=dialog.getByRole('button',{name,exact:true});assert.equal(await button.isDisabled(),true);await button.dispatchEvent('click');assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),0);}
+            await dialog.getByRole('textbox',{name:'Situational bonus'}).focus();await page.mouse.move(0,0);
             if(row.sourceMode===0)assert.ok((await dialog.innerText()).includes(row.formula),row.id+' default preview');else assert.ok((await dialog.innerText()).includes('Choose Normal'),row.id+' default reason');
             await dialog.getByRole('textbox',{name:'Situational bonus'}).fill('-1.5');assert.equal(await dialog.getByRole('textbox',{name:'Situational bonus'}).getAttribute('aria-invalid'),'false');
             await dialog.getByRole('button',{name:'Normal',exact:true}).focus();assert.ok((await dialog.innerText()).includes(row.formula+'+(-1.5)'));

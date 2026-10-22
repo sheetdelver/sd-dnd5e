@@ -3192,3 +3192,34 @@ are explicitly superseded in maintained source expectations:CON10/HP8,STR10/jump
 DEX10/initiative0 and Dodge save+0;missing standard skill becomes untrained. This is
 partial M2/A02–A04/A18/A21,not native/operator acceptance. Next address deterministic
 formula/reference preparation across shared readouts;full ADR gates remain open.
+
+
+### C77 — shared deterministic source formulas (2026-10-22)
+
+Qualified FormulaFields now share one pure arithmetic/reference preparation pass,
+with source expressions retained in receipts. Checks/saves/tools/passives,AC,
+movement,HP bonus fields,damage adjustments,Item/activity uses and numeric attack
+readouts consume prepared results. Fresh d20 bonuses use current score references
+with earlier modifiers;passives and Item final operands retain their earlier phase.
+The unchanged source fixture moves from unavailable to Perception11/passive23,
+tool13,AC16,walk30 and Item/activity counters5/7 and1/2. With a later score change,
+prepared23/current25/passive35 and earlier Item capacity remain distinct.
+
+[Evidence](../audits/evidence/2026-10-22-c77-deterministic-formulas.json) records26 independent frozen native math/reference cases,
+56 module/9 tooling suites,61 assertions,227 explicitly typed files,2242/591 source
+inventory,both-layout mounted previews/selected abilities/recovery/held callbacks,
+311995 public-host requests (42 new formula requests) and isolated check/package
+PASS. Full retained mounted execution is pending here;C76's failed range assertion
+and corrected hover/focus setup remain recorded. Public case generation is now async
+so the synthetic transport stays responsive;the earlier closed-host attempt is
+retained without alleging a Core defect.
+
+Supported arithmetic is +,-,*,/,%,parentheses and floor/ceil/round/abs/min/max with
+explicit numeric prof,details.level and standard ability value/mod bindings. New
+d20 expression results use bounded multiples1/1024;other fractions stay gated.
+No dice evaluator,eval,private imports,missing-reference zero or source writes.
+Broader grammar/scaling/class references and expression/effect composition remain
+unqualified. Historical source fixtures are preserved while newly qualified source
+expectations explicitly supersede their earlier blanket-expression gates. Native
+methods use declared deterministic Roll collaborators,not full parser/runtime boot.
+Partial M2/Q00 only;ADR/full acceptance and experimental metadata remain unchanged.

@@ -2,7 +2,7 @@ import fixture from '../../../tests/fixtures/native-6.0.6/movement-senses.json';
 import {skillSource,skillContext,skillWorld} from './skill-scenarios';
 // Historical initialized-method captures omitted Strength entirely. C76 raw-source
 // initialization supplies10 before movement: jump5 and armor penalty10.
-export const movementCases=fixture.cases.map(row=>row.strength===null?{...row,expected:{...row.expected,movement:{walk:row.armorStrength?20:30,burrow:0,climb:0,fly:0,jump:5,swim:0,max:row.armorStrength?20:30,slowed:false,hover:false,units:'ft'}}}:row);
+export const movementCases=fixture.cases.map(row=>row.id==='formula-bonus-open'?{...row,expected:{...row.expected,movement:{walk:30,burrow:0,climb:0,fly:0,jump:5,swim:0,max:30,slowed:false,hover:false,units:'ft'}}}:row.strength===null?{...row,expected:{...row.expected,movement:{walk:row.armorStrength?20:30,burrow:0,climb:0,fly:0,jump:5,swim:0,max:row.armorStrength?20:30,slowed:false,hover:false,units:'ft'}}}:row);
 export function movementSource(row:typeof movementCases[number]){
     const actor=skillSource(),system=actor.system as Record<string,any>;
     system.abilities.str={value:row.strength===undefined?10:row.strength,proficient:0,mod:99};
