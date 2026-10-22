@@ -11,7 +11,7 @@ import {CONDITION_STATUS_LABELS_606} from '../native/6.0.6/condition-identities'
 import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 export interface NumericEffects {
-    system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
+    system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;checkExecutionReason?:string;
     applied:Array<{effectId:string;key:string;phase:'initial'|'final';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned'}>;
 }
@@ -20,7 +20,8 @@ export interface NumericEffects {
  * starts at verified0 despite stale nonpersisted source values (DD-R04).
  * Only constant FormulaField add/subtract/override is reduced by operation,
  * without parsing arbitrary expressions. Qualified final mode changes have a separate
- * execution snapshot; other final/custom/Item fields stay gated. */
+ * execution snapshot, as do final global proficiency NumberFields. Earlier
+ * prepared proficiency/passive operands never change; other final/Item fields stay gated. */
 export function prepareNumericEffects606(actor:unknown):NumericEffects {
     const source=record(actor)??{},system=structuredClone(record(source.system)??{}),plan=planEffects606(actor);
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
@@ -132,24 +133,8 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         if(field.integer&&!Number.isInteger(before)||field.min!==undefined&&before<field.min||field.max!==undefined&&before>field.max||field.step!==undefined&&(before-(field.min??0))%field.step!==0){
             reason??=`Effect source initialization requires qualification: ${change.key}`;continue;
         }
-        let value:number;
-        switch(change.type){
-            case 'add':value=before+delta;break;
-            case 'subtract':value=before-delta;break;
-            case 'multiply':value=before*delta;break;
-            case 'override':value=delta;break;
-            case 'upgrade':value=Math.max(before,delta);break;
-            case 'downgrade':value=Math.min(before,delta);break;
-            default:reason??=`Effect operation requires qualification: ${change.type}`;continue;
-        }
-        // Exact NumberField cleaning in this finite non-null profile.
-        if(field.integer)value=Math.round(value);
-        if(field.min!==undefined)value=Math.max(value,field.min);
-        if(field.step!==undefined)value=Math.round((value-(field.min??0))/field.step)*field.step+(field.min??0);
-        if(field.max!==undefined)value=Math.min(value,field.max);
-        if(!Number.isFinite(value)||Math.abs(value)>1_000_000_000||field.choices&&!field.choices.includes(value)){
-            reason??=`Effect result outside qualified numeric field choices: ${change.key}`;continue;
-        }
+        const value=applyNumericFieldChange(before,delta,change.type,field);
+        if(value===null){reason??=`Effect operation/result outside qualified numeric field choices: ${change.key}`;continue;}
         field.object[field.field]=value;if(formula!==undefined)formulas[change.key]=formula;
         applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(formula!==undefined?{formula}:{})});
     }
@@ -169,7 +154,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     // Native passives and initiative scores precede armor/initiative/final modes.
     // Keep their earlier count state separate; never move a final effect to initial.
-    const executionModes=structuredClone(modes),equipment=prepareEquipment606(actor);
+    const executionModes=structuredClone(modes),executionGlobals=structuredClone(globals),equipment=prepareEquipment606(actor);
     let checkExecutionReason:string|undefined;
     function addExecutionMode(key:string,delta:number){
         const field=target({key});
@@ -181,8 +166,15 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     if(equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')&&!addExecutionMode('system.skills.ste.roll.mode',-1))checkExecutionReason='Equipped armor Stealth mode source malformed';
     for(const modifier of conditions.modes)if(modifier.phase==='initiative')addExecutionMode(modifier.path,modifier.mode);
     for(const change of plan.final){
-        if(change.itemId!==undefined){reason??='Transferred Item final mode phase requires qualification';continue;}
+        if(change.itemId!==undefined){reason??='Transferred Item final phase requires qualification';continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
+        const proficiency=/^system\.rolls\.ability\.(check|save|skill|tool)\.proficiency$/.exec(change.key);
+        if(proficiency&&field?.choices){
+            const target=executionGlobals[proficiency[1]],before=target.proficiency;
+            const value=typeof before==='number'&&delta!==null&&Math.abs(delta)<=1_000_000_000?applyNumericFieldChange(before,delta,change.type,field):null;
+            if(value===null){reason??=`Final proficiency operation/value requires qualification: ${change.key}`;continue;}
+            target.proficiency=value;applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before as number,value});continue;
+        }
         if(!field?.mode||delta===null||![-1,0,1].includes(delta)){
             reason??=`Final mode field/value requires qualification: ${change.key}`;continue;
         }
@@ -193,5 +185,25 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         applied.push({effectId:change.effectId,key:change.key,phase:'final',before,value});
     }
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    return {system,conditions,globals,plan,applied,modes,executionModes,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    return {system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+}
+
+/** Shared finite NumberField operations; schema choices and cleaning are qualified
+ * separately from source initialization and native preparation timing. */
+function applyNumericFieldChange(before:number,delta:number,type:string,field:{integer?:boolean;min?:number;max?:number;step?:number;choices?:number[]}):number|null {
+    let value:number;
+    switch(type){
+        case 'add':value=before+delta;break;
+        case 'subtract':value=before-delta;break;
+        case 'multiply':value=before*delta;break;
+        case 'override':value=delta;break;
+        case 'upgrade':value=Math.max(before,delta);break;
+        case 'downgrade':value=Math.min(before,delta);break;
+        default:return null;
+    }
+    if(field.integer)value=Math.round(value);
+    if(field.min!==undefined)value=Math.max(value,field.min);
+    if(field.step!==undefined)value=Math.round((value-(field.min??0))/field.step)*field.step+(field.min??0);
+    if(field.max!==undefined)value=Math.min(value,field.max);
+    return Number.isFinite(value)&&Math.abs(value)<=1_000_000_000&&(!field.choices||field.choices.includes(value))?value:null;
 }

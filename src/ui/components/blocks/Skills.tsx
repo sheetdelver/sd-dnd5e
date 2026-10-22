@@ -27,6 +27,7 @@ interface SkillData {
     formula?: string | null;
     unavailableReason?: string;
     defaultUnavailableReason?:string;
+    preparationNote?:string;
 }
 
 interface Props {
@@ -131,6 +132,7 @@ export default function Skills({ skills, onRoll }: Props) {
                         {/* Skill name */}
                         <span style={{ fontSize: '12px', color: 'var(--text-primary)' }}>
                             {skill.label}
+                            {skill.preparationNote && <small style={{display:'block',color:'var(--text-muted)'}}>{skill.preparationNote}</small>}
                             {(skill.unavailableReason??skill.defaultUnavailableReason) && <small style={{ display: 'block', color: 'var(--text-muted)' }}>{skill.unavailableReason??skill.defaultUnavailableReason}</small>}
                         </span>
                         {/* Bonus value */}

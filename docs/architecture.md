@@ -1046,3 +1046,21 @@ retain their earlier proficiency objects. C49 qualifies these distinctions with 
 independent inputs and actual bounded methods; runtime final proficiency remains gated
 pending integration. Raw persisted:false fields still initialize0 and never become
 source overrides. Other final numeric/bonus/Item fields remain separate work.
+
+### Shared prepared and current proficiency (C50)
+
+C50 supersedes C49's runtime final-proficiency gate for qualified Actor-owned constant
+check/save/skill/tool global proficiency fields. Initial globals remain detached verified
+schema defaults plus initial effects. executionGlobals clones them after preparation
+and applies qualified final NumberField operations in plan order. The shared skill/tool
+model exposes earlier proficiencies and current executionProficiencies. Its compiler
+uses earlier independent proficiency for automatic combined advantage and current
+selected targets for the fresh roll multiplier. No raw nonpersisted field is trusted.
+
+The independent projection uses that compiler for both snapshots: total/prof describe
+the current roll,preparedTotal/preparedProf retain earlier preparation. Passives consume
+the earlier total/mode. Both layouts render the current values and the same prepared
+bonus note when they differ. Ability checks/saves retain earlier proficiency objects,
+including a final global save change that does not recompute an existing save. Changed
+source/plan/context retires callbacks; recovery requires fresh intent. Existing mode,
+Normal-only range and unsupported Item/filter/formula boundaries remain unchanged.

@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots | RV01–RV04 retained; C06–C48 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots; C49/50 final global proficiency snapshots and shared execution | RV01–RV04 retained; C06–C50 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1822,3 +1822,51 @@ phase. Runtime final proficiency remains gated pending shared integration. Next
 preserve earlier prepared snapshots alongside fresh execution proficiency and verify
 actual consumers. Other final/Item/filter/flag/time/expression phases,E01/E02/E04/wider
 Q00/E05 and full DD/A/M/ADR acceptance remain open. Experimental0.4.1 unchanged.
+
+### C50 — Shared final proficiency execution (2026-10-22)
+
+C49 qualification checkpoint is `68178a05b402e0a587b964060d18c89ffee9731e`.
+Partial M2/Q02a, DD-02/03/27/34, A02/A04/A18/A21. All852 frozen cases fail on
+unchanged C49 with the final inputs and pass after integration. Qualified Actor-owned
+constant-guard final global check/save/skill/tool proficiency NumberFields now use
+six shared finite operations and an execution-only target snapshot. Raw nonpersisted
+poison remains ignored; source and canonical identities remain unchanged.
+
+Skill/tool defaults,selections,alternate abilities,previews,shortcuts and direct adapter
+execution use current targets. Automatic combined advantage uses earlier prepared
+proficiency; ability checks/saves keep earlier proficiency objects. Shared projections
+retain preparedTotal/preparedProf separately from current total/prof; passives use the
+earlier total. Both layouts render current roll bonuses/coefficients and a shared note
+when final proficiency differs from preparation. No UI formulas or second cache exists.
+Final save proficiency is a real final field change with no retroactive save rebuilding.
+
+The older actor-initial-final fixture is now qualified: initial WIS+2 gives earlier
+Perception+6/passive16; final check proficiency2 gives fresh roll+9. Its old readiness
+test assumed every available roll equaled+5. That assertion now separately verifies
+availability and independently expected formulas; controlled native methods confirm
+this phase composition. Six numeric-string operations use a literal-only Roll stub;
+no expression evaluator or native dice claim is added. C49's runtime gate and C48's
+blanket final-proficiency restriction are superseded only for this bounded profile.
+Unknown fields,invalid choices/dependent guards,Item-origin final effects,broader
+expressions/flags/time and remaining final preparation remain unavailable.
+
+[Evidence](../audits/evidence/2026-10-22-c50-final-proficiencies.json) and the verification
+ledger distinguish regression,controlled source,mounted SDK-seam UI,isolated real
+public host and package results. DD-R01–07/strict plain-d20 boundaries remain. Equal
+faces retain recorded index diagnostics;actual host serialization is unchanged.
+No full DD/A/M/ADR/installed/native/operator gate closes. E01/E02/E04/widerQ00/E05,
+remaining M2 final numeric/bonus/Item/filter/formula work and later lifecycle milestones
+remain open. Experimental0.4.1/compatibility unchanged. Next qualify the remaining
+final numeric/bonus fields against their earlier and fresh execution consumers.
+
+C50 completed checks:60 tooling assertions/8 tooling suites/41 module suites PASS;
+explicit188-file source/UI/server/test/hook typing PASS;exact inventory2242/591 and
+native checks/effects/119 initial filters/condition matrices PASS. Focused mounted190
+states at1440/390 PASS;full retained mounted50 transitions,8 previews,16 facts,18 modes,
+56 tools,80 selected,22 eligibility,1172 fields,58 mode effects,58 health,102 AC/init,
+90 armor,84 movement,624 training,24 indicators,149 defenses,40 species,180 Normal
+range states and callbacks PASS. Public151807 accepted/1 rejected candidate/40 equal-index
+diagnostics/0 native writes PASS. Isolated module check/package PASS;archive SHA256
+`2aee6bc505c8e215b780f3082f63ba86fe28a1e249bc54eff16332fb47a15ca5`.
+Record embeds artifact hashes,scope/stubs and failed-run dispositions. All task-owned
+services closed;production untouched. Node24.21 tested;CI Node22 remains unrun locally.

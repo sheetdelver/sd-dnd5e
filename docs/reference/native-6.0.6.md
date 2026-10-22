@@ -1049,3 +1049,14 @@ initialization cases use nonpersisted default0 despite raw poison. Field constru
 model collaborators and dice capture remain declared stubs.
 [Evidence](../audits/evidence/2026-10-22-c49-final-proficiencies-foundation.json) records
 phase/source identities. Runtime integration and native/operator acceptance are separate.
+
+C50 admits C49's bounded Actor-owned final global proficiency fields. Earlier prepared
+proficiency determines automatic combined advantage; fresh CommonTemplate skill/tool
+calculation reads effectValue/current global targets. Earlier ability/save prof objects
+and passives do not refresh. The existing initial-WIS+2/final-check-prof2 case separately
+compares prepared skill6/passive16 against fresh roll9 through actual NumberField and
+Actor methods. Six numeric-string operations use a declared literal-only Roll stub,
+not native dice evaluation. [Evidence](../audits/evidence/2026-10-22-c50-final-proficiencies.json)
+separates controlled methods,regressions,mounted consumers and public-host serialization.
+Other final fields,Item phases,filters/flags/time/formulas and full native/operator
+acceptance remain open;historical pre-integration restrictions are superseded narrowly.

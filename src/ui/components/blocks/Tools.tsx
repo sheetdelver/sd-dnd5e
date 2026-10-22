@@ -28,6 +28,7 @@ export default function Tools({ onRoll }: {onRoll?: (type:string,key:string,opti
                 <span>{tool.label}</span>{' '}<small>{tool.ability.toUpperCase()} · Proficiency {tool.prof === null ? '—' : `${tool.prof}×`}</small>{' '}
                 <strong>{tool.total === null ? '—' : `${tool.total < 0 ? '' : '+'}${tool.total}`}</strong>
             </button>
+            {tool.preparationNote && <small style={{display:'block'}}>{tool.preparationNote}</small>}
             {(tool.unavailableReason??tool.defaultUnavailableReason) && <small style={{display:'block'}}>{tool.unavailableReason??tool.defaultUnavailableReason}</small>}
         </div>)}
     </section>;

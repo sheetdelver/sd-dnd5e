@@ -17,6 +17,7 @@ export interface SkillToolModel {
     reason?:string; proficiency:number|null;rollReduction:number;modeStates:Record<string,EffectModeState>;executionModeStates:Record<string,EffectModeState>;
     abilities:Record<string,Ability>; skills:Record<string,Entry>; tools:Record<string,Entry>;
     proficiencies:Record<'check'|'skill'|'tool',number>;
+    executionProficiencies:Record<'check'|'skill'|'tool',number>;
     globals:Record<'check'|'skill'|'tool',unknown>;
 }
 export interface ConfiguredCheck extends PreparedNumericD20 {label:string; prof:number|null; automaticAdvantage?:boolean;passiveMode?:-1|0|1}
@@ -55,14 +56,14 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
         }));
     }
     const executionModeStates=structuredClone(effects.executionModes);
-    return {reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
+    return {reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},executionProficiencies:{check:effects.executionGlobals.check.proficiency as number,skill:effects.executionGlobals.skill.proficiency as number,tool:effects.executionGlobals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
         globals:Object.fromEntries(['check','skill','tool'].map(key=>[key,sourceGlobals[key]!=null&&!record(sourceGlobals[key])?false:rollInput(rawGlobals[key])])) as SkillToolModel['globals']};
 }
 /** Native fresh #rollSkillTool + _buildSkillToolConfig source-only profile.
  * Only primary local/global type scopes contribute. Secondary supplies its
  * qualified proficiency and positive-prof advantage, never bonuses/modes.
  * Each module selection configures a new request, not an in-place native form. */
-export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,key:string,options:Record<string,unknown>={}):ConfiguredCheck {
+export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,key:string,options:Record<string,unknown>={},phase:'prepared'|'execution'='execution'):ConfiguredCheck {
     if (!record(options)||typeof key!=='string') return {ability:'',label:'Check',prof:null,total:null,formula:null,unavailableReason:'Check options or identity malformed'};
     const entries=model[kind+'s' as 'skills'|'tools'];
     const primary=Object.hasOwn(entries,key)?entries[key]:undefined;
@@ -84,8 +85,10 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     reason ??= data?.reason;
     const scopes=[{path:`${kind}s.${key}.roll`,value:primary?.roll},{path:`abilities.${abilityId}.check.roll`,value:data?.roll},
         {path:'rolls.ability.check',value:model.globals.check},{path:`rolls.ability.${kind}`,value:model.globals[kind]}];
-    const targets=model.proficiencies;
-    const independentProf=(entry:Entry|undefined,type:SkillToolKind)=>Math.max(entry?.prof??0,targets.check,targets[type]);
+    const targets=phase==='prepared'?model.proficiencies:model.executionProficiencies;
+    // Native #rollSkillTool checks the earlier prepared prof objects for automatic
+    // advantage. Its fresh builder independently reads current global targets.
+    const independentProf=(entry:Entry|undefined,type:SkillToolKind)=>Math.max(entry?.prof??0,model.proficiencies.check,model.proficiencies[type]);
     const automaticAdvantage=!!secondary&&independentProf(primary,kind)>0&&independentProf(secondary,other)>0;
     const qualifiedScopes=scopes.map(scope=>({...scope,effectMode:model.modeStates['system.'+scope.path+'.mode']}));
     const executionScopes=scopes.map(scope=>({...scope,effectMode:model.executionModeStates['system.'+scope.path+'.mode']}));
@@ -99,4 +102,13 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     const prof=Math.max(primary.prof,secondary?.prof??0,targets.check,...(kind==='skill'||other==='skill'&&secondary?[targets.skill]:[]),...(kind==='tool'||other==='tool'&&secondary?[targets.tool]:[])), total=data.mod+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0)+model.rollReduction;
     if (!qualifiedNumericTotal(total)) return {...base,prof,total:null,formula:null,unavailableReason:'Numeric result outside qualified roll representation'};
     return {...base,prof,total,sourceMode:mode.mode,passiveMode:passive.mode,...prepareD20Configuration(total,mode.mode,scopes)};
+}
+
+/** Default independent projection retains the native earlier snapshot alongside
+ * the current execution bonus. Both use this compiler; UI only renders the note. */
+export function projectSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,key:string){
+    const current=configureSkillToolCheck(model,kind,key),prepared=configureSkillToolCheck(model,kind,key,{},'prepared');
+    const differs=current.total!==null&&prepared.total!==null&&(current.total!==prepared.total||current.prof!==prepared.prof);
+    const preparationNote=differs?`Prepared bonus ${prepared.total!<0?'':'+'}${prepared.total} (${prepared.prof}× proficiency); final proficiency effects apply when rolling.`:undefined;
+    return {...current,preparedTotal:prepared.total,preparedProf:prepared.prof,...(preparationNote?{preparationNote}:{})};
 }

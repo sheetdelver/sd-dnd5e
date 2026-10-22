@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share qualified final proficiency effects across rolls while preserving earlier passive and proficiency snapshots.
+
 - Qualify final global proficiency effects separately from earlier passive and prepared proficiency snapshots.
 
 - Apply qualified Actor-owned final roll modes through shared execution while preserving earlier passive and initiative-score values.
