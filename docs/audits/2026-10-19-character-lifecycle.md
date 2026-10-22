@@ -1855,3 +1855,9 @@ unchanged;all full ADR/E01/E02/E04/widerQ00/E05/native/operator gates remain ope
 Next qualify bounded nonempty feat uses/defaults and final preparation collaborators,
 then extend the source recipe through shared fields/projections before general Item
 final support. No resource writes follow until the E02 conflict/receipt gate is resolved.
+
+
+[C71–C74 checkpoint index](evidence/2026-10-22-c71-c74-checkpoints.json) records full commit/evidence identities,
+completed validation and final package hash. All owned fixtures are stopped;Core baseline
+clean. C72 retained full UI and C74 focused consumers remain distinct evidence. No full
+ADR/native/operator/release gate closes;continue bounded feat uses/final qualification.

@@ -3141,3 +3141,9 @@ C72 full retained mounted completion:all50 transitions,8 previews,16 facts,18 mo
 90armor,84movement,624training,24proficiency,149defense,40species,180normalrange and
 held-intent checks PASS at1440/390. The C72 evidence supplement preserves its original
 source hashes and adds the completed artifact;C74 focused evidence remains separate.
+
+
+[C71–C74 checkpoint index](../audits/evidence/2026-10-22-c71-c74-checkpoints.json) records full commit/evidence identities,
+completed validation and final package hash. All owned fixtures are stopped;Core baseline
+clean. C72 retained full UI and C74 focused consumers remain distinct evidence. No full
+ADR/native/operator/release gate closes;continue bounded feat uses/final qualification.
