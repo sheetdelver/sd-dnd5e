@@ -1,0 +1,126 @@
+{
+  "checkpoint": "C64",
+  "date": "2026-10-22",
+  "parent": "6fcc0ec32fcd2d27849a0a4a89e09981a89c55c1",
+  "requirements": "Partial M2/Q02a, DD-03/11/27/34,A03/A04/A18/A21; no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "toolchain": "Node24.21/npm11.19; CI Node22 unrun",
+  "beforeAfter": {
+    "fixture": "tests/fixtures/native-6.0.6/final-defense-sets.json",
+    "unchangedPetrifiedRows": 48,
+    "before": "48 intentional unavailable failures on C63",
+    "after": "all196 rows PASS, including those48",
+    "expected": "Frozen C57 fields; C63 actual Actor queries/membership/sheet. Ordinary +5/passive15 remain earlier. No module output used as oracle."
+  },
+  "implementation": [
+    "One matching explicit petrified status, no initial defense changes; known primitive final Sets; CI before/delta/result restricted to poisoned,diseased,stunned. Mixed/inferred statuses, Item origins and broader immunity queries remain gated.",
+    "Prepared normalized fields, earlier condition grants and current final fields remain separate. Native All Damage sheet override is recorded as presentation provenance, never current membership.",
+    "Current categories feed cards/desktop/mobile. Later-change note and physical bypass descriptions on ALL are shared formatting; no UI rule calculation.",
+    "Source/prepared poison invariance, all three context-loss/recovery cases, bounds/manual-mode readiness, repeated final changes, source identity and held callbacks covered."
+  ],
+  "checks": [
+    {
+      "command": "npm test -- --core <Core0.19.3>",
+      "result": "61 tooling assertions / 9 tooling suites / 47 module suites PASS",
+      "logSha256": "c8093d4cec0e2d85fdac1dc269b54b0f5cf36fe6c952484765967f330ec2d0ac"
+    },
+    {
+      "command": "npm run typecheck -- --core <Core0.19.3>",
+      "result": "203 explicit source/UI/server/test/hook files PASS",
+      "logSha256": "c6d08299adec6314381035768b4f22c1f3642b1c5957f6416009b6393be31cf0"
+    },
+    {
+      "command": "npm run test:native-source -- --native <exact-release>",
+      "result": "2242 records / 591 candidate expressions PASS; not formula support",
+      "logSha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff"
+    },
+    {
+      "command": "npm run test:native-conditions -- --core <Core0.19.3> --native <exact-release> --foundry <static14.367> --write-evidence temp/c64-native-conditions.json",
+      "result": "48 actual petrified field/query/sheet cases / 2304 membership predicates + all retained matrices PASS",
+      "logSha256": "84903d6154849dedfdc34244edff5652edc5df83bfc5019976c40824575314c3"
+    },
+    {
+      "command": "npm run test:mounted -- --core <Core0.19.3> --browser-tools <isolated-tools> --chromium <Chromium143> --final-defense-sets-only",
+      "result": "202 states at1440/390 PASS; all current categories/cards, new48 previews/Enter/shortcuts, unavailable recovery/held intents",
+      "logSha256": "81f5987acc31e9fea6586b4acb4889285ba23958652a5aba24cfd88a4e19051d"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core <Core0.19.3>",
+      "result": "268240 accepted / 1 known unary candidate rejection / 40 equal-index diagnostics / zero native writes PASS",
+      "logSha256": "bff032a94dfe32c2ddbb9793e58385c17d67b7874befa7fa1d1bc10ee658fa37"
+    },
+    {
+      "command": "npm run check:package -- --core <Core0.19.3>",
+      "result": "isolated module check/managed package PASS",
+      "logSha256": "3bd7a3da9dfeed341013e0b076e74e34c577b1c0af8552b9d5b8d991f34b0125"
+    }
+  ],
+  "artifacts": {
+    "src/logic/preparation/numeric-effects.ts": "4ef1d186f66f4dc6ffc3cb97830fdbeffd6e388f7019dc481b9afa097687c19d",
+    "src/logic/preparation/defense-traits.ts": "b9828e10c39afc1d47ff4edb05bd0a7a98dac9f2ac17a555fa07673ca6b3365f",
+    "src/ui/components/blocks/Defenses.tsx": "a4c1a77dcf5623cea3e28c65724080b90cb3190418240eacd89ba8793b208134",
+    "src/tests/final-defense-sets.test.ts": "7a64f50a8b6f96f7c579711049af877de653b258b563900097c49cfe41901a4e",
+    "scripts/test-mounted.mjs": "24ec614b5a7652338b2aeb472edeca0a6cef29d84d1b4058de2be9467ff1dfcf",
+    "scripts/test-public-rolls.mjs": "bf5840474d9b5dd8729b9320c752d616d3276e8bbf382e2f6f068cd4585f2279",
+    "tests/fixtures/native-6.0.6/final-defense-sets.json": "3c3f9b48d092e50b43119403d74112bc0641a1e11a7c3ce07cc5660ef20e1c78",
+    "temp/c64-before.log": "2024373cc62e9f967dae50d53ff8acdf13edb8758ce743f9b1d2f8ab9d7f97a3",
+    "temp/c64-native-conditions.json": "c67fa3960b84e1b4a3d3537c7fa82a2dce61ac718dba64ec7828f25d3e1c18f4",
+    "/tmp/dnd5e-mounted-kGZmmF/evidence.json": "fcbdf79abba772b794c8d4beec8b0ad542e9cd188492ac3ae20656b9d28a0e45",
+    "/tmp/dnd5e-public-rolls-AaWmfp/evidence.json": "b80a84dd8cd99edff836b5b20f86098ebd8e14c2658b0e4830789ba103e7eb50",
+    "/tmp/dnd5e-package-bf7X57/data/dist/modules/dnd5e-0.4.1.tgz": "e65eeda429315074521aae513674400b74eb9855be76e91ff555610cedd3f0b3",
+    "temp/c64-listeners-before.log": "7ad2d015783641e67af9571f13132d1467b380134c291a49d602e360db71143e",
+    "temp/c64-listeners-after-public.log": "7ad2d015783641e67af9571f13132d1467b380134c291a49d602e360db71143e"
+  },
+  "paths": {
+    "core": "/tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "native": "../../../../temp/dnd5e",
+    "staticFoundry": "/home/juvinious/projects/foundryvtt/foundryvtt-v14",
+    "browserTools": "/tmp/sd-dice-preview-tools",
+    "chromium": "/home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell"
+  },
+  "nativeSourceHashes": {
+    "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+    "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25",
+    "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+    "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+    "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+    "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+    "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+    "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+    "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+    "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+    "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+    "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+    "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+  },
+  "foundrySourceHashes": {
+    "client/dice/roll.mjs": "a27f498f7b3864a1baa7cebbb1ccb611f9796720b4a4d153df779803b995c7ff",
+    "client/dice/parser.mjs": "2fe7a584106a9ac5c5b216af62ec6b7e6b4da0ab4dbdd8a64bc32320b5bce799",
+    "client/dice/terms/operator.mjs": "edb71ad0cc4b9a8dab15abcff233fa629a15bdfb668f0bfc9fa0f9a21fcb6e82",
+    "client/documents/abstract/client-document.mjs": "a007180e3cf8d465dffe43b11272f289b4cf77a9e301c7d431f48267dfad8e9e",
+    "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+    "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+    "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+    "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+    "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+    "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5",
+    "common/abstract/data.mjs": "11bb7f848c707803607accfa9f6b946c7cbfe8b17781ff562b468bdc77b934e5"
+  },
+  "limits": [
+    "Initialized native field/method construction, not full DataModel boot/dispatcher/preset or native/operator acceptance.",
+    "Damage membership predicates only; no amounts,rounding,application,ignore/downgrade/healing/Item activity qualification.",
+    "Mounted UI uses isolated SDK presentation seam, not installed Core/native acceptance. Public fixture exercises actual req.runtime.rolls with synthetic auth/transport and preserves host serialization.",
+    "Full retained mounted run /tmp/dnd5e-mounted-K2rk2n is still running at code checkpoint; completion will be recorded separately. Focused202 are complete. Public host/browser owned by its harness closed in finally; no live Foundry.",
+    "First implementation run retained six CI gates because raw delta whitespace was checked before String cleaning. Validation now checks cleaned identity while preserving the actual untrimmed Set operation; frozen expectations unchanged.",
+    "Experimental0.4.1/compatibility unchanged. E01/E02/E04/widerQ00/E05,other M2 phases/fullADR/native/operator gates remain open."
+  ]
+}

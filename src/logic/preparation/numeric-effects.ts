@@ -14,6 +14,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
+    preparedDefenseSets?:Record<string,string[]>;
     finalDefenseSets?:Record<string,string[]>;
     finalTrainingSets?:Record<string,string[]>;
     ruleFlags:SourceRuleFlags606;system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
@@ -163,7 +164,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     // Keep their earlier count state separate; never move a final effect to initial.
     const executionModes=structuredClone(modes),executionGlobals=structuredClone(globals),executionBonuses:Record<string,number>={},finalNumbers:Record<string,number>={},equipment=prepareEquipment606(actor);
     let checkExecutionReason:string|undefined;
-    let finalDefenseSets:Record<string,string[]>|undefined;
+    let preparedDefenseSets:Record<string,string[]>|undefined,finalDefenseSets:Record<string,string[]>|undefined;
     const finalTrainingSets:Record<string,string[]>={};
     const changedDefenseSets=new Set<string>();
     function addExecutionMode(key:string,delta:number){
@@ -190,11 +191,16 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         if(/^system\.traits\.(?:(?:dr|di|dv|ci)\.value|(?:dr|di|dv|dm)\.bypasses)$/.test(change.key)&&field?.set&&field.valid){
             const conditional=conditions.sources.length>0||conditions.actorStatuses.length>0;
             const ciOnly=change.key==='system.traits.ci.value'&&conditions.sources.length===1&&conditions.sources.every(source=>['poisoned','exhaustion'].includes(source.type)&&source.condition.matches)&&!plan.initial.some(change=>change.key==='system.traits.ci.value');
-            if(conditions.status!=='ready'||conditional&&!ciOnly){reason??='Final defense Sets with this condition preparation require qualification';continue;}
-            if(!finalDefenseSets){const snapshot=preparedDefenseSets606(system);if(snapshot.reason){reason??=snapshot.reason;continue;}finalDefenseSets=snapshot.fields;}
+            // C63 qualifies one explicitly serialized petrified status. Do not
+            // infer incapacitation/presets, replay grants, or admit mixed queries.
+            const petrified=conditions.sources.length===1&&conditions.sources.every(source=>source.type==='petrified'&&source.condition.matches&&source.statuses.length===1&&source.statuses[0]==='petrified')
+                &&conditions.actorStatuses.length===1&&conditions.actorStatuses[0]==='petrified'&&conditions.traitGrant?.status==='ready'
+                &&!plan.initial.some(change=>/^system\.traits\.(dr|di|dv|ci|dm)\./.test(change.key));
+            if(conditions.status!=='ready'||conditional&&!ciOnly&&!petrified){reason??='Final defense Sets with this condition preparation require qualification';continue;}
+            if(!finalDefenseSets){const snapshot=preparedDefenseSets606(system);if(snapshot.reason){reason??=snapshot.reason;continue;}preparedDefenseSets=snapshot.fields;finalDefenseSets=structuredClone(snapshot.fields);}
             const before=finalDefenseSets[change.key],result=applyTraitSet606(before,change.type,raw,field.valid);
             if(!result){reason??=`Final defense Set operation/value requires qualification: ${change.key}`;continue;}
-            if(conditional&&[...before,...result.value].some(value=>!['poisoned','exhaustion'].includes(value))){reason??='Final CI with these condition/immunity identities requires qualification';continue;}
+            if(conditional&&change.key==='system.traits.ci.value'&&[...before,...result.delta,...result.value].some(value=>!(petrified?['poisoned','diseased','stunned']:['poisoned','exhaustion']).includes(value.trim()))){reason??='Final CI with these condition/immunity identities requires qualification';continue;}
             finalDefenseSets[change.key]=result.value;
             applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:changedDefenseSets.has(change.key)?'final':'prepared',before:[...before],value:[...result.value],delta:result.delta});
             changedDefenseSets.add(change.key);continue;
@@ -240,7 +246,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,finalDefenseSets,finalTrainingSets,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
 }
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified

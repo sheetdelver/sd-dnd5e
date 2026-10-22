@@ -1259,3 +1259,27 @@ contract. Earlier grants must not overwrite final values or be promoted into cur
 membership. Runtime remains gated pendingC64 projection/tests. [Record](audits/evidence/2026-10-22-c63-final-petrified-foundation.json)
 keeps initialized constructor/Color/presentation-copy and damage-action limitations
 separate from full native/operator acceptance.
+
+
+### Petrification and final defense snapshots (C64)
+
+C64 extends C58/C62 only for one matching Actor-owned condition with the explicit
+serialized status `petrified`, without initial defense-field changes. Mixed/inferred
+statuses, initial-defense composition, Item origins and final immunity identities
+outside poisoned/diseased/stunned stay gated. This supersedes C58's blanket petrified
+final-Set restriction for the qualified profile; it does not qualify general queries.
+
+`NumericEffects.preparedDefenseSets` retains the earlier normalized fields; the final
+map is a detached copy updated by the existing primitive Set interpreter. DefenseFacts
+publishes the earlier fields with phase provenance separately from current categories.
+The existing condition projection retains the earlier petrification grant receipt.
+A separate native-presentation observation records the native sheet's All Damage
+resistance override; it never supplies current field values or damage membership.
+Cards and both layouts consume current categories. A shared note explains later
+changes, and an ALL entry explicitly describes physical-damage bypasses when present.
+No new damage evaluator, source mutation, world cache or transport is introduced.
+
+[Evidence](audits/evidence/2026-10-22-c64-final-petrified.json) separates regression,
+pinned initialized methods, mounted consumers, isolated public-host and packaging.
+Other conditions/compositions, damage amounts/application, Items and native/operator
+acceptance remain open, as do the full ADR milestones and external dependencies.

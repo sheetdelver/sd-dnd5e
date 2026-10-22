@@ -14,14 +14,18 @@ export interface DefenseEntry {key?:string;label:string;bypasses:string[]}
 interface ReadyCategory {status:'ready';values:string[];custom:string[];bypasses:string[];amount:Record<string,number>;entries:DefenseEntry[];display:string}
 interface UnavailableCategory {status:'unavailable';values:null;custom:null;bypasses:null;amount:null;entries:null;display:'Unavailable';reason:string}
 export type DefenseCategory=ReadyCategory|UnavailableCategory;
-export interface DefenseFacts {status:'ready'|'partial'|'unavailable';provenance:string;reason?:string;categories:Record<DefenseKey,DefenseCategory>;summary:string}
-const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; qualified condition grants,initial fields,condition-free final Sets and constant damage adjustments';
+export interface DefenseFacts {
+    status:'ready'|'partial'|'unavailable';provenance:string;reason?:string;categories:Record<DefenseKey,DefenseCategory>;summary:string;
+    preparation?:{fields:Record<string,string[]>;provenance:string;nativeResistanceDisplay?:{value:string;condition:'petrified';provenance:string}};
+    preparationNote?:string;
+}
+const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; qualified condition grants,initial fields,final Sets and constant damage adjustments';
 const unavailable=(reason:string):UnavailableCategory=>({status:'unavailable',values:null,custom:null,bypasses:null,amount:null,entries:null,display:'Unavailable',reason});
 const physical=new Set<string>(PHYSICAL_DAMAGE_606);
 function finish(values:string[],custom:string[],bypasses:string[],amount:Record<string,number>={}):ReadyCategory {
     const entries:DefenseEntry[]=[...values.map(key=>({key,label:key==='ALL'?ALL_DAMAGE_LABEL_606:DAMAGE_LABELS_606[key]??CONDITION_STATUS_LABELS_606[key],bypasses:physical.has(key)?bypasses:[]})),...custom.map(label=>({label,bypasses:[]}))];
     for(const [key,value] of Object.entries(amount))entries.push({key,label:`${DAMAGE_LABELS_606[key]} ${value>=0?'+':''}${value}`,bypasses:physical.has(key)?bypasses:[]});
-    return {status:'ready',values,custom,bypasses,amount,entries,display:entries.map(entry=>entry.label+(entry.bypasses.length?` (bypassed by ${entry.bypasses.map(key=>BYPASS_LABELS_606[key]).join(', ')})`:'')).join('; ')||'None'};
+    return {status:'ready',values,custom,bypasses,amount,entries,display:entries.map(entry=>entry.label+(entry.key==='ALL'&&bypasses.length?` (physical damage bypassed by ${bypasses.map(key=>BYPASS_LABELS_606[key]).join(', ')})`:entry.bypasses.length?` (bypassed by ${entry.bypasses.map(key=>BYPASS_LABELS_606[key]).join(', ')})`:'')).join('; ')||'None'};
 }
 /** One detached qualified preparation path. Malformed/unknown domains remain
  * unavailable separately; unqualified effect phases gate every affected defense.
@@ -73,7 +77,13 @@ export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effec
     const status=unavailableKeys.length===0?'ready':known.length?'partial':'unavailable';
     const summaryParts=known.filter(key=>categories[key].entries?.length).map(key=>`${defenseLabels[key]}: ${categories[key].display}`);
     const summary=status==='unavailable'?'—':summaryParts.join(' • ')+(unavailableKeys.length?`${summaryParts.length?' • ':''}Some defenses unavailable`:'')||'None';
-    return {status,provenance,categories,summary,...(unavailableKeys.length?{reason:unavailableKeys.map(key=>(categories[key] as UnavailableCategory).reason).join('; ')}:{})};
+    const petrified=effects.conditions.statuses.includes('petrified');
+    const preparation=status==='ready'&&effects.preparedDefenseSets?{
+        fields:effects.preparedDefenseSets,provenance:'release-6.0.6 TraitsFields.prepareResistImmune before final effects',
+        ...(petrified?{nativeResistanceDisplay:{value:ALL_DAMAGE_LABEL_606,condition:'petrified' as const,provenance:'release-6.0.6 BaseActorSheet._prepareTraits petrification display override; not current damage membership'}}:{})
+    }:undefined;
+    const changed=preparation&&Object.keys(preparation.fields).some(key=>JSON.stringify(preparation.fields[key])!==JSON.stringify(effects.finalDefenseSets?.[key]));
+    return {status,provenance,categories,summary,...(preparation?{preparation}:{}),...(petrified&&changed?{preparationNote:'Petrification granted defenses earlier. The values shown include later changes.'}:{}),...(unavailableKeys.length?{reason:unavailableKeys.map(key=>(categories[key] as UnavailableCategory).reason).join('; ')}:{})};
 }
 export function defensesProjection(derived:unknown):DefenseFacts {
     const fact=record(record(derived)?.defenses);

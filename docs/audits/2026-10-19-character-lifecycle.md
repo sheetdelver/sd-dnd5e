@@ -1657,3 +1657,15 @@ operator acceptance. C62 runtime/UI/public/package evidence remains separate. Ru
 gate stays open pending C64 tests and projections. Other conditions, combinations,
 fields/Item/filter/formula phases and E01/E02/E04/widerQ00/E05 remain open. Experimental
 0.4.1 and compatibility unchanged;all full ADR/DD/A/M/native/operator gates stay open.
+
+
+### C64 disposition — bounded petrification/final Sets (2026-10-22)
+
+The 48 C63 petrified inputs now pass shared preparation, preserving current final
+values separately from earlier grants and native sheet display. The old unavailable
+expectations for these rows are superseded; DD-R01–07 remain corrected and covered.
+Mixed/inferred statuses, initial-defense composition, broader CI identities, Item
+origins and damage application are still unavailable. No additional Core defect or
+compatibility dependency is alleged. [C64 record](evidence/2026-10-22-c64-final-petrified.json)
+contains independent-oracle, before/after, consumer recovery and verification identities.
+This is partial DD-03/11/27/34 and A03/A04/A18/A21 work; all full ADR gates stay open.

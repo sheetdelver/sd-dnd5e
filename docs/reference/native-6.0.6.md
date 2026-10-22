@@ -1174,3 +1174,14 @@ contract. Earlier grants must not overwrite final values or be promoted into cur
 membership. Runtime remains gated pendingC64 projection/tests. [Record](../audits/evidence/2026-10-22-c63-final-petrified-foundation.json)
 keeps initialized constructor/Color/presentation-copy and damage-action limitations
 separate from full native/operator acceptance.
+
+
+C64 consumes C63's 48 exact-release field/query/sheet cases and 2,304 membership
+comparisons without changing their frozen inputs. The module retains earlier normalized
+fields and grants, current final fields, and native All Damage presentation as separate
+facts. Current display can differ from the native presentation override deliberately:
+that override is not authoritative damage membership. ALL physical bypass descriptions
+are caller formatting of qualified current fields. The primitive Set semantics and
+native first-tie observations remain unchanged. This initialized-method comparison is
+not full DataModel/source boot, damage application or native/operator acceptance.
+[Runtime and consumer evidence](../audits/evidence/2026-10-22-c64-final-petrified.json).

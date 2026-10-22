@@ -20,12 +20,12 @@ export default function Defenses() {
 }
 
 export function DefenseFactsView({facts}:{facts:DefenseFacts}) {
-    return <dl data-defense-status={facts.status} title={facts.provenance} style={{margin:0,fontSize:'11px'}}>
+    return <div><dl data-defense-status={facts.status} title={facts.provenance} style={{margin:0,fontSize:'11px'}}>
         {defenseKeys.map(key=>{const category=facts.categories[key];return <div key={key} style={{marginBottom:'6px'}}>
             <dt style={{fontWeight:600}}>{defenseLabels[key]}</dt>
             <dd aria-label={defenseLabels[key]} data-status={category.status} title={category.status==='unavailable'?category.reason:facts.provenance} style={{margin:0,color:category.status==='unavailable'?'var(--text-muted)':'var(--text-primary)'}}>
                 {category.display}{category.status==='unavailable'&&<small style={{display:'block'}}>{category.reason}</small>}
             </dd>
         </div>;})}
-    </dl>;
+    </dl>{facts.preparationNote&&<small data-defense-preparation-note>{facts.preparationNote}</small>}</div>;
 }

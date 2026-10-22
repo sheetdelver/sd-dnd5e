@@ -2875,3 +2875,22 @@ operator acceptance. C62 runtime/UI/public/package evidence remains separate. Ru
 gate stays open pending C64 tests and projections. Other conditions, combinations,
 fields/Item/filter/formula phases and E01/E02/E04/widerQ00/E05 remain open. Experimental
 0.4.1 and compatibility unchanged;all full ADR/DD/A/M/native/operator gates stay open.
+
+
+### C64 — shared petrification/final-field projections (2026-10-22)
+
+Parent `6fcc0ec`; partial M2/Q02a, DD-03/11/27/34, A03/A04/A18/A21. The unchanged
+48 C63 petrified profiles fail before and pass after; all 196 final-defense rows retain
+independent before/after fields. Regression additionally covers source/prepared poison,
+context loss/recovery, repeated changes, earlier grants/native display provenance,
+normal bounds and unqualified combinations. Both actual layouts/cards consume current
+categories; mounted checks exercise focused preview/Enter, shortcuts and held callbacks.
+[C64 portable evidence](../audits/evidence/2026-10-22-c64-final-petrified.json) records
+commands, results and artifact hashes separately for each evidence class.
+
+Remaining acceptance: initial-defense/petrification composition, mixed/inferred statuses,
+broader final CI/query behavior, damage amounts/application, Items, full native source
+boot/dispatcher and installed/native/operator evidence. Other M2 fields/filters/formulas,
+E01/E02/E04/wider Q00/E05 and full DD/A/M/ADR gates remain open. No version or compatibility
+change. Next executable package: qualify final custom String fields and their distinct
+prepared/current presentation before admitting them through shared preparation.
