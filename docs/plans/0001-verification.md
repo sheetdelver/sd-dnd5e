@@ -3223,3 +3223,45 @@ unqualified. Historical source fixtures are preserved while newly qualified sour
 expectations explicitly supersede their earlier blanket-expression gates. Native
 methods use declared deterministic Roll collaborators,not full parser/runtime boot.
 Partial M2/Q00 only;ADR/full acceptance and experimental metadata remain unchanged.
+
+
+### C78 — class/default and numeric scaling dependencies (2026-10-22)
+
+Persisted class/subclass and ScaleValue identities now supply qualified numeric
+formula dependencies. Scale lookup follows class level,sparse/null inheritance,
+zero values and primary/secondary restrictions;subclass lookup uses its exact
+linked class,not total Actor level. Missing class levels initialize native1 and
+feed the same facts,filters,health and references. Old prepared scale/class fields
+are ignored without changing source. Missing,ambiguous,nonnumeric or dependent
+grant/root data remains unavailable;unknown references identify their exact path.
+
+[Evidence](../audits/evidence/2026-10-22-c78-class-scales.json) records21 native scale levels/126 restrictions,subclass3 versus
+Actor8,default class1 and actual native namespace/replacement methods;57 module/
+9 tooling suites,61 assertions,230 explicit typed files,both-layout mounted current
+resources/checks/recovery and9866 public-host requests in a declared dependency
+profile (15 new scale requests),plus isolated check/package PASS. The profile keeps
+complete d20/Normal-bound distributions;C77's full311995 host run stays separate.
+C77's full retained desktop/mobile suite also completed;its artifact/counts are
+supplemented in the historical C76/C77 records without relabeling runtime capture.
+No complete source DataModel,installed UI,native/operator or advancement-write
+acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
+
+
+### Current M2 exit state after C78
+
+This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
+Unavailable profiles are boundaries,not completed rules support.
+
+| Existing M2 obligation | Implemented/evidenced | Remaining to the full gate |
+| --- | --- | --- |
+| Actor facts and checks | Shared class/default/proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | Optional proficiency-dice preparation/execution and other Q00 profiles remain gated;full source/override comparisons still required |
+| Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | Broader expressions,dice-dependent terms,recursive/dependent references and expression/effect composition |
+| Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | General applied-rule/filter and Item final composition;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
+| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | Full container contents/currency/encumbrance and wider Item/effect final preparation |
+| Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | Shared spell/damage modifier dependency preparation before M4/M5 execution;no guessed casting capability |
+| Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
+
+Next executable M2 work:qualify the remaining proficiency-dice/Q00 execution profile,
+continue independent physical and modifier preparation,and resolve explicit filter/
+Item-phase gaps. E01 content access does not block these pure module tasks. E02/E04
+and wider E05 remain separately scoped;none authorizes Core edits or live connections.

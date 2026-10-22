@@ -52,3 +52,5 @@ export function deterministicFormula606(input:unknown,bindings:FormulaBindings60
 /** Exact numeric d20 folding profile: bounded dyadic bonuses keep grouping
  * independent of dice addition. Other fractional expressions stay unqualified. */
 export function qualifiedFormulaBonus606(value:number):boolean{return Number.isInteger(value*1024);}
+
+export function formulaUnavailableReason606(input:unknown,bindings:FormulaBindings606={}):string {const refs=typeof input==='string'?input.match(/@[a-zA-Z][a-zA-Z0-9_.-]*/g)??[]:[],missing=[...new Set(refs)].filter(ref=>!Object.hasOwn(bindings,ref.slice(1)));return missing.length?'Rule reference unavailable: '+missing.join(', '):'Formula expression outside qualified deterministic profile';}

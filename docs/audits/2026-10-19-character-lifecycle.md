@@ -1937,3 +1937,25 @@ unqualified. Historical source fixtures are preserved while newly qualified sour
 expectations explicitly supersede their earlier blanket-expression gates. Native
 methods use declared deterministic Roll collaborators,not full parser/runtime boot.
 Partial M2/Q00 only;ADR/full acceptance and experimental metadata remain unchanged.
+
+
+### C78 — class/default and numeric scaling dependencies (2026-10-22)
+
+Persisted class/subclass and ScaleValue identities now supply qualified numeric
+formula dependencies. Scale lookup follows class level,sparse/null inheritance,
+zero values and primary/secondary restrictions;subclass lookup uses its exact
+linked class,not total Actor level. Missing class levels initialize native1 and
+feed the same facts,filters,health and references. Old prepared scale/class fields
+are ignored without changing source. Missing,ambiguous,nonnumeric or dependent
+grant/root data remains unavailable;unknown references identify their exact path.
+
+[Evidence](evidence/2026-10-22-c78-class-scales.json) records21 native scale levels/126 restrictions,subclass3 versus
+Actor8,default class1 and actual native namespace/replacement methods;57 module/
+9 tooling suites,61 assertions,230 explicit typed files,both-layout mounted current
+resources/checks/recovery and9866 public-host requests in a declared dependency
+profile (15 new scale requests),plus isolated check/package PASS. The profile keeps
+complete d20/Normal-bound distributions;C77's full311995 host run stays separate.
+C77's full retained desktop/mobile suite also completed;its artifact/counts are
+supplemented in the historical C76/C77 records without relabeling runtime capture.
+No complete source DataModel,installed UI,native/operator or advancement-write
+acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.

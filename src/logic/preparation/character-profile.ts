@@ -3,13 +3,13 @@ import type { RulesContext } from '../rules-context';
 import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 
 export { numericConstant, qualifiedNumericTotal } from './numeric';
-import {initializeClassFacts606,proficiencyBonus606} from './class-initialization';
+import {initializeClassFacts606,proficiencyBonus606,type ClassSource606} from './class-initialization';
 export {proficiencyBonus606} from './class-initialization';
 export interface NumericFact {
     status: 'ready' | 'unavailable' | 'legacy-unqualified';
     value: number | null; display: string; provenance: string; reason?: string;
 }
-export interface CharacterFacts { level: NumericFact; proficiency: NumericFact }
+export interface CharacterFacts { level: NumericFact; proficiency: NumericFact;classSources?:ClassSource606[] }
 const provenance = 'release-6.0.6 CharacterData.prepareBaseData / Proficiency.calculateMod';
 export function numericFact(value: number | null, reason?: string): NumericFact {
     return { status: value === null ? 'unavailable' : 'ready', value, display: value === null ? '—' : String(value), provenance, ...(reason ? { reason } : {}) };
@@ -31,7 +31,7 @@ export function characterFacts606(actor: unknown, context: RulesContext, effects
     const profReason = reason ?? (!setting || setting.status === 'unavailable' || setting.value !== 'bonus' ? 'Proficiency dice or setting unavailable; Q00 qualification required' : undefined);
     const prof = numericFact(profReason ? null : proficiencyBonus606(level), profReason);
     if (prof.value !== null) prof.display = `+${prof.value}`;
-    return { level: levelFact, proficiency: prof };
+    return { level: levelFact, proficiency: prof,...(initial.status==='ready'?{classSources:initial.classes}:{}) };
 }
 /** Projection accessor only; never reconstruct facts from raw/fallback numbers. */
 export function characterFactsProjection(derived: Record<string, any>): CharacterFacts {

@@ -1295,3 +1295,11 @@ The deterministic test Roll collaborator and grammar-source checks do not execut
 the full native parser. This establishes controlled math/replacement evidence,
 separate from311995 real public-host numeric requests and mounted consumers.
 [Profile and evidence](../audits/evidence/2026-10-22-c77-deterministic-formulas.json).
+
+
+C78 executes numeric scale field cleaning,valueForLevel,Item.scaleValues/restrictions/
+subclass lookup,ActorDataModel._prepareScaleValues,Creature class roll-data projection
+and exact reference replacement.21 levels preserve zero and sparse/null inheritance;
+126 restriction cases and linked subclass level3 versus Actor8 are independent.
+Class NumberField declares missing level1;source/default tests qualify that case.
+Collection/model shells and explicit identifiers are recorded in [evidence](../audits/evidence/2026-10-22-c78-class-scales.json);no full model boot/native acceptance follows.

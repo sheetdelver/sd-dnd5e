@@ -1,3 +1,4 @@
+import {initializedClassLevel606} from './class-initialization';
 import { record,decodeCollection,advancementTypes,ownedItemUuid } from '../native/6.0.6/source';
 import type {RulesContext} from '../rules-context';
 import {characterFacts606} from './character-profile';
@@ -39,8 +40,8 @@ export function prepareHealth606(actor:unknown,context:RulesContext,effects:Nume
         else ids.add(id);
         if(typeof identifier!=='string'||!/^[a-z][a-z0-9-]*$/.test(identifier)||identifiers.has(identifier))classReason??='Persisted class identifier unavailable or duplicated';
         else identifiers.add(identifier);
-        if(!integer(data?.levels)||data.levels>20)classReason??='Class level source unavailable';
-        classes.push(item);
+        const levels=initializedClassLevel606(item.system);if(levels===null)classReason??='Class level source unavailable';
+        classes.push({...item,system:{...data,levels}});
     }
     if(classes.reduce((sum,item)=>sum+(typeof record(item.system)?.levels==='number'?record(item.system)!.levels as number:0),0)>20)classReason??='Class levels above20 unsupported';
     let hdReason=classReason;const hdClasses:PreparedHitDice['classes']=[],bySize:Record<string,number>={};

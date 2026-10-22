@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Resolve qualified numeric class/subclass scales and native class defaults by persisted identity.
+
 - Prepare qualified arithmetic and Actor references consistently across checks, resources and character readouts.
 
 - Initialize sparse standard ability and skill source consistently across checks, effects and character readouts.

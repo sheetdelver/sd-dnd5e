@@ -1462,3 +1462,13 @@ earlier-modifier order;earlier passive/Item facts do not replay after final effe
 New expression-derived d20 bonuses are bounded dyadic multiples1/1024;broader fractions
 remain gated. Item uses retain raw capacity identity while using this same arithmetic.
 See [C77 profile/evidence](audits/evidence/2026-10-22-c77-deterministic-formulas.json) for exact vocabulary and remaining boundaries.
+
+
+`class-initialization.ts` shares proven missing-level1 initialization and source/default
+origins. `class-scales.ts` derives only numeric ScaleValue entries from exact owned
+class/subclass/advancement identities,using linked class level and native restriction/
+inheritance order. It supplies the `classes.<identifier>.levels` and
+`scale.<itemIdentifier>.<scaleIdentifier>` formula bindings once per revision.
+Raw/prepared-looking scale maps and names never supply replacements. Subclass parent,
+identifier collisions,grant roots and unqualified types yield diagnostics/no binding.
+[Source and phase evidence](audits/evidence/2026-10-22-c78-class-scales.json). No grant execution or source writes are introduced.

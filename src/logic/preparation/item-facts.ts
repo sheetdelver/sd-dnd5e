@@ -1,5 +1,5 @@
 import {preparedFormulaBindings606} from './formula-fields';
-import {deterministicFormula606,type FormulaBindings606} from './deterministic-formula';
+import {deterministicFormula606,formulaUnavailableReason606,type FormulaBindings606} from './deterministic-formula';
 import {spellMetadata606,type SpellMetadata} from './spell-metadata';
 import {weaponModes606,itemAttack606,type AttackFacts} from './item-combat';
 import type {NumericEffects} from './numeric-effects';
@@ -28,7 +28,7 @@ export function prepareUses606(raw:unknown,reason?:string,bindings:FormulaBindin
  const data=raw===undefined?{}:record(raw);if(!data)return emptyUses('unavailable','Uses source mapping malformed');
  const source=data.max,capacity=source==null?undefined:typeof source==='string'?source.trim():typeof source==='number'&&Number.isFinite(source)?String(source):null;
  const spent=nat(data.spent,0,true),max=capacity===undefined||capacity===''?0:deterministicFormula606(capacity,bindings);
- const counterReason=reason??(capacity===null||max===null||max<0||max>1e9?'Uses maximum expression requires deterministic formula qualification':spent===null?'Uses spent source must be a nonnegative integer':undefined);
+ const counterReason=reason??(capacity===null||max===null||max<0||max>1e9?formulaUnavailableReason606(capacity,bindings):spent===null?'Uses spent source must be a nonnegative integer':undefined);
  const recovery:RecoveryFact[]=[];let recoveryReason:string|undefined;
  if(data.recovery!==undefined&&!Array.isArray(data.recovery))recoveryReason='Uses recovery collection malformed';
  else for(const entry of (data.recovery as unknown[]|undefined)??[]){const row=record(entry),period=row?.period===undefined?'lr':row?.period,type=row?.type===undefined?'recoverAll':row?.type,formula=row?.formula;

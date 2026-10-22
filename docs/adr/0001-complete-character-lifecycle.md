@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots; C49/50 final global proficiency snapshots and shared execution; C51/52 final constant bonuses with preserved passive/fixed-score snapshots; C53/54 final numeric fields/current scores with earlier modifiers and fresh initiative ties; C55/56 modern source Jack/Alert qualification and shared rules; C57/58 final defense Set phase qualification and condition-free snapshots; C59/60 final training field/cache qualification and shared caller projections; C61/62 final CI/current queries with earlier condition snapshots; C63/64 petrification/final-field membership and truthful shared snapshots; C65/66 literal final custom String preparation and earlier/current language labels; C67/68 initial String/cache and explicit phase chains; C69/70 single poisoned/exhaustion custom-text composition; C71/72 transferred Item initial custom text and eligibility/identity provenance; C73/74 empty-feat final preparation and Actor custom text | RV01–RV04 retained; C06–C74 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: shared source/default Actor rules, qualified checks/combined selections, typed initial/final effects and conditions; C75 Item read preparation, C76 standard mappings, C77 deterministic source formulas and C78 numeric class/scaling dependencies. Full exit work is tracked in the verification ledger; earlier C06–C74 evidence remains below. | RV01–RV04 and C06–C78 preserve separate regression/controlled-source/mounted/public-host evidence; full acceptance open |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -2656,3 +2656,25 @@ unqualified. Historical source fixtures are preserved while newly qualified sour
 expectations explicitly supersede their earlier blanket-expression gates. Native
 methods use declared deterministic Roll collaborators,not full parser/runtime boot.
 Partial M2/Q00 only;ADR/full acceptance and experimental metadata remain unchanged.
+
+
+### C78 — class/default and numeric scaling dependencies (2026-10-22)
+
+Persisted class/subclass and ScaleValue identities now supply qualified numeric
+formula dependencies. Scale lookup follows class level,sparse/null inheritance,
+zero values and primary/secondary restrictions;subclass lookup uses its exact
+linked class,not total Actor level. Missing class levels initialize native1 and
+feed the same facts,filters,health and references. Old prepared scale/class fields
+are ignored without changing source. Missing,ambiguous,nonnumeric or dependent
+grant/root data remains unavailable;unknown references identify their exact path.
+
+[Evidence](../audits/evidence/2026-10-22-c78-class-scales.json) records21 native scale levels/126 restrictions,subclass3 versus
+Actor8,default class1 and actual native namespace/replacement methods;57 module/
+9 tooling suites,61 assertions,230 explicit typed files,both-layout mounted current
+resources/checks/recovery and9866 public-host requests in a declared dependency
+profile (15 new scale requests),plus isolated check/package PASS. The profile keeps
+complete d20/Normal-bound distributions;C77's full311995 host run stays separate.
+C77's full retained desktop/mobile suite also completed;its artifact/counts are
+supplemented in the historical C76/C77 records without relabeling runtime capture.
+No complete source DataModel,installed UI,native/operator or advancement-write
+acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.

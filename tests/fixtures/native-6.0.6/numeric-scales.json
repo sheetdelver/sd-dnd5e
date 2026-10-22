@@ -1,0 +1,108 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "identifier": "uses",
+  "scale": {
+    "1": {
+      "value": 2
+    },
+    "5": {
+      "value": 3
+    },
+    "9": {},
+    "13": {
+      "value": 0
+    },
+    "17": {
+      "value": 6
+    },
+    "20": {
+      "value": null
+    }
+  },
+  "cases": [
+    {
+      "level": 0,
+      "expected": null
+    },
+    {
+      "level": 1,
+      "expected": 2
+    },
+    {
+      "level": 2,
+      "expected": 2
+    },
+    {
+      "level": 3,
+      "expected": 2
+    },
+    {
+      "level": 4,
+      "expected": 2
+    },
+    {
+      "level": 5,
+      "expected": 3
+    },
+    {
+      "level": 6,
+      "expected": 3
+    },
+    {
+      "level": 7,
+      "expected": 3
+    },
+    {
+      "level": 8,
+      "expected": 3
+    },
+    {
+      "level": 9,
+      "expected": 3
+    },
+    {
+      "level": 10,
+      "expected": 3
+    },
+    {
+      "level": 11,
+      "expected": 3
+    },
+    {
+      "level": 12,
+      "expected": 3
+    },
+    {
+      "level": 13,
+      "expected": 0
+    },
+    {
+      "level": 14,
+      "expected": 0
+    },
+    {
+      "level": 15,
+      "expected": 0
+    },
+    {
+      "level": 16,
+      "expected": 0
+    },
+    {
+      "level": 17,
+      "expected": 6
+    },
+    {
+      "level": 18,
+      "expected": 6
+    },
+    {
+      "level": 19,
+      "expected": 6
+    },
+    {
+      "level": 20,
+      "expected": 6
+    }
+  ]
+}

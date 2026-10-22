@@ -1,0 +1,64 @@
+{
+  "checkpoint": "C78 class defaults and numeric scaling dependencies",
+  "parent": "3917336aa17c3f470404b7857ef3531529c49245",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirements": [
+    "M2/Q00 partial",
+    "DD-01/02/03/06/11/24/27/31/34 partial",
+    "A02/A03/A04/A18/A21 partial"
+  ],
+  "beforeAfter": {
+    "input": "src/tests/fixtures/class-scale-scenarios.ts",
+    "before": "level1 numeric scale resource maximum unavailable;expected2 fails withnull",
+    "after": "21 levels,zero preserved,sparse/null higher entries inherit lower values;default class1/proficiency2,multiclass levels,exact persisted class/scale identifiers;missing/ambiguous/nonnumeric sources remain unavailable",
+    "poison": "Raw system.scale,item.scaleValues,external advancement.identifier and prepared-looking class fields do not supply overrides;source unchanged"
+  },
+  "checks": {
+    "regression": {
+      "result": "57 module/9 tooling suites,61 assertions PASS",
+      "logSha256": "0dff1d9ca04f75720d944d831a2cf214e2f8c4e500257f5fe4c6d1272ba6cbce"
+    },
+    "typing": {
+      "result": "230 explicit source/UI/server/test/hook files PASS",
+      "sha256": "f56d984f0e0e3b5dfb468a2dbfd2222de11f09cc248a541dd5675594c7200405"
+    },
+    "native": {
+      "command": "npm run test:native-scales -- --core <Core0.19.3> --native <exact release> --foundry <static14.367>",
+      "result": "21 scale levels,126 class-restriction cases,subclass level3 versus Actor8,class default1 and actual scale/class roll-data/reference replacement PASS",
+      "artifactSha256": "a9c7e7b832170895fb6f37481d7a4dbc64d864a2c745cea2b5e2cb054f099427",
+      "fixture": "tests/fixtures/native-6.0.6/numeric-scales.json",
+      "fixtureSha256": "c29e865b231f01c5ee5a5766a4d092c41bd811860f751c4dc16222539931bde4",
+      "sourceHashes": {
+        "module/documents/advancement/scale-value.mjs": "fc033ef4fccf66cfa3b739476a57ea26b21888f7ea4aead4f52803ba75da80b8",
+        "module/data/advancement/scale-value-data.mjs": "33209224d8de191d3ecf97d94a7574bd7eda7e835d4db4ce2c4e2a1d966b65ed",
+        "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+        "module/data/abstract/actor-data-model.mjs": "0905d4b45c1e30d21ca7890fa6c133db9d68d4c479253662f83901f2593c8f8a",
+        "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+        "module/data/item/class.mjs": "de7f04f5f868791c8174aa7558aa6741720728d0d296d7389d53236f188a47a4"
+      }
+    },
+    "mounted": {
+      "command": "npm run test:mounted-scales -- --core <Core0.19.3> --chromium <isolated headless>",
+      "result": "1440/390 current resource1/3\u21920/0\u2192unavailable\u21921/3,check/selected ability preview/manual/shortcut/held callback/context recovery,zero writes PASS",
+      "artifact": "/tmp/dnd5e-scales-KZGVwd/evidence.json",
+      "sha256": "ef775dd56b03f09acbfb59a62de3b7aa877f9f16139082d2bc8d8f319fdc86a9"
+    },
+    "public": {
+      "command": "npm run test:public-rolls -- --core <Core0.19.3> --dependency-profile",
+      "result": "9866 accepted,1 known unary candidate,40 bounded tied-index diagnostics,0 native writes PASS;includes15 new scale requests",
+      "artifact": "/tmp/dnd5e-public-rolls-wTZRAV/evidence.json",
+      "sha256": "34d6b11552de28f8bf70a8b9abcd7e61d630ae2b8e949a7a2489c3284680b662",
+      "scope": "Narrow execution retains800 selection pairs,normal faces,all441 complete Normal-bound distributions,current formula/default requests and new scale/default-class requests. Full generated-family count assertions remain;unrelated old phase requests are not executed in this profile. C77 full311995 execution retained separately."
+    },
+    "managed": {
+      "result": "module check/package PASS",
+      "artifact": "/tmp/dnd5e-package-bnzVeu/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "1400b72f33b6289ce35f1ce6da3d14141e800f08c9b03b39bbe20fddf3e2cabf"
+    }
+  },
+  "limits": [
+    "Actual field cleaning,numeric ScaleValue algorithm,Item restrictions/subclass lookup,embedded Actor scale map,Creature class roll-data namespace and reference replacement run on declared initialized collection/model shells. Not full source DataModel/native/operator acceptance.",
+    "Persisted explicit identifiers only;no name fallback. Duplicate identifiers,nonnumeric scales,grant/root dependencies,Item effects and unsupported source shapes remain unavailable with precise reference reasons. No advancement/resource writes.",
+    "C77 full mounted run completed separately at its captured code,not recaptured as C78 installed acceptance. Wider formula/effect/rule preparation,E01/E02/E04/Q00/E05 and full M2/ADR acceptance remain open. Experimental0.4.1/compatibility unchanged."
+  ]
+}

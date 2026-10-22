@@ -1,6 +1,7 @@
 import fixture from '../../../tests/fixtures/native-6.0.6/initial-class-filters.json';
 import {filterSource} from './filter-scenarios';
-export const initialClassFilterCases=fixture.cases;
+// C78: native missing class levels initialize1 before initial filters.
+export const initialClassFilterCases=fixture.cases.map(row=>row.id==='missing-class-level'?{...row,workflowUnavailable:false,expectedLevel:1,expectedProficiency:2,expectedSkill:4,expectedTool:4,expectedAbility:2,expectedSave:2,expectedScore:14}:row);
 export function initialClassFilterSource(row:typeof initialClassFilterCases[number]){
     const actor=filterSource(row),system=actor.system as any,effect=actor.effects![0] as any;
     const original=actor.items.find(item=>item.type==='class')!;

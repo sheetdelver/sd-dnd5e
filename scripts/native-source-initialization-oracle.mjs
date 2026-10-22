@@ -36,7 +36,7 @@ class RollConfigField extends SchemaField {${constructor606('module/data/shared/
 class ModelBase {static defineSchema(){return {};}static mergeSchema(a,b){return {...a,...b};}}
 class CommonSource extends ModelBase {static _systemType='character';${n(common,'CommonTemplate','defineSchema')}${n(common,'CommonTemplate','_initialAbilityValue')}}
 class CreatureSource extends CommonSource {${n(creature,'CreatureTemplate','defineSchema')}${n(creature,'CreatureTemplate','_initialSkillValue')}static _spellLevels=[];}
-globalThis.sourceOracle={CommonSource,CreatureSource};})();`,sandbox);
+globalThis.sourceOracle={CommonSource,CreatureSource,NumberField};})();`,sandbox);
 // Numeric globals are intentionally not source initialized by this schema shell;
 // maintained DD-R04 comparisons separately cover their persisted:false defaults.
 const schema=sandbox.sourceOracle.CreatureSource.defineSchema(),observations=[];
@@ -55,3 +55,5 @@ for(const shape of ['absent','empty','partial','existing-partial']){
 }
 const evidence={nativeCommit,observations,skillAbilities:expectedSkills,sourceHashes:Object.fromEntries([common,creature,mapping,'module/config.mjs','module/data/shared/roll-config-field.mjs'].map(p=>[p,sha256(files.get(p))])),limits:['Actual schema definitions,MappingField initialization/key builders,NumberField/StringField cleaners and native numeric preparation run. Schema collection delegation is a declared test shell,not Foundry DataModel/Document boot.','Native initializes8 ability keys;this batch qualifies the6 standard abilities for current public module controls. Honor/Sanity,custom registries and other optional rules remain outside the qualified profile.','Only absent/empty/valid partial records are admitted. Null/malformed container and explicit null/non-numeric scalar cleaning remain gated by the module;not claimed equivalent source profiles. No writes or native/operator acceptance.']};
 const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write('S:4 native source/default mapping profiles,6 standard/2 optional abilities,18 keyed skill defaults and prepared arithmetic PASS\n');
+
+export const sourceFields606={NumberField:sandbox.sourceOracle.NumberField};

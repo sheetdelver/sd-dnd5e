@@ -1,3 +1,4 @@
+import {prepareClassScales606,type ClassScales606} from './class-scales';
 import {record} from '../native/6.0.6/source';
 import type {RulesContext} from '../rules-context';
 import type {NumericEffects} from './numeric-effects';
@@ -5,7 +6,7 @@ import {initializeClassFacts606} from './class-initialization';
 import {numericAbilityValue,numericConstant} from './numeric';
 import {deterministicFormula606,qualifiedFormulaBonus606,type FormulaBindings606} from './deterministic-formula';
 export interface FormulaPreparation606 {
-    preparedBindings:Record<string,number>;executionBindings:Record<string,number>;
+    scales:ClassScales606;preparedBindings:Record<string,number>;executionBindings:Record<string,number>;
     receipts:Array<{path:string;source:string;prepared:number;execution?:number}>;
     unavailable:Array<{path:string;reason:string}>;
 }
@@ -32,8 +33,8 @@ export function formulaBindings606(actor:unknown,context:RulesContext,effects:Nu
  * NumberFields and effect deltas retain their separate typed semantics. Source
  * expressions survive in receipts; unknown references never become fabricated0. */
 export function prepareFormulaFields606(actor:unknown,context:RulesContext,effects:NumericEffects):NumericEffects {
-    const prepared=formulaBindings606(actor,context,effects),execution=formulaBindings606(actor,context,effects,'execution');
-    const model:FormulaPreparation606={preparedBindings:prepared,executionBindings:execution,receipts:[],unavailable:[]};
+    const scales=prepareClassScales606(actor,context.status!=='supported'||context.profile!=='2024'?'Class/scale rules context unavailable':effects.reason),prepared={...formulaBindings606(actor,context,effects),...scales.bindings},execution={...formulaBindings606(actor,context,effects,'execution'),...scales.bindings};
+    const model:FormulaPreparation606={scales,preparedBindings:prepared,executionBindings:execution,receipts:[],unavailable:[]};
     function fold(path:string,roll=false,root:Record<string,unknown>=effects.system,parts=path.split('.')){
         let parent:Record<string,unknown>|null=root;
         for(const part of parts.slice(0,-1))parent=record(parent?.[part]);

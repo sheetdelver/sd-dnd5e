@@ -109,5 +109,11 @@
     "Frozen arithmetic results are independent;actual native methods and Foundry safeEval execute under declared deterministic Roll/collection collaborators,not the full Foundry grammar/parser/DataModel runtime.",
     "No production dependency or second dice engine. Runtime uses pure deterministic rule arithmetic only;public dice execution remains through the existing shared compiler/SDK.",
     "R/S/mounted SDK seam/isolated public-host/package evidence are distinct;no installed/native/operator acceptance. E01/E02/E04/widerQ00/E05,full M2 and ADR-0001 remain open. Experimental0.4.1/compatibility unchanged."
-  ]
+  ],
+  "completedRetainedMountedSupplement": {
+    "result": "C77 full retained mounted PASS at1440/390;C76 failed hover-default setup retained and corrected. This is captured C77 runtime,not an installed/native acceptance run.",
+    "artifact": "/tmp/dnd5e-mounted-coaAkv/evidence.json",
+    "sha256": "706d28dba18c184394a3da807686b859d1c1010acf7e861ecbfe7b923fa4bf2e",
+    "counts": "50 transitions,8 preview,16 facts,18 modes,56tools,80selected,22eligibility,1172fields,58mode/58health,102AC/init,90armor,84movement,624training,24proficiency,149defense,40species,180Normalrange and heldcallbacks"
+  }
 }
