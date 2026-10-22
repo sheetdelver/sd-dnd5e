@@ -1728,3 +1728,19 @@ the actual independent label and receipt; no frozen inputs were rewritten. Cards
 both layouts agree through shared projections. [C68 evidence](evidence/2026-10-22-c68-initial-custom.json)
 records before/after and checks. Conditions/Item origins/null/coercions/references remain
 unavailable. DD-R01–07 and full ADR/native/operator acceptance remain as previously stated.
+
+
+### C69 — single-condition custom String qualification (2026-10-22)
+
+442 independent poisoned/exhaustion1–6 text-phase/source-mode cases pass actual
+primitive, Actor condition/cache/build and language/sheet methods:2652 fresh checks
+and442 initiative configurations, plus all retained native matrices. Initial/current
+text and earlier labels remain distinct; text containing condition names grants no
+immunity. Primary tool scope excludes selected-skill local modes. Explicit208-file
+typing and a separate direct custom-trait capture PASS.
+
+[Record](evidence/2026-10-22-c69-condition-custom-foundation.json) retains exact sources/fixtures and declared constructor, scheduling,
+presentation-copy and dice-stub boundaries. Runtime stays gated until C70. No mixed/
+immune/CI-changing conditions, Item origins, inferred statuses, broader expressions or
+native/operator acceptance follows. Partial M0/M2 Q02a,DD-02/03/11/27/34,A02/A03/A04
+only; experimental0.4.1/compatibility and E01/E02/E04/widerQ00/E05/fullADR remain open.

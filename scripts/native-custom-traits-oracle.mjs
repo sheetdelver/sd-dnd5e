@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createRequire} from 'node:module';
-import {join} from 'node:path';
+import {join,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {StringField,nativeTraitEvidence606} from './native-traits-oracle.mjs';
 import {coreRoot,moduleRoot,option} from './lib/toolchain.mjs';
 import {readRelease,nativeCommit,sha256} from './lib/native-release.mjs';
@@ -98,6 +99,20 @@ const evidence={nativeCommit,fixture,observations,initialFixture,initialObservat
  'C67 initial/final scheduling is explicit on initialized field shells; actual primitive methods and language/sheet methods execute. Full source DataModel/Actor dispatcher acceptance is absent. Native phase-order comparisons remain separate in the condition oracle.',
  'Language cache prepared once after initial and before final changes,with poisoned labels overwritten by actual method. Current labels use a separate formatting shell,not Actor phase replay.',
  'This driver alone does not establish module/dice/installed/native/operator acceptance. Bounded runtime integration is verified separately in C66 regressions and consumer/public-host evidence.']};
-const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');
+const out=process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)?option(args,'--write-evidence'):undefined;if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');
 process.stdout.write('S: '+observations.length+' final custom String source/default/field/cache/sheet/current-format cases PASS\n');
 process.stdout.write('S: '+initialObservations.length+' initial custom String/initial-final chain/cache/sheet/current-format cases PASS\n');
+
+// Presentation-only copy in the sheet method's realm. Current field values and
+// the actual earlier language cache are preserved; no preparation phase replays.
+function customSheet606(model,hasConditionEffect){
+ const copy=vm.runInNewContext(`({traits:Object.fromEntries(['dr','di','dv','ci','armorProf','weaponProf','languages'].map(key=>[key,{value:new Set(),custom:''}]))})`,scope);
+ for(const [key,data]of Object.entries(copy.traits)){
+  const current=model.traits[key]??{};data.custom=current.custom??'';data.value=vm.runInNewContext('new Set('+JSON.stringify(Array.from(current.value??[]))+')',scope);
+  if(current.bypasses)data.bypasses=vm.runInNewContext('new Set('+JSON.stringify(Array.from(current.bypasses))+')',scope);
+ }
+ copy.traits.languages.labels=model.traits.languages.labels;
+ return Object.assign(new native.NativeSheet(),{actor:{system:copy},document:{hasConditionEffect},_mode:'edit'})._prepareTraits({});
+}
+const CustomStringField606=native.FinalCustomField,CustomTraits606=native.NativeTraits;
+export {CustomStringField606,CustomTraits606,customSheet606};

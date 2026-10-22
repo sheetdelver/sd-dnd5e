@@ -1217,3 +1217,11 @@ module interpreter preserves that phase and raw-delta behavior. Source/default o
 survives into final receipts. The original C28 Cant input is now a supported String
 workflow, with historical Set-only evidence preserved. [Record](../audits/evidence/2026-10-22-c68-initial-custom.json)
 retains source/model, constructor/scheduling and native/operator evidence limits.
+
+
+C69 qualifies442 single poisoned/exhaustion String/cache/source-mode cases through
+actual Actor queries/builders and native String/trait/sheet methods.2652 check builds
+and442 initiative configurations preserve reductions/passives and primary-scope modes.
+A separate read-only presentation copy preserves current text and earlier labels.
+Runtime awaits C70; initialized scheduling is not full native source/dispatcher/dice
+acceptance. [Evidence](../audits/evidence/2026-10-22-c69-condition-custom-foundation.json) keeps these limits explicit.
