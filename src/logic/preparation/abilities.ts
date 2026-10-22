@@ -36,7 +36,7 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             const multipliers = [base, global.proficiency].filter(value => value !== undefined);
             if (base === undefined || multipliers.some(value => typeof value !== 'number' || !(type === 'check' ? [0,.5,1,2] : [0,1]).includes(value))) unavailableReason = 'Ability proficiency source unavailable';
             if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready') return { ability: key, total: null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
-            const total = mod + Math.floor(profile.proficiency * Math.max(...multipliers as number[])) + (bonuses[0] as number) + (bonuses[1] as number);
+            const total = mod + Math.floor(profile.proficiency * Math.max(...multipliers as number[])) + (bonuses[0] as number) + (bonuses[1] as number)+effects.conditions.rollReduction;
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
             return {ability:key,total,sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,abilityRollScopes(actor,key,type,effects.modes))};
         }

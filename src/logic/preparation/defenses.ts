@@ -82,7 +82,7 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     const mode=sourceD20Mode(scopes),bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));
     reason??=mode.reason;
     if(bonuses.some(value=>value===null))reason??='Initiative bonus expression requires Q00 qualification';
-    const total=!reason&&numeric?numeric.mod+(bonuses as number[]).reduce((n,v)=>n+v,0):null;
+    const total=!reason&&numeric?numeric.mod+(bonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
     if(total!==null&&!qualifiedNumericTotal(total))reason??='Initiative result outside qualified numeric representation';
     const score=total!==null&&!reason&&localMode?10+total+5*resolvedEffectMode(localMode):null;
     const fact:InitiativeFact={...numericFact(reason?null:total,reason),provenance:initProvenance,ability:key,score};

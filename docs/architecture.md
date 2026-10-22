@@ -849,3 +849,25 @@ speeds,converted before numeric bonus/multiplier; levels cap6 and add dead. Move
 intermediates/effects/source fields remain separately qualified. The eventual shared
 path must feed ability/save/skill/tool/initiative/movement and both condition readouts
 without writing source or treating raw prepared-looking maps as authoritative.
+
+
+### Shared modern exhaustion profile (C39)
+
+C39 supersedes C38's runtime restriction only for constant-guard,untimed Actor-owned
+exhaustion with empty own changes/riders. `conditions.ts` initializes the detached
+nonpersisted map,assigns levels in source order before initial guard evaluation,
+collects statuses separately and filters final CI. Missing/null level→1; positive
+safe integer→min(6,level). Source coercions/legacy exhaustion stay gated. Level6 adds
+configured dead; no status is guessed from type/name. Guard/CI/duplicate phase facts
+match C38. The last assigned level and effective status determine one roll/speed
+reduction. Raw map99 and virtual source values cannot override it.
+
+Ability/save,skill/tool model (including alternate/selected checks),passives,initiative
+and movement consume the same prepared reduction. Initiative score/roll/fixed remain
+distinct; fixed0 is valid. Exhaustion and armor reductions add before conversion,
+numeric movement bonus and zero-speed handling; nonpersisted raw multiplier remains
+ignored. The conditioned mode path from C37 remains separate from numeric reduction.
+Source CI provenance joins condition/default/ID provenance for stale-intent retirement.
+Desktop/mobile readouts format effective statuses and levels; no editing/writes.
+Other condition types,dependent guards,flags/time,Item/final effects and expressions
+remain explicitly unqualified. No extra evaluator/cache/runtime/Core dependency.

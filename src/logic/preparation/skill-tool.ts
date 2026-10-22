@@ -15,7 +15,7 @@ interface Ability { score:number|null;mod:number|null; roll:unknown; reason?:str
  * Initial qualified field effects are separate from raw source. No source
  * references, unqualified prepared totals or browser world cache. */
 export interface SkillToolModel {
-    reason?:string; proficiency:number|null;modeStates:Record<string,EffectModeState>;executionModeStates:Record<string,EffectModeState>;
+    reason?:string; proficiency:number|null;rollReduction:number;modeStates:Record<string,EffectModeState>;executionModeStates:Record<string,EffectModeState>;
     abilities:Record<string,Ability>; skills:Record<string,Entry>; tools:Record<string,Entry>;
     proficiencies:Record<'check'|'skill'|'tool',number>;
     globals:Record<'check'|'skill'|'tool',unknown>;
@@ -62,7 +62,7 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
         if(state){applyEffectMode(state,'add',-1);executionModeStates[path]=state;}
         else reason??='Equipped armor Stealth mode source malformed';
     }
-    return {reason,modeStates:structuredClone(effects.modes),executionModeStates,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
+    return {reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
         globals:Object.fromEntries(['check','skill','tool'].map(key=>[key,sourceGlobals[key]!=null&&!record(sourceGlobals[key])?false:rollInput(rawGlobals[key])])) as SkillToolModel['globals']};
 }
 /** Native fresh #rollSkillTool + _buildSkillToolConfig source-only profile.
@@ -103,7 +103,7 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     if (bonuses.some(value=>value===null)) reason ??= `${kind==='skill'?'Skill':'Tool'} formula requires Q00 qualification`;
     const base={ability:abilityId,label:primary?.label??key,automaticAdvantage};
     if (reason||!primary||primary.prof===null||model.proficiency===null||mode.mode===undefined||data?.score==null||data.mod===null) return {...base,prof:null,total:null,formula:null,unavailableReason:reason??'Check preparation unavailable'};
-    const prof=Math.max(primary.prof,secondary?.prof??0,targets.check,...(kind==='skill'||other==='skill'&&secondary?[targets.skill]:[]),...(kind==='tool'||other==='tool'&&secondary?[targets.tool]:[])), total=data.mod+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0);
+    const prof=Math.max(primary.prof,secondary?.prof??0,targets.check,...(kind==='skill'||other==='skill'&&secondary?[targets.skill]:[]),...(kind==='tool'||other==='tool'&&secondary?[targets.tool]:[])), total=data.mod+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0)+model.rollReduction;
     if (!qualifiedNumericTotal(total)) return {...base,prof,total:null,formula:null,unavailableReason:'Numeric result outside qualified roll representation'};
     return {...base,prof,total,sourceMode:mode.mode,passiveMode:passive.mode,...prepareD20Configuration(total,mode.mode,scopes)};
 }

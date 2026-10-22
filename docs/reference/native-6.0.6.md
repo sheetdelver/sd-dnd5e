@@ -886,3 +886,25 @@ See [C38 record](../audits/evidence/2026-10-21-c38-exhaustion-foundation.json) f
 source hashes,independent inputs and declared primitive/model/clock/guard/custom-rule/
 CI/roll-build stubs. These are controlled method comparisons,no native dice engine,
 full DataModel/runtime,installed/operator acceptance or source-expression expansion.
+
+
+### Exhaustion integration and armor composition (C39)
+
+C39's shared runtime consumes C38's independently captured map/status/reduction
+semantics. The maintained source profile admits missing/null level and positive safe
+integers (clamp6); native cleaning of other coercible inputs is not claimed.113
+maintained contracts include32 profiles/81 source-mode vectors; source fields/maps
+and prepared virtuals remain separate. Fixed initiative0 and negative roll totals
+retain their exact meaning through public Core primitives.
+
+The controlled movement matrix adds equipped strength15 armor to the prior initialized
+STR10 profiles:1152 comparisons atft/m and bonus/multiplier combinations. Actual native
+armorSpeedReduction10 is read from the pinned registry; a missing probe constant was
+corrected before successful capture. Native adds armor/exhaustion reduction before
+unit conversion and movement bonus/multiplier. Module source regressions cover384
+combinations with the independently qualified default multiplier1; raw99 is ignored.
+No new movement expression/effect qualification follows. Earlier source,mode,selected
+check,initiative and map comparisons remain intact;678 actual native ability/check/save
+roll constructions add direct configuration evidence. [C39 record](../audits/evidence/2026-10-21-c39-exhaustion.json)
+separates controlled methods,source regression,mounted consumers and real isolated
+public-host arithmetic. Full DataModel/native/installed/operator acceptance stays open.

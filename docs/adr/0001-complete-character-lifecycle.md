@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts | RV01–RV04 retained; C06–C37 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions | RV01–RV04 retained; C06–C39 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1522,3 +1522,33 @@ exhaustion path through shared preparation/readouts/compiler with unchanged-sour
 regressions,mounted consumers and real public-host execution. Other conditions,
 flags/time/dependent guards,Item/final phases and broader formulas stay open.
 E01/E02/wider Q00/E05/full ADR remain open;experimental0.4.1 unchanged.
+
+
+### C39 — Shared bounded modern exhaustion (2026-10-21)
+
+C38 is `f9da324`. Partial M2/Q02a,DD-02/05/27/34,A02/A04/A21. The shared
+condition path now initializes an empty nonpersisted level map,prepares qualified
+Actor exhaustion levels1–6,adds the configured dead status at6,and retains separate
+map/status/CI phases. Missing/null level initializes1; positive safe integers above6
+clamp6. Other coercions remain explicitly unavailable. Last active source assignment
+wins; a false initial guard can leave a map without effective status/reduction.
+
+One prepared reduction feeds abilities,saves,skills/tools/passives,selected checks,
+alternate abilities,initiative and movement. Raw source maps/proficiencies/virtual
+fields remain non-authoritative and unchanged. Source immunity/default provenance
+retires same-result intent. Desktop/mobile condition readouts share levels/statuses;
+editing remains separate command work. Native armor+exhaustion movement composition
+extends the controlled matrix from576 to1152,with explicit model/configuration stubs;
+678 actual native ability-check/save builds add configuration evidence.
+
+113 condition/projection contracts fail C38 and pass after,including81 source-mode
+vectors. Some inactive numeric checks already worked but lacked the prepared map
+contract. Independently expected negative totals,fixed initiative0,Normal-only bounds,
+384 source movement/unit/bonus/armor cases,poisoned prepared fields and unavailable/
+recovery behavior are maintained. [C39 evidence](../audits/evidence/2026-10-21-c39-exhaustion.json)
+and [ledger](../plans/0001-verification.md#c39--bounded-modern-exhaustion-2026-10-21)
+distinguish regression,controlled native methods,mounted UI,isolated host and package
+checks. This remains the constant-guard,untimed Actor source profile with empty own
+changes/riders. It is not complete conditions,activities,legacy/effects/flags/time/
+Item/final-phase/expression support or installed/native/operator acceptance. E01/E02/
+widerQ00/E05 and full DD/A/M/ADR gates stay open;experimental0.4.1 unchanged.

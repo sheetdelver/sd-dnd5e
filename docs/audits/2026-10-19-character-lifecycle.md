@@ -988,3 +988,19 @@ change; numeric movement inputs/model/guard/CI/roll-builder stubs remain explici
 and [portable record](evidence/2026-10-21-c38-exhaustion-foundation.json) retain the
 independent inputs/source identities. Bounded runtime integration follows; no full
 DataModel/native/operator acceptance or complete gate closure.
+
+
+### C39 disposition — bounded modern exhaustion integration
+
+C38 is `f9da324`. DD-02/05/27/34,A02/A04/A21 advance partially through a
+shared Actor exhaustion level/map/status/reduction path.113 unchanged-input contracts
+pass after (including81 source-mode vectors); inactive numeric checks may already
+have worked,but prepared map/provenance was absent. Negative totals,fixed score0,
+Normal bounds,source preservation/raw poison,384 source movement and unavailable/
+recovery cases are maintained. Both layouts consume shared readouts and roll operands.
+Controlled native movement now includes armor composition1152 (the probe first needed
+its missing pinned armor constant,not a product fix). Source/default/prepared map and
+status collection remain distinct. [C39 ledger](../plans/0001-verification.md#c39--bounded-modern-exhaustion-2026-10-21)
+and [portable record](evidence/2026-10-21-c39-exhaustion.json) retain independent
+inputs,method stubs,artifact identities and limits. Broader conditions/activities,
+flags/time/Item/final/expressions and native/operator/full ADR gates stay open.

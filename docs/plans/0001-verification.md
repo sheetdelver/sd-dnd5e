@@ -1908,3 +1908,56 @@ No native DataModel/runtime/installed/operator acceptance or complete DD/A/M gat
 closure. Next bounded shared exhaustion integration requires maintained before/after,
 actual desktop/mobile consumers and public-host execution. E01/E02/widerQ00/E05/full
 ADR stay open;experimental0.4.1/compatibility unchanged.
+
+
+### C39 — Bounded modern exhaustion (2026-10-21)
+
+Parent `f9da324`; partial M2/Q02a,DD-02/05/27/34,A02/A04/A21.113 final-input
+contracts (32 profiles/81 source-mode vectors) fail archived C38 and pass after.
+Some inactive numeric checks already worked; the new condition/map contract did not.
+Maintained source preservation,nonpersisted poison invariance,context/source recovery,
+malformed/coercive input gates,selected/alternate checks,Normal-only bounds and384
+source movement/unit/bonus/armor cases pass. Fixed initiative0 and negative scores
+are valid; source/manual modes keep their existing restrictions.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (0.19.3/90c13e5).
+`npm test`:60 assertions,8 tooling/37 module suites PASS. `typecheck`:178 explicit
+module/UI/server/test/hook files PASS. `test:native-source`:2242records/591expressions
+at87e94db PASS. `test:native-checks`,`test:native-effects`,`test:native-initial-filters`
+retain prior comparisons (including119 initial captures) PASS. Pinned
+`test:native-conditions` adds678 actual native ability-check/save constructions and
+extends initialized movement to1152 armor/no-armor cases;32 exhaustion phase/192builds,
+81 mode vectors/324builds,288 initiative,4 map-default and earlier Poisoned comparisons
+remain PASS. Actual source methods,restricted model/guard/clock/custom-rule/CI executor/
+roll-build stubs stay explicit. The first armor probe omitted its native constant;
+that fixture was corrected before capture,not a product/Core correction.
+
+Full `test:mounted` at1440/390 PASS,`/tmp/dnd5e-mounted-jrxpfD`:1172field/624training
+plus retained50transitions/8preview/16fact/18source-mode/56tool/80selected/22eligibility/
+58effect-mode/58health/102AC-init/90armor/84movement/24proficiency/149defense/40species/
+180range states and retained callbacks. `--exhaustion-only`:228 actual header/status/
+passive/skill/tool/ability/save/initiative,preview/selection/execution/recovery states
+PASS,`/tmp/dnd5e-mounted-ytkpfn`. `--conditions-only`:280 Poisoned states PASS,
+`/tmp/dnd5e-mounted-qL5aXP`. Final test-only `--exhaustion-fixed-only`:4 negative-fixed/
+live-recovery states PASS,`/tmp/dnd5e-mounted-meWwp0`,including preview/execution-5 and
+preserved disabled controls. Full/228 runs precede this test-only followup and a
+whitespace trim; executed script identities are retained separately. Production
+runtime is identical throughout. These are mounted module/SDK seam checks,not installed UI.
+
+Final `test:public-rolls`:25293 accepted,2712 new condition check/mode/bonus requests,
+113 Normal-bound and354 initiative requests,including fixed0/-5.40 plain equal-index
+diagnostics,1 unary candidate rejection,0 native writes. Actual host serialization
+unchanged; strict faces/entropy/value/count/states/totals/distributions and unequal
+selection identities retained. `/tmp/dnd5e-public-rolls-rDgDLx`; synthetic public-host
+composition,not native/operator acceptance. `check:package`:isolated public-boundary/
+module checks,managed typing and logic/UI/server bundles PASS; archive
+`/tmp/dnd5e-package-8DUmCR/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`38de3a463dd691618a0a896fdb3f3cf8cf9f91bb7d122f6b47c687eacc0d4282`.
+[Portable record](../audits/evidence/2026-10-21-c39-exhaustion.json) retains baseline
+IDs,independent source/phase/configuration observations,mounted/public captures and
+source/artifact identities. No new Core limitation or compatibility change is needed.
+Task-owned fixtures stopped;production listeners untouched. Other conditions,dependent
+guards/flags/time/Item/final phases/expressions,domain commands and full lifecycle
+acceptance remain open. Next qualify additional condition mode/movement phases through
+this shared architecture. E01/E02/widerQ00/E05/fullDD/A/M/ADR and native/operator gates
+stay open;experimental0.4.1 unchanged.
