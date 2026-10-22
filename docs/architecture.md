@@ -1423,3 +1423,19 @@ cards,previews,shortcuts and direct requests continue to share one preparation/c
 initialized native Item/feat/Activities/Uses methods,870 mounted readouts plus16 selected
 controls,311776 public-host requests and packaged output. Additional source recipe keys
 and nonempty uses/activities need further qualification;this is not general feat support.
+
+
+### Owned Item read preparation
+
+`derived.ownedItems` is the shared revision-owned Item projection,prepared once by
+`item-facts.ts`;UI rows format it without recomputing proficiency/attacks/resources.
+Counters distinguish source maximum,initialized spent,prepared remaining and recovery
+metadata. Item and activity identities/counters remain independent. Containers use
+native migrated quantity1;unit weight is distinct from unqualified contents weight.
+Numeric weapon/feat attack facts use `item-combat.ts`;execution remains M4-gated.
+`spell-metadata.ts` exposes canonical persisted properties and native level1 default,
+not effective preparation/casting capability. Modern guessed spell attack/DC fields
+are unavailable pending M5. Explicit legacy projection remains separate. Live detail
+modals resolve current exact owned IDs and use SDK rich text processing. C75 adds no
+world cache,transport,dice evaluator or writes;configured Item/effect phases and broader
+expressions remain explicit boundaries. See [C75 evidence](audits/evidence/2026-10-22-c75-item-read-surfaces.json).

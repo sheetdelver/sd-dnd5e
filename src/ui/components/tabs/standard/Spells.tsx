@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import {useSheet} from '../../shared/SheetContext';
 import type { FoundryItem } from '@sheet-delver/sdk';
 import { SPELL_FILTERS, FilterBar } from '../../shared/filters';
-import { toSpellRows } from '../../../itemRows';
+import { toSpellRows,itemRowsContext } from '../../../itemRows';
 import SpellsBlock from '../../blocks/Spells';
 
 interface Props {
@@ -25,9 +26,10 @@ const LEVEL_FILTERS: Record<string, number> = {
 };
 
 export default function Spells({ spells, onRoll }: Props) {
+    const {actor}=useSheet();
     const [activeFilter, setActiveFilter] = useState(SPELL_FILTERS[0]);
 
-    const allRows = useMemo(() => toSpellRows(spells), [spells]);
+    const allRows = useMemo(() => toSpellRows(spells,itemRowsContext(actor?.derived)), [spells,actor]);
 
     const filtered = useMemo(() => {
         if (activeFilter === 'ALL') return allRows;

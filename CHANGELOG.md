@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share Item/activity counters, inventory facts, numeric attack readouts and current Item/spell details across both layouts.
+
 - Support qualified final Actor custom text from empty feat Items while retaining earlier language labels.
 
 - Prepare qualified transferred Item initial custom text with shared eligibility and identity provenance.

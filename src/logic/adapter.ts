@@ -1,3 +1,4 @@
+import {prepareOwnedItems606,ownedItemProjection} from './preparation/item-facts';
 import {projectConditions606} from './preparation/conditions';
 import { prepareArmorClass606,prepareInitiative606,initiativeRoll,armorClassProjection } from './preparation/defenses';
 import { prepareHealth606, hpProjection } from './preparation/health';
@@ -145,6 +146,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         prepared.derived.speciesIdentity=species;
         prepared.derived.race=species.name??'';
         const effects=prepareNumericEffects606(actor);
+        prepared.derived.ownedItems=prepareOwnedItems606(actor,rules,effects);
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
         prepared.derived.conditions=projectConditions606(actor,rules,effects.conditions);
         prepared.derived.equipmentPreparation=effects.equipment;
@@ -156,6 +158,8 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         prepared.derived.tools = tools.checks;
         prepared.derived.toolPreparation = {status:tools.status,reason:tools.reason};
         if (!selectedLegacy) {
+            prepared.derived.spellAttackBonus=null;prepared.derived.spellSaveDC=null;
+            prepared.derived.castingPreparation={status:'unavailable',reason:'M5 casting capability preparation is not implemented'};
             prepared.derived.abilities = prepareNumericAbilities606(actor, rules,effects);
             const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules,checkModel)
                 : unavailableSkillChecks(actor, `Skill rules context unavailable: ${rules.reason ?? 'unknown profile'}`);
@@ -420,6 +424,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 },
                 {title:'Defenses',value:defenses.summary,subValue:defenses.reason},
                 {title:'Training',value:training.summary,subValue:training.reason},
+                {title:'Resources',value:ownedItemProjection(actor.derived).resourceSummary},
             ],
         };
     }

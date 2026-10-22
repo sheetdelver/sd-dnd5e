@@ -38,13 +38,17 @@ export interface ActionRow {
      * for non-weapon actions, in which case the modal omits the dropdown.
      */
     attackModes?: string[];
+    itemUses?:{value:number;max:number};itemUsesStatus?:string;itemUsesReason?:string;
+    itemId?:string;activityId?:string;executionReady?:boolean;unavailableReason?:string;
+    attackStatus?:string;attackReason?:string;usesStatus?:string;usesReason?:string;
 }
 
 export interface SpellRow {
     key: string;
     name: string;
     /** 0 = cantrip, 1–9 = spell level. */
-    level: number;
+    level: number|null;
+    unavailableReason?:string;executionReady?:boolean;
     school?: string;
     concentration?: boolean;
     ritual?: boolean;
@@ -74,6 +78,7 @@ export const INVENTORY_FOUNDRY_TYPE_FILTERS_MAP: Record<string, string> = {
 };
 
 export interface InventoryRow {
+    weightLabel?:string;totalWeightLabel?:string;usesLabel?:string;unavailableReason?:string;
     key: string;
     name: string;
     category: InventoryCategory;
@@ -86,6 +91,7 @@ export interface InventoryRow {
 export type FeatureSource = 'class' | 'subclass' | 'species' | 'feat' | 'background';
 
 export interface FeatureRow {
+    usesLabel?:string;usesReason?:string;
     key: string;
     name: string;
     source: FeatureSource;

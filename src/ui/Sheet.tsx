@@ -53,7 +53,7 @@ export default function Sheet({ actor, onRoll, onUpdate, foundryUrl, isOwner }: 
     const weapons  = items.filter(i => i.type === 'weapon');
     const spells   = items.filter(i => i.type === 'spell');
     const features = items.filter(i => ['feat', 'class', 'subclass', 'background', 'race'].includes(i.type));
-    const gear     = items.filter(i => ['equipment', 'consumable', 'tool', 'loot'].includes(i.type));
+    const gear     = items.filter(i => ['equipment', 'consumable', 'tool', 'loot','container'].includes(i.type));
 
     // --- Shared props for both layout views ---
     const viewProps = {

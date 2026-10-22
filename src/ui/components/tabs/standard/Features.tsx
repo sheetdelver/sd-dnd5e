@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import {useSheet} from '../../shared/SheetContext';
 import type { FoundryItem } from '@sheet-delver/sdk';
 import { FEATURE_FILTERS, FilterBar } from '../../shared/filters';
-import { toFeatureRows } from '../../../itemRows';
+import { toFeatureRows,itemRowsContext } from '../../../itemRows';
 import FeaturesBlock from '../../blocks/Features';
 import TraitsBlock from '../../blocks/Traits';
 import type { FeatureSource } from '../../../types';
@@ -23,9 +24,10 @@ const FILTER_TO_SOURCES: Record<string, FeatureSource[] | 'ALL'> = {
 };
 
 export default function Features({ features }: Props) {
+    const {actor}=useSheet();
     const [activeFilter, setActiveFilter] = useState(FEATURE_FILTERS[0]);
 
-    const allRows = useMemo(() => toFeatureRows(features), [features]);
+    const allRows = useMemo(() => toFeatureRows(features,itemRowsContext(actor?.derived)), [features,actor]);
 
     const filtered = useMemo(() => {
         const sources = FILTER_TO_SOURCES[activeFilter];

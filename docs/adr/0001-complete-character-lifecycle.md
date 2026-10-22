@@ -2580,3 +2580,26 @@ final support. No resource writes follow until the E02 conflict/receipt gate is 
 completed validation and final package hash. All owned fixtures are stopped;Core baseline
 clean. C72 retained full UI and C74 focused consumers remain distinct evidence. No full
 ADR/native/operator/release gate closes;continue bounded feat uses/final qualification.
+
+
+### C75 — shared Item read surfaces (2026-10-22)
+
+One owned-Item preparation model now supplies resources, inventory, features,
+activities, cards and live Item/spell details in both layouts. Parent Item and
+activity counters remain separate. Numeric capacities/defaults/recovery metadata,
+physical quantity/unit weight, native weapon attack arithmetic and canonical spell
+metadata replace UI guesses. The same weapon fixture displayed +7 before and +6
+after; its independent Item/activity remaining counts are 2/3 and 1/2. Container
+quantity projects native1 while preserving source2; no contents-weight guess is made.
+Modern activity/casting execution remains gated for M4/M5.
+
+[Evidence](../audits/evidence/2026-10-22-c75-item-read-surfaces.json) records53 module/9 tooling suites,61 assertions,220 explicitly
+typed files,2242/591 source inventory,108 resource/6 attack/7 container native-method
+cases,1440/390 mounted consumers/removal/context recovery and isolated check/package
+PASS. Formula-based capacity remains unavailable. Current-source modal lookup and
+Item-target effect gates prevent stale/unsupported readouts;source is unchanged.
+These are regression,controlled initialized-method,mounted SDK-seam and packaging
+evidence,not installed/native/operator acceptance. C74 public-roll evidence is
+retained separately;C75 changes no roll compiler. Partial M2/DD-01–06/11/27/31/34
+and A02–A06 read preparation only. ADR-0001 stays open;next initialize sparse
+ability/skill source mappings before broadening formula and Item final preparation.

@@ -1269,3 +1269,12 @@ The conservative source recipe rejects additional persisted fields/configured us
 activities;prepared-looking fields remain ignored. Actual source/default initialization,
 initialized Item final-method arithmetic,and module projections remain distinct.
 [Evidence](../audits/evidence/2026-10-22-c74-feat-final-custom.json) records source hashes and phase/stub limits.
+
+
+C75 [Item read evidence](../audits/evidence/2026-10-22-c75-item-read-surfaces.json)
+compares actual UsesField.prepareData/hasLimitedUses,StringField cleaning,ContainerData
+quantity migration,WeaponData ability/proficiency/mode getters and AttackData.getAttackData.
+The numeric-only Roll and prepared Actor modifier/proficiency shells are explicit;
+this does not establish raw source model boot,resource writes or native acceptance.
+SpellData schema declares level initial1 and canonical property IDs;effective casting
+preparation remains outside this metadata slice. Source tag/commit remains pinned.

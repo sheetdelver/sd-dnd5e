@@ -1,0 +1,93 @@
+{
+  "checkpoint": "C75 shared Item read preparation and consumers",
+  "date": "2026-10-22",
+  "parent": "6724784e20a6c7358effcd82e681c72487669578",
+  "requirements": [
+    "M2 partial",
+    "DD-01\u201306/11/27/31/34 partial",
+    "A02\u2013A06 read preparation partial",
+    "A18/A21 partial"
+  ],
+  "oracle": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "foundry": "14.367 static sources,never started"
+  },
+  "beforeAfter": {
+    "input": "src/tests/fixtures/item-fact-scenarios.ts",
+    "before": {
+      "attack": "+7",
+      "itemCounter": null
+    },
+    "expectedAndAfter": {
+      "attack": "+6",
+      "ability": "dex",
+      "proficiency": 0,
+      "itemCounter": "2/3",
+      "activityCounter": "1/2"
+    },
+    "reproduction": "Same fixture against archived parent;exit1 recorded in temp/c75-before.log. Maintained item-facts.test.ts asserts independently expected result;no generated module-output oracle."
+  },
+  "checks": {
+    "regression": {
+      "command": "npm test -- --core <Core0.19.3>",
+      "result": "61 assertions,9 tooling and53 module suites PASS",
+      "logSha256": "8d48a86d5b12cc5b566de04db3d08c048e27236874aea4377c6601f794c0d7d4",
+      "focusedFinal": "item-facts.test.ts PASS after Item-target attack gate addition"
+    },
+    "typing": {
+      "command": "npm run typecheck -- --core <Core0.19.3>",
+      "result": "220 explicit module/UI/server/test/hook files PASS",
+      "logSha256": "5c1f30cb6bff55c10e9284b843facddbbd72a7208ecfce843c890aba7cb2edc9"
+    },
+    "controlledNative": {
+      "command": "npm run test:native-items -- --core <Core0.19.3> --native <exact release> --foundry <static14.367>",
+      "result": "108 resource cases,6 weapon attack/mode/proficiency cases,7 container quantity initializers PASS",
+      "artifactSha256": "90502b699b3bf1b4a0def19c6d9e7034ef0e4ccf43c1b81165551645fc9d9894",
+      "sourceHashes": {
+        "module/data/shared/uses-field.mjs": "1145cd0f0d0f16ead6d25920bba01f6917a0e7064a3a36bcb8f714454a0440a6",
+        "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+        "module/data/activity/attack-data.mjs": "cab8fc25d84c0297bfb2e2126bc7b847b5cd31ccb420512d2a0394a21d3e9a61",
+        "module/data/item/container.mjs": "ea0ed15ae90928442179e667c7af7722829737b71555acbde007c3ab8340ca0a",
+        "module/data/item/templates/physical-item.mjs": "cee6fcbcfc67fbc06ff84a10be78c5a9c34f676e2d9dcae730a0c1f344dfe483",
+        "module/data/item/templates/activities.mjs": "03d69007dfbd2598c7b8d195b654f7c6414dafff9e0c6a7616ed05d8972cec11",
+        "module/data/activity/base-activity.mjs": "9bd175b6ae601ce275b1becc1ce571f43b2e766ce4875dec5d3673ebc88e99d5",
+        "module/data/item/templates/equippable-item.mjs": "c281a334b5660dc9d00f585c17c69c04610204dec24f0f39e86b3a56ef006d95"
+      },
+      "fixture": {
+        "path": "tests/fixtures/native-6.0.6/item-resources.json",
+        "sha256": "ea8566351515e3c6382a3aabe96617c11b49750630c1ff16577b2e3902fa01ab"
+      }
+    },
+    "sourceInventory": {
+      "command": "npm run test:native-source -- --core <Core0.19.3> --native <exact release>",
+      "result": "2242 records/591 candidate expressions PASS"
+    },
+    "mounted": {
+      "command": "npm run test:mounted-items -- --core <Core0.19.3> --chromium <isolated headless>",
+      "result": "1440/390 real Sheet/cards/details/resources/attack/spell metadata consumers,current removal/context recovery,zero writes PASS",
+      "artifact": "/tmp/dnd5e-items-3DnF64/evidence.json",
+      "sha256": "eea8cc29cc4c9de675fa784d5c8d688f2012a861d769851e78c37981c90288cf"
+    },
+    "isolatedManaged": {
+      "command": "npm run check:package -- --core <Core0.19.3>",
+      "result": "module check and managed package PASS",
+      "artifact": "/tmp/dnd5e-package-0DJJfJ/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "458fffe6f66c408eceeb5e12d10c7573d41f177c67524229229981d33383f589"
+    },
+    "isolatedPublicRoll": "No roll compiler or execution change in C75;C74 public311776 result retained as earlier evidence,not recaptured or relabeled C75 proof."
+  },
+  "scope": [
+    "One revision-owned ownedItems model supplies inventory,features,activities,cards,Item details and spell metadata in both layouts. Parent Item and activity counters never substitute for one another.",
+    "Counter maximum numeric literals,remaining clamping,source-limited distinction including string zero,and independent recovery metadata. No recovery/consumption executes.",
+    "Physical source/default quantity and unit weight,canonical identities,container quantity1 via native migration;container carried total explicitly absent.",
+    "Plain numeric weapon/feat attack readouts use native ability,proficiency,scope/magic bonuses;modern actions remain M4 gated. Spell metadata uses native default level1 and canonical property IDs;effective casting/prepared capability stays M5 gated.",
+    "Source/prepared-looking poison preserved but ignored. Live Item/spell modal resolves current exact owned ID;removed Items unavailable. SDK rich text path used."
+  ],
+  "limits": [
+    "Controlled native methods run declared initialized shells and numeric-literal Roll collaborator;not full native DataModel initialization or operator acceptance.",
+    "Mounted SDK seam uses inert test rich-text collaborator;not sanitizer/security or installed-host acceptance.",
+    "Broader expressions,Item final effect phases/filters,container content/currency weight and encumbrance,spell/damage modifiers and general Item rules remain M2 work. M4 activities and M5 casting execution remain open.",
+    "No metadata or compatibility changes. Native runtime experiment parked. E01/E02/E04/widerQ00/E05 and ADR-0001/full acceptance remain open."
+  ]
+}

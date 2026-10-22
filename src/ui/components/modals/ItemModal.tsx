@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { resolveImage } from '@sheet-delver/sdk';
+import { resolveImage,processHtmlContent } from '@sheet-delver/sdk';
+import {ownedItemProjection} from '../../../logic/preparation/item-facts';
 import BaseModal from '../shared/BaseModal';
 import { useSheet } from '../shared/SheetContext';
 
@@ -59,21 +60,18 @@ const RARITY_COLORS: Record<string, string> = {
 
 export default function ItemModal({ item, onClose }: ItemModalProps) {
     const { actor, foundryUrl, onUpdate } = useSheet();
-    const sys = (item.system ?? {}) as Record<string, any>;
-    const img = resolveImage(item.img ?? '', foundryUrl);
-    const description = typeof sys?.description?.value === 'string' ? sys.description.value : '';
+    const liveItem = (actor?.items ?? []).find((i: { _id: string }) => i._id === item._id);
+    const sys = (liveItem?.system ?? {}) as Record<string, any>;
+    const prepared=ownedItemProjection(actor?.derived).items[item._id];
+    const legacy=actor?.derived?.lifecycle?.profile==='legacy-limited'&&actor?.derived?.lifecycle?.status==='supported';
+    const img = resolveImage(liveItem?.img ?? '', foundryUrl);
+    const description = typeof sys?.description?.value === 'string' ? processHtmlContent(sys.description.value,foundryUrl) : '';
     const rarity = typeof sys?.rarity === 'string' ? sys.rarity : undefined;
-    const equipped = Boolean(sys?.equipped);
-    const attuned = Boolean(sys?.attuned);
-    const canAttune = sys?.attunement === 1 || sys?.attunement === 2 || sys?.requiresAttunement;
-    const canApply = Boolean(onUpdate);
-
-    // Look up the up-to-date item from the actor (in case of mid-modal updates).
-    const liveItem = (actor?.items ?? []).find((i: { _id: string }) => i._id === item._id) ?? item;
-    const liveSys = liveItem.system ?? sys;
-    const liveEquipped = Boolean(liveSys?.equipped);
-    const liveAttuned = Boolean(liveSys?.attuned);
-
+    const liveEquipped = legacy?Boolean(sys?.equipped):prepared?.equipped.value===true;
+    const liveAttuned = legacy?Boolean(sys?.attuned):prepared?.attuned.value===true;
+    const canAttune = legacy?(sys?.attunement===1||sys?.attunement===2||sys?.requiresAttunement):sys?.attunement==='required'||sys?.attunement==='optional';
+    const canApply = legacy&&Boolean(onUpdate)&&Boolean(liveItem);
+    if(!liveItem)return <BaseModal open onClose={onClose}><p role="status">Item no longer available</p><button onClick={onClose}>Close</button></BaseModal>;
     const writeField = async (path: string, value: unknown) => {
         if (!onUpdate) return;
         await onUpdate(`items.${item._id}.${path}`, value).catch(() => {});
@@ -83,7 +81,7 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
         <BaseModal open onClose={onClose} maxWidth={520}>
             <button type="button" aria-label="Close" onClick={onClose} style={closeButtonStyle}>×</button>
 
-            <h2 style={titleStyle}>{item.name}</h2>
+            <h2 style={titleStyle}>{liveItem.name}</h2>
             <div style={subtitleStyle}>{TYPE_LABEL[item.type] ?? item.type}</div>
 
             {/* Top row: image + property grid */}
@@ -115,31 +113,14 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
                     fontSize: '12px',
                     alignContent: 'start',
                 }}>
-                    {typeof sys?.quantity === 'number' && (
-                        <PropertyRow label="Quantity" value={String(sys.quantity)} />
-                    )}
-                    {typeof sys?.weight === 'number' && sys.weight > 0 && (
-                        <PropertyRow label="Weight" value={`${sys.weight} lb.`} />
-                    )}
+                    {legacy&&typeof sys.quantity==='number'?<PropertyRow label="Quantity" value={String(sys.quantity)}/>:<PropertyRow label="Quantity" value={prepared?.quantity.status==='not-applicable'?'Not applicable':prepared?.quantity.value==null?'Unavailable':String(prepared.quantity.value)}/>}
+                    {!legacy&&<PropertyRow label="Weight" value={prepared?.weight.value?`${prepared.weight.value.value} ${prepared.weight.value.units}`:prepared?.weight.status==='not-applicable'?'Not applicable':'Unavailable'}/>}
+                    {!legacy&&<PropertyRow label="Uses" value={prepared?.uses.display??'Unavailable'}/>}
                     {rarity && (
                         <PropertyRow
                             label="Rarity"
                             value={rarity.replace(/([A-Z])/g, ' $1').replace(/^./, c => c.toUpperCase())}
                             valueColor={RARITY_COLORS[rarity]}
-                        />
-                    )}
-                    {sys?.range?.value && (
-                        <PropertyRow
-                            label="Range"
-                            value={sys.range.long
-                                ? `${sys.range.value}/${sys.range.long} ${sys.range.units ?? 'ft.'}`
-                                : `${sys.range.value} ${sys.range.units ?? 'ft.'}`}
-                        />
-                    )}
-                    {Array.isArray(sys?.damage?.parts) && sys.damage.parts.length > 0 && (
-                        <PropertyRow
-                            label="Damage"
-                            value={sys.damage.parts.map((p: unknown[]) => p?.[0]).filter(Boolean).join(' + ')}
                         />
                     )}
                     {sys?.source?.book && (
@@ -170,6 +151,8 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
                 </div>
             )}
 
+            {!legacy&&<p role="status" style={{fontSize:'12px'}}>Equipment changes require the reviewed inventory command workflow.</p>}
+            {!legacy&&prepared?.activities.map(activity=><section key={activity.id} aria-label={'Activity '+activity.id}><h3>{activity.name}</h3><p>{activity.type} · Uses: {activity.uses.display}</p>{activity.attack&&<p>Attack: {activity.attack.value?.display??'Unavailable'}</p>}<p>{activity.executionReason}</p></section>)}
             {/* Equip / attune toggles */}
             {(item.type === 'weapon' || item.type === 'equipment' || canAttune) && (
                 <div style={{ display: 'flex', gap: 'var(--space-sm)', marginTop: 'var(--space-md)' }}>

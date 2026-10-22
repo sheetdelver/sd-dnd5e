@@ -14,7 +14,7 @@ interface Props {
 
 // SPELL_FILTERS layout: ['ALL', 'CANTRIP', '1ST', '2ND', ..., '9TH', 'CONCETRATION', 'RITUAL']
 // Index 1 = CANTRIP (level 0), index 2 = '1ST' (level 1), etc. So filter index = level + 1.
-const levelLabel = (level: number): string => SPELL_FILTERS[level + 1] ?? `Level ${level}`;
+const levelLabel = (level: number): string => level===-1?'Level unavailable': SPELL_FILTERS[level + 1] ?? `Level ${level}`;
 
 export default function Spells({ rows = [], onRoll, title }: Props) {
     const { openModal } = useModal();
@@ -24,7 +24,7 @@ export default function Spells({ rows = [], onRoll, title }: Props) {
         // Shift-click: skip both detail and roll dialogs and fire the roll
         // straight through.
         if (e.shiftKey) {
-            if (onRoll) void onRoll('item', row.key);
+            if (onRoll&&row.executionReady!==false) void onRoll('item', row.key);
             return;
         }
         const item = (actor?.items ?? []).find((i: { _id: string }) => i._id === row.key);
@@ -44,9 +44,9 @@ export default function Spells({ rows = [], onRoll, title }: Props) {
     // Group spells by level
     const byLevel = new Map<number, SpellRow[]>();
     for (const row of rows) {
-        const arr = byLevel.get(row.level) ?? [];
+        const arr = byLevel.get(row.level??-1) ?? [];
         arr.push(row);
-        byLevel.set(row.level, arr);
+        byLevel.set(row.level??-1, arr);
     }
     const levels = Array.from(byLevel.keys()).sort((a, b) => a - b);
 
