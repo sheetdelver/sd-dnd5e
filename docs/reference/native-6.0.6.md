@@ -958,3 +958,22 @@ from the retained controlled native methods. Unknown types,riders,dependent rule
 flags/time,Item/final phases and broader expressions remain unqualified. No full
 DataModel/native boot/operator acceptance follows. [C41 evidence](../audits/evidence/2026-10-21-c41-condition-modes.json)
 retains source/artifact identities and limits.
+
+
+### Petrification and late immunity grants (C42)
+
+Eighteen explicit source/initialized-model cases capture actual Traits.prepareResistImmune
+and Actor status/query/Common/initiative/movement methods. Current CI removes statuses
+first. Petrification then adds DR.ALL,clears DR bypasses,adds DI.poison and CI.poisoned/
+diseased; DR/DI/DV normalization follows. DI.ALL clears the newly granted resistance.
+Poisoned can remain in Actor.statuses while final CI suppresses its rule query and
+check disadvantage. Condition document active state after mutation is not a substitute
+for the earlier collection. Explicit source incapacity contributes initiative
+disadvantage; the Petrified type alone does not create that status.
+
+Source/guard/disabled/CI add/remove and DI.ALL cases retain frozen independent results.
+Defense sets are initialized operands; model/constant guard/clock/custom-rule absence,
+synthetic CI executor and roll-build callbacks stay declared stubs. No preset/rider,
+full DataModel/native boot/dice/installed/operator acceptance. Runtime Petrified stays
+gated until shared integration. [C42 record](../audits/evidence/2026-10-21-c42-petrification-foundation.json)
+contains exact source/script identities and new captures.

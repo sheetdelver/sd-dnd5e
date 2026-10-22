@@ -1,0 +1,1162 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "profiles": [
+    {
+      "id": "active",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "petrified"
+        ],
+        "effective": [
+          "petrified"
+        ],
+        "ci": [
+          "poisoned",
+          "diseased"
+        ],
+        "dr": [
+          "ALL"
+        ],
+        "di": [
+          "poison"
+        ],
+        "bypasses": [],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": 0,
+        "passive": 15,
+        "initMode": 0,
+        "score": 12,
+        "walk": 0,
+        "fly": 0
+      }
+    },
+    {
+      "id": "active-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "petrified"
+        ],
+        "effective": [
+          "petrified"
+        ],
+        "ci": [
+          "poisoned",
+          "diseased"
+        ],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": 0,
+        "passive": 15,
+        "initMode": 0,
+        "score": 12,
+        "walk": 0,
+        "fly": 0
+      }
+    },
+    {
+      "id": "explicit-source-incap",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "petrified",
+          "incapacitated"
+        ],
+        "effective": [
+          "petrified",
+          "incapacitated"
+        ],
+        "ci": [
+          "poisoned",
+          "diseased"
+        ],
+        "dr": [
+          "ALL"
+        ],
+        "di": [
+          "poison"
+        ],
+        "bypasses": [],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": 0,
+        "passive": 15,
+        "initMode": -1,
+        "score": 7,
+        "walk": 0,
+        "fly": 0
+      }
+    },
+    {
+      "id": "explicit-source-incap-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "petrified",
+          "incapacitated"
+        ],
+        "effective": [
+          "petrified",
+          "incapacitated"
+        ],
+        "ci": [
+          "poisoned",
+          "diseased"
+        ],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": 0,
+        "passive": 15,
+        "initMode": -1,
+        "score": 7,
+        "walk": 0,
+        "fly": 0
+      }
+    },
+    {
+      "id": "poisoned",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "petrified",
+          "incapacitated",
+          "poisoned"
+        ],
+        "effective": [
+          "petrified",
+          "incapacitated"
+        ],
+        "ci": [
+          "poisoned",
+          "diseased"
+        ],
+        "dr": [
+          "ALL"
+        ],
+        "di": [
+          "poison"
+        ],
+        "bypasses": [],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": 0,
+        "passive": 15,
+        "initMode": -1,
+        "score": 7,
+        "walk": 0,
+        "fly": 0
+      }
+    },
+    {
+      "id": "poisoned-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "petrified",
+          "incapacitated",
+          "poisoned"
+        ],
+        "effective": [
+          "petrified",
+          "incapacitated"
+        ],
+        "ci": [
+          "poisoned",
+          "diseased"
+        ],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": 0,
+        "passive": 15,
+        "initMode": -1,
+        "score": 7,
+        "walk": 0,
+        "fly": 0
+      }
+    },
+    {
+      "id": "immune-petrified",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [
+        "petrified"
+      ],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "effective": [
+          "poisoned"
+        ],
+        "ci": [
+          "petrified"
+        ],
+        "dr": [
+          "cold",
+          "poison"
+        ],
+        "di": [],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 12,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "immune-petrified-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [
+        "petrified"
+      ],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "effective": [
+          "poisoned"
+        ],
+        "ci": [
+          "petrified"
+        ],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 12,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "immune-poisoned",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [
+        "poisoned"
+      ],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "petrified",
+          "incapacitated"
+        ],
+        "effective": [
+          "petrified",
+          "incapacitated"
+        ],
+        "ci": [
+          "poisoned",
+          "diseased"
+        ],
+        "dr": [
+          "ALL"
+        ],
+        "di": [
+          "poison"
+        ],
+        "bypasses": [],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": 0,
+        "passive": 15,
+        "initMode": -1,
+        "score": 7,
+        "walk": 0,
+        "fly": 0
+      }
+    },
+    {
+      "id": "immune-poisoned-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [
+        "poisoned"
+      ],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "petrified",
+          "incapacitated"
+        ],
+        "effective": [
+          "petrified",
+          "incapacitated"
+        ],
+        "ci": [
+          "poisoned",
+          "diseased"
+        ],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": 0,
+        "passive": 15,
+        "initMode": -1,
+        "score": 7,
+        "walk": 0,
+        "fly": 0
+      }
+    },
+    {
+      "id": "ci-add",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "ciChange": "add",
+      "expected": {
+        "actorStatuses": [
+          "incapacitated",
+          "poisoned"
+        ],
+        "effective": [
+          "incapacitated",
+          "poisoned"
+        ],
+        "ci": [
+          "petrified"
+        ],
+        "dr": [
+          "cold",
+          "poison"
+        ],
+        "di": [],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 7,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "ci-add-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "ciChange": "add",
+      "expected": {
+        "actorStatuses": [
+          "incapacitated",
+          "poisoned"
+        ],
+        "effective": [
+          "incapacitated",
+          "poisoned"
+        ],
+        "ci": [
+          "petrified"
+        ],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 7,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "ci-remove",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [
+        "petrified"
+      ],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "ciChange": "remove",
+      "expected": {
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "effective": [
+          "poisoned"
+        ],
+        "ci": [],
+        "dr": [
+          "cold",
+          "poison"
+        ],
+        "di": [],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 12,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "ci-remove-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ]
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [
+        "petrified"
+      ],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "ciChange": "remove",
+      "expected": {
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "effective": [
+          "poisoned"
+        ],
+        "ci": [],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 12,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "guard-false",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ],
+          "guard": "{\"o\":\"OR\",\"v\":[]}"
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "effective": [
+          "poisoned"
+        ],
+        "ci": [],
+        "dr": [
+          "cold",
+          "poison"
+        ],
+        "di": [],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 12,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "guard-false-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ],
+          "guard": "{\"o\":\"OR\",\"v\":[]}"
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "effective": [
+          "poisoned"
+        ],
+        "ci": [],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 12,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "disabled",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ],
+          "disabled": true
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "effective": [
+          "poisoned"
+        ],
+        "ci": [],
+        "dr": [
+          "cold",
+          "poison"
+        ],
+        "di": [],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 12,
+        "walk": 30,
+        "fly": 60
+      }
+    },
+    {
+      "id": "disabled-all-di",
+      "documents": [
+        {
+          "systemType": "petrified",
+          "statuses": [
+            "petrified",
+            "incapacitated"
+          ],
+          "disabled": true
+        },
+        {
+          "systemType": "poisoned",
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "statuses": [
+        "petrified",
+        "incapacitated"
+      ],
+      "systemType": "petrified",
+      "immunities": [],
+      "diValues": [
+        "ALL"
+      ],
+      "drValues": [
+        "cold",
+        "poison"
+      ],
+      "bypasses": [
+        "mgc"
+      ],
+      "dvValues": [
+        "acid",
+        "ALL"
+      ],
+      "expected": {
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "effective": [
+          "poisoned"
+        ],
+        "ci": [],
+        "dr": [],
+        "di": [
+          "ALL"
+        ],
+        "bypasses": [
+          "mgc"
+        ],
+        "dv": [
+          "ALL"
+        ],
+        "checkMode": -1,
+        "passive": 10,
+        "initMode": -1,
+        "score": 12,
+        "walk": 30,
+        "fly": 60
+      }
+    }
+  ],
+  "scope": "Controlled initialized source/model petrification status/CI/defense/mode/movement phase comparison; constant guards,untimed Actor docs,empty own changes/custom rules; no preset/source boot/native dice/operator acceptance",
+  "expectationMethod": "Frozen independent source/initial-CI/guard states; initial status filtering then explicit petrification DRALL/bypass-clear/DIpoison/CIpoisoned+diseased then damage-trait normalization; actor statuses and rule-effective statuses are distinct."
+}

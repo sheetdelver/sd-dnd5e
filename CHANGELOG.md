@@ -3,6 +3,7 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+- Qualified petrification status, immunity and defense preparation phases.
 - Shared qualified condition save/initiative modes and movement restrictions across character controls.
 - Qualified additional condition save, initiative and movement mode phases.
 - Shared bounded modern exhaustion reductions across checks, passives, initiative, movement and condition readouts.

@@ -2047,3 +2047,31 @@ combat/activities,riders,flags/time/dependent rules,Item/final/expressions and f
 lifecycle acceptance remain open. Next qualify petrification's status/immunity/defense
 phase before integration. E01/E02/widerQ00/E05/fullDD/A/M/ADR/native-operator gates stay
 open;experimental0.4.1 unchanged.
+
+
+### C42 — Petrification phase qualification (2026-10-21)
+
+Parent `b70bfe9`; M0/M2 Q02a,DD-02/05/27/34,A02/A04 qualification only.
+Pinned `test:native-conditions` adds18 independently expected source/initialized-model
+profiles: explicit Petrified/incapacity/Poisoned documents,initial CI,CI add/remove,
+false guard,disabled and DI.ALL states. Actor statuses,rule-effective statuses,
+DR/DI/DV/CI/bypasses,check/passive,initiative and movement compare PASS. Earlier
+condition comparisons remain PASS. Runtime Petrified stays gated. Initialized defense
+operands/model/constant-guard/clock/custom-rule absence,synthetic CI executor and roll
+capture stubs remain explicit; no full source boot/preset/dice/native/operator acceptance.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (0.19.3/90c13e5).
+`npm test`:60assertions,8tooling/38module suites PASS. `typecheck`:181 explicit module/
+UI/server/test/hook files PASS. `test:native-source`:2242records/591expressions at87e94db
+PASS. `check:package`:isolated public-boundary/module checks,managed typing and bundles
+PASS; `/tmp/dnd5e-package-AqrGNY/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`f94f736f5e57362586409315ff11b58673ecbe8450cb0abb478644ab4f7ed058`.
+[Portable record](../audits/evidence/2026-10-21-c42-petrification-foundation.json) embeds
+new inputs,captures,source/script/artifact identities and limits. C41 mounted/public
+host evidence retained separately,not rerun/enlarged by this tooling-only checkpoint.
+Harness starts no service; prior fixtures stopped;production untouched. Next integrate
+qualified petrification through shared trait/status preparation with maintained
+before/after,actual consumers and public-host execution. Other conditions/combat/riders,
+flags/time/dependent rules,Item/final/expressions and full lifecycle gates remain open.
+E01/E02/widerQ00/E05/fullDD/A/M/ADR/nativeoperator acceptance stay open;experimental0.4.1
+and compatibility unchanged.

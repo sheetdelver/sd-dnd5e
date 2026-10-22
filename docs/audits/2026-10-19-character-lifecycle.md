@@ -1033,3 +1033,15 @@ and [portable record](evidence/2026-10-21-c41-condition-modes.json) distinguish 
 regression,controlled source,mounted UI,isolated public host and package checks. Other
 conditions/combat/riders/flags/time/Item/final/expressions and full acceptance remain
 open. No new Core dependency or compatibility change is implied.
+
+
+### C42 disposition — petrification status/trait phase qualification
+
+C41 is `b70bfe9`. Controlled-source M0/M2 Q02a,DD-02/05/27/34,A02/A04
+advances through18 independently expected source/model profiles. Actor statuses
+and rule-effective statuses differ after late poison immunity; damage-trait ordering,
+CI add/remove,all-damage immunity and explicit incapacity are captured separately.
+No production gate is removed. [C42 ledger](../plans/0001-verification.md#c42--petrification-phase-qualification-2026-10-21)
+and [portable record](evidence/2026-10-21-c42-petrification-foundation.json) retain
+expectations,source hashes and stubs. Shared integration follows; no complete rules,
+native/operator acceptance or full gate closure is claimed.

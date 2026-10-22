@@ -1617,3 +1617,30 @@ separate regression,controlled methods,mounted consumers,public host and packagi
 Petrification/unconscious/stunned/other conditions,activities,riders,effects/flags/
 time/Item/final phases/expressions and full lifecycle acceptance stay open. E01/E02/
 widerQ00/E05/native/operator/fullADR gates remain open;experimental0.4.1 unchanged.
+
+
+### C42 — Petrification trait/status phase qualification (2026-10-21)
+
+C41 is `b70bfe9`. M0/M2 Q02a,DD-02/05/27/34,A02/A04 qualification only.
+Eighteen frozen source/initialized-model profiles compare actual native status/CI,
+defense normalization,check/passive,initiative and movement behavior. They include
+explicit incapacity status,Poisoned as a separate document,initial immunity,CI add/
+remove,false guards,disabled documents and all-damage immunity. Earlier comparisons
+remain intact. Petrified remains unavailable in production at this checkpoint.
+
+Traits.prepareResistImmune first removes statuses from current CI,then applies
+petrification's ALL resistance/bypass clearing,poison damage immunity and poisoned/
+diseased condition immunity,then normalizes damage traits. Actor.statuses may retain
+Poisoned collected before the later immunity grant while hasConditionEffect suppresses
+its check disadvantage. Source all-damage immunity clears the new ALL resistance.
+A final Document.active query cannot replace either status snapshot. No source
+status is inferred from type/name; explicit incapacity is separate from Petrified.
+
+[Record](../audits/evidence/2026-10-21-c42-petrification-foundation.json) and [ledger](../plans/0001-verification.md#c42--petrification-phase-qualification-2026-10-21)
+retain independent expected fields,method/source identities and model/guard/clock/
+custom-rule/CI executor/roll-build stubs. This is initialized phase evidence,not
+complete source boot,condition/combat behavior or native/operator acceptance. Next
+integrate only the qualified trait/status phases through shared preparation with
+source-preserving regressions,consumers and public-host execution. Other condition/
+rider/flag/time/Item/final/expression and full lifecycle gates remain open. E01/E02/
+widerQ00/E05/fullADR remain open;experimental0.4.1 unchanged.

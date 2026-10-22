@@ -916,3 +916,20 @@ share this map; other unknown values stay gated. Desktop/mobile readouts and exi
 roll controls consume prepared facts. Static known facts may remain when a distinct
 malformed initiative operand prevents only initiative. No new cache,evaluator,transport
 or Core contract. This does not qualify full condition/combat/Item/final behavior.
+
+
+### Petrification phase boundary (C42)
+
+Petrification remains gated pending integration. Pinned phase captures distinguish
+initial collected statuses,Actor.statuses after current-CI removal,and rule-effective
+statuses after later immunity grants. Traits.prepareResistImmune applies its initial
+status deletions before petrification adds ALL resistance,clears resistance bypasses,
+adds poison damage immunity and poisoned/diseased condition immunity. Damage trait
+normalization follows; DI.ALL clears DR even after the petrification grant.
+
+Poisoned can therefore remain in the collected Actor status set while its rule effect
+is suppressed by newly granted immunity. Recomputing from final active documents or
+filtering once before all trait phases loses native behavior. The eventual shared
+condition/trait path must retain separate snapshots and feed defenses,modes,passives
+and movement without source mutation. These captures use explicit status documents
+and initialized defense Sets; no preset/rider/source-bootstrap/combat acceptance.
