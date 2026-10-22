@@ -2331,3 +2331,25 @@ R/S/isolated-host/mounted/package checks are bounded evidence,not release readin
 Next executable module package is the existing M2 final numeric/proficiency qualification,
 with independent source/schema/prepared-snapshot and native builder expectations before
 admission. ADR-0001 remains open;experimental0.4.1 and compatibility unchanged.
+
+### C49 — Final proficiency phase qualification (2026-10-22)
+
+Parent `82dab23`; partial M0/M2 Q02a, DD-02/03/27/34, A02/A04.
+The frozen852-case fixture independently qualifies all four global proficiency
+NumberFields and six finite operations after derivation. Exact native methods
+compare3408 fresh skill/tool configurations and1704 ability configurations. Earlier
+prepared skill/tool totals,passives and proficiency remain intact; fresh skill/tool
+builders read current global proficiency. Combined advantage uses earlier prepared
+proficiency,including fractional coefficients. Final global save changes do not
+rebuild an earlier save proficiency object.32 actual DataModel initialization cases
+ignore raw nonpersisted poison and initialize0 before effects.
+
+[Portable evidence](../audits/evidence/2026-10-22-c49-final-proficiencies-foundation.json)
+records independent inputs,observations,source/artifact hashes,commands and stubs.
+Maintained suites,explicit186-file typing,exact source2242/591 and retained/new native
+method comparisons pass. This is controlled initialized-model qualification,not native
+boot/dice/operator acceptance. No new UI/public-host/package run in this source-only
+phase. Runtime final proficiency remains gated pending shared integration. Next
+preserve earlier prepared snapshots alongside fresh execution proficiency and verify
+actual consumers. Other final/Item/filter/flag/time/expression phases,E01/E02/E04/wider
+Q00/E05 and full DD/A/M/ADR acceptance remain open. Experimental0.4.1 unchanged.

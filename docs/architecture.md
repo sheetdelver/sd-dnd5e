@@ -1035,3 +1035,14 @@ No browser formula calculation,second cache/evaluator or write route is added. B
 layouts consume the same projected totals/passives and modal compiler; changed source,
 ownership/context or unavailable final intent retires held callbacks and requires a
 fresh review. Earlier DD-R01–07 and plain-d20 equivalence boundaries remain.
+
+### Final proficiency snapshots (C49 qualification)
+
+Final global proficiency effects cannot be applied to the earlier operand snapshot.
+Native skill/tool preparation stores prof/effectValue/total/passive before final effects;
+the fresh builder recalculates proficiency from effectValue and current global targets.
+Automatic combined advantage retains earlier prof.hasProficiency. Ability checks/saves
+retain their earlier proficiency objects. C49 qualifies these distinctions with frozen
+independent inputs and actual bounded methods; runtime final proficiency remains gated
+pending integration. Raw persisted:false fields still initialize0 and never become
+source overrides. Other final numeric/bonus/Item fields remain separate work.

@@ -1041,3 +1041,11 @@ passive15;native-effect-oracle applies initial and final changes on their respec
 sides of actual ability/skill/tool derivation. [Record](../audits/evidence/2026-10-21-c48-final-modes.json)
 separates regression/method/mounted/public evidence. Item-transferred final modes,
 Item-final preparation,other final fields/filters and native/operator gates remain open.
+
+C49 freezes852 independent final global proficiency cases. Actual NumberField operations
+and Actor/Common/Creature methods distinguish earlier prepared totals/passives/prof
+from fresh skill/tool builders and earlier automatic advantage.32 actual DataModel
+initialization cases use nonpersisted default0 despite raw poison. Field constructors,
+model collaborators and dice capture remain declared stubs.
+[Evidence](../audits/evidence/2026-10-22-c49-final-proficiencies-foundation.json) records
+phase/source identities. Runtime integration and native/operator acceptance are separate.
