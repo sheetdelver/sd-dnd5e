@@ -1413,3 +1413,19 @@ Strength armor penalty. [C87 record](../audits/evidence/2026-10-22-c87-remaining
 declares initialized schemas,dispatch/Collection/units collaborators and raw-result
 injection.208 public-host Normal distributions remain distinct from source methods;
 no full DataModel,reroll/critical/native/operator or installed acceptance follows.
+
+C88's3,024 profiles execute native `_prepareFlagChange`,Foundry Boolean handlers and
+Actor phase dispatch,with actual ability/skill/tool/passive/init methods between
+phases. The bridge performs assignment of normalized flag deltas;it does not boot
+the general private dispatcher or a native DataModel. Primitive defaults/coercions
+are explicit;unknown object deltas are unavailable. Source flags are not rewritten.
+
+Another50 initialized native Base/Enchantment applicability/collection/expiry and
+identity-metadata/rider rows distinguish source from intermediate state.24 actual
+permanent-duration preparation rows reset raw expired tofalse despite changed
+start/time/concealment. Getter-only expired=true rows are intermediate-model tests,
+not raw-source expectations. Actor-owned enchantments and nontransfer/rider templates
+have no applicable target;only applied Item enchantments target an Item. Benign
+sourceId/advancement metadata never invokes the dependency resolver. Timed expiry,
+dependent references and applied enchantment field preparation remain separate.
+See [C88 evidence](../audits/evidence/2026-10-22-c88-effect-flags.json).

@@ -1,3 +1,4 @@
+import {itemLocalEffectsReason606} from './effect-admission';
 import {record} from '../native/6.0.6/source';
 import type {RulesContext} from '../rules-context';
 import type {NumericEffects} from './numeric-effects';
@@ -38,8 +39,7 @@ export function preparePhysical606(actor:unknown,context:RulesContext,owned:Owne
   const rawContainer=s?.container,parent=rawContainer==null||rawContainer===''?null:typeof rawContainer==='string'?rawContainer:null;
   if(rawContainer!=null&&rawContainer!==''&&!parent)why??='Container identity source malformed';
   if(parent&&sources.get(parent)?.type!=='container')why??='Referenced owned container missing or unsupported';
-  const localEffects=source.effects;
-  if(localEffects!==undefined&&(!Array.isArray(localEffects)||localEffects.some(raw=>{const e=record(raw);return !e||e.disabled!==true&&(e.transfer===false||e.type==='enchantment');})))why??='Physical Item-target effects require preparation qualification';
+  why??=itemLocalEffectsReason606(source);
   if(why)return unavailable(id,why);pending.add(id);
   const row:PhysicalItem606={containerId:parent,units:weight!.units,totalWeight:fact(weight!.stack??weight!.value),contentsWeight:na(),contentsCount:na(),capacity:na()};
   if(source.type==='container'){
@@ -68,7 +68,7 @@ export function preparePhysical606(actor:unknown,context:RulesContext,owned:Owne
  let total=currency?currencyWeight(currency):0;if(!currency)reason??='Actor currency source malformed';
  for(const row of Object.values(items)){if(row.totalWeight.value===null)reason??=row.totalWeight.reason??'Physical Item weight unavailable';else if(!row.containerId&&units&&row.units)total+=convertWeight606(row.totalWeight.value,row.units,units);}
  const weight=fact(reason?null:tenth(total),reason);
- let thresholdReason=reason??effects.reason;const rawSize=record(effects.system.traits)?.size??'med',sizes=['tiny','sm','med','lg','huge','grg'],index=sizes.indexOf(String(rawSize)),build=record(record(source?.flags)?.dnd5e)?.powerfulBuild;
+ let thresholdReason=reason??effects.reason;const rawSize=record(effects.system.traits)?.size??'med',sizes=['tiny','sm','med','lg','huge','grg'],index=sizes.indexOf(String(rawSize)),build=effects.ruleFlags.powerfulBuild;
  if(index<0||build!==undefined&&typeof build!=='boolean')thresholdReason??='Carrying size/Powerful Build source requires qualification';
  const sizeMod=[.5,1,1,2,4,8][Math.min(index+Number(build===true),5)],strength=effects.formulaPreparation?.preparedBindings['abilities.str.value'];if(typeof strength!=='number')thresholdReason??='Carrying Strength preparation unavailable';
  const setting=context.settings['dnd5e.encumbrance'];if(!setting||setting.status==='unavailable'||!['none','normal','variant'].includes(String(setting.value)))thresholdReason??='Encumbrance setting unavailable';

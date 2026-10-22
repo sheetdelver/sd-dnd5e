@@ -1,3 +1,4 @@
+import {itemLocalEffectsReason606} from './effect-admission';
 import {prepareItemProficiency606,itemProficiencyBindings606,type ItemProficiency606} from './item-proficiency';
 import type {PhysicalItem606} from './physical';
 import {preparedFormulaBindings606} from './formula-fields';
@@ -61,7 +62,7 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
   const q=physical?fact(quantity,common??(quantity===null?'Item quantity source malformed':undefined),type==='container'?'prepared':data.quantity===undefined?'schema-default':'source'):na<number>();
   const w=physical?fact(weightValue!==null&&quantity!==null&&typeof units==='string'?{value:weightValue,units,stack:type==='container'?null:weightValue*quantity}:null,weightReason,data.weight===undefined?'schema-default':'source'):na<{value:number;units:string;stack:number|null}>();
   const eligibility=itemEffectState606(item),equipped=equippable?fact(typeof data.equipped==='boolean'?data.equipped:false,common??eligibility.reason,data.equipped==null?'schema-default':'source'):na<boolean>(),attuned=equippable?fact(typeof data.attuned==='boolean'?data.attuned:false,common??eligibility.reason,data.attuned==null?'schema-default':'source'):na<boolean>();
-  const itemEffects=item.effects===undefined?[]:item.effects,itemEffectReason=!Array.isArray(itemEffects)||itemEffects.some((effect:unknown)=>{const e=record(effect);return !e||e.disabled!==true&&(e.transfer===false||e.type==='enchantment');})?'Owned Item-target effects require Item preparation qualification':undefined;
+  const itemEffectReason=itemLocalEffectsReason606(item);
   const proficiency=effects?prepareItemProficiency606(actor,item,context,effects,common??itemEffectReason):{status:'unavailable' as const,base:null,multiplier:null,flat:null,term:null,mode:null,reason:'Item proficiency preparation unavailable',origin:'unavailable',provenance};
   const itemBindings:Record<string,number>={...preparedFormulaBindings606(effects),...itemProficiencyBindings606(proficiency)};
   if(q.value!==null)itemBindings['item.quantity']=q.value;
@@ -85,7 +86,7 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
   activities.sort((a,b)=>a.sort-b.sort);
   if(activityReason)for(const a of activities){a.status='unavailable';a.reason??=activityReason;}
   const status=common?'unavailable':uses.status==='unavailable'||proficiency.status==='unavailable'||q.status==='unavailable'||w.status==='unavailable'||activityReason||activities.some(activity=>activity.uses.status==='unavailable')?'partial':'ready';
-  items[id]={id,proficiency,...(type==='spell'?{spell:spellMetadata606(data,common)}:{}),attackModes:weaponModes606(item,common??effects?.ruleFlags.reason,effects?.ruleFlags.enhancedDualWielding),uuid:identityReason?null:uuid,type,name,status,reason:common??uses.reason??q.reason??w.reason??activityReason??proficiency.reason??activities.find(activity=>activity.uses.status==='unavailable')?.uses.reason,quantity:q,weight:w,equipped,attuned,uses,activities,activityStatus:activityReason?'unavailable':'ready',activityReason,provenance};
+  items[id]={id,proficiency,...(type==='spell'?{spell:spellMetadata606(data,common)}:{}),attackModes:weaponModes606(item,common??effects?.ruleFlags.reason,(effects?.executionFlags??effects?.ruleFlags)?.enhancedDualWielding),uuid:identityReason?null:uuid,type,name,status,reason:common??uses.reason??q.reason??w.reason??activityReason??proficiency.reason??activities.find(activity=>activity.uses.status==='unavailable')?.uses.reason,quantity:q,weight:w,equipped,attuned,uses,activities,activityStatus:activityReason?'unavailable':'ready',activityReason,provenance};
  }
  return {resourceSummary:Object.values(items).filter(item=>item.uses.limited||item.uses.status==='unavailable').map(item=>item.name+': '+item.uses.display).join('; ')||(overallReason||contextReason?'Unavailable':'No limited uses'),status:overallReason?'partial':Object.values(items).some(item=>item.status!=='ready')?'partial':'ready',reason:overallReason,items,provenance};
 }

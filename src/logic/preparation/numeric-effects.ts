@@ -1,3 +1,4 @@
+import {applyBooleanFlag606} from './flag-effects';
 import {prepareFormulaFields606,type FormulaPreparation606} from './formula-fields';
 import type {RulesContext} from '../rules-context';
 import {initializeCheckSource606,type SourceInitialization606} from './source-initialization';
@@ -25,9 +26,9 @@ export interface NumericEffects {
     finalDefenseSets?:Record<string,string[]>;
     finalTrainingSets?:Record<string,string[]>;
     finalTraitStrings?:Record<string,string>;
-    ruleFlags:SourceRuleFlags606;system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
+    ruleFlags:SourceRuleFlags606;executionFlags?:SourceRuleFlags606;sourceFlags?:SourceRuleFlags606;system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;executionBonuses:Record<string,number>;finalNumbers:Record<string,number>;checkExecutionReason?:string;
-    applied:Array<{effectId:string;itemId?:string;key:string;phase:'initial'|'final';before:number|string|string[];value:number|string|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
+    applied:Array<{effectId:string;itemId?:string;key:string;phase:'initial'|'final';before:number|string|string[]|boolean;value:number|string|string[]|boolean;formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
 }
 /** Qualified initial numeric/defense/training trait fields. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
@@ -48,7 +49,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
             if(value!==null){ability.proficient=value;initialized.push({key:`system.abilities.${key}.proficient`,value,origin:'schema-default'});}
         }
     }
-    const ruleFlags=sourceRuleFlags606(actor);
+    const sourceFlags=sourceRuleFlags606(actor),ruleFlags={...sourceFlags};
     let reason=plan.reason??ruleFlags.reason;
     const formulas:Record<string,string>={},modes:Record<string,EffectModeState>={};
     const origins:Record<string,'source'|'default'|'null-cleaned'>={};
@@ -123,6 +124,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     for(const change of plan.initial){
         if(change.type.startsWith('dnd5e.'))continue;
+        if(change.key.startsWith('flags.')){const result=applyBooleanFlag606(ruleFlags,change);if('reason'in result)reason??=result.reason;else applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'initial',...result});continue;}
         const field=target(change),raw=change.value;
         if(field?.string){
             // C71 qualifies identified, eligible transferred Items in the
@@ -195,7 +197,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     // Native passives and initiative scores precede armor/initiative/final modes.
     // Keep their earlier count state separate; never move a final effect to initial.
-    const executionModes=structuredClone(modes),executionGlobals=structuredClone(globals),executionBonuses:Record<string,number>={},finalNumbers:Record<string,number>={},equipment=prepareEquipment606(actor);
+    const executionFlags={...ruleFlags},executionModes=structuredClone(modes),executionGlobals=structuredClone(globals),executionBonuses:Record<string,number>={},finalNumbers:Record<string,number>={},equipment=prepareEquipment606(actor);
     let checkExecutionReason:string|undefined;
     let preparedDefenseSets:Record<string,string[]>|undefined,finalDefenseSets:Record<string,string[]>|undefined;
     const finalTrainingSets:Record<string,string[]>={};
@@ -213,6 +215,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     if(ruleFlags.remarkableAthlete&&!addExecutionMode('system.attributes.init.roll.mode',1))checkExecutionReason??='Remarkable Athlete initiative mode preparation unavailable';
     for(const change of plan.final){
         if(change.type.startsWith('dnd5e.'))continue;
+        if(change.key.startsWith('flags.')){const itemReason=change.itemId!==undefined?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):undefined;if(itemReason){reason??=itemReason;continue;}const result=applyBooleanFlag606(executionFlags,change);if('reason'in result)reason??=result.reason;else applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'final',...result});continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         if(change.itemId!==undefined){
             const itemReason=field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
@@ -293,7 +296,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    const result:NumericEffects={sourceInitialization,ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    const result:NumericEffects={sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
     return context?prepareFormulaFields606(actor,context,result):result;
 }
 

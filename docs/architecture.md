@@ -1559,3 +1559,17 @@ primary's current value;earlier prof objects still control combined advantage.
 override. Equipment flags feed shared weapon modes/movement;details format those
 same facts. Missing current metadata retires support rather than replaying cached
 eligibility. [C87 evidence](audits/evidence/2026-10-22-c87-remaining-flags.json).
+
+Effect flag preparation now exposes source/prepared/current snapshots on the shared
+model. Cached native stats/Item proficiency use initial flags;fresh checks use
+current Jack/Tool Expertise/Halfling/Reliable Talent flags. Primitive Boolean deltas
+follow native normalization and six Foundry operations;unqualified flag types and
+operations fail explicitly. Current metadata is required for check execution.
+
+Effect eligibility distinguishes Actor transfers,stored nontransfer templates,
+exact rider references and applied Item enchantments. Identity metadata never
+resolves content or substitutes documents. The shared admission helper also serves
+Item/physical/equipment consumers. Permanent durations reprepare expired=false;
+valid start fields do not imply expiry. Timed/flag-forced profiles remain gated.
+[C88 evidence](audits/evidence/2026-10-22-c88-effect-flags.json) describes phase and
+source/default limits separately from native/operator acceptance.

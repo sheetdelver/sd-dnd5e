@@ -52,6 +52,9 @@
     "test:native-read-flags": "node scripts/native-read-flags-oracle.mjs",
     "test:mounted-read-flags": "node scripts/test-mounted-read-flags.mjs",
     "test:native-remaining-flags": "node scripts/native-remaining-flags-oracle.mjs",
-    "test:mounted-remaining-flags": "node scripts/test-mounted-remaining-flags.mjs"
+    "test:mounted-remaining-flags": "node scripts/test-mounted-remaining-flags.mjs",
+    "test:native-flag-effects": "node scripts/native-flag-effects-oracle.mjs",
+    "test:native-effect-admission": "node scripts/native-effect-admission-oracle.mjs",
+    "test:mounted-flag-effects": "node scripts/test-mounted-flag-effects.mjs"
   }
 }

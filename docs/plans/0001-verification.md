@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C87)
+### Current M2 exit state (updated C88)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3256,7 +3256,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | --- | --- | --- |
 | Actor facts and checks | Shared class/default/proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | Broader expressions,dice-dependent terms,recursive/dependent references and expression/effect composition |
-| Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rule registration/collection/bonuses/modes/bounds;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
+| Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
 | Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;wider Item/effect final preparation remains |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;per-Item casting/activity references,DC/damage construction and effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
@@ -3450,3 +3450,20 @@ callbacks pass. [C87 record](../audits/evidence/2026-10-22-c87-remaining-flags.j
 contains commands,hashes and evidence limits. Initial isolated-host startup timed out;
 its unchanged retry passed and all owned processes stopped. No Core defect inferred.
 M2 remains open for effect-written flags and remaining formula/Item/filter phases.
+
+### C88 — source applicability and phase-correct flag effects (2026-10-22)
+
+[C88 evidence](../audits/evidence/2026-10-22-c88-effect-flags.json) retains3,024
+independent Boolean source/default/op/phase expectations,50 actual applicability
+intermediates and24 source permanent-duration preparations. Regression verifies
+source preservation,current phase metadata requirement,malformed deltas,identity
+metadata,rider/nontransfer templates,permanent expiry poison and carrying flag phase.
+Both layouts cover cached passives/current checks/previews/shortcuts,reroll removal,
+context recovery and held callbacks;public host uses unchanged bounded plain-d20
+and Normal range criteria. Known stored templates are no longer incorrectly called
+Item effects. Native first-tie/equal-index diagnostics remain unchanged.
+
+Full source DataModel,applied Item enchantment field preparation,timed expiry and
+native/operator/installed acceptance remain unqualified. Existing M2 gate remains
+open;continue formula/effect composition and Item final work. Experimental0.4.1 and
+compatibility remain unchanged;no Core/native repository changes or live connection.

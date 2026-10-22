@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Prepare effect-written flags by phase and admit permanent effects and dormant Item templates.
+
 - Preserve readouts with known roll flags; support qualified Normal Reliable Talent, dual-wielding modes and armor speed flags.
 
 - Prepare Diamond Soul, Tool Expertise, Observant and modern Remarkable Athlete consistently across read and roll surfaces.

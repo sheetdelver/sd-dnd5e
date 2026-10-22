@@ -1,3 +1,4 @@
+import {itemEffectMetadata606,permanentEffectReason606} from './effect-admission';
 import {baseStatusSource606,type BaseStatusSource606} from './base-statuses';
 import {conditionSource606,type ConditionSource606} from './conditions';
 import { record } from '../native/6.0.6/source';
@@ -34,23 +35,21 @@ export function planEffects606(actor:unknown):EffectPlan {
                 // Source schema transfer defaults true; no Actor-target claim
                 // follows for Item-target/nontransfer effects.
                 if(effect.transfer!==undefined&&typeof effect.transfer!=='boolean'){fail(id,'malformed','Effect transfer state malformed',parentId);continue;}
-                if(effect.transfer===false||effect.type==='enchantment'){fail(id,'item-preparation-unavailable','Owned Item effect preparation unavailable',parentId);continue;}
+                if(effect.transfer===false){decisions.push({id,parentId,status:'stored-template'});continue;}
+                if(effect.type==='enchantment'){fail(id,'item-preparation-unavailable','Applied Item enchantment preparation requires qualification',parentId);continue;}
                 eligibility=itemEffectState606(item);
                 if(eligibility.reason){fail(id,'item-preparation-unavailable',eligibility.reason,parentId);continue;}
                 if(eligibility.suppressed){decisions.push({id,parentId,status:'item-suppressed',eligibility});continue;}
-                // Hidden/dependent Items and riders need qualified Item phases.
-                if(Object.values(record(record(item.flags)?.dnd5e)??{}).some(Boolean)){fail(id,'item-preparation-unavailable','Item dependency/rider preparation unavailable',parentId);continue;}
+                const metadata=itemEffectMetadata606(item);
+                if(metadata.reason){fail(id,'item-preparation-unavailable',metadata.reason,parentId);continue;}
+                if((effect.type===undefined||effect.type==='base')&&metadata.riders.includes(id)){decisions.push({id,parentId,status:'rider-template'});continue;}
+
             }
+            if(!item&&effect.type==='enchantment'){decisions.push({id,status:'no-applicable-item'});continue;}
             const conditionType=effect.type==='condition'&&!item;
             if(effect.type!==undefined&&effect.type!=='base'&&!conditionType){fail(id,'type-unavailable','Active effect type preparation unavailable',parentId);continue;}
-            const duration=record(effect.duration);
-            if(effect.start!=null||duration&&Object.entries(duration).some(([key,value])=>!['units','value','expiry','expired'].includes(key)||key==='value'&&value!=null||key==='expiry'&&value!=null||key==='expired'&&value!==false)){
-                fail(id,'duration-unavailable','Effect duration/expiry preparation unavailable',parentId);continue;
-            }
-            if(effect.duration!=null&&!duration){fail(id,'duration-unavailable','Effect duration source malformed',parentId);continue;}
-            if(Object.values(record(record(effect.flags)?.dnd5e)??{}).some(Boolean)){
-                fail(id,'conditions-unavailable','Effect conditions/dependencies require Q02a qualification',parentId);continue;
-            }
+            const durationReason=permanentEffectReason606(effect);
+            if(durationReason){fail(id,'duration-unavailable',durationReason,parentId);continue;}
             const rider=system.rider==null?{}:record(system.rider),statuses=effect.statuses,riderStatuses=rider?.statuses;
             if(!rider||[statuses,riderStatuses].some(value=>value!==undefined&&!(conditionType&&value===null)&&(!Array.isArray(value)||value.some(entry=>typeof entry!=='string')))){
                 fail(id,'status-unavailable','Effect status/rider source malformed',parentId);continue;

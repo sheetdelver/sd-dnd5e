@@ -2889,3 +2889,28 @@ profiles. Public-host4160 new requests cover208 complete Normal face distributio
 actual mounted both-layout reads/previews/controls/context recovery are separate.
 Effect-written flags,wider formulas/filters and Item final dependencies still keep
 M2/ADR open;native/operator/installed acceptance is not claimed.
+
+### C88 — effect-written Boolean flags and source applicability (2026-10-22)
+
+The shared preparation model now separates source,initial-prepared and current
+flags. Actual native flag normalization/Foundry Boolean operations qualify14 known
+flags in both phases. Initial flags feed cached stats/passives/Item proficiency;
+final flags affect fresh checks and dynamic getters without recomputing earlier
+results. Reliable Talent and reroll execution keep C87's independent boundaries.
+Powerful Build thresholds use the initial-prepared flag,not raw Actor flags.
+
+Actual native applicability also supersedes the blanket nontransfer restriction:
+base/condition templates stored on Items do not prepare the owner or Item;
+nonapplied enchantment templates likewise do nothing. Exact rider references are
+dormant. Applied Item enchantments remain gated. Benign source/advancement identity
+metadata is preserved without resolution;dependent references remain unavailable.
+Permanent native durations reinitialize raw expired poison tofalse;valid start
+metadata alone does not make them timed. Timed/forced-temporary effects stay gated.
+Historical fixtures remain intact with explicitly named C88 expectation supplements.
+
+[C88 evidence](../audits/evidence/2026-10-22-c88-effect-flags.json) records independent
+source/default/operation/phase comparisons,maintained regressions,mounted1440/390
+consumers and isolated public execution. No full DataModel/runtime/operator or
+installed acceptance follows. This advances existing M2/Q02a/DD-03/11/27/34 and
+A02–A06 read preparation;full M2/ADR remain open. Next:formula/effect composition
+and required Item final preparation,with existing Q00/E01/E02/E04/E05 boundaries.

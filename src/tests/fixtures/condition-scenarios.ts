@@ -34,7 +34,7 @@ export function conditionSource(row:ConditionCase){
         case 'actor-flag':actor.flags={dnd5e:{originalActor:'unresolved'}};break;
         case 'dependent-guard':effect.system.conditions='{"k":"abilities.wis.value","v":14}';break;
         case 'clock':effect.duration={value:10,units:'seconds'};break;
-        case 'start':effect.start={time:1};break;
+        case 'start':effect.start={time:'malformed'};break;
         case 'item':actor.effects=[];actor.items.push({_id:'conditionItem01',type:'tool',name:'No inference',system:{equipped:true},effects:[effect]} as any);break;
         case 'source-status':(actor as any).statuses=['poisoned'];break;
         case 'immunity':system.traits.ci.value=42;break;

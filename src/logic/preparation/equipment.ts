@@ -1,3 +1,4 @@
+import {itemEffectMetadata606,itemLocalEffectsReason606} from './effect-admission';
 import {record,documentIdentity} from '../native/6.0.6/source';
 import {numericConstant,qualifiedNumericTotal} from './numeric';
 
@@ -33,7 +34,7 @@ export function prepareEquipment606(actor:unknown):EquipmentPreparation {
         if(duplicate||typeof id!=='string'||!identity||item.uuid!==undefined&&item.uuid!==uuid||source.uuid!==undefined&&source.uuid!==`Actor.${source._id}`){fail('Equipped Item canonical identity unavailable');continue;}
         const type=record(data.type)?.value;
         if(typeof type!=='string'||!armorTypes.includes(type)){fail('Equipped Item type outside qualified armor profile');continue;}
-        if(Object.values(record(record(item.flags)?.dnd5e)??{}).some(Boolean)||data.stealth!==undefined){fail('Equipped Item flags/migration require qualification');continue;}
+        if(itemEffectMetadata606(item).reason||itemLocalEffectsReason606(item)||data.stealth!==undefined){fail('Equipped Item flags/migration require qualification');continue;}
         if(data.armor!=null&&!record(data.armor)){fail('Equipped armor source mapping malformed');continue;}
         const armor=record(data.armor)??{},base=armor.value??0,dex=armor.dex??null,properties=data.properties??[],attunement=data.attunement??'',attuned=data.attuned??false;
         if(typeof base!=='number'||!Number.isInteger(base)||base<0||base>1_000_000_000||dex!==null&&(typeof dex!=='number'||!Number.isInteger(dex)||Math.abs(dex)>1_000_000_000)){

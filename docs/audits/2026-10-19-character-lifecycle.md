@@ -2131,3 +2131,15 @@ Enhanced dual-wielding modes and armor-speed flags share the Item/movement model
 261 controlled native profiles and4160 new isolated public requests retain independent
 expected values and actual host serialization. Broader effect/flag/dice and M2 gates
 remain open;no new Core defect or compatibility change is asserted.
+
+### C88 — flags,permanent source defaults and applicability
+
+[C88 evidence](evidence/2026-10-22-c88-effect-flags.json) records3,024 native Boolean
+flag/phase profiles,50 applicability rows and24 permanent duration rows. Same-input
+nontransfer template previously blocked ordinary+5;now retains+5,while eligible
+base transfer gives+7. Final Jack affects fresh+3 while earlier passive remains12;
+initial Jack gives passive13. Source data and historical evidence are unchanged.
+Old blanket nontransfer/valid permanent-start refusals are explicitly superseded;
+malformed starts,timed effects,dependent references and applied enchantments remain
+gated. Actual mounted consumers and isolated public execution are separate from
+controlled native-method evidence. No new Core defect or full M2/ADR acceptance.

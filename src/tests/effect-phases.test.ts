@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
-import fixture from '../../tests/fixtures/native-6.0.6/effect-phases.json';
+import {effectPhaseCases} from './fixtures/effect-phase-scenarios';
 import { DnD5eAdapter } from '../logic/adapter';
 import { skillSource, skillContext } from './fixtures/skill-scenarios';
 import { planEffects606 } from '../logic/preparation/effects';
 const adapter=new DnD5eAdapter();
 const failures:string[]=[];
-for(const row of fixture.cases){
+for(const row of effectPhaseCases){
     const source=skillSource();source.effects=structuredClone(row.effects) as any;
     source.items.push(...structuredClone(row.items) as any);
     const before=structuredClone(source),prepared=adapter.prepareActorData(source,skillContext());
