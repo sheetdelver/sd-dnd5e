@@ -2228,3 +2228,28 @@ production untouched. Node24.21/npm11.19;Node22 CI unrun. No installed/native/op
 acceptance or full gate closure. Remaining M2 flags/time/dependent rules/Item/final/
 expressions and later lifecycle work,E01/E02/widerQ00/E05 remain open;experimental
 0.4.1/compatibility unchanged.
+
+
+### C47 — Final mode phase qualification (2026-10-21)
+
+Parent `93629e5`;M0/M2 Q02a,DD-02/03/27/34,A02/A04 qualification only.1188
+frozen independent cases cover11 mode paths,3 source modes,12 operation/delta pairs
+and3 condition contexts.9504 actual native skill/tool/ability configurations plus1188
+initiative configurations and earlier passive/score snapshots compare PASS. Actual
+static Foundry ClientDocument/Actor prepareData traces assert initial→derived→final;
+actual Character trace remains separate. Direct field-change wrapper and trace-only
+phase collaborators do not establish full DataModel/Document/effect/Item acceptance.
+
+Commands use Core0.19.3/90c13e5 via --core. `npm test`:60 assertions,8 tooling/39 module
+suites PASS;`typecheck`:184 explicit module/UI/server/test/hook files PASS.
+`test:native-source`:2242 records/591 expressions at87e94db PASS;
+`test:native-conditions`:all retained and new1188 final-mode comparisons PASS.
+`check:package`:isolated public-boundary/module check,managed typing and bundles PASS;
+`/tmp/dnd5e-package-jyJLoZ/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`38544f87bb9833304164355a3477f7c9964dbabcd17b4fd919d6b0978264e322`. [Portable record](../audits/evidence/2026-10-21-c47-final-modes-foundation.json)
+keeps frozen fixture,observed table,method/source/harness/artifact hashes and stubs.
+No services or new mounted/public run;C46 evidence stays separate. Runtime final
+effects remain gated. Next integrate qualified constant-guard Actor final mode fields
+with separate passive/score and execution snapshots,then verify actual consumers. Other
+final fields/Item/filters/flags/time/expressions and E01/E02/widerQ00/E05/fullDD/A/M/ADR/
+nativeoperator gates remain open;experimental0.4.1/compatibility unchanged.

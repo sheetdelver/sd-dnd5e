@@ -997,3 +997,13 @@ consume the preparation snapshot. Defense grants/normalization and final readout
 their later-phase semantics. A mixed Petrified+Poisoned source prepares disadvantage
 and passive10,while its final readout omits Poisoned. Manual/automatic mode overrides
 and count suppression/cancellation keep native behavior. Source is never rewritten.
+
+### Final mode qualification boundary (C47)
+
+Final roll-mode fields require a separate execution state. Native Character preparation
+has already stored passives and initiative scores before final changes run. Reusing a
+mutated final scope to rebuild passive/score values would move the effect to the wrong
+phase. The frozen1188-case qualification covers constant Actor fields and raw mode/count
+combination separately from source initialization and document phase order. Runtime final
+effects remain gated pending integration;other fields/filters/Item preparation are not
+qualified by these mode cases.

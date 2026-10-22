@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Qualify final roll-mode changes separately from prepared passive and initiative-score snapshots; runtime integration remains separate.
+
 - Correct Character phase ordering so late petrification immunity preserves earlier Poisoned check modes and passive scores.
 
 - Share qualified explicit Stunned/Unconscious status, mode and movement preparation across both layouts and roll execution; preset/rider automation remains separate.

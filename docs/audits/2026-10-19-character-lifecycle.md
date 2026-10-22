@@ -1090,3 +1090,10 @@ and actual consumers are covered. [Record](evidence/2026-10-21-c46-character-pha
 supersedes C42/C43's mixed arithmetic claim. Historical source/host/regression artifacts
 remain;they cannot prove composition. No Core defect,version/compatibility change or
 full DD/A/M/native/operator gate closure. ADR-0001 remains open.
+
+C47 (after C46 `93629e5`) independently qualifies1188 final mode/source/condition cases,
+9504 native check configurations and1188 initiative configurations. Native field changes
+occur after passive/score snapshots;actual Foundry Document/Actor and Character phase
+traces prevent initial/final conflation. [Record](evidence/2026-10-21-c47-final-modes-foundation.json)
+keeps initialized/stub boundaries explicit. Runtime final effects remain unavailable;
+shared integration is next. No full final/Item/filter/native/operator gate closes.

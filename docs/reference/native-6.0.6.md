@@ -1022,3 +1022,12 @@ Seven initial-mode cases compare override/suppression/subtraction/combined check
 initiative separately. [Record](../audits/evidence/2026-10-21-c46-character-phase-order.json)
 retains source/schema/phase identities and stubs. C42/C43 mixed arithmetic claims are
 superseded;their historical captures remain. No native boot/preset/operator acceptance.
+
+C47 `final-modes.json` freezes1188 independent cases across11 roll-mode paths,three source
+modes,12 operation/delta pairs and no-status/Poisoned/incapacity+Invisible contexts.
+Actual field/count and roll methods compare9504 skill/tool/ability configurations,
+1188 initiative configurations and earlier passive/score snapshots. Actual static
+Foundry ClientDocument/Actor prepareData and exact Character methods execute with trace-only
+collaborators to qualify ordering separately. Direct field-change wrappers are explicit;
+no full effect/Item/filter/DataModel initialization or native/operator acceptance.
+[Record](../audits/evidence/2026-10-21-c47-final-modes-foundation.json) preserves hashes/stubs.
