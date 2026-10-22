@@ -908,3 +908,29 @@ check,initiative and map comparisons remain intact;678 actual native ability/che
 roll constructions add direct configuration evidence. [C39 record](../audits/evidence/2026-10-21-c39-exhaustion.json)
 separates controlled methods,source regression,mounted consumers and real isolated
 public-host arithmetic. Full DataModel/native/installed/operator acceptance stays open.
+
+
+### Dexterity-save,initiative and movement condition modes (C40)
+
+The maintained pinned harness adds84 explicit source/phase profiles,972 raw source-mode
+cases and8 override/suppression cases. Each checks actual native #rollD20Test(save)
+and getInitiativeRollConfig,totals/parts,statuses,score and initialized movement:
+2128 configurations total. Frozen independent expected tables derive from explicit
+status predicates and raw source flags,never module output or captured native output.
+
+Common.prepareAbilities adds dodging Dexterity-save advantage unless incapacitated
+or affected by noMovement; restrained adds Dexterity-save disadvantage. Attributes
+prepareInitiative adds invisible advantage and incapacitated/surprised disadvantage
+to the initiative field BEFORE score calculation. Global check mode is combined later
+for execution. Numeric mode0 may retain both signs; an added global advantage does not
+erase an existing disadvantage. Effect overrides/suppression preserve native scope
+order. NoMovement zeroes speeds before later arithmetic; prone crawl zeroes nonwalking
+speeds. These profiles use explicit serialized statuses,not preset construction.
+
+SimpleTraitField CI is a SetField(StringField) without fixed choices; literal membership
+may be exact even when a label is unresolved. Source type never grants an absent status.
+CI add/remove preserves initial collection and later filtering,not final active-state
+recomputation. Source/model/guard/clock/custom-rule/CI executor/roll-build stubs remain
+explicit; initialized operands do not establish source boot or installed/operator
+acceptance. [C40 record](../audits/evidence/2026-10-21-c40-condition-modes.json) retains
+new tables,captures,source hashes and limits; C39 runtime remains unchanged.

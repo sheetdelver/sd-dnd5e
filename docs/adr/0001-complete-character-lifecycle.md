@@ -1552,3 +1552,35 @@ checks. This remains the constant-guard,untimed Actor source profile with empty 
 changes/riders. It is not complete conditions,activities,legacy/effects/flags/time/
 Item/final-phase/expression support or installed/native/operator acceptance. E01/E02/
 widerQ00/E05 and full DD/A/M/ADR gates stay open;experimental0.4.1 unchanged.
+
+
+### C40 — Additional condition mode/movement qualification (2026-10-21)
+
+C39 is `2063461`. M0/M2 Q02a,DD-02/05/27/34,A02/A04 qualification only.
+A frozen independent fixture covers84 explicit status/phase profiles,972 source-mode
+cases and8 override/suppression cases against pinned native methods. Each case checks
+a Dexterity-save and initiative configuration (2128 configurations total),numeric
+totals,score,status collection and movement. Earlier condition comparisons remain
+intact. No additional runtime type is admitted by this checkpoint.
+
+The explicit source profiles include restrained,grappled,paralyzed,incapacitated,
+invisible,surprised,prone,dodging and selected combinations; these are serialized
+status sets,not fromStatusEffect preset construction. Missing statuses stay absent.
+Dodging's save advantage is suppressed by incapacity or no-movement status. Initiative
+conditions change the local initiative field BEFORE score calculation; global check
+mode affects the roll separately. Canceled numeric field modes retain their opposing
+counts when another scope is combined. Overrides/suppression remain distinct from
+source flags. CI add/remove retains precollection semantics,including secondary
+statuses from a document whose final active state changes.
+
+SimpleTraitField CI stores strings without fixed choices; exact membership does not
+resolve content or guarantee a display label. Source/default/initialized/prepared
+and caller phases remain separate. The model,constant guard,clock,custom-rule absence,
+CI executor and roll-build callbacks remain controlled stubs; source mode operands
+are independently initialized inputs. [C40 record](../audits/evidence/2026-10-21-c40-condition-modes.json)
+and [ledger](../plans/0001-verification.md#c40--condition-mode-and-movement-qualification-2026-10-21)
+retain expectations,source identities and limits. Next integrate only the qualified
+mode/movement source profile through shared preparation and consumers,with before/
+after,UI and public-host execution. Other condition/combat behavior,petrification,
+riders,dependent guards,flags/time,Item/final phases and expressions stay open.
+E01/E02/widerQ00/E05/fullADR remain open;experimental0.4.1 unchanged.

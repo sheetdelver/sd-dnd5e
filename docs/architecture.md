@@ -871,3 +871,21 @@ Source CI provenance joins condition/default/ID provenance for stale-intent reti
 Desktop/mobile readouts format effective statuses and levels; no editing/writes.
 Other condition types,dependent guards,flags/time,Item/final effects and expressions
 remain explicitly unqualified. No extra evaluator/cache/runtime/Core dependency.
+
+
+### Condition family phase boundary (C40)
+
+Additional types remain unavailable pending runtime integration. Controlled profiles
+separate effective statuses,Dexterity-save modes,initiative local mode/score,global
+execution modes and no-movement/crawl. Dodging depends on absence of incapacity and
+no-movement statuses. Native initiative-specific conditions mutate the local field
+before score calculation; an ability/global check mode is a separate roll operand.
+A resolved numeric mode0 can retain opposing counts; combining another source must
+use those counts,not reconstruct from0. Overrides and suppression retain C15's distinct
+passive/dispatch semantics. CI can remove a primary status after collection while
+secondary statuses remain even when final Document.active is false.
+
+The fixture's source type/status sets are explicit. It does not construct presets,
+infer missing statuses,qualify riders/petrification/other combat rules or extend flag/
+time/Item/final/formula behavior. A future shared path must supply the same mode and
+movement facts to every consumer/compiler,with no UI formulas or new dice evaluator.

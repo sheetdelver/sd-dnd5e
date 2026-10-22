@@ -1004,3 +1004,16 @@ status collection remain distinct. [C39 ledger](../plans/0001-verification.md#c3
 and [portable record](evidence/2026-10-21-c39-exhaustion.json) retain independent
 inputs,method stubs,artifact identities and limits. Broader conditions/activities,
 flags/time/Item/final/expressions and native/operator/full ADR gates stay open.
+
+
+### C40 disposition — condition save/init/movement phase qualification
+
+C39 is `2063461`. DD-02/05/27/34,A02/A04 advance in controlled-source evidence
+only:84 status/phase,972 source-mode and8 effect-state cases,each checking native save/
+initiative configurations (2128 total),numeric totals,scores and movement. Independent
+frozen expectations retain raw counts,CI timing,dodging restrictions and local-score/
+global-roll distinctions. Explicit source sets are not native presets; other combat/
+condition behavior remains open. No production availability change. [C40 ledger](../plans/0001-verification.md#c40--condition-mode-and-movement-qualification-2026-10-21)
+and [portable record](evidence/2026-10-21-c40-condition-modes.json) retain model/guard/
+clock/CI/roll-build stubs and source identities. No full native/operator acceptance
+or complete gate closure; bounded shared runtime integration follows.

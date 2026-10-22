@@ -1961,3 +1961,37 @@ guards/flags/time/Item/final phases/expressions,domain commands and full lifecyc
 acceptance remain open. Next qualify additional condition mode/movement phases through
 this shared architecture. E01/E02/widerQ00/E05/fullDD/A/M/ADR and native/operator gates
 stay open;experimental0.4.1 unchanged.
+
+
+### C40 — Condition mode and movement qualification (2026-10-21)
+
+Parent `2063461`; M0/M2 Q02a,DD-02/05/27/34,A02/A04 qualification only. Pinned
+`test:native-conditions` adds84 explicit status/phase profiles,972 source-mode cases
+and8 override/suppression cases. Each checks an actual native Dexterity-save and
+initiative configuration (2128 configurations total),totals/parts,statuses,score and
+initialized movement. All prior condition comparisons remain PASS. Frozen independent
+source predicates/tables are separate from native output and module calculations.
+The first prototype's universal score12 expectation was corrected from pinned native
+mode-before-score logic before maintained capture; no product/Core defect inferred.
+
+No runtime type is newly admitted. Source type/status sets are explicit,not generated
+presets; missing statuses remain absent. DataModel/model constructor,constant guard,
+clock/custom-rule absence,synthetic CI executor and D20Roll.build callbacks stay
+explicit stubs. Source-mode fields are initialized inputs; these comparisons do not
+establish full native boot/dice/installed/operator acceptance. Source CI strings have
+no fixed schema choices; exact membership does not resolve content/display labels.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (0.19.3/90c13e5).
+`npm test`:60assertions,8tooling/37module suites PASS. `typecheck`:178 explicit module/
+UI/server/test/hook files PASS. `test:native-source`:2242records/591expressions at87e94db
+PASS. `check:package`:isolated public-boundary/module checks,managed typing and bundles
+PASS; `/tmp/dnd5e-package-0CdrJf/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`3209a1e5584ee611398f51ead8e517d519032278b140c15f8a730284de918b2e`.
+[Portable record](../audits/evidence/2026-10-21-c40-condition-modes.json) embeds source
+expectations,new captures,hashes and limits. C39 mounted/public-host evidence retained
+separately,not newly rerun or enlarged. No service starts; prior fixtures stopped.
+Next implement this bounded source profile through shared mode/movement preparation
+and actual consumers/compiler,with maintained before/after,mounted and public-host
+checks. Petrification/riders/other combat rules,flags/time/dependent guards,Item/final/
+expressions and full lifecycle gates stay open. E01/E02/widerQ00/E05/native/operator/
+ADR acceptance remain open;experimental0.4.1 and compatibility unchanged.
