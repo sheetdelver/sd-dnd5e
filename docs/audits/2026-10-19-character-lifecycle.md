@@ -1563,3 +1563,32 @@ PASS. Isolated check/package PASS; archive SHA256
 All owned hosts/browsers closed. Historical-expectation failures and corrections
 remain identified;no failed runs count as passing. Experimental/version/compatibility
 unchanged;ADR/fullacceptance stays open.
+
+### C61 — final CI/current query/earlier cache qualification (2026-10-22)
+
+168 frozen independent profiles compare final condition-immunity Set operations for
+poisoned and modern exhaustion1–6, explicit present/empty source statuses and initial
+immunity absent/present. Actual Actor queries read current CI. Earlier omitted/deleted
+Actor statuses are not restored by final immunity removal; adding final immunity does
+not replay Actor status collection or trait cleanup. Native condition level maps and
+level-six dead derivation are compared independently from status membership.
+
+Prepared modes, passives and cached conditionRollReductions remain earlier. Fresh
+skill/tool/check/save/initiative configuration still constructs the separate reduction
+parts from that earlier cache. A probe initially omitted these parts from its numeric
+assertion; pinned addConditionRollReduction confirms their membership/data. Corrected
+constructed-operand accounting retains the frozen expected total and all assertions.
+No native behavior or Core contract changed.
+
+Maintained comparison PASS:168profiles/1008ordinary builders/336initiative configs plus
+all retained matrices. Actual primitive Set constructors are shared with the maintained
+trait oracle; imported evidence cannot overwrite the directly invoked command capture.
+Direct trait capture and explicit201-file module typing PASS. [Record](evidence/2026-10-22-c61-final-ci-conditions-foundation.json) retains exact
+source/helper/capture identities and precise constructor/phase/query limits.
+
+Qualification only: C62 must integrate current CI, preserved Actor status/level data and
+earlier modes/reductions through one shared path, with failing-before and both-layout
+recovery tests. Other conditions, combinations, movement/fresh threshold/Item/automatic
+result semantics remain open. Native method construction is not native/operator
+acceptance. C60 runtime/UI/public-host/package evidence remains separate. Experimental
+0.4.1 and compatibility unchanged;E01/E02/E04/widerQ00/E05 and all full gates stay open.

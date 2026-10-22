@@ -1223,3 +1223,11 @@ mastery getter evidence does not authorize Item attacks/activities. Unknown IDs 
 unresolved keys or unavailable operations; E01 content access is not bypassed.
 [Evidence](audits/evidence/2026-10-22-c60-final-training-sets.json) records the actual
 field/cache/getter, formatting-shell and mounted/public-host limits separately.
+
+C61 qualifies168 literal final-CI cases on actual Actor query/cache/build methods.
+Current immunity differs from earlier collected statuses,condition maps,modes/passives
+and cached reductions. Final CI never replays status collection;fresh ordinary rolls
+retain cached reduction operands. Actual primitive field constructors are shared with
+the native trait oracle;direct evidence files remain independent. Runtime gate remains
+until C62 source/projection/recovery tests. [Record](audits/evidence/2026-10-22-c61-final-ci-conditions-foundation.json) keeps specific poison/
+exhaustion scope and phase/dispatcher/native acceptance limitations explicit.

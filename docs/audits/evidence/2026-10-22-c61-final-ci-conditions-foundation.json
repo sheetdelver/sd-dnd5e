@@ -1,0 +1,153 @@
+{
+  "checkpoint": "C61",
+  "date": "2026-10-22",
+  "parent": "2fa35314d21d38b052a2ca79eb5090d747fcbc5d",
+  "requirements": "Partial M2/Q02a DD-03/11/27/34,A02/A03/A04/A18/A21;no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "cases": 168,
+  "checkSaveToolBuilders": 1008,
+  "initiativeConfigurations": 336,
+  "profiles": [
+    "poisoned",
+    "modern exhaustion1-6"
+  ],
+  "sourceStatusOptions": [
+    "explicit present",
+    "explicit empty including native level6 dead derivation"
+  ],
+  "sourceImmunityOptions": [
+    "absent",
+    "present"
+  ],
+  "finalCIoperations": [
+    "add",
+    "subtract",
+    "override",
+    "upgrade",
+    "downgrade",
+    "multiply"
+  ],
+  "observations": [
+    "Final CI changes current Actor.hasConditionEffect query inputs without replaying status collection or Traits deletion. Omitted earlier Actor statuses never reappear on final immunity removal.",
+    "Prepared ability modes,skill/tool/static/passive values and cached conditionRollReductions remain earlier. Fresh ordinary builders still use earlier modes and cached reduction operands.",
+    "Condition level map and native level6 dead derivation compared separately from Actor status membership and current immunity. No statuses/grants inferred from names.",
+    "Native condition reductions are separate @reductions.exhaustion parts;closed constructed-operand arithmetic includes those exact data operands rather than silently dropping them.",
+    "Shared actual primitive SetField/StringField constructors imported from maintained trait oracle. Direct-command evidence guard prevents imported companion from overwriting main capture."
+  ],
+  "checks": [
+    {
+      "command": "npm run test:native-conditions -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c61-native-conditions.json",
+      "result": "PASS168 finalCI+all retained condition/field/mode/native trait companion matrices",
+      "logSha256": "b8ee90a46e3cc2179831934cc49c4ec328729d2513194be68c5428859b84ffec"
+    },
+    {
+      "command": "npm run test:native-traits -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c61-native-traits.json",
+      "result": "PASS retained direct trait evidence output remains intact",
+      "logSha256": "26621375aa5232f953f47cfa4fa47553c8fd228fdf6fee4c545add280c20577d"
+    },
+    {
+      "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS201 explicit source/UI/server/test/hook files;no runtime changes",
+      "logSha256": "71c4be168539eb604e6337fcc55c57878847406a9ac940798cb32985f7809503"
+    }
+  ],
+  "sourceHashes": {
+    "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+    "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25",
+    "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+    "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+    "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+    "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+    "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+    "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+    "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+    "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+    "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+    "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+    "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+  },
+  "foundrySourceHashes": {
+    "client/dice/roll.mjs": "a27f498f7b3864a1baa7cebbb1ccb611f9796720b4a4d153df779803b995c7ff",
+    "client/dice/parser.mjs": "2fe7a584106a9ac5c5b216af62ec6b7e6b4da0ab4dbdd8a64bc32320b5bce799",
+    "client/dice/terms/operator.mjs": "edb71ad0cc4b9a8dab15abcff233fa629a15bdfb668f0bfc9fa0f9a21fcb6e82",
+    "client/documents/abstract/client-document.mjs": "a007180e3cf8d465dffe43b11272f289b4cf77a9e301c7d431f48267dfad8e9e",
+    "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+    "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+    "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+    "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+    "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+    "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5",
+    "common/abstract/data.mjs": "11bb7f848c707803607accfa9f6b946c7cbfe8b17781ff562b468bdc77b934e5"
+  },
+  "sharedSetOracle": {
+    "scriptSha256": "0da672287ade991c6c731c60f5d3ebb15963e171f4dbf6d8026b123869326c6f",
+    "foundry": {
+      "generation": 14,
+      "build": 367,
+      "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+      "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+    },
+    "sourceHashes": {
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/documents/actor/trait.mjs": "a638c34db4c3e4255bfbbd1952d7a3231dd9ea35038c51b9b7cc0d77658bd635",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200"
+    },
+    "stubs": [
+      "C59 initialized training Sets then actual prepareLanguages,final SetField operations,native sheet and conditional masteryOptions getter. Model label poison overwritten by actual preparation,not full source DataModel stripping. Languages cache stays earlier;mastery getter uses current keys/bonus on explicit longsword/sap shell,not Item actions or inferred grants. Native key-label/content absence/locale helpers retain C27 stubs",
+      "C57 actual Traits preparation then final SetField operations then native sheet on initialized copies;four literal sources include separately stubbed petrification predicate,not condition/source boot. No normalization replay after final. Fixed defense-only registry/key-label helper restored after training registry. Earlier C24-C28 captures retain their own phase stubs. No new DataModel/native dice/write acceptance",
+      "C28 exact initial Set methods on explicitly initialized persisted training targets followed by native languages; no custom String, unknown-key, coercion, filtered/final or full DataModel claim",
+      "C27 exact prepareLanguages, trait keyLabel and sheet presentation; canonical English, base Item index deliberately unavailable, fixed subset trait config, independent unit-format adapter; partial range cases compare spoken domain only",
+      "C27 absent AppliedRules collection is empty, no filtered bonus/effect semantics claimed; prototype-key native inherited-function lookup is recorded as diagnostic, never a usable label",
+      "C27 local Tool.value is captured as effectValue by exact prepareTools; prepared value becomes effective multiplier; globals/local override cases start after C13-qualified initial operations, not raw nonpersisted source overrides",
+      "C27 masteryOptions getter is only a conditional example (longsword/sap), not module Item/activity execution",
+      "C25 exact DataField.applyChange and field delta/operation/cleaning methods, native equality and Set.map/equals; validation wrapper checks known primitive strings only; references/object equality throw outside profile; no full DataModel validation",
+      "Primitive option-merging constructors; exact String clean/default and Array/Set initialization, source arrays cleaned elementwise; no DataModel or validation boot",
+      "Schema default container clean delegates only verified child defaults; Schema key/migration/validation logic not emulated",
+      "Condition-free Actor stub: empty statuses and hasConditionEffect=false; initial/final/Item effects not executed here",
+      "Partial cases compare independent ready domains only, initializing unavailable domains empty; unknown immunity also gates resistance in module",
+      "C24 simplifyBonus numeric-literal fast path; C25 two independently declared constant-expression totals in a closed Roll stub, not a native engine or module evaluator",
+      "Exact native trait presentation in edit mode with fixed subset trait registry, empty communication/masteries, key-label lookup stub from independently captured English registry, deepClone identity read-only stub, exact native Set.map/equals, en-US number formatter; physical bypasses compared separately",
+      "Native English registry capture at exact commit; no game locale/runtime or installed sheet/operator acceptance"
+    ]
+  },
+  "artifacts": {
+    "scripts/native-condition-oracle.mjs": "415377c7e71ae9456e983add8230d57000ad01f5e6647ecf417670a19ffe08b4",
+    "scripts/native-traits-oracle.mjs": "0da672287ade991c6c731c60f5d3ebb15963e171f4dbf6d8026b123869326c6f",
+    "tests/fixtures/native-6.0.6/final-ci-conditions.json": "6bf5533d8727ffca4d299cb935fe315fd0af42696ccd0883c33fb3a9f7c21e50",
+    "temp/c61-native-conditions.json": "ee7afcf653b3b87d4457e926c7ae061ef4a5127b9fca8fbdea3fae675bc56bb8",
+    "temp/c61-native-traits.json": "086ee60a03e9ad6d9ca77f9fb1c0ebb5e36ce91a9181a647ebe6ea97c90a442d"
+  },
+  "failedProbeDispositions": [
+    "Initial ignored48-case probe omitted separately constructed reduction operands from its mod+prof total assertion. Read exact addConditionRollReduction,asserted reduction data/part membership,and included the known literal operand. Frozen expected final totals stayed unchanged;48thenexpanded168PASS. No native/module/Core behavior changed.",
+    "One maintained invocation misspelled the static Foundry directory and exited before comparison. Corrected path and reran;failed invocation not passing evidence."
+  ],
+  "limits": [
+    "Qualification only;runtime final defense/condition gate remains until C62.",
+    "Only poisoned/exhaustion1-6 single condition sources,ordinary initialized numeric skill/tool/check/save/initiative builders. No broader condition combinations,movement/fresh threshold semantics,Item activity or automatic success/failure qualification.",
+    "Actual primitive final Set operation and Actor methods/caches in a declared phase composition,not complete NativeActor field dispatcher/source DataModel boot/effect engine.",
+    "Initiative invoked after captured trait body here;for these poison/exhaustion profiles no trait grant changes statuses/query data. Exact Character order remains separately compared by C46-C54 trace. No petrified phase expansion follows.",
+    "Typed Sets transfer between isolated method VMs preserving known values;constructor/validation/content/AppliedRules stubs remain declared. No native dice evaluator or native/operator acceptance.",
+    "C60 runtime/module/mounted/public/package evidence remains unchanged and separate;no new runtime acceptance from this qualification.",
+    "Experimental0.4.1/compatibility unchanged;E01/E02/E04/widerQ00/E05 and all full ADR/DD/A/M/installed/native/operator gates open."
+  ]
+}

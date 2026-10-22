@@ -420,3 +420,9 @@ formatter calls on a separate shell check current presentation; the original mod
 earlier cache/sheet assertions remain intact. Runtime retains both. C27 unqualified-
 effect/C28 final-training original sources are retained; only obsolete unavailable
 expectations are superseded. No Item grant/action or full source/model boot claim.
+
+C61 `final-ci-conditions.json`:168 independent profiles,poisoned/exhaustion1–6,source
+status and immunity variations,six final Set operations. Current CI/Actor query and
+earlier status/level/cache/ordinary roll construction are distinct. Separate native
+reduction data/parts are asserted,not dropped or evaluated as a new dice language.
+Method/field/phase qualification only;runtime and wider condition/Item gates stay open.
