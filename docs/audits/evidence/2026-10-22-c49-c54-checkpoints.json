@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-22",
+  "branch": "feat/adr-0001-character-lifecycle",
+  "priorIndex": "2026-10-21-c12-c48-checkpoints.json",
+  "status": "ADR-0001 open;bounded M2 work only;no full DD/A/M/native/operator acceptance closed",
+  "checkpoints": [
+    {
+      "checkpoint": "C49",
+      "commit": "68178a05b402e0a587b964060d18c89ffee9731e",
+      "scope": "Final global proficiency qualification",
+      "evidence": "2026-10-22-c49-final-proficiencies-foundation.json",
+      "sha256AtCheckpoint": "147a4bd09a44aab56d35c4a10cdec04b15f4dad514c0425d186649c8be2e7311",
+      "parent": "82dab2372c360a3aec77b3152e0125d44e229e07"
+    },
+    {
+      "checkpoint": "C50",
+      "commit": "8f00ad89b82af2d71e15fdf0a27a84706590e409",
+      "scope": "Shared final global proficiency",
+      "evidence": "2026-10-22-c50-final-proficiencies.json",
+      "sha256AtCheckpoint": "5a1295f4bbe313103b0fdeb02d20a9e4d7d4ecb4a4313ae59b339eb8fc459493",
+      "parent": "68178a05b402e0a587b964060d18c89ffee9731e"
+    },
+    {
+      "checkpoint": "C51",
+      "commit": "899fc88f09aa26cfa43608c6b36a117e2862be0d",
+      "scope": "Final constant bonus qualification",
+      "evidence": "2026-10-22-c51-final-bonuses-foundation.json",
+      "sha256AtCheckpoint": "d5ec32369fb1ebb3ecb2b6fa596929f2c0f48365e178ef6d7e3a03489c43f970",
+      "parent": "8f00ad89b82af2d71e15fdf0a27a84706590e409"
+    },
+    {
+      "checkpoint": "C52",
+      "commit": "b4c811d3724a9121aeeb720d5e7543cca3471dff",
+      "scope": "Shared final constant bonuses",
+      "evidence": "2026-10-22-c52-final-bonuses.json",
+      "sha256AtCheckpoint": "c92387c779c5e94f447e023055d00bdb54992fdbba2cf3afe2caf5fdbfe90b47",
+      "parent": "899fc88f09aa26cfa43608c6b36a117e2862be0d"
+    },
+    {
+      "checkpoint": "C53",
+      "commit": "f4c84fe555eec5051d3408ed191475518c111a1f",
+      "scope": "Final persisted numeric qualification",
+      "evidence": "2026-10-22-c53-final-numbers-foundation.json",
+      "sha256AtCheckpoint": "1131b47cead40204724e46da448c161430c6b92a1f8cfc525da9cee7e490597b",
+      "parent": "b4c811d3724a9121aeeb720d5e7543cca3471dff"
+    },
+    {
+      "checkpoint": "C54",
+      "commit": "e1dbfb0c97889d5a2acc261ca4d3360e5a786129",
+      "scope": "Shared final numeric/current-score snapshots",
+      "evidence": "2026-10-22-c54-final-numbers.json",
+      "sha256AtCheckpoint": "efd38c183a53923f94a6660ce590aef38691d6b23784f8e6489536dbf504daf8",
+      "parent": "f4c84fe555eec5051d3408ed191475518c111a1f"
+    }
+  ]
+}
