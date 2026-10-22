@@ -1702,3 +1702,17 @@ limits. The first repeated-change test had an incorrect explicit priority in its
 it was corrected without changing expected order or frozen cases. An isolated socket
 closure is retained as failed evidence; a fresh complete public-host rerun passes. No
 Core defect/dependency follows. DD-R01–07 stay corrected; full ADR acceptance is open.
+
+
+### C67 — initial custom String phase qualification (2026-10-22)
+
+238 independent initialized-field chains qualify initial custom text before language
+preparation and final text afterward. The 217 earlier final cases remain retained.
+Actual primitive/trait/sheet methods and a separate current formatter agree; the
+condition oracle independently preserves native document/Character phase order.
+[Evidence](evidence/2026-10-22-c67-initial-custom-foundation.json) records source hashes, frozen expectations and constructor/scheduling
+limits. Native comparisons and explicit206-file typing PASS; runtime stays gated until
+C68 source/default/projection/recovery checks. This is partial M0/M2 Q02a,DD-03/11/27/34,
+A03/A04, not DataModel/installed/native/operator acceptance. Condition/Item composition,
+null/coercions/references and wider formulas remain open. Experimental0.4.1/compatibility,
+E01/E02/E04/widerQ00/E05 and fullADR gates are unchanged.

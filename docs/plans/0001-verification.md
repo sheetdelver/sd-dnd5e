@@ -2948,3 +2948,17 @@ C64–C66 checkpoint identities and evidence record/archive hashes are indexed i
 C64 `6a0f08e`, C65 `51e0295`, C66 `481d032`; all local, no remote writes.
 The C64 evidence record's later full-mounted completion is identified separately from
 its original code-commit record hash. No full ADR acceptance gate is closed.
+
+
+### C67 — initial custom String phase qualification (2026-10-22)
+
+238 independent initialized-field chains qualify initial custom text before language
+preparation and final text afterward. The 217 earlier final cases remain retained.
+Actual primitive/trait/sheet methods and a separate current formatter agree; the
+condition oracle independently preserves native document/Character phase order.
+[Evidence](../audits/evidence/2026-10-22-c67-initial-custom-foundation.json) records source hashes, frozen expectations and constructor/scheduling
+limits. Native comparisons and explicit206-file typing PASS; runtime stays gated until
+C68 source/default/projection/recovery checks. This is partial M0/M2 Q02a,DD-03/11/27/34,
+A03/A04, not DataModel/installed/native/operator acceptance. Condition/Item composition,
+null/coercions/references and wider formulas remain open. Experimental0.4.1/compatibility,
+E01/E02/E04/widerQ00/E05 and fullADR gates are unchanged.

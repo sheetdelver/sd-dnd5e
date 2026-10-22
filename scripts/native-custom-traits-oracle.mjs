@@ -63,12 +63,41 @@ for(const row of fixture.cases){
  assert.deepEqual(source,preserved,row.id+'/source preservation');
  observations.push({id:row.id,before,after,earlierLanguages,sheetLabels:Array.from(display[displayKey]??[],entry=>entry.label),currentFormatting:Array.from(formatting.traits.languages.labels.languages)});
 }
-const evidence={nativeCommit,fixture,observations,foundry:nativeTraitEvidence606.foundry,primitiveOracleSha256:sha256(readFileSync(new URL('./native-traits-oracle.mjs',import.meta.url),'utf8')),
+// Initial operations precede Character.prepareLanguages; final operations follow
+// it. The native document/Character dispatcher order is compared independently
+// by native-condition-oracle (C46/C47), not emulated as a source DataModel here.
+const initialFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/initial-custom-strings.json'),'utf8')),initialObservations=[];
+assert.equal(initialFixture.nativeCommit,nativeCommit);
+const priorities={multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50};
+for(const row of initialFixture.cases){
+ const source=structuredClone(row.source),preserved=structuredClone(source),field=new native.FinalCustomField({required:true});
+ const initialized=field.initialize(field.clean(source.custom,{migrate:false,sanitize:false}),{});
+ assert.equal(initialized,row.expectedInitialized,row.id+'/initialized');
+ const model=vm.runInNewContext(`({traits:Object.fromEntries(['dr','di','dv','ci','armorProf','weaponProf','languages'].map(key=>[key,{value:new Set(),custom:''}]))})`,scope);
+ const key=row.field.split('.')[0];model.traits[key].custom=initialized;model.traits[key].value=vm.runInNewContext('new Set('+JSON.stringify(row.source.value??[])+')',scope);
+ const receipts=[];
+ const apply=phase=>{for(const change of row.changes.map((change,order)=>({...change,order})).filter(change=>change.phase===phase).sort((a,b)=>(a.priority??priorities[a.type])-(b.priority??priorities[b.type])||a.order-b.order)){
+  const before=model.traits[key].custom,value=field.applyChange(before,model,change);model.traits[key].custom=value;receipts.push({phase,before,value});
+ }};
+ apply('initial');assert.equal(model.traits[key].custom,row.expectedPreparedCustom,row.id+'/before language preparation');
+ model.traits.languages.labels={languages:['prepared-looking poison'],ranged:[]};native.NativeTraits.prepareLanguages.call(model);
+ const earlierLanguages=Array.from(model.traits.languages.labels.languages);assert.deepEqual(earlierLanguages,key==='languages'?row.expectedPreparedLabels:[],row.id+'/initial-aware cache');
+ apply('final');assert.equal(model.traits[key].custom,row.expectedCurrentCustom,row.id+'/current final');assert.deepEqual(receipts,row.expectedReceipts,row.id+'/native primitive chain');
+ assert.deepEqual(Array.from(model.traits.languages.labels.languages),earlierLanguages,row.id+'/cache preserved');
+ const sheet=Object.assign(new native.NativeSheet(),{actor:{system:model},document:{hasConditionEffect:()=>false},_mode:'edit'}),display=sheet._prepareTraits({}),displayKey=key==='armorProf'?'armor':key==='weaponProf'?'weapon':key;
+ assert.deepEqual(Array.from(display[displayKey]??[],entry=>entry.label),key==='languages'?row.expectedPreparedLabels:row.expectedCurrentLabels,row.id+'/sheet');
+ const formatting={traits:{languages:{...model.traits.languages,labels:undefined}}};native.NativeTraits.prepareLanguages.call(formatting);
+ assert.deepEqual(Array.from(formatting.traits.languages.labels.languages),key==='languages'?row.expectedCurrentLabels:[],row.id+'/current formatting');assert.deepEqual(source,preserved);
+ initialObservations.push({id:row.id,initialized,prepared:row.expectedPreparedCustom,current:model.traits[key].custom,earlierLanguages,receipts,sheetLabels:Array.from(display[displayKey]??[],entry=>entry.label),currentFormatting:Array.from(formatting.traits.languages.labels.languages)});
+}
+const evidence={nativeCommit,fixture,observations,initialFixture,initialObservations,foundry:nativeTraitEvidence606.foundry,primitiveOracleSha256:sha256(readFileSync(new URL('./native-traits-oracle.mjs',import.meta.url),'utf8')),
  sourceHashes:Object.fromEntries([traitsPath,sheetPath,'module/data/actor/fields/simple-trait-field.mjs','module/data/actor/fields/damage-trait-field.mjs','module/config.mjs','module/utils.mjs'].map(path=>[path,sha256(files.get(path))])),
- limits:['Source strings and verified missing default only; null/coercions,references,expressions and initial String effects not qualified.',
+ limits:['Source strings and verified missing default only; null/coercions,reference expansion and expression interpretation not qualified.',
  'Actual primitive field methods on initialized shells; declared primitive constructors/validation wrapper inherited from maintained trait oracle,not full DataModel source boot.',
  'Actual sheet on empty Sets plus seven canonical-value compositions and exact selected trait config entries. Labels use pinned registries already checked by the maintained trait oracle. Identity deepClone is read-only. Unknown keys/ranges,conditions,Item phases and full dispatcher remain outside this profile.',
- 'Language cache prepared once before final changes,with poisoned labels overwritten by actual method. Current labels use a separate formatting shell,not Actor phase replay.',
+ 'C67 initial/final scheduling is explicit on initialized field shells; actual primitive methods and language/sheet methods execute. Full source DataModel/Actor dispatcher acceptance is absent. Native phase-order comparisons remain separate in the condition oracle.',
+ 'Language cache prepared once after initial and before final changes,with poisoned labels overwritten by actual method. Current labels use a separate formatting shell,not Actor phase replay.',
  'This driver alone does not establish module/dice/installed/native/operator acceptance. Bounded runtime integration is verified separately in C66 regressions and consumer/public-host evidence.']};
 const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');
 process.stdout.write('S: '+observations.length+' final custom String source/default/field/cache/sheet/current-format cases PASS\n');
+process.stdout.write('S: '+initialObservations.length+' initial custom String/initial-final chain/cache/sheet/current-format cases PASS\n');

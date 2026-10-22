@@ -1314,3 +1314,10 @@ weapon and language traits. Initial String effects, null/coercions, reference ex
 condition compositions and Item origins stay gated. Seven canonical-prefix comparisons
 extend C65's empty-Set cases without inferring names or grants. [C66 evidence](audits/evidence/2026-10-22-c66-final-custom.json)
 keeps source/method, regression, mounted/public-host and packaging limits separate.
+
+
+C67 qualifies238 initial custom String/cache chains plus217 retained final cases.
+Initial text enters the language cache; final text changes current fields without
+replaying that cache. Native primitive/method execution and independently compared
+dispatcher phase order remain distinct evidence. Runtime admission awaits C68.
+[Record](audits/evidence/2026-10-22-c67-initial-custom-foundation.json) preserves phase/source/default and initialized-shell limitations.

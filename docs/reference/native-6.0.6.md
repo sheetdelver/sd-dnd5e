@@ -1202,3 +1202,10 @@ final text. Repeated final operations follow qualified native priority and curre
 operands. This is literal text preparation, not formula/reference evaluation, inferred
 training grants or full source DataModel/dispatcher acceptance. Initial Strings,
 conditions/Item composition and null/coercions remain unqualified. [Record](../audits/evidence/2026-10-22-c66-final-custom.json).
+
+
+C67 qualifies238 initial custom String/cache chains plus217 retained final cases.
+Initial text enters the language cache; final text changes current fields without
+replaying that cache. Native primitive/method execution and independently compared
+dispatcher phase order remain distinct evidence. Runtime admission awaits C68.
+[Record](../audits/evidence/2026-10-22-c67-initial-custom-foundation.json) preserves phase/source/default and initialized-shell limitations.
