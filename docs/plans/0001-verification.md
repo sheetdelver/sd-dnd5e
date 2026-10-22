@@ -2401,3 +2401,29 @@ diagnostics/0 native writes PASS. Isolated module check/package PASS;archive SHA
 `2aee6bc505c8e215b780f3082f63ba86fe28a1e249bc54eff16332fb47a15ca5`.
 Record embeds artifact hashes,scope/stubs and failed-run dispositions. All task-owned
 services closed;production untouched. Node24.21 tested;CI Node22 remains unrun locally.
+
+### C51 — Final constant bonus phase qualification (2026-10-22)
+
+C50 implementation is `8f00ad89b82af2d71e15fdf0a27a84706590e409`.
+Partial M0/M2 Q02a, DD-02/03/27/34, A02/A04;qualification only.576 frozen independent
+profiles compare12 bonus paths,three FormulaField operations,four initialized operand
+states and four literal deltas. Actual native methods compare5184 check configurations,
+576 initiative configurations and576 fixed scores. Final roll bonuses are read afresh
+through native primary/ability/global scopes; selected secondary bonuses do not leak.
+Earlier prepared totals/passives/fixed scores remain earlier. Final passive bonus
+field changes do not retroactively rebuild the stored passive.
+
+[Portable record](../audits/evidence/2026-10-22-c51-final-bonuses-foundation.json) retains
+source/fixture/harness hashes,representative observations,commands and stubs. All retained
+native matrices and60 tooling assertions/8tooling/41module suites/188file explicit typing
+PASS. FormulaField string operations and builder parts are actual extracted methods;
+expected constant totals are independent arithmetic,not evaluated native dice. Full
+FormulaField validation/schema boot/operator acceptance is unproven. No new mounted,
+public-host or package run for this source-only phase;C50 evidence stays separate.
+
+Runtime final bonuses remain unavailable pending C52 shared integration. Preserve
+prepared versus current totals,passives and fixed initiative scores;then verify both
+layouts,previews,selections/alternate abilities,direct execution,bounds and stale-intent
+recovery. Other final numeric/Item/filter/flag/time/expression phases,E01/E02/E04/wider
+Q00/E05/fullDD/A/M/ADR/installed/native/operator gates stay open. No compatibility or
+experimental0.4.1 change follows.

@@ -1,0 +1,1362 @@
+{
+  "checkpoint": "C51",
+  "date": "2026-10-22",
+  "parent": "8f00ad89b82af2d71e15fdf0a27a84706590e409",
+  "requirements": "Partial M0/M2 Q02a DD-02/03/27/34,A02/A04;qualification only,no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "scope": "576 constant-only final FormulaField add/subtract/override cases,12 declared bonus paths,initialized absent/blank/2/-1.5 operands,four literal deltas. No runtime admission in C51.",
+  "expectations": "Frozen independent scope membership,arithmetic and literal string construction. Module totals/output are never an oracle. Tests/fixture fully tracked;no ignored artifact required to understand/reproduce.",
+  "constructionComparisons": {
+    "fieldCases": 576,
+    "skillToolAndAbilitySaveBuilders": 5184,
+    "initiativeBuilders": 576,
+    "fixedInitiativeConfigurations": 576,
+    "earlierSnapshots": "skill/tool/check/save totals,passive and initiative score compared before final changes"
+  },
+  "findings": [
+    "Final local/global numeric roll bonus fields are read afresh by skill/tool/ability/save/initiative builders; earlier derived totals/passives and fixed initiative score are not rebuilt.",
+    "Selected secondary skill/tool contributes proficiency and automatic advantage,not every local/global bonus. Alternate ability switches only actual native ability-specific scopes.",
+    "A final skills.prc.bonuses.passive change updates the field but leaves the already-prepared passive unchanged.",
+    "Actual FormulaField string methods are compared separately from initialized source and actual native builder operand/parts construction. Numeric totals are independent expected arithmetic,not evaluated native dice."
+  ],
+  "nativeSourceHashes": {
+    "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+    "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25",
+    "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+    "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+    "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+    "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+    "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+    "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+    "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+    "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+    "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+    "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+    "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+  },
+  "foundrySourceHashes": {
+    "client/documents/abstract/client-document.mjs": "a007180e3cf8d465dffe43b11272f289b4cf77a9e301c7d431f48267dfad8e9e",
+    "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+    "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+    "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+    "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+    "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+    "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5",
+    "common/abstract/data.mjs": "11bb7f848c707803607accfa9f6b946c7cbfe8b17781ff562b468bdc77b934e5"
+  },
+  "representativeObservations": [
+    {
+      "id": "000/abilities.wis.check.roll.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": -1
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    },
+    {
+      "id": "048/abilities.dex.check.roll.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": -1
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "-3",
+      "independentExpectedInitiative": -1,
+      "fixedScore": 12
+    },
+    {
+      "id": "096/abilities.wis.save.roll.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": -1
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    },
+    {
+      "id": "144/abilities.dex.save.roll.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@ruleBonus",
+            "@cover"
+          ],
+          "independentExpectedTotal": -1
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    },
+    {
+      "id": "192/skills.prc.roll.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    },
+    {
+      "id": "240/tools.thief.roll.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    },
+    {
+      "id": "288/rolls.ability.check.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": -1
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": -1
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "-3",
+      "independentExpectedInitiative": -1,
+      "fixedScore": 12
+    },
+    {
+      "id": "336/rolls.ability.save.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": -1
+        },
+        {
+          "name": "dexSave",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@ruleBonus",
+            "@cover"
+          ],
+          "independentExpectedTotal": -1
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    },
+    {
+      "id": "384/rolls.ability.skill.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    },
+    {
+      "id": "432/rolls.ability.tool.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "-3",
+          "parts": [
+            "@mod",
+            "@prof",
+            "@ruleBonus"
+          ],
+          "independentExpectedTotal": 2,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    },
+    {
+      "id": "480/attributes.init.roll.bonus/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "[absent]",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "-3",
+      "independentExpectedInitiative": -1,
+      "fixedScore": 12
+    },
+    {
+      "id": "528/skills.prc.bonuses.passive/None/add/-3",
+      "prepared": {
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "wisCheck": 2,
+        "dexCheck": 2,
+        "wisSave": 2,
+        "dexSave": 2,
+        "initiative": 2,
+        "score": 12
+      },
+      "fieldBefore": "",
+      "fieldAfter": "-3",
+      "builds": [
+        {
+          "name": "skill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "tool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "combinedTool",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "alternateSkill",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@prof"
+          ],
+          "independentExpectedTotal": 5,
+          "scope": "Actual operand/bonus construction;constant result independent,not native evaluated dice"
+        },
+        {
+          "name": "wisCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexCheck",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "wisSave",
+          "bonus": "",
+          "parts": [
+            "@mod"
+          ],
+          "independentExpectedTotal": 2
+        },
+        {
+          "name": "dexSave",
+          "bonus": "",
+          "parts": [
+            "@mod",
+            "@cover"
+          ],
+          "independentExpectedTotal": 2
+        }
+      ],
+      "initiativeBonus": "",
+      "independentExpectedInitiative": 2,
+      "fixedScore": 12
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm run test:native-conditions -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c51-native-conditions.json",
+      "result": "PASS retained matrices plus576 new field/parts/snapshot profiles"
+    },
+    {
+      "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS60assertions/8tooling/41module suites"
+    },
+    {
+      "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS188 explicit source/UI/server/test/hook files"
+    }
+  ],
+  "artifacts": {
+    "scripts/native-condition-oracle.mjs": "bf7350490298684a27fda1e0c243634602f0b407a6e368805bf09c4e2b41798f",
+    "tests/fixtures/native-6.0.6/final-bonuses.json": "309e573ad6d918f45d0a1f397c6a92250a7198755203ae67ff3d9d1671be1c16",
+    "temp/c51-native-conditions.json": "81ac95c0962c9c22ecc848cbf776bc35f042978bb85dcab1e1dd7e3497ec1f6e",
+    "temp/c51-tests.log": "ad84605580599ccb581315beeffacbe7ffeb91461c83cd9c0042bee4038e0809",
+    "temp/c51-types.log": "527086e4af8834d261d9b1478e85021d92b603cf70701bc7568ef484bd3e73b1"
+  },
+  "limits": [
+    "Full FormulaField applyChange validation/native Roll evaluation is not executed;actual casts and add/subtract/override string methods are,using actual inherited override.",
+    "Field/model constructors,source initialization and callback/effect/rule collaborators retain the bounded harness stubs. Before values are initialized absent/blank/numeric strings;no new schema migration/coercion acceptance.",
+    "Actual native check/initiative methods construct operand data and formula parts. Independent totals are not native evaluated rolls. No Dice engine/Foundry service/live transport/operator acceptance.",
+    "Qualification changes no module runtime behavior;C50 source/mounted/public-host/package evidence remains separate,not rerun or relabeled as native acceptance.",
+    "Other operations/expressions,final numeric/Item/filter/flag/time phases,E01/E02/E04/widerQ00/E05/fullDD/A/M/ADR/installed/native/operator gates remain open. Experimental0.4.1/compatibility unchanged."
+  ],
+  "next": "C52 shared current roll bonus snapshot;preserve earlier static/passive/fixed-score values and verify actual consumers/direct execution/Normal bounds/current intents."
+}

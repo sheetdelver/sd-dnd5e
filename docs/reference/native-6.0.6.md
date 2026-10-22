@@ -1060,3 +1060,11 @@ not native dice evaluation. [Evidence](../audits/evidence/2026-10-22-c50-final-p
 separates controlled methods,regressions,mounted consumers and public-host serialization.
 Other final fields,Item phases,filters/flags/time/formulas and full native/operator
 acceptance remain open;historical pre-integration restrictions are superseded narrowly.
+
+C51 adds576 independent final constant bonus profiles across12 paths. Actual FormulaField
+cast/add/subtract/override strings and5184 check/576 initiative/576 fixed configurations
+are compared against frozen scope membership and independent arithmetic. No native Roll
+validation/evaluation,complete schema boot or operator acceptance is claimed. Final
+passive source bonus updates do not refresh the stored passive. Secondary selected
+resources do not supply bonus scopes. [Evidence](../audits/evidence/2026-10-22-c51-final-bonuses-foundation.json)
+records exact source/fixture identities and stubs;runtime integration remains separate.

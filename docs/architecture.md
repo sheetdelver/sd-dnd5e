@@ -1064,3 +1064,14 @@ bonus note when they differ. Ability checks/saves retain earlier proficiency obj
 including a final global save change that does not recompute an existing save. Changed
 source/plan/context retires callbacks; recovery requires fresh intent. Existing mode,
 Normal-only range and unsupported Item/filter/formula boundaries remain unchanged.
+
+### Final constant bonus qualification (C51)
+
+The fresh native skill/tool,ability/save and initiative builders read their current
+local/global bonus scopes after final effects. Earlier derived totals,passives and
+fixed initiative score retain preparation-time values. A selected secondary resource
+supplies proficiency/automatic advantage without adding its bonus scopes. Final passive
+bonus fields do not recompute an earlier stored passive. C51 qualifies actual constant
+FormulaField string construction and builder operands against independent expectations;
+validation/evaluation and runtime admission remain separate. C52 must share current
+bonus operands across projection and execution without rewriting earlier snapshots.
