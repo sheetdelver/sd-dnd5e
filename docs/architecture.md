@@ -1522,3 +1522,12 @@ existing shared compiler,including selected abilities,proficiency cancellation a
 manual modes. Movement uses stored status flags with native units/order. Preparation
 never synthesizes/synchronizes status documents from the physical weight model.
 [C83 evidence](audits/evidence/2026-10-22-c83-encumbrance.json) supersedes the earlier blanket non-none setting gate.
+
+
+`item-proficiency.ts` prepares exact per-type coefficients once, before Actor final
+fields. Owned Items share this cached proficiency and explicit numeric bindings with
+parent/activity counters and details. Parent counters bind Actor-base prof;fresh
+attack construction binds Item prof even0,using current Actor references alongside
+earlier Item resources/modifiers. Source prof/hasProficiency/proficiencyMultiplier
+are never overrides. Source selectors are identities,not names. Dice terms remain
+symbolic;only `.flat` is deterministic. [C84 phase evidence](audits/evidence/2026-10-22-c84-item-final.json).

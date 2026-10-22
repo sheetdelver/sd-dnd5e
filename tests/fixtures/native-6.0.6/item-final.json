@@ -1,0 +1,474 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "evidence": "Independent exact-native expected Item final proficiency/capacity. Source/default initialization versus Actor prepared tool/global-target phase is explicit. Actor base3,spent2,capacity @prof + @item.prof.flat + @item.uses.spent.",
+  "cases": [
+    {
+      "id": "weapon-explicit-zero",
+      "type": "weapon",
+      "system": {
+        "proficient": 0,
+        "type": {
+          "value": "martialM",
+          "baseItem": "rapier"
+        }
+      },
+      "actor": {
+        "weapons": [
+          "mar"
+        ]
+      },
+      "expected": {
+        "multiplier": 0,
+        "flat": 0,
+        "capacity": 5,
+        "remaining": 3
+      }
+    },
+    {
+      "id": "weapon-explicit-one",
+      "type": "weapon",
+      "system": {
+        "proficient": 1,
+        "type": {
+          "value": "martialM"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "weapon-category",
+      "type": "weapon",
+      "system": {
+        "type": {
+          "value": "martialM"
+        }
+      },
+      "actor": {
+        "weapons": [
+          "mar"
+        ]
+      },
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "weapon-base-item",
+      "type": "weapon",
+      "system": {
+        "type": {
+          "value": "martialM",
+          "baseItem": "rapier"
+        }
+      },
+      "actor": {
+        "weapons": [
+          "rapier"
+        ]
+      },
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "weapon-untrained",
+      "type": "weapon",
+      "system": {
+        "type": {
+          "value": "martialM"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 0,
+        "flat": 0,
+        "capacity": 5,
+        "remaining": 3
+      }
+    },
+    {
+      "id": "weapon-natural",
+      "type": "weapon",
+      "system": {
+        "type": {
+          "value": "natural"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "weapon-improvised",
+      "type": "weapon",
+      "system": {
+        "type": {
+          "value": "improv"
+        }
+      },
+      "actor": {
+        "brawler": true
+      },
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "equipment-clothing",
+      "type": "equipment",
+      "system": {
+        "type": {
+          "value": "clothing"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "equipment-heavy",
+      "type": "equipment",
+      "system": {
+        "type": {
+          "value": "heavy"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 0,
+        "flat": 0,
+        "capacity": 5,
+        "remaining": 3
+      }
+    },
+    {
+      "id": "equipment-trained",
+      "type": "equipment",
+      "system": {
+        "type": {
+          "value": "heavy"
+        }
+      },
+      "actor": {
+        "armor": [
+          "hvy"
+        ]
+      },
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "equipment-base-item",
+      "type": "equipment",
+      "system": {
+        "type": {
+          "value": "heavy",
+          "baseItem": "plate"
+        }
+      },
+      "actor": {
+        "armor": [
+          "plate"
+        ]
+      },
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "equipment-explicit-zero",
+      "type": "equipment",
+      "system": {
+        "proficient": 0,
+        "type": {
+          "value": "heavy"
+        }
+      },
+      "actor": {
+        "armor": [
+          "hvy"
+        ]
+      },
+      "expected": {
+        "multiplier": 0,
+        "flat": 0,
+        "capacity": 5,
+        "remaining": 3
+      }
+    },
+    {
+      "id": "equipment-explicit-one",
+      "type": "equipment",
+      "system": {
+        "proficient": 1,
+        "type": {
+          "value": "heavy"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "tool-explicit-0",
+      "type": "tool",
+      "system": {
+        "proficient": 0,
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 0,
+        "flat": 0,
+        "capacity": 5,
+        "remaining": 3
+      }
+    },
+    {
+      "id": "tool-explicit-0.5",
+      "type": "tool",
+      "system": {
+        "proficient": 0.5,
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 0.5,
+        "flat": 1,
+        "capacity": 6,
+        "remaining": 4
+      }
+    },
+    {
+      "id": "tool-explicit-1",
+      "type": "tool",
+      "system": {
+        "proficient": 1,
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "tool-explicit-1.5",
+      "type": "tool",
+      "system": {
+        "proficient": 1.5,
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 1.5,
+        "flat": 4,
+        "capacity": 9,
+        "remaining": 7
+      }
+    },
+    {
+      "id": "tool-explicit-2",
+      "type": "tool",
+      "system": {
+        "proficient": 2,
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {},
+      "expected": {
+        "multiplier": 2,
+        "flat": 6,
+        "capacity": 11,
+        "remaining": 9
+      }
+    },
+    {
+      "id": "tool-base",
+      "type": "tool",
+      "system": {
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {
+        "tools": {
+          "thief": 1
+        }
+      },
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "tool-category",
+      "type": "tool",
+      "system": {
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {
+        "tools": {
+          "art": 0.5
+        }
+      },
+      "expected": {
+        "multiplier": 0.5,
+        "flat": 1,
+        "capacity": 6,
+        "remaining": 4
+      }
+    },
+    {
+      "id": "tool-initial-check-target",
+      "type": "tool",
+      "system": {
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {
+        "tools": {
+          "thief": 0
+        },
+        "globalCheck": 2,
+        "finalCheck": 0
+      },
+      "expected": {
+        "multiplier": 2,
+        "flat": 6,
+        "capacity": 11,
+        "remaining": 9
+      }
+    },
+    {
+      "id": "tool-initial-tool-target",
+      "type": "tool",
+      "system": {
+        "type": {
+          "value": "art",
+          "baseItem": "thief"
+        }
+      },
+      "actor": {
+        "tools": {
+          "thief": 0
+        },
+        "globalTool": 1
+      },
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "feat-fixed",
+      "type": "feat",
+      "system": {},
+      "actor": {},
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "spell-fixed",
+      "type": "spell",
+      "system": {},
+      "actor": {},
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    },
+    {
+      "id": "consumable-default",
+      "type": "consumable",
+      "system": {},
+      "actor": {},
+      "expected": {
+        "multiplier": 0,
+        "flat": 0,
+        "capacity": 5,
+        "remaining": 3
+      }
+    },
+    {
+      "id": "consumable-brawler",
+      "type": "consumable",
+      "system": {},
+      "actor": {
+        "brawler": true
+      },
+      "expected": {
+        "multiplier": 1,
+        "flat": 3,
+        "capacity": 8,
+        "remaining": 6
+      }
+    }
+  ]
+}

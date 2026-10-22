@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: shared source/default Actor rules, qualified checks/combined selections, typed initial/final effects and conditions; C75 Item reads, C76 mappings, C77–C79 formulas/class references, C80 Normal proficiency dice, C81 physical reads and C82 combat modifier dependencies. Full exit work is tracked in the verification ledger; earlier C06–C74 evidence remains below. | RV01–RV04 and C06–C78 preserve separate regression/controlled-source/mounted/public-host evidence; full acceptance open |
+| M2 | In progress: shared source/default Actor rules, qualified checks/combined selections, typed initial/final effects and conditions; C75 Item reads, C76 mappings, C77–C79 formulas/class references, C80 Normal proficiency dice, C81 physical reads,C82 combat modifiers,C83 stored encumbrance and C84 Item proficiency/resource/reference phases. Full exit work is tracked in the verification ledger; earlier C06–C74 evidence remains below. | RV01–RV04 and C06–C78 preserve separate regression/controlled-source/mounted/public-host evidence; full acceptance open |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -2797,3 +2797,25 @@ ordered faces,entropy,counts/discards/totals and40 equal-index diagnostics are u
 No source,weight-derived status synchronization or native/operator writes occur.
 This supersedes C81's blanket non-none setting gate for the qualified profile.
 Remaining Item-final/filter/expression/activity dependency gates keep M2/ADR open.
+
+
+### C84 — Item proficiency, final resources and fresh attack references (2026-10-22)
+
+One shared owned-Item preparation now separates Actor base proficiency, cached Item
+proficiency, parent counters, activity counters and current attack references. Exact
+persisted weapon/equipment/tool selectors and qualified traits/Boolean Tavern Brawler
+supply coefficients; feat/spell use native fixed proficiency. Prepared-looking source
+fields remain ignored and unchanged. Both details layouts display the same facts.
+
+Pinned construction exposed a C77 attack-reference defect: attacks always supply the
+Item proficiency term, including zero. A zero-proficiency weapon with one `@prof`
+bonus displayed +5 before and +2 after, matching native; four scopes previously +14
+now +2. This supersedes C77's Actor-base attack substitution, without changing C79's
+untrained-skill distinction. Earlier parent/activity capacities14/15 and modifier2
+can coexist with current DEX20; the qualified fresh attack is +36.
+
+[C84 evidence](../audits/evidence/2026-10-22-c84-item-final.json) records52 independent
+initialized native proficiency/resource profiles,11 attack constructor comparisons,
+source/poison/context regressions and both-layout mounted consumers. Declared Uses-only
+activity collaborators are not complete Item lifecycle/native acceptance. Effects on
+Items, wider final hooks, casting and action writes remain separate;M2/ADR stay open.

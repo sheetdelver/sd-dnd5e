@@ -44,6 +44,8 @@
     "test:native-modifiers": "node scripts/native-modifier-oracle.mjs",
     "test:mounted-modifiers": "node scripts/test-mounted-modifiers.mjs",
     "test:native-encumbrance": "node scripts/native-encumbrance-oracle.mjs",
-    "test:mounted-encumbrance": "node scripts/test-mounted-encumbrance.mjs"
+    "test:mounted-encumbrance": "node scripts/test-mounted-encumbrance.mjs",
+    "test:native-item-final": "node scripts/native-item-final-oracle.mjs",
+    "test:mounted-item-final": "node scripts/test-mounted-item-final.mjs"
   }
 }

@@ -1356,3 +1356,17 @@ None/normal/variant controls native status synchronization on writes,not whether
 status is applied during preparation. Disadvantage affects physical checks/saves;mental
 selection remains independent. Exceeding capacity permits crawling walk and caps speed;
 other movement is zero. No weight-to-status inference or transport/native runtime boot.
+
+
+C84 compares actual Item._prepareProficiency/final dispatch/getRollData,per-type
+proficiencyMultiplier/hasProficiency,UsesField and ActivitiesTemplate dispatch on
+initialized models. Weapon/equipment explicit0/1 overrides traits;tool overrides
+admit0/.5/1/1.5/2,otherwise max exact base/category prepared tool.value. Feat/spell
+are1;consumables use Boolean Tavern Brawler. Parent resources precede activity
+resources. Nonspell utility rootmod0 is qualified;spell/activity-specific abilities
+remain separate. Attack getAttackData/BasicRoll.constructParts always replaces root
+prof with Item term,including0. Cached Item flat6 can survive a later Actor tool
+target0. The mixed capacity14/activity15/currentDEX20/earliermod2 constructor gives36.
+[C84 record](../audits/evidence/2026-10-22-c84-item-final.json) explicitly identifies
+Uses-only final,empty recovery/Scaling/localization and roll-data collaborators;
+this is controlled-source evidence,not full DataModel/native acceptance.

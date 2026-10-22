@@ -1,3 +1,6 @@
+import {numericScopeBonus} from './d20-configuration';
+import type {FormulaBindings606} from './deterministic-formula';
+import {prepareItemProficiency606,itemProficiencyBindings606,type ItemProficiency606} from './item-proficiency';
 import {deterministicFormula606} from './deterministic-formula';
 import {preparedFormulaBindings606} from './formula-fields';
 import {record} from '../native/6.0.6/source';
@@ -11,7 +14,6 @@ const provenance='release-6.0.6 WeaponData.attackModes/availableAbilities/profic
 const no=<T>(reason:string):ItemFact<T>=>({status:'unavailable',value:null,reason,origin:'prepared',provenance});
 const yes=<T>(value:T):ItemFact<T>=>({status:'ready',value,origin:'prepared',provenance});
 const types:Record<string,'melee'|'ranged'>={simpleM:'melee',simpleR:'ranged',martialM:'melee',martialR:'ranged',siege:'ranged'};
-const categories:Record<string,string>={simpleM:'sim',simpleR:'sim',martialM:'mar',martialR:'mar'};
 export interface AttackFacts {ability:string|null;proficiency:number;total:number;display:string;formula:string}
 export function weaponModes606(raw:unknown,reason?:string):ItemFact<string[]> {
  const item=record(raw),s=record(item?.system)??{},type=record(s.type),key=type?.value??'simpleM',properties=initializeTraitSet606(s.properties),range=record(s.range)??{};
@@ -26,37 +28,43 @@ export function weaponModes606(raw:unknown,reason?:string):ItemFact<string[]> {
 }
 /** Read-only attack numbers; execution/consumption belongs to M4. Source
  * total/toHit/prof/attack.abilities cannot replace the qualified calculation. */
-export function itemAttack606(actor:unknown,item:unknown,activity:unknown,context:RulesContext,effects:NumericEffects):ItemFact<AttackFacts> {
+export function itemAttack606(actor:unknown,item:unknown,activity:unknown,context:RulesContext,effects:NumericEffects,preparedProficiency?:ItemProficiency606,preparedItemBindings?:FormulaBindings606):ItemFact<AttackFacts> {
  const raw=record(item)??{},s=record(raw.system)??{},a=record(activity)??{},attack=a.attack===undefined?{}:record(a.attack);
  if(!attack)return no('Attack source mapping malformed');
  if(context.status!=='supported'||context.profile!=='2024')return no('Attack rules context unavailable');
  if(effects.reason)return no(effects.reason);
- const bonus=deterministicFormula606(attack.bonus,preparedFormulaBindings606(effects));if(bonus===null)return no('Attack bonus expression requires formula qualification');
+ const itemProficiency=preparedProficiency??prepareItemProficiency606(actor,item,context,effects);
+ const bindings:Record<string,number>={...(preparedItemBindings??{...preparedFormulaBindings606(effects),...itemProficiencyBindings606(itemProficiency)}),...effects.formulaPreparation?.executionBindings};
+ const setting=context.settings['dnd5e.proficiencyModifier'];if(setting?.status!=='unavailable'&&setting?.value==='dice')delete bindings.prof;
  if(attack.flat!==undefined&&typeof attack.flat!=='boolean')return no('Flat attack source malformed');
- if(attack.flat)return yes({ability:null,proficiency:0,total:bonus,display:(bonus<0?'':'+')+bonus,formula:String(bonus)});
+ if(attack.flat){const bonus=deterministicFormula606(attack.bonus,bindings);return bonus===null?no('Flat attack bonus reference requires qualification'):yes({ability:null,proficiency:0,total:bonus,display:(bonus<0?'':'+')+bonus,formula:String(bonus)});}
  const profile=numericCharacterProfile(actor,context,effects);if(profile.status!=='ready')return no(profile.reason);
  const attackType=record(attack.type)??{},weaponType=record(s.type)??{},typeKey=weaponType.value??'simpleM',properties=initializeTraitSet606(s.properties);
  if(!properties)return no('Item properties source malformed');
  if(attackType.classification==='spell'||attack.ability==='spellcasting')return no('Spell attack requires qualified casting capability preparation');
+ if(!['weapon','feat'].includes(String(raw.type)))return no('Item attack construction requires qualification for this Item type');
  let choices:string[];
  if(attack.ability==='none')choices=[];
  else if(typeof attack.ability==='string'&&attack.ability)choices=[attack.ability];
  else if(attack.ability!=null&&attack.ability!=='')return no('Attack ability source malformed');
  else if(raw.type==='weapon')choices=properties.includes('fin')||typeKey==='natural'?['str','dex']:types[String(typeKey)]?[types[String(typeKey)]==='melee'?'str':'dex']:[];
- else choices=[attackType.value==='ranged'?'dex':'str'];
+ else if(['melee','ranged'].includes(String(attackType.value)))choices=[attackType.value==='ranged'?'dex':'str'];
+ else return no('Attack ability/type requires explicit qualified source');
  const abilities=record(effects.system.abilities)??{};let ability:string|null=null,mod=0;
  if(attack.ability!=='none'&&!choices.length)return no('Attack ability requires explicit supported source');
  for(const key of choices){if(!['str','dex','con','int','wis','cha'].includes(key))return no('Unsupported attack ability');const value=numericAbilityValue(record(abilities[key])?.value);if(!value)return no('Attack ability score unavailable');if(ability===null||value.mod>mod){ability=key;mod=value.mod;}}
- let coefficient:number;
- if(raw.type==='feat')coefficient=1;
- else if(raw.type==='weapon'){
-  const prof=s.proficient;if(prof!=null&&typeof prof!=='boolean'&&prof!==0&&prof!==1)return no('Weapon persisted proficiency source malformed');
-  if(prof!=null)coefficient=Number(prof);
-  else{const training=initializeTraitSet606(record(record(effects.system.traits)?.weaponProf)?.value);if(!training)return no('Weapon training source unavailable');coefficient=Number(typeKey==='natural'||training.includes(categories[String(typeKey)])||typeof weaponType.baseItem==='string'&&training.includes(weaponType.baseItem));}
- }else return no('Item attack proficiency requires qualification for this Item type');
+ if(itemProficiency.status!=='ready'||itemProficiency.multiplier===null)return no(itemProficiency.reason??'Item attack proficiency unavailable');
+ const coefficient=itemProficiency.multiplier;
+ // Attack construction always supplies Item prof.term,including string0.
+ // Actor/Item resource preparation keeps Actor-base prof instead. Earlier
+ // Item proficiency and current Actor reference values must remain distinct.
+ bindings.prof=itemProficiency.flat!;bindings.mod=mod;
+ const bonus=deterministicFormula606(attack.bonus,bindings);if(bonus===null)return no('Attack bonus expression/reference requires qualification');
  const actionType=(attackType.value==='ranged'||!attackType.value&&types[String(typeKey)]==='ranged'?'r':'m')+'wak';
- const globals=record(record(effects.system.rolls)?.attack)??{},scopes=[record(record(abilities[ability??''])?.attack)?.roll,globals,globals[actionType]],bonuses:number[]=[];
- for(const rawScope of scopes){if(rawScope!=null&&!record(rawScope))return no('Attack roll scope malformed');const value=numericConstant(record(rawScope)?.bonus);if(value===null)return no('Attack scope bonus expression requires formula qualification');bonuses.push(value);}
+ const globals=record(record(effects.system.rolls)?.attack)??{},scopes=[{path:`abilities.${ability??''}.attack.roll`,value:record(record(abilities[ability??''])?.attack)?.roll},{path:'rolls.attack',value:globals},{path:`rolls.attack.${actionType}`,value:globals[actionType]}],bonuses:number[]=[];
+ const expressions=Object.fromEntries((effects.formulaPreparation?.receipts??[]).map(row=>['system.'+row.path,row.source]));
+ for(const scope of scopes){const raw=record(scope.value)?.bonus;if(typeof raw==='string'&&numericConstant(raw)===null&&!expressions['system.'+scope.path+'.bonus'])expressions['system.'+scope.path+'.bonus']=raw;}
+ for(const scope of scopes){if(scope.value!=null&&!record(scope.value))return no('Attack roll scope malformed');const value=numericScopeBonus(scope,{}, {bindings,expressions});if(value===null)return no('Attack scope bonus expression/reference requires qualification');bonuses.push(value);}
  const attunement=s.attunement??'',attuned=s.attuned??false;
  if(typeof attunement!=='string'||typeof attuned!=='boolean')return no('Item magic eligibility source malformed');
  const magic=raw.type==='weapon'&&properties.includes('mgc')&&(attuned||attunement!=='required')?deterministicFormula606(s.magicalBonus,preparedFormulaBindings606(effects)):0;

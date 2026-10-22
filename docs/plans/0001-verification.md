@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C83)
+### Current M2 exit state (updated C84)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3384,3 +3384,17 @@ ordered faces,entropy,counts/discards/totals and40 equal-index diagnostics are u
 No source,weight-derived status synchronization or native/operator writes occur.
 This supersedes C81's blanket non-none setting gate for the qualified profile.
 Remaining Item-final/filter/expression/activity dependency gates keep M2/ADR open.
+
+
+### C84 — Item final dependencies (2026-10-22)
+
+Parent `ac64a6b`;partial M2/Q02a,DD-02/03/04/11/27/34,A02–A06/A18/A21.
+Maintained same-input resource regression fails before (null vs5);fresh attack
+reference regression fails before (+5 vs+2).52 independent source/default profiles
+plus11 actual native attack constructors pass afterward. Poison,initial/final target
+separation,missing/recursive references and context recovery preserve source. Actual
+Inventory/Actions/current details at1440/390 show Item6 vs Actor0 proficiency,
+9/11 versus23/24 counters,+2 and+36 attack readouts;execution remains gated.
+[C84 record](../audits/evidence/2026-10-22-c84-item-final.json) contains commands,
+hashes,full checks and limits. No complete DD/A/M gate closes. Next complete remaining
+applied-rule/filter and Item final/expression composition obligations in the exit table.

@@ -1,0 +1,811 @@
+{
+  "checkpoint": "C84 shared Item proficiency/final resources and fresh attack reference correction",
+  "parent": "ac64a6bf87688f3e629ebfe524abd31b47bf6c01",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirements": [
+    "M2/Q02a partial",
+    "DD-02/03/04/11/27/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "commands": [
+    "npm test -- --core <Core0.19.3>",
+    "npm run typecheck -- --core <Core0.19.3>",
+    "npm run test:native-source -- --native <read-only exact-tag checkout>",
+    "npm run test:native-item-final -- --native <checkout> --foundry <static14.367> --core <Core0.19.3> --write-evidence temp/c84-native-item-final.json",
+    "npm run test:mounted-item-final -- --core <Core0.19.3> --chromium <isolated Chromium>",
+    "node scripts/test-public-rolls.mjs --core <Core0.19.3> --dependency-profile",
+    "npm run check:package -- --core <Core0.19.3>"
+  ],
+  "checks": {
+    "before": {
+      "artifact": "temp/c84-before.log",
+      "sha256": "e3cd04bc0f2dd26cfc9c8202690732590957d882e98145ba14b5461fc95daaaf",
+      "result": "Same-input resource source fails before:null versus5"
+    },
+    "attackBefore": {
+      "artifact": "temp/c84-attack-before.log",
+      "sha256": "b4a9f5b8249d5c0d061adb56bab1b1e5be95c444eaf4be5277f6f9a7214745b2",
+      "result": "Same-input zero-proficiency attack fails before:+5 versus+2"
+    },
+    "regression": {
+      "artifact": "temp/c84-tests-final.log",
+      "sha256": "698bb10ed51a5e85e0045347c1735cb7d2c8bfe3136e72078ebc5ebb47895baf",
+      "result": "63 module/9 tooling suites,61 tooling assertions PASS"
+    },
+    "exactRelease": {
+      "artifact": "temp/c84-native-source.log",
+      "sha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff",
+      "result": "2242 source records/591 candidate expressions match pinned inventory PASS"
+    },
+    "typing": {
+      "artifact": "temp/c84-types-last.log",
+      "sha256": "205af7b61bfc76419edcfce54429535b745f079823f48409b5ceede6ef31365e",
+      "result": "248 explicit module/UI/server/test/hook files PASS"
+    },
+    "native": {
+      "artifact": "temp/c84-native-item-final.json",
+      "sha256": "88660a28463766ef73b3129b0424fcb99eec1ef9d257aa73a75be512651505ef",
+      "result": "52 initialized proficiency/resource profiles and11 attack constructors PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-item-final-mounted-aBcb1u/evidence.json",
+      "sha256": "5e1522af7e88221c8b99694a35c5fa47f1b0d9f4c96e7d7c8f21c05206eb70e7",
+      "result": "1440/390 actual resource/details/attack readouts,current-context and held-callback recovery;0 writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-u0nKz8/evidence.json",
+      "sha256": "ce72c82c516cc1efa8ea334cc64206e8078d0de94f1e7438e8add3ef1cf7120e",
+      "result": "11930 retained public-host accepted requests,1 known unary candidate,40 homogeneous ordinary tie diagnostics;0 writes PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-MffR3k/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "c3e28bf2742247f7bd0b6ed479f63b0195af551700426c3f9e55a8fb4d9618d4",
+      "result": "Isolated module check/package PASS"
+    }
+  },
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "rows": [
+      {
+        "id": "weapon-explicit-zero",
+        "mode": "bonus",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "weapon-explicit-one",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-category",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-base-item",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-untrained",
+        "mode": "bonus",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "weapon-natural",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-improvised",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "equipment-clothing",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "equipment-heavy",
+        "mode": "bonus",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "equipment-trained",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "equipment-base-item",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "equipment-explicit-zero",
+        "mode": "bonus",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "equipment-explicit-one",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "tool-explicit-0",
+        "mode": "bonus",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "tool-explicit-0.5",
+        "mode": "bonus",
+        "coefficient": 0.5,
+        "flat": 1,
+        "term": "1",
+        "rootActorProf": "3",
+        "max": 6,
+        "remaining": 4,
+        "activityMax": 14,
+        "activityRemaining": 13
+      },
+      {
+        "id": "tool-explicit-1",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "tool-explicit-1.5",
+        "mode": "bonus",
+        "coefficient": 1.5,
+        "flat": 4,
+        "term": "4",
+        "rootActorProf": "3",
+        "max": 9,
+        "remaining": 7,
+        "activityMax": 20,
+        "activityRemaining": 19
+      },
+      {
+        "id": "tool-explicit-2",
+        "mode": "bonus",
+        "coefficient": 2,
+        "flat": 6,
+        "term": "6",
+        "rootActorProf": "3",
+        "max": 11,
+        "remaining": 9,
+        "activityMax": 24,
+        "activityRemaining": 23
+      },
+      {
+        "id": "tool-base",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "tool-category",
+        "mode": "bonus",
+        "coefficient": 0.5,
+        "flat": 1,
+        "term": "1",
+        "rootActorProf": "3",
+        "max": 6,
+        "remaining": 4,
+        "activityMax": 14,
+        "activityRemaining": 13
+      },
+      {
+        "id": "tool-initial-check-target",
+        "mode": "bonus",
+        "coefficient": 2,
+        "flat": 6,
+        "term": "6",
+        "rootActorProf": "3",
+        "max": 11,
+        "remaining": 9,
+        "activityMax": 24,
+        "activityRemaining": 23
+      },
+      {
+        "id": "tool-initial-tool-target",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "feat-fixed",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "spell-fixed",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": null,
+        "activityRemaining": null
+      },
+      {
+        "id": "consumable-default",
+        "mode": "bonus",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "consumable-brawler",
+        "mode": "bonus",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "3",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-explicit-zero",
+        "mode": "dice",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "weapon-explicit-one",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-category",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-base-item",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-untrained",
+        "mode": "dice",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "weapon-natural",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "weapon-improvised",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "equipment-clothing",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "equipment-heavy",
+        "mode": "dice",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "equipment-trained",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "equipment-base-item",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "equipment-explicit-zero",
+        "mode": "dice",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "equipment-explicit-one",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "tool-explicit-0",
+        "mode": "dice",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "tool-explicit-0.5",
+        "mode": "dice",
+        "coefficient": 0.5,
+        "flat": 1,
+        "term": "floor(1d6 / 2)",
+        "rootActorProf": "3",
+        "max": 6,
+        "remaining": 4,
+        "activityMax": 14,
+        "activityRemaining": 13
+      },
+      {
+        "id": "tool-explicit-1",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "tool-explicit-1.5",
+        "mode": "dice",
+        "coefficient": 1.5,
+        "flat": 4,
+        "term": "1.5d6",
+        "rootActorProf": "3",
+        "max": 9,
+        "remaining": 7,
+        "activityMax": 20,
+        "activityRemaining": 19
+      },
+      {
+        "id": "tool-explicit-2",
+        "mode": "dice",
+        "coefficient": 2,
+        "flat": 6,
+        "term": "2d6",
+        "rootActorProf": "3",
+        "max": 11,
+        "remaining": 9,
+        "activityMax": 24,
+        "activityRemaining": 23
+      },
+      {
+        "id": "tool-base",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "tool-category",
+        "mode": "dice",
+        "coefficient": 0.5,
+        "flat": 1,
+        "term": "floor(1d6 / 2)",
+        "rootActorProf": "3",
+        "max": 6,
+        "remaining": 4,
+        "activityMax": 14,
+        "activityRemaining": 13
+      },
+      {
+        "id": "tool-initial-check-target",
+        "mode": "dice",
+        "coefficient": 2,
+        "flat": 6,
+        "term": "2d6",
+        "rootActorProf": "3",
+        "max": 11,
+        "remaining": 9,
+        "activityMax": 24,
+        "activityRemaining": 23
+      },
+      {
+        "id": "tool-initial-tool-target",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "feat-fixed",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      },
+      {
+        "id": "spell-fixed",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": null,
+        "activityRemaining": null
+      },
+      {
+        "id": "consumable-default",
+        "mode": "dice",
+        "coefficient": 0,
+        "flat": 0,
+        "term": "0",
+        "rootActorProf": "3",
+        "max": 5,
+        "remaining": 3,
+        "activityMax": 12,
+        "activityRemaining": 11
+      },
+      {
+        "id": "consumable-brawler",
+        "mode": "dice",
+        "coefficient": 1,
+        "flat": 3,
+        "term": "1d6",
+        "rootActorProf": "3",
+        "max": 8,
+        "remaining": 6,
+        "activityMax": 18,
+        "activityRemaining": 17
+      }
+    ],
+    "attacks": [
+      {
+        "coefficient": 0,
+        "scope": "activity",
+        "expected": 2,
+        "expanded": "2 + 0 + 0",
+        "rootProf": "0"
+      },
+      {
+        "coefficient": 0,
+        "scope": "ability",
+        "expected": 2,
+        "expanded": "2 + 0 + 0",
+        "rootProf": "0"
+      },
+      {
+        "coefficient": 0,
+        "scope": "global",
+        "expected": 2,
+        "expanded": "2 + 0 + 0",
+        "rootProf": "0"
+      },
+      {
+        "coefficient": 0,
+        "scope": "action",
+        "expected": 2,
+        "expanded": "2 + 0 + 0",
+        "rootProf": "0"
+      },
+      {
+        "coefficient": 0,
+        "scope": "all",
+        "expected": 2,
+        "expanded": "2 + 0 + 0 + 0 + 0 + 0",
+        "rootProf": "0"
+      },
+      {
+        "coefficient": 1,
+        "scope": "activity",
+        "expected": 8,
+        "expanded": "2 + 3 + 3",
+        "rootProf": "3"
+      },
+      {
+        "coefficient": 1,
+        "scope": "ability",
+        "expected": 8,
+        "expanded": "2 + 3 + 3",
+        "rootProf": "3"
+      },
+      {
+        "coefficient": 1,
+        "scope": "global",
+        "expected": 8,
+        "expanded": "2 + 3 + 3",
+        "rootProf": "3"
+      },
+      {
+        "coefficient": 1,
+        "scope": "action",
+        "expected": 8,
+        "expanded": "2 + 3 + 3",
+        "rootProf": "3"
+      },
+      {
+        "coefficient": 1,
+        "scope": "all",
+        "expected": 17,
+        "expanded": "2 + 3 + 3 + 3 + 3 + 3",
+        "rootProf": "3"
+      },
+      {
+        "snapshot": "Item and activity counters earlier14/15,current Actor score20,earlier modifier2,cached Item prof0",
+        "expected": 36,
+        "expanded": "2 + 0 + 20 + 14",
+        "parentMax": 14,
+        "activityRemaining": 14
+      }
+    ],
+    "foundryMathSha256": "d8fc810f456e07c10bed3638010147dfcfe413fdedbe23f4b107f022d8acc663",
+    "fixtureSha256": "a9c558eee823f7b5bec6eda43f4e0971fb05f22d43cf14ddc4c56037ca6d0263",
+    "sourceHashes": {
+      "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+      "module/data/abstract/item-data-model.mjs": "a626ca98de72b134a167f85d8c17c34a89fb0d3f60009cd68b234c63427bdf03",
+      "module/data/shared/uses-field.mjs": "1145cd0f0d0f16ead6d25920bba01f6917a0e7064a3a36bcb8f714454a0440a6",
+      "module/data/activity/attack-data.mjs": "cab8fc25d84c0297bfb2e2126bc7b847b5cd31ccb420512d2a0394a21d3e9a61",
+      "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/data/activity/base-activity.mjs": "9bd175b6ae601ce275b1becc1ce571f43b2e766ce4875dec5d3673ebc88e99d5",
+      "module/data/item/templates/activities.mjs": "03d69007dfbd2598c7b8d195b654f7c6414dafff9e0c6a7616ed05d8972cec11",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+      "module/data/item/equipment.mjs": "1d34384efda647d0222e4ba3bfa7d4d905e6356fd3bd2500e9ae568875fd3c09",
+      "module/data/item/tool.mjs": "fc5e93bb34231759ff022fd2eaca4168d73d1eb3d544789bfc88f9771ff2e2a4",
+      "module/data/item/feat.mjs": "46146f7d121c1a889753856b0385b4652f404030853cdc4a504b93e85b93640a",
+      "module/data/item/spell.mjs": "b55cd05a4ec4efefa4d783e1d7685b38461bcad9c04bf60baa35195018088335",
+      "module/data/item/consumable.mjs": "3f4bacd4fa74a55dcffa48fcc3c9eda521178e49fca6683a1c426b9e7678a00d"
+    },
+    "limits": [
+      "Actual per-type getters,Item._prepareProficiency/final dispatch/labels,Item/ItemDataModel.getRollData,UsesField preparation and native replacement/Math execute on initialized models. No full source DataModel/Item lifecycle or native/runtime/operator acceptance.",
+      "Prepared Actor tool.value is produced by actual native prepareTools. Nonzero global proficiency is an explicitly initialized legitimate-effect intermediate,not a persisted source override;module source tests must use real effect source and ignore poison.",
+      "FinalModel.prepareFinalData runs actual ActivitiesTemplate parent-before-child dispatch. A nonspell utility uses actual BaseActivity ability/getRollData and declared Uses-only final method;full activity/schema/labels,equippable and spell final hooks remain separate. Empty recovery,Scaling and localization are declared collaborators;dice-bearing capacities are not qualified."
+    ]
+  },
+  "phaseBoundaries": [
+    "Raw source preserved,nonpersisted Actor/Item/resource poison ignored. Module source global proficiency uses actual serialized effects;native nonzero globals are declared initialized legitimate-effect intermediates.",
+    "Parent uses and Item proficiency precede Actor final target/score changes. Tool Item flat6/counter9/11 can coexist with current Actor tool0/check+2.",
+    "Attack constructs Item prof.term even0;C77 Actor-base fresh attack claim superseded. Literal/arithmetic comparisons retained. C79 untrained skill Actor-base behavior unchanged.",
+    "Mixed earlier parent14/activity15/mod2/currentDEX20 produces attack36. Source and initialized schema claims remain separate from constructor arithmetic.",
+    "Actual new Item/activity/equip/cast execution is not enabled. Item effects,wider final hooks,dice-bearing capacities/casting remain gated;no complete M2/native/operator acceptance."
+  ],
+  "environment": {
+    "core": "0.19.3/90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "node": "24.21 (CI Node22 unrun)",
+    "productionServices": "untouched;listeners inspected before isolated host;task host/browser services closed in finally"
+  }
+}

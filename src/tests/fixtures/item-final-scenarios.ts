@@ -1,0 +1,9 @@
+import fixture from '../../../tests/fixtures/native-6.0.6/item-final.json';
+import {skillSource,skillWorld,skillContext} from './skill-scenarios';
+export const itemFinalCases=fixture.cases;
+export function itemFinalSource(row:typeof fixture.cases[number]){const source=skillSource(),s=source.system as any,a=row.actor;source.items=source.items.filter(item=>item.type==='class');s.abilities.dex={value:14};s.traits={weaponProf:{value:a.weapons??[]},armorProf:{value:a.armor??[]}};s.tools=Object.fromEntries(Object.entries(a.tools??{}).map(([key,value])=>[key,{value,ability:'dex'}]));s.attributes.prof=99;s.rolls={ability:{check:{proficiency:99},tool:{proficiency:99}}};source.flags={dnd5e:{tavernBrawlerFeat:a.brawler??false}};source.effects=[];
+for(const [scope,value]of [['check',a.globalCheck],['tool',a.globalTool]]as const)if(value!==undefined)source.effects.push({_id:'Initial'+scope,type:'base',system:{changes:[{key:'system.rolls.ability.'+scope+'.proficiency',type:'override',value,phase:'initial'}]}}as any);
+if(a.finalCheck!==undefined)source.effects.push({_id:'FinalCheck',type:'base',system:{changes:[{key:'system.rolls.ability.check.proficiency',type:'override',value:a.finalCheck,phase:'final'}]}}as any);
+const activities=row.type==='spell'?{}:{utility:{_id:'utility',type:'utility',uses:{spent:1,max:'@item.uses.max + @item.uses.value + @activity.uses.spent + @prof + @mod',value:99},activation:{type:'action'}}};
+source.items.push({_id:'probe',name:'Prepared Item',type:row.type,system:{...structuredClone(row.system),prof:99,proficiencyMultiplier:99,hasProficiency:false,uses:{spent:2,max:'@prof + @item.prof.flat + @item.uses.spent',value:99},activities}}as any);return source;}
+export function itemFinalContext(mode='bonus'){const world=skillWorld();(world.settings as any)['dnd5e.proficiencyModifier']={status:'world',value:mode};return skillContext(world);}

@@ -1,3 +1,4 @@
+import {prepareItemProficiency606,itemProficiencyBindings606,type ItemProficiency606} from './item-proficiency';
 import type {PhysicalItem606} from './physical';
 import {preparedFormulaBindings606} from './formula-fields';
 import {deterministicFormula606,formulaUnavailableReason606,type FormulaBindings606} from './deterministic-formula';
@@ -12,7 +13,7 @@ export interface ItemFact<T>{status:'ready'|'unavailable'|'not-applicable';value
 export interface RecoveryFact {period:string;type:string;formula:string|null}
 export interface UsesFacts {status:'ready'|'unavailable'|'not-applicable';reason?:string;max:number|null;spent:number|null;remaining:number|null;limited:boolean|null;capacitySource:string|null;origin:'source'|'schema-default';recovery:ItemFact<RecoveryFact[]>;display:string;provenance:string}
 export interface ActivityFacts {id:string;itemId:string;type:string;name:string;sort:number;activation:string|null;uses:UsesFacts;status:'ready'|'unavailable';reason?:string;executionReason:string;attack?:ItemFact<AttackFacts>}
-export interface ItemFacts {physical?:PhysicalItem606;id:string;uuid:string|null;type:string;name:string;status:'ready'|'partial'|'unavailable';reason?:string;quantity:ItemFact<number>;weight:ItemFact<{value:number;units:string;stack:number|null}>;equipped:ItemFact<boolean>;attuned:ItemFact<boolean>;uses:UsesFacts;activities:ActivityFacts[];activityStatus:'ready'|'unavailable';activityReason?:string;provenance:string;attackModes:ItemFact<string[]>;spell?:ItemFact<SpellMetadata>}
+export interface ItemFacts {proficiency:ItemProficiency606;physical?:PhysicalItem606;id:string;uuid:string|null;type:string;name:string;status:'ready'|'partial'|'unavailable';reason?:string;quantity:ItemFact<number>;weight:ItemFact<{value:number;units:string;stack:number|null}>;equipped:ItemFact<boolean>;attuned:ItemFact<boolean>;uses:UsesFacts;activities:ActivityFacts[];activityStatus:'ready'|'unavailable';activityReason?:string;provenance:string;attackModes:ItemFact<string[]>;spell?:ItemFact<SpellMetadata>}
 export interface OwnedItemFacts {resourceSummary:string;status:'ready'|'partial'|'unavailable';reason?:string;items:Record<string,ItemFacts>;provenance:string}
 const provenance='release-6.0.6 PhysicalItemTemplate / ActivitiesTemplate / UsesField; source-only read preparation';
 export const activityItemTypes=['consumable','equipment','facility','feat','spell','tool','weapon'];
@@ -61,7 +62,14 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
   const w=physical?fact(weightValue!==null&&quantity!==null&&typeof units==='string'?{value:weightValue,units,stack:type==='container'?null:weightValue*quantity}:null,weightReason,data.weight===undefined?'schema-default':'source'):na<{value:number;units:string;stack:number|null}>();
   const eligibility=itemEffectState606(item),equipped=equippable?fact(typeof data.equipped==='boolean'?data.equipped:false,common??eligibility.reason,data.equipped==null?'schema-default':'source'):na<boolean>(),attuned=equippable?fact(typeof data.attuned==='boolean'?data.attuned:false,common??eligibility.reason,data.attuned==null?'schema-default':'source'):na<boolean>();
   const itemEffects=item.effects===undefined?[]:item.effects,itemEffectReason=!Array.isArray(itemEffects)||itemEffects.some((effect:unknown)=>{const e=record(effect);return !e||e.disabled!==true&&(e.transfer===false||e.type==='enchantment');})?'Owned Item-target effects require Item preparation qualification':undefined;
-  const uses=hasActivities?prepareUses606(data.uses,common??itemEffectReason,preparedFormulaBindings606(effects)):emptyUses('not-applicable');
+  const proficiency=effects?prepareItemProficiency606(actor,item,context,effects,common??itemEffectReason):{status:'unavailable' as const,base:null,multiplier:null,flat:null,term:null,mode:null,reason:'Item proficiency preparation unavailable',origin:'unavailable',provenance};
+  const itemBindings:Record<string,number>={...preparedFormulaBindings606(effects),...itemProficiencyBindings606(proficiency)};
+  if(q.value!==null)itemBindings['item.quantity']=q.value;
+  if(w.value)itemBindings['item.weight.value']=w.value.value;
+  const sourceSpent=nat(record(data.uses)?.spent,0,true);if(hasActivities&&sourceSpent!==null)itemBindings['item.uses.spent']=sourceSpent;
+  const uses=hasActivities?prepareUses606(data.uses,common??itemEffectReason,itemBindings):emptyUses('not-applicable');
+  const activityBindings={...itemBindings};
+  if(uses.status==='ready'){activityBindings['item.uses.value']=uses.remaining!;if(uses.limited)activityBindings['item.uses.max']=uses.max!;}
   const activities:ActivityFacts[]=[];let activityReason=common??itemEffectReason;
   const collection=data.activities===undefined?{}:record(data.activities);
   if(!collection)activityReason??='Activity source mapping malformed';
@@ -69,12 +77,15 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
    if(!a||typeof aid!=='string'||aid!==key||!aid||typeof atype!=='string'||!activityTypes.includes(atype as typeof activityTypes[number])){activityReason??='Activity identity/type unavailable';continue;}
    const activation=record(a.activation),activationType=activation?.type===undefined?null:typeof activation.type==='string'?activation.type:null;
    const reason=common??itemEffectReason??(a.activation!==undefined&&!activation?'Activity activation source malformed':undefined);
-   activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:activationType,uses:prepareUses606(a.uses,reason,preparedFormulaBindings606(effects)),status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects)}:{})});
+   const scopedBindings={...activityBindings,...(nat(record(a.uses)?.spent,0,true)!==null?{'activity.uses.spent':nat(record(a.uses)?.spent,0,true)!}:{}),...(atype==='utility'&&type!=='spell'?{mod:0}:{})};
+   const activityUses=prepareUses606(a.uses,reason,scopedBindings),currentBindings:Record<string,number>={...scopedBindings};
+   if(activityUses.status==='ready'){currentBindings['activity.uses.value']=activityUses.remaining!;if(activityUses.limited)currentBindings['activity.uses.max']=activityUses.max!;}
+   activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:activationType,uses:activityUses,status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects,proficiency,currentBindings)}:{})});
   }
   activities.sort((a,b)=>a.sort-b.sort);
   if(activityReason)for(const a of activities){a.status='unavailable';a.reason??=activityReason;}
-  const status=common?'unavailable':uses.status==='unavailable'||q.status==='unavailable'||w.status==='unavailable'||activityReason?'partial':'ready';
-  items[id]={id,...(type==='spell'?{spell:spellMetadata606(data,common)}:{}),attackModes:weaponModes606(item,common??effects?.ruleFlags.reason),uuid:identityReason?null:uuid,type,name,status,reason:common??uses.reason??q.reason??w.reason??activityReason,quantity:q,weight:w,equipped,attuned,uses,activities,activityStatus:activityReason?'unavailable':'ready',activityReason,provenance};
+  const status=common?'unavailable':uses.status==='unavailable'||proficiency.status==='unavailable'||q.status==='unavailable'||w.status==='unavailable'||activityReason||activities.some(activity=>activity.uses.status==='unavailable')?'partial':'ready';
+  items[id]={id,proficiency,...(type==='spell'?{spell:spellMetadata606(data,common)}:{}),attackModes:weaponModes606(item,common??effects?.ruleFlags.reason),uuid:identityReason?null:uuid,type,name,status,reason:common??uses.reason??q.reason??w.reason??activityReason??proficiency.reason??activities.find(activity=>activity.uses.status==='unavailable')?.uses.reason,quantity:q,weight:w,equipped,attuned,uses,activities,activityStatus:activityReason?'unavailable':'ready',activityReason,provenance};
  }
  return {resourceSummary:Object.values(items).filter(item=>item.uses.limited||item.uses.status==='unavailable').map(item=>item.name+': '+item.uses.display).join('; ')||(overallReason||contextReason?'Unavailable':'No limited uses'),status:overallReason?'partial':Object.values(items).some(item=>item.status!=='ready')?'partial':'ready',reason:overallReason,items,provenance};
 }

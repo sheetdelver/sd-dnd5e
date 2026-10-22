@@ -2078,3 +2078,16 @@ ordered faces,entropy,counts/discards/totals and40 equal-index diagnostics are u
 No source,weight-derived status synchronization or native/operator writes occur.
 This supersedes C81's blanket non-none setting gate for the qualified profile.
 Remaining Item-final/filter/expression/activity dependency gates keep M2/ADR open.
+
+
+### C84 — Item final dependencies and attack-reference correction
+
+[C84 portable evidence](evidence/2026-10-22-c84-item-final.json) qualifies per-type
+Item proficiency and parent-before-activity resources. A later Actor tool target0
+leaves cached Item proficiency6 and counters9/11 while current tool check is +2.
+Source poison never overrides those phases. Native attack construction, unlike an
+untrained skill, rebinds root `@prof` even when Item proficiency is0: same-input +5
+before becomes native +2. Earlier resources/current Actor references are compared
+separately (+36 mixed-phase example). C77's blanket attack-root claim is superseded;
+its literal/arithmetic evidence remains historical. Broader final/effect/activity
+preparation is still open;no installed/native/operator or action-write acceptance.

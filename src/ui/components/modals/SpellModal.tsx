@@ -56,7 +56,8 @@ export default function SpellModal({ item, onRoll, onClose }: SpellModalProps) {
     const liveItem=(actor?.items??[]).find((i:{_id:string})=>i._id===item._id);
     const sys = (liveItem?.system ?? {}) as Record<string, any>;
     const legacy=actor?.derived?.lifecycle?.status==='supported'&&actor?.derived?.lifecycle?.profile==='legacy-limited';
-    const prepared=ownedItemProjection(actor?.derived).items[item._id]?.spell;
+    const preparedItem=ownedItemProjection(actor?.derived).items[item._id];
+    const prepared=preparedItem?.spell;
     const img = resolveImage(liveItem?.img ?? '', foundryUrl);
     const description = typeof sys.description?.value==='string'?processHtmlContent(sys.description.value,foundryUrl):'';
     const level=legacy?(typeof sys.level==='number'?sys.level:0):prepared?.value?.level??null;
@@ -127,6 +128,7 @@ export default function SpellModal({ item, onRoll, onClose }: SpellModalProps) {
                 </div>
             </div>
 
+            {!legacy&&preparedItem?.proficiency&&<p aria-label="Prepared spell Item proficiency" title={preparedItem.proficiency.reason}>{preparedItem.proficiency.status==='ready'?preparedItem.proficiency.term:'Unavailable'}</p>}
             {/* Concentration / Ritual flags */}
             {(isConcentration || isRitual) && (
                 <div style={{ display: 'flex', gap: '6px', marginTop: 'var(--space-sm)' }}>
