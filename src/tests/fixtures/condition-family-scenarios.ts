@@ -1,4 +1,5 @@
 import fixture from '../../../tests/fixtures/native-6.0.6/condition-modes.json';
+import incapacityFixture from '../../../tests/fixtures/native-6.0.6/incapacity-conditions.json';
 import {conditionCases,conditionSource} from './condition-scenarios';
 export interface FamilyExpected {statuses:string[];dexSave:number;init:number;score:number;walk:number;fly:number;skillMode:number;wisSave:number;passive:number;combinedMode:number}
 export interface FamilyCase {id:string;profile:Record<string,any>;modes:number[];effect?:Record<string,any>;expected:FamilyExpected}
@@ -8,6 +9,8 @@ function expected(value:Record<string,any>,modes:number[],effect?:Record<string,
     return {statuses:value.statuses,dexSave:value.save,init:value.init,score:value.score,walk:value.walk,fly:value.fly,skillMode,wisSave,passive:15+5*skillMode,combinedMode:skillMode===-1?0:1};
 }
 export const familyCases:FamilyCase[]=[
+    ...incapacityFixture.profiles.map(profile=>({id:profile.id,profile,modes:modes0,expected:expected(profile.expected,modes0)})),
+    ...incapacityFixture.modeCases.map((row,index)=>{const profile=incapacityFixture.profiles.find(profile=>profile.id===row.profile)!;return {id:'modes-incapacity-'+index,profile,modes:row.modes,expected:expected(row.expected,row.modes)};}),
     ...fixture.profiles.map(profile=>({id:profile.id,profile,modes:modes0,expected:expected(profile.expected,modes0)})),
     ...fixture.modeCases.map((row,index)=>{const profile=fixture.profiles.find(profile=>profile.id===row.profile)!;return {id:'modes-'+index,profile,modes:row.modes,expected:expected({...profile.expected,...row.expected},row.modes)};}),
     ...fixture.effectCases.map(row=>{const profile=fixture.profiles.find(profile=>profile.id===row.base)!;return {id:row.id,profile,modes:modes0,effect:row.effect,expected:expected(row.expected,modes0,row.effect)};}),

@@ -27,3 +27,13 @@ const badInit=familySource(familyCases.find(row=>row.id==='invisible')!);(badIni
 for(const id of ['dodging','dead']){const source=familySource(familyCases[0]);(source.system as any).traits.ci.value=[id];const actor=adapter.prepareActorData(source,skillContext());assert.equal((actor.derived as any).defenses.categories.ci.status,'ready');assert.ok((actor.derived as any).defenses.categories.ci.values.includes(id));}
 
 for(const [id,statuses,value]of [['incapacitated',['incapacitated','surprised'],-1],['invisible',['invisible','invisible'],1]] as const){const template=familyCases.find(row=>row.id===id)!,row={...template,profile:{...template.profile,statuses:[...statuses]},effect:{path:'attributes.init.roll.mode',type:'subtract',value}};const actor=adapter.prepareActorData(familySource(row),skillContext());assert.equal((actor.derived as any).initiativeFacts.score,12);assert.equal(adapter.getRollData(actor,'initiative','initiative')?.formula,'1d20+2');}
+
+// Newly admitted source envelopes retain malformed/dependent/rider/phase gates.
+for(const type of ['stunned','unconscious']){
+    const row=familyCases.find(row=>row.id===type+'-incapacity')!;
+    for(const edit of [(s:any)=>{s.effects[0].statuses=[type==='stunned'?'unconscious':'stunned'];},(s:any)=>{s.effects[0].statuses=[5];},(s:any)=>{s.effects[0].system.rider={statuses:['prone']};},(s:any)=>{s.effects[0].system.changes=[{key:'system.abilities.wis.value',value:2,type:'add'}];},(s:any)=>{s.effects[0].system.conditions='{"k":"abilities.wis.value","v":14}';},(s:any)=>{s.effects[0].duration={value:10,units:'seconds'};},(s:any)=>{s.flags={dnd5e:{originalActor:'unknown'}};}]){
+        const source=familySource(row);edit(source);const before=structuredClone(source),actor=adapter.prepareActorData(source,skillContext());
+        assert.equal(adapter.getRollData(actor,'initiative','initiative'),null,type+'/unsupported source');assert.deepEqual(source,before);
+        const recovered=adapter.prepareActorData(familySource(row),skillContext());assert.equal(adapter.getRollData(recovered,'initiative','initiative')?.formula,'2d20kl1+2');
+    }
+}

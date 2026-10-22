@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share qualified explicit Stunned/Unconscious status, mode and movement preparation across both layouts and roll execution; preset/rider automation remains separate.
+
 - Qualify explicit Stunned/Unconscious source-status, immunity, mode and movement phases against native6.0.6; runtime integration remains separate.
 - Shared bounded petrification defenses and effective-condition rules without changing source.
 - Qualified petrification status, immunity and defense preparation phases.

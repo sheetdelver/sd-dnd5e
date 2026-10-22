@@ -1004,3 +1004,10 @@ statuses. Unconscious preset riders remain separate. Source Number/String/Set de
 and initialized model phases stay distinct. [Record](../audits/evidence/2026-10-21-c44-incapacity-foundation.json)
 records exact87e94db/staticFoundry14.367 identities and declared stubs. No native boot,
 preset/rider construction,automatic downed/combat/attack/save-failure/operator acceptance.
+
+C45 integrates the bounded C44 source states. The retained harness's mixed petrification
+arithmetic has a newly confirmed composition error (DD-R07): actual CharacterData.
+prepareDerivedData calls abilities/skills/tools before Traits.prepareResistImmune.
+The C42 harness used the reverse order,so its late-immunity arithmetic expectation is
+superseded pending immediate correction. No Core defect follows. Unmixed C44 explicit
+Stunned/Unconscious profiles have no petrification grants and are unaffected.

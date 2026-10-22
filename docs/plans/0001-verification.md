@@ -2149,3 +2149,40 @@ source boot/preset/rider/automatic downed/combat/automatic-save-failure/native/o
 acceptance. Next share only qualified source states through preparation and existing
 consumers,with before/after and public/mounted checks. Other M2 phases,E01/E02/wider
 Q00/E05/fullDD/A/M/ADR remain open;experimental0.4.1/compatibility unchanged.
+
+
+### C45 — Shared explicit incapacity-condition preparation (2026-10-21)
+
+Parent `c0ec52f`;partial M2/Q02a,DD-02/05/27/34,A02/A04/A21.680 new maintained
+cases fail unchanged C44/pass after;two disabled new cases already pass. All1064
+retained condition cases pass. Source preservation,prepared poison,malformed/rider/own
+change/dependent guard/time/flag gates,source/context recovery and manual/selected/
+Normal-bound checks remain. C44's34 source/648 mode comparisons and2728 actual native
+skill/tool/selected configurations remain unchanged and pass.
+
+Commands use Core0.19.3/90c13e5 via --core. `npm test`:60 assertions,8 tooling/39 module
+suites PASS;`typecheck`:184 explicit module/UI/server/test/hook files PASS. Exact-source
+2242/591,retained native checks/effects/initial119 and all condition methods PASS.
+`test:mounted -- --condition-family-only`:398 actual states at1440/390 PASS,
+`/tmp/dnd5e-mounted-aX4VMI`;190 sampled actors,both widths,12 fixed states and6 live
+source/CI/context recovery states. Initial stale-identity fixture incorrectly edited
+a projection;corrected to reprepare changed raw source,rerun PASS. `--petrification-only`
+38 states PASS at ZBH40z against prior expectations only. C43's full1172/624 retained
+UI evidence remains separate,not rerun for unchanged unrelated consumers.
+
+`test:public-rolls`:85197 accepted PASS,including23188 added new-source checks/Normal
+bounds/fixed initiatives;40 equal-index diagnostics,1 unary rejection,0 native writes.
+Actual host serialization unchanged. Artifact `/tmp/dnd5e-public-rolls-jNKWQK`.
+`check:package`:isolated public-boundary/module checks,managed typing and bundles PASS;
+`/tmp/dnd5e-package-Rjep8Y/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`082da2c4f961dd88387943ef0d18e8438571805c81153c75c88c65ec28c327ef`. [Portable record](../audits/evidence/2026-10-21-c45-incapacity.json)
+retains identities,counts and limits. Task-owned services/browser closed,Core baseline
+clean,production untouched. Node24.21/npm11.19;Node22 CI unrun.
+
+DD-R07 discovered: C42 harness composed petrification trait grants before abilities/
+passives,contrary to actual CharacterData.prepareDerivedData. C43 inherited the error
+for mixed Petrified+Poisoned. Prior arithmetic parity claims for that interaction are
+superseded;passing regression/public results do not correct the oracle. C44 new profiles
+have no such grant and are unaffected. Correct phase composition immediately next.
+No full DD/A/M/ADR/native/operator gate closes;E01/E02/widerQ00/E05 open,experimental
+0.4.1/compatibility unchanged.

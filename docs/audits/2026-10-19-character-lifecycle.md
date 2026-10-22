@@ -1066,3 +1066,17 @@ implicit incapacity/Prone inference. Runtime remains gated pending shared integr
 expectations/initialized methods from module regression/package evidence. No full
 condition/combat/preset/native/operator gate closes;other M2 phases and E01/E02/wider
 Q00/E05/ADR acceptance remain open.
+
+C45 (after `c0ec52f`) implements bounded explicit Stunned/Unconscious source preparation
+through shared status/mode/movement rules.680 new cases fail before/pass after;two disabled
+cases already pass and1064 earlier cases remain. [Evidence](evidence/2026-10-21-c45-incapacity.json)
+records actual consumers and qualification limits. Preset/rider/automatic-downing/combat
+and full native/operator gates stay open.
+
+**DD-R07 — confirmed module/oracle phase composition defect:** pinned CharacterData.
+prepareDerivedData prepares abilities/skills/tools before Traits.prepareResistImmune.
+C42's harness ran trait grants first;C43 copied that ordering for mode derivation.
+Mixed Petrified+Poisoned incorrectly loses prepared check disadvantage/passive adjustment
+when poison immunity is granted later. Correct the oracle composition and shared phase
+snapshots next. Historical C42/C43 captures remain,but do not establish arithmetic
+parity for this interaction. This is module evidence/correctness work,not a Core defect.

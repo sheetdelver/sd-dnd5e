@@ -963,3 +963,19 @@ save advantage is disabled by noMovement or incapacity. An explicit Prone status
 the preset's separate Prone rider are different source inputs; preparation must not
 construct either from a display name/type. C44 is qualification only; runtime admission
 stays unavailable until shared integration. No automatic downed/combat/preset support.
+
+### Explicit incapacity-condition preparation (C45)
+
+C45 supersedes C44's runtime gate for bounded Stunned/Unconscious source documents.
+The shared condition preparer admits only explicit own/qualified family statuses and
+keeps constant-guard,empty own-change/rider,untimed Actor ownership boundaries. NoMove
+includes Unconscious;Stunned alone does not stop movement. Initiative disadvantage
+still requires explicit incapacity/surprise. The same prepared results feed status/
+movement/passive/save/init/skill/tool controls and direct execution. No preset or Prone
+rider is constructed. Actor/context changes retire intent rather than replay a roll.
+
+DD-R07 correction is pending immediately after C45: the C42/C43 composition of late
+petrification grants before ability modes is inaccurate. Native Character preparation
+calculates ability modes/passives first. Final rule-effective statuses cannot replace
+that earlier snapshot. Historical petrification arithmetic claims for mixed Poisoned
+profiles are superseded;defense/status grant observations remain useful.

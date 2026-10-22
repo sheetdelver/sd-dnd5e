@@ -1,6 +1,6 @@
 import {applyPetrificationGrants606,type ConditionTraitGrant606} from './condition-traits';
 import {record} from '../native/6.0.6/source';
-import {FAMILY_CONDITION_IDS_606,type QualifiedCondition606} from '../native/6.0.6/condition-identities';
+import {FAMILY_CONDITION_IDS_606,INCAPACITY_CONDITION_IDS_606,type QualifiedCondition606} from '../native/6.0.6/condition-identities';
 import {initializeTraitSet606} from './trait-fields';
 import {constantFilter606,type ConstantFilter} from './constant-filters';
 import type {RulesContext} from '../rules-context';
@@ -20,12 +20,16 @@ const provenance='release-6.0.6 nonpersisted Common.conditions / ConditionData /
  * admission. No type/name-to-status inference; source remains unchanged. */
 export function conditionSource606(effect:Record<string,unknown>,id:string):ConditionSource606|{reason:string} {
     const system=record(effect.system)??{},type=system.type;
-    if(typeof type!=='string'||!['poisoned','exhaustion','petrified',...FAMILY_CONDITION_IDS_606].includes(type.trim()))return {reason:'Condition type outside qualified mode/movement profile'};
+    if(typeof type!=='string'||!['poisoned','exhaustion','petrified',...FAMILY_CONDITION_IDS_606,...INCAPACITY_CONDITION_IDS_606].includes(type.trim()))return {reason:'Condition type outside qualified mode/movement profile'};
     const identity=type.trim() as ConditionSource606['type'];
     const level=system.level;
     if(level!=null&&(typeof level!=='number'||!Number.isSafeInteger(level)||level<1))return {reason:'Condition level source malformed or unqualified'};
     const raw=effect.statuses;
-    if(raw!=null&&(!Array.isArray(raw)||raw.length>256||raw.some(value=>typeof value!=='string'||(['poisoned','exhaustion'].includes(identity)?value.trim()!==identity:identity==='petrified'?!['petrified','incapacitated'].includes(value.trim()):!FAMILY_CONDITION_IDS_606.includes(value.trim() as typeof FAMILY_CONDITION_IDS_606[number])))))return {reason:'Condition statuses outside qualified type profile'};
+    const allowedStatuses:readonly string[]=['poisoned','exhaustion'].includes(identity)?[identity]
+        :identity==='petrified'?['petrified','incapacitated']
+            :INCAPACITY_CONDITION_IDS_606.some(type=>type===identity)?[identity,...FAMILY_CONDITION_IDS_606]
+                :FAMILY_CONDITION_IDS_606;
+    if(raw!=null&&(!Array.isArray(raw)||raw.length>256||raw.some(value=>typeof value!=='string'||!allowedStatuses.includes(value.trim()))))return {reason:'Condition statuses outside qualified type profile'};
     const statuses=initializeTraitSet606(raw);if(!statuses)return {reason:'Condition statuses source unavailable'};
     const condition=constantFilter606(system.conditions);
     if(condition.status!=='ready')return {reason:'Condition predicate requires first-evaluation snapshot qualification'};
@@ -62,7 +66,7 @@ export function prepareConditions606(actor:unknown,system:Record<string,unknown>
         const ruleImmunities=immunities(system);
         if(!failed)statuses.push(...actorStatuses.filter(status=>!ruleImmunities?.includes(status)));
         if(statuses.includes('poisoned'))for(const ability of ['str','dex','con','int','wis','cha'])if(record(record(system.abilities)?.[ability]))modes.push({path:`system.abilities.${ability}.check.roll.mode`,mode:-1,phase:'abilities',source:'poisoned'});
-        rules.noMovement=statuses.some(id=>['grappled','paralyzed','restrained','petrified'].includes(id));rules.crawl=statuses.includes('prone');
+        rules.noMovement=statuses.some(id=>['grappled','paralyzed','restrained','petrified','unconscious'].includes(id));rules.crawl=statuses.includes('prone');
         if(record(record(system.abilities)?.dex)){
             if(statuses.includes('dodging')&&!statuses.includes('incapacitated')&&!rules.noMovement)modes.push({path:'system.abilities.dex.save.roll.mode',mode:1,phase:'abilities',source:'dexteritySaveAdvantage'});
             if(statuses.includes('restrained'))modes.push({path:'system.abilities.dex.save.roll.mode',mode:-1,phase:'abilities',source:'dexteritySaveDisadvantage'});
