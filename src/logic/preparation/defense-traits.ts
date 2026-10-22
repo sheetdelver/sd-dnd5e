@@ -32,7 +32,7 @@ export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effec
     else if(source.type!=='character'||typeof source._id!=='string'||!/^[A-Za-z0-9_-]+$/.test(source._id)||source.uuid!==undefined&&source.uuid!==`Actor.${source._id}`)common='Defenses outside qualified world-character profile';
     else if(!Array.isArray(source.items)||source.system!=null&&!record(source.system))common='Defense source collection/mapping unavailable';
     common??=effects.reason;
-    if(Object.values(record(record(source.flags)?.dnd5e)??{}).some(Boolean))common??='Defense flags/transformation preparation unavailable';
+    common ??= effects.ruleFlags.reason;
     if(source.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length))common??='Defense condition preparation unavailable';
     const traits=raw==null?{}:record(raw);
     if(!traits)common??='Defense trait source mapping malformed';

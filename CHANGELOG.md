@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share bounded modern Jack of All Trades and Alert source rules across character checks and initiative.
+
 - Share qualified final numeric fields and current scores while preserving prepared modifiers, proficiency and fixed initiative scores.
 
 - Apply qualified final constant bonuses across shared rolls while retaining earlier passive and initiative-score values.

@@ -38,7 +38,7 @@ export function prepareTraining606(actor:unknown,context:RulesContext,effects:Nu
     else if(source.type!=='character'||typeof source._id!=='string'||!/^[A-Za-z0-9_-]+$/.test(source._id)||source.uuid!==undefined&&source.uuid!==`Actor.${source._id}`)common='Training outside qualified world-character profile';
     else if(!Array.isArray(source.items)||source.system!=null&&!record(source.system)||!traits)common='Training source mapping/collection malformed';
     common??=effects.reason;
-    if(Object.values(record(record(source.flags)?.dnd5e)??{}).some(Boolean))common??='Training flags/transformation preparation unavailable';
+    common ??= effects.ruleFlags.reason;
     if(source.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length))common??='Training condition preparation unavailable';
     function simple(key:'armor'|'weapons'):TrainingCategory {
         if(common)return empty(common);

@@ -27,7 +27,7 @@ function basicReason(actor:unknown,context:RulesContext,effects:NumericEffects):
     if(context.status!=='supported'||context.profile!=='2024')return `Character rules context unavailable: ${context.reason??context.profile??'unknown'}`;
     if(source.type!=='character')return 'Character stat profile unavailable';
     if(effects.reason)return effects.reason;
-    if(Object.values(record(record(source.flags)?.dnd5e)??{}).some(Boolean))return 'Flag or transformation preparation unavailable';
+    if(effects.ruleFlags.reason)return effects.ruleFlags.reason;
     if(attributes.exhaustion!==undefined&&attributes.exhaustion!==0||Array.isArray(source.statuses)&&source.statuses.length)return 'Condition stat preparation unavailable';
     return undefined;
 }
@@ -69,7 +69,7 @@ export function prepareArmorClass606(actor:unknown,context:RulesContext,effects:
     return qualifiedNumericTotal(value)&&Math.abs(value)<=1_000_000_000?{...makeAc(value),base,calculation,formula,armorId:armor?.id,shieldId:shield?.id,warnings:equipment.warnings}:makeAc(null,'Armor result outside qualified numeric range');
 }
 export function prepareInitiative606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):{fact:InitiativeFact;check:PreparedNumericD20} {
-    const profile=numericCharacterProfile(actor,context,effects,false),system=effects.system,raw=record(system.attributes)?.init,data=record(raw)??{},ability=data.ability===undefined||data.ability===''?'dex':data.ability;
+    const profile=numericCharacterProfile(actor,context,effects,effects.ruleFlags.initiativeAlert),system=effects.system,raw=record(system.attributes)?.init,data=record(raw)??{},ability=data.ability===undefined||data.ability===''?'dex':data.ability;
     const key=typeof ability==='string'?ability:'',abl=record(record(system.abilities)?.[key]),numeric=numericAbilityValue(abl?.value),roll=record(data.roll)??{},global=effects.globals.check;
     let reason=profile.status==='ready'?undefined:profile.reason;
     if(raw!=null&&!record(raw)||data.roll!=null&&!record(data.roll))reason??='Initiative source mapping malformed';
@@ -83,7 +83,8 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     const mode=sourceD20Mode(scopes),bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));
     reason??=mode.reason;
     if(bonuses.some(value=>value===null))reason??='Initiative bonus expression requires Q00 qualification';
-    const total=!reason&&numeric?numeric.mod+(bonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
+    const proficiency=profile.status==='ready'&&effects.ruleFlags.initiativeAlert?profile.proficiency:0;
+    const total=!reason&&numeric?numeric.mod+proficiency+(bonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
     if(total!==null&&!qualifiedNumericTotal(total))reason??='Initiative result outside qualified numeric representation';
     const score=total!==null&&!reason&&localMode?10+total+5*resolvedEffectMode(localMode):null;
     const fact:InitiativeFact={...numericFact(reason?null:total,reason),provenance:initProvenance,ability:key,score};
@@ -91,7 +92,7 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     let executionReason=reason;
     const executionBonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses));
     if(executionBonuses.some(value=>value===null))executionReason??='Initiative current bonus expression requires Q00 qualification';
-    const executionTotal=!executionReason&&numeric?numeric.mod+(executionBonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
+    const executionTotal=!executionReason&&numeric?numeric.mod+proficiency+(executionBonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
     const scoreSetting=context.settings['dnd5e.initiativeScore'],tie=context.settings['dnd5e.initiativeDexTiebreaker'];
     if(!scoreSetting||scoreSetting.status==='unavailable'||!['none','npcs','all'].includes(String(scoreSetting.value)))executionReason??='Initiative score setting unavailable';
     const fixed=scoreSetting?.status!=='unavailable'&&scoreSetting?.value==='all';

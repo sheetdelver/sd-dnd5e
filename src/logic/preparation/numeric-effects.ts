@@ -1,3 +1,4 @@
+import {sourceRuleFlags606,type SourceRuleFlags606} from './rule-flags';
 import {prepareConditions606,type ConditionPreparation606} from './conditions';
 import { initializedModeState, applyEffectMode, resolvedEffectMode, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
@@ -12,7 +13,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
-    system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
+    ruleFlags:SourceRuleFlags606;system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;executionBonuses:Record<string,number>;finalNumbers:Record<string,number>;checkExecutionReason?:string;
     applied:Array<{effectId:string;key:string;phase:'initial'|'final';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
 }
@@ -35,7 +36,8 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
             if(value!==null){ability.proficient=value;initialized.push({key:`system.abilities.${key}.proficient`,value,origin:'schema-default'});}
         }
     }
-    let reason=plan.reason;
+    const ruleFlags=sourceRuleFlags606(actor);
+    let reason=plan.reason??ruleFlags.reason;
     const formulas:Record<string,string>={},modes:Record<string,EffectModeState>={};
     const origins:Record<string,'source'|'default'|'null-cleaned'>={};
     function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;valid?:(value:string)=>boolean}|null {
@@ -173,11 +175,11 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         const number=/^system\.(?:abilities\.(?:str|dex|con|int|wis|cha)\.(?:value|proficient)|(?:skills|tools)\.[^.]+\.value)$/.test(change.key);
         if(number&&field&&!field.formula&&!field.mode&&!field.set){
             const rawAbilityRolls=record(record(system.rolls)?.ability);
-            if(Object.values(record(record(source.flags)?.dnd5e)??{}).some(Boolean)||[system.rolls,record(system.rolls)?.ability,...['check','save','skill','tool'].map(key=>rawAbilityRolls?.[key])].some(value=>value!=null&&!record(value))){reason??='Final prepared numeric operands require flag/roll-container qualification';continue;}
+            if(ruleFlags.reason||[system.rolls,record(system.rolls)?.ability,...['check','save','skill','tool'].map(key=>rawAbilityRolls?.[key])].some(value=>value!=null&&!record(value))){reason??='Final prepared numeric operands require flag/roll-container qualification';continue;}
             const previous=Object.hasOwn(finalNumbers,change.key),keys=change.key.split('.');
             let before:unknown=previous?finalNumbers[change.key]:field.object[field.field];
             if(!previous&&keys[1]==='abilities'&&keys[3]==='proficient')before=saveProficiency606(before,globals.save.proficiency);
-            if(!previous&&['skills','tools'].includes(keys[1]))before=checkProficiency606(sourceCheckCoefficient606(before),undefined,[keys[1]==='skills'?'skill':'tool'],{check:globals.check.proficiency,skill:globals.skill.proficiency,tool:globals.tool.proficiency});
+            if(!previous&&['skills','tools'].includes(keys[1]))before=checkProficiency606(sourceCheckCoefficient606(before),undefined,[keys[1]==='skills'?'skill':'tool'],{check:globals.check.proficiency,skill:globals.skill.proficiency,tool:globals.tool.proficiency},ruleFlags.jackOfAllTrades);
             if(typeof before==='number'&&(field.integer&&!Number.isInteger(before)||field.min!==undefined&&before<field.min||field.max!==undefined&&before>field.max))before=null;
             const value=typeof before==='number'&&Number.isFinite(before)&&delta!==null&&Math.abs(delta)<=1_000_000_000?applyNumericFieldChange(before,delta,change.type,field):null;
             if(value===null){reason??=`Final prepared numeric operation/source/value requires qualification: ${change.key}`;continue;}
@@ -210,7 +212,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         applied.push({effectId:change.effectId,key:change.key,phase:'final',before,value});
     }
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    return {system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
 }
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified

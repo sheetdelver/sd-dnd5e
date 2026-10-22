@@ -381,3 +381,14 @@ primitive cleaning/default traces are separate. Effective Actor status differs f
 Document.active after some CI changes. CI change execution,constant guard callback,
 model hooks/custom-rule absence and roll-build callbacks are declared stubs. No
 module condition implementation or native/operator acceptance is implied.
+
+C55/C56 `source-flags.json`:864 frozen independent modern Jack/Alert profiles at
+levels0/5/9/20, fractional/expertise coefficients, initialized global targets and
+source modes. Exact Common/Creature/Attributes/Actor methods compare5184 check and
+1728 initiative configurations. Boolean source declarations,10falsy defaults and
+2proficiency-dice boundaries are distinct from model initialization and native dice.
+C56 additionally compares one final skill-value phase composition. Initialized shells,
+absent custom features, model hooks and roll-build callback/serializer stubs remain
+explicit; no full model boot, Item grants, general flags or native/operator acceptance.
+Independent expectations precede runtime admission; module/source/poison preservation,
+mounted both-layout consumers and real isolated public-host rolls are separate layers.

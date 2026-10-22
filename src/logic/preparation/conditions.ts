@@ -1,3 +1,4 @@
+import {sourceRuleFlags606} from './rule-flags';
 import {applyPetrificationGrants606,type ConditionTraitGrant606} from './condition-traits';
 import {record} from '../native/6.0.6/source';
 import {FAMILY_CONDITION_IDS_606,INCAPACITY_CONDITION_IDS_606,type QualifiedCondition606} from '../native/6.0.6/condition-identities';
@@ -86,9 +87,9 @@ export function prepareConditions606(actor:unknown,system:Record<string,unknown>
     return {immunitySource,rules,levels,rollReduction:exhaustion?-2*exhaustion:0,speedReduction:5*exhaustion,status:failed?'unavailable':'ready',...(failed?{reason:failed}:{}),sources,initialStatuses,preparationStatuses,actorStatuses,statuses,...(traitGrant?{traitGrant}:{}),modes,provenance};
 }
 export function projectConditions606(actor:unknown,context:RulesContext,prepared:ConditionPreparation606):ConditionPreparation606 {
-    const source=record(actor),s=record(source?.system),attributes=record(s?.attributes),flags=record(record(source?.flags)?.dnd5e),encumbrance=context.settings['dnd5e.encumbrance'];
+    const source=record(actor),s=record(source?.system),attributes=record(s?.attributes),flags=sourceRuleFlags606(actor),encumbrance=context.settings['dnd5e.encumbrance'];
     const reason=context.status!=='supported'||context.profile!=='2024'?'Condition rules context unavailable':source?.type!=='character'?'Condition profile requires a player character'
-        :Object.values(flags??{}).some(Boolean)?'Native flag or transformation condition preparation unavailable'
+        :flags.reason?flags.reason
         :!encumbrance||encumbrance.status==='unavailable'||encumbrance.value!=='none'?'Condition/encumbrance interaction unavailable'
             :attributes?.exhaustion!==undefined&&attributes.exhaustion!==0?'Legacy exhaustion source migration requires qualification'
                 :source?.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length)?'Prepared status source requires qualification':prepared.reason;

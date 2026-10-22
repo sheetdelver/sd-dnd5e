@@ -27,7 +27,7 @@ export function prepareHealth606(actor:unknown,context:RulesContext,effects:Nume
     else if(source.type!=='character'||typeof source._id!=='string'||!/^[A-Za-z0-9_-]+$/.test(source._id))common='Character health source identity unavailable';
     if(source.uuid!==undefined&&source.uuid!==`Actor.${source._id}`)common??='Health UUID outside qualified world-character profile';
     common??=effects.reason;
-    if(Object.values(record(record(source.flags)?.dnd5e)??{}).some(Boolean))common??='Flag or transformation health preparation unavailable';
+    common ??= effects.ruleFlags.reason;
     if(attributes.exhaustion!==undefined&&attributes.exhaustion!==0||Array.isArray(source.statuses)&&source.statuses.length)common??='Condition health preparation unavailable';
     if(common)return {hp:noHp(common),hitDice:noHd(common)};
     const items=Array.isArray(source.items)?source.items:null,classes:Record<string,unknown>[]=[],ids=new Set(),identifiers=new Set();

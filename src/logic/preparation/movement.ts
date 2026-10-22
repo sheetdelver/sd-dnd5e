@@ -34,7 +34,7 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
     if(context.status!=='supported'||context.profile!=='2024')common=`Movement/senses rules context unavailable: ${context.reason??context.profile??'unknown'}`;
     else if(source.type!=='character'||typeof source._id!=='string'||!/^[A-Za-z0-9_-]+$/.test(source._id)||source.uuid!==undefined&&source.uuid!==`Actor.${source._id}`)common='Movement/senses identity outside qualified world-character profile';
     common??=effects.reason;
-    if(Object.values(record(record(source.flags)?.dnd5e)??{}).some(Boolean))common??='Movement/senses flags or transformation unavailable';
+    common ??= effects.ruleFlags.reason;
     if(attributes.exhaustion!==undefined&&attributes.exhaustion!==0||source.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length))common??='Movement/senses condition preparation unavailable';
     const ref=resolveSpecies606(actor,system);let species:Record<string,unknown>|null=null,speciesUuid:string|undefined;
     if(ref.kind==='text'||ref.kind==='unavailable')common??=ref.reason;

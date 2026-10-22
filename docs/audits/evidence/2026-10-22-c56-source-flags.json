@@ -1,0 +1,221 @@
+{
+  "checkpoint": "C56",
+  "date": "2026-10-22",
+  "parent": "85e7e870cdefa993362ba47566c5a9b8fa874a70",
+  "requirements": "Partial M2/Q02a DD-02/03/27/34,A02/A04/A18/A21;no full gate closure",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "before": {
+    "commit": "85e7e87",
+    "command": "node /tmp/dnd5e-core-baseline-iDcWjQ/core/node_modules/tsx/dist/cli.mjs --tsconfig /tmp/dnd5e-core-baseline-iDcWjQ/core/tsconfig.json src/tests/source-flags.test.ts",
+    "unchangedIndependentProfiles": 864,
+    "failingProfiles": 648,
+    "reason": "Prior intentional any-truthy-flag runtime gate;new profile admission,not a new Core defect",
+    "logSha256": "1d0b545073942e4e25315cdcabd57d2424448b717c9ef126bdf0ccf4c262561e"
+  },
+  "implementation": {
+    "sharedBooleanQualifier": true,
+    "sourceJackSelectedSkillOnly": true,
+    "earlierCombinedAdvantage": true,
+    "halfPositiveEvenFlatZero": true,
+    "AlertInitProficiencyNotGlobalTarget": true,
+    "AlertProficiencyDiceUnavailable": true,
+    "plainInitiativeWithoutProfIndependent": true,
+    "finalNumericPreparedBeforeJackHalf": true,
+    "noLegacyExpansion": true,
+    "unknownMalformedFlagsAndItemEffectWritesFenced": true,
+    "sourcePoisonPreservation": true,
+    "currentIntentRequiredAfterRecovery": true
+  },
+  "controlledSource": {
+    "profiles": 864,
+    "checkConfigurations": 5184,
+    "initiativeConfigurations": 1728,
+    "falsyDefaults": 10,
+    "proficiencyDiceBoundaries": 2,
+    "compositions": [
+      {
+        "id": "Jack-final-field-starts-from-prepared-half",
+        "currentField": 1,
+        "effectValue": 0,
+        "earlierProf": 0.5,
+        "rollBonus": 3,
+        "initiative": 5
+      }
+    ],
+    "nativeSourceHashes": {
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+      "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+      "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+      "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+    },
+    "foundrySourceHashes": {
+      "client/dice/roll.mjs": "a27f498f7b3864a1baa7cebbb1ccb611f9796720b4a4d153df779803b995c7ff",
+      "client/dice/parser.mjs": "2fe7a584106a9ac5c5b216af62ec6b7e6b4da0ab4dbdd8a64bc32320b5bce799",
+      "client/dice/terms/operator.mjs": "edb71ad0cc4b9a8dab15abcff233fa629a15bdfb668f0bfc9fa0f9a21fcb6e82",
+      "client/documents/abstract/client-document.mjs": "a007180e3cf8d465dffe43b11272f289b4cf77a9e301c7d431f48267dfad8e9e",
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+      "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+      "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+      "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5",
+      "common/abstract/data.mjs": "11bb7f848c707803607accfa9f6b946c7cbfe8b17781ff562b468bdc77b934e5"
+    }
+  },
+  "checks": [
+    {
+      "command": "node scripts/test.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "61 assertions/9tooling/44module suites PASS",
+      "logSha256": "73dc4aa09e24cf3e3ef1c9a487845fa6d8032966fe2cfa9966758cd7fb9e3c85"
+    },
+    {
+      "command": "node scripts/typecheck.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "196 explicit source/UI/server/test/hook files PASS",
+      "logSha256": "71d68fa62c47a2da39f83643a24ceca899d599cb27e74991f9d249f80ce399be"
+    },
+    {
+      "command": "node scripts/native-source.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+      "result": "2242records/591expressions exact release inventory PASS",
+      "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+    },
+    {
+      "command": "node scripts/native-check-oracle.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --write-evidence temp/c56-native-checks.json",
+      "result": "retained source/default/intermediate/check/tool/selected/manual comparisons PASS",
+      "logSha256": "fdfddfb242df102fbd2d56a7f03a57b635dba5615b048f8d9c9d261223bbf281"
+    },
+    {
+      "command": "node scripts/native-effect-oracle.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c56-native-effects.json",
+      "result": "69Item/5phase/21numeric/20Formula/26mode comparisons PASS",
+      "logSha256": "815499757a32a51097600d76b44821654c869f8f69b95eddc9b753e2babd7c16"
+    },
+    {
+      "command": "node scripts/native-condition-oracle.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c56-native-conditions-final.json",
+      "result": "retained matrices+864flags/10defaults/2dice/1composition PASS",
+      "logSha256": "821980cad5d7ee232521eed330fd178f794d80865c17c7ba8bc3142d4bc9ee44"
+    },
+    {
+      "command": "node scripts/test-mounted.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell --source-flags-only",
+      "result": "74 actual flags/header/indicator/passive/selected/manual/shortcut/held-callback states at1440/390 PASS",
+      "logSha256": "c21cbebb2051592f0e5863282d9df27a2cfd0b8f43b6e8b3641474cffdd1b914"
+    },
+    {
+      "command": "node scripts/test-public-rolls.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "261770accepted/1candidate rejection/40nonblocking equal-index diagnostics/0native writes PASS",
+      "logSha256": "3276ce4f7c45e8ac50ad1f1bc8418de57f52195775091938af52aceba9737268"
+    },
+    {
+      "command": "node scripts/check-package.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "module checking and isolated managed package PASS",
+      "logSha256": "e1c6ae6ee8aa6a968c332bd0afed6d4278a97e4609da000da137d8bc4523488e"
+    },
+    {
+      "command": "node scripts/test-mounted.mjs --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell",
+      "result": "PASS retained50transitions/8previews/16facts/18modes/56tools/80selected/22eligibility/1172fields/58mode-effects/58health/102AC-init/90armor/84movement/624training/24indicators/149defenses/40species/180normalranges+heldcallbacks",
+      "logSha256": "97e399e818866d8ec83b502a5c6fdf1357fa736caa81fc410aba1d4374e241eb"
+    }
+  ],
+  "artifacts": {
+    "tests/fixtures/native-6.0.6/source-flags.json": {
+      "sha256": "777b10288a035a876ef3436bc7a3eb815a11e4efc9687433d75fd48092c2ecea"
+    },
+    "scripts/native-condition-oracle.mjs": {
+      "sha256": "d1c0bd86ee9a6ad5c8dad5f3e124de39e44b5d9cc81deaead5dbad1e6bbc2804"
+    },
+    "scripts/test-mounted.mjs": {
+      "sha256": "b196b3d9bf994e9b30bb6f0291aa762802a6aadce40a0785fd137ae1e9b18e55"
+    },
+    "scripts/test-public-rolls.mjs": {
+      "sha256": "45e3f516685cd6ac640d025b8c3ecd38bb2ea21a667e532f57295ba333eaaa9f"
+    },
+    "src/tests/source-flags.test.ts": {
+      "sha256": "ea490563bfddc5e0f759a3bd609a75488e034fada79da11214e7c8a25aa7b24a"
+    },
+    "src/tests/fixtures/source-flag-scenarios.ts": {
+      "sha256": "dc63cd7e900d8f15f3ab0d88310f20af8902de49ddc1e4779e481b89a9390c84"
+    },
+    "temp/c56-native-conditions-final.json": {
+      "sha256": "13f541299fa5450e8a285299dccbbb31228be8062073f0fcb4590be34b8f7582"
+    },
+    "temp/c56-native-checks.json": {
+      "sha256": "ba3037e1191f6d4558079a7ec0ccda8204dc473c50b4b07ed083645a029ab448"
+    },
+    "temp/c56-native-effects.json": {
+      "sha256": "c443c59cbbc26b7b4e4a99ac3407628e88cd14241043cf45cbc2dd5842ea4873"
+    },
+    "/tmp/dnd5e-mounted-0eRkNH/evidence.json": {
+      "sha256": "3e3bf874dcee0223c4d5ea73834fac8a1a3be557179eb21bd95fb3b8bc9d4df9"
+    },
+    "/tmp/dnd5e-mounted-0eRkNH/fixture.js": {
+      "sha256": "828bca3812cc88ea0e539d120279d68c9b118c2d5ee1d71bd944881ca72d3616"
+    },
+    "/tmp/dnd5e-public-rolls-ydDJmz/evidence.json": {
+      "sha256": "e4bb76001b9cbd1b9d63b29cf0cdd4b4b447d1b07151ad3ad79b78a8515e9087"
+    },
+    "/tmp/dnd5e-public-rolls-ydDJmz/observed.json": {
+      "sha256": "712d11f6a62bc45c9645d8192643d1fcf03cc69394858b38c8509448da456f76"
+    },
+    "/tmp/dnd5e-public-rolls-ydDJmz/transport.json": {
+      "sha256": "075effd842ecff55277048bdee4e8fe0400acef0cedcec6ecf1ab367f694e289"
+    },
+    "/tmp/dnd5e-package-pf1Z8b/data/dist/modules/dnd5e-0.4.1.tgz": {
+      "sha256": "5ea1b769bdc23af975b3634b1e8ba3b01151c7c8f1e40f051058ea0f3a1b449d"
+    },
+    "/tmp/dnd5e-mounted-GyZWhB/evidence.json": {
+      "sha256": "14769ea307d1cea6e4cd6964c08ba9aece8c905c0adfb5d489fab68a7b757fed"
+    },
+    "/tmp/dnd5e-mounted-GyZWhB/fixture.js": {
+      "sha256": "828bca3812cc88ea0e539d120279d68c9b118c2d5ee1d71bd944881ca72d3616"
+    }
+  },
+  "limits": [
+    "Only source Jack/Alert modern Boolean flags;no grants inferred from names,other flags,Item/effect flag origins,legacy expansion,expressions,nonhomogeneous dice or adv/dis ranges.",
+    "Frozen independent arithmetic,actual initialized method shells and field operations;model/base hooks,absent unrelated features and roll serializer/callback stubs declared. No full source boot/native dice acceptance.",
+    "Real Core public req.runtime.rolls in a temporary synthetic test module;not installed D&D actor action endpoint,live world,chat/native/operator or installed UI acceptance.",
+    "Actual both-layout components in routed offline browser fixtures,not installed operator acceptance.",
+    "Node24.21/npm11.19;CI Node22 unrun locally.",
+    "Experimental0.4.1/Core>=0.19.3 unchanged;E01/E02/E04/widerQ00/E05 and full ADR/DD/A/M gates open."
+  ],
+  "supersedes": [
+    "C55 intentional runtime gate for these two source flags only",
+    "C54 final-number Jack flag-unavailable regression now uses still-unknown initiativeHalfProf;new864 cases plus actual final-field composition protect the admitted profile"
+  ],
+  "failedDriverAssumptions": [
+    "New final-field regression initially attempted to read internal finalNumbers from the caller effect projection;corrected to the actual applied effect receipt. Runtime output unchanged.",
+    "New range regression initially required a static unavailableReason although numeric configuration deliberately permits a manual normal bounded request and fences adv/dis in the shared execution compiler. Retained exact normal formula and adv/dis rejection assertions;no range boundary broadened."
+  ],
+  "isolatedPublicHost": {
+    "root": "/tmp/dnd5e-public-rolls-ydDJmz",
+    "caseCount": 261770,
+    "requestCount": 261771,
+    "sourceFlagCheckCases": 24192,
+    "sourceFlagFixedCases": 864,
+    "sourceFlagNormalBoundCases": 864,
+    "equalIndexDiagnostics": 40,
+    "nativeWrites": 0,
+    "selectionCriteria": "Exact ordered faces/entropy/retained value/count/discard/total/full distributions;unequal-pair index exact;equal-face index difference diagnostic only;actual serialization unchanged"
+  },
+  "package": {
+    "path": "/tmp/dnd5e-package-pf1Z8b/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "5ea1b769bdc23af975b3634b1e8ba3b01151c7c8f1e40f051058ea0f3a1b449d",
+    "docsExcludedFromDistribution": true
+  },
+  "services": "All physical task-owned public hosts/browsers closed by driver finally;production listeners untouched;released Core baseline clean. No live Foundry connections."
+}

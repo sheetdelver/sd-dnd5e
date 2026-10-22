@@ -1109,3 +1109,10 @@ global-check target. Earlier combined advantage and fixed-score phases stay sepa
 actual pinned methods on initialized shells. Runtime admission remains C56 work.
 [Qualification record](../audits/evidence/2026-10-22-c55-source-flags-foundation.json)
 retains exact sources, commands and limits; no native/runtime acceptance follows.
+
+C56 integrates the C55 modern source booleans; the native method harness adds an
+actual final NumberField composition starting at Jack's prepared.5 and retaining
+effectValue0/earlier prof.5. Fresh skill bonus3 and Alert initiative5 match independent
+level5/modifier2 expectations. No other flags or Item/effect flag writes are admitted.
+[Runtime record](../audits/evidence/2026-10-22-c56-source-flags.json) separates this
+controlled arithmetic/phase comparison from real Core public-roll and mounted evidence.

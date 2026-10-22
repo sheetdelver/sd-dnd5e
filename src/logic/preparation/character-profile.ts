@@ -25,7 +25,7 @@ export function characterFacts606(actor: unknown, context: RulesContext, effects
     const initial=initializeClassFacts606(actor);
     if(initial.status==='ready')level=initial.level;else reason??=initial.reason;
     reason ??= effects.reason;
-    if (Object.values(record(record(source.flags)?.dnd5e) ?? {}).some(Boolean)) reason ??= 'Native flag or transformation preparation unavailable';
+    reason ??= effects.ruleFlags.reason;
     const levelFact = numericFact(reason ? null : level, reason);
     const setting = context.settings['dnd5e.proficiencyModifier'];
     const profReason = reason ?? (!setting || setting.status === 'unavailable' || setting.value !== 'bonus' ? 'Proficiency dice or setting unavailable; Q00 qualification required' : undefined);

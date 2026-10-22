@@ -1137,3 +1137,21 @@ global-check target. Earlier combined advantage and fixed-score phases stay sepa
 actual pinned methods on initialized shells. Runtime admission remains C56 work.
 [Qualification record](audits/evidence/2026-10-22-c55-source-flags-foundation.json)
 retains exact sources, commands and limits; no native/runtime acceptance follows.
+
+### Qualified modern source flags (C56)
+
+`sourceRuleFlags606` recognizes only persisted Actor Jack of All Trades and Alert
+booleans plus their verified falsy defaults. NumericEffects owns the detached result;
+shared gates consult it instead of independently rejecting every nonempty flag object.
+Unknown/malformed flags and Item/effect flag operations remain unavailable. No source
+fields are rewritten, class-name grants inferred or general flag/legacy rules admitted.
+
+The shared coefficient helper applies modern Jack only with a selected skill. Earlier
+prepared positive coefficients control automatic advantage; current globals configure
+a fresh roll. It also initializes final skill/tool value operands from the earlier
+prepared state. Alert supplies initiative proficiency rather than a check-scope bonus.
+It requires qualified numeric proficiency; Alert in a proficiency-dice world stays
+unavailable. Ordinary initiative without that term retains independent readiness.
+Cards, headers, indicators, passives and roll surfaces consume the existing projections.
+[Evidence](audits/evidence/2026-10-22-c56-source-flags.json) keeps native method, mounted
+and real public-host observations separate; full preparation/installed parity is open.

@@ -1373,3 +1373,48 @@ C56 must centralize flag validation and share these semantics across all consume
 failing-before tests, malformed/unknown gates and Alert proficiency-dice fencing.
 Other flags, effects/Item flag origins, legacy expansion, E01/E02/E04/widerQ00/E05 and
 all full DD/A/M/ADR/native/operator gates remain open. No metadata changes.
+
+### C56 — shared modern Jack/Alert source rules (2026-10-22)
+
+C56 integrates C55's two persisted Boolean flags through one source qualifier and
+shared numeric preparation. Modern Jack sets a sub-one coefficient to half only for
+a request with a selected skill; independent tools and ability checks do not gain it.
+Earlier skill/tool prof objects still determine automatic combined advantage. Positive
+half proficiency counts even when its flat bonus rounds to zero. Fresh requests and
+final-field prepared-before operands use the same coefficient helper. Modern Alert
+adds base proficiency to initiative and its earlier fixed score, independent of global
+check proficiency. Proficiency-dice Alert remains unavailable because it adds1d6; a
+plain initiative with no proficiency term stays independently numeric.
+
+The qualifier accepts true and the verified absent/null/false/zero/blank defaults.
+Unknown truthy flags, malformed recognized values/containers, transformations and
+Item/effect flag writes remain gated. No name-based grants, legacy expansion, new dice
+evaluator or host dependency was introduced. Flags stay source data; the detached
+preparation snapshot is revision-owned. Shared skill/tool/ability/initiative compilers
+supply both layouts, cards, headers, proficiency indicators, previews, shortcuts and
+direct requests. Source metadata and prepared-looking poison fields remain unchanged.
+
+With unchanged864 independent profiles,648 flag-bearing cases fail on C55's intentional
+runtime gate and all864 pass after C56. Maintained cases cover levels0/5/9/20, fractional
+and expertise coefficients, initialized global targets, modes/manual overrides, fixed
+scores, numeric bonuses/bounds, poison/source preservation, invalid flags, context
+loss/recovery and stale intent. Actual pinned methods additionally prove final skill
+value starts at Jack's prepared half, while the earlier prof/effectValue stays distinct.
+
+[Evidence](evidence/2026-10-22-c56-source-flags.json) separates commands, artifacts and controlled-source/regression/mounted/
+isolated-host/package evidence. All full DD/A/M/ADR acceptance remains open. Other
+flags, later trait/Item/filter phases, expressions, nonhomogeneous dice, adv/dis ranges,
+E01/E02/E04/widerQ00/E05 and native/operator acceptance remain open. Experimental0.4.1
+and compatibility are unchanged. Next executable M2 work: qualify final trait/training
+field changes against native phase order before admitting their shared projections;
+continue bounded Q00 independently of the documented external dependencies.
+
+C56 completed validation:61 assertions/9tooling/44module suites and196 explicit module/
+UI/server/test/hook files PASS. Exact inventory2242/591, retained native checks/effects/
+condition matrices plus864flags/10defaults/2dice boundaries/1final-field composition
+PASS. Focused mounted74 at1440/390 and the full retained mounted suite PASS. Actual
+public-host261770accepted/1known candidate rejection/40equal-index diagnostics/0native
+writes PASS. Isolated module check/package PASS; archive SHA256
+`5ea1b769bdc23af975b3634b1e8ba3b01151c7c8f1e40f051058ea0f3a1b449d`.
+All task-owned browsers/hosts closed; no live Foundry or production configuration.
+Node24.21 tested;CI Node22 remains unrun. No full acceptance gate closes.
