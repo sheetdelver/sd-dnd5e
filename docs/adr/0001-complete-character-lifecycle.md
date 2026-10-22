@@ -2105,3 +2105,29 @@ writes PASS. Isolated module check/package PASS; archive SHA256
 `5ea1b769bdc23af975b3634b1e8ba3b01151c7c8f1e40f051058ea0f3a1b449d`.
 All task-owned browsers/hosts closed; no live Foundry or production configuration.
 Node24.21 tested;CI Node22 remains unrun. No full acceptance gate closes.
+
+### C57 — final defense Set phase qualification (2026-10-22)
+
+192 independent literal cases compare exact native Traits normalization followed by
+actual SetField final operations and native sheet presentation: eight value/bypass
+fields, six operations, overlap/ALL/empty/petrified sources. Final operations act on
+the earlier normalized Sets and do not replay normalization. A final addition can
+therefore leave an overlap or ALL plus specific entries; projecting it as a newly
+normalized source would erase a legitimate final change. Raw whitespace deltas still
+compare before StringField cleaning, as in the earlier Set qualification.
+
+144 condition-free field/presentation cases are independently bounded.48 additional
+petrified initialized-model cases compare fields separately from the native sheet's
+All Damage override. That predicate is a declared stub, not a new condition lifecycle
+qualification; final condition/status interactions remain open. Runtime must keep that
+boundary explicit until actual Actor-query/phase comparisons are available.
+
+[Record](../audits/evidence/2026-10-22-c57-final-defense-sets-foundation.json) retains commands, exact source/static-field/fixture/capture hashes, prior
+phase evidence and collaborator limits. Maintained native trait comparison PASS:
+retained25defense/24trainingSets/33training-language/33initialtrait plus192final cases.
+C56 module/typing/public/mounted/package evidence remains unchanged and separate; no
+new installed/native/operator acceptance is claimed. Qualification only: C58 must
+introduce a shared earlier-normalized/final Set snapshot, preserve raw source and
+partial-domain diagnostics, and test both layouts, stale intents and execution gates
+before admission. Other final training/Item/filter/formula/condition phases and all
+full ADR/DD/A/M gates remain open. Experimental0.4.1 and compatibility unchanged.

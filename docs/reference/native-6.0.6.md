@@ -1116,3 +1116,10 @@ effectValue0/earlier prof.5. Fresh skill bonus3 and Alert initiative5 match inde
 level5/modifier2 expectations. No other flags or Item/effect flag writes are admitted.
 [Runtime record](../audits/evidence/2026-10-22-c56-source-flags.json) separates this
 controlled arithmetic/phase comparison from real Core public-roll and mounted evidence.
+
+C57 qualifies192 final defense Set cases: native normalization precedes final field
+operations and must not be replayed afterward. Current Sets can differ from earlier
+normalized data. Petrified sheet AllDamage override is separately captured with a
+declared predicate stub; no condition-query/phase admission follows. Runtime remains
+gated until C58 shared snapshots and consumer tests. [Record](../audits/evidence/2026-10-22-c57-final-defense-sets-foundation.json)
+keeps actual method/field comparisons separate from source boot/UI/native acceptance.

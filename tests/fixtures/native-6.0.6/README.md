@@ -392,3 +392,9 @@ absent custom features, model hooks and roll-build callback/serializer stubs rem
 explicit; no full model boot, Item grants, general flags or native/operator acceptance.
 Independent expectations precede runtime admission; module/source/poison preservation,
 mounted both-layout consumers and real isolated public-host rolls are separate layers.
+
+C57 `final-defense-sets.json`:192 frozen independent final defense Set cases;144
+condition-free and48petrified initialized field/presentation cases. Actual Traits then
+SetField then sheet;no normalization replay after final. Petrification predicate and
+key-label/registry helpers declared stubs. Runtime admission and full condition phase
+qualification remain separate;no module output was used to generate expectations.

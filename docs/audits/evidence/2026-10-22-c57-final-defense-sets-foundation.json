@@ -1,0 +1,57 @@
+{
+  "checkpoint": "C57",
+  "date": "2026-10-22",
+  "parent": "4cfbf209857dfadb65ececdff6f094fba396828e",
+  "requirements": "Partial M2/Q02a DD-03/11/27/34,A03/A04/A18/A21;no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "independentCases": 192,
+  "supportedConditionFreeFieldCases": 144,
+  "petrifiedIntermediateFieldPresentationCases": 48,
+  "command": "npm run test:native-traits -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c57-native-traits.json",
+  "result": "PASS retained25defense/24trainingSet/33trainingLanguage/33initialtrait and192 final defense Set cases",
+  "sourceHashes": {
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+    "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+    "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+    "module/documents/actor/trait.mjs": "a638c34db4c3e4255bfbbd1952d7a3231dd9ea35038c51b9b7cc0d77658bd635",
+    "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+    "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+    "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+    "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200"
+  },
+  "foundry": {
+    "generation": 14,
+    "build": 367,
+    "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+    "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+  },
+  "englishSha256": "ab2545d9500f8019e0a752af4ab252073f3cdc18008c5e82bcb6ec71af5e82a4",
+  "artifacts": {
+    "tests/fixtures/native-6.0.6/final-defense-sets.json": "7f023e22990c9be0e59e5b0e150a9815f1ff6cfb34ecd35796bc2483db7ebd86",
+    "scripts/native-traits-oracle.mjs": "c8a2cba7f5ab580dd1bc46fb90570610f61c44a04774794ce0842d6cd4d1e387",
+    "temp/c57-native-traits.json": "43c86e0abd23c5082b207fcbcef20b5615aa6966641cfd7eb6f50a116d289247",
+    "temp/c57-native-traits.log": "a11a1cb6789d02efa427622331b1d271ac30de3e9078c2e9d79404ccbb5a8dc2"
+  },
+  "observations": [
+    "Actual Traits.prepareResistImmune then actual SetField.applyChange,then native sheet. Final changes do not re-run earlier ALL/overlap normalization.",
+    "Eight defense value/bypass targets,six operations,four independently declared literal sources;string/Set cleaning and raw whitespace delta comparison remain distinct.",
+    "Condition-free native sheet exposes current final values,including simultaneous ALL and specific damage entries if a final operation creates them.",
+    "Stubbed petrification predicate keeps native AllDamage display override even if final DRfield differs. Current field,earlier grants and presentation must remain distinct;no new actual condition-query/phase qualification."
+  ],
+  "limits": [
+    "Qualification only;runtime final traits remain gated pending C58.",
+    "Initialized fields and declared phase composition,not full DataModel/source boot or actual Actor effect execution. Exact Actor/document ordering separately retained in C46-C54 evidence.",
+    "Fixed defense-only registry/key-label stub restored after earlier training captures;native sheet method and Set operations actual. Initial ignored probe omitted registry restoration and failed;corrected collaborator,all192pass. No native behavior changed or assertion weakened.",
+    "Only primitive literal Set deltas;no references,custom rules,broader expressions,Items,dependent/filtered rules or effect writes.",
+    "C56 runtime/tests/type/package/public/mounted results remain separate and unchanged;no new UI/public/package claim for qualification-only work.",
+    "Petrified field comparison alone does not qualify final condition/status behavior;C58 must retain explicit unqualified workflow boundary until full phase comparison.",
+    "Experimental0.4.1/Core>=0.19.3 unchanged;ADR/fullM/DD/A/installed/native/operator gates and E01/E02/E04/widerQ00/E05 remain open."
+  ]
+}

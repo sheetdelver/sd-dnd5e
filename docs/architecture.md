@@ -1155,3 +1155,10 @@ unavailable. Ordinary initiative without that term retains independent readiness
 Cards, headers, indicators, passives and roll surfaces consume the existing projections.
 [Evidence](audits/evidence/2026-10-22-c56-source-flags.json) keeps native method, mounted
 and real public-host observations separate; full preparation/installed parity is open.
+
+C57 qualifies192 final defense Set cases: native normalization precedes final field
+operations and must not be replayed afterward. Current Sets can differ from earlier
+normalized data. Petrified sheet AllDamage override is separately captured with a
+declared predicate stub; no condition-query/phase admission follows. Runtime remains
+gated until C58 shared snapshots and consumer tests. [Record](audits/evidence/2026-10-22-c57-final-defense-sets-foundation.json)
+keeps actual method/field comparisons separate from source boot/UI/native acceptance.
