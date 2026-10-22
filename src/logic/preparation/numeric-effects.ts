@@ -169,6 +169,9 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         field.object[field.field]=value;if(formula!==undefined)formulas[change.key]=formula;
         applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(formula!==undefined?{formula}:{})});
     }
+    // Native Diamond Soul assigns save proficiency during ability preparation,
+    // after initial effects and before cached saves/final fields.
+    if(ruleFlags.diamondSoul)for(const key of ['str','dex','con','int','wis','cha']){const ability=record(record(system.abilities)?.[key]);if(ability)ability.proficient=1;}
     // Common.prepareAbilities mutates condition counts after initial effects and
     // before skill/tool passives. Keep this provenance separate from initial writes.
     let conditions=prepareConditions606(actor,system,plan.conditions??[],reason,plan.baseStatuses??[]);
@@ -182,6 +185,13 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         if(!state){reason??='Condition ability mode source malformed';break;}
         const value=applyEffectMode(state,'add',modifier.mode);if(value===null){reason??='Condition mode preparation unavailable';break;}
         parent[field]=value;modes[modifier.path]=state;
+    }
+    // Modern Remarkable Athlete adds Athletics advantage,not legacy half prof.
+    if(ruleFlags.remarkableAthlete){
+        const key='system.skills.ath.roll.mode',field=target({key});
+        const state=field?modes[key]??initializedModeState(field.object[field.field]):null;
+        if(!field||!state||applyEffectMode(state,'add',1)===null)reason??='Remarkable Athlete skill mode preparation unavailable';
+        else {field.object[field.field]=resolvedEffectMode(state);modes[key]=state;}
     }
     // Native passives and initiative scores precede armor/initiative/final modes.
     // Keep their earlier count state separate; never move a final effect to initial.
@@ -200,6 +210,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     if(equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')&&!addExecutionMode('system.skills.ste.roll.mode',-1))checkExecutionReason='Equipped armor Stealth mode source malformed';
     for(const modifier of conditions.modes)if(modifier.phase==='initiative')addExecutionMode(modifier.path,modifier.mode);
+    if(ruleFlags.remarkableAthlete&&!addExecutionMode('system.attributes.init.roll.mode',1))checkExecutionReason??='Remarkable Athlete initiative mode preparation unavailable';
     for(const change of plan.final){
         if(change.type.startsWith('dnd5e.'))continue;
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
@@ -248,7 +259,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
             const previous=Object.hasOwn(finalNumbers,change.key),keys=change.key.split('.');
             let before:unknown=previous?finalNumbers[change.key]:field.object[field.field];
             if(!previous&&keys[1]==='abilities'&&keys[3]==='proficient')before=saveProficiency606(before,globals.save.proficiency);
-            if(!previous&&['skills','tools'].includes(keys[1]))before=checkProficiency606(sourceCheckCoefficient606(before),undefined,[keys[1]==='skills'?'skill':'tool'],{check:globals.check.proficiency,skill:globals.skill.proficiency,tool:globals.tool.proficiency},ruleFlags.jackOfAllTrades);
+            if(!previous&&['skills','tools'].includes(keys[1]))before=checkProficiency606(sourceCheckCoefficient606(before),undefined,[keys[1]==='skills'?'skill':'tool'],{check:globals.check.proficiency,skill:globals.skill.proficiency,tool:globals.tool.proficiency},ruleFlags.jackOfAllTrades,ruleFlags.toolExpertise);
             if(typeof before==='number'&&(field.integer&&!Number.isInteger(before)||field.min!==undefined&&before<field.min||field.max!==undefined&&before>field.max))before=null;
             const value=typeof before==='number'&&Number.isFinite(before)&&delta!==null&&Math.abs(delta)<=1_000_000_000?applyNumericFieldChange(before,delta,change.type,field):null;
             if(value===null){reason??=`Final prepared numeric operation/source/value requires qualification: ${change.key}`;continue;}

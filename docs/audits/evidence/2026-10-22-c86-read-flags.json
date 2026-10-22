@@ -1,0 +1,242 @@
+{
+  "checkpoint": "C86 persisted Boolean feature read rules",
+  "parent": "25da2e03a5cfd8dce6dc69f4061fcce98a4f3dfa",
+  "requirements": [
+    "M2/Q02a partial",
+    "DD-01/02/03/24/27/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "fixture": {
+    "path": "tests/fixtures/native-6.0.6/read-rule-flags.json",
+    "sha256": "e797f24d97b3aa9e2682e6f66cd7333ddba3de873ea0424bf45279f456be47a6",
+    "cases": 320,
+    "matrix": "16 Boolean flag combinations \u00d75 coefficients \u00d74 initial global-target profiles"
+  },
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "sourceHashes": {
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134"
+    },
+    "limits": [
+      "320 independent initialized modern Boolean read-rule profiles;actual native prepareAbilities/Skill/Tools/Initiative and combined builder. Source flags initialization/defaults,effect phases and browser/public execution remain separate.",
+      "Exact _isRemarkableAthlete returns false in modern rules;modern flag grants Athletics and initiative advantage without half proficiency. Tool Expertise checks multiplier before later global check/skill targets."
+    ]
+  },
+  "representativeProfiles": [
+    {
+      "id": "2/0/100",
+      "flags": {
+        "diamondSoul": false,
+        "toolExpertise": true,
+        "observantFeat": false,
+        "remarkableAthlete": false
+      },
+      "coefficient": 0,
+      "targets": {
+        "check": 1,
+        "tool": 0,
+        "skill": 0
+      },
+      "expected": {
+        "skillProf": 1,
+        "toolProf": 1,
+        "ability": 5,
+        "skill": 5,
+        "tool": 5,
+        "passive": 15,
+        "ath": 5,
+        "athPassive": 15,
+        "save": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "combined": 5,
+        "comboProf": 1
+      }
+    },
+    {
+      "id": "2/0/010",
+      "flags": {
+        "diamondSoul": false,
+        "toolExpertise": true,
+        "observantFeat": false,
+        "remarkableAthlete": false
+      },
+      "coefficient": 0,
+      "targets": {
+        "check": 0,
+        "tool": 1,
+        "skill": 0
+      },
+      "expected": {
+        "skillProf": 0,
+        "toolProf": 2,
+        "ability": 2,
+        "skill": 2,
+        "tool": 8,
+        "passive": 12,
+        "ath": 2,
+        "athPassive": 12,
+        "save": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "combined": 8,
+        "comboProf": 2
+      }
+    },
+    {
+      "id": "4/1/000",
+      "flags": {
+        "diamondSoul": false,
+        "toolExpertise": false,
+        "observantFeat": true,
+        "remarkableAthlete": false
+      },
+      "coefficient": 1,
+      "targets": {
+        "check": 0,
+        "tool": 0,
+        "skill": 0
+      },
+      "expected": {
+        "skillProf": 1,
+        "toolProf": 1,
+        "ability": 2,
+        "skill": 5,
+        "tool": 5,
+        "passive": 20,
+        "ath": 2,
+        "athPassive": 12,
+        "save": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "combined": 5,
+        "comboProf": 1
+      }
+    },
+    {
+      "id": "8/0/000",
+      "flags": {
+        "diamondSoul": false,
+        "toolExpertise": false,
+        "observantFeat": false,
+        "remarkableAthlete": true
+      },
+      "coefficient": 0,
+      "targets": {
+        "check": 0,
+        "tool": 0,
+        "skill": 0
+      },
+      "expected": {
+        "skillProf": 0,
+        "toolProf": 0,
+        "ability": 2,
+        "skill": 2,
+        "tool": 2,
+        "passive": 12,
+        "ath": 2,
+        "athPassive": 17,
+        "save": 2,
+        "initiative": 2,
+        "initiativeScore": 17,
+        "combined": 2,
+        "comboProf": 0
+      }
+    },
+    {
+      "id": "15/1/000",
+      "flags": {
+        "diamondSoul": true,
+        "toolExpertise": true,
+        "observantFeat": true,
+        "remarkableAthlete": true
+      },
+      "coefficient": 1,
+      "targets": {
+        "check": 0,
+        "tool": 0,
+        "skill": 0
+      },
+      "expected": {
+        "skillProf": 1,
+        "toolProf": 2,
+        "ability": 2,
+        "skill": 5,
+        "tool": 8,
+        "passive": 20,
+        "ath": 2,
+        "athPassive": 17,
+        "save": 5,
+        "initiative": 2,
+        "initiativeScore": 17,
+        "combined": 8,
+        "comboProf": 2
+      }
+    }
+  ],
+  "checks": {
+    "before": {
+      "artifact": "temp/c86-before.log",
+      "sha256": "6c17cd6ae51085085649e29c3b9a6633d1d3f52bcc2a5a6fa008d0abcd727181",
+      "result": "Maintained same-input ordinary persisted flag regression fails before"
+    },
+    "regression": {
+      "artifact": "temp/c86-tests-complete.log",
+      "sha256": "c5b273b6a8eb8f3295677bc8cfd6bc70e32ab8a5ca9c415f3f15dc925675be1e",
+      "result": "65 module/9 tooling suites,61 tooling assertions PASS"
+    },
+    "typing": {
+      "artifact": "temp/c86-types-complete.log",
+      "sha256": "0c194a1560ca18304f6ccb2a6311c13b5b26f54a36da59de4ae7f79d0552b428",
+      "result": "253 explicit module/UI/server/test/hook files PASS"
+    },
+    "native": {
+      "artifact": "temp/c86-native-flags.json",
+      "sha256": "57f6ee855d9cb92cdd364c1530a0adc4eb37ffdf43fd5a7a91798c7b2b392a28",
+      "result": "320 frozen independent initialized native flag/target/proficiency/preparation/combined-constructor profiles PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-read-flags-mounted-FO50ao/evidence.json",
+      "sha256": "bfc26a204794ec388526aa7a99f8de8bb3c2a2777992d7e8b7f2007b5964138c",
+      "result": "1440/390 actual passive/save-indicator/skill/tool/initiative/filter+flag/combined/manual/shortcut and source/context/stale-intent recovery;0 writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-CXXC8m/evidence.json",
+      "sha256": "a0a2832ea0973aabcd4dc4b84e8c136d47805c60aade1d910b7d0c2f546d169c",
+      "result": "22234 accepted including10240 new flag requests;1 retained unary candidate,40 ordinary tied-index diagnostics,0 native writes PASS"
+    },
+    "exactRelease": {
+      "artifact": "temp/c86-source.log",
+      "sha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff",
+      "result": "2242 records/591 candidate expressions match pinned source inventory PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-e4VBz3/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "5ad690b64e45b13de2cd365317a28e296fed9b93568a367a68f2fcd3d3f13f7f",
+      "result": "Isolated check/package PASS"
+    }
+  },
+  "commands": [
+    "npm test -- --core <Core0.19.3>",
+    "npm run typecheck -- --core <Core0.19.3>",
+    "npm run test:native-source -- --native <read-only checkout>",
+    "npm run test:native-read-flags -- --core <Core> --native <checkout> --foundry <static14.367> --write-evidence temp/c86-native-flags.json",
+    "npm run test:mounted-read-flags -- --core <Core> --chromium <isolated Chromium>",
+    "node scripts/test-public-rolls.mjs --core <Core> --dependency-profile",
+    "npm run check:package -- --core <Core>"
+  ],
+  "dispositions": [
+    "Diamond Soul sets save coefficient1 after initial effects. Tool Expertise upgrades exactly1 after tool target,before check/skill targets. Observant passive+5 only prc/inv. Modern Remarkable Athlete grants Ath/initiative advantage,not legacy half proficiency.",
+    "Qualified flags leave the pre-initial scalar/Set operands unchanged. Two historical flag-only filter refusals are superseded in maintained helpers with explicit independent arithmetic/schema expectations;raw historical JSON remains unchanged. Unknown/transform flags remain gated.",
+    "Earlier public driver expected generic ability+2 despite legitimate global check target1. Actual native ability method establishes+5. Added explicit frozen expectation/native assertion;actual host results unchanged. Failed development logs retained.",
+    "Old Tool Expertise/Remarkable true refusal assertions now test independently expected supported values;their malformed,unknown,legacy,source/context and stale-intent boundaries remain.",
+    "Global proficiency target values in initialized native methods are legitimate intermediates. Module source tests use serialized effect changes;raw nonpersisted poison remains ignored and source unchanged.",
+    "No full source DataModel,effect-written flag,broader flag/dice/legacy-world/native/operator acceptance. M2/ADR open. Core0.19.3 baseline,Node24.21;CI Node22 unrun. Experimental0.4.1/compatibility unchanged.",
+    "Public-host actual serialization and homogeneous plain-d20 equivalence retained;no proficiency-dice/complex-die equivalence extension. Temporary config/synthetic transport only;task-owned services stopped."
+  ]
+}

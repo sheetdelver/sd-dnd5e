@@ -1384,3 +1384,17 @@ Map getOrInsert compatibility,empty Item rule/ammunition collections and determi
 Roll replacement/Math;it does not boot full source DataModels or evaluate native dice.
 [C85 record](../audits/evidence/2026-10-22-c85-applied-rules.json) separates those limits
 from module source/default/poison cases and public-host execution.
+
+
+C86's320 initialized profiles execute actual Common.calculateToolProficiency/
+calculateSkillToolProficiency/prepareAbilities,Creature.prepareSkill/prepareTools,
+Attributes.prepareInitiative,Actor._isRemarkableAthlete and the fresh combined
+builder. The declared schema collaborator supplies only real AdvantageModeField
+instances for Athletics/initiative;actual setMode/field changes/count resolution
+run. Modern Remarkable Athlete does not grant legacy half proficiency. Tool
+Expertise examines max(raw combined coefficient,tool target) before check/skill
+maxima. Diamond Soul sets saves after initial effects;Observant adds5 only to the
+configured prc/inv passive scores. [C86 record](../audits/evidence/2026-10-22-c86-read-flags.json)
+separates initialized globals from source tests using real effect entries and
+preserves the older scalar/Set raw capture limits. Full source DataModel,flag-writing
+effects,unknown flags,legacy-world/runtime/operator acceptance are not asserted.

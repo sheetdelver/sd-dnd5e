@@ -80,6 +80,7 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     if(!['str','dex','con','int','wis','cha'].includes(key)||!numeric)reason??='Initiative ability source unavailable';
     const localMode=structuredClone(effects.modes['system.attributes.init.roll.mode']??initializedModeState(roll.mode));
     if(localMode)for(const modifier of effects.conditions.modes)if(modifier.phase==='initiative'&&modifier.path==='system.attributes.init.roll.mode')applyEffectMode(localMode,'add',modifier.mode);
+    if(localMode&&effects.ruleFlags.remarkableAthlete)applyEffectMode(localMode,'add',1);
     if(!localMode)reason??='Initiative source mode malformed';
     const rawGlobal=record(record(record(record(actor)?.system)?.rolls)?.ability)?.check;
     const scopes=[{path:`abilities.${key}.check.roll`,value:record(abl?.check)?.roll},{path:'attributes.init.roll',value:data.roll},{path:'rolls.ability.check',value:rawGlobal!=null&&!record(rawGlobal)?false:global}].map(scope=>({...scope,effectMode:effects.executionModes['system.'+scope.path+'.mode']}));

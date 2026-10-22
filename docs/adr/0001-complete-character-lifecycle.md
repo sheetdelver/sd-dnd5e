@@ -2843,3 +2843,23 @@ remain explicitly unavailable. This does not complete those rules or Q02a.
 source regressions,17 pinned initialized preparation/constructor profiles,mounted
 both-layout interactions,isolated public rolls and packaging. M2 remains open for
 remaining final/effect/formula dependencies;E01 is independent. No native acceptance.
+
+
+### C86 — persisted Boolean feature read rules (2026-10-22)
+
+The shared source-only preparation admits Diamond Soul,Tool Expertise,Observant and
+modern Remarkable Athlete. Diamond Soul sets saves during ability preparation;
+Tool Expertise tests exactly1 before later global check/skill targets;Observant
+adds5 only to Perception/Investigation passives;modern Remarkable Athlete adds
+Athletics/initiative advantage without legacy half proficiency. Cached Item tool
+proficiency uses that same earlier coefficient. No grants are inferred from names.
+
+[C86 evidence](../audits/evidence/2026-10-22-c86-read-flags.json) records320 independent
+native initialized profiles and source regressions across flags,coefficients and
+legitimate effect-produced global targets. Qualified flags do not modify the known
+pre-initial filter operands,so the historical flag-only refusal is superseded for
+one scalar and one Set fixture;raw historical captures are preserved. Unknown/
+transformation flags and unqualified snapshots remain gated. Both-layout passive,
+save proficiency,Athletics/initiative modes,tool/combined checks and stale intent
+recovery are verified separately from10240 new public-host requests. Broader flag/
+effect/formula and Item final obligations remain;M2 and ADR stay open.

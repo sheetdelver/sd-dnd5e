@@ -1,6 +1,7 @@
 import fixture from '../../../tests/fixtures/native-6.0.6/initial-collection-filters.json';
 import {filterSource} from './filter-scenarios';
-export const initialCollectionFilterCases=fixture.cases;
+// C86 supplements the historical flag-only refusal with independently initialized fire.
+export const initialCollectionFilterCases=fixture.cases.map(row=>row.actorFlag?{...row,expectedInitial:['fire']}:row);
 export function initialCollectionFilterSource(row:typeof initialCollectionFilterCases[number]){
     const actor=filterSource(row),system=actor.system as any,effect=actor.effects![0] as any;
     system.traits=structuredClone(row.extraTraits??{});
@@ -18,6 +19,9 @@ export function initialCollectionFilterSource(row:typeof initialCollectionFilter
     return actor;
 }
 export function initialCollectionFilterExpected(row:typeof initialCollectionFilterCases[number]){
+    // C86 supersedes only the historical Remarkable Athlete guard;its modern
+    // Athletics/initiative modes do not change this WIS/Perception filter math.
+    if(row.actorFlag)return {skill:6,tool:5,check:3,save:3,passive:16,combined:6,combinedTool:6,combinedMode:1};
     if(row.workflowUnavailable)return undefined;
     return {skill:row.expectedSkill!,tool:row.expectedTool!,check:row.expectedAbility!,save:row.expectedSave!,passive:row.expectedSkill!+10,combined:row.expectedSkill!,combinedTool:row.expectedSkill!,combinedMode:1};
 }

@@ -37,7 +37,7 @@ export function prepareItemProficiency606(actor:unknown,item:unknown,context:Rul
    }else {
     const tools=effects.system.tools===undefined?{}:record(effects.system.tools);if(!tools)return unavailable('Item tool proficiency source mapping unavailable');
     const values:number[]=[];
-    for(const selector of [baseItem,key]){const rawEntry=tools[selector];if(rawEntry===undefined){values.push(0);continue;}const entry=record(rawEntry);if(!entry)return unavailable('Item tool proficiency source entry malformed');const value=checkProficiency606(entry.value===undefined?0:entry.value,undefined,['tool'],{check:record(effects.globals.check)?.proficiency,skill:0,tool:record(effects.globals.tool)?.proficiency});if(value===null)return unavailable('Item tool prepared proficiency coefficient unavailable');values.push(value);}
+    for(const selector of [baseItem,key]){const rawEntry=tools[selector];if(rawEntry===undefined){values.push(0);continue;}const entry=record(rawEntry);if(!entry)return unavailable('Item tool proficiency source entry malformed');const value=checkProficiency606(entry.value===undefined?0:entry.value,undefined,['tool'],{check:record(effects.globals.check)?.proficiency,skill:0,tool:record(effects.globals.tool)?.proficiency},effects.ruleFlags.jackOfAllTrades,effects.ruleFlags.toolExpertise);if(value===null)return unavailable('Item tool prepared proficiency coefficient unavailable');values.push(value);}
     multiplier=Math.max(...values);origin='prepared-tool-coefficient';
    }
   }

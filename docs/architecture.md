@@ -1541,3 +1541,11 @@ pre-construction snapshot;bonus expressions use constructor proficiency substitu
 Static passives exclude later registrations and die bounds. Raw appliedRules and
 Proficiency-looking objects are never overrides;unqualified filter properties return
 reasons. [C85 evidence](audits/evidence/2026-10-22-c85-applied-rules.json).
+
+
+The shared Boolean read-rule profile includes Diamond Soul,Tool Expertise,Observant
+and modern Remarkable Athlete. Initial fields,derived saves,earlier tool coefficients,
+passives and current modes retain native phase/order. Initial snapshot predicates
+admit only qualified flags that leave those source/default operands unchanged.
+Source flags and flag-writing effects remain distinct;unknown/transformation flags
+still fence unsupported interpretation. [C86 source/phase evidence](audits/evidence/2026-10-22-c86-read-flags.json).

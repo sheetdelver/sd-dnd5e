@@ -1,3 +1,4 @@
+import {sourceRuleFlags606} from './rule-flags';
 import {initializeCheckSource606} from './source-initialization';
 import {initializeClassFacts606} from './class-initialization';
 import {record} from '../native/6.0.6/source';
@@ -10,8 +11,10 @@ import type {InitialFilterRead} from './constant-filters';
  * base/embedded phase can be read. Optional roll parents must actually exist. */
 export function initialFilterData606(actor:unknown):(key:string)=>InitialFilterRead|null {
     const source=record(actor),system=record(source?.system),initialized=initializeCheckSource606(system),abilities=record(initialized.system.abilities);
-    const actorFlags=record(record(source?.flags)?.dnd5e);
-    const common=source?.type!=='character'||!system||Object.values(actorFlags??{}).some(Boolean);
+    // Qualified persisted flags affect later derived checks/movement/Item facts;
+    // they do not rewrite these pre-initial scalar/Set operands. Transformations
+    // and unqualified flags retain their explicit snapshot boundary.
+    const common=source?.type!=='character'||!system||Boolean(sourceRuleFlags606(actor).reason);
     return key=>{
         if(common)return null;
         const parts=key.split('.');

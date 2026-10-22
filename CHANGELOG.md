@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Prepare Diamond Soul, Tool Expertise, Observant and modern Remarkable Athlete consistently across read and roll surfaces.
+
 - Share conditional rule bonuses, advantage and die bounds across prepared checks and roll previews.
 
 - Share Item proficiency and dependent counters; correct fresh attack proficiency references.

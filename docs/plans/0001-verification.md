@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C85)
+### Current M2 exit state (updated C86)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3413,3 +3413,22 @@ requests use the actual shared compiler;retained distributions/tie diagnostic cr
 are unchanged. [C85 record](../audits/evidence/2026-10-22-c85-applied-rules.json) records
 all commands,hashes and evidence limits. Native source/model/host/installed/operator
 classes remain separate. Full M2 is open;unknown filters are unavailable,not support.
+
+
+### C86 — persisted feature read flags (2026-10-22)
+
+Parent `25da2e0`;partial M2/Q02a,DD-01/02/03/24/27/34,A02–A06/A18/A21.
+320 frozen independent profiles compare native ability/save/skill/tool/passive/
+initiative preparation and combined construction. Source tests supply global target
+values through serialized effects,ignore prepared-looking poison and preserve source.
+Representatives cover coefficient0/.5/1/1.5/2,all16 Boolean combinations,check/tool/
+skill target ordering,malformed flags,Normal bounds,current choices and recovery.
+Mounted1440/390 actual passives/save indicators/skill/tool/initiative/roll consumers,
+manual/shortcut/combined previews and retained callbacks pass. Public-host10240 new
+requests retain existing selection/distribution/serialization assertions. Historical
+initial-filter flag cases now have explicit supplemental expectations (33 scalar,
+59 collection workflows);transformation predicates stay unavailable. The initial
+public driver's missing global-check proficiency expectation was corrected against
+the actual native ability method;no host/runtime workaround was needed.
+[C86 record](../audits/evidence/2026-10-22-c86-read-flags.json) contains commands,hashes,
+full results and limits. Full M2/ADR/native/operator acceptance remain open.

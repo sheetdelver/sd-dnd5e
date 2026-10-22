@@ -2104,3 +2104,16 @@ Expertise-bound root prof resolves before constructor substitution;Item attack
 proficiency-filter data remains distinct from Actor prepared attack data. Unsupported
 filter snapshots/Item-local effect remapping/dice expressions retain explicit gates.
 This is partial M2/Q02a,not full native/operator/installed acceptance.
+
+
+### C86 — modern Boolean feature read dependencies
+
+[C86 evidence](evidence/2026-10-22-c86-read-flags.json) adds320 pinned initialized
+profiles and the corresponding immutable-source/poison/context regressions for
+Diamond Soul,Tool Expertise,Observant and Remarkable Athlete. Same-input ordinary
+flagged checks were unavailable before;source-only profiles now expose independently
+expected totals/passives/proficiency/modes. Tool Expertise does not double a later
+global check target:raw0/check1 stays1,while raw0/tool1 becomes2. Modern Remarkable
+Athlete grants no half proficiency. Earlier initial scalar/Set flag-only gates are
+explicitly superseded with additional expected facts,without rewriting old JSON.
+Other flags,flag-writing effects,legacy expansion and full M2 acceptance remain open.

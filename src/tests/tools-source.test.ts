@@ -88,7 +88,7 @@ assert.equal(adapter.getRollData(baseline,'skill','prc',{tool:'missing'}),null,'
 const legacy=skillWorld();(legacy.settings as any)['dnd5e.rulesVersion']={status:'world',value:'legacy'};
 assert.equal(adapter.getRollData(prepare(toolSource(),skillContext(legacy)),'tool','thief'),null);
 assert.equal(adapter.getRollData(prepare(toolSource(),skillContext(legacy)),'skill','prc',{tool:'thief'}),null,'Legacy does not add combined checks');
-for(const change of [(source:any)=>source.effects=[{disabled:false}],(source:any)=>source.flags={dnd5e:{toolExpertise:true}},(source:any)=>source.items.push({_id:'armor',type:'equipment',system:{equipped:true}})]) {
+for(const change of [(source:any)=>source.effects=[{disabled:false}],(source:any)=>source.items.push({_id:'armor',type:'equipment',system:{equipped:true}})]) {
     const source=toolSource();change(source);const before=structuredClone(source);
     assert.equal(check(prepare(source)).total,null);assert.deepEqual(source,before);
 }
@@ -97,3 +97,6 @@ assert.equal(Object.keys(prepare(empty).derived.tools as Record<string,unknown>)
 console.log(`R:8 independent source-only tools, ${modes} modes, source invariance and unavailable/recovery cases PASS`);
 
 assert.equal(adapter.getRollData(baseline,'tool','thief',{ability:'str'})?.formula,'1d20+3','C76 standard alternate ability initializes10');
+
+// C86 supersedes only Tool Expertise's historical blanket refusal.
+{const source=toolSource();source.flags={dnd5e:{toolExpertise:true}};const before=structuredClone(source),actor=prepare(source);assert.equal(check(actor).prof,2);assert.equal(check(actor).total,8);assert.equal(adapter.getRollData(actor,'tool','thief')?.formula,'1d20+8');assert.deepEqual(source,before);}
