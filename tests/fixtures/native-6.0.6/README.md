@@ -426,3 +426,9 @@ status and immunity variations,six final Set operations. Current CI/Actor query 
 earlier status/level/cache/ordinary roll construction are distinct. Separate native
 reduction data/parts are asserted,not dropped or evaluated as a new dice language.
 Method/field/phase qualification only;runtime and wider condition/Item gates stay open.
+
+C62 admits the168 C61 ordinary numeric profiles with one eligible poisoned/exhaustion
+source,CI-only changes,no initial CI changes and qualified immunity identities. Native
+fixtures remain unchanged. Module regression covers repeated masks and omitted-status
+nonrestoration;mounted/public/package evidence remains distinct from C61 method data.
+Other combinations/conditions/fields and full native/operator acceptance remain open.

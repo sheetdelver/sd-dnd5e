@@ -14,9 +14,16 @@ export interface ConditionPreparation606 {
     sources:ConditionSource606[];levels:Record<string,number>;rollReduction:number;speedReduction:number;
     rules:{noMovement:boolean;crawl:boolean};
     modes:Array<{path:string;mode:-1|1;phase:'abilities'|'initiative';source:string}>;
-    immunitySource?:string[]|null|'[absent]'|'[malformed]';provenance:string;
+    immunitySource?:string[]|null|'[absent]'|'[malformed]';currentImmunities?:string[];preparationNote?:string;provenance:string;
 }
 const provenance='release-6.0.6 nonpersisted Common.conditions / ConditionData / Actor initial status collection / TraitsFields.prepareResistImmune / CommonTemplate.prepareAbilities / AttributesFields.prepareInitiative/prepareMovement';
+/** Current CI changes queries, never earlier collection, modes or cached penalties.
+ * This helper is only used after the bounded final-CI profile has been admitted. */
+export function currentConditionImmunities606(prepared:ConditionPreparation606,immunities:string[]):ConditionPreparation606 {
+    const statuses=prepared.actorStatuses.filter(status=>!immunities.includes(status));
+    const changed=JSON.stringify(statuses)!==JSON.stringify(prepared.statuses);
+    return {...prepared,statuses,currentImmunities:[...immunities],...(changed?{preparationNote:'Current immunity does not remove earlier prepared condition adjustments.'}:{})};
+}
 /** Bounded Actor-owned condition mode/movement source envelope after generic effect
  * admission. No type/name-to-status inference; source remains unchanged. */
 export function conditionSource606(effect:Record<string,unknown>,id:string):ConditionSource606|{reason:string} {

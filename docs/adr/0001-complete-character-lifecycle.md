@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots; C49/50 final global proficiency snapshots and shared execution; C51/52 final constant bonuses with preserved passive/fixed-score snapshots; C53/54 final numeric fields/current scores with earlier modifiers and fresh initiative ties; C55/56 modern source Jack/Alert qualification and shared rules; C57/58 final defense Set phase qualification and condition-free snapshots; C59/60 final training field/cache qualification and shared caller projections | RV01–RV04 retained; C06–C60 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots; C49/50 final global proficiency snapshots and shared execution; C51/52 final constant bonuses with preserved passive/fixed-score snapshots; C53/54 final numeric fields/current scores with earlier modifiers and fresh initiative ties; C55/56 modern source Jack/Alert qualification and shared rules; C57/58 final defense Set phase qualification and condition-free snapshots; C59/60 final training field/cache qualification and shared caller projections; C61/62 final CI/current queries with earlier condition snapshots | RV01–RV04 retained; C06–C62 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -2279,3 +2279,45 @@ recovery tests. Other conditions, combinations, movement/fresh threshold/Item/au
 result semantics remain open. Native method construction is not native/operator
 acceptance. C60 runtime/UI/public-host/package evidence remains separate. Experimental
 0.4.1 and compatibility unchanged;E01/E02/E04/widerQ00/E05 and all full gates stay open.
+
+### C62 — bounded final CI with earlier condition snapshots (2026-10-22)
+
+C62 admits final Actor condition-immunity Set changes for one eligible poisoned or
+modern exhaustion1–6 source, without initial CI changes and within the qualified
+poisoned/exhaustion immunity identities. Other condition combinations, inactive/unqualified predicates,
+identities and condition-bearing final defense fields remain explicitly unavailable.
+This extends the C58 condition-free profile; it does not close general condition rules.
+
+Current CI and effective status presentation share the final defense snapshot. Actor
+statuses collected earlier, condition levels, prepared mode counters, static/passive
+values and cached roll/speed adjustments remain earlier. Repeated final changes filter
+the preserved Actor status snapshot, never a previously filtered list: an existing
+status may become visible again, while a status omitted earlier is never recreated.
+Both layouts explain when current immunity masks a condition whose earlier prepared
+adjustments still affect numeric checks. No source data or persistence is changed.
+
+With unchanged168 independent inputs, all168 fail on C61's intentional gate and pass
+after C62. Native reduction operands and source/manual modes remain shared with the
+existing compiler. Tests additionally cover malformed/reference deltas, unsupported
+condition combinations/initial CI/other defense fields, repeated add/subtract, source
+poison, context transitions and held callback retirement. Recovery requires fresh
+current intent and never replays a retired roll.
+
+[Record](../audits/evidence/2026-10-22-c62-final-ci-conditions.json) separates regression, C61 controlled source/field construction, mounted UI,
+real public-host and package evidence. Single-condition ordinary numeric workflows
+are bounded support; movement/fresh general condition queries, Item/automatic-result
+semantics and broader final condition combinations are not newly qualified. Existing
+prepared domains retain their earlier snapshots. Experimental0.4.1 and compatibility
+unchanged. E01/E02/E04/widerQ00/E05 and all full DD/A/M/ADR/native/operator gates remain
+open. Next executable M2 work: actual final petrification/defense field/query and
+presentation composition before broadening these gates, plus remaining final fields/
+Item/filter/formula qualification in existing dependency order.
+
+C62 completed validation:61assertions/9tooling/47module suites,203explicit module/
+UI/server/test/hook files,exact inventory2242/591 and native168finalCI+all retained
+matrices PASS. Focused mounted138 at1440/390 and full retained mounted suite PASS.
+Actual public-host268000accepted/1known candidate rejection/40equal-index diagnostics/
+0nativewrites PASS. Isolated module check/package PASS; archive SHA256
+`da4ec5b3dba7302c204a4e984abf4c02b163935c958d3058a981d072e9cde07e`.
+All owned hosts/browsers closed;no live Foundry or production settings. Version/
+experimental/compatibility unchanged;fullADR and native/operator acceptance stay open.

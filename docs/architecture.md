@@ -1231,3 +1231,23 @@ retain cached reduction operands. Actual primitive field constructors are shared
 the native trait oracle;direct evidence files remain independent. Runtime gate remains
 until C62 source/projection/recovery tests. [Record](audits/evidence/2026-10-22-c61-final-ci-conditions-foundation.json) keeps specific poison/
 exhaustion scope and phase/dispatcher/native acceptance limitations explicit.
+
+### Current CI and earlier condition data (C62)
+
+The shared final defense map may update CI for the qualified single poisoned/modern
+exhaustion profile. currentConditionImmunities606 filters preserved actorStatuses with
+currentImmunities; it never reruns status collection, condition map preparation, mode
+writes, passive calculations or cached penalties. Source immunitySource, levels,
+preparationStatuses, Actor statuses and earlier roll/speed reductions stay distinct.
+Applying the final mask once after all operations prevents cumulative filtering from
+losing an existing status. Earlier omitted statuses are never invented on CI removal.
+
+Conditional admission requires one matching eligible source, no initial CI changes,
+CI-only final defense operations and qualified poisoned/exhaustion identities. Other
+conditions/combinations/defense fields remain unavailable. A shared conditions view
+explains masked conditions with earlier prepared adjustments in both layouts. The
+normal numeric compiler, cards, passives, previews, shortcuts and direct requests use
+the same earlier/current snapshots. General fresh condition queries, movement/Item/
+automatic-result workflows are not newly qualified by these numeric comparisons.
+[Record](audits/evidence/2026-10-22-c62-final-ci-conditions.json) retains explicit source,
+method, UI/public/package and native/operator evidence limits.

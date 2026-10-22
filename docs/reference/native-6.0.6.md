@@ -1158,3 +1158,11 @@ retain cached reduction operands. Actual primitive field constructors are shared
 the native trait oracle;direct evidence files remain independent. Runtime gate remains
 until C62 source/projection/recovery tests. [Record](../audits/evidence/2026-10-22-c61-final-ci-conditions-foundation.json) keeps specific poison/
 exhaustion scope and phase/dispatcher/native acceptance limitations explicit.
+
+C62 integrates C61's168 final-CI numeric cases. Fresh immunity can suppress a current
+query without removing earlier mode/penalty caches or recollecting Actor statuses.
+Repeated final CI operations act on current field values but visible statuses always
+filter the preserved earlier Actor snapshot. Native constructor/dispatcher/ordinary
+query boundaries remain unchanged; other conditions and general fresh/Item/movement
+semantics stay open. [Record](../audits/evidence/2026-10-22-c62-final-ci-conditions.json)
+keeps native construction separate from module/mounted/public and operator acceptance.

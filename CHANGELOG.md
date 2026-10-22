@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share bounded final condition immunity while preserving earlier status and roll-adjustment snapshots.
+
 - Share qualified final training Sets and current language labels while retaining earlier prepared labels.
 
 - Share bounded final defense Set effects after earlier native normalization.

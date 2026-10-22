@@ -1,6 +1,6 @@
 import {sourceRuleFlags606,type SourceRuleFlags606} from './rule-flags';
 import {preparedDefenseSets606} from './defense-sets';
-import {prepareConditions606,type ConditionPreparation606} from './conditions';
+import {prepareConditions606,currentConditionImmunities606,type ConditionPreparation606} from './conditions';
 import { initializedModeState, applyEffectMode, resolvedEffectMode, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
 import { planEffects606, type EffectPlan, type EffectChange } from './effects';
@@ -147,7 +147,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     // Common.prepareAbilities mutates condition counts after initial effects and
     // before skill/tool passives. Keep this provenance separate from initial writes.
-    const conditions=prepareConditions606(actor,system,plan.conditions??[],reason);
+    let conditions=prepareConditions606(actor,system,plan.conditions??[],reason);
     reason??=conditions.reason;
     for(const modifier of conditions.modes){
         if(modifier.phase!=='abilities')continue;
@@ -188,10 +188,13 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
             continue;
         }
         if(/^system\.traits\.(?:(?:dr|di|dv|ci)\.value|(?:dr|di|dv|dm)\.bypasses)$/.test(change.key)&&field?.set&&field.valid){
-            if(conditions.sources.length||conditions.actorStatuses.length||conditions.status!=='ready'){reason??='Final defense Sets with condition preparation require qualification';continue;}
+            const conditional=conditions.sources.length>0||conditions.actorStatuses.length>0;
+            const ciOnly=change.key==='system.traits.ci.value'&&conditions.sources.length===1&&conditions.sources.every(source=>['poisoned','exhaustion'].includes(source.type)&&source.condition.matches)&&!plan.initial.some(change=>change.key==='system.traits.ci.value');
+            if(conditions.status!=='ready'||conditional&&!ciOnly){reason??='Final defense Sets with this condition preparation require qualification';continue;}
             if(!finalDefenseSets){const snapshot=preparedDefenseSets606(system);if(snapshot.reason){reason??=snapshot.reason;continue;}finalDefenseSets=snapshot.fields;}
             const before=finalDefenseSets[change.key],result=applyTraitSet606(before,change.type,raw,field.valid);
             if(!result){reason??=`Final defense Set operation/value requires qualification: ${change.key}`;continue;}
+            if(conditional&&[...before,...result.value].some(value=>!['poisoned','exhaustion'].includes(value))){reason??='Final CI with these condition/immunity identities requires qualification';continue;}
             finalDefenseSets[change.key]=result.value;
             applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:changedDefenseSets.has(change.key)?'final':'prepared',before:[...before],value:[...result.value],delta:result.delta});
             changedDefenseSets.add(change.key);continue;
@@ -235,6 +238,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         executionModes[change.key]=state;
         applied.push({effectId:change.effectId,key:change.key,phase:'final',before,value});
     }
+    if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
     return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,finalDefenseSets,finalTrainingSets,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
 }

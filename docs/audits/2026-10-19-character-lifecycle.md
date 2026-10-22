@@ -1592,3 +1592,45 @@ recovery tests. Other conditions, combinations, movement/fresh threshold/Item/au
 result semantics remain open. Native method construction is not native/operator
 acceptance. C60 runtime/UI/public-host/package evidence remains separate. Experimental
 0.4.1 and compatibility unchanged;E01/E02/E04/widerQ00/E05 and all full gates stay open.
+
+### C62 — bounded final CI with earlier condition snapshots (2026-10-22)
+
+C62 admits final Actor condition-immunity Set changes for one eligible poisoned or
+modern exhaustion1–6 source, without initial CI changes and within the qualified
+poisoned/exhaustion immunity identities. Other condition combinations, inactive/unqualified predicates,
+identities and condition-bearing final defense fields remain explicitly unavailable.
+This extends the C58 condition-free profile; it does not close general condition rules.
+
+Current CI and effective status presentation share the final defense snapshot. Actor
+statuses collected earlier, condition levels, prepared mode counters, static/passive
+values and cached roll/speed adjustments remain earlier. Repeated final changes filter
+the preserved Actor status snapshot, never a previously filtered list: an existing
+status may become visible again, while a status omitted earlier is never recreated.
+Both layouts explain when current immunity masks a condition whose earlier prepared
+adjustments still affect numeric checks. No source data or persistence is changed.
+
+With unchanged168 independent inputs, all168 fail on C61's intentional gate and pass
+after C62. Native reduction operands and source/manual modes remain shared with the
+existing compiler. Tests additionally cover malformed/reference deltas, unsupported
+condition combinations/initial CI/other defense fields, repeated add/subtract, source
+poison, context transitions and held callback retirement. Recovery requires fresh
+current intent and never replays a retired roll.
+
+[Record](evidence/2026-10-22-c62-final-ci-conditions.json) separates regression, C61 controlled source/field construction, mounted UI,
+real public-host and package evidence. Single-condition ordinary numeric workflows
+are bounded support; movement/fresh general condition queries, Item/automatic-result
+semantics and broader final condition combinations are not newly qualified. Existing
+prepared domains retain their earlier snapshots. Experimental0.4.1 and compatibility
+unchanged. E01/E02/E04/widerQ00/E05 and all full DD/A/M/ADR/native/operator gates remain
+open. Next executable M2 work: actual final petrification/defense field/query and
+presentation composition before broadening these gates, plus remaining final fields/
+Item/filter/formula qualification in existing dependency order.
+
+C62 completed validation:61assertions/9tooling/47module suites,203explicit module/
+UI/server/test/hook files,exact inventory2242/591 and native168finalCI+all retained
+matrices PASS. Focused mounted138 at1440/390 and full retained mounted suite PASS.
+Actual public-host268000accepted/1known candidate rejection/40equal-index diagnostics/
+0nativewrites PASS. Isolated module check/package PASS; archive SHA256
+`da4ec5b3dba7302c204a4e984abf4c02b163935c958d3058a981d072e9cde07e`.
+All owned hosts/browsers closed;no live Foundry or production settings. Version/
+experimental/compatibility unchanged;fullADR and native/operator acceptance stay open.
