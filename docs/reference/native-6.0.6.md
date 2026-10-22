@@ -1101,3 +1101,11 @@ Regrouping or decimal rounding changes some last bits; exact ordered expectation
 strict host total assertions. This is arithmetic/method evidence,not native dice/DSL/
 source boot/operator acceptance. [Record](../audits/evidence/2026-10-22-c54-final-numbers.json)
 retains identities,observations and separate actual public-host/mounted evidence limits.
+
+C55 qualifies modern persisted Jack/Alert flags separately from other flags: Jack half
+proficiency requires a selected skill; Alert supplies initiative proficiency, not a
+global-check target. Earlier combined advantage and fixed-score phases stay separate.
+864 independent profiles,10falsy defaults and2proficiency-dice boundaries compare
+actual pinned methods on initialized shells. Runtime admission remains C56 work.
+[Qualification record](../audits/evidence/2026-10-22-c55-source-flags-foundation.json)
+retains exact sources, commands and limits; no native/runtime acceptance follows.

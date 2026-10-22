@@ -1129,3 +1129,11 @@ face + earlier modifier + current score/100. Actual pinned parser/AST methods co
 already-evaluated numeric leaves;no formula parser/dice evaluator enters runtime. Neither
 host serialization nor equal-die diagnostic criteria are changed. Other final fields,
 flags/Item/time/dependent rules/expressions remain separate qualification work.
+
+C55 qualifies modern persisted Jack/Alert flags separately from other flags: Jack half
+proficiency requires a selected skill; Alert supplies initiative proficiency, not a
+global-check target. Earlier combined advantage and fixed-score phases stay separate.
+864 independent profiles,10falsy defaults and2proficiency-dice boundaries compare
+actual pinned methods on initialized shells. Runtime admission remains C56 work.
+[Qualification record](audits/evidence/2026-10-22-c55-source-flags-foundation.json)
+retains exact sources, commands and limits; no native/runtime acceptance follows.

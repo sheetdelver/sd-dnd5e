@@ -2565,3 +2565,29 @@ C54 implementation checkpoint is `e1dbfb0c97889d5a2acc261ca4d3360e5a786129`.
 record all six local qualification/implementation commits and evidence hashes as stored
 at each checkpoint. ADR-0001/full acceptance stays open. Continue dependency-ready M2
 flag/trait/Item/filter/formula qualification;E01/E02/E04/widerQ00/E05 remain open.
+
+### C55 — bounded modern source-flag qualification (2026-10-22)
+
+864 frozen independent profiles compare exact release6.0.6 Common/Creature/Attributes
+preparation and actual Actor skill/tool/ability/initiative builders: modern Jack of All
+Trades supplies half proficiency only when a skill is selected; independent tools and
+ability checks stay unchanged. Earlier prepared skill/tool proficiency controls combined
+advantage, including a positive half coefficient whose rounded flat bonus is zero.
+Modern Alert supplies initiative proficiency1, independent of global check proficiency;
+legacy flat+5 is outside this qualification. Fixed initiative score uses local mode.
+
+Ten absent/null/false/zero/blank flags preserve native falsy defaults. Config declares
+both flags Boolean; malformed truthy source types must not become authoritative flags.
+Two proficiency-dice configurations prove Alert introduces a separate1d6 term while
+ordinary initiative does not. This term remains outside the numeric execution profile.
+The fixture is independent arithmetic, not module/captured-output expectations. Actual
+initialized shells and declared collaborators establish method/phase behavior, not
+source boot, native dice, installed or operator acceptance.
+
+Native comparisons864 profiles/5184 check/1728 initiative configurations, retained
+matrices, module61assertions/9tooling/43suites and explicit193-file typing PASS.
+[Evidence](../audits/evidence/2026-10-22-c55-source-flags-foundation.json) records commands, source/fixture hashes and stubs. C55 is qualification only;
+C56 must centralize flag validation and share these semantics across all consumers, with
+failing-before tests, malformed/unknown gates and Alert proficiency-dice fencing.
+Other flags, effects/Item flag origins, legacy expansion, E01/E02/E04/widerQ00/E05 and
+all full DD/A/M/ADR/native/operator gates remain open. No metadata changes.
