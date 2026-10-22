@@ -1095,3 +1095,14 @@ controls; fixed scores retain their earlier value. Both layouts render prepared-
 notes and current controls from these projections. A compact note explicitly wraps
 inside the mobile chip. No browser rules calculation,second source cache or evaluator
 is added. Source/plan/context changes retire current dialogs and callbacks.
+
+### Final persisted numeric qualification (C53)
+
+Native prepared skill/tool.value and ability.proficient can differ from raw source
+before final effects. NumberField operations must start from those prepared values.
+Changing them does not rebuild earlier prof objects/effectValue. Final ability scores
+also leave earlier mod/derived totals untouched; current score and initiative tie are
+separate read operands. C53 qualifies1300 cases plus three cross-phase compositions
+through actual methods and independent expectations. No runtime admission follows yet.
+C54 must share earlier effective-coefficient calculation when initializing final fields,
+project current scores with earlier modifiers,and use current score only for fresh ties.

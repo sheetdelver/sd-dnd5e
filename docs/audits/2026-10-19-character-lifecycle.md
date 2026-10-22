@@ -1258,3 +1258,32 @@ Final isolated check/package PASS;archive SHA256
 `80b836621507c23ce6d90f5307f9dd94fae7b1c1aac285ee0514f964a7405771`.
 Artifact/source hashes,commands and failed-run dispositions are in the record. All
 owned services closed;production untouched. Node24.21 tested;CI Node22 unrun locally.
+
+### C53 — Final persisted numeric phase qualification (2026-10-22)
+
+C52 implementation is `b4c811d3724a9121aeeb720d5e7543cca3471dff`.
+Partial M0/M2 Q02a, DD-02/03/27/34, A02/A04;qualification only.1300 independent
+profiles compare six persisted NumberField paths/six operations,initial global targets,
+source coefficient/save variants and final score31/1001/0/1e9 boundaries. Actual methods
+compare11700 check and3900 normal/tie/fixed initiative configurations;every source
+snapshot remains unchanged. Three cross-phase cases verify removing a final global
+target before changing a skill value,clearing a final save coefficient while retaining
+its earlier prof object,and combining final Dexterity/bonus changes with a current tie.
+
+Final operations start from native prepared values: skill/tool.value already reflects
+earlier effective proficiency; ability.proficient already includes initial global save.
+They do not start from raw source. Final values do not refresh earlier mod,prof,
+effectValue,totals,passives or fixed scores. Current ability score is a distinct header
+operand; fresh initiative tie reads current score/100. Schema ability.value has min0,
+integer cleaning and no maximum;changing that field after preparation does not clamp it
+to the earlier max property or recompute mod. Runtime initial-source score boundaries
+are unchanged;later admission must qualify finite current-field results explicitly.
+
+[Record](evidence/2026-10-22-c53-final-numbers-foundation.json) contains independent
+fixture identities,source hashes,observations,commands and stubs. Native retained/new
+comparisons,60 assertions/8tooling/42module suites and190-file explicit typing PASS.
+This is controlled field/method/operand evidence,not complete schema/source/native boot,
+engine,UI or operator acceptance. No new mounted/public-host/package run for this
+source-only phase;C52 evidence stays separate. Runtime final numeric fields remain gated
+pending C54 shared integration. Other final/Item/filter/flag/time/expression phases,
+E01/E02/E04/widerQ00/E05/fullDD/A/M/ADR gates stay open;experimental0.4.1 unchanged.

@@ -1,0 +1,1387 @@
+{
+  "checkpoint": "C53",
+  "date": "2026-10-22",
+  "parent": "b4c811d3724a9121aeeb720d5e7543cca3471dff",
+  "requirements": "Partial M0/M2 Q02a DD-02/03/27/34,A02/A04;qualification only,no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "scope": "1300 frozen independent final persisted NumberField cases;six paths,six operations,raw coefficient pairs/initial global effects/save0-1. Additional score31/1001/0/1e9 boundaries. No runtime admission.",
+  "comparisons": {
+    "numberFieldCases": 1300,
+    "actualCheckBuilders": 11700,
+    "initiativeConfigurations": 3900,
+    "sourcePreservedEveryCase": true,
+    "compositions": 3
+  },
+  "nativeFieldOptions": {
+    "ability.value": {
+      "integer": true,
+      "min": 0,
+      "max": "no schema maximum;earlier max property does not clamp a final field operation"
+    },
+    "ability.proficient": {
+      "integer": true,
+      "min": 0,
+      "max": 1
+    },
+    "skill/tool.value": {
+      "min": 0,
+      "max": 2,
+      "step": 0.5
+    }
+  },
+  "findings": [
+    "Common.prepareAbilities sets proficient=max(source,initial global save) and creates prof objects. Skill/tool preparation sets value to its earlier effective coefficient while preserving raw initialized value in effectValue. Final field operations start from those prepared values,not raw source.",
+    "Final ability value/proficient and skill/tool value do not refresh mod,prof,effectValue,derived totals,passives or initiative score. Fresh skill/tool proficiency continues reading effectValue/current globals;automatic advantage retains earlier prof.hasProficiency.",
+    "Current ability score is a distinct header operand. Fresh initiative tie uses current DEXvalue/100;fixed initiative score ignores it. Final scores31/1001/1e9 do not silently refresh an earlier modifier.",
+    "Runtime source-score0\u201330 boundaries are unchanged by this qualification. Any later admission of final numeric results must explicitly separate earlier source/derived prerequisites from current numeric fields and finite public representation limits."
+  ],
+  "nativeSourceHashes": {
+    "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+    "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25",
+    "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+    "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+    "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+    "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+    "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+    "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+    "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+    "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+    "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+    "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+    "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+  },
+  "foundrySourceHashes": {
+    "client/documents/abstract/client-document.mjs": "a007180e3cf8d465dffe43b11272f289b4cf77a9e301c7d431f48267dfad8e9e",
+    "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+    "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+    "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+    "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+    "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+    "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5",
+    "common/abstract/data.mjs": "11bb7f848c707803607accfa9f6b946c7cbfe8b17781ff562b468bdc77b934e5"
+  },
+  "representativeObservations": [
+    {
+      "id": "0002/abilities.wis.value/multiply/0/0/0",
+      "fieldBefore": 14,
+      "fieldAfter": 7,
+      "currentWisScore": 7,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 12,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedTool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0008/abilities.dex.value/multiply/0/0/0",
+      "fieldBefore": 14,
+      "fieldAfter": 7,
+      "currentWisScore": 14,
+      "currentDexScore": 7,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 12,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedTool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.07",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0014/abilities.wis.proficient/multiply/0/0/0",
+      "fieldBefore": 0,
+      "fieldAfter": 0,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 12,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedTool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0020/abilities.dex.proficient/multiply/0/0/0",
+      "fieldBefore": 0,
+      "fieldAfter": 0,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 12,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedTool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0026/skills.prc.value/multiply/0/0/0",
+      "fieldBefore": 0,
+      "fieldAfter": 0,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 12,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedTool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0032/tools.thief.value/multiply/0/0/0",
+      "fieldBefore": 0,
+      "fieldAfter": 0,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 12,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "combinedTool",
+          "total": 2,
+          "mode": 0
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0434/abilities.wis.value/multiply/0/0/0",
+      "fieldBefore": 14,
+      "fieldAfter": 7,
+      "currentWisScore": 7,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 3,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 3
+        },
+        {
+          "name": "dexCheck",
+          "total": 3
+        },
+        {
+          "name": "strCheck",
+          "total": 1
+        },
+        {
+          "name": "wisSave",
+          "total": 5
+        },
+        {
+          "name": "dexSave",
+          "total": 5
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0440/abilities.dex.value/multiply/0/0/0",
+      "fieldBefore": 14,
+      "fieldAfter": 7,
+      "currentWisScore": 14,
+      "currentDexScore": 7,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 3,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 3
+        },
+        {
+          "name": "dexCheck",
+          "total": 3
+        },
+        {
+          "name": "strCheck",
+          "total": 1
+        },
+        {
+          "name": "wisSave",
+          "total": 5
+        },
+        {
+          "name": "dexSave",
+          "total": 5
+        }
+      ],
+      "currentTiePart": "0.07",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0446/abilities.wis.proficient/multiply/0/0/0",
+      "fieldBefore": 1,
+      "fieldAfter": 1,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 3,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 3
+        },
+        {
+          "name": "dexCheck",
+          "total": 3
+        },
+        {
+          "name": "strCheck",
+          "total": 1
+        },
+        {
+          "name": "wisSave",
+          "total": 5
+        },
+        {
+          "name": "dexSave",
+          "total": 5
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0452/abilities.dex.proficient/multiply/0/0/0",
+      "fieldBefore": 1,
+      "fieldAfter": 1,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 3,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 3
+        },
+        {
+          "name": "dexCheck",
+          "total": 3
+        },
+        {
+          "name": "strCheck",
+          "total": 1
+        },
+        {
+          "name": "wisSave",
+          "total": 5
+        },
+        {
+          "name": "dexSave",
+          "total": 5
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0458/skills.prc.value/multiply/0/0/0",
+      "fieldBefore": 1,
+      "fieldAfter": 0.5,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 3,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 3
+        },
+        {
+          "name": "dexCheck",
+          "total": 3
+        },
+        {
+          "name": "strCheck",
+          "total": 1
+        },
+        {
+          "name": "wisSave",
+          "total": 5
+        },
+        {
+          "name": "dexSave",
+          "total": 5
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0464/tools.thief.value/multiply/0/0/0",
+      "fieldBefore": 0.5,
+      "fieldAfter": 0.5,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 3,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 3
+        },
+        {
+          "name": "dexCheck",
+          "total": 3
+        },
+        {
+          "name": "strCheck",
+          "total": 1
+        },
+        {
+          "name": "wisSave",
+          "total": 5
+        },
+        {
+          "name": "dexSave",
+          "total": 5
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0866/abilities.wis.value/multiply/0/0/0",
+      "fieldBefore": 14,
+      "fieldAfter": 7,
+      "currentWisScore": 7,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 18,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 5
+        },
+        {
+          "name": "dexCheck",
+          "total": 5
+        },
+        {
+          "name": "strCheck",
+          "total": 3
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0872/abilities.dex.value/multiply/0/0/0",
+      "fieldBefore": 14,
+      "fieldAfter": 7,
+      "currentWisScore": 14,
+      "currentDexScore": 7,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 18,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 5
+        },
+        {
+          "name": "dexCheck",
+          "total": 5
+        },
+        {
+          "name": "strCheck",
+          "total": 3
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.07",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0878/abilities.wis.proficient/multiply/0/0/0",
+      "fieldBefore": 0,
+      "fieldAfter": 0,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 18,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 5
+        },
+        {
+          "name": "dexCheck",
+          "total": 5
+        },
+        {
+          "name": "strCheck",
+          "total": 3
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0884/abilities.dex.proficient/multiply/0/0/0",
+      "fieldBefore": 0,
+      "fieldAfter": 0,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 18,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 5
+        },
+        {
+          "name": "dexCheck",
+          "total": 5
+        },
+        {
+          "name": "strCheck",
+          "total": 3
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0890/skills.prc.value/multiply/0/0/0",
+      "fieldBefore": 2,
+      "fieldAfter": 1,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 18,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 5
+        },
+        {
+          "name": "dexCheck",
+          "total": 5
+        },
+        {
+          "name": "strCheck",
+          "total": 3
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "0896/tools.thief.value/multiply/0/0/0",
+      "fieldBefore": 2,
+      "fieldAfter": 1,
+      "currentWisScore": 14,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 0,
+      "toolEffectValue": 0,
+      "passive": 18,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 8,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 8,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 5
+        },
+        {
+          "name": "dexCheck",
+          "total": 5
+        },
+        {
+          "name": "strCheck",
+          "total": 3
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "1296/abilities.wis.value/override/1/1/0",
+      "fieldBefore": 14,
+      "fieldAfter": 31,
+      "currentWisScore": 31,
+      "currentDexScore": 14,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 1,
+      "toolEffectValue": 1,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0.14",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "1297/abilities.dex.value/override/1/1/0",
+      "fieldBefore": 14,
+      "fieldAfter": 1001,
+      "currentWisScore": 14,
+      "currentDexScore": 1001,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 1,
+      "toolEffectValue": 1,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "10.01",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "1298/abilities.dex.value/override/1/1/0",
+      "fieldBefore": 14,
+      "fieldAfter": 0,
+      "currentWisScore": 14,
+      "currentDexScore": 0,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 1,
+      "toolEffectValue": 1,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "0",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    },
+    {
+      "id": "1299/abilities.dex.value/override/1/1/0",
+      "fieldBefore": 14,
+      "fieldAfter": 1000000000,
+      "currentWisScore": 14,
+      "currentDexScore": 1000000000,
+      "earlierWisMod": 2,
+      "earlierDexMod": 2,
+      "skillEffectValue": 1,
+      "toolEffectValue": 1,
+      "passive": 15,
+      "builds": [
+        {
+          "name": "skill",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "tool",
+          "total": 5,
+          "mode": 0
+        },
+        {
+          "name": "combinedSkill",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "combinedTool",
+          "total": 5,
+          "mode": 1
+        },
+        {
+          "name": "wisCheck",
+          "total": 2
+        },
+        {
+          "name": "dexCheck",
+          "total": 2
+        },
+        {
+          "name": "strCheck",
+          "total": 0
+        },
+        {
+          "name": "wisSave",
+          "total": 2
+        },
+        {
+          "name": "dexSave",
+          "total": 2
+        }
+      ],
+      "currentTiePart": "10000000",
+      "fixedScore": 12,
+      "sourcePreserved": true
+    }
+  ],
+  "compositionObservations": [
+    {
+      "id": "remove-final-global-then-change-skill-value",
+      "preparedField": 1,
+      "currentField": 1.5,
+      "effectValue": 0,
+      "preparedProf": 1,
+      "freshProf": 0,
+      "passive": 15,
+      "rollBonus": 2,
+      "combinedMode": 1
+    },
+    {
+      "id": "remove-final-save-coefficient-keeps-prof-object",
+      "sourceCoefficient": 0,
+      "preparedField": 1,
+      "currentField": 0,
+      "preparedProf": 1,
+      "saveBonus": 5
+    },
+    {
+      "id": "final-dex-score-and-bonus-current-tie-earlier-fixed",
+      "currentScore": 17,
+      "preparedScore": 14,
+      "preparedMod": 2,
+      "currentBonus": "2",
+      "tiePart": "0.17",
+      "independentRollBonus": 4.17,
+      "fixedScore": 12
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm run test:native-conditions -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c53-native-conditions.json",
+      "result": "PASS retained matrices plus1300 final numbers/11700check/3900init configurations and3cross-phase compositions"
+    },
+    {
+      "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS60tooling assertions/8tooling/42module suites"
+    },
+    {
+      "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS190 explicit module/UI/server/test/hook files"
+    }
+  ],
+  "artifacts": {
+    "scripts/native-condition-oracle.mjs": "6b22553867fb8c0e37ff3b6240471057e35cedbac9c37e58aae8854fbe954126",
+    "tests/fixtures/native-6.0.6/final-numbers.json": "13904ae65f362cbeebd938dc99b019ceea217b583880266ca0a726fd19cbe226",
+    "temp/c53-native-conditions.json": "eb8b316ca84017aab06e1f033a00bdd7aa117a601cddc604fa12325604141279",
+    "temp/c53-tests.log": "c60a34f01d83a0f8a683256c54cd8a9a3193d10dbe095d79221a066dcf2eb0d7",
+    "temp/c53-types.log": "12dc53ec0ac9a09b86b8a55a6bc435aaea7c227f7b7a7f42dd3b1bb772fe08d9"
+  },
+  "limits": [
+    "Actual DataField/NumberField operations and native prepare/proficiency/Actor/initiative methods execute on restricted model shells. Field constructor options and clean/validate/initialize wrappers are declared stubs,not complete schema/DataModel/Document/source boot.",
+    "Raw-source preservation here compares initialized model._source copied before initial effects against final operations. Module raw-source and nonpersisted poison regressions remain separate. Initial global values enter through qualified field effects,not raw persisted:false overrides.",
+    "No native dice evaluator/UI/Foundry service/transport/operator acceptance. Builder numeric operands and actual current tie part are compared;native dice are not evaluated.",
+    "Qualification changes no runtime. C52 mounted/public-host/package evidence stays separate;no repeat or acceptance relabeling.",
+    "Other final fields/Item/filters/flags/time/expressions,E01/E02/E04/widerQ00/E05/fullDD/A/M/ADR/installed/native/operator gates remain open. Experimental0.4.1/compatibility unchanged."
+  ],
+  "next": "C54 shared final numeric snapshot;reuse proficiency calculation for prepared-before field values,project current scores with earlier modifiers,read current score for initiative tie,retain earlier prof/effectValue/static/fixed values;verify actual consumers/public rolls."
+}
