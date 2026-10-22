@@ -23,6 +23,13 @@ target, not a new compatibility claim for module 0.4.1. See the
 
 ## Current executable boundaries
 
+Latest bounded M2 behavior includes C71/C72 transferred Item Actor-target initial
+custom text, with original owned Item/effect IDs and source/default receipts. Existing
+Item eligibility/defaults gate those effects. Both layouts, cards and roll intents
+consume the same detached preparation. Item final preparation and Item/condition text
+composition remain unqualified; historical blanket initial-Item-text restrictions below
+are superseded only by this profile.
+
 - The UI manifest registers the sheet, initiative modal and stylesheet. It has
   no builder/tool/dashboard action. The server entry exposes read-only D&D content
   metadata and caller-owned command-status routes. C33 supplies server journal/queue
@@ -1374,3 +1381,20 @@ primitive String/language/sheet methods. Source/default initialization and schem
 routing are explicit test collaborators; no Item final phase or full native model boot
 is claimed. Runtime stays gated pending C72. [Record](audits/evidence/2026-10-22-c71-item-initial-custom-foundation.json) preserves independent
 expectations, identities and exact hashes; full ADR/native/operator gates stay open.
+
+
+### Transferred Item initial custom text (C72)
+
+The effects planner supplies source/default eligibility and native priority/order.
+The existing initial String branch admits identified eligible Item effects only without
+condition composition. Receipts add the owned Item ID alongside effect ID; the shared
+intent signature includes those receipts and planner eligibility/provenance. Suppression
+or changed attunement/equipped/default state retires an open intent even when its numeric
+check remains5. A recovered source requires fresh intent. No new world cache or UI rules
+calculation is introduced. Defense/training projections and initial language labels use
+the same prepared operands; source text, UUIDs, ownership and Item data remain unchanged.
+
+[C72 evidence](audits/evidence/2026-10-22-c72-item-initial-custom.json) preserves fail-before/pass-after,
+current consumers, combined skill/tool/manual/alternate-ability controls, stale callbacks
+and exact public-host/package identities. Item final preparation, active condition
+composition, dependent filters/riders and broader expressions remain outside this slice.

@@ -1243,3 +1243,14 @@ primitive String/language/sheet methods. Source/default initialization and schem
 routing are explicit test collaborators; no Item final phase or full native model boot
 is claimed. Runtime stays gated pending C72. [Record](../audits/evidence/2026-10-22-c71-item-initial-custom-foundation.json) preserves independent
 expectations, identities and exact hashes; full ADR/native/operator gates stay open.
+
+
+C72 consumes all686 C71 frozen rows unchanged.434 active cases newly pass;252
+suppressed cases remain controls. Shared initial String receipts retain original effect
+and owned Item identities. No Item final-phase stub is promoted into native Item support.
+Native field routing/initialization shells, Actor initial scheduling, module regression,
+mounted SDK seam and public-host execution remain separately identified in the
+[C72 record](../audits/evidence/2026-10-22-c72-item-initial-custom.json).
+Next Item-final qualification must include actual Item prepareFinalAttributes and its
+model/activity/uses collaborators before admission. Source-only feature final preparation
+already calls UsesField and activity preparation; an empty trace is insufficient.

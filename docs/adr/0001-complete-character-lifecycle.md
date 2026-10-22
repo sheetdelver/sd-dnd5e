@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots; C49/50 final global proficiency snapshots and shared execution; C51/52 final constant bonuses with preserved passive/fixed-score snapshots; C53/54 final numeric fields/current scores with earlier modifiers and fresh initiative ties; C55/56 modern source Jack/Alert qualification and shared rules; C57/58 final defense Set phase qualification and condition-free snapshots; C59/60 final training field/cache qualification and shared caller projections; C61/62 final CI/current queries with earlier condition snapshots; C63/64 petrification/final-field membership and truthful shared snapshots; C65/66 literal final custom String preparation and earlier/current language labels; C67/68 initial String/cache and explicit phase chains; C69/70 single poisoned/exhaustion custom-text composition | RV01–RV04 retained; C06–C70 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots; C49/50 final global proficiency snapshots and shared execution; C51/52 final constant bonuses with preserved passive/fixed-score snapshots; C53/54 final numeric fields/current scores with earlier modifiers and fresh initiative ties; C55/56 modern source Jack/Alert qualification and shared rules; C57/58 final defense Set phase qualification and condition-free snapshots; C59/60 final training field/cache qualification and shared caller projections; C61/62 final CI/current queries with earlier condition snapshots; C63/64 petrification/final-field membership and truthful shared snapshots; C65/66 literal final custom String preparation and earlier/current language labels; C67/68 initial String/cache and explicit phase chains; C69/70 single poisoned/exhaustion custom-text composition; C71/72 transferred Item initial custom text and eligibility/identity provenance | RV01–RV04 retained; C06–C72 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -2495,3 +2495,33 @@ C72 integration and consumer/recovery checks. Partial M0/M2 Q02a,DD-03/11/27/34,
 only; no full requirement closes. E01/E02/E04/widerQ00/E05, experimental0.4.1 and
 compatibility remain unchanged. Conditions/Item-final/filter/formula compositions
 remain dependency-ordered work.
+
+
+### C72 — shared transferred Item initial custom text (2026-10-22)
+
+C71's686 source/expectation rows are unchanged:434 active-effect cases fail before
+and pass after admission;252 suppressed-Item controls already pass. Eligible identified
+transferred Item Actor-target initial text now uses the shared String interpreter and
+existing preparation/projection path. Receipts retain owned Item/effect identity and
+source/default provenance. Initial language labels include the result; source and
+canonical identities remain unchanged. C68's original Item-only negative input now has
+explicit positive Added/receipt assertions, preserving its historical input/evidence.
+
+[Evidence](../audits/evidence/2026-10-22-c72-item-initial-custom.json) separates regressions, pinned initialized native methods,
+mounted SDK consumers, public host execution and isolated managed packaging. Checks:
+51 module/9 tooling suites,61 tooling assertions;212 explicitly typed files;2242/591
+source inventory;686 native Item text cases and retained condition/trait matrices;
+1374 desktop/mobile current-field states plus16 selected skill/tool/alternate-ability
+states;300926 accepted public requests,1 known candidate rejection,40 bounded equal-index
+diagnostics and0 native writes;module check/package PASS. The full retained mounted
+run is recorded there separately. Eligibility, identity/value, context loss/recovery
+and held callbacks require fresh intent. No unavailable behavior counts as rules support.
+
+This supersedes the blanket initial Item-custom gate only for the qualified
+condition-free profile. Item final preparation, Item/condition composition, dependent
+filters/riders, missing identities, null/coercions, references and broader expressions
+remain unavailable. Partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21 only;all full ADR gates
+and E01/E02/E04/widerQ00/E05 remain open. Experimental0.4.1 and compatibility unchanged;
+no installed/native/operator or release acceptance. Next qualify bounded Item final
+preparation before admitting transferred final Actor fields; existing phase trace stubs
+alone are insufficient. Continue independent M2 filter/formula work in dependency order.

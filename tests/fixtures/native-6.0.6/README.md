@@ -438,3 +438,17 @@ queries/status,2304native membership predicates and native sheet presentation th
 the real query. No new expected values from module/native captures. Only regular
 damage-type membership and physical bypasses,no amounts/actions/ignore/downgrade/
 healing. Runtime C64 and native/operator acceptance remain separate.
+
+
+C71/C72 `item-initial-custom-strings.json`:686 independently expected source profiles.
+217 unchanged C67 initial-only String rows are transferred to eligible feat Items;
+65 C22 source/default eligibility rows are crossed with seven literal custom fields;
+14 Actor/two-Item chains freeze priority and equal-priority ordering explicitly. Class
+level prerequisites remain separate. No module or native capture supplies expectations.
+Actual native/base Actor initial collection/dispatch, Item/effect suppression and primitive
+String/language/sheet methods execute against declared schema/field-routing collaborators.
+434 active rows fail before C72 and pass afterward;252 suppressed rows remain controls.
+Source/default/current values and original effect/owned Item identity stay distinct.
+No Item final phase, native full-model boot, condition/Item composition, broader filters,
+expressions, installed/native/operator acceptance is established. Tracked C71/C72 records
+provide commands/hashes and distinct regression/mounted/public-host/package evidence.

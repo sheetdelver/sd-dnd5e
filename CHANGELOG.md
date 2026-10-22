@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Prepare qualified transferred Item initial custom text with shared eligibility and identity provenance.
+
 - Support bounded custom trait text with a single Poisoned or Exhaustion condition across shared checks and readouts.
 
 - Apply qualified initial custom trait text before language labels while preserving final-field provenance.

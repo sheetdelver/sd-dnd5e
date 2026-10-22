@@ -21,7 +21,7 @@ export interface NumericEffects {
     finalTraitStrings?:Record<string,string>;
     ruleFlags:SourceRuleFlags606;system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;executionBonuses:Record<string,number>;finalNumbers:Record<string,number>;checkExecutionReason?:string;
-    applied:Array<{effectId:string;key:string;phase:'initial'|'final';before:number|string|string[];value:number|string|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
+    applied:Array<{effectId:string;itemId?:string;key:string;phase:'initial'|'final';before:number|string|string[];value:number|string|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
 }
 /** Qualified initial numeric/defense/training trait fields. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
@@ -118,11 +118,15 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     for(const change of plan.initial){
         const field=target(change),raw=change.value;
         if(field?.string){
-            if(change.itemId!==undefined||customConditionReason){reason??=customConditionReason??'Item-owned initial custom Strings require qualification';continue;}
+            // C71 qualifies identified, eligible transferred Items in the
+            // condition-free INITIAL phase only. Item final preparation and
+            // Item/condition composition remain separate qualifications.
+            const itemReason=change.itemId===null||change.itemId===''?'Initial custom String owned Item identity unavailable':change.itemId!==undefined&&plan.conditions?.length?'Item custom String condition composition requires qualification':undefined;
+            if(itemReason||customConditionReason){reason??=itemReason??customConditionReason;continue;}
             const before=initializeCustomString606(field.object[field.field]),value=before===null?null:applyCustomString606(before,change.type,raw);
             if(value===null){reason??=`Initial custom String source/delta/operation requires qualification: ${change.key}`;continue;}
             field.object[field.field]=value;
-            applied.push({effectId:change.effectId,key:change.key,phase:'initial',before:before!,value,initializedFrom:origins[change.key]});continue;
+            applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'initial',before:before!,value,initializedFrom:origins[change.key]});continue;
         }
         if(field?.set){
             const before=initializeTraitSet606(field.object[field.field]);

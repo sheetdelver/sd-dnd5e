@@ -1776,3 +1776,33 @@ C72 integration and consumer/recovery checks. Partial M0/M2 Q02a,DD-03/11/27/34,
 only; no full requirement closes. E01/E02/E04/widerQ00/E05, experimental0.4.1 and
 compatibility remain unchanged. Conditions/Item-final/filter/formula compositions
 remain dependency-ordered work.
+
+
+### C72 — shared transferred Item initial custom text (2026-10-22)
+
+C71's686 source/expectation rows are unchanged:434 active-effect cases fail before
+and pass after admission;252 suppressed-Item controls already pass. Eligible identified
+transferred Item Actor-target initial text now uses the shared String interpreter and
+existing preparation/projection path. Receipts retain owned Item/effect identity and
+source/default provenance. Initial language labels include the result; source and
+canonical identities remain unchanged. C68's original Item-only negative input now has
+explicit positive Added/receipt assertions, preserving its historical input/evidence.
+
+[Evidence](evidence/2026-10-22-c72-item-initial-custom.json) separates regressions, pinned initialized native methods,
+mounted SDK consumers, public host execution and isolated managed packaging. Checks:
+51 module/9 tooling suites,61 tooling assertions;212 explicitly typed files;2242/591
+source inventory;686 native Item text cases and retained condition/trait matrices;
+1374 desktop/mobile current-field states plus16 selected skill/tool/alternate-ability
+states;300926 accepted public requests,1 known candidate rejection,40 bounded equal-index
+diagnostics and0 native writes;module check/package PASS. The full retained mounted
+run is recorded there separately. Eligibility, identity/value, context loss/recovery
+and held callbacks require fresh intent. No unavailable behavior counts as rules support.
+
+This supersedes the blanket initial Item-custom gate only for the qualified
+condition-free profile. Item final preparation, Item/condition composition, dependent
+filters/riders, missing identities, null/coercions, references and broader expressions
+remain unavailable. Partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21 only;all full ADR gates
+and E01/E02/E04/widerQ00/E05 remain open. Experimental0.4.1 and compatibility unchanged;
+no installed/native/operator or release acceptance. Next qualify bounded Item final
+preparation before admitting transferred final Actor fields; existing phase trace stubs
+alone are insufficient. Continue independent M2 filter/formula work in dependency order.

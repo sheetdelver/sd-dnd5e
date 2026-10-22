@@ -1,0 +1,113 @@
+{
+  "checkpoint": "C72",
+  "date": "2026-10-22",
+  "parent": "1dbaeefdb6918cb9ee2ab556f0df14295375ee09",
+  "requirements": "Partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21; all full DD/A/M/ADR gates remain open",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "qualificationRecord": "2026-10-22-c71-item-initial-custom-foundation.json",
+  "beforeAfter": {
+    "tableCases": 686,
+    "beforeUnavailableFailures": 434,
+    "unchangedSuppressedControls": 252,
+    "afterFailures": 0,
+    "unchangedFixtureSha256": "f43ea44d3fd3c65c1a2870cf61caea6aadaf23d00e4f1068d2786cb20927b9cf",
+    "driver": "src/tests/item-custom-strings.test.ts",
+    "beforeCommand": "node <releasedCore>/node_modules/tsx/dist/cli.mjs --tsconfig <releasedCore>/tsconfig.json src/tests/item-custom-strings.test.ts",
+    "sameInputBoundary": "All686 row source/expectation inputs unchanged. Additional empty-ID/source-mode assertions were appended after runtime admission; the original686 case loop remains unchanged."
+  },
+  "behavior": [
+    "Eligible identified transferred Item Actor-target INITIAL literal custom text uses the existing String initializer/interpreter, effects planner and shared defense/training/card/roll projection path. No additional cache/formulas/evaluator/transport.",
+    "Initial language labels include current initial text. Original source/default provenance and each effectId/owned itemId remain in detached receipts; source/canonical UUID/ownership fields are unchanged. Actor and multiple Items share native priority/stable order.",
+    "Malformed source/delta/identity, Item/condition composition, Item-target/nontransfer/rider/dependency, references and final Item phases stay unavailable. Suppressed Item effects remain suppressed and preserve current independent checks.",
+    "C68 original Item-only negative input is now explicitly supported with Added text and owned Item receipt; historical evidence/input remains intact.",
+    "Regression covers manual/source modes, bonus/bounds/passives, combined primary-scope behavior, poisoned nonpersisted fields, source preservation and supported/unavailable/recovery. Held callbacks retire across eligibility, Item/effect identity/value and all unavailable contexts; recovery requires fresh intent."
+  ],
+  "checks": [
+    {
+      "command": "npm test -- --core <releasedCore>",
+      "result": "61 tooling assertions /9 tooling suites /51 module suites PASS"
+    },
+    {
+      "command": "npm run typecheck -- --core <releasedCore>",
+      "result": "212 explicit module/UI/server/test/hook files PASS"
+    },
+    {
+      "command": "npm run test:native-source -- --core <releasedCore> --native <exactRelease>",
+      "result": "2242 records /591 candidate expressions PASS; inventory is not expression support"
+    },
+    {
+      "command": "npm run test:native-effects -- --core <releasedCore> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c72-native-effects.json",
+      "result": "686 transferred initial custom /69 eligibility /5 phase /21 numeric /20 bonus /26 mode plus retained trait/custom matrices PASS"
+    },
+    {
+      "command": "npm run test:native-conditions -- --core <releasedCore> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c72-native-conditions.json",
+      "result": "442 condition/custom /2652 checks /442 initiative configurations and all retained matrices/phase order PASS"
+    },
+    {
+      "command": "npm run test:mounted -- --core <releasedCore> --browser-tools <isolatedPlaywright> --chromium <headlessChromium> --item-custom-strings-only",
+      "result": "1374 states at1440/390 PASS;686 current readouts/cards per layout plus live recovery. Seven eligibility transitions and five held-callback eligibility/identity fences per layout.",
+      "artifact": "/tmp/dnd5e-mounted-fr9oG1/evidence.json"
+    },
+    {
+      "command": "npm run test:mounted -- --core <releasedCore> --browser-tools <isolatedPlaywright> --chromium <headlessChromium> --item-custom-strings-representatives-only",
+      "result": "16 representative states at1440/390 PASS;seven Actor/two-Item stable-order groups with independent tool, selected skill/tool, alternate ability, manual focus/Enter previews and direct execution. Retained eligibility/context/source recovery fences.",
+      "artifact": "/tmp/dnd5e-mounted-RodFNo/evidence.json"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core <releasedCore>",
+      "result": "300926 accepted /1 known rejected candidate /40 nonblocking equal-index diagnostics /0 native writes PASS;16464 Item text ordinary/selected/manual requests plus686 Normal bounds",
+      "artifact": "/tmp/dnd5e-public-rolls-neCXSY/evidence.json"
+    },
+    {
+      "command": "npm run check:package -- --core <releasedCore>",
+      "result": "Module check + isolated managed package PASS",
+      "artifact": "/tmp/dnd5e-package-nfSjzD/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "7c005b54913ea696283625ef4c0b5b00efc65c37e90c3d28914fdfef493b92a8"
+    },
+    {
+      "command": "Full retained mounted",
+      "result": "Running; completion must be recorded before final checkpoint"
+    }
+  ],
+  "artifacts": {
+    "scripts/test-mounted.mjs": "99028d70ad89a567c07d1af42027cd5b56d25a217f744ce473a21932577b20bc",
+    "scripts/test-public-rolls.mjs": "38364fbea35cb60eab94e061c35409e1d39adfe34082f9ab7d4b62f8cef65010",
+    "src/logic/preparation/numeric-effects.ts": "6db4c200d0295477f5fc783a6bc4d3936c8763382d369c581d034b5b371c28dc",
+    "src/tests/item-custom-strings.test.ts": "116146fd54a52996723089f3bed97a2cebe7e151b882f63198ece0b137cd5c35",
+    "src/tests/initial-custom-strings.test.ts": "796443dbfa79c351938d75530382f5c2508e65491b77d17a49933ccbc24cd977",
+    "src/tests/fixtures/item-custom-scenarios.ts": "6c9a5e5e900885489d3220b5358c99f9776c515433bdf7c40a572f700be3bf2f",
+    "tests/fixtures/native-6.0.6/item-initial-custom-strings.json": "f43ea44d3fd3c65c1a2870cf61caea6aadaf23d00e4f1068d2786cb20927b9cf",
+    "temp/c72-before.log": "98880aa1ab6231799bd5f379aa9b233e88e8976431fab5d875dc30cce2371a95",
+    "temp/c72-after-final.log": "3e70f65410862d437e30473b28f18ab56896077ed82b90dc5f72082f9c3b84ca",
+    "temp/c72-tests-final.log": "338251c5a82edff3d5d39cf8cc65ac2c55157c64c8e0fa00eb374a7fa6f0738d",
+    "temp/c72-types-final.log": "0ce01a5f4d79ec840a4676f602d2c7024491d7bd403f2861c2d53ea919f6ae30",
+    "temp/c72-native-source.log": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+    "temp/c72-native-effects.json": "0cdcc1ab202fbb264d7c3304df3485f95b5f9bc35b8ce6acca28ae7be8728969",
+    "temp/c72-native-effects.log": "bd5d25367bf62ff8600fe688e7ca2f67a21d2d85c2d44d1cbae4f5da2dc83962",
+    "temp/c72-native-conditions.json": "1168e2a822347505d5a7e78cbdda9bbb38ae38ad0ff3ba0ddfa71374e07eb07a",
+    "temp/c72-native-conditions.log": "fe5aa2e51fd18846053f67bf07800517c1ab34eae9a9e6575473598cc0c1a340",
+    "temp/c72-mounted.log": "679a6bd1e75c7f9d8721e90d9e98113ea4c5b7b070fb4ce192521b93e201a613",
+    "temp/c72-mounted-selected.log": "1239c55b7187e8c4210a0e0313b3be9bea38cabfcf27257dad30a47f4970ee65",
+    "temp/c72-public.log": "fcedfd5a3a43f988636540fa4a3fbad4029f9d2e55d074093b043e9cf09b7e7a",
+    "temp/c72-package.log": "5547107c55592e3089e65d97c81c7a0ca92d12549ad74ec23ae268813631f3e2",
+    "temp/c72-listeners-before.log": "7ad2d015783641e67af9571f13132d1467b380134c291a49d602e360db71143e",
+    "/tmp/dnd5e-mounted-fr9oG1/evidence.json": "031be7de603fd6e179edc4fd7cdbc2902fd16dacdf8dbea885f4a368035f8729",
+    "/tmp/dnd5e-mounted-fr9oG1/states.ts": "802486f5e736472506cb034dc73d184a5371f77ef7750ab3afeb35655762ad06",
+    "/tmp/dnd5e-mounted-fr9oG1/fixture.js": "f6ad00ed4c8470b93dc977664cc216969d1d9fa74adfa65bc7d55ff381df5b2f",
+    "/tmp/dnd5e-mounted-RodFNo/evidence.json": "532e25fe1cc6804fe9712580ab6a3aa25c7d682667efedc6c9e718f803819b0a",
+    "/tmp/dnd5e-mounted-RodFNo/states.ts": "2caecc0cb27b3c4a99aae50bd38da2cdb6c4a3baadd18b28f24de6f9f34d377d",
+    "/tmp/dnd5e-mounted-RodFNo/fixture.js": "f6ad00ed4c8470b93dc977664cc216969d1d9fa74adfa65bc7d55ff381df5b2f",
+    "/tmp/dnd5e-public-rolls-neCXSY/evidence.json": "34c7b6cb0afa448191332bf08890966f6e3ad3c829118d1477cb0a6182085354"
+  },
+  "limits": [
+    "Actual native/base Actor initial collector and dispatcher, native effect and Item suppression getters, inherited phase matcher, actual primitive String and language/sheet methods. applyChange schema-field routing is a test collaborator. No full DataModel/Document boot.",
+    "No Item prepareFinalAttributes or final phase invoked; no conditions, filters, dependency/rider/antimagic, time, Item effects or native dice/operator acceptance. Existing C12/C22 matrices remain separately preserved.",
+    "Module regressions, controlled native-method construction, isolated public-host and mounted SDK-presentation seam evidence remain distinct. Mounted source fixture is not installed Core UI or native/operator acceptance.",
+    "Full retained mounted began before the test-only representative skill/tool additions; runtime and original full checks are unchanged. Additional representative run separately verifies the new controls.",
+    "Public-host generated formulas predate the empty-owned-ID guard refinement only; the qualified686 source profiles are unchanged. Final module typing/regressions and packaged runtime include the empty-ID guard.",
+    "Actual public serialization is preserved. Exact ordered faces/entropy/value/count/discard/totals/distributions and unequal-index identities remain required; equal-index differences are diagnostic only in the qualified homogeneous plain-d20 profile.",
+    "Class prerequisite inputs are separate from Item eligibility; general Item final preparation/activities, broader formulas/filters/conditions and effects/flags/range execution outside existing profiles remain open.",
+    "No live Foundry, push/merge/tag/release/version/compatibility change or new Core dependency. E01/E02/E04/widerQ00/E05 and full ADR-0001/native/operator/release gates remain open. CI Node22 unrun; checks used Node24.21/npm11.19."
+  ]
+}
