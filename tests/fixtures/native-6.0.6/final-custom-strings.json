@@ -1,0 +1,4283 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "expectationMethod": "Manually frozen String results before actual-method comparisons; expansion across seven SimpleTraitField custom fields. Add concatenates raw literal delta then cleans, subtract removes the first exact substring then cleans, override cleans the raw delta; upgrade/downgrade/multiply keep the earlier string. No module output or captured native totals supplies expectations.",
+  "cases": [
+    {
+      "id": "absent/dr.custom/add",
+      "field": "dr.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "add",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/dr.custom/subtract",
+      "field": "dr.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "subtract",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/dr.custom/override",
+      "field": "dr.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "override",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/dr.custom/upgrade",
+      "field": "dr.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "upgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/dr.custom/downgrade",
+      "field": "dr.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "downgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/dr.custom/multiply",
+      "field": "dr.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "multiply",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/di.custom/add",
+      "field": "di.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "add",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/di.custom/subtract",
+      "field": "di.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "subtract",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/di.custom/override",
+      "field": "di.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "override",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/di.custom/upgrade",
+      "field": "di.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "upgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/di.custom/downgrade",
+      "field": "di.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "downgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/di.custom/multiply",
+      "field": "di.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "multiply",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/dv.custom/add",
+      "field": "dv.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "add",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/dv.custom/subtract",
+      "field": "dv.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "subtract",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/dv.custom/override",
+      "field": "dv.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "override",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/dv.custom/upgrade",
+      "field": "dv.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "upgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/dv.custom/downgrade",
+      "field": "dv.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "downgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/dv.custom/multiply",
+      "field": "dv.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "multiply",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/ci.custom/add",
+      "field": "ci.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "add",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/ci.custom/subtract",
+      "field": "ci.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "subtract",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/ci.custom/override",
+      "field": "ci.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "override",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/ci.custom/upgrade",
+      "field": "ci.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "upgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/ci.custom/downgrade",
+      "field": "ci.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "downgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/ci.custom/multiply",
+      "field": "ci.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "multiply",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/armorProf.custom/add",
+      "field": "armorProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "add",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/armorProf.custom/subtract",
+      "field": "armorProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "subtract",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/armorProf.custom/override",
+      "field": "armorProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "override",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/armorProf.custom/upgrade",
+      "field": "armorProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "upgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/armorProf.custom/downgrade",
+      "field": "armorProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "downgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/armorProf.custom/multiply",
+      "field": "armorProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "multiply",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/weaponProf.custom/add",
+      "field": "weaponProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "add",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/weaponProf.custom/subtract",
+      "field": "weaponProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "subtract",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/weaponProf.custom/override",
+      "field": "weaponProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "override",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/weaponProf.custom/upgrade",
+      "field": "weaponProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "upgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/weaponProf.custom/downgrade",
+      "field": "weaponProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "downgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/weaponProf.custom/multiply",
+      "field": "weaponProf.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "multiply",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/languages.custom/add",
+      "field": "languages.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "add",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/languages.custom/subtract",
+      "field": "languages.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "subtract",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/languages.custom/override",
+      "field": "languages.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "override",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "; Added ;",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Added"
+      ]
+    },
+    {
+      "id": "absent/languages.custom/upgrade",
+      "field": "languages.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "upgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/languages.custom/downgrade",
+      "field": "languages.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "downgrade",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "absent/languages.custom/multiply",
+      "field": "languages.custom",
+      "source": {},
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "multiply",
+        "value": " ; Added ; ",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/dr.custom/add",
+      "field": "dr.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/dr.custom/subtract",
+      "field": "dr.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/dr.custom/override",
+      "field": "dr.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/dr.custom/upgrade",
+      "field": "dr.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/dr.custom/downgrade",
+      "field": "dr.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/dr.custom/multiply",
+      "field": "dr.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/di.custom/add",
+      "field": "di.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/di.custom/subtract",
+      "field": "di.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/di.custom/override",
+      "field": "di.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/di.custom/upgrade",
+      "field": "di.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/di.custom/downgrade",
+      "field": "di.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/di.custom/multiply",
+      "field": "di.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/dv.custom/add",
+      "field": "dv.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/dv.custom/subtract",
+      "field": "dv.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/dv.custom/override",
+      "field": "dv.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/dv.custom/upgrade",
+      "field": "dv.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/dv.custom/downgrade",
+      "field": "dv.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/dv.custom/multiply",
+      "field": "dv.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/ci.custom/add",
+      "field": "ci.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/ci.custom/subtract",
+      "field": "ci.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/ci.custom/override",
+      "field": "ci.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/ci.custom/upgrade",
+      "field": "ci.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/ci.custom/downgrade",
+      "field": "ci.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/ci.custom/multiply",
+      "field": "ci.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/armorProf.custom/add",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/armorProf.custom/subtract",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/armorProf.custom/override",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/armorProf.custom/upgrade",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/armorProf.custom/downgrade",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/armorProf.custom/multiply",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/weaponProf.custom/add",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/weaponProf.custom/subtract",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/weaponProf.custom/override",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/weaponProf.custom/upgrade",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/weaponProf.custom/downgrade",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/weaponProf.custom/multiply",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/languages.custom/add",
+      "field": "languages.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/languages.custom/subtract",
+      "field": "languages.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/languages.custom/override",
+      "field": "languages.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "blank/languages.custom/upgrade",
+      "field": "languages.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/languages.custom/downgrade",
+      "field": "languages.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "blank/languages.custom/multiply",
+      "field": "languages.custom",
+      "source": {
+        "custom": "   "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "",
+      "expectedAfter": "",
+      "expectedPreparedLabels": [],
+      "expectedCurrentLabels": []
+    },
+    {
+      "id": "duplicates/dr.custom/add",
+      "field": "dr.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; RootEcho",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "RootEcho"
+      ]
+    },
+    {
+      "id": "duplicates/dr.custom/subtract",
+      "field": "dr.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/dr.custom/override",
+      "field": "dr.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "duplicates/dr.custom/upgrade",
+      "field": "dr.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/dr.custom/downgrade",
+      "field": "dr.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/dr.custom/multiply",
+      "field": "dr.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/di.custom/add",
+      "field": "di.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; RootEcho",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "RootEcho"
+      ]
+    },
+    {
+      "id": "duplicates/di.custom/subtract",
+      "field": "di.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/di.custom/override",
+      "field": "di.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "duplicates/di.custom/upgrade",
+      "field": "di.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/di.custom/downgrade",
+      "field": "di.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/di.custom/multiply",
+      "field": "di.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/dv.custom/add",
+      "field": "dv.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; RootEcho",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "RootEcho"
+      ]
+    },
+    {
+      "id": "duplicates/dv.custom/subtract",
+      "field": "dv.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/dv.custom/override",
+      "field": "dv.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "duplicates/dv.custom/upgrade",
+      "field": "dv.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/dv.custom/downgrade",
+      "field": "dv.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/dv.custom/multiply",
+      "field": "dv.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/ci.custom/add",
+      "field": "ci.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; RootEcho",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "RootEcho"
+      ]
+    },
+    {
+      "id": "duplicates/ci.custom/subtract",
+      "field": "ci.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/ci.custom/override",
+      "field": "ci.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "duplicates/ci.custom/upgrade",
+      "field": "ci.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/ci.custom/downgrade",
+      "field": "ci.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/ci.custom/multiply",
+      "field": "ci.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/armorProf.custom/add",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; RootEcho",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "RootEcho"
+      ]
+    },
+    {
+      "id": "duplicates/armorProf.custom/subtract",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/armorProf.custom/override",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "duplicates/armorProf.custom/upgrade",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/armorProf.custom/downgrade",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/armorProf.custom/multiply",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/weaponProf.custom/add",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; RootEcho",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "RootEcho"
+      ]
+    },
+    {
+      "id": "duplicates/weaponProf.custom/subtract",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/weaponProf.custom/override",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "duplicates/weaponProf.custom/upgrade",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/weaponProf.custom/downgrade",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/weaponProf.custom/multiply",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/languages.custom/add",
+      "field": "languages.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "add",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; RootEcho",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "RootEcho"
+      ]
+    },
+    {
+      "id": "duplicates/languages.custom/subtract",
+      "field": "languages.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "subtract",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/languages.custom/override",
+      "field": "languages.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "override",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo"
+      ]
+    },
+    {
+      "id": "duplicates/languages.custom/upgrade",
+      "field": "languages.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "upgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/languages.custom/downgrade",
+      "field": "languages.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "downgrade",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "duplicates/languages.custom/multiply",
+      "field": "languages.custom",
+      "source": {
+        "custom": "  Echo; Echo ; Root  "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "multiply",
+        "value": "Echo",
+        "phase": "final"
+      },
+      "expectedBefore": "Echo; Echo ; Root",
+      "expectedAfter": "Echo; Echo ; Root",
+      "expectedPreparedLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ],
+      "expectedCurrentLabels": [
+        "Echo",
+        "Echo",
+        "Root"
+      ]
+    },
+    {
+      "id": "delimiter/dr.custom/add",
+      "field": "dr.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "add",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta",
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/dr.custom/subtract",
+      "field": "dr.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "subtract",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/dr.custom/override",
+      "field": "dr.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "override",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/dr.custom/upgrade",
+      "field": "dr.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "upgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/dr.custom/downgrade",
+      "field": "dr.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "downgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/dr.custom/multiply",
+      "field": "dr.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "multiply",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/di.custom/add",
+      "field": "di.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "add",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta",
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/di.custom/subtract",
+      "field": "di.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "subtract",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/di.custom/override",
+      "field": "di.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "override",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/di.custom/upgrade",
+      "field": "di.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "upgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/di.custom/downgrade",
+      "field": "di.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "downgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/di.custom/multiply",
+      "field": "di.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "multiply",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/dv.custom/add",
+      "field": "dv.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "add",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta",
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/dv.custom/subtract",
+      "field": "dv.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "subtract",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/dv.custom/override",
+      "field": "dv.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "override",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/dv.custom/upgrade",
+      "field": "dv.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "upgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/dv.custom/downgrade",
+      "field": "dv.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "downgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/dv.custom/multiply",
+      "field": "dv.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "multiply",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/ci.custom/add",
+      "field": "ci.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "add",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta",
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/ci.custom/subtract",
+      "field": "ci.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "subtract",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/ci.custom/override",
+      "field": "ci.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "override",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/ci.custom/upgrade",
+      "field": "ci.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "upgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/ci.custom/downgrade",
+      "field": "ci.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "downgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/ci.custom/multiply",
+      "field": "ci.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "multiply",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/armorProf.custom/add",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "add",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta",
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/armorProf.custom/subtract",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "subtract",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/armorProf.custom/override",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "override",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/armorProf.custom/upgrade",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "upgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/armorProf.custom/downgrade",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "downgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/armorProf.custom/multiply",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "multiply",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/weaponProf.custom/add",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "add",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta",
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/weaponProf.custom/subtract",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "subtract",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/weaponProf.custom/override",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "override",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/weaponProf.custom/upgrade",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "upgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/weaponProf.custom/downgrade",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "downgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/weaponProf.custom/multiply",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "multiply",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/languages.custom/add",
+      "field": "languages.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "add",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta",
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/languages.custom/subtract",
+      "field": "languages.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "subtract",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/languages.custom/override",
+      "field": "languages.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "override",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "; Gamma",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Gamma"
+      ]
+    },
+    {
+      "id": "delimiter/languages.custom/upgrade",
+      "field": "languages.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "upgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/languages.custom/downgrade",
+      "field": "languages.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "downgrade",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "delimiter/languages.custom/multiply",
+      "field": "languages.custom",
+      "source": {
+        "custom": " Alpha ; Beta "
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "multiply",
+        "value": "; Gamma",
+        "phase": "final"
+      },
+      "expectedBefore": "Alpha ; Beta",
+      "expectedAfter": "Alpha ; Beta",
+      "expectedPreparedLabels": [
+        "Alpha",
+        "Beta"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "id": "first-only/dr.custom/add",
+      "field": "dr.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "add",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/dr.custom/subtract",
+      "field": "dr.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "subtract",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/dr.custom/override",
+      "field": "dr.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "override",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/dr.custom/upgrade",
+      "field": "dr.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "upgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/dr.custom/downgrade",
+      "field": "dr.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "downgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/dr.custom/multiply",
+      "field": "dr.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dr.custom",
+        "type": "multiply",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/di.custom/add",
+      "field": "di.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "add",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/di.custom/subtract",
+      "field": "di.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "subtract",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/di.custom/override",
+      "field": "di.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "override",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/di.custom/upgrade",
+      "field": "di.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "upgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/di.custom/downgrade",
+      "field": "di.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "downgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/di.custom/multiply",
+      "field": "di.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.di.custom",
+        "type": "multiply",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/dv.custom/add",
+      "field": "dv.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "add",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/dv.custom/subtract",
+      "field": "dv.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "subtract",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/dv.custom/override",
+      "field": "dv.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "override",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/dv.custom/upgrade",
+      "field": "dv.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "upgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/dv.custom/downgrade",
+      "field": "dv.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "downgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/dv.custom/multiply",
+      "field": "dv.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.dv.custom",
+        "type": "multiply",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/ci.custom/add",
+      "field": "ci.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "add",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/ci.custom/subtract",
+      "field": "ci.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "subtract",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/ci.custom/override",
+      "field": "ci.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "override",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/ci.custom/upgrade",
+      "field": "ci.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "upgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/ci.custom/downgrade",
+      "field": "ci.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "downgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/ci.custom/multiply",
+      "field": "ci.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.ci.custom",
+        "type": "multiply",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/armorProf.custom/add",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "add",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/armorProf.custom/subtract",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "subtract",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/armorProf.custom/override",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "override",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/armorProf.custom/upgrade",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "upgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/armorProf.custom/downgrade",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "downgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/armorProf.custom/multiply",
+      "field": "armorProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.armorProf.custom",
+        "type": "multiply",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/weaponProf.custom/add",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "add",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/weaponProf.custom/subtract",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "subtract",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/weaponProf.custom/override",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "override",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/weaponProf.custom/upgrade",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "upgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/weaponProf.custom/downgrade",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "downgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/weaponProf.custom/multiply",
+      "field": "weaponProf.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.weaponProf.custom",
+        "type": "multiply",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/languages.custom/add",
+      "field": "languages.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "add",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/languages.custom/subtract",
+      "field": "languages.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "subtract",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/languages.custom/override",
+      "field": "languages.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "override",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "Alpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "Alpha"
+      ]
+    },
+    {
+      "id": "first-only/languages.custom/upgrade",
+      "field": "languages.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "upgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/languages.custom/downgrade",
+      "field": "languages.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "downgrade",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    },
+    {
+      "id": "first-only/languages.custom/multiply",
+      "field": "languages.custom",
+      "source": {
+        "custom": "AlphaAlpha"
+      },
+      "change": {
+        "key": "system.traits.languages.custom",
+        "type": "multiply",
+        "value": "Alpha",
+        "phase": "final"
+      },
+      "expectedBefore": "AlphaAlpha",
+      "expectedAfter": "AlphaAlpha",
+      "expectedPreparedLabels": [
+        "AlphaAlpha"
+      ],
+      "expectedCurrentLabels": [
+        "AlphaAlpha"
+      ]
+    }
+  ]
+}

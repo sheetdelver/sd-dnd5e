@@ -2894,3 +2894,22 @@ boot/dispatcher and installed/native/operator evidence. Other M2 fields/filters/
 E01/E02/E04/wider Q00/E05 and full DD/A/M/ADR gates remain open. No version or compatibility
 change. Next executable package: qualify final custom String fields and their distinct
 prepared/current presentation before admitting them through shared preparation.
+
+
+### C65 — final custom String qualification (2026-10-22)
+
+210 independent cases qualify seven SimpleTraitField.custom targets through actual
+release6.0.6/Foundry14.367 primitive methods and native sheet/language helpers. Source
+strings and the verified missing blank default remain distinct from prepared fields.
+Add concatenates the literal delta before cleaning; subtract removes the first exact
+substring; override cleans its delta; upgrade/downgrade/multiply are no-ops. Language
+labels retain their earlier cache while other trait custom labels read current fields.
+A separate formatting shell qualifies current labels without replaying Actor phases.
+
+[Record](../audits/evidence/2026-10-22-c65-final-custom-foundation.json) retains the frozen table, source/helper hashes and declared empty-Set/
+constructor/presentation collaborators. All210 plus retained trait matrices PASS. This
+is qualification only; runtime custom effects remain gated until C66 shared integration,
+source invariance and consumer/recovery tests. Null/coercion, references, initial String
+effects, conditions, Item phases and full native dispatcher/operator acceptance are
+not qualified. Partial M0/M2 Q02a,DD-03/11/27/34,A03/A04 only; all full gates stay open.
+Experimental0.4.1/compatibility/E01/E02/E04/widerQ00/E05 are unchanged.

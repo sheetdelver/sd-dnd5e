@@ -1,0 +1,50 @@
+{
+  "checkpoint": "C65",
+  "date": "2026-10-22",
+  "parent": "6a0f08ee19b8453a7cdb4c6e72104f7b3079da12",
+  "requirements": "Qualification only,partial M0/M2 Q02a,DD-03/11/27/34,A03/A04",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "independentCases": 210,
+  "expectationMethod": "Manually frozen String results before actual-method comparisons, expanded across dr/di/dv/ci/armorProf/weaponProf/languages custom fields; never module or captured totals as the oracle.",
+  "observations": [
+    "SimpleTraitField.custom is a required StringField with verified missing blank default. Native cleaning trims source text; the literal delta is not pretrimmed before concatenation or first-substring subtraction. Changed results are cleaned.",
+    "add concatenates; subtract removes the first exact substring; override uses the literal delta; upgrade/downgrade/multiply preserve the earlier string in this plain StringField profile. This is not FormulaField behavior.",
+    "Actual native sheet reads current defense/armor/weapon custom values, while languages use the earlier labels cache. A separate actual formatting shell qualifies current language labels without claiming Actor phase replay.",
+    "Prepared-looking language labels are overwritten by the actual earlier method. Raw source copies remain unchanged. No nonstring coercion or nonpersisted source override is admitted."
+  ],
+  "command": "npm run test:native-custom-traits -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c65-native-custom-final.json",
+  "result": "210 source/default/final field/earlier cache/native sheet/current formatter cases + all retained companion trait matrices PASS",
+  "logSha256": "c8a94abab5d2e56d16c39b4f53c155673808ec2a38e66efe29767cfa4d0091c7",
+  "artifacts": {
+    "scripts/native-custom-traits-oracle.mjs": "92d823fe898018bcd4511a2514425eac08dd6ee776482cea9fdb8b3b37e56c00",
+    "tests/fixtures/native-6.0.6/final-custom-strings.json": "68b18f8dfb845006271b8a04b2f345f6f7daa6c7090704681d22dbb79d476dec",
+    "temp/c65-native-custom-final.json": "a226843a69debb5759c999785892944e4ef1daa01ecbd930cd19717183d87476"
+  },
+  "nativeSourceHashes": {
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+  },
+  "foundry": {
+    "generation": 14,
+    "build": 367,
+    "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+    "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+  },
+  "primitiveOracleSha256": "57b4ef57a95fdbae52e80806d33d7e0053450587a071d7e4f8fa2ae3e9318dcf",
+  "limits": [
+    "Source strings and verified missing default only; null/coercions,references,expressions and initial String effects not qualified.",
+    "Actual primitive field methods on initialized shells; declared primitive constructors/validation wrapper inherited from maintained trait oracle,not full DataModel source boot.",
+    "Actual sheet on empty canonical value Sets and exact selected trait config entries; no localization/content lookup required. Identity deepClone is read-only. Nonempty keys/ranges,conditions,Item phases and full dispatcher are outside this profile.",
+    "Language cache prepared once before final changes,with poisoned labels overwritten by actual method. Current labels use a separate formatting shell,not Actor phase replay.",
+    "No module implementation/dice/installed/native/operator acceptance. Runtime custom String effects remain gated pending integration.",
+    "Source-only checkpoint; C64 runtime/UI/public/package evidence is separate. Custom String effect execution remains gated until a shared integration checkpoint.",
+    "No service started by this comparison. The C64 retained mounted fixture remains in progress at this checkpoint; its eventual result will be recorded separately.",
+    "Experimental0.4.1/compatibility unchanged;E01/E02/E04/widerQ00/E05 and all fullADR/native/operator gates stay open."
+  ]
+}

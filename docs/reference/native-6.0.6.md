@@ -1185,3 +1185,11 @@ are caller formatting of qualified current fields. The primitive Set semantics a
 native first-tie observations remain unchanged. This initialized-method comparison is
 not full DataModel/source boot, damage application or native/operator acceptance.
 [Runtime and consumer evidence](../audits/evidence/2026-10-22-c64-final-petrified.json).
+
+
+C65 qualifies210 literal final custom String cases independently of module rules.
+Native plain StringField concatenation/first-substring removal/override/no-op modes
+differ from FormulaField semantics. Current custom fields and earlier language labels
+are separate; a distinct formatting shell proves current labels, not Actor phase replay.
+Runtime stays gated pending C66. [Evidence](../audits/evidence/2026-10-22-c65-final-custom-foundation.json) records exact source hashes and
+restricted source/default/empty-Set/sheet collaborators; no native/operator acceptance.

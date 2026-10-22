@@ -1283,3 +1283,11 @@ No new damage evaluator, source mutation, world cache or transport is introduced
 pinned initialized methods, mounted consumers, isolated public-host and packaging.
 Other conditions/compositions, damage amounts/application, Items and native/operator
 acceptance remain open, as do the full ADR milestones and external dependencies.
+
+
+C65 qualifies210 literal final custom String cases independently of module rules.
+Native plain StringField concatenation/first-substring removal/override/no-op modes
+differ from FormulaField semantics. Current custom fields and earlier language labels
+are separate; a distinct formatting shell proves current labels, not Actor phase replay.
+Runtime stays gated pending C66. [Evidence](audits/evidence/2026-10-22-c65-final-custom-foundation.json) records exact source hashes and
+restricted source/default/empty-Set/sheet collaborators; no native/operator acceptance.
