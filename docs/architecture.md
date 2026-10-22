@@ -23,10 +23,11 @@ target, not a new compatibility claim for module 0.4.1. See the
 
 ## Current executable boundaries
 
-Latest bounded M2 behavior includes C71/C72 transferred Item Actor-target initial
+Latest bounded M2 behavior includes C73/C74 empty-feat final Actor custom text and
+C71/C72 transferred Item Actor-target initial
 custom text, with original owned Item/effect IDs and source/default receipts. Existing
 Item eligibility/defaults gate those effects. Both layouts, cards and roll intents
-consume the same detached preparation. Item final preparation and Item/condition text
+consume the same detached preparation. General Item final preparation and Item/condition text
 composition remain unqualified; historical blanket initial-Item-text restrictions below
 are superseded only by this profile.
 
@@ -1405,3 +1406,20 @@ Item final preparation, feat/Activities/UsesField methods and Actor phase dispat
 Empty collections/uses initialization and Item roll-data/spellcasting collaborators
 remain explicit; no expression/activity/recovery execution or full DataModel boot.
 [Record](audits/evidence/2026-10-22-c73-feat-final-foundation.json) preserves frozen results and limits. Runtime admission awaitsC74.
+
+
+### Empty-feat final Actor custom fields (C74)
+
+`feat-final-profile.ts` validates one current owned feat identity and the qualified
+empty activities/uses recipe. It gates additional persisted system fields and configured
+uses/activities;prepared-looking proficiency/getter/uses fields remain nonauthoritative.
+Only literal custom String targets pass that gate;other transferred final fields remain
+unavailable. Existing final String snapshots/receipts now retain owned Item ID alongside
+effect ID,initial source/default and prepared/final operand phase. No general Item model,
+resource calculation/cache,activity execution or writes are introduced. Both layouts,
+cards,previews,shortcuts and direct requests continue to share one preparation/compiler.
+
+[C74 evidence](audits/evidence/2026-10-22-c74-feat-final-custom.json) separates434 frozen before/after cases,
+initialized native Item/feat/Activities/Uses methods,870 mounted readouts plus16 selected
+controls,311776 public-host requests and packaged output. Additional source recipe keys
+and nonempty uses/activities need further qualification;this is not general feat support.

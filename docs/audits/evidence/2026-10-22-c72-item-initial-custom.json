@@ -66,8 +66,45 @@
       "sha256": "7c005b54913ea696283625ef4c0b5b00efc65c37e90c3d28914fdfef493b92a8"
     },
     {
-      "command": "Full retained mounted",
-      "result": "Running; completion must be recorded before final checkpoint"
+      "command": "npm run test:mounted -- --core <releasedCore> --browser-tools <isolatedPlaywright> --chromium <headlessChromium>",
+      "result": "Full retained both-layout consumers and callback fences PASS",
+      "artifact": "/tmp/dnd5e-mounted-4XSYxd/evidence.json",
+      "counts": {
+        "rows": 50,
+        "previewRows": 8,
+        "factRows": 16,
+        "modeRows": 18,
+        "toolRows": 56,
+        "focusRows": 2,
+        "combinationRows": 80,
+        "effectRows": 22,
+        "numericEffectRows": 1172,
+        "effectModeRows": 58,
+        "healthRows": 58,
+        "defenseRows": 102,
+        "equipmentRows": 90,
+        "movementRows": 84,
+        "rangeRows": 180,
+        "speciesRows": 40,
+        "defenseTraitRows": 149,
+        "indicatorRows": 24,
+        "trainingRows": 624,
+        "focusedFilterRows": 0,
+        "classFactRows": 0,
+        "conditionRows": 0,
+        "exhaustionRows": 0,
+        "familyRows": 0,
+        "petrificationRows": 0,
+        "finalModeRows": 0,
+        "finalProficiencyRows": 0,
+        "finalBonusRows": 0,
+        "finalNumberResults": 0,
+        "sourceFlagResults": 0,
+        "finalDefenseResults": 0,
+        "finalTrainingResults": 0,
+        "finalCiResults": 0,
+        "finalCustomResults": 0
+      }
     }
   ],
   "artifacts": {
@@ -98,7 +135,11 @@
     "/tmp/dnd5e-mounted-RodFNo/evidence.json": "532e25fe1cc6804fe9712580ab6a3aa25c7d682667efedc6c9e718f803819b0a",
     "/tmp/dnd5e-mounted-RodFNo/states.ts": "2caecc0cb27b3c4a99aae50bd38da2cdb6c4a3baadd18b28f24de6f9f34d377d",
     "/tmp/dnd5e-mounted-RodFNo/fixture.js": "f6ad00ed4c8470b93dc977664cc216969d1d9fa74adfa65bc7d55ff381df5b2f",
-    "/tmp/dnd5e-public-rolls-neCXSY/evidence.json": "34c7b6cb0afa448191332bf08890966f6e3ad3c829118d1477cb0a6182085354"
+    "/tmp/dnd5e-public-rolls-neCXSY/evidence.json": "34c7b6cb0afa448191332bf08890966f6e3ad3c829118d1477cb0a6182085354",
+    "/tmp/dnd5e-mounted-4XSYxd/evidence.json": "c07d4c0361aaa532d951ef5ee51eadcf70fb3fa68146ea1181bb9bdb7d9bc6b9",
+    "/tmp/dnd5e-mounted-4XSYxd/states.ts": "59ee81e8fdaa2571ff0106089f356a416bf30cb8cb3e0cdbaa0d022eb01d6d4d",
+    "/tmp/dnd5e-mounted-4XSYxd/fixture.js": "f6ad00ed4c8470b93dc977664cc216969d1d9fa74adfa65bc7d55ff381df5b2f",
+    "temp/c72-mounted-full.log": "db1e5b80a0a00296949ef99a32b6a45d5faed78295c10c1ea68c20132c6abef5"
   },
   "limits": [
     "Actual native/base Actor initial collector and dispatcher, native effect and Item suppression getters, inherited phase matcher, actual primitive String and language/sheet methods. applyChange schema-field routing is a test collaborator. No full DataModel/Document boot.",
@@ -109,5 +150,10 @@
     "Actual public serialization is preserved. Exact ordered faces/entropy/value/count/discard/totals/distributions and unequal-index identities remain required; equal-index differences are diagnostic only in the qualified homogeneous plain-d20 profile.",
     "Class prerequisite inputs are separate from Item eligibility; general Item final preparation/activities, broader formulas/filters/conditions and effects/flags/range execution outside existing profiles remain open.",
     "No live Foundry, push/merge/tag/release/version/compatibility change or new Core dependency. E01/E02/E04/widerQ00/E05 and full ADR-0001/native/operator/release gates remain open. CI Node22 unrun; checks used Node24.21/npm11.19."
-  ]
+  ],
+  "followUp": {
+    "codeCheckpoint": "a0be77f",
+    "fullRetainedMounted": "PASS;actual C72 runtime fixture;before C74 admission",
+    "sourceHashPolicy": "Original C72 source/runtime hashes remain unchanged;later C74 code is not recaptured as C72 evidence."
+  }
 }

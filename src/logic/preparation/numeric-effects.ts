@@ -1,3 +1,4 @@
+import {featFinalCustomReason606} from './feat-final-profile';
 import {sourceRuleFlags606,type SourceRuleFlags606} from './rule-flags';
 import {preparedDefenseSets606} from './defense-sets';
 import {customTraitPath606,initializeCustomString606,applyCustomString606,customStringConditionReason606} from './trait-strings';
@@ -194,15 +195,18 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     if(equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')&&!addExecutionMode('system.skills.ste.roll.mode',-1))checkExecutionReason='Equipped armor Stealth mode source malformed';
     for(const modifier of conditions.modes)if(modifier.phase==='initiative')addExecutionMode(modifier.path,modifier.mode);
     for(const change of plan.final){
-        if(change.itemId!==undefined){reason??='Transferred Item final phase requires qualification';continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
+        if(change.itemId!==undefined){
+            const itemReason=field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
+            if(itemReason){reason??=itemReason;continue;}
+        }
         if(field?.string){
             if(conditions.status!=='ready'||customConditionReason){reason??=customConditionReason??'Final custom String condition preparation unavailable';continue;}
             const previous=Object.hasOwn(finalTraitStrings,change.key),before=previous?finalTraitStrings[change.key]:initializeCustomString606(field.object[field.field]);
             const value=before===null?null:applyCustomString606(before,change.type,raw);
             if(value===null){reason??=`Final custom String source/delta/operation requires qualification: ${change.key}`;continue;}
             finalTraitStrings[change.key]=value;
-            applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before!,value,operandPhase:previous?'final':'prepared',initializedFrom:origins[change.key]});continue;
+            applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'final',before:before!,value,operandPhase:previous?'final':'prepared',initializedFrom:origins[change.key]});continue;
         }
         const training=change.key.startsWith('system.traits.')?trainingSetField606(change.key.slice('system.traits.'.length)):null;
         if(training&&field?.set){

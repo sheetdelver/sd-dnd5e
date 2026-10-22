@@ -452,3 +452,14 @@ Source/default/current values and original effect/owned Item identity stay disti
 No Item final phase, native full-model boot, condition/Item composition, broader filters,
 expressions, installed/native/operator acceptance is established. Tracked C71/C72 records
 provide commands/hashes and distinct regression/mounted/public-host/package evidence.
+
+
+C73/C74 `feat-final-custom-strings.json`:434 independent cases reuse217 frozen C65/C66
+final String/cache/current-label expectations,with missing or explicit empty feat uses/
+activities. Item proficiency3/multiplier1 and empty uses value0/labels are independently
+specified. Actual Actor/Item final,feat,Activities and UsesField methods execute;formula
+replacement/dice/activity/recovery collaborators throw if called. Empty collection/uses
+initialization and deterministic Item roll data remain declared shells,not full source
+DataModel boot. All434 fail before/pass after C74;poison/context/identity/recipe gates,
+mounted/public-host/package evidence remain separately recorded. Other persisted system
+fields,configured uses,activities and general Item final preparation are not qualified.

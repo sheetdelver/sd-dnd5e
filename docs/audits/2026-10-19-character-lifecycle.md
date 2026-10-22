@@ -1822,3 +1822,36 @@ empty collections/uses and Item roll data/spellcasting collaborators remain decl
 this is not full source DataModel boot or general Item/native/operator acceptance.
 Runtime stays gated pending C74 source/poison/consumer integration. Partial M0/M2 Q02a,
 DD-03/11/27/34,A03/A04 only;full ADR/E01/E02/E04/widerQ00/E05 remain open.
+
+
+### C74 — shared empty-feat final custom text (2026-10-22)
+
+All434 unchanged C73 profiles fail before/pass after admission through the existing
+final String interpreter, snapshots and shared projections/compiler. Each receipt keeps
+owned Item/effect identity and source/default/operand phase. Current text differs from
+earlier language labels without replaying preparation. The original C72 final-Item
+negative input is retained with positive current-text/earlier-label/receipt assertions.
+
+The recipe is deliberately bounded:unique identified condition-free feat,missing or
+empty activities,absent/0 uses.spent,absent/blank uses.max,and absent/empty recovery.
+Other persisted system fields (including description) currently require further final
+preparation qualification. Prepared-looking prof/getter/uses.value/label fields do not
+supply overrides. General feats/Items,activities/configured uses,conditions,dependent
+filters/references and other transferred final field types remain gated.
+
+[Evidence](evidence/2026-10-22-c74-feat-final-custom.json) records52 module/9 tooling suites and61 assertions,215 explicit
+typed files,2242/591 source inventory,434 final/686 initial Item native cases and retained
+condition/trait matrices,870 both-layout consumer states plus16 selected skill/tool/
+alternate-ability states,311776 public accepted requests/1known candidate/40bounded tie
+index diagnostics/0native writes,and isolated check/package PASS. A suppressed-tool
+negative setup was corrected to equipped:true;the frozen434 inputs are unchanged.
+The first package check caught a CLI console log;it now uses process.stdout. Failed logs
+are retained;neither finding establishes a Core defect. Source preservation,poison,
+recipe/context recovery and held-callback fences pass. C72's full retained mounted run
+also completed and is recorded separately against C72 code,not recaptured as C74.
+
+Partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21 only. Experimental0.4.1 and compatibility
+unchanged;all full ADR/E01/E02/E04/widerQ00/E05/native/operator gates remain open.
+Next qualify bounded nonempty feat uses/defaults and final preparation collaborators,
+then extend the source recipe through shared fields/projections before general Item
+final support. No resource writes follow until the E02 conflict/receipt gate is resolved.
