@@ -104,7 +104,7 @@ export default function Inventory({ rows = [], title = 'Inventory' }: Props) {
                                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                             >
                                 <span style={{ fontSize: '12px' }}>{row.name}</span>
-                                {row.weightLabel&&<span aria-label={row.name+' weight'} style={{fontSize:'11px'}}>{row.weightLabel}</span>}
+                                {(row.totalWeightLabel??row.weightLabel)&&<span title={row.unavailableReason} aria-label={row.name+' weight'} style={{fontSize:'11px'}}>{row.totalWeightLabel??row.weightLabel}</span>}
                                 {row.usesLabel&&<span aria-label={row.name+' uses'} style={{fontSize:'11px'}}>{row.usesLabel}</span>}
                                 {row.equipped && (
                                     <span title="Equipped" style={{ fontSize: '10px', color: 'var(--prof-full)' }}>●</span>

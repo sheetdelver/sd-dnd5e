@@ -1,3 +1,4 @@
+import type {PhysicalItem606} from './physical';
 import {preparedFormulaBindings606} from './formula-fields';
 import {deterministicFormula606,formulaUnavailableReason606,type FormulaBindings606} from './deterministic-formula';
 import {spellMetadata606,type SpellMetadata} from './spell-metadata';
@@ -11,7 +12,7 @@ export interface ItemFact<T>{status:'ready'|'unavailable'|'not-applicable';value
 export interface RecoveryFact {period:string;type:string;formula:string|null}
 export interface UsesFacts {status:'ready'|'unavailable'|'not-applicable';reason?:string;max:number|null;spent:number|null;remaining:number|null;limited:boolean|null;capacitySource:string|null;origin:'source'|'schema-default';recovery:ItemFact<RecoveryFact[]>;display:string;provenance:string}
 export interface ActivityFacts {id:string;itemId:string;type:string;name:string;sort:number;activation:string|null;uses:UsesFacts;status:'ready'|'unavailable';reason?:string;executionReason:string;attack?:ItemFact<AttackFacts>}
-export interface ItemFacts {id:string;uuid:string|null;type:string;name:string;status:'ready'|'partial'|'unavailable';reason?:string;quantity:ItemFact<number>;weight:ItemFact<{value:number;units:string;stack:number|null}>;equipped:ItemFact<boolean>;attuned:ItemFact<boolean>;uses:UsesFacts;activities:ActivityFacts[];activityStatus:'ready'|'unavailable';activityReason?:string;provenance:string;attackModes:ItemFact<string[]>;spell?:ItemFact<SpellMetadata>}
+export interface ItemFacts {physical?:PhysicalItem606;id:string;uuid:string|null;type:string;name:string;status:'ready'|'partial'|'unavailable';reason?:string;quantity:ItemFact<number>;weight:ItemFact<{value:number;units:string;stack:number|null}>;equipped:ItemFact<boolean>;attuned:ItemFact<boolean>;uses:UsesFacts;activities:ActivityFacts[];activityStatus:'ready'|'unavailable';activityReason?:string;provenance:string;attackModes:ItemFact<string[]>;spell?:ItemFact<SpellMetadata>}
 export interface OwnedItemFacts {resourceSummary:string;status:'ready'|'partial'|'unavailable';reason?:string;items:Record<string,ItemFacts>;provenance:string}
 const provenance='release-6.0.6 PhysicalItemTemplate / ActivitiesTemplate / UsesField; source-only read preparation';
 export const activityItemTypes=['consumable','equipment','facility','feat','spell','tool','weapon'];

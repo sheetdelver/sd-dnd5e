@@ -2722,3 +2722,27 @@ adv/dis diagnostic probes. Source data is unchanged;mounted desktop/mobile contr
 preview/direct/shortcut agreement,context recovery and held callbacks are covered.
 These are separate regression,controlled native-method,mounted SDK-seam and isolated
 host results,not installed/native/operator acceptance. Full M2/Q00 and ADR remain open.
+
+
+### C81 — shared embedded physical preparation (2026-10-22)
+
+One shared model now prepares nested Item totals,container contents/count/capacity,
+Actor and container currency,unit conversion and source-only carrying thresholds.
+Both inventory layouts and current Item details format this model. Containers count
+once in Actor weight;weightless contents still occupy capacity. Currency is rounded
+by denomination before weight. Native mixed-unit container currency/capacity behavior
+is preserved,including capacity labels using their declared units. Raw nonpersisted
+encumbrance and totalWeight poison never supply overrides. Powerful Build's Boolean
+carrying-size effect is independently qualified;this does not infer a feature grant.
+
+[C81 evidence](../audits/evidence/2026-10-22-c81-physical.json) records same-input
+missing →26lb,weightless13.5lb,metric9.7kg and currency-off20.5lb comparisons against
+actual pinned methods/configuration,12 size/Powerful Build thresholds and16 unit
+conversions. Malformed quantities,units,coins,capacity,broken/cyclic identities and
+unqualified Item effects remain explicit unavailable profiles;unidentified container
+contents/capacity are conservatively hidden. Mounted1440/390 current details and
+context/source recovery are separate from controlled-source and regression evidence.
+No inventory writes,automatic encumbrance status synchronization or live/native
+acceptance is introduced. Non-none encumbrance check/condition execution remains gated
+pending status-effect qualification;known source-only weights remain truthful.
+Partial M2/DD-03/06/09/11/24/27/31/34,A02–A06 read preparation;full M2/ADR remain open.

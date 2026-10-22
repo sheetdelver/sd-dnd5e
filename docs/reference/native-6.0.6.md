@@ -1320,3 +1320,16 @@ The controlled builder harness does not boot DataModels or evaluate native dice.
 Separate public-host Normal distributions cover24 executable profiles at5 bounds;the
 6 coefficient1.5 profiles are arithmetic evidence with execution explicitly gated.
 Adv/dis probes remain diagnostics,not a new equal-index equivalence decision.
+
+
+C81 uses actual PhysicalItemTemplate.totalWeight/totalWeightIn,ContainerData embedded
+contents/allContainedItems/count/weight/computeCapacity,CurrencyTemplate and
+AttributesFields.prepareEncumbrance,with exact-release CONFIG and static Foundry14.367
+toNearest. The declared Collection is an initialized Map shell;compendium/private
+async paths throw if reached. Native conversions are lb1,kg2.5,tn2000,Mg2500;
+coins-per-unit50/110. Container currency weight uses global unit mode then is added
+numerically in the Item weight units;capacity contentsWeight uses Item weight units
+while its label follows capacity units. These surprising native behaviors are retained.
+A zero/zero carrying percentage is exposed as unavailable rather than a numeric claim.
+Raw encumbrance has persisted:false;unimplemented effect writes cannot be source
+substitutes. Source initialization and controlled arithmetic remain separate evidence.

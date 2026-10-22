@@ -1490,3 +1490,15 @@ references cannot fall back to prepared numeric values. Normal with qualified bo
 is supported;adv/dis with proficiency terms,1.5 dice counts and broader dice expressions
 remain unavailable. Other workflows must explicitly qualify Dice mode before opting in.
 [C80 evidence](audits/evidence/2026-10-22-c80-proficiency-dice.json).
+
+
+`physical.ts` consumes the shared owned-Item source facts once per preparation to
+resolve embedded container identities,contents/counts,total weights and currency.
+The same result is attached to owned Item facts and the Actor physical projection;
+UI never totals inventory. Nonpersisted encumbrance initializes independently of raw
+source overrides. Thresholds use earlier qualified Strength and native size factors;
+Powerful Build changes the carrying size only. Container capacity and visible totals
+are distinct from conservative contents visibility. Cycles,broken references and
+unqualified effect phases return reasons,without repairing source or resolving names.
+Automatic status writes/movement penalties are separate from this read model.
+[C81 source/phase evidence](audits/evidence/2026-10-22-c81-physical.json).

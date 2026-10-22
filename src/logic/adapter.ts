@@ -1,3 +1,4 @@
+import {preparePhysical606} from './preparation/physical';
 import {prepareOwnedItems606,ownedItemProjection} from './preparation/item-facts';
 import {projectConditions606} from './preparation/conditions';
 import { prepareArmorClass606,prepareInitiative606,initiativeRoll,armorClassProjection } from './preparation/defenses';
@@ -146,7 +147,10 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         prepared.derived.speciesIdentity=species;
         prepared.derived.race=species.name??'';
         const effects=prepareNumericEffects606(actor,rules);
-        prepared.derived.ownedItems=prepareOwnedItems606(actor,rules,effects);
+        const owned=prepareOwnedItems606(actor,rules,effects);const physical=preparePhysical606(actor,rules,owned,effects);
+        prepared.derived.physical=physical;
+        for(const [id,facts]of Object.entries(physical.items))if(owned.items[id])owned.items[id].physical=facts;
+        prepared.derived.ownedItems=owned;
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
         prepared.derived.conditions=projectConditions606(actor,rules,effects.conditions);
         prepared.derived.equipmentPreparation=effects.equipment;

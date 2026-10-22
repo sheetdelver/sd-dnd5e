@@ -38,6 +38,8 @@
     "test:native-feat-final": "node scripts/native-feat-final-oracle.mjs",
     "test:native-proficiency": "node scripts/native-proficiency-dice-oracle.mjs",
     "test:public-proficiency": "node scripts/test-public-proficiency.mjs",
-    "test:mounted-proficiency": "node scripts/test-mounted-proficiency.mjs"
+    "test:mounted-proficiency": "node scripts/test-mounted-proficiency.mjs",
+    "test:native-physical": "node scripts/native-physical-oracle.mjs",
+    "test:mounted-physical": "node scripts/test-mounted-physical.mjs"
   }
 }

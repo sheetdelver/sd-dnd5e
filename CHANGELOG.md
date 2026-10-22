@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share nested inventory weight, container capacity, currency and carrying thresholds across both layouts.
+
 - Prepare proficiency dice and passive scores consistently; support qualified Normal checks through the public roll path.
 
 - Resolve roll formula proficiency references from the current check while preserving earlier passive values.

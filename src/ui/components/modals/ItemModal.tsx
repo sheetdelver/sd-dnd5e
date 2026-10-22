@@ -115,6 +115,10 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
                 }}>
                     {legacy&&typeof sys.quantity==='number'?<PropertyRow label="Quantity" value={String(sys.quantity)}/>:<PropertyRow label="Quantity" value={prepared?.quantity.status==='not-applicable'?'Not applicable':prepared?.quantity.value==null?'Unavailable':String(prepared.quantity.value)}/>}
                     {!legacy&&<PropertyRow label="Weight" value={prepared?.weight.value?`${prepared.weight.value.value} ${prepared.weight.value.units}`:prepared?.weight.status==='not-applicable'?'Not applicable':'Unavailable'}/>}
+                    {!legacy&&prepared?.physical&&<>
+                        <PropertyRow label="Total weight" value={prepared.physical.totalWeight.value==null?'Unavailable':`${prepared.physical.totalWeight.value} ${prepared.physical.units}`}/>
+                        {liveItem.type==='container'&&<PropertyRow label="Capacity" value={prepared.physical.capacity.value?prepared.physical.capacity.value.max==null?'Unlimited':`${prepared.physical.capacity.value.value}/${prepared.physical.capacity.value.max} ${prepared.physical.capacity.value.units}`:prepared.physical.capacity.reason??'Unavailable'}/>}
+                    </>}
                     {!legacy&&<PropertyRow label="Uses" value={prepared?.uses.display??'Unavailable'}/>}
                     {rarity && (
                         <PropertyRow
