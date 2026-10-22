@@ -54,7 +54,10 @@
         "initMode": 0,
         "score": 12,
         "walk": 0,
-        "fly": 0
+        "fly": 0,
+        "preparationStatuses": [
+          "petrified"
+        ]
       }
     },
     {
@@ -110,7 +113,10 @@
         "initMode": 0,
         "score": 12,
         "walk": 0,
-        "fly": 0
+        "fly": 0,
+        "preparationStatuses": [
+          "petrified"
+        ]
       }
     },
     {
@@ -170,7 +176,11 @@
         "initMode": -1,
         "score": 7,
         "walk": 0,
-        "fly": 0
+        "fly": 0,
+        "preparationStatuses": [
+          "petrified",
+          "incapacitated"
+        ]
       }
     },
     {
@@ -230,7 +240,11 @@
         "initMode": -1,
         "score": 7,
         "walk": 0,
-        "fly": 0
+        "fly": 0,
+        "preparationStatuses": [
+          "petrified",
+          "incapacitated"
+        ]
       }
     },
     {
@@ -292,12 +306,17 @@
         "dv": [
           "ALL"
         ],
-        "checkMode": 0,
-        "passive": 15,
+        "checkMode": -1,
+        "passive": 10,
         "initMode": -1,
         "score": 7,
         "walk": 0,
-        "fly": 0
+        "fly": 0,
+        "preparationStatuses": [
+          "petrified",
+          "incapacitated",
+          "poisoned"
+        ]
       }
     },
     {
@@ -359,12 +378,17 @@
         "dv": [
           "ALL"
         ],
-        "checkMode": 0,
-        "passive": 15,
+        "checkMode": -1,
+        "passive": 10,
         "initMode": -1,
         "score": 7,
         "walk": 0,
-        "fly": 0
+        "fly": 0,
+        "preparationStatuses": [
+          "petrified",
+          "incapacitated",
+          "poisoned"
+        ]
       }
     },
     {
@@ -430,7 +454,10 @@
         "initMode": -1,
         "score": 12,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "poisoned"
+        ]
       }
     },
     {
@@ -497,7 +524,10 @@
         "initMode": -1,
         "score": 12,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "poisoned"
+        ]
       }
     },
     {
@@ -565,7 +595,11 @@
         "initMode": -1,
         "score": 7,
         "walk": 0,
-        "fly": 0
+        "fly": 0,
+        "preparationStatuses": [
+          "petrified",
+          "incapacitated"
+        ]
       }
     },
     {
@@ -633,7 +667,11 @@
         "initMode": -1,
         "score": 7,
         "walk": 0,
-        "fly": 0
+        "fly": 0,
+        "preparationStatuses": [
+          "petrified",
+          "incapacitated"
+        ]
       }
     },
     {
@@ -700,7 +738,11 @@
         "initMode": -1,
         "score": 7,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "incapacitated",
+          "poisoned"
+        ]
       }
     },
     {
@@ -768,7 +810,11 @@
         "initMode": -1,
         "score": 7,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "incapacitated",
+          "poisoned"
+        ]
       }
     },
     {
@@ -833,7 +879,10 @@
         "initMode": -1,
         "score": 12,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "poisoned"
+        ]
       }
     },
     {
@@ -899,7 +948,10 @@
         "initMode": -1,
         "score": 12,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "poisoned"
+        ]
       }
     },
     {
@@ -962,7 +1014,10 @@
         "initMode": -1,
         "score": 12,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "poisoned"
+        ]
       }
     },
     {
@@ -1026,7 +1081,10 @@
         "initMode": -1,
         "score": 12,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "poisoned"
+        ]
       }
     },
     {
@@ -1089,7 +1147,10 @@
         "initMode": -1,
         "score": 12,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "poisoned"
+        ]
       }
     },
     {
@@ -1153,10 +1214,13 @@
         "initMode": -1,
         "score": 12,
         "walk": 30,
-        "fly": 60
+        "fly": 60,
+        "preparationStatuses": [
+          "poisoned"
+        ]
       }
     }
   ],
   "scope": "Controlled initialized source/model petrification status/CI/defense/mode/movement phase comparison; constant guards,untimed Actor docs,empty own changes/custom rules; no preset/source boot/native dice/operator acceptance",
-  "expectationMethod": "Frozen independent source/initial-CI/guard states; initial status filtering then explicit petrification DRALL/bypass-clear/DIpoison/CIpoisoned+diseased then damage-trait normalization; actor statuses and rule-effective statuses are distinct."
+  "expectationMethod": "Independent explicit source/CI phases at actual CharacterData.prepareDerivedData order: abilities/skills/tools precede late Traits grants. Late poison immunity affects final queries,not already prepared mode counts or passive values. Supersedes C42 mixed-profile composition;no module/observed output used to derive expectations."
 }

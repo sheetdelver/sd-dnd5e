@@ -2186,3 +2186,45 @@ superseded;passing regression/public results do not correct the oracle. C44 new 
 have no such grant and are unaffected. Correct phase composition immediately next.
 No full DD/A/M/ADR/native/operator gate closes;E01/E02/widerQ00/E05 open,experimental
 0.4.1/compatibility unchanged.
+
+
+### C46 — Character phase composition correction (DD-R07,2026-10-21)
+
+Parent `2bb9b78`;DD-R07 corrected,partial M2/Q02a,DD-02/05/27/34,A02/A04/A21.
+Two independent arithmetic cases fail unchanged C45/pass after (mixed Petrified+Poisoned
+check disadvantage/passive10);18 new phase-provenance contracts fail before/pass after.
+Seven initial-mode profiles retain override/suppression/subtraction/automatic-advantage
+behavior and initiative configuration. Actual CharacterData.prepareDerivedData executes
+with trace-only phase collaborators to assert14 calls,then numeric method composition
+follows abilities/skills/tools before trait grants. No native boot is implied.
+
+Shared preparationStatuses captures pre-trait current-CI queries separately from
+Actor statuses and final effective readouts. Late poison immunity suppresses final
+Poisoned queries but preserves prepared check counts/passives. Source preservation,
+prepared poison,context/source recovery,manual/selected/Normal-bound gates remain.
+C42/C43's mixed arithmetic parity claim is superseded;historical artifacts retained.
+
+Commands use Core0.19.3/90c13e5 via --core. `npm test`:60 assertions,8 tooling/39 module
+suites PASS;`typecheck`:184 explicit module/UI/server/test/hook files PASS.
+`test:native-source`:2242/591 at87e94db PASS;native checks/effects/initial119 and all
+retained condition comparisons PASS. `test:native-conditions`:actual Character order,
+corrected18 profiles and7 mixed initial-mode cases PASS. [Portable record](../audits/evidence/2026-10-21-c46-character-phase-order.json)
+includes frozen expectations,method/source identities,raw hashes and declared stubs.
+
+`test:mounted -- --petrification-only`:52 states at1440/390 PASS,`/tmp/dnd5e-mounted-4I3MgY`;
+18source+7mode actors,both widths,and2 live status/CI/context recovery states with
+retained callbacks. Actual condition/defense/movement/passive/skill/tool/init controls,
+previews/shortcuts/manual/selected execution agree. Initial generated test string quote
+error fixed before browser execution. Prior C45family398 and C43full1172/624 remain
+separate retained evidence,not rerun for unchanged unrelated consumers.
+
+`test:public-rolls`:85337 accepted PASS,including140 new mixed-mode manual/default
+requests;corrected base mixed expectations rerun.40 plain equal-index diagnostics,
+1 unary rejection,0 native writes;actual host serialization unchanged. Artifact
+`/tmp/dnd5e-public-rolls-EeM48m`. `check:package`:isolated public-boundary/module checks,managed
+typing and logic/UI/server bundles PASS;`/tmp/dnd5e-package-oozUKx/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`ee0dac6baaf8a98b2150368df538a39e8803cfb4ebded113c761f6cfc156c5f6`. All task-owned processes closed,Core baseline clean,
+production untouched. Node24.21/npm11.19;Node22 CI unrun. No installed/native/operator
+acceptance or full gate closure. Remaining M2 flags/time/dependent rules/Item/final/
+expressions and later lifecycle work,E01/E02/widerQ00/E05 remain open;experimental
+0.4.1/compatibility unchanged.

@@ -945,10 +945,11 @@ system: DR.ALL,cleared DR bypasses,DI.poison and CI.poisoned/diseased. Existing 
 preparation remains the single owner of DR/DI/DV normalization and its projections.
 Unknown/malformed required operands produce unavailability,never guessed Sets.
 
-Check/passive/initiative/movement rules consume effective statuses; the earlier Actor
-snapshot remains provenance. A late poison immunity can suppress Poisoned without
-deleting the earlier collected status. Final Document.active cannot reconstruct
-either phase. Context/source changes retire held intents; source and its canonical
+C46 corrects the initial C43 composition: check/passive/initiative/movement rules
+consume preparationStatuses,which captures current-CI queries before late trait grants.
+The Actor snapshot and final effective status readout remain separate. Late poison
+immunity suppresses final Poisoned queries without erasing already prepared check
+disadvantage/passive adjustment. Final Document.active cannot reconstruct these phases. Context/source changes retire held intents; source and its canonical
 IDs/ownership/metadata remain unchanged. No new command/cache/evaluator/transport.
 Petrified source statuses are explicit Petrified/incapacitated only; other condition
 family envelopes,riders/own changes/dependent guards/flags/time/Item/final/formula
@@ -974,8 +975,25 @@ still requires explicit incapacity/surprise. The same prepared results feed stat
 movement/passive/save/init/skill/tool controls and direct execution. No preset or Prone
 rider is constructed. Actor/context changes retire intent rather than replay a roll.
 
-DD-R07 correction is pending immediately after C45: the C42/C43 composition of late
+DD-R07 was discovered after C45 and corrected in C46: the C42/C43 composition of late
 petrification grants before ability modes is inaccurate. Native Character preparation
 calculates ability modes/passives first. Final rule-effective statuses cannot replace
-that earlier snapshot. Historical petrification arithmetic claims for mixed Poisoned
-profiles are superseded;defense/status grant observations remain useful.
+that earlier snapshot. Historical C42/C43 arithmetic claims for mixed Poisoned profiles are superseded by
+C46;defense/status grant observations remain useful.
+
+
+### Character preparation composition correction (C46 / DD-R07)
+
+The oracle now executes actual CharacterData.prepareDerivedData with trace-only phase
+collaborators to assert order,then composes the independently tested numeric methods
+in that order: abilities/skills/tools before Traits.prepareResistImmune. Initiative/
+movement arithmetic is tested separately;the bounded late grants do not alter their
+queried identities. This remains controlled source evidence,not native model boot.
+
+Conditions now expose preparationStatuses (current-CI query snapshot before late trait
+grants),actorStatuses (after current-CI deletion) and statuses (final rule-effective
+readout after late immunity grants). Mode descriptors,movement rules and reductions
+consume the preparation snapshot. Defense grants/normalization and final readouts keep
+their later-phase semantics. A mixed Petrified+Poisoned source prepares disadvantage
+and passive10,while its final readout omits Poisoned. Manual/automatic mode overrides
+and count suppression/cancellation keep native behavior. Source is never rewritten.

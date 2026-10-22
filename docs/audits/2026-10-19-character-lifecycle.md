@@ -1080,3 +1080,13 @@ Mixed Petrified+Poisoned incorrectly loses prepared check disadvantage/passive a
 when poison immunity is granted later. Correct the oracle composition and shared phase
 snapshots next. Historical C42/C43 captures remain,but do not establish arithmetic
 parity for this interaction. This is module evidence/correctness work,not a Core defect.
+
+
+C46 (after `2bb9b78`) corrects **DD-R07**. Actual CharacterData.prepareDerivedData
+phase-order trace plus reordered numeric methods confirm the mixed Poisoned check
+counts/passive are prepared before late petrification immunity. Two arithmetic and18
+phase-provenance contracts fail unchanged C45/pass after;seven count/override profiles
+and actual consumers are covered. [Record](evidence/2026-10-21-c46-character-phase-order.json)
+supersedes C42/C43's mixed arithmetic claim. Historical source/host/regression artifacts
+remain;they cannot prove composition. No Core defect,version/compatibility change or
+full DD/A/M/native/operator gate closure. ADR-0001 remains open.

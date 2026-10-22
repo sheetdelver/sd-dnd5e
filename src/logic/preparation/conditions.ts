@@ -9,7 +9,7 @@ export interface ConditionSource606 {
     source:{type:string;statuses:string[]|null|'[absent]';level:number|null|'[absent]';disabled:boolean|null|'[absent]'};
 }
 export interface ConditionPreparation606 {
-    status:'ready'|'unavailable';reason?:string;initialStatuses:string[];actorStatuses:string[];statuses:string[];traitGrant?:ConditionTraitGrant606;
+    status:'ready'|'unavailable';reason?:string;initialStatuses:string[];preparationStatuses:string[];actorStatuses:string[];statuses:string[];traitGrant?:ConditionTraitGrant606;
     sources:ConditionSource606[];levels:Record<string,number>;rollReduction:number;speedReduction:number;
     rules:{noMovement:boolean;crawl:boolean};
     modes:Array<{path:string;mode:-1|1;phase:'abilities'|'initiative';source:string}>;
@@ -44,13 +44,14 @@ function immunities(system:Record<string,unknown>):string[]|null {
     if(raw!=null&&(!Array.isArray(raw)||raw.length>256||raw.some(value=>typeof value!=='string'||value.length>256)))return null;
     return initializeTraitSet606(raw);
 }
-/** Snapshot statuses BEFORE initial CI writes, then remove final immunities.
+/** Snapshot statuses BEFORE initial CI writes, then capture rule queries before
+ * late trait grants separately from final Actor/readout statuses.
  * Never recompute from final Document.active: removal of an initial immunity
  * cannot retroactively add an omitted status. Source/prepared maps stay distinct. */
 export function prepareConditions606(actor:unknown,system:Record<string,unknown>,sources:ConditionSource606[],reason?:string):ConditionPreparation606 {
     const source=record(actor),raw=record(source?.system)??{},initial=immunities(raw),final=immunities(system);
     let failed=reason??(source?.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length)?'Prepared status source requires qualification':undefined)??(sources.length&&(!initial||!final)?'Condition immunity source/preparation unavailable':undefined);
-    const initialStatuses:string[]=[],actorStatuses:string[]=[],statuses:string[]=[],levels:Record<string,number>={},rules={noMovement:false,crawl:false},modes:ConditionPreparation606['modes']=[];
+    const initialStatuses:string[]=[],preparationStatuses:string[]=[],actorStatuses:string[]=[],statuses:string[]=[],levels:Record<string,number>={},rules={noMovement:false,crawl:false},modes:ConditionPreparation606['modes']=[];
     let traitGrant:ConditionTraitGrant606|undefined;
     if(!failed){
         for(const source of sources){
@@ -61,25 +62,28 @@ export function prepareConditions606(actor:unknown,system:Record<string,unknown>
             const derivedStatuses=[...source.statuses,...(source.type==='exhaustion'&&source.level===6?['dead']:[])];
             if(source.condition.matches)for(const status of derivedStatuses)if(!initialStatuses.includes(status))initialStatuses.push(status);
         }
-        actorStatuses.push(...initialStatuses.filter(status=>!final?.includes(status)));
+        // Character abilities/skills/tools/init/movement run before Traits grants.
+        // Their queries see current CI,not the immunity granted later in that phase.
+        preparationStatuses.push(...initialStatuses.filter(status=>!final?.includes(status)));
+        actorStatuses.push(...preparationStatuses);
         if(actorStatuses.includes('petrified')&&!final?.includes('petrified')){traitGrant=applyPetrificationGrants606(system);if(traitGrant.reason)failed=traitGrant.reason;}
         const ruleImmunities=immunities(system);
         if(!failed)statuses.push(...actorStatuses.filter(status=>!ruleImmunities?.includes(status)));
-        if(statuses.includes('poisoned'))for(const ability of ['str','dex','con','int','wis','cha'])if(record(record(system.abilities)?.[ability]))modes.push({path:`system.abilities.${ability}.check.roll.mode`,mode:-1,phase:'abilities',source:'poisoned'});
-        rules.noMovement=statuses.some(id=>['grappled','paralyzed','restrained','petrified','unconscious'].includes(id));rules.crawl=statuses.includes('prone');
+        if(preparationStatuses.includes('poisoned'))for(const ability of ['str','dex','con','int','wis','cha'])if(record(record(system.abilities)?.[ability]))modes.push({path:`system.abilities.${ability}.check.roll.mode`,mode:-1,phase:'abilities',source:'poisoned'});
+        rules.noMovement=preparationStatuses.some(id=>['grappled','paralyzed','restrained','petrified','unconscious'].includes(id));rules.crawl=preparationStatuses.includes('prone');
         if(record(record(system.abilities)?.dex)){
-            if(statuses.includes('dodging')&&!statuses.includes('incapacitated')&&!rules.noMovement)modes.push({path:'system.abilities.dex.save.roll.mode',mode:1,phase:'abilities',source:'dexteritySaveAdvantage'});
-            if(statuses.includes('restrained'))modes.push({path:'system.abilities.dex.save.roll.mode',mode:-1,phase:'abilities',source:'dexteritySaveDisadvantage'});
+            if(preparationStatuses.includes('dodging')&&!preparationStatuses.includes('incapacitated')&&!rules.noMovement)modes.push({path:'system.abilities.dex.save.roll.mode',mode:1,phase:'abilities',source:'dexteritySaveAdvantage'});
+            if(preparationStatuses.includes('restrained'))modes.push({path:'system.abilities.dex.save.roll.mode',mode:-1,phase:'abilities',source:'dexteritySaveDisadvantage'});
         }
-        if(statuses.includes('invisible'))modes.push({path:'system.attributes.init.roll.mode',mode:1,phase:'initiative',source:'initiativeAdvantage'});
-        if(statuses.some(id=>['incapacitated','surprised'].includes(id)))modes.push({path:'system.attributes.init.roll.mode',mode:-1,phase:'initiative',source:'initiativeDisadvantage'});
+        if(preparationStatuses.includes('invisible'))modes.push({path:'system.attributes.init.roll.mode',mode:1,phase:'initiative',source:'initiativeAdvantage'});
+        if(preparationStatuses.some(id=>['incapacitated','surprised'].includes(id)))modes.push({path:'system.attributes.init.roll.mode',mode:-1,phase:'initiative',source:'initiativeDisadvantage'});
     }
     // Native nonpersisted map initialization discards raw prepared-looking fields.
     system.conditions={...levels};
-    const exhaustion=statuses.includes('exhaustion')?(levels.exhaustion??0):0;
+    const exhaustion=preparationStatuses.includes('exhaustion')?(levels.exhaustion??0):0;
     const rawImmunity=record(record(raw.traits)?.ci)?.value;
     const immunitySource=rawImmunity===undefined?'[absent]':rawImmunity===null?null:Array.isArray(rawImmunity)&&initial!==null?[...rawImmunity] as string[]:'[malformed]';
-    return {immunitySource,rules,levels,rollReduction:exhaustion?-2*exhaustion:0,speedReduction:5*exhaustion,status:failed?'unavailable':'ready',...(failed?{reason:failed}:{}),sources,initialStatuses,actorStatuses,statuses,...(traitGrant?{traitGrant}:{}),modes,provenance};
+    return {immunitySource,rules,levels,rollReduction:exhaustion?-2*exhaustion:0,speedReduction:5*exhaustion,status:failed?'unavailable':'ready',...(failed?{reason:failed}:{}),sources,initialStatuses,preparationStatuses,actorStatuses,statuses,...(traitGrant?{traitGrant}:{}),modes,provenance};
 }
 export function projectConditions606(actor:unknown,context:RulesContext,prepared:ConditionPreparation606):ConditionPreparation606 {
     const source=record(actor),s=record(source?.system),attributes=record(s?.attributes),flags=record(record(source?.flags)?.dnd5e),encumbrance=context.settings['dnd5e.encumbrance'];
@@ -91,5 +95,5 @@ export function projectConditions606(actor:unknown,context:RulesContext,prepared
     return reason?{...prepared,status:'unavailable',reason,statuses:[],modes:[]}:prepared;
 }
 export function conditionsProjection(derived:Record<string,any>|undefined):ConditionPreparation606 {
-    return derived?.conditions??{status:'unavailable',reason:'Condition preparation unavailable',initialStatuses:[],actorStatuses:[],statuses:[],sources:[],rules:{noMovement:false,crawl:false},levels:{},rollReduction:0,speedReduction:0,modes:[],provenance};
+    return derived?.conditions??{status:'unavailable',reason:'Condition preparation unavailable',initialStatuses:[],preparationStatuses:[],actorStatuses:[],statuses:[],sources:[],rules:{noMovement:false,crawl:false},levels:{},rollReduction:0,speedReduction:0,modes:[],provenance};
 }

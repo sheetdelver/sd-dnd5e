@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; DD-R07 petrification composition correction pending | RV01–RV04 retained; C06–C45 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition | RV01–RV04 retained; C06–C46 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1719,3 +1719,29 @@ observations and recorded host results remain historical evidence. C45's new pro
 contain no Petrified grants and their qualifications are unaffected. Correct the phase
 oracle and shared preparation immediately next,with failing-before/passing-after cases.
 E01/E02/widerQ00/E05/fullDD/A/M/ADR remain open;experimental0.4.1/compatibility unchanged.
+
+
+### C46 — Correct Character phase composition (DD-R07,2026-10-21)
+
+C45 is `2bb9b78`. DD-R07 corrected,partial M2/Q02a,DD-02/05/27/34,A02/A04/A21.
+The oracle executes actual pinned CharacterData.prepareDerivedData against trace-only
+collaborators to prove phase order separately from arithmetic. Numeric composition now
+prepares abilities/skills/tools before Traits.prepareResistImmune. Two independently
+expected mixed Petrified+Poisoned arithmetic cases fail unchanged C45/pass after;
+18 new phase-provenance contracts also fail before/pass after. Seven initial-mode
+profiles preserve override/suppression/subtraction/automatic-advantage behavior.
+
+Shared condition preparation records the pre-trait current-CI query snapshot separately
+from Actor status deletion and final effective readout. Prepared Poisoned disadvantage/
+passive10 survives a later poison-immunity grant,while final status queries/readouts
+suppress Poisoned. Source,IDs,ownership and metadata stay unchanged. Existing defense
+normalization remains the sole owner; no dice/effect evaluator or write path is added.
+
+[C46 evidence](../audits/evidence/2026-10-21-c46-character-phase-order.json) and ledger
+supersede C42/C43's mixed-condition arithmetic parity claim without deleting historical
+captures. Their host serialization/regression/trait observations remain historical,
+not evidence of correct composition. Corrected mounted/public comparisons are separate
+from source methods and still do not establish installed/native/operator acceptance.
+DD-R01–06 and C45 boundaries remain. Other condition/preset/rider/combat,flags/time/
+dependent rules,Item/final/expression and full lifecycle gates remain open. E01/E02/
+widerQ00/E05/fullDD/A/M/ADR stay open;experimental0.4.1/compatibility unchanged.

@@ -1011,3 +1011,14 @@ prepareDerivedData calls abilities/skills/tools before Traits.prepareResistImmun
 The C42 harness used the reverse order,so its late-immunity arithmetic expectation is
 superseded pending immediate correction. No Core defect follows. Unmixed C44 explicit
 Stunned/Unconscious profiles have no petrification grants and are unaffected.
+
+
+C46 corrects DD-R07 by executing exact CharacterData.prepareDerivedData with trace-only
+phase collaborators and recording its source hash/order. Actual numeric methods now
+follow abilities/skills/tools before Traits.prepareResistImmune. Two mixed Petrified+
+Poisoned expected mode/passive values are corrected independently to disadvantage/
+passive10. Final poison immunity changes final queries,not already prepared counts.
+Seven initial-mode cases compare override/suppression/subtraction/combined checks and
+initiative separately. [Record](../audits/evidence/2026-10-21-c46-character-phase-order.json)
+retains source/schema/phase identities and stubs. C42/C43 mixed arithmetic claims are
+superseded;their historical captures remain. No native boot/preset/operator acceptance.
