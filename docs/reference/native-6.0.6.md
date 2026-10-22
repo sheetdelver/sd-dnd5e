@@ -1235,3 +1235,11 @@ Runtime shares those qualified facts; it does not infer immunity from custom tex
 [Record](../audits/evidence/2026-10-22-c70-condition-custom.json) preserves C69 constructor,
 explicit String scheduling, presentation-copy and dice-stub limits; no full source boot,
 native dice/operator or general condition-composition acceptance follows.
+
+
+C71 qualifies686 transferred Item Actor-target initial custom-field cases through
+actual native/base Actor collection, suppression, phase/priority dispatch and native
+primitive String/language/sheet methods. Source/default initialization and schema-field
+routing are explicit test collaborators; no Item final phase or full native model boot
+is claimed. Runtime stays gated pending C72. [Record](../audits/evidence/2026-10-22-c71-item-initial-custom-foundation.json) preserves independent
+expectations, identities and exact hashes; full ADR/native/operator gates stay open.

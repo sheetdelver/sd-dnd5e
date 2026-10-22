@@ -5,6 +5,7 @@ import {createRequire} from 'node:module';
 import {join} from 'node:path';
 import {coreRoot,moduleRoot,option} from './lib/toolchain.mjs';
 import {readRelease,nativeCommit,sha256} from './lib/native-release.mjs';
+import {CustomStringField606,CustomTraits606,customSheet606} from './native-custom-traits-oracle.mjs';
 const args=process.argv.slice(2),repo=option(args,'--native'),foundry=option(args,'--foundry');
 if(!repo||!foundry)throw new Error('Supply static --native and --foundry source references; no service is started');
 const files=readRelease(repo),release=JSON.parse(readFileSync(join(foundry,'package.json'),'utf8')).release;
@@ -20,7 +21,7 @@ foundry:{documents:{},utils:{deepClone:structuredClone,isPlainObject:value=>!!va
 vm.runInNewContext(`
 class FEffect {${['active','isSuppressed','shouldApplyChange'].map(m=>f('client/documents/active-effect.mjs','ActiveEffect',m)).join('\n')}
 getReplacementData(){return {};}
-static _shimChanges(){} static applyChange(actor,change){trace.push(change.key);return {};}
+static _shimChanges(){} static applyChange(actor,change){trace.push(change.key);if(actor.customReceipts)return applyCustom(actor,change);return {};}
 }
 FEffect.CHANGE_PHASES={initial:{},final:{}};
 class NEffect extends FEffect {${n('module/documents/active-effect.mjs','ActiveEffect5e','isSuppressed')}
@@ -206,5 +207,51 @@ for(const row of modeFixture.cases.filter(row=>row.expected)){
  assert.deepEqual(observed,row.expected,row.id);modeObservations.push({id:row.id,observed});
 }
 
-const evidence={itemEligibilityObservations,itemSchemaHashes:Object.fromEntries([...equippableTypes,...otherTypes].map(type=>{const path="module/data/item/"+type+".mjs";return [path,sha256(files.get(path))];})),modeObservations,constantObservations,numericObservations,evidence:'S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance',nativeCommit,foundry:release,observations,priorities,foundrySources:Object.fromEntries([...core].map(([path,source])=>[path,sha256(source)])),stubs:['C22 exact primitive clean/defaults and Item suppression getter; all13 Item template ownerships checked; hidden=false, parent group=false, no Item DataModel/Document/hooks or malformed coercion qualification','Explicit initialized effect defaults; no Foundry DataModel initialization','Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions','Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime' ,'Untimed empty-condition effects only','Empty roll data; hidden/dependent/rider/antimagic absent','Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation','Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle','Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host']};
-const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: ${itemEligibilityObservations.length} source/default Item eligibility and effect eligibility/phase capture ${observations.length} plus ${numericObservations.length} numeric field/derived and ${constantObservations.length} constant FormulaField constructions and ${modeObservations.length} effect-mode/passive cases PASS\n`);
+// C71: actual native/base Actor collection, suppression, priority and INITIAL
+// dispatch. Primitive source/default initialization and field dispatch are
+// declared collaborators, not full Item/Actor DataModel boot.
+const itemCustomFixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/item-initial-custom-strings.json'),'utf8'));
+assert.equal(itemCustomFixture.nativeCommit,nativeCommit);
+vm.runInNewContext(`class BaseEffectModel {${n('module/data/abstract/active-effect-data-model.mjs','ActiveEffectDataModel','applicableType')}}
+globalThis.BaseEffectModel=BaseEffectModel;`,sandbox);
+sandbox.applyCustom=(actor,change)=>{
+ const field=new CustomStringField606({required:true}),before=get(actor,change.key),value=field.applyChange(before,actor,change);
+ const parts=change.key.split('.');let target=actor;for(const key of parts.slice(0,-1))target=target[key];target[parts.at(-1)]=value;
+ actor.customReceipts.push({phase:change.phase,before,value});
+ actor.customIdentities.push({effectId:change.effect.id,...(change.effect.item?{itemId:change.effect.item.id}:{})});return {[change.key]:value};
+};
+const itemCustomObservations=[];
+for(const row of itemCustomFixture.cases){
+ const preserved=structuredClone(row),actor=new NActor(),field=new CustomStringField606({required:true}),key=row.field.split('.')[0];
+ actor.system={isCreature:false,isGroup:false,traits:Object.fromEntries(['dr','di','dv','ci','armorProf','weaponProf','languages'].map(key=>[key,{value:new Set(),custom:''}])),prepareEmbeddedData:()=>trace.push('embedded')};
+ actor.system.traits[key]={value:new Set(row.source.value??[]),custom:field.initialize(field.clean(row.source.custom,{migrate:false,sanitize:false}),{})};
+ actor.statuses=new Set();actor._completedActiveEffectPhases=new Set();actor.overrides={};actor.tokenActiveEffectChanges={};actor.customReceipts=[];actor.customIdentities=[];
+ const make=(data,item)=>{
+  const effect=Object.assign(new NEffect(),{id:data._id,type:data.type??'base',disabled:data.disabled??false,transfer:data.transfer??true,actor,item,duration:{expired:false},statuses:new Set()});
+  effect.system=Object.assign(new sandbox.BaseEffectModel(),{changes:data.system.changes.map(change=>({...change,type:change.type??'add',phase:change.phase??'initial',priority:change.priority??priorities[change.type??'add']}))});
+  return effect;
+ };
+ actor.effects=row.actorChanges.length?[make({_id:'actorCustom',system:{changes:row.actorChanges}})]:[];
+ actor.items=row.items.map(data=>{
+  const system={};if(equippableTypes.includes(data.type)){
+   for(const key of ['equipped','attuned'])system[key]=new initBox.fields.BooleanField().clean(data.system[key],{migrate:false,sanitize:false},{cleanOptions:true});
+   system.attunement=new initBox.fields.StringField({required:true}).clean(data.system.attunement,{migrate:false,sanitize:false},{cleanOptions:true});
+   if(data.type==='consumable')system.type={value:new initBox.fields.StringField({required:true,initial:''}).clean(data.system.type?.value,{migrate:false,sanitize:false},{cleanOptions:true})};
+  }
+  const item=Object.assign(new NItem(),{id:data._id,type:data.type,system,parent:actor});item.effects=data.effects.map(data=>make(data,item));return item;
+ });
+ trace.length=0;assert.equal(actor.system.traits[key].custom,row.expectedInitialized,row.id+'/initialized');
+ actor.applyActiveEffects('initial');
+ assert.deepEqual(actor.customReceipts,row.expectedReceipts,row.id+'/actual dispatched primitive operations');
+ assert.deepEqual(actor.customIdentities,row.expectedIdentities,row.id+'/stable Actor/Item order and identities');
+ assert.equal(actor.system.traits[key].custom,row.expectedPreparedCustom,row.id+'/prepared');
+ CustomTraits606.prepareLanguages.call(actor.system);
+ assert.deepEqual(Array.from(actor.system.traits.languages.labels.languages),key==='languages'?row.expectedPreparedLabels:[],row.id+'/language cache');
+ const sheet=customSheet606(actor.system,()=>false),displayKey=key==='armorProf'?'armor':key==='weaponProf'?'weapon':key;
+ assert.deepEqual(Array.from(sheet[displayKey]??[],entry=>entry.label),row.expectedCurrentLabels,row.id+'/sheet');
+ assert.deepEqual(row,preserved,row.id+'/raw source preserved');
+ itemCustomObservations.push({id:row.id,receipts:actor.customReceipts,identities:actor.customIdentities,current:actor.system.traits[key].custom,languages:Array.from(actor.system.traits.languages.labels.languages),trace:trace.splice(0)});
+}
+
+const evidence={itemCustomSourceHashes:Object.fromEntries(['module/documents/actor/actor.mjs','module/documents/active-effect.mjs','module/documents/item.mjs','module/data/abstract/active-effect-data-model.mjs'].map(path=>[path,sha256(files.get(path))])),itemCustomObservations,itemCustomFixtureSha256:sha256(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/item-initial-custom-strings.json'))),itemCustomLimits:['Actual native/base Actor initial collector and dispatcher, native effect and Item suppression getters, inherited phase matcher, actual primitive String and language/sheet methods. applyChange schema-field routing is a test collaborator. No full DataModel/Document boot.','No Item prepareFinalAttributes or final phase invoked; no conditions, filters, dependency/rider/antimagic, time, Item effects or native dice/operator acceptance. Existing C12/C22 matrices remain separately preserved.'],itemEligibilityObservations,itemSchemaHashes:Object.fromEntries([...equippableTypes,...otherTypes].map(type=>{const path="module/data/item/"+type+".mjs";return [path,sha256(files.get(path))];})),modeObservations,constantObservations,numericObservations,evidence:'S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance',nativeCommit,foundry:release,observations,priorities,foundrySources:Object.fromEntries([...core].map(([path,source])=>[path,sha256(source)])),stubs:['C22 exact primitive clean/defaults and Item suppression getter; all13 Item template ownerships checked; hidden=false, parent group=false, no Item DataModel/Document/hooks or malformed coercion qualification','Explicit initialized effect defaults; no Foundry DataModel initialization','Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions','Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime' ,'Untimed empty-condition effects only','Empty roll data; hidden/dependent/rider/antimagic absent','Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation','Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle','Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host']};
+const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write(`S: ${itemCustomObservations.length} transferred Item initial custom field/eligibility/order/cache cases and ${itemEligibilityObservations.length} source/default Item eligibility and effect eligibility/phase capture ${observations.length} plus ${numericObservations.length} numeric field/derived and ${constantObservations.length} constant FormulaField constructions and ${modeObservations.length} effect-mode/passive cases PASS\n`);

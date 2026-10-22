@@ -2476,3 +2476,22 @@ independent native comparisons and isolated consumer/execution checks. Partial M
 DD-02/03/11/27/34,A02/A03/A04/A18/A21 only; no full gate closes. Experimental0.4.1 and
 compatibility unchanged. E01/E02/E04/widerQ00/E05 and ADR/native/operator acceptance
 remain open. Continue dependency-ready M2 Item/filter/formula qualification next.
+
+
+### C71 — transferred Item initial custom-field qualification (2026-10-22)
+
+686 independent cases pass exact release6.0.6 / static Foundry14.367 initial
+collection, suppression and dispatch methods with actual primitive String and native
+language/sheet methods. The table retains217 frozen initial String cases, crosses65
+previously qualified Item eligibility/default inputs with seven fields, and adds14
+Actor/two-Item priority and stable-order chains. Effect and owned Item identities,
+source/default operands and earlier language labels remain distinct.
+
+[Evidence](../audits/evidence/2026-10-22-c71-item-initial-custom-foundation.json) records exact source/artifact hashes, maintained regressions,
+211-file explicit typing and2242/591 source inventory. Schema initialization and field
+routing are declared collaborators; no full DataModel/Document boot, Item final
+preparation, native dice or operator acceptance follows. Runtime remains gated until
+C72 integration and consumer/recovery checks. Partial M0/M2 Q02a,DD-03/11/27/34,A03/A04
+only; no full requirement closes. E01/E02/E04/widerQ00/E05, experimental0.4.1 and
+compatibility remain unchanged. Conditions/Item-final/filter/formula compositions
+remain dependency-ordered work.
