@@ -4,7 +4,7 @@ import type {NumericEffects} from './numeric-effects';
 import type {ItemFact,OwnedItemFacts} from './item-facts';
 export interface ContainerCapacity606 {value:number;max:number|null;percent:number;units:string;kind:'count'|'weight'|'unlimited'}
 export interface PhysicalItem606 {totalWeight:ItemFact<number>;containerId:string|null;contentsWeight:ItemFact<number>;contentsCount:ItemFact<number>;capacity:ItemFact<ContainerCapacity606>;units:string|null}
-export interface Encumbrance606 {value:number;max:number;mod:number;thresholds:{encumbered:number;heavilyEncumbered:number;maximum:number};percent:number|null;setting:'none'|'standard'|'variant'}
+export interface Encumbrance606 {value:number;max:number;mod:number;thresholds:{encumbered:number;heavilyEncumbered:number;maximum:number};percent:number|null;setting:'none'|'normal'|'variant'}
 export interface Physical606 {weight:ItemFact<number>;currency:ItemFact<Record<string,number>>;encumbrance:ItemFact<Encumbrance606>;units:string|null;items:Record<string,PhysicalItem606>;provenance:string}
 const provenance='release-6.0.6 embedded PhysicalItem/Container/Currency/Attributes.prepareEncumbrance;source-only read preparation';
 const fact=<T>(value:T|null,reason?:string):ItemFact<T>=>({status:reason?'unavailable':'ready',value:reason?null:value,reason,origin:'prepared',provenance});
@@ -71,7 +71,7 @@ export function preparePhysical606(actor:unknown,context:RulesContext,owned:Owne
  let thresholdReason=reason??effects.reason;const rawSize=record(effects.system.traits)?.size??'med',sizes=['tiny','sm','med','lg','huge','grg'],index=sizes.indexOf(String(rawSize)),build=record(record(source?.flags)?.dnd5e)?.powerfulBuild;
  if(index<0||build!==undefined&&typeof build!=='boolean')thresholdReason??='Carrying size/Powerful Build source requires qualification';
  const sizeMod=[.5,1,1,2,4,8][Math.min(index+Number(build===true),5)],strength=effects.formulaPreparation?.preparedBindings['abilities.str.value'];if(typeof strength!=='number')thresholdReason??='Carrying Strength preparation unavailable';
- const setting=context.settings['dnd5e.encumbrance'];if(!setting||setting.status==='unavailable'||!['none','standard','variant'].includes(String(setting.value)))thresholdReason??='Encumbrance setting unavailable';
+ const setting=context.settings['dnd5e.encumbrance'];if(!setting||setting.status==='unavailable'||!['none','normal','variant'].includes(String(setting.value)))thresholdReason??='Encumbrance setting unavailable';
  const thresholds={encumbered:tenth((strength??0)*(units==='kg'?2.5:5)*sizeMod),heavilyEncumbered:tenth((strength??0)*(units==='kg'?5:10)*sizeMod),maximum:tenth((strength??0)*(units==='kg'?7.5:15)*sizeMod)};
  const encumbrance=fact<Encumbrance606>({value:weight.value??0,max:thresholds.maximum,mod:sizeMod,thresholds,percent:thresholds.maximum===0&&(weight.value??0)===0?null:percent(weight.value??0,thresholds.maximum),setting:setting&&setting.status!=='unavailable'?setting.value as Encumbrance606['setting']:'none'},thresholdReason);
  return {weight,currency:fact(currency,context.status!=='supported'||context.profile!=='2024'?'Currency rules context unavailable':!currency?'Actor currency source malformed':undefined),encumbrance,items,units,provenance};

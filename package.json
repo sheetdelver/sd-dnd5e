@@ -40,6 +40,8 @@
     "test:public-proficiency": "node scripts/test-public-proficiency.mjs",
     "test:mounted-proficiency": "node scripts/test-mounted-proficiency.mjs",
     "test:native-physical": "node scripts/native-physical-oracle.mjs",
-    "test:mounted-physical": "node scripts/test-mounted-physical.mjs"
+    "test:mounted-physical": "node scripts/test-mounted-physical.mjs",
+    "test:native-modifiers": "node scripts/native-modifier-oracle.mjs",
+    "test:mounted-modifiers": "node scripts/test-mounted-modifiers.mjs"
   }
 }

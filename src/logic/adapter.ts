@@ -1,3 +1,4 @@
+import {prepareCombatModifiers606} from './preparation/combat-modifiers';
 import {preparePhysical606} from './preparation/physical';
 import {prepareOwnedItems606,ownedItemProjection} from './preparation/item-facts';
 import {projectConditions606} from './preparation/conditions';
@@ -149,6 +150,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         const effects=prepareNumericEffects606(actor,rules);
         const owned=prepareOwnedItems606(actor,rules,effects);const physical=preparePhysical606(actor,rules,owned,effects);
         prepared.derived.physical=physical;
+        prepared.derived.combatModifiers=prepareCombatModifiers606(actor,rules,effects);
         for(const [id,facts]of Object.entries(physical.items))if(owned.items[id])owned.items[id].physical=facts;
         prepared.derived.ownedItems=owned;
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
@@ -429,6 +431,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 {title:'Defenses',value:defenses.summary,subValue:defenses.reason},
                 {title:'Training',value:training.summary,subValue:training.reason},
                 {title:'Resources',value:ownedItemProjection(actor.derived).resourceSummary},
+                ...((actor.derived.lifecycle as {profile?:string}|undefined)?.profile!=='legacy-limited'&&actor.items.some(item=>item.type==='spell')?[{title:'Spell DC',value:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.value??'—',subValue:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.reason}]:[]),
             ],
         };
     }

@@ -29,4 +29,7 @@ for(const [label,mutate]of [
 {const changed=structuredClone(source)as any;changed.items.find((i:any)=>i._id==='inner').system.properties=['unidentifiedContents'];changed.items.find((i:any)=>i._id==='inner').system.identified=false;changed.items[0].system.container='outer';const p=(adapter.prepareActorData(changed,physicalContext()).derived as any).physical;assert.equal(p.weight.value,26,'Native visible total remains independent of contents visibility and undeclared class container poison');assert.equal(p.items.inner.capacity.value,null);assert.equal(p.items.inner.contentsCount.value,null);assert.equal(p.items.outer.capacity.value.value,3);}
 
 {const zero=physicalSource();zero.items=zero.items.filter(i=>i.type==='class');(zero.system as any).currency={};(zero.system as any).abilities.str.value=0;const p=(adapter.prepareActorData(zero,physicalContext()).derived as any).physical;assert.equal(p.weight.value,0);assert.equal(p.encumbrance.value.max,0);assert.equal(p.encumbrance.value.percent,null,'Native0/0 percentage is not a usable number');}
+
+for(const value of ['none','normal','variant']){const context=physicalContext();(context.world!.settings as any)['dnd5e.encumbrance']={status:'world',value};assert.equal((adapter.prepareActorData(source,context).derived as any).physical.encumbrance.value?.setting,value,'Exact native setting key');}
+
 process.stdout.write('R: source physical tree,coins,units,capacity,size thresholds,12 malformed cases,hidden data and poison/context recovery PASS\n');

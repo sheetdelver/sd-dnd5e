@@ -1,4 +1,5 @@
 'use client';
+import CombatModifiers from '../../blocks/CombatModifiers';
 
 import React, { useState, useMemo } from 'react';
 import type { FoundryItem } from '@sheet-delver/sdk';
@@ -46,6 +47,7 @@ export default function Actions({ weapons, extra = [], onRoll }: Props) {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+            <CombatModifiers kind="damage"/>
             <FilterBar
                 filterMap={ACTION_FILTERS}
                 activeFilter={activeFilter}

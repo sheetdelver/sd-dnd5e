@@ -1,0 +1,2 @@
+import {skillSource} from './skill-scenarios';
+export function modifierSource(){const actor=skillSource(),s=actor.system as any;s.attributes.spellcasting='wis';s.attributes.spell={attack:99,dc:99,mod:99};s.abilities.wis.attack={roll:{bonus:'2'},value:99};s.abilities.wis.dc=99;s.bonuses={spell:{dc:'2'}};s.rolls={attack:{bonus:'1',rsak:{bonus:'30'}},damage:{mwak:{bonus:'2'},rwak:{bonus:'3'},msak:{bonus:'@abilities.wis.mod + 2'},rsak:{bonus:'@prof - 1'}}};return actor;}

@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: shared source/default Actor rules, qualified checks/combined selections, typed initial/final effects and conditions; C75 Item read preparation, C76 standard mappings, C77 deterministic source formulas and C78 numeric class/scaling dependencies. Full exit work is tracked in the verification ledger; earlier C06–C74 evidence remains below. | RV01–RV04 and C06–C78 preserve separate regression/controlled-source/mounted/public-host evidence; full acceptance open |
+| M2 | In progress: shared source/default Actor rules, qualified checks/combined selections, typed initial/final effects and conditions; C75 Item reads, C76 mappings, C77–C79 formulas/class references, C80 Normal proficiency dice, C81 physical reads and C82 combat modifier dependencies. Full exit work is tracked in the verification ledger; earlier C06–C74 evidence remains below. | RV01–RV04 and C06–C78 preserve separate regression/controlled-source/mounted/public-host evidence; full acceptance open |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -2746,3 +2746,32 @@ No inventory writes,automatic encumbrance status synchronization or live/native
 acceptance is introduced. Non-none encumbrance check/condition execution remains gated
 pending status-effect qualification;known source-only weights remain truthful.
 Partial M2/DD-03/06/09/11/24/27/31/34,A02–A06 read preparation;full M2/ADR remain open.
+
+
+### C82 — prepared combat modifier dependencies (2026-10-22)
+
+A shared read model now prepares all6 ability attack bonuses/DCs,Actor spell
+attribute defaults and4 damage bonus scopes from qualified source formulas and
+earlier modifiers. Native prepared attack remains flat in proficiency-dice mode;
+this does not authorize random proficiency activity execution. Blank spellcasting
+ability uses the proven native base-proficiency/8+proficiency defaults,while unknown
+or malformed requested abilities stay unavailable. Prepared-looking attack/DC/spell
+source fields are ignored;legitimate persisted bonus expressions remain authoritative.
+Spells/Actions in both layouts and spell cards format the same model. Existing Item
+casting/consumption execution gates and legacy projection boundaries are unchanged.
+
+[C82 evidence](../audits/evidence/2026-10-22-c82-combat-modifiers.json) records
+108 independent pinned native attack/DC/default profiles and16 actual damage-part
+builds. Native damage scope follows action type (including thrown weapon remapping)
+and applies its global/Item bonus to the first part only. The read model preserves
+scope expressions;activity-specific references such as @mod remain unavailable until
+resolved by a qualified activity configuration. Per-spell class/ability eligibility,
+activity save/DC construction,damage/scaling/critical execution and broader expression/
+effect profiles remain later dependency work,not completed casting support.
+
+The exact settings comparison also corrects C81's `standard` spelling to native
+`normal`. The same source formerly returned unavailable carrying thresholds in normal
+mode;none/normal/variant now retain26lb/150lb with their exact selected identity.
+This was a module defect,not a Core limitation. Unknown settings remain unavailable.
+Regression,initialized native-method,mounted SDK-seam and managed package results
+remain separate;full M2/ADR/native/operator acceptance remain open.

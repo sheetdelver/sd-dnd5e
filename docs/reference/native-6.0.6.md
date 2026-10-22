@@ -1333,3 +1333,15 @@ while its label follows capacity units. These surprising native behaviors are re
 A zero/zero carrying percentage is exposed as unavailable rather than a numeric claim.
 Raw encumbrance has persisted:false;unimplemented effect writes cannot be source
 substitutes. Source initialization and controlled arithmetic remain separate evidence.
+
+
+C82 executes108 initialized CommonTemplate.prepareAbilities and AttributesFields.
+prepareSpellcastingAbility cases:6 scores ×3 proficiency bases ×bonus/dice modes.
+Attack preparation uses modifier+flat base proficiency+local/global bonus+condition
+reduction;DC uses8+modifier+base+spell DC bonus. With blank selected ability,the Actor
+attribute defaults use base attack/8+base DC/0 modifier,ignoring those ability bonuses.
+These are Actor attributes,not Actor5e.spellcastingAbility or per-spell class selection.
+16 native BaseActivityData._processDamagePart/getActionType comparisons prove exact
+first-part-only global/Item bonus inclusion and thrown mwak→rwak scope. Scaling/type
+selection use declared literal/single-type collaborators;no damage engine qualification.
+Released encumbrance choices are exactly none/normal/variant(C81 spelling corrected).

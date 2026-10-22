@@ -1,4 +1,5 @@
 'use client';
+import CombatModifiers from '../../blocks/CombatModifiers';
 
 import React, { useState, useMemo } from 'react';
 import {useSheet} from '../../shared/SheetContext';
@@ -42,6 +43,7 @@ export default function Spells({ spells, onRoll }: Props) {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+            <CombatModifiers kind="spell"/>
             <FilterBar
                 filterMap={SPELL_FILTERS}
                 activeFilter={activeFilter}

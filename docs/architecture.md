@@ -1502,3 +1502,13 @@ are distinct from conservative contents visibility. Cycles,broken references and
 unqualified effect phases return reasons,without repairing source or resolving names.
 Automatic status writes/movement penalties are separate from this read model.
 [C81 source/phase evidence](audits/evidence/2026-10-22-c81-physical.json).
+
+
+`combat-modifiers.ts` prepares numeric Actor ability attack/DC dependencies and
+explicit Actor spell defaults once from the initialized shared operands. Damage
+bonus scopes preserve original expressions and state first-part-only application;
+activity-specific references are not guessed from an Actor default. Cards/Spells/
+Actions format these same facts. Raw prepared attack.value,ability.dc and attributes.
+spell fields do not supply values. These read facts are distinct from per-Item
+casting capability and fresh action construction,which remain gated. The deprecated
+root spell execution slots remain unavailable for modern profiles. [C82 evidence](audits/evidence/2026-10-22-c82-combat-modifiers.json).

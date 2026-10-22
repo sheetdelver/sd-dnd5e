@@ -12,6 +12,7 @@ function fn(name){const text=files.get(u),start=text.indexOf((name.startsWith('_
 const old={CONFIG:sandbox.CONFIG,game:sandbox.game,simplifyBonus:sandbox.simplifyBonus};
 const config=JSON.parse(JSON.stringify(sandbox.CONFIG)),configText=files.get('module/config.mjs');
 for(const key of ['weightUnits','encumbrance','actorSizes','currencies']){const start=configText.indexOf('DND5E.'+key+' = {');assert.ok(start>=0);const code=configText.slice(start,configText.indexOf('\n};',start)+3);vm.runInNewContext(code,{DND5E:config.DND5E});}
+assert.match(files.get('module/settings.mjs'),/none: [^\n]+\n\s+normal: [^\n]+\n\s+variant:/);
 const sizes=['tiny','sm','med','lg','huge','grg'];assert.deepEqual(Object.keys(config.DND5E.actorSizes),sizes);config.DND5E.actorSizes.orderedKeys=sizes;
 let metric=false,currency=true;Object.assign(sandbox,{CONFIG:config,game:{settings:{get:(_,key)=>key==='metricWeightUnits'?metric:key==='currencyWeight'?currency:undefined}},simplifyBonus:raw=>Number(raw??0),_loc:key=>key});
 const numberSource=readFileSync(join(option(args,'--foundry'),'common/primitives/number.mjs'),'utf8'),numberStart=numberSource.indexOf('export function toNearest('),numberCode=numberSource.slice(numberStart,numberSource.indexOf('\n}',numberStart)+2).replace(/^export /,'');
