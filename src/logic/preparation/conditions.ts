@@ -1,3 +1,4 @@
+import type {BaseStatusSource606} from './base-statuses';
 import {sourceRuleFlags606} from './rule-flags';
 import {applyPetrificationGrants606,type ConditionTraitGrant606} from './condition-traits';
 import {record} from '../native/6.0.6/source';
@@ -10,9 +11,9 @@ export interface ConditionSource606 {
     source:{type:string;statuses:string[]|null|'[absent]';level:number|null|'[absent]';disabled:boolean|null|'[absent]'};
 }
 export interface ConditionPreparation606 {
-    status:'ready'|'unavailable';reason?:string;initialStatuses:string[];preparationStatuses:string[];actorStatuses:string[];statuses:string[];traitGrant?:ConditionTraitGrant606;
+    status:'ready'|'unavailable';reason?:string;baseSources?:BaseStatusSource606[];initialStatuses:string[];preparationStatuses:string[];actorStatuses:string[];statuses:string[];traitGrant?:ConditionTraitGrant606;
     sources:ConditionSource606[];levels:Record<string,number>;rollReduction:number;speedReduction:number;
-    rules:{noMovement:boolean;crawl:boolean};
+    rules:{noMovement:boolean;crawl:boolean;encumbrance?:{encumbered:boolean;heavilyEncumbered:boolean;exceedingCarryingCapacity:boolean}};
     modes:Array<{path:string;mode:-1|1;phase:'abilities'|'initiative';source:string}>;
     immunitySource?:string[]|null|'[absent]'|'[malformed]';currentImmunities?:string[];preparationNote?:string;provenance:string;
 }
@@ -56,13 +57,16 @@ function immunities(system:Record<string,unknown>):string[]|null {
  * late trait grants separately from final Actor/readout statuses.
  * Never recompute from final Document.active: removal of an initial immunity
  * cannot retroactively add an omitted status. Source/prepared maps stay distinct. */
-export function prepareConditions606(actor:unknown,system:Record<string,unknown>,sources:ConditionSource606[],reason?:string):ConditionPreparation606 {
+export function prepareConditions606(actor:unknown,system:Record<string,unknown>,sources:ConditionSource606[],reason?:string,baseSources:BaseStatusSource606[]=[]):ConditionPreparation606 {
     const source=record(actor),raw=record(source?.system)??{},initial=immunities(raw),final=immunities(system);
-    let failed=reason??(source?.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length)?'Prepared status source requires qualification':undefined)??(sources.length&&(!initial||!final)?'Condition immunity source/preparation unavailable':undefined);
-    const initialStatuses:string[]=[],preparationStatuses:string[]=[],actorStatuses:string[]=[],statuses:string[]=[],levels:Record<string,number>={},rules={noMovement:false,crawl:false},modes:ConditionPreparation606['modes']=[];
+    let failed=reason??(source?.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length)?'Prepared status source requires qualification':undefined)??((sources.length||baseSources.length)&&(!initial||!final)?'Condition immunity source/preparation unavailable':undefined);
+    const initialStatuses:string[]=[],preparationStatuses:string[]=[],actorStatuses:string[]=[],statuses:string[]=[],levels:Record<string,number>={},rules:ConditionPreparation606['rules']={noMovement:false,crawl:false},modes:ConditionPreparation606['modes']=[];
     let traitGrant:ConditionTraitGrant606|undefined;
     if(!failed){
-        for(const source of sources){
+        const order=new Map((Array.isArray(source?.effects)?source.effects:[]).map((effect,index)=>[String(record(effect)?._id),index]));
+        const ordered=[...sources,...baseSources].sort((a,b)=>(order.get(a.id)??Infinity)-(order.get(b.id)??Infinity));
+        for(const source of ordered){
+            if('kind'in source){if(source.condition.matches)for(const status of source.statuses)if(!initialStatuses.includes(status))initialStatuses.push(status);continue;}
             if(initial?.includes(source.type))continue;
             // Condition derived data runs while the cached guard is still null.
             // Preserve last-active assignment separately from initial status collection.
@@ -78,7 +82,9 @@ export function prepareConditions606(actor:unknown,system:Record<string,unknown>
         const ruleImmunities=immunities(system);
         if(!failed)statuses.push(...actorStatuses.filter(status=>!ruleImmunities?.includes(status)));
         if(preparationStatuses.includes('poisoned'))for(const ability of ['str','dex','con','int','wis','cha'])if(record(record(system.abilities)?.[ability]))modes.push({path:`system.abilities.${ability}.check.roll.mode`,mode:-1,phase:'abilities',source:'poisoned'});
-        rules.noMovement=preparationStatuses.some(id=>['grappled','paralyzed','restrained','petrified','unconscious'].includes(id));rules.crawl=preparationStatuses.includes('prone');
+        rules.noMovement=preparationStatuses.some(id=>['grappled','paralyzed','restrained','petrified','unconscious'].includes(id));rules.crawl=preparationStatuses.some(id=>['prone','exceedingCarryingCapacity'].includes(id));
+        if(baseSources.length)rules.encumbrance={encumbered:initialStatuses.includes('encumbered'),heavilyEncumbered:initialStatuses.includes('heavilyEncumbered'),exceedingCarryingCapacity:initialStatuses.includes('exceedingCarryingCapacity')};
+        if(preparationStatuses.includes('heavilyEncumbered'))for(const ability of ['str','dex','con'])for(const type of ['check','save'])if(record(record(system.abilities)?.[ability]))modes.push({path:`system.abilities.${ability}.${type}.roll.mode`,mode:-1,phase:'abilities',source:'physical'+(type==='check'?'Check':'Save')+'Disadvantage'});
         if(record(record(system.abilities)?.dex)){
             if(preparationStatuses.includes('dodging')&&!preparationStatuses.includes('incapacitated')&&!rules.noMovement)modes.push({path:'system.abilities.dex.save.roll.mode',mode:1,phase:'abilities',source:'dexteritySaveAdvantage'});
             if(preparationStatuses.includes('restrained'))modes.push({path:'system.abilities.dex.save.roll.mode',mode:-1,phase:'abilities',source:'dexteritySaveDisadvantage'});
@@ -91,13 +97,13 @@ export function prepareConditions606(actor:unknown,system:Record<string,unknown>
     const exhaustion=preparationStatuses.includes('exhaustion')?(levels.exhaustion??0):0;
     const rawImmunity=record(record(raw.traits)?.ci)?.value;
     const immunitySource=rawImmunity===undefined?'[absent]':rawImmunity===null?null:Array.isArray(rawImmunity)&&initial!==null?[...rawImmunity] as string[]:'[malformed]';
-    return {immunitySource,rules,levels,rollReduction:exhaustion?-2*exhaustion:0,speedReduction:5*exhaustion,status:failed?'unavailable':'ready',...(failed?{reason:failed}:{}),sources,initialStatuses,preparationStatuses,actorStatuses,statuses,...(traitGrant?{traitGrant}:{}),modes,provenance};
+    return {immunitySource,...(baseSources.length?{baseSources}:{}),rules,levels,rollReduction:exhaustion?-2*exhaustion:0,speedReduction:5*exhaustion,status:failed?'unavailable':'ready',...(failed?{reason:failed}:{}),sources,initialStatuses,preparationStatuses,actorStatuses,statuses,...(traitGrant?{traitGrant}:{}),modes,provenance};
 }
 export function projectConditions606(actor:unknown,context:RulesContext,prepared:ConditionPreparation606):ConditionPreparation606 {
     const source=record(actor),s=record(source?.system),attributes=record(s?.attributes),flags=sourceRuleFlags606(actor),encumbrance=context.settings['dnd5e.encumbrance'];
     const reason=context.status!=='supported'||context.profile!=='2024'?'Condition rules context unavailable':source?.type!=='character'?'Condition profile requires a player character'
         :flags.reason?flags.reason
-        :!encumbrance||encumbrance.status==='unavailable'||encumbrance.value!=='none'?'Condition/encumbrance interaction unavailable'
+        :!encumbrance||encumbrance.status==='unavailable'||!['none','normal','variant'].includes(String(encumbrance.value))?'Condition/encumbrance interaction unavailable'
             :attributes?.exhaustion!==undefined&&attributes.exhaustion!==0?'Legacy exhaustion source migration requires qualification'
                 :source?.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length)?'Prepared status source requires qualification':prepared.reason;
     return reason?{...prepared,status:'unavailable',reason,statuses:[],modes:[]}:prepared;

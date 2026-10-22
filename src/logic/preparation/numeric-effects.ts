@@ -170,7 +170,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     // Common.prepareAbilities mutates condition counts after initial effects and
     // before skill/tool passives. Keep this provenance separate from initial writes.
-    let conditions=prepareConditions606(actor,system,plan.conditions??[],reason);
+    let conditions=prepareConditions606(actor,system,plan.conditions??[],reason,plan.baseStatuses??[]);
     reason??=conditions.reason;
     for(const modifier of conditions.modes){
         if(modifier.phase!=='abilities')continue;

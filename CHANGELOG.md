@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Prepare stored encumbrance conditions, physical roll modes and movement consistently across both layouts.
+
 - Share prepared spell defaults, ability combat modifiers and damage bonus scopes; recognize native normal encumbrance.
 
 - Share nested inventory weight, container capacity, currency and carrying thresholds across both layouts.

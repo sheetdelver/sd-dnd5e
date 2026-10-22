@@ -45,7 +45,7 @@ export function numericCharacterProfile(actor: unknown, context: RulesContext, e
     let reason: string | undefined;
     if(requiresProficiency&&facts.proficiency.mode==='dice'&&!allowDice)reason='Proficiency dice require qualification for this workflow';
     const encumbrance = context.settings['dnd5e.encumbrance'];
-    if (!encumbrance || encumbrance.status === 'unavailable' || encumbrance.value !== 'none') reason = 'Encumbrance rule preparation unavailable';
+    if (!encumbrance || encumbrance.status === 'unavailable' || !['none','normal','variant'].includes(String(encumbrance.value))) reason = 'Encumbrance rule preparation unavailable';
     reason ??= effects.equipment.reason;
     const attributes = record(system.attributes) ?? {};
     if (attributes.exhaustion !== undefined && attributes.exhaustion !== 0 || Array.isArray(source.statuses) && source.statuses.length) reason = 'Condition preparation unavailable';

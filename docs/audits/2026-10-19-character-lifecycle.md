@@ -2056,3 +2056,25 @@ mode;none/normal/variant now retain26lb/150lb with their exact selected identity
 This was a module defect,not a Core limitation. Unknown settings remain unavailable.
 Regression,initialized native-method,mounted SDK-seam and managed package results
 remain separate;full M2/ADR/native/operator acceptance remain open.
+
+
+### C83 — stored encumbrance status preparation (2026-10-22)
+
+Actor-owned base effects with qualified stored encumbrance statuses now share native
+initial status collection,physical check/save modes,passives and movement preparation.
+None/normal/variant settings are admitted without inventing statuses from weight.
+Heavily Encumbered gives physical disadvantage;selected mental abilities remain
+independent,and combined proficiency advantage cancels source disadvantage. Source
+order is retained when typed Poisoned,Exhaustion or Prone effects compose with the
+base source. Disabled/false guards remain inactive;unsupported status/rider/change/
+magic/dependent-filter profiles stay unavailable. Existing range and proficiency-dice
+execution limits remain distinct from these prepared facts.
+
+[C83 evidence](../audits/evidence/2026-10-22-c83-encumbrance.json) records140 pinned
+native source-phase/configuration profiles,420 source/context regressions,actual both-
+layout condition/movement/roll consumers and11930 isolated public-host requests
+(2052 new encumbrance requests). The retained plain-d20/Normal-bound distributions,
+ordered faces,entropy,counts/discards/totals and40 equal-index diagnostics are unchanged.
+No source,weight-derived status synchronization or native/operator writes occur.
+This supersedes C81's blanket non-none setting gate for the qualified profile.
+Remaining Item-final/filter/expression/activity dependency gates keep M2/ADR open.

@@ -1345,3 +1345,14 @@ These are Actor attributes,not Actor5e.spellcastingAbility or per-spell class se
 first-part-only global/Item bonus inclusion and thrown mwak→rwak scope. Scaling/type
 selection use declared literal/single-type collaborators;no damage engine qualification.
 Released encumbrance choices are exactly none/normal/variant(C81 spelling corrected).
+
+
+C83 executes140 initialized native/Foundry Actor.applyActiveEffects status admission,
+NEffect/EffectModel suppression,Common/Creature check/save/skill/tool/passive preparation,
+Attributes.prepareMovement and fresh skill/tool configurations. Exact ability physical/
+mental classifications and encumbrance reductions come from pinned CONFIG. Base effects
+are distinct from typed ConditionData;Poisoned/Exhaustion1/Prone compose in both orders.
+None/normal/variant controls native status synchronization on writes,not whether a stored
+status is applied during preparation. Disadvantage affects physical checks/saves;mental
+selection remains independent. Exceeding capacity permits crawling walk and caps speed;
+other movement is zero. No weight-to-status inference or transport/native runtime boot.

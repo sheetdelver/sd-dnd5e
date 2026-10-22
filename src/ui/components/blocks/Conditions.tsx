@@ -1,4 +1,5 @@
 'use client';
+import {ENCUMBRANCE_STATUS_LABELS_606} from '../../../logic/preparation/base-statuses';
 import React from 'react';
 import {CONDITION_STATUS_LABELS_606} from '../../../logic/native/6.0.6/condition-identities';
 import {useSheet} from '../shared/SheetContext';
@@ -7,7 +8,7 @@ import {conditionsProjection,type ConditionPreparation606} from '../../../logic/
 export function ConditionsFactsView({facts}:{facts:ConditionPreparation606}) {
     return <div aria-label="Condition status" data-status={facts.status} title={facts.provenance}>
         {facts.status==='unavailable'?<p role="status">Unavailable: {facts.reason}</p>
-            :facts.statuses.length?<ul>{facts.statuses.map(status=><li key={status}>{status==='exhaustion'?`Exhaustion (${facts.levels.exhaustion})`:CONDITION_STATUS_LABELS_606[status]??status}</li>)}</ul>:<p>None</p>}
+            :facts.statuses.length?<ul>{facts.statuses.map(status=><li key={status}>{status==='exhaustion'?`Exhaustion (${facts.levels.exhaustion})`:CONDITION_STATUS_LABELS_606[status]??ENCUMBRANCE_STATUS_LABELS_606[status]??status}</li>)}</ul>:<p>None</p>}
         {facts.status==='ready'&&facts.preparationNote&&<small data-condition-preparation-note>{facts.preparationNote}</small>}
     </div>;
 }

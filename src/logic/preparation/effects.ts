@@ -1,3 +1,4 @@
+import {baseStatusSource606,type BaseStatusSource606} from './base-statuses';
 import {conditionSource606,type ConditionSource606} from './conditions';
 import { record } from '../native/6.0.6/source';
 import {constantFilter606,initialFieldFilter606,type ConstantFilter,type ConstantFilterResult} from './constant-filters';
@@ -5,7 +6,7 @@ import {initialFilterData606} from './initial-filter-data';
 import {itemEffectState606,type ItemEffectState} from './item-effect-state';
 export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState;condition?:ConstantFilter;key?:string}
 export interface EffectChange {effectId:string;itemId?:string|null;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number;condition?:ConstantFilter}
-export interface EffectPlan {initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];conditions?:ConditionSource606[];reason?:string}
+export interface EffectPlan {initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];conditions?:ConditionSource606[];baseStatuses?:BaseStatusSource606[];reason?:string}
 const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50};
 /** Source-only eligibility/phase plan for exact6.0.6/Foundry14.367.
  * No Item preparation, snapshot-dependent filters, statuses or time are fabricated. Item-targeted
@@ -13,7 +14,7 @@ const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,su
  * Field/phase qualification is handled separately by numeric-effects. */
 export function planEffects606(actor:unknown):EffectPlan {
     const source=record(actor)??{},initial:EffectChange[]=[],final:EffectChange[]=[],decisions:EffectDecision[]=[];
-    const conditions:ConditionSource606[]=[];
+    const conditions:ConditionSource606[]=[],baseStatuses:BaseStatusSource606[]=[];
     let reason:string|undefined,order=0;
     const initialRead=initialFilterData606(actor);
     const fail=(id:string,status:string,message:string,parentId?:string)=>{reason??=message;decisions.push({id,parentId,status,reason:message});};
@@ -87,6 +88,11 @@ export function planEffects606(actor:unknown):EffectPlan {
                 fail(id,'conditions-unavailable',condition.reason,parentId);continue;
             }
             if(!condition.matches){decisions.push({id,parentId,status:'condition-suppressed',condition,...(eligibility?{eligibility}:{})});continue;}
+            if(!item&&!envelopes.length&&(statuses as unknown[]|undefined)?.length&&!(riderStatuses as unknown[]|undefined)?.length){
+                const prepared=baseStatusSource606(effect,id,condition);
+                if('reason'in prepared){fail(id,'status-unavailable',prepared.reason);continue;}
+                baseStatuses.push(prepared);decisions.push({id,status:'base-status-source-qualified',condition});continue;
+            }
             if((statuses as unknown[]|undefined)?.length||(riderStatuses as unknown[]|undefined)?.length){
                 fail(id,'status-unavailable','Effect status/rider preparation unavailable',parentId);continue;
             }
@@ -106,5 +112,5 @@ export function planEffects606(actor:unknown):EffectPlan {
     collect(source.effects);
     if(Array.isArray(source.items))for(const raw of source.items){const item=record(raw);if(item)collect(item.effects,item);}
     for(const changes of [initial,final])changes.sort((a,b)=>a.priority-b.priority||a.order-b.order);
-    return {initial,final,decisions,...(conditions.length?{conditions}:{}),...(reason?{reason}:{})};
+    return {initial,final,decisions,...(conditions.length?{conditions}:{}),...(baseStatuses.length?{baseStatuses}:{}),...(reason?{reason}:{})};
 }

@@ -84,6 +84,12 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
         // Native does not create a speed by adding a positive bonus to zero.
         if(value>0)value=Math.max(0,value+(bonus?.number??0));
         if(!bounded(value))moveReason??='Movement result outside qualified numeric range';
+        const encumbrance=effects.conditions.rules.encumbrance;
+        if(value>0){
+            const reduction=encumbrance?.heavilyEncumbered?(movementUnits==='m'?6:movementUnits==='ft'?20:0):encumbrance?.encumbered?(movementUnits==='m'?3:movementUnits==='ft'?10:0):0;
+            value=Math.max(0,value-reduction);
+            if(encumbrance?.exceedingCarryingCapacity)value=Math.min(value,movementUnits==='m'?1.5:movementUnits==='ft'?5:0);
+        }
         speeds[key]=value;max=Math.max(max,value);
     }
     const base=initializedWalk?.text||fromSpecies.walk,baseValue=literal(base)?.number??0;

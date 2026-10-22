@@ -1512,3 +1512,13 @@ Actions format these same facts. Raw prepared attack.value,ability.dc and attrib
 spell fields do not supply values. These read facts are distinct from per-Item
 casting capability and fresh action construction,which remain gated. The deprecated
 root spell execution slots remain unavailable for modern profiles. [C82 evidence](audits/evidence/2026-10-22-c82-combat-modifiers.json).
+
+
+`base-statuses.ts` admits qualified Actor-owned base encumbrance sources separately
+from typed ConditionData. The common effect plan records identities and invariant
+guards;the condition model merges sources in Actor order and preserves early mode/
+movement versus later immunity snapshots. Physical disadvantage flows through the
+existing shared compiler,including selected abilities,proficiency cancellation and
+manual modes. Movement uses stored status flags with native units/order. Preparation
+never synthesizes/synchronizes status documents from the physical weight model.
+[C83 evidence](audits/evidence/2026-10-22-c83-encumbrance.json) supersedes the earlier blanket non-none setting gate.

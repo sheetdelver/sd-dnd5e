@@ -42,6 +42,8 @@
     "test:native-physical": "node scripts/native-physical-oracle.mjs",
     "test:mounted-physical": "node scripts/test-mounted-physical.mjs",
     "test:native-modifiers": "node scripts/native-modifier-oracle.mjs",
-    "test:mounted-modifiers": "node scripts/test-mounted-modifiers.mjs"
+    "test:mounted-modifiers": "node scripts/test-mounted-modifiers.mjs",
+    "test:native-encumbrance": "node scripts/native-encumbrance-oracle.mjs",
+    "test:mounted-encumbrance": "node scripts/test-mounted-encumbrance.mjs"
   }
 }
