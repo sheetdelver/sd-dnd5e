@@ -2179,3 +2179,28 @@ Isolated check/package PASS; archive SHA256
 Failed retained-expectation/import/typing runs and their corrections remain recorded;
 none is reported as passing. All owned hosts/browsers closed. Experimental/version/
 compatibility unchanged;ADR/fullacceptance remains open.
+
+### C59 — final training Set field/label qualification (2026-10-22)
+
+90 frozen independent cases compare five persisted training Sets, six operations and
+three literal source profiles. Actual prepareLanguages runs before final SetField
+operations. It overwrites poisoned model labels, then those cached language labels
+remain earlier even after current language values change. The native sheet uses that
+earlier language cache while armor/weapon/mastery presentation reads current Sets.
+Current fields, earlier labels and caller-visible facts must remain distinct.
+
+The actual conditional masteryOptions getter reads current explicit longsword/base-sap
+and bonus keys. Bonus choices require an already mastered weapon with a base mastery;
+they do not grant missing weapon/mastery data or establish Item action support.
+Native sheet key membership, field values, earlier spoken labels and fresh conditional
+options compare independently. Raw source labels must never become authoritative.
+
+Maintained native trait comparison PASS:90training/196finaldefense plus retained source/
+default/initial domains. Explicit199-file module/UI/server/test/hook typing PASS.
+[Record](../audits/evidence/2026-10-22-c59-final-training-sets-foundation.json) retains source/static-field/fixture/capture identities and declared stubs.
+This is initialized method/phase evidence, not full DataModel/source boot, native dice,
+installed UI or operator acceptance. C58's full regression/mounted/public-host/package
+results remain separate and unchanged. Runtime final training stays gated pending
+C60 shared snapshots and consumer tests. Existing M2 dependency order continues;
+E01/E02/E04/widerQ00/E05,other effect/Item/filter/formula/condition phases and all full
+M/DD/A/ADR acceptance remain open. Experimental0.4.1 and compatibility unchanged.

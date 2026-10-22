@@ -1182,3 +1182,10 @@ Cards, desktop/mobile defense readouts and physical bypass descriptions share th
 facts; existing intent signatures include the changed effect receipts.
 [Evidence](audits/evidence/2026-10-22-c58-final-defense-sets.json) distinguishes actual
 method/field construction, regression, mounted/public-host and native/operator limits.
+
+C59 qualifies90 final training Set field/label/getter configurations. Final language
+values differ from earlier cached labels; native sheet uses the cache while current
+armor/weapon/mastery fields and conditional options remain dynamic. Raw prepared-looking
+labels are not source authority. Runtime final training remains gated until C60
+shared snapshots/projections and tests. [Record](audits/evidence/2026-10-22-c59-final-training-sets-foundation.json) retains phase,constructor,
+content-index and explicit weapon-shell limits;no Item action/native acceptance.

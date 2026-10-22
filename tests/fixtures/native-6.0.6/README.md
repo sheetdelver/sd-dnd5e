@@ -406,3 +406,10 @@ DM amount is an independently declared numeric literal already in the C24 profil
 C57's original192/hashes remain historical evidence. No module/native output was used
 to populate new expectations. C25's original plain-fire final source row is retained
 with its obsolete unavailable restriction explicitly superseded by C58.
+
+C59 `final-training-sets.json`:90 frozen independent field/phase configurations; five
+training Sets, six operations, three literal sources. Actual languages preparation
+then final Set operations then sheet/getter. Earlier cached language labels remain
+separate from current fields. Model label poison deliberately overwritten; no source
+DataModel stripping/boot claim. Conditional longsword/sap mastery getter is an explicit
+shell,not Item actions or grant inference. Runtime admission remains C60 work.

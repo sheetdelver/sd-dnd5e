@@ -1,0 +1,6908 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "expectationMethod": "Frozen independent ordered Set operations and pinned language registry order. Languages.labels are prepared before final. Native sheet reads these earlier labels but current armor/weapon/mastery keys; fresh masteryOptions reads current conditional value/bonus. No module/captured outputs.",
+  "cases": [
+    {
+      "id": "empty/armorProf.value/add",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "add",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "med",
+          "hvy"
+        ],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [
+        "med",
+        "hvy"
+      ],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/armorProf.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "subtract",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/armorProf.value/override",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "override",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "med",
+          "hvy"
+        ],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [
+        "med",
+        "hvy"
+      ],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/armorProf.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "upgrade",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "med",
+          "hvy"
+        ],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [
+        "med",
+        "hvy"
+      ],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/armorProf.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "downgrade",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/armorProf.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "multiply",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.value/add",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "add",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [
+          "mar",
+          "sim"
+        ],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [
+        "mar",
+        "sim"
+      ],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "subtract",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.value/override",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "override",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [
+          "mar",
+          "sim"
+        ],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [
+        "mar",
+        "sim"
+      ],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "upgrade",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [
+          "mar",
+          "sim"
+        ],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [
+        "mar",
+        "sim"
+      ],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "downgrade",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "multiply",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.value/add",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "add",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [
+          "dagger",
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [
+        "dagger",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "empty/weaponProf.mastery.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "subtract",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.value/override",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "override",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [
+          "dagger",
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [
+        "dagger",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "empty/weaponProf.mastery.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "upgrade",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [
+          "dagger",
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [
+        "dagger",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "empty/weaponProf.mastery.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "downgrade",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "multiply",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.bonus/add",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "add",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [
+          "vex",
+          "sap"
+        ],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.bonus/subtract",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "subtract",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.bonus/override",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "override",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [
+          "vex",
+          "sap"
+        ],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.bonus/upgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "upgrade",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [
+          "vex",
+          "sap"
+        ],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.bonus/downgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "downgrade",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/weaponProf.mastery.bonus/multiply",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "multiply",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/languages.value/add",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "add",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": [
+          "elvish",
+          "dwarvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/languages.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "subtract",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/languages.value/override",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "override",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": [
+          "elvish",
+          "dwarvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/languages.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "upgrade",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": [
+          "elvish",
+          "dwarvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/languages.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "downgrade",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "empty/languages.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": []
+        },
+        "weaponProf": {
+          "value": [],
+          "mastery": {
+            "value": [],
+            "bonus": []
+          }
+        },
+        "languages": {
+          "value": []
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "multiply",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedAfter": {
+        "armorProf.value": [],
+        "weaponProf.value": [],
+        "weaponProf.mastery.value": [],
+        "weaponProf.mastery.bonus": [],
+        "languages.value": []
+      },
+      "expectedSpokenBeforeAndAfter": [],
+      "expectedArmorKeys": [],
+      "expectedWeaponKeys": [],
+      "expectedLongswordSapOptions": null
+    },
+    {
+      "id": "local/armorProf.value/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "add",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med",
+          "hvy"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med",
+        "hvy"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/armorProf.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "subtract",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/armorProf.value/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "override",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "med",
+          "hvy"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "med",
+        "hvy"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/armorProf.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "upgrade",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/armorProf.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "downgrade",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/armorProf.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "multiply",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.value/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "add",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "subtract",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.value/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "override",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "mar",
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "mar",
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "upgrade",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "downgrade",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "multiply",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.value/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "add",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "subtract",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.value/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "override",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "dagger",
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "dagger",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "upgrade",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "downgrade",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "multiply",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.bonus/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "add",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.bonus/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "subtract",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.bonus/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "override",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "vex",
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.bonus/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "upgrade",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.bonus/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "downgrade",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/weaponProf.mastery.bonus/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "multiply",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/languages.value/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "add",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish",
+          "dwarvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/languages.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "subtract",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/languages.value/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "override",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "elvish",
+          "dwarvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/languages.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "upgrade",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/languages.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "downgrade",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "local/languages.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim"
+          ],
+          "mastery": {
+            "value": [
+              "longsword"
+            ],
+            "bonus": [
+              "sap"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "common",
+            "elvish"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "multiply",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "common",
+          "elvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "Common",
+        "Elvish"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "all/armorProf.value/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "add",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med",
+          "hvy"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med",
+        "hvy"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/armorProf.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "subtract",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/armorProf.value/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "override",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "med",
+          "hvy"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "med",
+        "hvy"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/armorProf.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "upgrade",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/armorProf.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "downgrade",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/armorProf.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.armorProf.value",
+        "type": "multiply",
+        "value": "[\"med\", \" hvy \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.value/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "add",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "subtract",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.value/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "override",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "mar",
+          "sim"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "mar",
+        "sim",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "upgrade",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "downgrade",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.value",
+        "type": "multiply",
+        "value": "[\"mar\", \" sim \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.value/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "add",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "subtract",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.value/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "override",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "dagger",
+          "longsword"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "dagger",
+        "longsword"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "upgrade",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "downgrade",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.value",
+        "type": "multiply",
+        "value": "[\"dagger\", \" longsword \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.bonus/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "add",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.bonus/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "subtract",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.bonus/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "override",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "vex",
+          "sap"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.bonus/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "upgrade",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.bonus/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "downgrade",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/weaponProf.mastery.bonus/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.weaponProf.mastery.bonus",
+        "type": "multiply",
+        "value": "[\"vex\", \" sap \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/languages.value/add",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "add",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common",
+          "elvish",
+          "dwarvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/languages.value/subtract",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "subtract",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/languages.value/override",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "override",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "elvish",
+          "dwarvish"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/languages.value/upgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "upgrade",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/languages.value/downgrade",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "downgrade",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    },
+    {
+      "id": "all/languages.value/multiply",
+      "source": {
+        "armorProf": {
+          "value": [
+            "lgt",
+            "med"
+          ]
+        },
+        "weaponProf": {
+          "value": [
+            "sim",
+            "mar"
+          ],
+          "mastery": {
+            "value": [
+              "longsword",
+              "dagger"
+            ],
+            "bonus": [
+              "sap",
+              "vex"
+            ]
+          }
+        },
+        "languages": {
+          "value": [
+            "ALL",
+            "common"
+          ]
+        }
+      },
+      "change": {
+        "key": "system.traits.languages.value",
+        "type": "multiply",
+        "value": "[\"elvish\", \" dwarvish \"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedAfter": {
+        "armorProf.value": [
+          "lgt",
+          "med"
+        ],
+        "weaponProf.value": [
+          "sim",
+          "mar"
+        ],
+        "weaponProf.mastery.value": [
+          "longsword",
+          "dagger"
+        ],
+        "weaponProf.mastery.bonus": [
+          "sap",
+          "vex"
+        ],
+        "languages.value": [
+          "ALL",
+          "common"
+        ]
+      },
+      "expectedSpokenBeforeAndAfter": [
+        "All Languages"
+      ],
+      "expectedArmorKeys": [
+        "lgt",
+        "med"
+      ],
+      "expectedWeaponKeys": [
+        "sim",
+        "mar",
+        "longsword",
+        "dagger"
+      ],
+      "expectedLongswordSapOptions": [
+        "sap",
+        "vex"
+      ]
+    }
+  ]
+}
