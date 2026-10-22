@@ -5,7 +5,7 @@ import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
 import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
-import { sourceD20Mode, prepareD20Configuration, numericD20Roll, type PreparedNumericD20 } from './d20-configuration';
+import { sourceD20Mode, prepareD20Configuration, numericD20Roll,numericScopeBonus,preparedBonusNote, type PreparedNumericD20 } from './d20-configuration';
 
 export type SkillToolKind = 'skill' | 'tool';
 interface Entry { ability:string; prof:number|null; label:string; roll:unknown; reason?:string; primaryReason?:string; passiveBonus?:number|null }
@@ -18,6 +18,7 @@ export interface SkillToolModel {
     abilities:Record<string,Ability>; skills:Record<string,Entry>; tools:Record<string,Entry>;
     proficiencies:Record<'check'|'skill'|'tool',number>;
     executionProficiencies:Record<'check'|'skill'|'tool',number>;
+    executionBonuses:Record<string,number>;
     globals:Record<'check'|'skill'|'tool',unknown>;
 }
 export interface ConfiguredCheck extends PreparedNumericD20 {label:string; prof:number|null; automaticAdvantage?:boolean;passiveMode?:-1|0|1}
@@ -56,7 +57,7 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
         }));
     }
     const executionModeStates=structuredClone(effects.executionModes);
-    return {reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},executionProficiencies:{check:effects.executionGlobals.check.proficiency as number,skill:effects.executionGlobals.skill.proficiency as number,tool:effects.executionGlobals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
+    return {reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,executionBonuses:structuredClone(effects.executionBonuses),proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},executionProficiencies:{check:effects.executionGlobals.check.proficiency as number,skill:effects.executionGlobals.skill.proficiency as number,tool:effects.executionGlobals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
         globals:Object.fromEntries(['check','skill','tool'].map(key=>[key,sourceGlobals[key]!=null&&!record(sourceGlobals[key])?false:rollInput(rawGlobals[key])])) as SkillToolModel['globals']};
 }
 /** Native fresh #rollSkillTool + _buildSkillToolConfig source-only profile.
@@ -95,7 +96,7 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     const mode=sourceD20Mode([...executionScopes.slice(1),executionScopes[0]],automaticAdvantage);
     const passive=sourceD20Mode([qualifiedScopes[1],qualifiedScopes[0],...qualifiedScopes.slice(2)],false,'passive');
     reason ??= mode.reason??passive.reason;
-    const bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));
+    const bonuses=scopes.map(scope=>numericScopeBonus(scope,phase==='execution'?model.executionBonuses:{}));
     if (bonuses.some(value=>value===null)) reason ??= `${kind==='skill'?'Skill':'Tool'} formula requires Q00 qualification`;
     const base={ability:abilityId,label:primary?.label??key,automaticAdvantage};
     if (reason||!primary||primary.prof===null||model.proficiency===null||mode.mode===undefined||data?.score==null||data.mod===null) return {...base,prof:null,total:null,formula:null,unavailableReason:reason??'Check preparation unavailable'};
@@ -108,7 +109,6 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
  * the current execution bonus. Both use this compiler; UI only renders the note. */
 export function projectSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,key:string){
     const current=configureSkillToolCheck(model,kind,key),prepared=configureSkillToolCheck(model,kind,key,{},'prepared');
-    const differs=current.total!==null&&prepared.total!==null&&(current.total!==prepared.total||current.prof!==prepared.prof);
-    const preparationNote=differs?`Prepared bonus ${prepared.total!<0?'':'+'}${prepared.total} (${prepared.prof}× proficiency); final proficiency effects apply when rolling.`:undefined;
+    const preparationNote=preparedBonusNote(prepared.total,current.total,prepared.prof,current.prof);
     return {...current,preparedTotal:prepared.total,preparedProf:prepared.prof,...(preparationNote?{preparationNote}:{})};
 }

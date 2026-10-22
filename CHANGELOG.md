@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Apply qualified final constant bonuses across shared rolls while retaining earlier passive and initiative-score values.
+
 - Share qualified final proficiency effects across rolls while preserving earlier passive and proficiency snapshots.
 
 - Qualify final global proficiency effects separately from earlier passive and prepared proficiency snapshots.

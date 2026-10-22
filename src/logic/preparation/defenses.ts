@@ -4,9 +4,9 @@ import {numericFact,numericCharacterProfile,type NumericFact} from './character-
 import {numericAbilityValue,numericConstant,qualifiedNumericTotal} from './numeric';
 import {prepareNumericEffects606,type NumericEffects} from './numeric-effects';
 import {initializedModeState,resolvedEffectMode,applyEffectMode} from './mode-effects';
-import {sourceD20Mode,prepareD20Configuration,numericD20Roll,type PreparedNumericD20} from './d20-configuration';
+import {sourceD20Mode,prepareD20Configuration,numericD20Roll,numericScopeBonus,preparedBonusNote,type PreparedNumericD20} from './d20-configuration';
 export interface ArmorClassFact extends NumericFact {calculation?:string;formula?:string;base?:number;armorId?:string;shieldId?:string;warnings?:string[]}
-export interface InitiativeFact extends NumericFact {ability:string;score:number|null;fixed?:boolean;tiebreaker?:number}
+export interface InitiativeFact extends NumericFact {ability:string;score:number|null;fixed?:boolean;tiebreaker?:number;roll?:NumericFact;preparationNote?:string}
 const acProvenance='release-6.0.6 AttributesFields.armorClass / prepareArmorClass / CONFIG.armorClasses';
 const initProvenance='release-6.0.6 prepareInitiative / Actor.getInitiativeRollConfig / getInitiativeRoll';
 const makeAc=(value:number|null,reason?:string):ArmorClassFact=>({...numericFact(value,reason),provenance:acProvenance});
@@ -89,16 +89,21 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     const fact:InitiativeFact={...numericFact(reason?null:total,reason),provenance:initProvenance,ability:key,score};
     if(fact.value!==null)fact.display=`${fact.value<0?'':'+'}${fact.value}`;
     let executionReason=reason;
+    const executionBonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses));
+    if(executionBonuses.some(value=>value===null))executionReason??='Initiative current bonus expression requires Q00 qualification';
+    const executionTotal=!executionReason&&numeric?numeric.mod+(executionBonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
     const scoreSetting=context.settings['dnd5e.initiativeScore'],tie=context.settings['dnd5e.initiativeDexTiebreaker'];
     if(!scoreSetting||scoreSetting.status==='unavailable'||!['none','npcs','all'].includes(String(scoreSetting.value)))executionReason??='Initiative score setting unavailable';
     const fixed=scoreSetting?.status!=='unavailable'&&scoreSetting?.value==='all';
     if(!fixed&&(!tie||tie.status==='unavailable'||typeof tie.value!=='boolean'))executionReason??='Initiative tiebreaker setting unavailable';
     const tiebreaker=!fixed&&tie?.status!=='unavailable'&&tie?.value===true&&numeric?numeric.score/100:0;
-    const bonus=fixed?score:total===null?null:total+tiebreaker;
+    const bonus=fixed?score:executionTotal===null?null:executionTotal+tiebreaker;
     if(bonus!==null&&!qualifiedNumericTotal(bonus))executionReason??='Initiative roll result outside qualified numeric representation';
     fact.fixed=fixed;fact.tiebreaker=tiebreaker;
-    const configuration=bonus!==null&&mode.mode!==undefined?prepareD20Configuration((fixed?score:total)!,fixed?0:mode.mode,scopes,tiebreaker,!fixed):{formula:null};
-    return {fact,check:{ability:key,total:fixed?score:total,...(tiebreaker?{trailingBonus:tiebreaker}:{}),sourceMode:fixed?0:mode.mode,fixed,...configuration,...(executionReason?{formula:null,unavailableReason:executionReason}:{})}};
+    const preparationNote=fixed?undefined:preparedBonusNote(total,executionTotal);
+    if(preparationNote){fact.preparationNote=preparationNote;fact.roll={...numericFact(executionTotal),provenance:initProvenance};fact.roll.display=`${executionTotal!<0?'':'+'}${executionTotal}`;}
+    const configuration=bonus!==null&&mode.mode!==undefined?prepareD20Configuration((fixed?score:executionTotal)!,fixed?0:mode.mode,scopes,tiebreaker,!fixed):{formula:null};
+    return {fact,check:{ability:key,total:fixed?score:executionTotal,preparedTotal:fixed?score:total,preparationNote,...(tiebreaker?{trailingBonus:tiebreaker}:{}),sourceMode:fixed?0:mode.mode,fixed,...configuration,...(executionReason?{formula:null,unavailableReason:executionReason}:{})}};
 }
 export function initiativeRoll(check:PreparedNumericD20|undefined,options:Record<string,unknown>={}):string|null {
     if(!record(options)||Object.keys(options).some(key=>!['advantage','situationalBonus','rollMode','speaker'].includes(key)))return null;

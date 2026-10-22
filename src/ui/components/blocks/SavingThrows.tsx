@@ -95,6 +95,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                                 {formatted}
                             </div>
                             {(ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason) && <small>{ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason}</small>}
+                            {ab?.saveRoll?.preparationNote && <small style={{display:'block'}}>{ab.saveRoll.preparationNote}</small>}
                         </button>
                     );
                 })}

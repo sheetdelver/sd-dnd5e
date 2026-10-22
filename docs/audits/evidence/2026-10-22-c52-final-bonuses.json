@@ -1,0 +1,1772 @@
+{
+  "checkpoint": "C52",
+  "date": "2026-10-22",
+  "parent": "899fc88f09aa26cfa43608c6b36a117e2862be0d",
+  "requirements": "Partial M2/Q02a DD-02/03/27/34,A02/A04/A18/A21;no full gate closes",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "before": {
+    "commit": "899fc88f09aa26cfa43608c6b36a117e2862be0d",
+    "method": "git archive into ignored temp/c52-before;overlay final maintained test/helper,execute baseline tsx",
+    "sameFinalInputs": true,
+    "failureCount": 576,
+    "cause": "Final bonus fields gated before admission;no Core defect alleged"
+  },
+  "after": {
+    "profiles": 576,
+    "sourcePreserved": true,
+    "preparedLookingPoisonIgnored": true,
+    "currentScopedBonusMap": true,
+    "earlierSkillToolAbilitySaveTotalsRetained": true,
+    "earlierProficiencyRetained": true,
+    "passivesAndFixedScoresRetained": true,
+    "selectedPrimaryScopesAndAlternateAbility": true,
+    "currentInitiativeRollFactWithoutRewritingPreparedFact": true,
+    "priorityInitialFinalStringsAndSourceManualModes": true,
+    "sourceContextUnavailableRecoveryAndHeldCallbacks": true,
+    "normalBoundsPreserved": true,
+    "malformedOperandDeltaOperationUnknownFieldAndItemGates": true
+  },
+  "supersedes": [
+    "C51 runtime final constant bonus gate for this profile only",
+    "C14 constant-bonus final-open expected-unavailable row;now prepared7/passive17,current9,independent native construction retained"
+  ],
+  "controlledSource": {
+    "profileCount": 576,
+    "checkConstructionComparisons": 5184,
+    "initiativeConfigurations": 576,
+    "fixedConfigurations": 576,
+    "compositions": [
+      {
+        "id": "old-final-open",
+        "passive": 17,
+        "preparedSkill": 7,
+        "tool": 4,
+        "captures": [
+          {
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "bonus": "2 + 2",
+            "baseAndProficiencyAndReduction": 5,
+            "independentTotal": 9
+          },
+          {
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "bonus": "2 + 2",
+            "baseAndProficiencyAndReduction": 5,
+            "independentTotal": 9
+          }
+        ]
+      },
+      {
+        "id": "poisoned-final-bonus-proficiency",
+        "passive": 10,
+        "preparedSkill": 5,
+        "tool": 5,
+        "captures": [
+          {
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "bonus": "2",
+            "baseAndProficiencyAndReduction": 8,
+            "independentTotal": 10
+          },
+          {
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "bonus": "2",
+            "baseAndProficiencyAndReduction": 8,
+            "independentTotal": 10
+          }
+        ]
+      },
+      {
+        "id": "exhaustion-final-bonus",
+        "passive": 11,
+        "preparedSkill": 1,
+        "tool": 1,
+        "captures": [
+          {
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "bonus": "2",
+            "baseAndProficiencyAndReduction": 1,
+            "independentTotal": 3
+          },
+          {
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "bonus": "2",
+            "baseAndProficiencyAndReduction": 1,
+            "independentTotal": 3
+          }
+        ]
+      }
+    ],
+    "sourceDefaultAndPhaseBoundaries": "C51 frozen fixture/hash and tracked record retained. FormulaField casts/string operations and builder operands/parts are actual methods;constant totals are independent expected arithmetic,not evaluated native dice. Full source/migration/schema/field-validation/native boot remains separate.",
+    "nativeSourceHashes": {
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+      "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+      "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+      "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+    },
+    "foundrySourceHashes": {
+      "client/documents/abstract/client-document.mjs": "a007180e3cf8d465dffe43b11272f289b4cf77a9e301c7d431f48267dfad8e9e",
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+      "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+      "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+      "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5",
+      "common/abstract/data.mjs": "11bb7f848c707803607accfa9f6b946c7cbfe8b17781ff562b468bdc77b934e5"
+    }
+  },
+  "mountedFocused": {
+    "artifactRoot": "/tmp/dnd5e-mounted-DF6bba",
+    "scope": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "playwright": "1.56.1",
+    "browser": "143.0.7499.4",
+    "rows": [
+      {
+        "width": 1440,
+        "id": "024/abilities.wis.check.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 4,
+          "tool": 5,
+          "combinedSkill": 4,
+          "combinedTool": 4,
+          "alternateSkill": 5,
+          "wisCheck": 1,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "028/abilities.wis.check.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 10,
+          "tool": 5,
+          "combinedSkill": 10,
+          "combinedTool": 10,
+          "alternateSkill": 5,
+          "wisCheck": 7,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "032/abilities.wis.check.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 2,
+          "tool": 5,
+          "combinedSkill": 2,
+          "combinedTool": 2,
+          "alternateSkill": 5,
+          "wisCheck": -1,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "072/abilities.dex.check.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 4,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 4,
+          "wisCheck": 2,
+          "dexCheck": 1,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 1
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "076/abilities.dex.check.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 10,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 10,
+          "wisCheck": 2,
+          "dexCheck": 7,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 7
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "080/abilities.dex.check.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 2,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 2,
+          "wisCheck": 2,
+          "dexCheck": -1,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": -1
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "120/abilities.wis.save.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 1,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "124/abilities.wis.save.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 7,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "128/abilities.wis.save.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": -1,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "168/abilities.dex.save.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 1,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "172/abilities.dex.save.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 7,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "176/abilities.dex.save.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": -1,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "216/skills.prc.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 4,
+          "tool": 5,
+          "combinedSkill": 4,
+          "combinedTool": 5,
+          "alternateSkill": 4,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "220/skills.prc.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 10,
+          "tool": 5,
+          "combinedSkill": 10,
+          "combinedTool": 5,
+          "alternateSkill": 10,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "224/skills.prc.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 2,
+          "tool": 5,
+          "combinedSkill": 2,
+          "combinedTool": 5,
+          "alternateSkill": 2,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "264/tools.thief.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 4,
+          "combinedSkill": 5,
+          "combinedTool": 4,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "268/tools.thief.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 10,
+          "combinedSkill": 5,
+          "combinedTool": 10,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "272/tools.thief.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 2,
+          "combinedSkill": 5,
+          "combinedTool": 2,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "312/rolls.ability.check.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 4,
+          "tool": 4,
+          "combinedSkill": 4,
+          "combinedTool": 4,
+          "alternateSkill": 4,
+          "wisCheck": 1,
+          "dexCheck": 1,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 1
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "316/rolls.ability.check.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 10,
+          "tool": 10,
+          "combinedSkill": 10,
+          "combinedTool": 10,
+          "alternateSkill": 10,
+          "wisCheck": 7,
+          "dexCheck": 7,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 7
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "320/rolls.ability.check.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 2,
+          "tool": 2,
+          "combinedSkill": 2,
+          "combinedTool": 2,
+          "alternateSkill": 2,
+          "wisCheck": -1,
+          "dexCheck": -1,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": -1
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "360/rolls.ability.save.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 1,
+          "dexSave": 1,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "364/rolls.ability.save.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 7,
+          "dexSave": 7,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "368/rolls.ability.save.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": -1,
+          "dexSave": -1,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "408/rolls.ability.skill.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 4,
+          "tool": 5,
+          "combinedSkill": 4,
+          "combinedTool": 5,
+          "alternateSkill": 4,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "412/rolls.ability.skill.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 10,
+          "tool": 5,
+          "combinedSkill": 10,
+          "combinedTool": 5,
+          "alternateSkill": 10,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "416/rolls.ability.skill.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 2,
+          "tool": 5,
+          "combinedSkill": 2,
+          "combinedTool": 5,
+          "alternateSkill": 2,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "456/rolls.ability.tool.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 4,
+          "combinedSkill": 5,
+          "combinedTool": 4,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "460/rolls.ability.tool.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 10,
+          "combinedSkill": 5,
+          "combinedTool": 10,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "464/rolls.ability.tool.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 2,
+          "combinedSkill": 5,
+          "combinedTool": 2,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "504/attributes.init.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 1
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "508/attributes.init.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 7
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "512/attributes.init.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": -1
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "552/skills.prc.bonuses.passive/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "556/skills.prc.bonuses.passive/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "560/skills.prc.bonuses.passive/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "fixed:075/abilities.dex.check.roll.bonus/2/add/2",
+        "earlierScoreRetained": true
+      },
+      {
+        "width": 1440,
+        "id": "fixed:315/rolls.ability.check.bonus/2/add/2",
+        "earlierScoreRetained": true
+      },
+      {
+        "width": 1440,
+        "id": "fixed:507/attributes.init.roll.bonus/2/add/2",
+        "earlierScoreRetained": true
+      },
+      {
+        "width": 1440,
+        "id": "live-final-bonus-recovery",
+        "heldCallbacksRetired": true,
+        "unavailableDisabled": true,
+        "freshIntentRequired": true
+      },
+      {
+        "width": 390,
+        "id": "024/abilities.wis.check.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 4,
+          "tool": 5,
+          "combinedSkill": 4,
+          "combinedTool": 4,
+          "alternateSkill": 5,
+          "wisCheck": 1,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "028/abilities.wis.check.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 10,
+          "tool": 5,
+          "combinedSkill": 10,
+          "combinedTool": 10,
+          "alternateSkill": 5,
+          "wisCheck": 7,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "032/abilities.wis.check.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 2,
+          "tool": 5,
+          "combinedSkill": 2,
+          "combinedTool": 2,
+          "alternateSkill": 5,
+          "wisCheck": -1,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "072/abilities.dex.check.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 4,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 4,
+          "wisCheck": 2,
+          "dexCheck": 1,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 1
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "076/abilities.dex.check.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 10,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 10,
+          "wisCheck": 2,
+          "dexCheck": 7,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 7
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "080/abilities.dex.check.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 2,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 2,
+          "wisCheck": 2,
+          "dexCheck": -1,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": -1
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "120/abilities.wis.save.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 1,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "124/abilities.wis.save.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 7,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "128/abilities.wis.save.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": -1,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "168/abilities.dex.save.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 1,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "172/abilities.dex.save.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 7,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "176/abilities.dex.save.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": -1,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "216/skills.prc.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 4,
+          "tool": 5,
+          "combinedSkill": 4,
+          "combinedTool": 5,
+          "alternateSkill": 4,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "220/skills.prc.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 10,
+          "tool": 5,
+          "combinedSkill": 10,
+          "combinedTool": 5,
+          "alternateSkill": 10,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "224/skills.prc.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 2,
+          "tool": 5,
+          "combinedSkill": 2,
+          "combinedTool": 5,
+          "alternateSkill": 2,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "264/tools.thief.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 4,
+          "combinedSkill": 5,
+          "combinedTool": 4,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "268/tools.thief.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 10,
+          "combinedSkill": 5,
+          "combinedTool": 10,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "272/tools.thief.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 2,
+          "combinedSkill": 5,
+          "combinedTool": 2,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "312/rolls.ability.check.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 4,
+          "tool": 4,
+          "combinedSkill": 4,
+          "combinedTool": 4,
+          "alternateSkill": 4,
+          "wisCheck": 1,
+          "dexCheck": 1,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 1
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "316/rolls.ability.check.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 10,
+          "tool": 10,
+          "combinedSkill": 10,
+          "combinedTool": 10,
+          "alternateSkill": 10,
+          "wisCheck": 7,
+          "dexCheck": 7,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 7
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "320/rolls.ability.check.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 2,
+          "tool": 2,
+          "combinedSkill": 2,
+          "combinedTool": 2,
+          "alternateSkill": 2,
+          "wisCheck": -1,
+          "dexCheck": -1,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": -1
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "360/rolls.ability.save.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 1,
+          "dexSave": 1,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "364/rolls.ability.save.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 7,
+          "dexSave": 7,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "368/rolls.ability.save.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": -1,
+          "dexSave": -1,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "408/rolls.ability.skill.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 4,
+          "tool": 5,
+          "combinedSkill": 4,
+          "combinedTool": 5,
+          "alternateSkill": 4,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "412/rolls.ability.skill.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 10,
+          "tool": 5,
+          "combinedSkill": 10,
+          "combinedTool": 5,
+          "alternateSkill": 10,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "416/rolls.ability.skill.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 2,
+          "tool": 5,
+          "combinedSkill": 2,
+          "combinedTool": 5,
+          "alternateSkill": 2,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "456/rolls.ability.tool.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 4,
+          "combinedSkill": 5,
+          "combinedTool": 4,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "460/rolls.ability.tool.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 10,
+          "combinedSkill": 5,
+          "combinedTool": 10,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "464/rolls.ability.tool.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 2,
+          "combinedSkill": 5,
+          "combinedTool": 2,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "504/attributes.init.roll.bonus/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 1
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "508/attributes.init.roll.bonus/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 7
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "512/attributes.init.roll.bonus/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": -1
+        },
+        "earlierPassive": 15,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "552/skills.prc.bonuses.passive/2/add/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "556/skills.prc.bonuses.passive/2/subtract/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "560/skills.prc.bonuses.passive/2/override/-3",
+        "currentBonuses": {
+          "skill": 5,
+          "tool": 5,
+          "combinedSkill": 5,
+          "combinedTool": 5,
+          "alternateSkill": 5,
+          "wisCheck": 2,
+          "dexCheck": 2,
+          "wisSave": 2,
+          "dexSave": 2,
+          "initiative": 2
+        },
+        "earlierPassive": 17,
+        "actualHeaderSkillToolAbilitySaveInitAndSelectedPreviewsShortcutsAgree": true
+      },
+      {
+        "width": 390,
+        "id": "fixed:075/abilities.dex.check.roll.bonus/2/add/2",
+        "earlierScoreRetained": true
+      },
+      {
+        "width": 390,
+        "id": "fixed:315/rolls.ability.check.bonus/2/add/2",
+        "earlierScoreRetained": true
+      },
+      {
+        "width": 390,
+        "id": "fixed:507/attributes.init.roll.bonus/2/add/2",
+        "earlierScoreRetained": true
+      },
+      {
+        "width": 390,
+        "id": "live-final-bonus-recovery",
+        "heldCallbacksRetired": true,
+        "unavailableDisabled": true,
+        "freshIntentRequired": true
+      }
+    ],
+    "visualSameInputBeforeAfter": {
+      "evidence": "Same-input isolated SDK-seam module rendering,not installed UI/native acceptance",
+      "rows": [
+        {
+          "stage": "before",
+          "width": 390,
+          "path": "/tmp/dnd5e-mounted-DF6bba/before-current-bonus-header-390.png",
+          "scrollWidth": 228,
+          "clientWidth": 228,
+          "x": 198.859375,
+          "right": 426.953125,
+          "whiteSpace": "normal",
+          "fits": false,
+          "currentInitiative": "+1",
+          "preparedInitiative": 4
+        },
+        {
+          "stage": "after",
+          "width": 390,
+          "path": "/tmp/dnd5e-mounted-DF6bba/after-current-bonus-header-390.png",
+          "scrollWidth": 76,
+          "clientWidth": 76,
+          "x": 198.859375,
+          "right": 274.859375,
+          "whiteSpace": "normal",
+          "fits": true,
+          "currentInitiative": "+1",
+          "preparedInitiative": 4
+        },
+        {
+          "stage": "after",
+          "width": 1440,
+          "path": "/tmp/dnd5e-mounted-DF6bba/after-current-bonus-header-1440.png",
+          "scrollWidth": 180,
+          "clientWidth": 180,
+          "x": 600,
+          "right": 780,
+          "whiteSpace": "normal",
+          "fits": true,
+          "currentInitiative": "+1",
+          "preparedInitiative": 4
+        }
+      ]
+    }
+  },
+  "mountedFull": {
+    "artifactRoot": "/tmp/dnd5e-mounted-eq0H1o",
+    "scope": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "counts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56,
+      "focusRows": 2,
+      "combinationRows": 80,
+      "effectRows": 22,
+      "numericEffectRows": 1172,
+      "effectModeRows": 58,
+      "healthRows": 58,
+      "defenseRows": 102,
+      "equipmentRows": 90,
+      "movementRows": 84,
+      "rangeRows": 180,
+      "speciesRows": 40,
+      "defenseTraitRows": 149,
+      "indicatorRows": 24,
+      "trainingRows": 624,
+      "focusedFilterRows": 0,
+      "classFactRows": 0,
+      "conditionRows": 0,
+      "exhaustionRows": 0,
+      "familyRows": 0,
+      "petrificationRows": 0,
+      "finalModeRows": 0,
+      "finalProficiencyRows": 0,
+      "finalBonusRows": 0
+    },
+    "styleBoundary": "Full retained behavior run built before compact-note wrap fix;post-fix focused80 run and same-input visual/viewport assertion qualify final note style separately."
+  },
+  "publicHost": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "qualified-plain-d20-numeric-profile",
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "finalBonusCases": 23040,
+    "normalRangeFinalBonusCases": 576,
+    "fixedFinalBonusCases": 576,
+    "finalProficiencyCases": 20448,
+    "normalRangeFinalProficiencyCases": 852,
+    "caseCount": 176025,
+    "requestCount": 176026,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "manualModeCases": 18,
+    "toolCases": 24,
+    "selectedCases": 152,
+    "effectCases": 4,
+    "numericEffectCases": 504,
+    "itemEffectCases": 1656,
+    "traitEffectCases": 792,
+    "trainingEffectCases": 576,
+    "constantFilterCases": 864,
+    "initialFilterCases": 744,
+    "finalModeCases": 42768,
+    "normalRangeFinalModeCases": 1188,
+    "fixedFinalModeCases": 1188,
+    "petrificationModeCases": 140,
+    "petrificationCases": 504,
+    "normalRangePetrificationCases": 18,
+    "fixedPetrificationCases": 18,
+    "conditionFamilyCases": 55872,
+    "normalRangeConditionFamilyCases": 1746,
+    "fixedConditionFamilyCases": 1746,
+    "exhaustionCases": 2712,
+    "normalRangeExhaustionCases": 113,
+    "exhaustionInitiativeCases": 354,
+    "conditionCases": 3000,
+    "normalRangeConditionCases": 125,
+    "conditionInitiativeCases": 4,
+    "initialClassFilterCases": 720,
+    "normalRangeInitialClassFilterCases": 30,
+    "initialCollectionFilterCases": 1392,
+    "normalRangeInitialCollectionFilterCases": 58,
+    "normalRangeInitialFilterCases": 31,
+    "normalRangeFilterCases": 36,
+    "normalRangeTrainingEffectCases": 24,
+    "indicatorCases": 46,
+    "traitFormulaCases": 5,
+    "normalRangeTraitEffectCases": 33,
+    "initiativeCases": 156,
+    "equipmentCases": 148,
+    "normalRangeCases": 13842,
+    "normalRangeMatrixCases": 8820,
+    "normalRangeScopeCases": 90,
+    "normalRangeEffectCases": 67,
+    "fixedScoreCases": 3714,
+    "modeEffectCases": 624,
+    "constantFormulaCases": 20,
+    "bonusEffectCases": 480,
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "plainD20Criteria": "Exact ordered faces/entropy,retained value/count,active/discard consistency,totals/distributions and unequal-pair selection index.40 equal-value index differences recorded diagnostics only for homogeneous plain d20;host serialization unchanged.",
+  "package": {
+    "archive": "/tmp/dnd5e-package-VJ9Tyz/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "80b836621507c23ce6d90f5307f9dd94fae7b1c1aac285ee0514f964a7405771",
+    "version": "experimental0.4.1",
+    "compatibilityChanged": false
+  },
+  "commands": [
+    {
+      "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS60assertions/8tooling/42module suites"
+    },
+    {
+      "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS190 explicit source/UI/server/test/hook files"
+    },
+    {
+      "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+      "result": "PASS2242/591 exact release inventory"
+    },
+    {
+      "command": "npm run test:native-checks -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+      "result": "PASS retained numeric/source/default/mode/selection method comparisons"
+    },
+    {
+      "command": "npm run test:native-effects -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c52-native-effects.json",
+      "result": "PASS69Itemeligibility/5phase/20numeric/20FormulaField/26mode captures"
+    },
+    {
+      "command": "npm run test:native-initial-filters -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14",
+      "result": "PASS119source/initial-filter captures"
+    },
+    {
+      "command": "npm run test:native-conditions -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c52-native-conditions.json",
+      "result": "PASS retained plus576 final bonus/3composition cases"
+    },
+    {
+      "command": "npm run test:mounted -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell --final-bonuses-only",
+      "result": "PASS80 final states,post-wrap width/bounds assertion at1440/390"
+    },
+    {
+      "command": "npm run test:mounted -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell",
+      "result": "PASS full retained behavior;source/style boundary above"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS176025accepted/1candidate reject/40equal-index diagnostics/0nativewrites;23040 new final check/576Normalbounds/576fixed cases"
+    },
+    {
+      "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS final isolated check/package"
+    }
+  ],
+  "artifacts": {
+    "src/logic/preparation/numeric-effects.ts": "54b37ef52fccf84d064fcbe7cb083d360f3043630d3270cd003c70cf2ffeb91b",
+    "src/logic/preparation/skill-tool.ts": "2b92b989c883cd5bd6e2a358b8c106363886ee250182e1edbafd91b086750091",
+    "src/logic/preparation/d20-configuration.ts": "4423bb2f2308b03199aca6efaf880f75c6beea3dedaf0f4a0e65cad58e6282d0",
+    "src/logic/preparation/abilities.ts": "d86bebc304fbfd045c577f1da0ddc5bfcbb1704499ad415d3c5f953febfbc3c4",
+    "src/logic/preparation/defenses.ts": "309faf1012b24d6fa101db7c0f635220670908bfa0f198757175165d637d64b2",
+    "src/ui/components/blocks/Abilities.tsx": "e5b06ea4641f6e0fcc2119509a98c9d920fb363ad7a43728607e4f77ed90baa5",
+    "src/ui/components/blocks/Initiative.tsx": "44fb0cab006505400320f8650c92c279c9bb7bb9877e7bf4e9924a8a6dcad304",
+    "src/ui/components/blocks/SavingThrows.tsx": "d88db467e57de7635bea534c4b89debe3a06abcd039091b582276856b2ca6e98",
+    "src/tests/final-bonuses.test.ts": "0df6a74c3d58ec4e9c075c3c8a2a136a3e270cb596857912d320a9e202e377c8",
+    "src/tests/fixtures/final-bonus-scenarios.ts": "f7357a9d02ca2c5ccc22293d40cb81963ae14866b1908b5db4271ef1cd7ac9db",
+    "tests/fixtures/native-6.0.6/final-bonuses.json": "309e573ad6d918f45d0a1f397c6a92250a7198755203ae67ff3d9d1671be1c16",
+    "tests/fixtures/native-6.0.6/constant-bonus-effects.json": "fd95a3a4656a41573bbb80154512ffb59ac943a1b3f9a5651cac29498934e04d",
+    "scripts/native-condition-oracle.mjs": "0fbf53d3817ac07a7e5ec4e98fac3966aece71b46c1023d3ea9f38f26f8e5aa4",
+    "scripts/test-mounted.mjs": "fb2858d578cc3a99e074864e2e141247a0e97dd39e8e5d9e96324b406aa666d3",
+    "scripts/test-public-rolls.mjs": "ce4ba3c8495e71710e00f7e3adcfd9efaecd79fc0ec67888723f24eb0256bce6",
+    "temp/c52-before-final-inputs.log": "d29a6386573bb3f2d90783e0f57fccfc4857e21b0ee7770facd4bd279e40119b",
+    "temp/c52-after.log": "17ee88d342385b631451faf3b130c80da403e91205d45d295fef1968b1764078",
+    "temp/c52-tests.log": "5629d20a312b01c15ba9f46634984ee246e12425453eb62b025ecaf617d9bba5",
+    "temp/c52-types.log": "12dc53ec0ac9a09b86b8a55a6bc435aaea7c227f7b7a7f42dd3b1bb772fe08d9",
+    "temp/c52-source.log": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+    "temp/c52-native-conditions.json": "3f17eb8f366efb5ae39b2f009c76085ad60b90b52aff441a6d76e47aded16eac",
+    "temp/c52-native-checks.log": "8644680734eedd65821933345e98a36b0cc96efcc0f8f1db9da74a561f1a6928",
+    "temp/c52-native-effects.json": "953746f8a48a4a1a4293c0d5c93660fcc3a2b1dc38ba13bf3c0339b362bc12cb",
+    "temp/c52-native-initial.log": "ad7474ebc4c107c72675cd0f6cabd7be8c3efac28d278bd399b1a447a13b97e1",
+    "temp/c52-mounted-full.log": "75a3bdc25251d7ed5a191442fb26d18e7790ca1276cfabbb8fb4a13e84347050",
+    "temp/c52-mounted-focused-final.log": "e7d8175275fc00c29b56610b89b9be05f2147b32d65462391519ddc7a0170c7a",
+    "temp/c52-public.log": "26bcad6b47d219726835357c84d324ee735ab9eece05d0f79ef927a14fc6b2e6",
+    "temp/c52-package-final.log": "37cff69f5382df981b0de5023f435a3f114646c4dc8a55983bdc58961d9501dc",
+    "temp/c52-listeners-before.txt": "4cb070bdefa6944430b4955fcb5723dc4aba61db11ceac52734acedee54e55c1",
+    "temp/c52-listeners-final.txt": "4cb070bdefa6944430b4955fcb5723dc4aba61db11ceac52734acedee54e55c1",
+    "/tmp/dnd5e-mounted-DF6bba/evidence.json": "9414fdd021a47bf51f177d609eedfcef7aee1e304b82dfb256ba860310ed6e84",
+    "/tmp/dnd5e-mounted-eq0H1o/evidence.json": "d3c924a957f5abe0efb76a403dbe587aba8c927b14fca4caa297ff4e343d5d1a",
+    "/tmp/dnd5e-mounted-DF6bba/visual-notes.json": "1059a55f8f9b49e0b74bee6ee7fd72ce0ed02a91dde3a91189273c0a1cb3a41e",
+    "/tmp/dnd5e-public-rolls-5ra2k9/evidence.json": "29eef16fe0ca5df2e9e7aed99ec206160d43cc02acbff2d27d5c4974b2338c72",
+    "/tmp/dnd5e-public-rolls-5ra2k9/observed.json": "cfb199e4c5b294db44f0ad8cc671588b87385530a7069fc1fdb0975bf6824e01",
+    "/tmp/dnd5e-public-rolls-5ra2k9/transport.json": "075effd842ecff55277048bdee4e8fe0400acef0cedcec6ecf1ab367f694e289",
+    "/tmp/dnd5e-package-VJ9Tyz/data/dist/modules/dnd5e-0.4.1.tgz": "80b836621507c23ce6d90f5307f9dd94fae7b1c1aac285ee0514f964a7405771",
+    "/tmp/dnd5e-mounted-DF6bba/before-current-bonus-header-390.png": "91ae7441fa9ed3e84110b546a62a9a8dbddf88640b211909a6495a3e2a70ec5d",
+    "/tmp/dnd5e-mounted-DF6bba/after-current-bonus-header-390.png": "3c346219b62e50118455a3506da6a289708de47227fa188c7798ccaa74d47c0c",
+    "/tmp/dnd5e-mounted-DF6bba/after-current-bonus-header-1440.png": "b05ea3ac292929aee8b6600f135ec02681e1035b27f8d27babdf23a74c625a50"
+  },
+  "environment": {
+    "node": "24.21.0",
+    "npm": "11.19",
+    "ciNode22": "not run locally",
+    "services": "Public-host and browser processes closed;production listeners untouched;Core baseline unchanged"
+  },
+  "limits": [
+    "Controlled initialized source-method composition,not full native model/Document/schema lifecycle/field-validation/engine/operator acceptance. Existing restricted constructors/helpers/rules/dice-build capture stubs remain declared in C51.",
+    "Three condition/proficiency compositions are maintained regression/native-construction evidence,not separately labeled public-host profiles.",
+    "Mounted UI uses actual module components/SDK presentation seam;not installed Core/native UI. Screenshots lack full installed host theme and prove bounded layout only.",
+    "Initial focused driver failed before browser launch from an uninterpolated test flag;corrected and rerun. Final width assertion records pre-fix mobile note right426.95 beyond390,post-fix right274.86;same actor and native expectations.",
+    "Actual Core public req.runtime.rolls uses synthetic isolated config/auth/transport and controlled entropy. No live Foundry,write,chat/privacy/native engine/operator acceptance.",
+    "Unknown final numeric/Item/filter/flag/time/expression behavior,E01/E02/E04/widerQ00/E05 and fullDD/A/M/ADR/installed/native/operator gates remain open. Experimental0.4.1/compatibility unchanged."
+  ],
+  "next": "Qualify final persisted ability/skill/tool numeric fields using actual prepared pre-final values,effectValue/prof snapshots,header values and initiative tiebreaker before admission."
+}

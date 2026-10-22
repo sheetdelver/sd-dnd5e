@@ -3,7 +3,7 @@ import { prepareNumericEffects606, type NumericEffects } from './numeric-effects
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
-import { abilityRollScopes, prepareD20Configuration, sourceD20Mode, type PreparedNumericD20 } from './d20-configuration';
+import { abilityRollScopes, prepareD20Configuration, sourceD20Mode,numericScopeBonus,preparedBonusNote,type PreparedNumericD20 } from './d20-configuration';
 
 export interface PreparedNumericAbility {
     score: number | null; mod: number | null; save: number | null; saveProficient: boolean | null;
@@ -28,17 +28,19 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             let unavailableReason = reason;
             const local = record(data[type]) ?? {}, roll = record(local.roll) ?? {}, global = record(globals[type]) ?? {};
             if (data[type] != null && !record(data[type]) || globals[type] != null && !record(globals[type])) unavailableReason = 'Malformed native ability roll configuration';
-            const bonuses = [roll.bonus, global.bonus].map(numericConstant);
-            if (bonuses.some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
+            const scopes=[{path:`abilities.${key}.${type}.roll`,value:local.roll},{path:`rolls.ability.${type}`,value:global}];
+            const preparedBonuses = [roll.bonus, global.bonus].map(numericConstant),bonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses));
+            if ([...preparedBonuses,...bonuses].some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
             const mode = sourceD20Mode(abilityRollScopes(actor, key, type,effects.executionModes));
             if (mode.reason) unavailableReason = mode.reason;
             const base = type === 'check' ? 0 : data.proficient;
             const multipliers = [base, global.proficiency].filter(value => value !== undefined);
             if (base === undefined || multipliers.some(value => typeof value !== 'number' || !(type === 'check' ? [0,.5,1,2] : [0,1]).includes(value))) unavailableReason = 'Ability proficiency source unavailable';
-            if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready') return { ability: key, total: null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
-            const total = mod + Math.floor(profile.proficiency * Math.max(...multipliers as number[])) + (bonuses[0] as number) + (bonuses[1] as number)+effects.conditions.rollReduction;
+            if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready') return { ability: key, total: null,preparedTotal:null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
+            const prof=Math.max(...multipliers as number[]),baseTotal=mod+Math.floor(profile.proficiency*prof)+effects.conditions.rollReduction;
+            const total=baseTotal+(bonuses[0]as number)+(bonuses[1]as number),preparedTotal=baseTotal+(preparedBonuses[0]as number)+(preparedBonuses[1]as number);
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
-            return {ability:key,total,sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,abilityRollScopes(actor,key,type,effects.executionModes))};
+            return {ability:key,total,preparedTotal,preparationNote:preparedBonusNote(preparedTotal,total),sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,abilityRollScopes(actor,key,type,effects.executionModes))};
         }
         const check = prepare('check'), saveRoll = prepare('save');
         const saveMultiplier = Math.max(typeof data.proficient === 'number' ? data.proficient : 0, typeof record(globals.save)?.proficiency === 'number' ? record(globals.save)!.proficiency as number : 0);

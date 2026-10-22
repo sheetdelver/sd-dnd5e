@@ -127,6 +127,7 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                             {ab.score ?? '—'}
                         </div>
                         {ab.check?.total != null && <small>Check {ab.check.total >= 0 ? '+' : ''}{ab.check.total}</small>}
+                        {ab.check?.preparationNote && <small style={{display:'block'}}>{ab.check.preparationNote}</small>}
                         {(ab.check?.unavailableReason??ab.check?.defaultUnavailableReason) && <small style={{ display: 'block' }}>{ab.check?.unavailableReason??ab.check?.defaultUnavailableReason}</small>}
                     </button>
                 );

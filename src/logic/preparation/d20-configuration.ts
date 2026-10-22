@@ -1,9 +1,19 @@
 import { initializedModeState, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
+import {numericConstant} from './numeric';
 
 export interface PreparedNumericD20 {
     ability: string; total: number | null; fixed?:boolean;trailingBonus?:number; formula: string | null; sourceMode?: -1 | 0 | 1; unavailableReason?: string;
-    range?:NumericD20Range;defaultUnavailableReason?:string;
+    range?:NumericD20Range;defaultUnavailableReason?:string;preparedTotal?:number|null;preparationNote?:string;
+}
+/** Final constants are prepared by the shared effect phase, never inferred from
+ * arbitrary formula strings or caller-supplied prepared-looking source. */
+export function numericScopeBonus(scope:{path:string;value:unknown},executionBonuses:Readonly<Record<string,number>>={}):number|null {
+    return executionBonuses['system.'+scope.path+'.bonus']??numericConstant(record(scope.value)?.bonus);
+}
+export function preparedBonusNote(prepared:number|null,current:number|null,preparedProf?:number|null,currentProf?:number|null):string|undefined {
+    if(prepared===null||current===null||prepared===current&&preparedProf===currentProf)return undefined;
+    return `Prepared bonus ${prepared<0?'':'+'}${prepared}${preparedProf==null?'':` (${preparedProf}× proficiency)`}; current roll includes later effects.`;
 }
 export interface NumericD20Range {minimum?:number;maximum?:number}
 export function independentD20Options(options: Record<string, unknown> = {}): boolean {

@@ -1075,3 +1075,23 @@ bonus fields do not recompute an earlier stored passive. C51 qualifies actual co
 FormulaField string construction and builder operands against independent expectations;
 validation/evaluation and runtime admission remain separate. C52 must share current
 bonus operands across projection and execution without rewriting earlier snapshots.
+
+### Shared final constant bonuses (C52)
+
+C52 supersedes C51's runtime restriction for qualified Actor-owned constant-guard
+final roll/passive bonus add/subtract/override operations. executionBonuses stores
+only qualified operation results keyed by canonical field path. Earlier initialized
+fields remain untouched; applied provenance retains native FormulaField construction.
+The shared numericScopeBonus accessor combines the current map with initialized scopes;
+it never evaluates arbitrary source expressions. Other operations,unknown fields,
+null/malformed operands,Item origins and dependent rules remain gated.
+
+Skill/tool configuration selects current versus prepared bonus operands through its
+existing compiler. Shared projections keep preparedTotal/preparedProf beside current
+total/prof; passives use earlier totals/modes/bonus. Ability/save checks expose earlier
+preparedTotal and current total,retaining earlier proficiency. Initiative preserves
+its original fact/score and adds a current roll fact only when needed for nonfixed
+controls; fixed scores retain their earlier value. Both layouts render prepared-bonus
+notes and current controls from these projections. A compact note explicitly wraps
+inside the mobile chip. No browser rules calculation,second source cache or evaluator
+is added. Source/plan/context changes retire current dialogs and callbacks.

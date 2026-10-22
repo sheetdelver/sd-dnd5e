@@ -12,7 +12,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 export interface NumericEffects {
     system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
-    initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;checkExecutionReason?:string;
+    initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;executionBonuses:Record<string,number>;checkExecutionReason?:string;
     applied:Array<{effectId:string;key:string;phase:'initial'|'final';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned'}>;
 }
 /** Qualified initial numeric/defense/training trait fields. This detached initialized operand
@@ -20,7 +20,8 @@ export interface NumericEffects {
  * starts at verified0 despite stale nonpersisted source values (DD-R04).
  * Only constant FormulaField add/subtract/override is reduced by operation,
  * without parsing arbitrary expressions. Qualified final mode changes have a separate
- * execution snapshot, as do final global proficiency NumberFields. Earlier
+ * execution snapshot, as do final global proficiency NumberFields and qualified
+ * constant roll bonuses. Earlier
  * prepared proficiency/passive operands never change; other final/Item fields stay gated. */
 export function prepareNumericEffects606(actor:unknown):NumericEffects {
     const source=record(actor)??{},system=structuredClone(record(source.system)??{}),plan=planEffects606(actor);
@@ -154,7 +155,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     // Native passives and initiative scores precede armor/initiative/final modes.
     // Keep their earlier count state separate; never move a final effect to initial.
-    const executionModes=structuredClone(modes),executionGlobals=structuredClone(globals),equipment=prepareEquipment606(actor);
+    const executionModes=structuredClone(modes),executionGlobals=structuredClone(globals),executionBonuses:Record<string,number>={},equipment=prepareEquipment606(actor);
     let checkExecutionReason:string|undefined;
     function addExecutionMode(key:string,delta:number){
         const field=target({key});
@@ -168,6 +169,16 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     for(const change of plan.final){
         if(change.itemId!==undefined){reason??='Transferred Item final phase requires qualification';continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
+        const bonus=/^system\.(?:rolls\.ability\.(?:check|save|skill|tool)\.bonus|abilities\.(?:str|dex|con|int|wis|cha)\.(?:check|save)\.roll\.bonus|(?:skills|tools)\.[^.]+\.roll\.bonus|attributes\.init\.roll\.bonus|skills\.[^.]+\.bonuses\.passive)$/.test(change.key);
+        if(bonus&&field?.formula){
+            const operand=field.object[field.field],before=executionBonuses[change.key]??numericConstant(operand);
+            const value=before!==null&&operand!==null&&delta!==null&&qualifiedNumericTotal(delta)&&['add','subtract','override'].includes(change.type)?applyNumericFieldChange(before,delta,change.type,field):null;
+            if(value===null||!qualifiedNumericTotal(value)){reason??=`Final constant bonus operation/source/value requires qualification: ${change.key}`;continue;}
+            const previous=formulas[change.key]??(operand===undefined?'':String(operand).trim()),deltaText=String(raw).trim();
+            const formula=change.type==='override'?deltaText:change.type==='subtract'?(previous?`${previous} - (${deltaText})`:`-(${deltaText})`):previous?`${previous} ${deltaText.startsWith('-')?'-':'+'} ${deltaText.replace(/^[+-]/,'').trim()}`:deltaText;
+            executionBonuses[change.key]=value;formulas[change.key]=formula;
+            applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before!,value,formula});continue;
+        }
         const proficiency=/^system\.rolls\.ability\.(check|save|skill|tool)\.proficiency$/.exec(change.key);
         if(proficiency&&field?.choices){
             const target=executionGlobals[proficiency[1]],before=target.proficiency;
@@ -185,7 +196,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         applied.push({effectId:change.effectId,key:change.key,phase:'final',before,value});
     }
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    return {system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    return {system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
 }
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified

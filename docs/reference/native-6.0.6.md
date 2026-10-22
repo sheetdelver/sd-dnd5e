@@ -1068,3 +1068,12 @@ validation/evaluation,complete schema boot or operator acceptance is claimed. Fi
 passive source bonus updates do not refresh the stored passive. Secondary selected
 resources do not supply bonus scopes. [Evidence](../audits/evidence/2026-10-22-c51-final-bonuses-foundation.json)
 records exact source/fixture identities and stubs;runtime integration remains separate.
+
+C52 integrates C51's bounded constant final bonus fields.576 maintained profiles retain
+independent expectations. Three additional actual-method constructions compare the old
+final-open fixture (prepared7/passive17 versus current9),Poisoned with final proficiency,
+and exhaustion with a final bonus. Formula strings/parts and numeric operands are
+observed;constant totals remain independent arithmetic,not evaluated native dice.
+[Evidence](../audits/evidence/2026-10-22-c52-final-bonuses.json) separates method,regression,
+mounted UI and isolated Core public-roll results. Native/operator acceptance,broader
+expressions,other final numeric/Item/filter/flag/time phases remain open.
