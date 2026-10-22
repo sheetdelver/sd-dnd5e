@@ -1107,3 +1107,9 @@ previews/shortcuts/direct execution,source preservation and stale callbacks. A r
 malformed-initiative test caught a broader availability gate;the existing local boundary
 is preserved. Other final fields/Item-origin final effects/Item preparation/filters/
 flags/time/expressions and full DD/A/M/native/operator acceptance remain open.
+
+C48 implementation is `c82480f`. The [C12–C48 index](evidence/2026-10-21-c12-c48-checkpoints.json)
+records local commit identities and evidence hashes at each checkpoint. Full requirement/
+milestone/native/operator/installed acceptance remains open;there is no release-readiness
+claim. Remaining M2 final numeric/proficiency/bonus/Item/filter/formula work is explicit,
+as are E01/E02/E04/widerQ00/E05 and later lifecycle gates.

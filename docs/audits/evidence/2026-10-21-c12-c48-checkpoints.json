@@ -1,0 +1,455 @@
+{
+  "scope": "D&Dmodule ADR-0001 C12\u2013C48 local checkpoint index;partial M0/M1/M2/M3 work,not ADR completion",
+  "baseline": "5468f7e0c29568aa0d1f66cf3973fac58b473899",
+  "implementationHead": "c82480fb9437e05efc43e9d7b44c908482b01a58",
+  "branch": "feat/adr-0001-character-lifecycle",
+  "moduleVersion": "0.4.1",
+  "experimental": true,
+  "coreBaseline": "0.19.3/90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "nativeOracle": "release-6.0.6/87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "checkpoints": [
+    {
+      "checkpoint": "C12",
+      "commit": "d0cf3f2c02bb9157570c7d126e1f6a7e704aeed8",
+      "subject": "Qualify effect eligibility and phase ordering for numeric checks",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c12-effects.json",
+          "sha256AtCheckpoint": "1b0f7da9290ebdbec43d0e46bd40298564c94328c601f70004b74013e1e26ba6"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C13",
+      "commit": "b50a717bcc9077689eff58411674d80f00bd48d4",
+      "subject": "Prepare qualified initial numeric field effects for shared checks",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c13-numeric-effects.json",
+          "sha256AtCheckpoint": "54d26a3c6d9b6aa6598eb560350e47fdf046f70aac8a8beeb8cb68a46c69eb69"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C14",
+      "commit": "c6339efc26d2e10be6d4330f871cb55add61f1e5",
+      "subject": "Prepare bounded constant check and passive bonus effects",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c14-constant-bonuses.json",
+          "sha256AtCheckpoint": "94e0cbc4e2d62881951bf03fc9e3d9ed5ed8a0bf79f1969f4bce694b635c6c52"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C15",
+      "commit": "94a1bec53fc4e9b14153e5c404fce8fd83405a51",
+      "subject": "Prepare initial effect-mode counts and native passive scope ordering",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c15-effect-modes.json",
+          "sha256AtCheckpoint": "dd7c3dd4fb9e7eac423028f65b6f1d1e03753fccd524a0b29217f4dbd0061a61"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C16",
+      "commit": "9d15b1a627fb5cfaf6a530f76fefec9090376865",
+      "subject": "Prepare shared character HP and Hit Dice facts with truthful health surfaces",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c16-health.json",
+          "sha256AtCheckpoint": "21b647f84807464f84e30ab018c0d71bafc017702b054a49742f19cca0896b65"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C17",
+      "commit": "01064223dd63c7b696d63336294b65e483b24a91",
+      "subject": "Prepare shared armor class and initiative facts with qualified roll execution",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c17-defenses-initiative.json",
+          "sha256AtCheckpoint": "784cb726cff7c546dcb09c6ecde1c96af83b05852da528b4c8615e670a8f30c1"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C18",
+      "commit": "3cc76bffe34084e60bcaa28cee8d1d833b61f525",
+      "subject": "Prepare source equipped armor and post-passive Stealth roll modes",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c18-equipment.json",
+          "sha256AtCheckpoint": "8cfd4e3c20d365b681c0b149e100afda0713ab17df70f0128926ca057b48e43b"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C19",
+      "commit": "b896406e4fed9ad6d7875b3a828fdf64de639275",
+      "subject": "Prepare shared movement and senses with exact owned species inheritance",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c19-movement-senses.json",
+          "sha256AtCheckpoint": "e22d362a78bcf5714e8042a1dddcc0c5a343bd1b304b0e0d38ec4af638441252"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C20",
+      "commit": "ad9fa958536fb44d605cbabd33af11b7e714254c",
+      "subject": "Qualify strict normal d20 ranges and retain bounded selection gates",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c20-range-qualification.json",
+          "sha256AtCheckpoint": "dbd96ecdcbf13a6e6a311db4c294b1c1107f6295867e732014f7bdb43b3d9e6d"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C21",
+      "commit": "d97f34b779df5012f75e700c8925d66170936331",
+      "subject": "Execute qualified normal d20 bounds with explicit mode readiness and HUD gate",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c21-normal-ranges.json",
+          "sha256AtCheckpoint": "9e9fa998563f5b3f1c9963b35fb0ff4b15dd16f198b67223070094bf373e264e"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C22",
+      "commit": "6f95ea257a2cbe91ce45325abcc2bb6aa4e538fe",
+      "subject": "Initialize Item effect suppression from verified source schema defaults",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c22-item-defaults.json",
+          "sha256AtCheckpoint": "d83bfbedf674fb59b63766c1175a677111485f152a65769d61bbc5c17f680f10"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C23",
+      "commit": "3bbf52db7f0e2c9c2ed72989c41b63f92d2b9705",
+      "subject": "Share exact species source identity across preparation cards and headers",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c23-species.json",
+          "sha256AtCheckpoint": "6151fd5aa8928c96dc2feacafc0b60254900981f14e38def23ed3c5cabb3a3a9"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C24",
+      "commit": "3d46c793c9108210b451eada6ab81e4bbab5ba81",
+      "subject": "Prepare shared source defense traits and live desktop mobile readouts",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c24-defense-traits.json",
+          "sha256AtCheckpoint": "5a0f90cbb9b84efe903c8a5e5764458fc3e84c20bde10d9283138ef732a4a145"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C25",
+      "commit": "7e147f277ae428789f31a9be54e119df12951876",
+      "subject": "Apply qualified initial defense Set and constant modifier effects",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c25-trait-effects.json",
+          "sha256AtCheckpoint": "24db7f4d16916085b14d9d28fe90886d8cf25bf4ec30e5f2ecc8e7a261476448"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C26",
+      "commit": "76c8d815e7b0357a23a4aeef6e7669257f4d1637",
+      "subject": "Distinguish fractional and unavailable prepared roll proficiency indicators",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c26-proficiency-indicators.json",
+          "sha256AtCheckpoint": "b2e8516b9f51d461df47bdc6dd53cda80fa157de3f2c07e0c953ae2bfb2ead53"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C27",
+      "commit": "8ad3bbc1ad98588c3d47bdf1671aed60056a0dab",
+      "subject": "Prepare shared source training and language facts for cards and both layouts",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c27-training.json",
+          "sha256AtCheckpoint": "cfa3ae9d2cae5eab27c9d86288303e54f2b43c50f69ce6ee329b1731407c1269"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C28",
+      "commit": "ece9970d8b1fb4164fb703da672cf281d6dc1c08",
+      "subject": "Apply qualified initial training language and mastery Set effects",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c28-training-effects.json",
+          "sha256AtCheckpoint": "2936f6448cc653d72d301efc4180c648b5677c41431d4c9539a28a10a34e18ed"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C29",
+      "commit": "24c6bad92de71427f20452125fc97264240797a9",
+      "subject": "Qualify invariant effect and change filters with shared intent provenance",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c29-constant-filters.json",
+          "sha256AtCheckpoint": "74e5903c93966e2450930372102eb6c72a27692ad74d3e1dbd4088863f9f1e5e"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C30",
+      "commit": "52fa7b9a276eb18310f94574ed091a691bf73261",
+      "subject": "Validate change envelopes before applying effect suppression",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c30-effect-envelopes.json",
+          "sha256AtCheckpoint": "9626a0508315eda8df41d4637b37e84a3661d135a265e95a33bfb4264e546fe7"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C31",
+      "commit": "834b7cad41d2e3eaa3b9b4858f91d9983f883fff",
+      "subject": "Qualify initial scalar filter snapshots and shared save defaults",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c31-initial-filters.json",
+          "sha256AtCheckpoint": "7989c63dc3a819bb7cc6e9e59955933f546d62b7c27dfda97963b1e96295b633"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C32",
+      "commit": "d00a6ff623d5476e2f9cca030fddfeb6f547d758",
+      "subject": "Qualify public command receipts, persistence failures and stale-write limits",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c32-command-contracts.json",
+          "sha256AtCheckpoint": "09236a05e6419ff6885fe52bbf18a01667e61f2f9452ad23b6befa63da4c96d4"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C33",
+      "commit": "b2aed3c3cfb7054c266c58222fd7047e0fa22a1e",
+      "subject": "Add durable command admission, Actor queues and caller-owned status",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c33-command-journal.json",
+          "sha256AtCheckpoint": "4dbe695dc6e34f46da0c9e62924dfe81a74076fc596afef298b46579fc84d93e"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C34",
+      "commit": "98f177aa2f84cec2f68e9add7014bea19ecc8b63",
+      "subject": "Qualify initial trait Set predicates and source-aware intent retirement",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c34-initial-collection-filters.json",
+          "sha256AtCheckpoint": "328531de3ffd0981c0a442a5d6775a1511ba058c093570e293e8d6d3f7d612e8"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C35",
+      "commit": "e7d12a43cbbc82082a7724cd7a50cc2b02254467",
+      "subject": "Share class base initialization with initial rule predicates and projections",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c35-initial-class-filters.json",
+          "sha256AtCheckpoint": "8f90e8a5a791bcea068c0fba06676ef2034c8309596b83f9ffeaac7d6d3b8242"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C36",
+      "commit": "92b58ff70db6b49cc43b43c481dcd7cb82f0c9d2",
+      "subject": "Qualify condition source defaults, status phases and poisoned roll modes",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c36-condition-foundation.json",
+          "sha256AtCheckpoint": "a9d8259042f0c7e73e501bdd855551ab15b44fc30561ce6f326d3f879505a438"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C37",
+      "commit": "11ba39cdf20a4743023f31743aba9ad41a571451",
+      "subject": "Prepare bounded poisoned conditions and share live status and check modes",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c37-poisoned-condition.json",
+          "sha256AtCheckpoint": "601c23962685ab33fc29e51e15bc07109d03d08c1f8611f5dea5d76575be3a0a"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C38",
+      "commit": "f9da3242ec5d9f2e73d0079d7994bd664c23df61",
+      "subject": "Qualify modern exhaustion maps, reductions, movement and roll configurations",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c38-exhaustion-foundation.json",
+          "sha256AtCheckpoint": "9fd0a339d331a7ef3b93e2d46068cfae2ce5ceee10aa3b645117ed9fc0c43ea6"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C39",
+      "commit": "20634612de65b558f45dc098ac98596a50c1275f",
+      "subject": "Share modern exhaustion levels and reductions across character preparation and rolls",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c39-exhaustion.json",
+          "sha256AtCheckpoint": "2bd0adba29d35f7518586f0b3f06ff8f79ebaf7d9cac38aa5cb019038e795cba"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C40",
+      "commit": "1eb4b6af68d2ddd87d38331586f048af64f3184b",
+      "subject": "Qualify condition save and initiative counts, status phases and movement restrictions",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c40-condition-modes.json",
+          "sha256AtCheckpoint": "49115ce5aa3ea8c8f6f518e4837f92be052ebdb595bf13890613b546fa8c7106"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C41",
+      "commit": "b70bfe9cad879366e5a2ac7cc5373437e7e441ee",
+      "subject": "Share qualified condition save and initiative modes and movement restrictions",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c41-condition-modes.json",
+          "sha256AtCheckpoint": "e698c61d7ef038fa7ae5df8c4e020dd0372e6ed625a06ac739422fdcd02a44fc"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C42",
+      "commit": "7d8596903dcee1afbe1942a5543f165bc04f2d8b",
+      "subject": "Qualify petrification status, immunity and defense preparation phases",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c42-petrification-foundation.json",
+          "sha256AtCheckpoint": "bc2b6f5b4d66fc2d3d676ee855c6b82a76bde2ae727c69e8502c44b63e982307"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C43",
+      "commit": "d0e1000394d5a1f77fbafbfc32d90ac2e89dbd46",
+      "subject": "Share qualified petrification trait grants and effective condition preparation",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c43-petrification.json",
+          "sha256AtCheckpoint": "c72baef5fe09b9731a2a4e74366376c917e84d298c3008b8dfa341b48b08f6b4"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C44",
+      "commit": "c0ec52fa5ba59a4c15e80bee21319b6545d8aa97",
+      "subject": "Qualify explicit stunned and unconscious status, mode and movement phases",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c44-incapacity-foundation.json",
+          "sha256AtCheckpoint": "8e27d93dcfcf47362763b9837c7488817b990f729768b79b905d1053657be174"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C45",
+      "commit": "2bb9b7845ff22845b7709add260a776d36dc3066",
+      "subject": "Share qualified explicit stunned and unconscious preparation and roll consumers",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c45-incapacity.json",
+          "sha256AtCheckpoint": "ba48fa540eff2ab228781f3083c061985de7d0adca9c4923128799b723eddc58"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C46",
+      "commit": "93629e5ed9f441453377d82e8a11460f652a8f2f",
+      "subject": "Correct character phase composition before late petrification immunity",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c46-character-phase-order.json",
+          "sha256AtCheckpoint": "50d81f44f5435ea9496d46535d29d5fa84ea8f69930ad3a083821048c8361f6a"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C47",
+      "commit": "1db9f32b2a60255df96122a03759edbf3e910448",
+      "subject": "Qualify final roll mode effects after passive and initiative score preparation",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c47-final-modes-foundation.json",
+          "sha256AtCheckpoint": "1ff036e13fe07bdebcf10161e42df7c1123b3e2b4d628f48fa9a703be7c408cc"
+        }
+      ]
+    },
+    {
+      "checkpoint": "C48",
+      "commit": "c82480fb9437e05efc43e9d7b44c908482b01a58",
+      "subject": "Share final actor roll modes without recomputing earlier passive and score snapshots",
+      "evidence": [
+        {
+          "path": "docs/audits/evidence/2026-10-21-c48-final-modes.json",
+          "sha256AtCheckpoint": "35a0a93617ad74282f2a4f88fad93ff0679fcc118c3f04a8e8a15d9663c9bdd9"
+        }
+      ]
+    }
+  ],
+  "latestChecks": {
+    "toolingAssertions": 60,
+    "toolingSuites": 8,
+    "moduleSuites": 40,
+    "explicitTypeFiles": 186,
+    "nativeInventoryRecords": 2242,
+    "nativeCandidateExpressions": 591,
+    "focusedMountedStates": 146,
+    "fullMountedFieldStates": 1172,
+    "fullMountedTrainingStates": 624,
+    "publicHostAcceptedRolls": 130506,
+    "packageSha256": "c30eda25ef297bbc023918506f52c3cc1140e27e7fb34f16fb6ba5dc920b4be5"
+  },
+  "supersessions": [
+    "DD-R07 corrected at C46: C42/C43 mixed Petrified+Poisoned arithmetic composition claims superseded;historical trait/status/host results preserved",
+    "C48 supersedes final-mode-only restriction and old final-open unavailable expectation for Actor-owned constant-guard numeric mode profile;other final/Item fields remain gated"
+  ],
+  "openDependencies": [
+    "E01 caller-authorized content discovery",
+    "E02 exact outcomes/native concurrent mutation precondition or explicit conflict-policy decision",
+    "E04 limited scene/time/cross-Actor surface as applicable",
+    "Wider Q00/E05 expression/dice/range qualification"
+  ],
+  "remaining": "M2 other final numeric/proficiency/bonus fields,filters/flags/time/Item/formulas;M3 domain mutations and M4\u2013M9 lifecycle/installed/native/operator acceptance remain. See existing ADR and verification ledger.",
+  "acceptance": {
+    "adrOpen": true,
+    "fullMilestoneAcceptance": false,
+    "installedUI": false,
+    "nativeOperator": false,
+    "releaseReady": false
+  },
+  "evidenceLimits": [
+    "Rregression,Scontrolled pinned schema/method/phase,Imocked transport public host,mounted module/SDK seam and package evidence stay distinct",
+    "Source-method comparisons do not establish full native model/runtime or operator parity",
+    "All task-owned services stopped;Core/sibling/native sources read-only;no remote/version/compatibility operations in these checkpoints"
+  ]
+}

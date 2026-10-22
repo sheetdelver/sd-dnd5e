@@ -2312,3 +2312,22 @@ plus50 transitions,8 preview,16 fact,18 source-mode,56 tool,80 selected,22 eligi
 40 species and180 Normal-range states and retained callbacks. This final run includes
 the stricter Item-origin boundary. All task-owned fixture processes/browser closed;
 pristine Core baseline remains clean;production listeners untouched.
+
+### C12–C48 checkpoint identities and remaining gates
+
+C48 implementation is `c82480fb9437e05efc43e9d7b44c908482b01a58`.
+The [checkpoint index](../audits/evidence/2026-10-21-c12-c48-checkpoints.json) records
+all37 local implementation/qualification commits C12–C48 and the evidence-file hashes
+as stored at each commit. It preserves the existing release-tooling baseline separately;
+no new remote/merge/tag/release/version/compatibility action follows from this index.
+C46's DD-R07 correction supersedes the inaccurate mixed-condition composition claim;
+C48 supersedes only the qualified final-mode restriction. Other gates remain open.
+
+M0/Q00 and M1/E01 are incomplete;M2 still needs other final numeric/proficiency/bonus,
+Item/filter/flag/time and formula dependencies. C32/C33 M3 outcome/journal foundations
+are not domain command completion;E02's concurrent native edit/outcome decision remains.
+M4–M9/full DD/A/installed/native/operator acceptance are not established. All current
+R/S/isolated-host/mounted/package checks are bounded evidence,not release readiness.
+Next executable module package is the existing M2 final numeric/proficiency qualification,
+with independent source/schema/prepared-snapshot and native builder expectations before
+admission. ADR-0001 remains open;experimental0.4.1 and compatibility unchanged.
