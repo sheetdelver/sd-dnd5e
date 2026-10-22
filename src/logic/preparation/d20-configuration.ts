@@ -1,9 +1,11 @@
+import {qualifiedProficiencyTerm606} from './proficiency-term';
 import {deterministicFormula606,qualifiedFormulaBonus606,type FormulaBindings606} from './deterministic-formula';
 import { initializedModeState, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
 import {numericConstant} from './numeric';
 
 export interface PreparedNumericD20 {
+    proficiencyMode?:'bonus'|'dice';proficiencyTerm?:string;preparedPassiveBase?:number;
     ability: string; total: number | null; fixed?:boolean;trailingBonus?:number; formula: string | null; sourceMode?: -1 | 0 | 1; unavailableReason?: string;
     range?:NumericD20Range;defaultUnavailableReason?:string;preparedTotal?:number|null;preparationNote?:string;
 }
@@ -26,7 +28,7 @@ export function numericD20Roll(check: PreparedNumericD20 | undefined, options: R
     if(!record(options)||options.advantage!==undefined&&!['normal','adv','dis'].includes(String(options.advantage)))return null;
     if(Object.keys(options).some(key=>!['ability','advantage','situationalBonus','rollMode','speaker'].includes(key)))return null;
     if (!check || check.total === null || check.unavailableReason) return null;
-    if(!check.formula&&!(check.defaultUnavailableReason&&check.range&&(check.sourceMode===1||check.sourceMode===-1)))return null;
+    if(!check.formula&&!(check.defaultUnavailableReason&&(check.range||check.proficiencyTerm)&&(check.sourceMode===1||check.sourceMode===-1)))return null;
     // Native combined checks change proficiency and can grant advantage. Never
     // silently execute the independent profile for a requested combination.
     if (!independentD20Options(options)) return null;
@@ -36,8 +38,9 @@ export function numericD20Roll(check: PreparedNumericD20 | undefined, options: R
     const die = advantage === 'normal' ? '1d20' : advantage === 'adv' ? '2d20kh1' : advantage === 'dis' ? '2d20kl1' : null;
     if (!die) return null;
     const bonus = options.situationalBonus;
+    if(check.proficiencyTerm&&bonus!==undefined&&!qualifiedFormulaBonus606(Number(bonus)))return null;
     if (bonus !== undefined && (typeof bonus !== 'string' || bonus.length > 64 || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(bonus.trim()) || !Number.isFinite(Number(bonus)) || Math.abs(Number(bonus)) > 1_000_000_000)) return null;
-    const base=numericD20Formula(check.total,advantage==='adv'?1:advantage==='dis'?-1:0,check.trailingBonus,check.range);
+    const base=numericD20Formula(check.total,advantage==='adv'?1:advantage==='dis'?-1:0,check.trailingBonus,check.range,check.proficiencyTerm);
     if(!base)return null;
     return bonus === undefined ? base : `${base}+(${String(bonus).trim()})`;
 }
@@ -62,22 +65,23 @@ export function sourceD20Mode(scopes:readonly D20ModeScope[],automaticAdvantage=
     const dis=(override===-1||override===null&&disadvantages>0)&&!suppressDisadvantages;
     return {mode:(Number(adv)-Number(dis)) as -1|0|1};
 }
-export function numericD20Formula(total: number, mode: -1 | 0 | 1,trailingBonus=0,range:NumericD20Range={}): string|null {
+export function numericD20Formula(total: number, mode: -1 | 0 | 1,trailingBonus=0,range:NumericD20Range={},proficiencyTerm?:string): string|null {
     if(!record(range)||Object.values(range).some(value=>typeof value!=='number'||!Number.isInteger(value)||value<1||value>20))return null;
+    if(proficiencyTerm!==undefined&&(!qualifiedProficiencyTerm606(proficiencyTerm)||mode!==0))return null;
     const bounded=range.minimum!==undefined||range.maximum!==undefined;
     if(bounded&&mode!==0)return null;
     const modifiers=(range.minimum===undefined?'':`min${range.minimum}`)+(range.maximum===undefined?'':`max${range.maximum}`);
-    return `${mode === 1 ? '2d20kh1' : mode === -1 ? '2d20kl1' : '1d20'}${modifiers}${total < 0 ? '' : '+'}${total}`+(trailingBonus?`${trailingBonus<0?'':'+'}${trailingBonus}`:'');
+    return `${mode === 1 ? '2d20kh1' : mode === -1 ? '2d20kl1' : '1d20'}${modifiers}${total < 0 ? '' : '+'}${total}`+(proficiencyTerm?'+'+proficiencyTerm:'')+(trailingBonus?`${trailingBonus<0?'':'+'}${trailingBonus}`:'');
 }
 /** Shared current-source readiness; mode-specific limits never turn a missing
  * context/formula or malformed input into an executable manual alternative. */
-export function prepareD20Configuration(total:number,mode:-1|0|1,scopes:readonly {path:string;value:unknown}[],trailingBonus=0,hasDice=true):Pick<PreparedNumericD20,'formula'|'range'|'unavailableReason'|'defaultUnavailableReason'> {
-    const parsed=d20SourceRange(scopes),reason=parsed.reason??numericD20ExecutionReason(total+trailingBonus,mode);
+export function prepareD20Configuration(total:number,mode:-1|0|1,scopes:readonly {path:string;value:unknown}[],trailingBonus=0,hasDice=true,proficiencyTerm?:string):Pick<PreparedNumericD20,'formula'|'range'|'unavailableReason'|'defaultUnavailableReason'> {
+    const parsed=d20SourceRange(scopes),reason=(proficiencyTerm&&!qualifiedProficiencyTerm606(proficiencyTerm)?'This native proficiency die count requires further qualification':undefined)??(proficiencyTerm&&!qualifiedFormulaBonus606(total)?'Fractional proficiency-dice bonus requires further qualification':undefined)??parsed.reason??numericD20ExecutionReason(total+trailingBonus,mode);
     if(reason)return {formula:null,unavailableReason:reason};
     if(!hasDice)return {formula:String(total)};
     const range=parsed.range,bounded=range.minimum!==undefined||range.maximum!==undefined;
-    const formula=numericD20Formula(total,mode,trailingBonus,range);
-    return {formula,...(bounded?{range}:{}),...(bounded&&mode!==0?{defaultUnavailableReason:'Advantage and disadvantage are unavailable with these die bounds. Choose Normal.'}:{})};
+    const formula=numericD20Formula(total,mode,trailingBonus,range,proficiencyTerm);
+    return {formula,...(bounded?{range}:{}),...(proficiencyTerm&&mode!==0?{defaultUnavailableReason:'Advantage/disadvantage with proficiency dice require qualification. Choose Normal.'}:bounded&&mode!==0?{defaultUnavailableReason:'Advantage and disadvantage are unavailable with these die bounds. Choose Normal.'}:{})};
 }
 export function numericD20ExecutionReason(total: number, mode: -1 | 0 | 1): string | undefined {
     if (Math.abs(total) > 1_000_000_000) return 'Numeric roll bonus exceeds the supported host limit';

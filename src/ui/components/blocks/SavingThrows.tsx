@@ -6,6 +6,7 @@ import { useSheet } from '../shared/SheetContext';
 import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 import type { PreparedNumericD20 } from '../../../logic/preparation/d20-configuration';
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
+import {rollBonusLabel} from '../shared/rollBonusLabel';
 import ProficiencyIndicator from '../shared/ProficiencyIndicator';
 
 const SAVE_ORDER = ['str', 'dex', 'con', 'int', 'wis', 'cha'] as const;
@@ -54,7 +55,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                     const ab = abilities?.[key];
                     const save = ab?.save ?? null;
                     const proficient = ab?.saveProficient;
-                    const formatted = save === null ? '—' : save >= 0 ? `+${save}` : `${save}`;
+                    const formatted = rollBonusLabel(ab?.saveRoll??{total:save});
                     return (
                         <button
                             key={key}

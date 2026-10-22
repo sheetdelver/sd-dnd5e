@@ -7,7 +7,7 @@ import {numericAbilityValue,numericConstant} from './numeric';
 import {deterministicFormula606,qualifiedFormulaBonus606,type FormulaBindings606} from './deterministic-formula';
 export interface FormulaPreparation606 {
     scales:ClassScales606;preparedBindings:Record<string,number>;executionBindings:Record<string,number>;
-    receipts:Array<{path:string;source:string;prepared:number;execution?:number}>;
+    receipts:Array<{path:string;source:string;prepared:number;execution?:number;roll?:boolean}>;
     unavailable:Array<{path:string;reason:string}>;
 }
 /** Explicit native roll-data subset. Earlier modifiers and Item final operands
@@ -19,7 +19,7 @@ export function formulaBindings606(actor:unknown,context:RulesContext,effects:Nu
     if(classes.status==='ready'){
         result['details.level']=classes.level;
         const setting=context.settings['dnd5e.proficiencyModifier'];
-        if(setting?.status!=='unavailable'&&setting?.value==='bonus')result.prof=classes.proficiency;
+        if(setting?.status!=='unavailable'&&['bonus','dice'].includes(String(setting?.value)))result.prof=classes.proficiency;
     }
     for(const key of ['str','dex','con','int','wis','cha']){
         const numeric=numericAbilityValue(record(record(effects.system.abilities)?.[key])?.value);
@@ -27,6 +27,8 @@ export function formulaBindings606(actor:unknown,context:RulesContext,effects:Nu
         result[`abilities.${key}.mod`]=numeric.mod;
         result[`abilities.${key}.value`]=phase==='execution'?effects.finalNumbers[`system.abilities.${key}.value`]??numeric.score:numeric.score;
     }
+    const modeSetting=context.settings['dnd5e.proficiencyModifier'];
+    if(phase==='execution'&&modeSetting?.status!=='unavailable'&&modeSetting?.value==='dice')delete result.prof;
     return result;
 }
 /** Fold qualified FormulaFields once in the detached preparation model.
@@ -43,12 +45,13 @@ export function prepareFormulaFields606(actor:unknown,context:RulesContext,effec
         if(typeof raw!=='string'||numericConstant(raw)!==null)return;
         if(!raw.trim()){if(roll)parent[key]='';return;}
         const value=deterministicFormula606(raw,prepared),current=roll?deterministicFormula606(raw,execution):value;
-        if(value===null||current===null||roll&&(!qualifiedFormulaBonus606(value)||!qualifiedFormulaBonus606(current))){
+        const modeSetting=context.settings['dnd5e.proficiencyModifier'],diceContext=modeSetting?.status!=='unavailable'&&modeSetting?.value==='dice';
+        if(value===null||current===null&&!diceContext||roll&&(!qualifiedFormulaBonus606(value)||current!==null&&!qualifiedFormulaBonus606(current))){
             model.unavailable.push({path,reason:'Formula expression/reference or fractional execution profile unavailable'});return;
         }
         parent[key]=String(value);
-        if(roll&&!Object.hasOwn(effects.executionBonuses,'system.'+path))effects.executionBonuses['system.'+path]=current;
-        model.receipts.push({path,source:raw,prepared:value,...(roll?{execution:current}:{})});
+        if(roll&&current!==null&&!Object.hasOwn(effects.executionBonuses,'system.'+path))effects.executionBonuses['system.'+path]=current;
+        model.receipts.push({path,source:raw,prepared:value,...(roll?{roll:true,...(current!==null?{execution:current}:{})}:{})});
     }
     for(const key of ['str','dex','con','int','wis','cha'])for(const kind of ['check','save','attack'])fold(`abilities.${key}.${kind}.roll.bonus`,kind!=='attack');
     for(const kind of ['skills','tools'])for(const key of Object.keys(record(effects.system[kind])??{})){
@@ -79,6 +82,6 @@ export function executionFormulaContext606(effects:NumericEffects,rootProficienc
     const bindings={...effects.formulaPreparation?.executionBindings};
     if(rootProficiency===null)delete bindings.prof;
     else if(rootProficiency!==undefined)bindings.prof=rootProficiency;
-    const expressions=Object.fromEntries((effects.formulaPreparation?.receipts??[]).filter(row=>row.execution!==undefined).map(row=>['system.'+row.path,row.source]));
+    const expressions=Object.fromEntries((effects.formulaPreparation?.receipts??[]).filter(row=>row.roll||row.execution!==undefined).map(row=>['system.'+row.path,row.source]));
     return {bindings,expressions};
 }

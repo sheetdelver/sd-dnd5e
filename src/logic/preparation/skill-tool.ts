@@ -1,3 +1,4 @@
+import {proficiencyDiceTerm606} from './proficiency-term';
 import {executionFormulaContext606} from './formula-fields';
 import {checkProficiency606,sourceCheckCoefficient606} from './proficiency';
 import { numericAbilityValue } from './numeric';
@@ -16,7 +17,7 @@ interface Ability { score:number|null;mod:number|null; roll:unknown; reason?:str
  * Initial qualified field effects are separate from raw source. No source
  * references, unqualified prepared totals or browser world cache. */
 export interface SkillToolModel {
-    formulaContext:ReturnType<typeof executionFormulaContext606>;
+    proficiencyMode:'bonus'|'dice';formulaContext:ReturnType<typeof executionFormulaContext606>;
     jackOfAllTrades:boolean;reason?:string; proficiency:number|null;rollReduction:number;modeStates:Record<string,EffectModeState>;executionModeStates:Record<string,EffectModeState>;
     abilities:Record<string,Ability>; skills:Record<string,Entry>; tools:Record<string,Entry>;
     proficiencies:Record<'check'|'skill'|'tool',number>;
@@ -38,7 +39,7 @@ function rollInput(value:unknown):unknown {
     return data ? Object.fromEntries(['bonus','mode','min','max'].filter(key=>data[key]!==undefined).map(key=>[key,structuredClone(data[key])])) : false;
 }
 export function prepareSkillToolModel606(actor:unknown, context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor,context)):SkillToolModel {
-    const system=effects.system, profile=numericCharacterProfile(actor,context,effects);
+    const system=effects.system, profile=numericCharacterProfile(actor,context,effects,true,true);
     let reason=(profile.status==='ready'?undefined:profile.reason)??effects.checkExecutionReason;
     const rawGlobals=effects.globals,sourceGlobals=record(record(system.rolls)?.ability)??{};
     if ([system.rolls,record(system.rolls)?.ability].some(value=>value!=null&&!record(value))) reason ??= 'Roll source container malformed';
@@ -60,7 +61,7 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
         }));
     }
     const executionModeStates=structuredClone(effects.executionModes);
-    return {formulaContext:executionFormulaContext606(effects),jackOfAllTrades:effects.ruleFlags.jackOfAllTrades,reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,executionBonuses:structuredClone(effects.executionBonuses),proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},executionProficiencies:{check:effects.executionGlobals.check.proficiency as number,skill:effects.executionGlobals.skill.proficiency as number,tool:effects.executionGlobals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
+    return {proficiencyMode:profile.status==='ready'?profile.proficiencyMode:'bonus',formulaContext:executionFormulaContext606(effects),jackOfAllTrades:effects.ruleFlags.jackOfAllTrades,reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,executionBonuses:structuredClone(effects.executionBonuses),proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},executionProficiencies:{check:effects.executionGlobals.check.proficiency as number,skill:effects.executionGlobals.skill.proficiency as number,tool:effects.executionGlobals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
         globals:Object.fromEntries(['check','skill','tool'].map(key=>[key,sourceGlobals[key]!=null&&!record(sourceGlobals[key])?false:rollInput(rawGlobals[key])])) as SkillToolModel['globals']};
 }
 /** Native fresh #rollSkillTool + _buildSkillToolConfig source-only profile.
@@ -104,7 +105,8 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     const selectedTypes:SkillToolKind[]=secondary?[kind,other]:[kind];
     const prof=checkProficiency606(primary?.prof,secondary?.prof,selectedTypes,targets,model.jackOfAllTrades);
     const formulaContext={expressions:model.formulaContext?.expressions??{},bindings:{...model.formulaContext?.bindings}};
-    if(prof!==null&&model.proficiency!==null)formulaContext.bindings.prof=prof>0?Math.floor(model.proficiency*prof):model.proficiency;
+    if(model.proficiencyMode==='dice')delete formulaContext.bindings.prof;
+    else if(prof!==null&&model.proficiency!==null)formulaContext.bindings.prof=prof>0?Math.floor(model.proficiency*prof):model.proficiency;
     else delete formulaContext.bindings.prof;
     const bonuses=scopes.map(scope=>numericScopeBonus(scope,phase==='execution'?model.executionBonuses:{},phase==='execution'?formulaContext:undefined));
     if (bonuses.some(value=>value===null)) reason ??= `${kind==='skill'?'Skill':'Tool'} formula requires Q00 qualification`;
@@ -112,9 +114,10 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     if (reason||!primary||primary.prof===null||model.proficiency===null||mode.mode===undefined||data?.score==null||data.mod===null) return {...base,prof:null,total:null,formula:null,unavailableReason:reason??'Check preparation unavailable'};
 
     if(prof===null)return {...base,prof:null,total:null,formula:null,unavailableReason:'Check proficiency operands unavailable'};
-    const total=data.mod+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0)+model.rollReduction;
+    const flat=Math.floor(model.proficiency*prof),proficiencyTerm=model.proficiencyMode==='dice'&&prof>0?proficiencyDiceTerm606(model.proficiency,prof)??undefined:undefined;
+    const total=data.mod+(model.proficiencyMode==='dice'?0:flat)+(bonuses as number[]).reduce((a,b)=>a+b,0)+model.rollReduction;
     if (!qualifiedNumericTotal(total)) return {...base,prof,total:null,formula:null,unavailableReason:'Numeric result outside qualified roll representation'};
-    return {...base,prof,total,sourceMode:mode.mode,passiveMode:passive.mode,...prepareD20Configuration(total,mode.mode,scopes)};
+    return {...base,prof,total,preparedPassiveBase:total+(model.proficiencyMode==='dice'?flat:0),proficiencyMode:model.proficiencyMode,...(proficiencyTerm?{proficiencyTerm}:{}),sourceMode:mode.mode,passiveMode:passive.mode,...prepareD20Configuration(total,mode.mode,scopes,0,true,proficiencyTerm)};
 }
 
 /** Default independent projection retains the native earlier snapshot alongside
@@ -122,5 +125,5 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
 export function projectSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,key:string){
     const current=configureSkillToolCheck(model,kind,key),prepared=configureSkillToolCheck(model,kind,key,{},'prepared');
     const preparationNote=preparedBonusNote(prepared.total,current.total,prepared.prof,current.prof);
-    return {...current,preparedTotal:prepared.total,preparedProf:prepared.prof,...(preparationNote?{preparationNote}:{})};
+    return {...current,passiveMode:prepared.passiveMode,preparedPassiveBase:prepared.preparedPassiveBase,preparedTotal:prepared.total,preparedProf:prepared.prof,...(preparationNote?{preparationNote}:{})};
 }

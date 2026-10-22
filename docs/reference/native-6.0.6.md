@@ -1309,3 +1309,14 @@ C79 adds actual Actor/ActorModel roll data,skill/tool builder,generic d20 method
 BasicRoll.constructParts to the formula comparisons. Root prof replacement explains
 prepared/fresh differences for half proficiency,expertise and global targets;source
 proficiency fields remain initialized/prepared separately. [Evidence](../audits/evidence/2026-10-22-c79-formula-roll-context.json) records initialized collaborators and numeric expectations;no native runtime acceptance follows.
+
+
+C80 compares30 initialized proficiency profiles against exact release6.0.6:
+Proficiency.term yields0,floor(1dX / 2),1dX,1.5dX or2dX. Creature prepared skill/tool
+numeric totals omit random proficiency,while passive checks retain floor(base×coefficient).
+Ability save value omits random proficiency;ability DC and deterministic Actor roll data
+retain flat base. Fresh build configuration may carry a dice-bearing prof reference.
+The controlled builder harness does not boot DataModels or evaluate native dice.
+Separate public-host Normal distributions cover24 executable profiles at5 bounds;the
+6 coefficient1.5 profiles are arithmetic evidence with execution explicitly gated.
+Adv/dis probes remain diagnostics,not a new equal-index equivalence decision.

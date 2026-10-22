@@ -3247,14 +3247,14 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state after C78
+### Current M2 exit state (C78, updated C80)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
 
 | Existing M2 obligation | Implemented/evidenced | Remaining to the full gate |
 | --- | --- | --- |
-| Actor facts and checks | Shared class/default/proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | Optional proficiency-dice preparation/execution and other Q00 profiles remain gated;full source/override comparisons still required |
+| Actor facts and checks | Shared class/default/proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | Broader expressions,dice-dependent terms,recursive/dependent references and expression/effect composition |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | General applied-rule/filter and Item final composition;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
 | Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | Full container contents/currency/encumbrance and wider Item/effect final preparation |
@@ -3288,3 +3288,24 @@ numbers without assuming every difference comes from effects. Source is preserve
 Controlled initialized native builders,mounted SDK seam and synthetic host evidence
 remain separate from installed/native/operator acceptance. Partial M2/Q00 only;
 next finish independent proficiency-dice qualification and other M2 exit work.
+
+
+### C80 — proficiency-dice preparation and qualified Normal execution (2026-10-22)
+
+The shared Actor/check model separates the known proficiency base,prepared check
+subtotal,flat passive contribution and symbolic roll term. Dice mode now prepares
+skills/tools/checks/saves with native half,ordinary and expertise terms;cards and
+both layouts display the die instead of implying a flat bonus. Normal execution
+uses public roll primitives,including existing Normal bounds and qualified numeric
+situational bonuses. Fresh dice-bearing references remain unavailable rather than
+being folded to prepared flat values. Fractional dice count1.5 and proficiency-dice
+advantage/disadvantage remain unqualified;manual Normal is available when independently
+valid. The plain-d20 DD-R05 equivalence is unchanged and is not extended here.
+
+[C80 evidence](../audits/evidence/2026-10-22-c80-proficiency-dice.json) retains30
+pinned initialized-model profiles and120 actual module-compiled public-host profiles:
+45400 Normal requests/all120 complete distributions,plus800 explicitly unqualified
+adv/dis diagnostic probes. Source data is unchanged;mounted desktop/mobile controls,
+preview/direct/shortcut agreement,context recovery and held callbacks are covered.
+These are separate regression,controlled native-method,mounted SDK-seam and isolated
+host results,not installed/native/operator acceptance. Full M2/Q00 and ADR remain open.

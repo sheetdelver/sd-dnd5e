@@ -35,6 +35,9 @@
     "test:mounted-defaults": "node scripts/test-mounted-source-defaults.mjs",
     "test:native-items": "node scripts/native-item-facts-oracle.mjs",
     "test:mounted-items": "node scripts/test-mounted-items.mjs",
-    "test:native-feat-final": "node scripts/native-feat-final-oracle.mjs"
+    "test:native-feat-final": "node scripts/native-feat-final-oracle.mjs",
+    "test:native-proficiency": "node scripts/native-proficiency-dice-oracle.mjs",
+    "test:public-proficiency": "node scripts/test-public-proficiency.mjs",
+    "test:mounted-proficiency": "node scripts/test-mounted-proficiency.mjs"
   }
 }

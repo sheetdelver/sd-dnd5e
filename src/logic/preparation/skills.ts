@@ -18,7 +18,7 @@ export function unavailableSkillChecks(actor:unknown,reason:string):Record<strin
 export function prepareNumericSkills606(actor:unknown,context:RulesContext,model=prepareSkillToolModel606(actor,context)):Record<string,PreparedSkill> {
     return Object.fromEntries(Object.entries(model.skills).map(([key,entry])=>{
         const check=projectSkillToolCheck(model,'skill',key);
-        const passive=check.preparedTotal!==null&&check.passiveMode!==undefined&&typeof entry.passiveBonus==='number'?10+check.preparedTotal+entry.passiveBonus+5*check.passiveMode:null;
+        const passive=check.preparedTotal!==null&&check.passiveMode!==undefined&&typeof entry.passiveBonus==='number'?10+(check.preparedPassiveBase??check.preparedTotal)+entry.passiveBonus+5*check.passiveMode:null;
         return [key,{...check,passive}];
     }));
 }

@@ -1480,3 +1480,13 @@ retains original roll expressions and phase bindings,and resolves them after cur
 selection/proficiency validation. Prepared passives continue using earlier Actor-base
 prof. Generic checks/saves/initiative use this same resolver;UI performs no rule math.
 Missing current formula metadata cannot fall back to cached totals. [C79 correction](audits/evidence/2026-10-22-c79-formula-roll-context.json) supersedes C77's blanket fresh prof binding.
+
+
+Proficiency-dice preparation keeps Actor base proficiency distinct from random roll
+terms. `proficiency-term.ts` compiles only pinned native terms;the shared d20 compiler
+sends them to public Core roll primitives. Static totals omit random terms;passives
+retain flat proficiency. Consumers format subtotal + term. Dice-mode fresh FormulaField
+references cannot fall back to prepared numeric values. Normal with qualified bounds
+is supported;adv/dis with proficiency terms,1.5 dice counts and broader dice expressions
+remain unavailable. Other workflows must explicitly qualify Dice mode before opting in.
+[C80 evidence](audits/evidence/2026-10-22-c80-proficiency-dice.json).

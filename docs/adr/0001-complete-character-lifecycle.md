@@ -2701,3 +2701,24 @@ numbers without assuming every difference comes from effects. Source is preserve
 Controlled initialized native builders,mounted SDK seam and synthetic host evidence
 remain separate from installed/native/operator acceptance. Partial M2/Q00 only;
 next finish independent proficiency-dice qualification and other M2 exit work.
+
+
+### C80 — proficiency-dice preparation and qualified Normal execution (2026-10-22)
+
+The shared Actor/check model separates the known proficiency base,prepared check
+subtotal,flat passive contribution and symbolic roll term. Dice mode now prepares
+skills/tools/checks/saves with native half,ordinary and expertise terms;cards and
+both layouts display the die instead of implying a flat bonus. Normal execution
+uses public roll primitives,including existing Normal bounds and qualified numeric
+situational bonuses. Fresh dice-bearing references remain unavailable rather than
+being folded to prepared flat values. Fractional dice count1.5 and proficiency-dice
+advantage/disadvantage remain unqualified;manual Normal is available when independently
+valid. The plain-d20 DD-R05 equivalence is unchanged and is not extended here.
+
+[C80 evidence](../audits/evidence/2026-10-22-c80-proficiency-dice.json) retains30
+pinned initialized-model profiles and120 actual module-compiled public-host profiles:
+45400 Normal requests/all120 complete distributions,plus800 explicitly unqualified
+adv/dis diagnostic probes. Source data is unchanged;mounted desktop/mobile controls,
+preview/direct/shortcut agreement,context recovery and held callbacks are covered.
+These are separate regression,controlled native-method,mounted SDK-seam and isolated
+host results,not installed/native/operator acceptance. Full M2/Q00 and ADR remain open.

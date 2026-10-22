@@ -4,6 +4,7 @@ import React from 'react';
 import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
 import { ABILITY_FULL_NAME } from '../shared/abilityNames';
+import {rollBonusLabel} from '../shared/rollBonusLabel';
 import type { PreparedNumericD20 } from '../../../logic/preparation/d20-configuration';
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
 
@@ -127,6 +128,7 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                         }}>
                             {ab.score ?? '—'}
                         </div>
+                        {ab.check?.proficiencyTerm&&<small aria-label={`${ABILITY_FULL_NAME[key]??key} check bonus`}>{rollBonusLabel(ab.check)}</small>}
                         {ab.scorePreparationNote && <small style={{display:'block'}}>{ab.scorePreparationNote}</small>}
                         {ab.check?.total != null && <small>Check {ab.check.total >= 0 ? '+' : ''}{ab.check.total}</small>}
                         {ab.check?.preparationNote && <small style={{display:'block'}}>{ab.check.preparationNote}</small>}

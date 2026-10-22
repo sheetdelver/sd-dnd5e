@@ -5,6 +5,7 @@ import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
 import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
+import {rollBonusLabel} from '../shared/rollBonusLabel';
 import ProficiencyIndicator from '../shared/ProficiencyIndicator';
 
 /**
@@ -20,6 +21,7 @@ const SKILL_ORDER = [
 ];
 
 interface SkillData {
+    proficiencyTerm?:string;
     total: number | null;
     prof: number | null;
     ability: string;
@@ -68,7 +70,7 @@ export default function Skills({ skills, onRoll }: Props) {
             {/* Column headers */}
             <div style={{
                 display: 'grid',
-                gridTemplateColumns: '28px 40px 1fr 48px',
+                gridTemplateColumns: `28px 40px minmax(0,1fr) ${Object.values(skills??{}).some(row=>row.proficiencyTerm)?'140px':'48px'}`,
                 alignItems: 'center',
                 padding: '8px 12px',
                 borderBottom: '1px solid var(--theme-border)',
@@ -104,7 +106,7 @@ export default function Skills({ skills, onRoll }: Props) {
                         onClick={(e) => handleClick(e, key)}
                         style={{
                             display: 'grid',
-                            gridTemplateColumns: '28px 40px 1fr 48px',
+                            gridTemplateColumns: `28px 40px minmax(0,1fr) ${Object.values(skills??{}).some(row=>row.proficiencyTerm)?'140px':'48px'}`,
                             alignItems: 'center',
                             width: '100%',
                             padding: '6px 12px',
@@ -141,9 +143,9 @@ export default function Skills({ skills, onRoll }: Props) {
                             fontWeight: 600,
                             color: 'var(--text-primary)',
                             textAlign: 'right',
-                            fontVariantNumeric: 'tabular-nums',
+                            fontVariantNumeric: 'tabular-nums',overflowWrap:'anywhere',
                         }}>
-                            {skill.total === null ? '—' : skill.total >= 0 ? `+${skill.total}` : skill.total}
+                            {rollBonusLabel(skill)}
                         </span>
                     </button>
                 );

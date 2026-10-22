@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import {rollBonusLabel} from '../shared/rollBonusLabel';
 import type { PreparedTool } from '../../../logic/preparation/tools';
 import { useSheet } from '../shared/SheetContext';
 import { useModal } from '../shared/useModal';
@@ -26,7 +27,7 @@ export default function Tools({ onRoll }: {onRoll?: (type:string,key:string,opti
                     openModal('roll',{rollType:'tool',rollKey:tool.key,label:`${ABILITY_FULL_NAME[tool.ability] ?? tool.ability} (${tool.label}) Check`,subtitle:actor?.name,formula:tool.formula,...intent});
                 }}>
                 <span>{tool.label}</span>{' '}<small>{tool.ability.toUpperCase()} · Proficiency {tool.prof === null ? '—' : `${tool.prof}×`}</small>{' '}
-                <strong>{tool.total === null ? '—' : `${tool.total < 0 ? '' : '+'}${tool.total}`}</strong>
+                <strong>{rollBonusLabel(tool)}</strong>
             </button>
             {tool.preparationNote && <small style={{display:'block'}}>{tool.preparationNote}</small>}
             {(tool.unavailableReason??tool.defaultUnavailableReason) && <small style={{display:'block'}}>{tool.unavailableReason??tool.defaultUnavailableReason}</small>}
