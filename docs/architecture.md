@@ -953,3 +953,13 @@ IDs/ownership/metadata remain unchanged. No new command/cache/evaluator/transpor
 Petrified source statuses are explicit Petrified/incapacitated only; other condition
 family envelopes,riders/own changes/dependent guards/flags/time/Item/final/formula
 boundaries remain. Full native source boot/combat/operator acceptance remains open.
+
+### Explicit Stunned/Unconscious source boundary (C44)
+
+Pinned phase qualification separates explicit statuses from condition preset metadata.
+Unconscious's noMovement query works without incapacity; Stunned alone has no movement
+restriction. Both affect initiative through explicit incapacity/surprise only. Dodging's
+save advantage is disabled by noMovement or incapacity. An explicit Prone status and
+the preset's separate Prone rider are different source inputs; preparation must not
+construct either from a display name/type. C44 is qualification only; runtime admission
+stays unavailable until shared integration. No automatic downed/combat/preset support.

@@ -2124,3 +2124,28 @@ plus50 transitions,8 preview,16 fact,18 source-mode,56 tool,80 selected,22 eligi
 40 species and180 normal-range states and retained callbacks. Final fixture processes
 closed;pristine Core baseline stays clean;production listeners untouched. Node24.21/
 npm11.19 and Chromium143/Playwright1.56.1 used;Node22 CI remains unrun.
+
+
+### C44 — Explicit incapacity-condition qualification (2026-10-21)
+
+Parent `d0e1000`; M0/M2 Q02a,DD-02/05/27/34,A02/A04 qualification only.
+34 independent frozen Stunned/Unconscious source-state profiles and648 source-mode
+cases compare pinned actual CI/status/save/init/movement methods PASS,including2728
+skill/tool/selected roll configurations and passive expectations. Default/null/empty/
+trim/dedup,guard/disabled,primary/secondary CI,CI add/remove,explicit Prone/Dodging/
+Invisible/Surprised states remain distinct from presets/riders. Runtime remains gated.
+
+Commands use released Core0.19.3/90c13e5 via --core. `npm test`:60 assertions,8 tooling/
+39 module suites PASS;`typecheck`:184 explicit module/UI/server/test/hook files PASS.
+Exact `test:native-source`:2242 records/591 expressions at87e94db PASS.
+`test:native-conditions` retains all earlier cases and new phase/configuration cases
+PASS. `check:package`:isolated public-boundary/module check,managed typing and bundles
+PASS; `/tmp/dnd5e-package-TBOWan/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`9b5dab2af2c330ab0d87990d2989a70e5fff028e0e4ff9a780e1b175a3ae866d`.
+[Portable record](../audits/evidence/2026-10-21-c44-incapacity-foundation.json) retains
+independent fixture and method/source/artifact identities plus declared stubs.
+No service starts or new mounted/public run;C43 evidence remains separate. No full
+source boot/preset/rider/automatic downed/combat/automatic-save-failure/native/operator
+acceptance. Next share only qualified source states through preparation and existing
+consumers,with before/after and public/mounted checks. Other M2 phases,E01/E02/wider
+Q00/E05/fullDD/A/M/ADR remain open;experimental0.4.1/compatibility unchanged.

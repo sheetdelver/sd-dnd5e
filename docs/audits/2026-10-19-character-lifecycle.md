@@ -1058,3 +1058,11 @@ and [portable record](evidence/2026-10-21-c43-petrification.json) distinguish co
 methods,regression,mounted UI,public-host and package evidence. No full condition/combat/
 preset/rider/native/operator acceptance or complete gate closure. E01/E02/widerQ00/E05
 and full ADR remain open.
+
+C44 (after C43 `d0e1000`) qualifies34 explicit Stunned/Unconscious source-state profiles
+and648 mode vectors with pinned methods,including CI timing,source defaults and no
+implicit incapacity/Prone inference. Runtime remains gated pending shared integration.
+[Record](evidence/2026-10-21-c44-incapacity-foundation.json) separates independent frozen
+expectations/initialized methods from module regression/package evidence. No full
+condition/combat/preset/native/operator gate closes;other M2 phases and E01/E02/wider
+Q00/E05/ADR acceptance remain open.

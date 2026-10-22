@@ -994,3 +994,13 @@ and actual desktop/mobile/public-host checks are recorded separately from native
 method captures. Malformed trait operands,other condition/rider/preset/flag/time/
 Item/final/expression behavior stays unqualified. [C43 record](../audits/evidence/2026-10-21-c43-petrification.json)
 retains identities and evidence limits; no full native DataModel/operator acceptance.
+
+C44 adds `incapacity-conditions.json`:34 independently expected explicit Stunned/
+Unconscious source states and648 source-mode vectors. `test:native-conditions` executes
+the retained actual initial-status/CI,condition query,save/init configuration and movement
+methods. Unconscious blocks movement; Stunned alone does not. Explicit incapacity or
+surprise supplies initiative disadvantage; preset metadata never supplies missing source
+statuses. Unconscious preset riders remain separate. Source Number/String/Set defaults
+and initialized model phases stay distinct. [Record](../audits/evidence/2026-10-21-c44-incapacity-foundation.json)
+records exact87e94db/staticFoundry14.367 identities and declared stubs. No native boot,
+preset/rider construction,automatic downed/combat/attack/save-failure/operator acceptance.
