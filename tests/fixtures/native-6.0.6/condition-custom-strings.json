@@ -1,6 +1,6 @@
 {
   "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
-  "expectationMethod": "Manually independent literal text chains and condition arithmetic. WIS/DEX14,level5 proficiency3,one explicitly serialized poisoned or modern exhaustion1-6. Source skill mode[-1,0,1]; poisoned disadvantage cancels source advantage, numeric reductions -2*level; positive skill/tool proficiencies add automatic advantage. Primary tool excludes selected skill local mode. No module/captured results as oracle.",
+  "expectationMethod": "Manually independent literal text chains and condition arithmetic. WIS/DEX14,level5 proficiency3,one explicitly serialized poisoned or modern exhaustion1-6. Source skill mode[-1,0,1]; poisoned disadvantage cancels source advantage, numeric reductions -2*level; positive skill/tool proficiencies add automatic advantage. Primary tool excludes selected skill local mode. No module/captured results as oracle. C70 explicitly qualifies fresh initiative mode from ability-check/init/global-check scopes; earlier fixed initiative score remains distinct.",
   "cases": [
     {
       "id": "poisoned-None/-1/dr.custom/initial",
@@ -55,7 +55,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -112,7 +113,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -181,7 +183,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -237,7 +240,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -294,7 +298,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -363,7 +368,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -419,7 +425,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -476,7 +483,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -545,7 +553,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -601,7 +610,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -658,7 +668,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -727,7 +738,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -783,7 +795,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -840,7 +853,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -909,7 +923,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -965,7 +980,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1022,7 +1038,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1091,7 +1108,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1147,7 +1165,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1204,7 +1223,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1273,7 +1293,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1329,7 +1350,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1386,7 +1408,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1455,7 +1478,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1511,7 +1535,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1568,7 +1593,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1637,7 +1663,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1693,7 +1720,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1750,7 +1778,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1819,7 +1848,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1875,7 +1905,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -1932,7 +1963,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2001,7 +2033,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2057,7 +2090,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2114,7 +2148,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2183,7 +2218,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2239,7 +2275,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2296,7 +2333,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2365,7 +2403,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2421,7 +2460,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2478,7 +2518,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2547,7 +2588,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2603,7 +2645,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2660,7 +2703,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2729,7 +2773,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2785,7 +2830,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2842,7 +2888,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2911,7 +2958,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -2967,7 +3015,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3024,7 +3073,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3093,7 +3143,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3149,7 +3200,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3206,7 +3258,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3275,7 +3328,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3331,7 +3385,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3388,7 +3443,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3457,7 +3513,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3513,7 +3570,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3570,7 +3628,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3639,7 +3698,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3695,7 +3755,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3752,7 +3813,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3821,7 +3883,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     },
     {
@@ -3879,7 +3942,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -3938,7 +4002,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4009,7 +4074,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4067,7 +4133,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4126,7 +4193,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4197,7 +4265,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4255,7 +4324,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4314,7 +4384,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4385,7 +4456,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4443,7 +4515,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4502,7 +4575,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4573,7 +4647,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4631,7 +4706,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4690,7 +4766,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4761,7 +4838,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4819,7 +4897,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4878,7 +4957,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -4949,7 +5029,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5007,7 +5088,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5066,7 +5148,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5137,7 +5220,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5195,7 +5279,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5254,7 +5339,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5325,7 +5411,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5383,7 +5470,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5442,7 +5530,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5513,7 +5602,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5571,7 +5661,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5630,7 +5721,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5701,7 +5793,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5759,7 +5852,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5818,7 +5912,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5889,7 +5984,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -5947,7 +6043,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6006,7 +6103,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6077,7 +6175,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6135,7 +6234,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6194,7 +6294,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6265,7 +6366,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6323,7 +6425,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6382,7 +6485,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6453,7 +6557,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6511,7 +6616,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6570,7 +6676,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6641,7 +6748,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6699,7 +6807,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6758,7 +6867,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6829,7 +6939,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6887,7 +6998,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -6946,7 +7058,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7017,7 +7130,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7075,7 +7189,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7134,7 +7249,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7205,7 +7321,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7263,7 +7380,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7322,7 +7440,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7393,7 +7512,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7451,7 +7571,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7510,7 +7631,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7581,7 +7703,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7639,7 +7762,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7698,7 +7822,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7769,7 +7894,8 @@
         "levels": {
           "exhaustion": 1
         },
-        "reduction": -2
+        "reduction": -2,
+        "initiativeMode": 0
       }
     },
     {
@@ -7827,7 +7953,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -7886,7 +8013,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -7957,7 +8085,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8015,7 +8144,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8074,7 +8204,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8145,7 +8276,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8203,7 +8335,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8262,7 +8395,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8333,7 +8467,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8391,7 +8526,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8450,7 +8586,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8521,7 +8658,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8579,7 +8717,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8638,7 +8777,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8709,7 +8849,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8767,7 +8908,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8826,7 +8968,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8897,7 +9040,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -8955,7 +9099,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9014,7 +9159,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9085,7 +9231,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9143,7 +9290,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9202,7 +9350,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9273,7 +9422,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9331,7 +9481,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9390,7 +9541,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9461,7 +9613,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9519,7 +9672,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9578,7 +9732,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9649,7 +9804,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9707,7 +9863,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9766,7 +9923,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9837,7 +9995,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9895,7 +10054,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -9954,7 +10114,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10025,7 +10186,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10083,7 +10245,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10142,7 +10305,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10213,7 +10377,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10271,7 +10436,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10330,7 +10496,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10401,7 +10568,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10459,7 +10627,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10518,7 +10687,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10589,7 +10759,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10647,7 +10818,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10706,7 +10878,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10777,7 +10950,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10835,7 +11009,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10894,7 +11069,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -10965,7 +11141,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11023,7 +11200,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11082,7 +11260,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11153,7 +11332,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11211,7 +11391,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11270,7 +11451,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11341,7 +11523,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11399,7 +11582,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11458,7 +11642,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11529,7 +11714,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11587,7 +11773,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11646,7 +11833,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11717,7 +11905,8 @@
         "levels": {
           "exhaustion": 2
         },
-        "reduction": -4
+        "reduction": -4,
+        "initiativeMode": 0
       }
     },
     {
@@ -11775,7 +11964,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -11834,7 +12024,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -11905,7 +12096,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -11963,7 +12155,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12022,7 +12215,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12093,7 +12287,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12151,7 +12346,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12210,7 +12406,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12281,7 +12478,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12339,7 +12537,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12398,7 +12597,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12469,7 +12669,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12527,7 +12728,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12586,7 +12788,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12657,7 +12860,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12715,7 +12919,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12774,7 +12979,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12845,7 +13051,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12903,7 +13110,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -12962,7 +13170,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13033,7 +13242,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13091,7 +13301,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13150,7 +13361,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13221,7 +13433,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13279,7 +13492,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13338,7 +13552,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13409,7 +13624,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13467,7 +13683,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13526,7 +13743,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13597,7 +13815,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13655,7 +13874,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13714,7 +13934,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13785,7 +14006,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13843,7 +14065,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13902,7 +14125,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -13973,7 +14197,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14031,7 +14256,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14090,7 +14316,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14161,7 +14388,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14219,7 +14447,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14278,7 +14507,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14349,7 +14579,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14407,7 +14638,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14466,7 +14698,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14537,7 +14770,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14595,7 +14829,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14654,7 +14889,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14725,7 +14961,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14783,7 +15020,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14842,7 +15080,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14913,7 +15152,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -14971,7 +15211,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15030,7 +15271,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15101,7 +15343,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15159,7 +15402,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15218,7 +15462,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15289,7 +15534,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15347,7 +15593,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15406,7 +15653,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15477,7 +15725,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15535,7 +15784,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15594,7 +15844,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15665,7 +15916,8 @@
         "levels": {
           "exhaustion": 3
         },
-        "reduction": -6
+        "reduction": -6,
+        "initiativeMode": 0
       }
     },
     {
@@ -15723,7 +15975,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -15782,7 +16035,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -15853,7 +16107,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -15911,7 +16166,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -15970,7 +16226,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16041,7 +16298,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16099,7 +16357,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16158,7 +16417,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16229,7 +16489,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16287,7 +16548,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16346,7 +16608,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16417,7 +16680,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16475,7 +16739,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16534,7 +16799,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16605,7 +16871,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16663,7 +16930,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16722,7 +16990,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16793,7 +17062,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16851,7 +17121,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16910,7 +17181,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -16981,7 +17253,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17039,7 +17312,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17098,7 +17372,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17169,7 +17444,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17227,7 +17503,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17286,7 +17563,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17357,7 +17635,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17415,7 +17694,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17474,7 +17754,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17545,7 +17826,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17603,7 +17885,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17662,7 +17945,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17733,7 +18017,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17791,7 +18076,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17850,7 +18136,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17921,7 +18208,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -17979,7 +18267,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18038,7 +18327,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18109,7 +18399,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18167,7 +18458,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18226,7 +18518,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18297,7 +18590,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18355,7 +18649,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18414,7 +18709,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18485,7 +18781,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18543,7 +18840,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18602,7 +18900,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18673,7 +18972,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18731,7 +19031,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18790,7 +19091,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18861,7 +19163,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18919,7 +19222,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -18978,7 +19282,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19049,7 +19354,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19107,7 +19413,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19166,7 +19473,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19237,7 +19545,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19295,7 +19604,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19354,7 +19664,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19425,7 +19736,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19483,7 +19795,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19542,7 +19855,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19613,7 +19927,8 @@
         "levels": {
           "exhaustion": 4
         },
-        "reduction": -8
+        "reduction": -8,
+        "initiativeMode": 0
       }
     },
     {
@@ -19671,7 +19986,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -19730,7 +20046,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -19801,7 +20118,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -19859,7 +20177,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -19918,7 +20237,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -19989,7 +20309,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20047,7 +20368,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20106,7 +20428,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20177,7 +20500,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20235,7 +20559,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20294,7 +20619,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20365,7 +20691,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20423,7 +20750,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20482,7 +20810,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20553,7 +20882,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20611,7 +20941,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20670,7 +21001,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20741,7 +21073,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20799,7 +21132,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20858,7 +21192,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20929,7 +21264,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -20987,7 +21323,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21046,7 +21383,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21117,7 +21455,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21175,7 +21514,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21234,7 +21574,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21305,7 +21646,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21363,7 +21705,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21422,7 +21765,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21493,7 +21837,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21551,7 +21896,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21610,7 +21956,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21681,7 +22028,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21739,7 +22087,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21798,7 +22147,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21869,7 +22219,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21927,7 +22278,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -21986,7 +22338,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22057,7 +22410,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22115,7 +22469,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22174,7 +22529,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22245,7 +22601,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22303,7 +22660,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22362,7 +22720,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22433,7 +22792,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22491,7 +22851,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22550,7 +22911,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22621,7 +22983,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22679,7 +23042,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22738,7 +23102,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22809,7 +23174,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22867,7 +23233,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22926,7 +23293,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -22997,7 +23365,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23055,7 +23424,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23114,7 +23484,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23185,7 +23556,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23243,7 +23615,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23302,7 +23675,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23373,7 +23747,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23431,7 +23806,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23490,7 +23866,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23561,7 +23938,8 @@
         "levels": {
           "exhaustion": 5
         },
-        "reduction": -10
+        "reduction": -10,
+        "initiativeMode": 0
       }
     },
     {
@@ -23620,7 +23998,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -23680,7 +24059,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -23752,7 +24132,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -23811,7 +24192,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -23871,7 +24253,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -23943,7 +24326,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24002,7 +24386,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24062,7 +24447,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24134,7 +24520,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24193,7 +24580,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24253,7 +24641,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24325,7 +24714,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24384,7 +24774,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24444,7 +24835,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24516,7 +24908,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24575,7 +24968,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24635,7 +25029,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24707,7 +25102,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24766,7 +25162,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24826,7 +25223,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24898,7 +25296,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -24957,7 +25356,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25017,7 +25417,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25089,7 +25490,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25148,7 +25550,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25208,7 +25611,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25280,7 +25684,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25339,7 +25744,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25399,7 +25805,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25471,7 +25878,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25530,7 +25938,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25590,7 +25999,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25662,7 +26072,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25721,7 +26132,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25781,7 +26193,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25853,7 +26266,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25912,7 +26326,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -25972,7 +26387,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26044,7 +26460,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26103,7 +26520,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26163,7 +26581,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26235,7 +26654,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26294,7 +26714,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26354,7 +26775,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26426,7 +26848,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26485,7 +26908,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26545,7 +26969,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26617,7 +27042,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26676,7 +27102,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26736,7 +27163,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26808,7 +27236,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26867,7 +27296,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26927,7 +27357,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -26999,7 +27430,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27058,7 +27490,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27118,7 +27551,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27190,7 +27624,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27249,7 +27684,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27309,7 +27745,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27381,7 +27818,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27440,7 +27878,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27500,7 +27939,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27572,7 +28012,8 @@
         "levels": {
           "exhaustion": 6
         },
-        "reduction": -12
+        "reduction": -12,
+        "initiativeMode": 0
       }
     },
     {
@@ -27629,7 +28070,8 @@
           "poisoned"
         ],
         "levels": {},
-        "reduction": 0
+        "reduction": 0,
+        "initiativeMode": -1
       }
     }
   ]

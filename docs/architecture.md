@@ -1346,3 +1346,23 @@ and442 initiative configurations preserve reductions/passives and primary-scope 
 A separate read-only presentation copy preserves current text and earlier labels.
 Runtime awaits C70; initialized scheduling is not full native source/dispatcher/dice
 acceptance. [Evidence](audits/evidence/2026-10-22-c69-condition-custom-foundation.json) keeps these limits explicit.
+
+
+### Single-condition custom text admission (C70)
+
+`customStringConditionReason606` shares initial/final admission using raw Actor source,
+qualified condition envelopes and the planned changes. One matching explicit poisoned
+source (absent/null level) or exhaustion source with explicit level1–6 is supported.
+Initial immunity must be empty and no initial/final CI-value change may participate.
+Mixed, immune, inactive, inferred-status, other-condition, raw Actor-status and Item
+compositions remain unavailable. Raw level defaults/clamping beyond this String profile
+retain their existing independent condition behavior; they are not silently admitted.
+
+Both String phases use the existing interpreter and projections. Current text, earlier
+language labels, condition maps/statuses, cached reductions and earlier passives remain
+distinct. Text containing a condition name grants no immunity. Ordinary/selected rolls,
+previews, shortcuts and direct requests use the shared numeric compiler. Fresh initiative
+mode includes ability-check/init/global-check scopes; fixed initiative score retains its
+earlier snapshot. The C69 table gains an explicit native-checked fresh-mode assertion.
+[Evidence](audits/evidence/2026-10-22-c70-condition-custom.json) separates frozen inputs,
+actual native-method construction, module regressions, UI/public-host and package checks.

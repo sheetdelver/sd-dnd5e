@@ -1744,3 +1744,16 @@ presentation-copy and dice-stub boundaries. Runtime stays gated until C70. No mi
 immune/CI-changing conditions, Item origins, inferred statuses, broader expressions or
 native/operator acceptance follows. Partial M0/M2 Q02a,DD-02/03/11/27/34,A02/A03/A04
 only; experimental0.4.1/compatibility and E01/E02/E04/widerQ00/E05/fullADR remain open.
+
+
+### C70 disposition — bounded condition/custom text (2026-10-22)
+
+All442 original sources now pass shared preparation/execution. Current text and earlier
+labels do not alter condition identity, immunity or cached adjustments. C66's original
+Poisoned String input is supported with explicit independent assertions; its historical
+restriction is superseded only for the qualified profile. All other unqualified condition/
+Item/CI boundaries remain. The first C70 test assumed normal initiative: exact native
+getInitiativeRollConfig includes ability-check mode, so442 independent fresh-mode
+assertions were added without changing source inputs or earlier fixed scores. [Record](evidence/2026-10-22-c70-condition-custom.json)
+keeps this test correction distinct from implementation defects. DD-R01–07 remain covered;
+no Core defect, compatibility change or full native/operator acceptance is established.

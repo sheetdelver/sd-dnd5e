@@ -3001,3 +3001,27 @@ presentation-copy and dice-stub boundaries. Runtime stays gated until C70. No mi
 immune/CI-changing conditions, Item origins, inferred statuses, broader expressions or
 native/operator acceptance follows. Partial M0/M2 Q02a,DD-02/03/11/27/34,A02/A03/A04
 only; experimental0.4.1/compatibility and E01/E02/E04/widerQ00/E05/fullADR remain open.
+
+
+### C70 — condition/custom String integration (2026-10-22)
+
+Parent `3d1eb95`; partial M2/Q02a,DD-02/03/11/27/34,A02/A03/A04/A18/A21. All442 original
+inputs fail before/pass after. The native comparison now also asserts fresh initiative
+mode separately from its earlier fixed score. Regression covers raw/prepared poison,
+text-versus-immunity identity, levels/source modes, primary skill/tool scope, manual
+modes, fixed initiative, normal bounds, unsupported combinations and context recovery.
+Mounted checks exercise actual readouts/cards in both layouts, earlier language notes,
+condition statuses/passives, selected skill/tool and initiative previews, focus/Enter,
+shortcuts and retired callbacks after source identity/value/condition/context changes.
+[Evidence](../audits/evidence/2026-10-22-c70-condition-custom.json) records check classes,
+commands and hashes separately. No full lifecycle/installed/native/operator gate closes.
+Remaining M2 Item/filter/formula and broader condition work,E01/E02/E04/widerQ00/E05 stay
+open. Experimental0.4.1 and compatibility remain unchanged.
+
+
+C70 completed focused validation:50module/9tooling suites,61toolingassertions,210explicit
+files,exact2242/591,native442/2652checks+442initiative configs PASS. Mounted886condition
+states plus436final/480initial retained String states at1440/390 PASS. Public283776
+accepted/1candidate/40tie diagnostics/0writes PASS. Isolated check/package PASS; archive
+SHA256 `6df931a8b9c54b7d013249b90073e8e9295066f517eb75ca1c417de2247ddee6`. Full retained mounted is still running at the code checkpoint
+and will be recorded separately. No installed/native/operator acceptance follows.

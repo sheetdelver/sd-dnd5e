@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Support bounded custom trait text with a single Poisoned or Exhaustion condition across shared checks and readouts.
+
 - Apply qualified initial custom trait text before language labels while preserving final-field provenance.
 
 - Share bounded final custom defense/training text while retaining earlier language labels.

@@ -1,6 +1,6 @@
 import {sourceRuleFlags606,type SourceRuleFlags606} from './rule-flags';
 import {preparedDefenseSets606} from './defense-sets';
-import {customTraitPath606,initializeCustomString606,applyCustomString606} from './trait-strings';
+import {customTraitPath606,initializeCustomString606,applyCustomString606,customStringConditionReason606} from './trait-strings';
 import {prepareConditions606,currentConditionImmunities606,type ConditionPreparation606} from './conditions';
 import { initializedModeState, applyEffectMode, resolvedEffectMode, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
@@ -46,6 +46,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     let reason=plan.reason??ruleFlags.reason;
     const formulas:Record<string,string>={},modes:Record<string,EffectModeState>={};
     const origins:Record<string,'source'|'default'|'null-cleaned'>={};
+    const customConditionReason=customStringConditionReason606(actor,plan.conditions??[],[...plan.initial,...plan.final]);
     function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;string?:boolean;valid?:(value:string)=>boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
         if(keys[1]==='traits'){
@@ -117,7 +118,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     for(const change of plan.initial){
         const field=target(change),raw=change.value;
         if(field?.string){
-            if(change.itemId!==undefined||plan.conditions?.length||Array.isArray(source.statuses)&&source.statuses.length){reason??='Initial custom Strings require a qualified condition-free Actor-owned phase';continue;}
+            if(change.itemId!==undefined||customConditionReason){reason??=customConditionReason??'Item-owned initial custom Strings require qualification';continue;}
             const before=initializeCustomString606(field.object[field.field]),value=before===null?null:applyCustomString606(before,change.type,raw);
             if(value===null){reason??=`Initial custom String source/delta/operation requires qualification: ${change.key}`;continue;}
             field.object[field.field]=value;
@@ -192,7 +193,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         if(change.itemId!==undefined){reason??='Transferred Item final phase requires qualification';continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         if(field?.string){
-            if(conditions.status!=='ready'||conditions.sources.length||conditions.actorStatuses.length){reason??='Final custom Strings with conditions require qualification';continue;}
+            if(conditions.status!=='ready'||customConditionReason){reason??=customConditionReason??'Final custom String condition preparation unavailable';continue;}
             const previous=Object.hasOwn(finalTraitStrings,change.key),before=previous?finalTraitStrings[change.key]:initializeCustomString606(field.object[field.field]);
             const value=before===null?null:applyCustomString606(before,change.type,raw);
             if(value===null){reason??=`Final custom String source/delta/operation requires qualification: ${change.key}`;continue;}

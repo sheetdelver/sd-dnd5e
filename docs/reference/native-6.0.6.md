@@ -1225,3 +1225,13 @@ and442 initiative configurations preserve reductions/passives and primary-scope 
 A separate read-only presentation copy preserves current text and earlier labels.
 Runtime awaits C70; initialized scheduling is not full native source/dispatcher/dice
 acceptance. [Evidence](../audits/evidence/2026-10-22-c69-condition-custom-foundation.json) keeps these limits explicit.
+
+
+C70 consumes C69's442 source inputs unchanged. It adds an explicit fresh-initiative-mode
+expectation/assertion from native getInitiativeRollConfig's ability-check/init/global-
+check scopes; the earlier fixed score stays unchanged. Actual condition/String/cache/
+sheet/build methods continue to compare with independently specified totals/modes.
+Runtime shares those qualified facts; it does not infer immunity from custom text.
+[Record](../audits/evidence/2026-10-22-c70-condition-custom.json) preserves C69 constructor,
+explicit String scheduling, presentation-copy and dice-stub limits; no full source boot,
+native dice/operator or general condition-composition acceptance follows.
