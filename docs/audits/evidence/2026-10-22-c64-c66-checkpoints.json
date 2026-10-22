@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-22",
+  "branch": "feat/adr-0001-character-lifecycle",
+  "startingHead": "6fcc0ec32fcd2d27849a0a4a89e09981a89c55c1",
+  "checkpoints": [
+    {
+      "checkpoint": "C64 shared petrified/final defenses",
+      "commit": "6a0f08ee19b8453a7cdb4c6e72104f7b3079da12",
+      "evidence": "docs/audits/evidence/2026-10-22-c64-final-petrified.json",
+      "recordAtCommitSha256": "772cde8db3ac62a959969eeff8f604c7daa0ab16dab1418d4e569ac2110a7b48",
+      "currentRecordSha256": "e0d00d04abac833ae69192be7223bbecc9d55642ce6a0677d5af3347bd4d24e0"
+    },
+    {
+      "checkpoint": "C65 final custom String qualification",
+      "commit": "51e029593d10255249198252085670540ec007e7",
+      "evidence": "docs/audits/evidence/2026-10-22-c65-final-custom-foundation.json",
+      "recordAtCommitSha256": "36f52e458f2055410c10f16a61eca8ef40fa0127d2ffeea2e9a1626e0e8156a1",
+      "currentRecordSha256": "36f52e458f2055410c10f16a61eca8ef40fa0127d2ffeea2e9a1626e0e8156a1"
+    },
+    {
+      "checkpoint": "C66 shared final custom text",
+      "commit": "481d03213bf2f88a8fa5c90712aca4f51c48e764",
+      "evidence": "docs/audits/evidence/2026-10-22-c66-final-custom.json",
+      "recordAtCommitSha256": "4c7dc31cbd71e525dc57999ba53fd0a571aabf8d8eb72a7527035d6c2ee5521c",
+      "currentRecordSha256": "4c7dc31cbd71e525dc57999ba53fd0a571aabf8d8eb72a7527035d6c2ee5521c"
+    }
+  ],
+  "validatedSourceHead": "481d03213bf2f88a8fa5c90712aca4f51c48e764",
+  "packageSha256": "b85d777428f01fa6579fb352c93c631ae0291ee427b36490154a8fb583efc2aa",
+  "status": "Partial M2/Q02a only; ADR/fullDD/A/M acceptance open. Experimental0.4.1/compatibility unchanged. No native/operator or release acceptance.",
+  "evidenceLimits": "C64 full retained mounted completion is a C64-built artifact recorded afterward by C66. C66 focused UI/native/public/package runs are separate. Native method construction is not native source boot/installed acceptance. Original failure logs and corrected test setup are described in C66 evidence.",
+  "next": "C67 initial custom String/source initialization/cache phase qualification,then shared integration; remaining M2 Formula/Item/filter/Q00 and E01/E02/E04 dependencies remain open."
+}

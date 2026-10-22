@@ -2941,3 +2941,10 @@ Focused436 states at1440/390 and public269325accepted/1candidate/40tie diagnosti
 `b85d777428f01fa6579fb352c93c631ae0291ee427b36490154a8fb583efc2aa`.
 C64 full mounted completion is separately captured in C64/C66 evidence. All owned
 fixtures stopped; baseline Core clean. No installed/native/operator acceptance.
+
+
+C64–C66 checkpoint identities and evidence record/archive hashes are indexed in
+[2026-10-22-c64-c66-checkpoints.json](../audits/evidence/2026-10-22-c64-c66-checkpoints.json).
+C64 `6a0f08e`, C65 `51e0295`, C66 `481d032`; all local, no remote writes.
+The C64 evidence record's later full-mounted completion is identified separately from
+its original code-commit record hash. No full ADR acceptance gate is closed.
