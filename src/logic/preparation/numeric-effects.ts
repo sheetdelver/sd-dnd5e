@@ -122,6 +122,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         return null;
     }
     for(const change of plan.initial){
+        if(change.type.startsWith('dnd5e.'))continue;
         const field=target(change),raw=change.value;
         if(field?.string){
             // C71 qualifies identified, eligible transferred Items in the
@@ -200,6 +201,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     if(equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')&&!addExecutionMode('system.skills.ste.roll.mode',-1))checkExecutionReason='Equipped armor Stealth mode source malformed';
     for(const modifier of conditions.modes)if(modifier.phase==='initiative')addExecutionMode(modifier.path,modifier.mode);
     for(const change of plan.final){
+        if(change.type.startsWith('dnd5e.'))continue;
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         if(change.itemId!==undefined){
             const itemReason=field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';

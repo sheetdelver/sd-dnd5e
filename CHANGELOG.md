@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share conditional rule bonuses, advantage and die bounds across prepared checks and roll previews.
+
 - Share Item proficiency and dependent counters; correct fresh attack proficiency references.
 
 - Prepare stored encumbrance conditions, physical roll modes and movement consistently across both layouts.

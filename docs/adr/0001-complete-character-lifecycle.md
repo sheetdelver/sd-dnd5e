@@ -2819,3 +2819,27 @@ initialized native proficiency/resource profiles,11 attack constructor compariso
 source/poison/context regressions and both-layout mounted consumers. Declared Uses-only
 activity collaborators are not complete Item lifecycle/native acceptance. Effects on
 Items, wider final hooks, casting and action writes remain separate;M2/ADR stay open.
+
+
+### C85 — conditional applied rules across shared d20 preparation (2026-10-22)
+
+Source `dnd5e.bonus/advantage/minimum/maximum` changes register in their native
+initial/final phases. One shared interpreter collects d20 rules before category
+rules,then evaluates admitted effect/change guards. Skill/tool/ability/save/
+initiative and attack read models use the same phase-aware bonus configuration;
+passives keep earlier rule additions and advantage. Fresh skill/tool configuration
+uses current identities,selected ability and combined proficiency. Manual modes
+retain the qualified plain-d20 compiler and existing bound/dice restrictions.
+
+A distinct constructor boundary matters: bonus expressions bind the current check's
+prof,while rule bounds resolve before that rebinding. Expertise with `@prof + 7`
+minimum remains10,not13. Actor attack preparation sets roll.proficient=true,while
+Item attack roll data does not invent that property. Known roll identity/Boolean
+and numeric property filters are bounded;root Proficiency-object comparisons,Item
+source remapping,scene/caller/status/unknown predicates and broader expressions
+remain explicitly unavailable. This does not complete those rules or Q02a.
+
+[C85 evidence](../audits/evidence/2026-10-22-c85-applied-rules.json) separates maintained
+source regressions,17 pinned initialized preparation/constructor profiles,mounted
+both-layout interactions,isolated public rolls and packaging. M2 remains open for
+remaining final/effect/formula dependencies;E01 is independent. No native acceptance.

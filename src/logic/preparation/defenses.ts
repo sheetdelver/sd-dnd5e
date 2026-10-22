@@ -1,3 +1,5 @@
+import {configureRules606,ruleSnapshot606,ruleScopes606} from './applied-rules';
+import {preparedFormulaBindings606} from './formula-fields';
 import {executionFormulaContext606} from './formula-fields';
 import {record} from '../native/6.0.6/source';
 import type {RulesContext} from '../rules-context';
@@ -81,11 +83,13 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     if(!localMode)reason??='Initiative source mode malformed';
     const rawGlobal=record(record(record(record(actor)?.system)?.rolls)?.ability)?.check;
     const scopes=[{path:`abilities.${key}.check.roll`,value:record(abl?.check)?.roll},{path:'attributes.init.roll',value:data.roll},{path:'rolls.ability.check',value:rawGlobal!=null&&!record(rawGlobal)?false:global}].map(scope=>({...scope,effectMode:effects.executionModes['system.'+scope.path+'.mode']}));
-    const mode=sourceD20Mode(scopes),bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));
+    const ruleRoll={ability:key,proficient:effects.ruleFlags.initiativeAlert,type:'initiative'},snapshot=ruleSnapshot606(effects.plan),rules=configureRules606(snapshot,'check',ruleRoll,executionFormulaContext606(effects).bindings),preparedRules=configureRules606(snapshot,'check',ruleRoll,preparedFormulaBindings606(effects),'prepared');
+    reason??=rules.reason??preparedRules.reason;
+    const mode=sourceD20Mode([ruleScopes606(rules),...scopes]),bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));
     reason??=mode.reason;
     if(bonuses.some(value=>value===null))reason??='Initiative bonus expression requires Q00 qualification';
     const proficiency=profile.status==='ready'&&effects.ruleFlags.initiativeAlert?profile.proficiency:0;
-    const total=!reason&&numeric?numeric.mod+proficiency+(bonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
+    const total=!reason&&numeric?preparedRules.bonus+numeric.mod+proficiency+(bonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
     if(total!==null&&!qualifiedNumericTotal(total))reason??='Initiative result outside qualified numeric representation';
     const score=total!==null&&!reason&&localMode?10+total+5*resolvedEffectMode(localMode):null;
     const fact:InitiativeFact={...numericFact(reason?null:total,reason),provenance:initProvenance,ability:key,score};
@@ -93,7 +97,7 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     let executionReason=reason;
     const executionBonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses,executionFormulaContext606(effects)));
     if(executionBonuses.some(value=>value===null))executionReason??='Initiative current bonus expression requires Q00 qualification';
-    const executionTotal=!executionReason&&numeric?numeric.mod+proficiency+(executionBonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
+    const executionTotal=!executionReason&&numeric?rules.bonus+numeric.mod+proficiency+(executionBonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
     const scoreSetting=context.settings['dnd5e.initiativeScore'],tie=context.settings['dnd5e.initiativeDexTiebreaker'];
     if(!scoreSetting||scoreSetting.status==='unavailable'||!['none','npcs','all'].includes(String(scoreSetting.value)))executionReason??='Initiative score setting unavailable';
     const fixed=scoreSetting?.status!=='unavailable'&&scoreSetting?.value==='all';
@@ -105,7 +109,7 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     fact.fixed=fixed;fact.tiebreaker=tiebreaker;
     const preparationNote=fixed?undefined:preparedBonusNote(total,executionTotal);
     if(preparationNote){fact.preparationNote=preparationNote;fact.roll={...numericFact(executionTotal),provenance:initProvenance};fact.roll.display=`${executionTotal!<0?'':'+'}${executionTotal}`;}
-    const configuration=bonus!==null&&mode.mode!==undefined?prepareD20Configuration((fixed?score:executionTotal)!,fixed?0:mode.mode,scopes,tiebreaker,!fixed):{formula:null};
+    const configuration=bonus!==null&&mode.mode!==undefined?prepareD20Configuration((fixed?score:executionTotal)!,fixed?0:mode.mode,[ruleScopes606(rules),...scopes],tiebreaker,!fixed):{formula:null};
     return {fact,check:{ability:key,total:fixed?score:executionTotal,preparedTotal:fixed?score:total,preparationNote,...(tiebreaker?{trailingBonus:tiebreaker}:{}),sourceMode:fixed?0:mode.mode,fixed,...configuration,...(executionReason?{formula:null,unavailableReason:executionReason}:{})}};
 }
 export function initiativeRoll(check:PreparedNumericD20|undefined,options:Record<string,unknown>={}):string|null {

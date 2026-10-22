@@ -1,3 +1,4 @@
+import {configureRules606,ruleSnapshot606} from './applied-rules';
 import {record} from '../native/6.0.6/source';
 import type {RulesContext} from '../rules-context';
 import {characterFacts606,numericFact,type NumericFact} from './character-profile';
@@ -28,10 +29,11 @@ export function prepareCombatModifiers606(actor:unknown,context:RulesContext,eff
  const global=deterministicFormula606(attacks?.bonus,bindings),dc=deterministicFormula606(spellBonus?.dc,bindings);
  for(const key of ['str','dex','con','int','wis','cha']){
   const data=record(record(s.abilities)?.[key]),numeric=numericAbilityValue(data?.value),attack=data?.attack===undefined?{}:record(data.attack),roll=attack?.roll===undefined?{}:record(attack?.roll),local=deterministicFormula606(roll?.bonus,bindings);
-  const common=reason??(!numeric?'Prepared ability modifier unavailable':undefined);
+  const rules=configureRules606(ruleSnapshot606(effects.plan),'attack',{ability:key,proficient:true,type:'attack'},bindings,'prepared');
+  const common=reason??rules.reason??(!numeric?'Prepared ability modifier unavailable':undefined);
   const attackReason=common??globalsReason??(!attack||!roll?'Ability attack scope malformed':local===null||global===null?'Attack bonus formula/reference requires qualification':undefined);
   const saveReason=common??dcReason??(dc===null?formulaUnavailableReason606(spellBonus?.dc,bindings):undefined);
-  abilities[key]={modifier:fact(common?null:numeric!.mod,common),attack:fact(attackReason?null:numeric!.mod+base!+local!+global!+effects.conditions.rollReduction,attackReason),dc:fact(saveReason?null:8+numeric!.mod+base!+dc!,saveReason)};
+  abilities[key]={modifier:fact(common?null:numeric!.mod,common),attack:fact(attackReason?null:rules.bonus+numeric!.mod+base!+local!+global!+effects.conditions.rollReduction,attackReason),dc:fact(saveReason?null:8+numeric!.mod+base!+dc!,saveReason)};
  }
  const rawAttributes=record(record(source?.system)?.attributes),rawAbility=rawAttributes?.spellcasting===undefined?'':rawAttributes.spellcasting;
  const selected=typeof rawAbility==='string'?rawAbility.trim():null,selectionReason=reason??(selected===null||selected!==''&&!Object.hasOwn(abilities,selected)?'Selected spellcasting ability source unavailable':undefined);

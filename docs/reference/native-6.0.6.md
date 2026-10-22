@@ -1370,3 +1370,17 @@ target0. The mixed capacity14/activity15/currentDEX20/earliermod2 constructor gi
 [C84 record](../audits/evidence/2026-10-22-c84-item-final.json) explicitly identifies
 Uses-only final,empty recovery/Scaling/localization and roll-data collaborators;
 this is controlled-source evidence,not full DataModel/native acceptance.
+
+
+C85 executes exact AppliedRules registration/collection/iterator helpers,Filter,
+D20RollModificationField,Common/Creature preparation,Attributes.prepareInitiative and
+fresh Actor/Item constructors.17 independent profiles establish d20-before-category
+ordering,initial/final registration,conditional primary identity,mode overrides and
+suppression. Minimum/maximum rules resolve with Actor roll data before constructParts
+rebinds rootprof for bonus formulas (expertise bound `@prof+7` is10). Prepared Actor
+attack roll data has proficient=true;actual Item attack data lacks that field. The
+harness declares initialized model/schema collaborators,invariant object emptiness,
+Map getOrInsert compatibility,empty Item rule/ammunition collections and deterministic
+Roll replacement/Math;it does not boot full source DataModels or evaluate native dice.
+[C85 record](../audits/evidence/2026-10-22-c85-applied-rules.json) separates those limits
+from module source/default/poison cases and public-host execution.

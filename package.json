@@ -46,6 +46,8 @@
     "test:native-encumbrance": "node scripts/native-encumbrance-oracle.mjs",
     "test:mounted-encumbrance": "node scripts/test-mounted-encumbrance.mjs",
     "test:native-item-final": "node scripts/native-item-final-oracle.mjs",
-    "test:mounted-item-final": "node scripts/test-mounted-item-final.mjs"
+    "test:mounted-item-final": "node scripts/test-mounted-item-final.mjs",
+    "test:native-rules": "node scripts/native-applied-rules-oracle.mjs",
+    "test:mounted-rules": "node scripts/test-mounted-applied-rules.mjs"
   }
 }

@@ -1,3 +1,5 @@
+import {configureRules606,ruleSnapshot606,ruleScopes606} from './applied-rules';
+import {preparedFormulaBindings606} from './formula-fields';
 import {proficiencyDiceTerm606} from './proficiency-term';
 import {executionFormulaContext606} from './formula-fields';
 import { numericAbilityValue } from './numeric';
@@ -36,16 +38,18 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             const formulaContext=executionFormulaContext606(effects,profile.status==='ready'&&profile.proficiencyMode==='dice'?null:prof!==null&&profile.status==='ready'?(prof>0?Math.floor(profile.proficiency*prof):profile.proficiency):null);
             const preparedBonuses = [roll.bonus, global.bonus].map(numericConstant),bonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses,formulaContext));
             if ([...preparedBonuses,...bonuses].some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
-            const mode = sourceD20Mode(abilityRollScopes(actor, key, type,effects.executionModes));
+            const ruleRoll={ability:key,proficient:(prof??0)>=1,type:'ability'},rules=configureRules606(ruleSnapshot606(effects.plan),type,ruleRoll,formulaContext.bindings,'execution',executionFormulaContext606(effects).bindings),preparedRules=configureRules606(ruleSnapshot606(effects.plan),type,ruleRoll,preparedFormulaBindings606(effects),'prepared');
+            unavailableReason??=rules.reason??preparedRules.reason;
+            const mode = sourceD20Mode([ruleScopes606(rules),...abilityRollScopes(actor, key, type,effects.executionModes)]);
             if (mode.reason) unavailableReason = mode.reason;
 
             if (prof===null) unavailableReason = 'Ability proficiency source unavailable';
             if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready'||prof===null) return { ability: key, total: null,preparedTotal:null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
             const proficiencyTerm=profile.proficiencyMode==='dice'&&prof>0?proficiencyDiceTerm606(profile.proficiency,prof)??undefined:undefined;
             const baseTotal=mod+(profile.proficiencyMode==='dice'?0:Math.floor(profile.proficiency*prof))+effects.conditions.rollReduction;
-            const total=baseTotal+(bonuses[0]as number)+(bonuses[1]as number),preparedTotal=baseTotal+(preparedBonuses[0]as number)+(preparedBonuses[1]as number);
+            const total=rules.bonus+baseTotal+(bonuses[0]as number)+(bonuses[1]as number),preparedTotal=preparedRules.bonus+baseTotal+(preparedBonuses[0]as number)+(preparedBonuses[1]as number);
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
-            return {ability:key,total,preparedTotal,proficiencyMode:profile.proficiencyMode,...(proficiencyTerm?{proficiencyTerm}:{}),preparationNote:preparedBonusNote(preparedTotal,total),sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,abilityRollScopes(actor,key,type,effects.executionModes),0,true,proficiencyTerm)};
+            return {ability:key,total,preparedTotal,proficiencyMode:profile.proficiencyMode,...(proficiencyTerm?{proficiencyTerm}:{}),preparationNote:preparedBonusNote(preparedTotal,total),sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,[ruleScopes606(rules),...abilityRollScopes(actor,key,type,effects.executionModes)],0,true,proficiencyTerm)};
         }
         const check = prepare('check'), saveRoll = prepare('save');
         const saveMultiplier=saveProficiency606(data.proficient,record(globals.save)?.proficiency);

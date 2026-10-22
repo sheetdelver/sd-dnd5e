@@ -2091,3 +2091,16 @@ before becomes native +2. Earlier resources/current Actor references are compare
 separately (+36 mixed-phase example). C77's blanket attack-root claim is superseded;
 its literal/arithmetic evidence remains historical. Broader final/effect/activity
 preparation is still open;no installed/native/operator or action-write acceptance.
+
+
+### C85 — shared conditional applied rules
+
+[C85 evidence](evidence/2026-10-22-c85-applied-rules.json) replaces blanket applied-rule
+rejection for the qualified serialized Actor/transferred-rule profile. Same-input
+check bonus2 failed before (null versus7);afterward fresh skill7/passive17. Final
+bonus4 changes current roll to11 while passive stays17. Collection,overrides,
+suppression,selection-dependent guards and Normal bounds follow pinned methods.
+Expertise-bound root prof resolves before constructor substitution;Item attack
+proficiency-filter data remains distinct from Actor prepared attack data. Unsupported
+filter snapshots/Item-local effect remapping/dice expressions retain explicit gates.
+This is partial M2/Q02a,not full native/operator/installed acceptance.

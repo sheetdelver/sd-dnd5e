@@ -1,3 +1,4 @@
+import {configureRules606,ruleSnapshot606} from './applied-rules';
 import {numericScopeBonus} from './d20-configuration';
 import type {FormulaBindings606} from './deterministic-formula';
 import {prepareItemProficiency606,itemProficiencyBindings606,type ItemProficiency606} from './item-proficiency';
@@ -69,7 +70,8 @@ export function itemAttack606(actor:unknown,item:unknown,activity:unknown,contex
  if(typeof attunement!=='string'||typeof attuned!=='boolean')return no('Item magic eligibility source malformed');
  const magic=raw.type==='weapon'&&properties.includes('mgc')&&(attuned||attunement!=='required')?deterministicFormula606(s.magicalBonus,preparedFormulaBindings606(effects)):0;
  if(magic===null)return no('Magical bonus expression requires formula qualification');
- const total=mod+coefficient*profile.proficiency+bonus+magic+bonuses.reduce((a,b)=>a+b,0)+effects.conditions.rollReduction;
+ const rules=configureRules606(ruleSnapshot606(effects.plan),'attack',{ability,type:'attack'},bindings,'execution',{...bindings,...effects.formulaPreparation?.executionBindings});if(rules.reason)return no(rules.reason);
+ const total=rules.bonus+mod+coefficient*profile.proficiency+bonus+magic+bonuses.reduce((a,b)=>a+b,0)+effects.conditions.rollReduction;
  if(!Number.isFinite(total)||Math.abs(total)>1e9)return no('Attack total outside qualified numeric bounds');
  return yes({ability,proficiency:coefficient,total,display:(total<0?'':'+')+total,formula:String(total)});
 }

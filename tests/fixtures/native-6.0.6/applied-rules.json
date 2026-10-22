@@ -1,0 +1,399 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "basis": "Independent declared expectations for initialized level5/base3/WIS14/DEX14/Perception1/tool1. Raw-source rules must be serialized effects;native registration/Filter/preparation/builders establish later phases separately.",
+  "cases": [
+    {
+      "id": "check-bonus",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.bonus",
+          "value": "2"
+        }
+      ],
+      "expected": {
+        "skill": 7,
+        "passive": 17,
+        "tool": 7,
+        "ability": 4,
+        "save": 2,
+        "attack": 5,
+        "initiative": 4,
+        "mode": 0
+      }
+    },
+    {
+      "id": "d20-before-check",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.bonus",
+          "value": "2"
+        },
+        {
+          "key": "d20",
+          "type": "dnd5e.bonus",
+          "value": "1"
+        },
+        {
+          "key": "save",
+          "type": "dnd5e.bonus",
+          "value": "3"
+        },
+        {
+          "key": "attack",
+          "type": "dnd5e.bonus",
+          "value": "2"
+        }
+      ],
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 8,
+        "ability": 5,
+        "save": 6,
+        "attack": 8,
+        "initiative": 5,
+        "mode": 0
+      }
+    },
+    {
+      "id": "final-bonus",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.bonus",
+          "value": "2"
+        },
+        {
+          "key": "check",
+          "type": "dnd5e.bonus",
+          "value": "4",
+          "phase": "final"
+        }
+      ],
+      "expected": {
+        "skill": 11,
+        "passive": 17,
+        "tool": 11,
+        "ability": 8,
+        "save": 2,
+        "attack": 5,
+        "initiative": 4,
+        "initiativeRoll": 8,
+        "mode": 0
+      }
+    },
+    {
+      "id": "advantage",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.advantage",
+          "value": "1"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 20,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 1
+      }
+    },
+    {
+      "id": "source-dis-cancels",
+      "sourceMode": -1,
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.advantage",
+          "value": "+1"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0
+      }
+    },
+    {
+      "id": "suppress-dis",
+      "sourceMode": -1,
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.advantage",
+          "value": ">=0"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0
+      }
+    },
+    {
+      "id": "category-override-after-d20",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.advantage",
+          "value": "=-1"
+        },
+        {
+          "key": "d20",
+          "type": "dnd5e.advantage",
+          "value": "=1"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 10,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": -1
+      }
+    },
+    {
+      "id": "field-override-after-rule",
+      "fieldOverride": 1,
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.advantage",
+          "value": "=-1"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 20,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 1
+      }
+    },
+    {
+      "id": "final-mode",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.advantage",
+          "value": "1",
+          "phase": "final"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 1
+      }
+    },
+    {
+      "id": "skill-filter",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.bonus",
+          "value": "2",
+          "conditions": "{\"k\":\"roll.skill\",\"v\":\"prc\"}"
+        }
+      ],
+      "expected": {
+        "skill": 7,
+        "passive": 17,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0
+      }
+    },
+    {
+      "id": "ability-filter",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.bonus",
+          "value": "2",
+          "conditions": "{\"k\":\"roll.ability\",\"v\":\"wis\"}"
+        }
+      ],
+      "expected": {
+        "skill": 7,
+        "passive": 17,
+        "tool": 7,
+        "ability": 4,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0
+      }
+    },
+    {
+      "id": "prepared-vs-current-root",
+      "coefficient": 2,
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.bonus",
+          "value": "@prof",
+          "conditions": "{\"k\":\"roll.proficient\",\"v\":true}"
+        }
+      ],
+      "expected": {
+        "skill": 14,
+        "passive": 21,
+        "tool": 8,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0
+      }
+    },
+    {
+      "id": "normal-range",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.minimum",
+          "value": "7"
+        },
+        {
+          "key": "d20",
+          "type": "dnd5e.maximum",
+          "value": "16"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0,
+        "minimum": 7,
+        "maximum": 16
+      }
+    },
+    {
+      "id": "zero-range-ignored",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.minimum",
+          "value": "0"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0
+      }
+    },
+    {
+      "id": "filtered-malformed-unused-value",
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.bonus",
+          "value": "1d4",
+          "conditions": "{\"k\":\"roll.skill\",\"v\":\"acr\"}"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0
+      }
+    },
+    {
+      "id": "proficient-attack-filter",
+      "changes": [
+        {
+          "key": "attack",
+          "type": "dnd5e.bonus",
+          "value": "2",
+          "conditions": "{\"k\":\"roll.proficient\",\"v\":true}"
+        }
+      ],
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 7,
+        "itemAttack": 5,
+        "initiative": 2,
+        "mode": 0
+      }
+    },
+    {
+      "id": "range-before-prof-rebind",
+      "coefficient": 2,
+      "changes": [
+        {
+          "key": "check",
+          "type": "dnd5e.minimum",
+          "value": "@prof + 7"
+        },
+        {
+          "key": "check",
+          "type": "dnd5e.maximum",
+          "value": "@prof + 14"
+        }
+      ],
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "attack": 5,
+        "initiative": 2,
+        "mode": 0,
+        "minimum": 10,
+        "maximum": 17
+      }
+    }
+  ]
+}

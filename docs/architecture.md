@@ -1531,3 +1531,13 @@ attack construction binds Item prof even0,using current Actor references alongsi
 earlier Item resources/modifiers. Source prof/hasProficiency/proficiencyMultiplier
 are never overrides. Source selectors are identities,not names. Dice terms remain
 symbolic;only `.flat` is deterministic. [C84 phase evidence](audits/evidence/2026-10-22-c84-item-final.json).
+
+
+`applied-rules.ts` consumes phase-ordered serialized effect-plan entries,without a
+second rule/world cache. It shares d20-before-category collection,admitted lazy
+change guards,numeric bonuses,ordered advantage/suppression and qualified die bounds
+across prepared reads and fresh configurations. Rule conditions/bounds read their
+pre-construction snapshot;bonus expressions use constructor proficiency substitution.
+Static passives exclude later registrations and die bounds. Raw appliedRules and
+Proficiency-looking objects are never overrides;unqualified filter properties return
+reasons. [C85 evidence](audits/evidence/2026-10-22-c85-applied-rules.json).

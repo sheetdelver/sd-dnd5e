@@ -3,19 +3,21 @@ import {record} from '../native/6.0.6/source';
 export type InitialFilterRead = {key:string;value:number;origin:'class-base-preparation';classSources:ClassSource606[]}
     | {key:string;value:number;origin:'source'|'schema-default'|'nonpersisted-schema-default'}
     | {key:string;kind:'set';value:string[];sourceValue:string[]|null|'[absent]';origin:'schema-initialized-source'|'schema-default'};
-export interface ConstantFilter {status:'ready';origin:'default'|'source';definition:string;matches:boolean;phase?:'initial';reads?:InitialFilterRead[]}
+export type RuleFilterRead606=InitialFilterRead|{key:string;kind:'scalar';value:string|boolean|null|undefined;origin:'configured-roll'};
+export interface ConstantFilter {status:'ready';origin:'default'|'source';definition:string;matches:boolean;phase?:'initial';reads?:RuleFilterRead606[]}
 export type ConstantFilterResult=ConstantFilter|{status:'unavailable';reason:string};
 /** Only snapshot-invariant native boolean filters. This is not a roll evaluator
  * or a replacement-data model. Validate every branch before applying boolean
  * logic: short-circuiting must never hide an unqualified property comparison. */
 export function constantFilter606(raw:unknown):ConstantFilterResult {return filter606(raw);}
 export function initialFieldFilter606(raw:unknown,read:(key:string)=>InitialFilterRead|null):ConstantFilterResult {return filter606(raw,read);}
-function filter606(raw:unknown,read?:(key:string)=>InitialFilterRead|null):ConstantFilterResult {
+export function ruleFilter606(raw:unknown,read:(key:string)=>RuleFilterRead606|null):ConstantFilterResult {return filter606(raw,read);}
+function filter606(raw:unknown,read?:(key:string)=>RuleFilterRead606|null):ConstantFilterResult {
     const definition=raw===undefined?'{}':raw;
     const unavailable:ConstantFilterResult={status:'unavailable',reason:'Filter requires Q02a snapshot/definition qualification'};
     if(typeof definition!=='string'||definition.length>8192)return unavailable;
     let tree:unknown;try{tree=JSON.parse(definition);}catch{return unavailable;}
-    let count=0;const reads:InitialFilterRead[]=[];
+    let count=0;const reads:RuleFilterRead606[]=[];
     function node(value:unknown,depth:number):boolean|null {
         if(++count>256||depth>16)return null;
         const data=record(value);
@@ -40,6 +42,7 @@ function filter606(raw:unknown,read?:(key:string)=>InitialFilterRead|null):Const
                 }else return null;
                 reads.push(input);return matches;
             }
+            if('kind'in input&&input.kind==='scalar'){if(operation!=='exact'||literal!==null&&!['string','boolean','number'].includes(typeof literal))return null;reads.push(input);return input.value===literal;}
             if(!['exact','gt','gte','lt','lte'].includes(operation)||typeof input.value!=='number'
                 ||literal!==null&&!['string','boolean','number'].includes(typeof literal)||typeof literal==='number'&&!Number.isFinite(literal))return null;
             if(operation!=='exact'&&typeof literal!=='number')return null;

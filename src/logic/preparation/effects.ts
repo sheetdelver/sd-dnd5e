@@ -5,9 +5,9 @@ import {constantFilter606,initialFieldFilter606,type ConstantFilter,type Constan
 import {initialFilterData606} from './initial-filter-data';
 import {itemEffectState606,type ItemEffectState} from './item-effect-state';
 export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState;condition?:ConstantFilter;key?:string}
-export interface EffectChange {effectId:string;itemId?:string|null;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number;condition?:ConstantFilter}
+export interface EffectChange {effectId:string;itemId?:string|null;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number;condition?:ConstantFilter;ruleCondition?:unknown;effectCondition?:unknown}
 export interface EffectPlan {initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];conditions?:ConditionSource606[];baseStatuses?:BaseStatusSource606[];reason?:string}
-const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50};
+const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50,'dnd5e.advantage':100,'dnd5e.bonus':100,'dnd5e.maximum':100,'dnd5e.minimum':100};
 /** Source-only eligibility/phase plan for exact6.0.6/Foundry14.367.
  * No Item preparation, snapshot-dependent filters, statuses or time are fabricated. Item-targeted
  * effects stay blocked because prepared Items can feed Actor class/rule data.
@@ -98,12 +98,14 @@ export function planEffects606(actor:unknown):EffectPlan {
             }
             let any=false;
             for(const {change,key,phase,type,priority} of envelopes){
-                const changeCondition=qualify(change.conditions,phase==='initial');
+                const rule=type.startsWith('dnd5e.');
+                if(rule&&!['d20','attack','check','save','damage','healing'].includes(key)){fail(id,'rule-target-unavailable','Applied rule category requires qualification',parentId);continue;}
+                const changeCondition=rule?constantFilter606(undefined):qualify(change.conditions,phase==='initial');
                 if(changeCondition.status==='unavailable'||change.replacement!==undefined&&change.replacement!==''){
                     fail(id,'conditions-unavailable','Effect change filters/replacement require Q02a qualification',parentId);continue;
                 }
                 if(!changeCondition.matches){decisions.push({id,parentId,key,status:'change-filtered',condition:changeCondition});continue;}
-                const entry:EffectChange={effectId:id,...(item?{itemId:parentId??null}:{}),key,type,value:structuredClone(change.value),phase:phase as 'initial'|'final',priority,order:order++,condition:changeCondition};
+                const entry:EffectChange={effectId:id,...(item?{itemId:parentId??null}:{}),key,type,value:structuredClone(change.value),...(rule?{ruleCondition:structuredClone(change.conditions),effectCondition:structuredClone(system.conditions)}:{}),phase:phase as 'initial'|'final',priority,order:order++,condition:changeCondition};
                 (phase==='initial'?initial:final).push(entry);any=true;
             }
             decisions.push({id,parentId,status:any?'eligible':'no-changes',condition,...(eligibility?{eligibility}:{})});
