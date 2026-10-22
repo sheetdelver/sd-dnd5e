@@ -1995,3 +1995,55 @@ and actual consumers/compiler,with maintained before/after,mounted and public-ho
 checks. Petrification/riders/other combat rules,flags/time/dependent guards,Item/final/
 expressions and full lifecycle gates stay open. E01/E02/widerQ00/E05/native/operator/
 ADR acceptance remain open;experimental0.4.1 and compatibility unchanged.
+
+
+### C41 — Shared condition mode and movement profile (2026-10-21)
+
+Parent `1eb4b6a`; partial M2/Q02a,DD-02/05/27/34,A02/A04/A21.1064 final-input
+contracts fail archived C40 and pass after (84 phase,972 mode,8 effect-state cases).
+Inactive numeric checks can already work; the new rule projection did not. Source
+preservation,nonpersisted poison,context/source retirement,malformed boundaries,
+manual/selected/alternate checks and Normal-only bounds are maintained. Independently
+known skills/level remain available when only initiative or an absent Dexterity
+operand is unresolved. Eight qualified family types join prior Poisoned/exhaustion;
+source status sets remain explicit and no presets/grants are inferred.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (0.19.3/90c13e5).
+`npm test`:60 assertions,8 tooling/38 module suites PASS. `typecheck`:181 explicit
+module/UI/server/test/hook files PASS (a test's optional blocks access was corrected).
+`test:native-source`:2242records/591expressions at87e94db PASS. `test:native-checks`,
+`test:native-effects`,`test:native-initial-filters` retain prior comparisons (initial119)
+PASS. `test:native-conditions` retains C40/C39 comparisons and adds two query/count
+multiplicity cases: incapacitated+surprised contribute one initiative disadvantage;
+duplicate invisible status contributes one advantage. Both compare after a matching
+initial subtraction. The Actor model shell now explicitly says character; checked
+prior PC outcomes remain identical. Model/guard/clock/custom-rule/CI/roll-build stubs
+remain explicit; no full DataModel/native boot/dice/operator acceptance follows.
+
+Full `test:mounted` at1440/390 PASS,`/tmp/dnd5e-mounted-tpD5tU`:1172field/624training
+plus50transitions,8preview,16fact,18mode,56tool,80selected,22eligibility,58effect-mode,
+58health,102AC-init,90armor,84movement,24proficiency,149defense,40species,180range states
+and retained callbacks. Final `--condition-family-only`:258 states PASS,
+`/tmp/dnd5e-mounted-RToTUf`:124 sampled actors (84phase/8effect/32mode) at both widths,
+plus8fixed and2live-recovery states. Actual status/header/passive/save/init/skill,
+preview/manual/shortcut/selection/execution and held callbacks are checked. Focused
+serialization omits unrelated matrices instead of raising the32MiB test buffer;
+complete1064 source grid remains covered by maintained regression/public host.
+These are mounted module/SDK seam checks,not installed Core UI.
+
+Final `test:public-rolls`:61469 accepted,34048 new family check/mode/bonus requests,
+1064 Normal-bound and1064 fixed initiative requests.40 plain equal-index diagnostics,
+1 unary candidate rejection,0 native writes; actual host serialization unchanged.
+Strict faces/entropy/value/count/states/totals/distributions and unequal indices remain;
+bounded adv/dis is still unavailable. `/tmp/dnd5e-public-rolls-bboMAs`. `check:package`:
+isolated public-boundary/module checks,managed typing and logic/UI/server bundles PASS;
+`/tmp/dnd5e-package-D9VhJg/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`4a3101b1d4e1762cc3f5a1cf145e924d514ebc792afb90171e6d77c86854de14`.
+[Portable record](../audits/evidence/2026-10-21-c41-condition-modes.json) retains baseline
+IDs,source/artifact identities,independent methods,UI/public evidence and limits.
+All final fixture processes closed;production listeners untouched. No new Core
+requirement or compatibility change. Petrification/unconscious/stunned/other conditions,
+combat/activities,riders,flags/time/dependent rules,Item/final/expressions and full
+lifecycle acceptance remain open. Next qualify petrification's status/immunity/defense
+phase before integration. E01/E02/widerQ00/E05/fullDD/A/M/ADR/native-operator gates stay
+open;experimental0.4.1 unchanged.

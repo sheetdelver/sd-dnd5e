@@ -1,5 +1,6 @@
 import {record} from '../native/6.0.6/source';
-import {DAMAGE_LABELS_606,CONDITION_LABELS_606,BYPASS_LABELS_606,PHYSICAL_DAMAGE_606,ALL_DAMAGE_LABEL_606} from '../native/6.0.6/defense-identities';
+import {DAMAGE_LABELS_606,BYPASS_LABELS_606,PHYSICAL_DAMAGE_606,ALL_DAMAGE_LABEL_606} from '../native/6.0.6/defense-identities';
+import {CONDITION_STATUS_LABELS_606} from '../native/6.0.6/condition-identities';
 import type {RulesContext} from '../rules-context';
 import {numericConstant,qualifiedNumericTotal} from './numeric';
 import {prepareNumericEffects606,type NumericEffects} from './numeric-effects';
@@ -13,15 +14,15 @@ interface ReadyCategory {status:'ready';values:string[];custom:string[];bypasses
 interface UnavailableCategory {status:'unavailable';values:null;custom:null;bypasses:null;amount:null;entries:null;display:'Unavailable';reason:string}
 export type DefenseCategory=ReadyCategory|UnavailableCategory;
 export interface DefenseFacts {status:'ready'|'partial'|'unavailable';provenance:string;reason?:string;categories:Record<DefenseKey,DefenseCategory>;summary:string}
-const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; condition-free initial fields and constant damage adjustments only';
+const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; qualified condition profile without petrification; initial fields and constant damage adjustments only';
 const unavailable=(reason:string):UnavailableCategory=>({status:'unavailable',values:null,custom:null,bypasses:null,amount:null,entries:null,display:'Unavailable',reason});
 const physical=new Set<string>(PHYSICAL_DAMAGE_606);
 function finish(values:string[],custom:string[],bypasses:string[],amount:Record<string,number>={}):ReadyCategory {
-    const entries:DefenseEntry[]=[...values.map(key=>({key,label:key==='ALL'?ALL_DAMAGE_LABEL_606:DAMAGE_LABELS_606[key]??CONDITION_LABELS_606[key],bypasses:physical.has(key)?bypasses:[]})),...custom.map(label=>({label,bypasses:[]}))];
+    const entries:DefenseEntry[]=[...values.map(key=>({key,label:key==='ALL'?ALL_DAMAGE_LABEL_606:DAMAGE_LABELS_606[key]??CONDITION_STATUS_LABELS_606[key],bypasses:physical.has(key)?bypasses:[]})),...custom.map(label=>({label,bypasses:[]}))];
     for(const [key,value] of Object.entries(amount))entries.push({key,label:`${DAMAGE_LABELS_606[key]} ${value>=0?'+':''}${value}`,bypasses:physical.has(key)?bypasses:[]});
     return {status:'ready',values,custom,bypasses,amount,entries,display:entries.map(entry=>entry.label+(entry.bypasses.length?` (bypassed by ${entry.bypasses.map(key=>BYPASS_LABELS_606[key]).join(', ')})`:'')).join('; ')||'None'};
 }
-/** One detached condition-free preparation path. Malformed/unknown domains remain
+/** One detached qualified preparation path. Malformed/unknown domains remain
  * unavailable separately; unqualified effect phases gate every affected defense.
  * Native ALL/overlap normalization changes Sets, never the original source. */
 export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor)):DefenseFacts {
@@ -56,7 +57,7 @@ export function prepareDefenseTraits606(actor:unknown,context:RulesContext,effec
         }
         const values=initializeTraitSet606(entry.value),custom=entry.custom??'';
         if(!values||typeof custom!=='string'){categories[key]=unavailable(`${defenseLabels[key]} source value/custom malformed`);continue;}
-        const labels=key==='ci'?CONDITION_LABELS_606:DAMAGE_LABELS_606;
+        const labels=key==='ci'?CONDITION_STATUS_LABELS_606:DAMAGE_LABELS_606;
         if(values.some(value=>!Object.hasOwn(labels,value)&&!(key!=='ci'&&value==='ALL'))){categories[key]=unavailable(`${defenseLabels[key]} value outside qualified registry`);continue;}
         categories[key]=finish(values,custom.split(';').map(value=>value.trim()).filter(Boolean),bypasses);
     }

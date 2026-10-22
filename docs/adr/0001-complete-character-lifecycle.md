@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions | RV01–RV04 retained; C06–C39 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes | RV01–RV04 retained; C06–C41 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1584,3 +1584,36 @@ mode/movement source profile through shared preparation and consumers,with befor
 after,UI and public-host execution. Other condition/combat behavior,petrification,
 riders,dependent guards,flags/time,Item/final phases and expressions stay open.
 E01/E02/widerQ00/E05/fullADR remain open;experimental0.4.1 unchanged.
+
+
+### C41 — Shared condition save,initiative and movement profile (2026-10-21)
+
+C40 is `1eb4b6a`. Partial M2/Q02a,DD-02/05/27/34,A02/A04/A21. The shared
+source profile now admits restrained,grappled,paralyzed,incapacitated,invisible,
+surprised,prone and dodging,alongside Poisoned/exhaustion. Source status sets remain
+explicit; type/name never grants a missing status. Only the qualified family IDs
+may compose inside these documents. Other types/riders/own changes/flags/time/
+dependent guards remain unavailable. No preset construction or complete combat/
+condition behavior is claimed.
+
+Condition preparation supplies effective statuses,ability-phase modifiers,initiative-
+phase modifiers and no-movement/crawl facts once. Ability modifiers apply before
+passives. Initiative modifiers apply to a copied local mode state during initiative
+preparation; local state supplies score while global/ability scopes supply execution.
+Opposing counts,ordered overrides and suppression survive. The initiative-disadvantage
+query adds once even if multiple contributing statuses exist. Movement restrictions
+apply before reductions/bonus and preserve native jump overwrite order. Every sheet,
+preview,shortcut and adapter request uses the shared result/compiler.
+
+Stored dodging/dead immunity IDs have exact membership semantics proven by native
+SimpleTraitField and phase probes. Their module presentation labels do not assert
+preset/content identities or add them to conditionTypes. Other unknown identities
+retain availability boundaries. Canonical source fields/ownership remain unchanged.
+1064 maintained condition/projection contracts fail C40 and pass after (inactive
+numeric checks may already work). Context/source/malformed boundaries,raw prepared
+poison,manual/selected/alternate checks and Normal-only ranges are retained.
+[C41 record](../audits/evidence/2026-10-21-c41-condition-modes.json) and [ledger](../plans/0001-verification.md#c41--shared-condition-mode-and-movement-profile-2026-10-21)
+separate regression,controlled methods,mounted consumers,public host and packaging.
+Petrification/unconscious/stunned/other conditions,activities,riders,effects/flags/
+time/Item/final phases/expressions and full lifecycle acceptance stay open. E01/E02/
+widerQ00/E05/native/operator/fullADR gates remain open;experimental0.4.1 unchanged.

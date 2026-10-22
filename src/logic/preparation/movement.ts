@@ -64,7 +64,7 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
         let value=literal(record(m.speeds)?.[key]);const inherited=literal(record(sm.speeds)?.[key]);
         if(!value||!inherited){moveReason??='Movement expression requires Q00 qualification';speeds[key]=null;continue;}
         if(species&&inherited.text&&!value.text){value=inherited;fromSpecies[key]=inherited.text;}
-        speeds[key]=Math.max(0,value.number);
+        speeds[key]=effects.conditions.rules.noMovement||effects.conditions.rules.crawl&&key!=='walk'?0:Math.max(0,value.number);
     }
     const bonus=literal(m.bonus),hover=m.hover??false,speciesHover=sm.hover??false,special=typeof m.special==='string'?m.special.trim():m.special??'';
     if(!bonus)moveReason??='Movement bonus expression requires Q00 qualification';

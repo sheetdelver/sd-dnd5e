@@ -1017,3 +1017,19 @@ condition behavior remains open. No production availability change. [C40 ledger]
 and [portable record](evidence/2026-10-21-c40-condition-modes.json) retain model/guard/
 clock/CI/roll-build stubs and source identities. No full native/operator acceptance
 or complete gate closure; bounded shared runtime integration follows.
+
+
+### C41 disposition — shared condition modes and movement
+
+C40 is `1eb4b6a`. DD-02/05/27/34,A02/A04/A21 advance partially through one
+shared condition save/init/movement path.1064 unchanged-input contracts fail C40 and
+pass after,including972 source-mode cases and8 effect-state cases. Some inactive
+numeric checks already worked; prepared rule projection was absent. Initiative
+phases retain local score versus combined execution; opposing counts/suppression/
+overrides and source CI timing remain explicit. Source data/ownership/identities are
+preserved. Dodging/dead presentation labels identify stored literal IDs,not presets.
+[C41 ledger](../plans/0001-verification.md#c41--shared-condition-mode-and-movement-profile-2026-10-21)
+and [portable record](evidence/2026-10-21-c41-condition-modes.json) distinguish maintained
+regression,controlled source,mounted UI,isolated public host and package checks. Other
+conditions/combat/riders/flags/time/Item/final/expressions and full acceptance remain
+open. No new Core dependency or compatibility change is implied.

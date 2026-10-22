@@ -3,7 +3,7 @@ import type {RulesContext} from '../rules-context';
 import {numericFact,numericCharacterProfile,type NumericFact} from './character-profile';
 import {numericAbilityValue,numericConstant,qualifiedNumericTotal} from './numeric';
 import {prepareNumericEffects606,type NumericEffects} from './numeric-effects';
-import {initializedModeState,resolvedEffectMode} from './mode-effects';
+import {initializedModeState,resolvedEffectMode,applyEffectMode} from './mode-effects';
 import {sourceD20Mode,prepareD20Configuration,numericD20Roll,type PreparedNumericD20} from './d20-configuration';
 export interface ArmorClassFact extends NumericFact {calculation?:string;formula?:string;base?:number;armorId?:string;shieldId?:string;warnings?:string[]}
 export interface InitiativeFact extends NumericFact {ability:string;score:number|null;fixed?:boolean;tiebreaker?:number}
@@ -75,10 +75,11 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     if(raw!=null&&!record(raw)||data.roll!=null&&!record(data.roll))reason??='Initiative source mapping malformed';
     if(data.value||data.bonus!==undefined)reason??='Legacy initiative source migration requires qualification';
     if(!['str','dex','con','int','wis','cha'].includes(key)||!numeric)reason??='Initiative ability source unavailable';
-    const localMode=effects.modes['system.attributes.init.roll.mode']??initializedModeState(roll.mode);
+    const localMode=structuredClone(effects.modes['system.attributes.init.roll.mode']??initializedModeState(roll.mode));
+    if(localMode)for(const modifier of effects.conditions.modes)if(modifier.phase==='initiative'&&modifier.path==='system.attributes.init.roll.mode')applyEffectMode(localMode,'add',modifier.mode);
     if(!localMode)reason??='Initiative source mode malformed';
     const rawGlobal=record(record(record(record(actor)?.system)?.rolls)?.ability)?.check;
-    const scopes=[{path:`abilities.${key}.check.roll`,value:record(abl?.check)?.roll},{path:'attributes.init.roll',value:data.roll},{path:'rolls.ability.check',value:rawGlobal!=null&&!record(rawGlobal)?false:global}].map(scope=>({...scope,effectMode:effects.modes['system.'+scope.path+'.mode']}));
+    const scopes=[{path:`abilities.${key}.check.roll`,value:record(abl?.check)?.roll},{path:'attributes.init.roll',value:data.roll},{path:'rolls.ability.check',value:rawGlobal!=null&&!record(rawGlobal)?false:global}].map(scope=>({...scope,effectMode:scope.path==='attributes.init.roll'?(localMode??undefined):effects.modes['system.'+scope.path+'.mode']}));
     const mode=sourceD20Mode(scopes),bonuses=scopes.map(scope=>numericConstant(record(scope.value)?.bonus));
     reason??=mode.reason;
     if(bonuses.some(value=>value===null))reason??='Initiative bonus expression requires Q00 qualification';

@@ -934,3 +934,27 @@ recomputation. Source/model/guard/clock/custom-rule/CI executor/roll-build stubs
 explicit; initialized operands do not establish source boot or installed/operator
 acceptance. [C40 record](../audits/evidence/2026-10-21-c40-condition-modes.json) retains
 new tables,captures,source hashes and limits; C39 runtime remains unchanged.
+
+
+### Shared bounded condition-family integration (C41)
+
+C41 consumes C40's independent source/status/mode expectations through shared rules.
+The supported source types are the eight explicit family IDs plus prior Poisoned/
+exhaustion. This remains the untimed,constant-guard Actor-owned,empty-change/rider
+profile; typed source never grants missing statuses. Native phase/query behavior
+controls dodging save advantage,restrained disadvantage,initiative conditions and
+movement. Initial/global source effects retain their distinct scope and count state.
+
+Ability-phase modes apply before passives; initiative-phase modes apply during
+initiative preparation to a copy of initialized/effected local state. Score uses that
+local state; execution also combines ability/global counts. Multiple contributing
+statuses trigger each native boolean query once. NoMovement/crawl apply before later
+speed arithmetic; jump remains the later overwrite. Exact stored dodging/dead CI
+identities are supported by the unrestricted StringField Set schema and existing
+phase observations; module labels assert no native preset or content grant.
+
+1064 source contracts and the public-host/mounted comparisons are recorded separately
+from the retained controlled native methods. Unknown types,riders,dependent rules,
+flags/time,Item/final phases and broader expressions remain unqualified. No full
+DataModel/native boot/operator acceptance follows. [C41 evidence](../audits/evidence/2026-10-21-c41-condition-modes.json)
+retains source/artifact identities and limits.

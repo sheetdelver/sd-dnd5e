@@ -6,7 +6,8 @@ import { initializedAbilityRolls606,initializedSaveProficiency606 } from './roll
 import { numericConstant, qualifiedNumericTotal } from './numeric';
 import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
 import {prepareEquipment606,type EquipmentPreparation} from './equipment';
-import {DAMAGE_LABELS_606,CONDITION_LABELS_606,BYPASS_LABELS_606} from '../native/6.0.6/defense-identities';
+import {DAMAGE_LABELS_606,BYPASS_LABELS_606} from '../native/6.0.6/defense-identities';
+import {CONDITION_STATUS_LABELS_606} from '../native/6.0.6/condition-identities';
 import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 export interface NumericEffects {
@@ -50,7 +51,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
             const name=keys.at(-1)!;
             if(set){
                 const value=container[name];origins[change.key]??=value===undefined?'default':value===null?'null-cleaned':'source';
-                const labels=field==='bypasses'?BYPASS_LABELS_606:key==='ci'?CONDITION_LABELS_606:DAMAGE_LABELS_606;
+                const labels=field==='bypasses'?BYPASS_LABELS_606:key==='ci'?CONDITION_STATUS_LABELS_606:DAMAGE_LABELS_606;
                 return {object:container,field:name,set:true,valid:training??(value=>Object.hasOwn(labels,value)||field==='value'&&key!=='ci'&&value==='ALL')};
             }
             // FormulaField scalar source cleaning, distinct from a prepared
@@ -157,6 +158,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     const conditions=prepareConditions606(actor,system,plan.conditions??[],reason);
     reason??=conditions.reason;
     for(const modifier of conditions.modes){
+        if(modifier.phase!=='abilities')continue;
         const keys=modifier.path.split('.');let parent=system;
         for(const key of keys.slice(1,-1)){if(parent[key]===undefined)parent[key]={};const value=record(parent[key]);if(!value){reason??='Condition ability mode container malformed';break;}parent=value;}
         if(reason)break;

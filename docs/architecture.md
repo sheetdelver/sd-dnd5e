@@ -889,3 +889,30 @@ The fixture's source type/status sets are explicit. It does not construct preset
 infer missing statuses,qualify riders/petrification/other combat rules or extend flag/
 time/Item/final/formula behavior. A future shared path must supply the same mode and
 movement facts to every consumer/compiler,with no UI formulas or new dice evaluator.
+
+
+### Shared condition mode/movement profile (C41)
+
+C41 supersedes C40's runtime restriction for the eight qualified family IDs only.
+`conditions.ts` emits effective statuses,phase-specific mode descriptors and movement
+facts. It preserves primary-type CI suppression before collection and per-status
+filtering afterward. Explicit status sets may compose within the qualified family;
+missing statuses are never inferred. Unknown types/statuses,riders/changes/flags/time
+and dependent guards remain unavailable. Poisoned/exhaustion retain their own bounded
+source envelopes and prepared level semantics.
+
+NumericEffects applies ability-phase modes before passives. prepareInitiative606
+applies initiative-phase descriptors to a copied local state after initial effects,
+then shares that state with score and execution scopes. Local resolved mode and
+combined execution mode are distinct; counts/overrides/suppression are never rebuilt
+from a normalized0. Multiple initiative-disadvantage statuses produce one native
+query contribution. Movement consumes shared noMovement/crawl before reductions and
+bonus; native jump overwrite follows max/slowed. No UI recalculation or source mutation.
+
+The versioned condition identity helper separates supported source types from labels.
+Dodging/dead are exact stored IDs recognized by pinned condition queries/configuration,
+not assertions of a preset/content identity. Their presentation/immunity Set operations
+share this map; other unknown values stay gated. Desktop/mobile readouts and existing
+roll controls consume prepared facts. Static known facts may remain when a distinct
+malformed initiative operand prevents only initiative. No new cache,evaluator,transport
+or Core contract. This does not qualify full condition/combat/Item/final behavior.
