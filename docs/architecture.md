@@ -1106,3 +1106,26 @@ separate read operands. C53 qualifies1300 cases plus three cross-phase compositi
 through actual methods and independent expectations. No runtime admission follows yet.
 C54 must share earlier effective-coefficient calculation when initializing final fields,
 project current scores with earlier modifiers,and use current score only for fresh ties.
+
+### Shared final numeric snapshot (C54)
+
+C54 supersedes C53's runtime final-number gate for qualified constant Actor-owned
+ability value/proficient and skill/tool.value fields. Shared proficiency helpers supply
+native prepared-before coefficients and existing roll/proficiency projection. finalNumbers
+holds current results separately from initialized operands. Provenance records whether
+an operand came from the earlier prepared state or a preceding final write. Source
+nonpersisted poison is ignored; malformed initial data/flags/containers remain gated.
+
+Ability projections expose current score,preparedScore and earlier mod; score notes
+explain divergence. Current finite final scores can exceed30 (schema has no maximum)
+without broadening the initial-source0–30 profile or recomputing mod. Fresh initiative
+tie reads the current selected ability score/100; fixed score and prepared modifiers
+remain earlier. Skill/tool prof/effectValue and ability/save prof objects remain earlier;
+a final value/proficient field cannot act as a fresh proficiency override. Both layouts,
+previews,shortcuts and direct requests consume these same projections/compiler.
+
+The public qualification keeps exact totals,including IEEE addition order for retained
+face + earlier modifier + current score/100. Actual pinned parser/AST methods compare
+already-evaluated numeric leaves;no formula parser/dice evaluator enters runtime. Neither
+host serialization nor equal-die diagnostic criteria are changed. Other final fields,
+flags/Item/time/dependent rules/expressions remain separate qualification work.

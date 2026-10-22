@@ -1087,3 +1087,17 @@ to recompute an earlier mod. [Evidence](../audits/evidence/2026-10-22-c53-final-
 records11700 check/3900 initiative comparisons and exact field/schema sources. Actual
 methods on initialized shells are separate from source/default/schema boot,dice,UI and
 native/operator acceptance. Runtime final-number integration remains gated pending C54.
+
+C54 integrates C53 final numeric fields with shared prepared coefficients/current-field
+snapshots. Current score and earlier mod/prof/effectValue are distinct; current score
+supplies fresh initiative ties while fixed scores remain earlier. Numeric-effect
+comparisons now execute explicit initial/final phases for the newly admitted final-score
+row. The final score does not invalidate unrelated earlier Fire resistance.
+
+A bounded180-case arithmetic probe executes static Foundry14.367 RollParser.toAST and
+Roll._evaluateASTSync on pre-evaluated numeric leaves,with actual OperatorTerm precedence.
+It proves native left-associative IEEE addition for retained face + modifier + score/100.
+Regrouping or decimal rounding changes some last bits; exact ordered expectations retain
+strict host total assertions. This is arithmetic/method evidence,not native dice/DSL/
+source boot/operator acceptance. [Record](../audits/evidence/2026-10-22-c54-final-numbers.json)
+retains identities,observations and separate actual public-host/mounted evidence limits.

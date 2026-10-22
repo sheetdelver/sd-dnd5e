@@ -32,6 +32,7 @@ const ABILITY_LABEL: Record<string, string> = {
 interface AbilityData {
     score: number | null;
     mod: number | null;
+    scorePreparationNote?:string;
     check?: PreparedNumericD20;
 }
 
@@ -120,12 +121,13 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                             {mod === null ? '—' : mod >= 0 ? `+${mod}` : mod}
                         </div>
                         {/* Base score */}
-                        <div style={{
+                        <div aria-label={`${ABILITY_FULL_NAME[key]??key} score`} style={{
                             fontSize: '12px',
                             color: 'var(--text-muted)',
                         }}>
                             {ab.score ?? '—'}
                         </div>
+                        {ab.scorePreparationNote && <small style={{display:'block'}}>{ab.scorePreparationNote}</small>}
                         {ab.check?.total != null && <small>Check {ab.check.total >= 0 ? '+' : ''}{ab.check.total}</small>}
                         {ab.check?.preparationNote && <small style={{display:'block'}}>{ab.check.preparationNote}</small>}
                         {(ab.check?.unavailableReason??ab.check?.defaultUnavailableReason) && <small style={{ display: 'block' }}>{ab.check?.unavailableReason??ab.check?.defaultUnavailableReason}</small>}

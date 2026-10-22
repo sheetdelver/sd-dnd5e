@@ -96,7 +96,8 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     if(!scoreSetting||scoreSetting.status==='unavailable'||!['none','npcs','all'].includes(String(scoreSetting.value)))executionReason??='Initiative score setting unavailable';
     const fixed=scoreSetting?.status!=='unavailable'&&scoreSetting?.value==='all';
     if(!fixed&&(!tie||tie.status==='unavailable'||typeof tie.value!=='boolean'))executionReason??='Initiative tiebreaker setting unavailable';
-    const tiebreaker=!fixed&&tie?.status!=='unavailable'&&tie?.value===true&&numeric?numeric.score/100:0;
+    const currentScore=numeric?effects.finalNumbers[`system.abilities.${key}.value`]??numeric.score:null;
+    const tiebreaker=!fixed&&tie?.status!=='unavailable'&&tie?.value===true&&currentScore!==null?currentScore/100:0;
     const bonus=fixed?score:executionTotal===null?null:executionTotal+tiebreaker;
     if(bonus!==null&&!qualifiedNumericTotal(bonus))executionReason??='Initiative roll result outside qualified numeric representation';
     fact.fixed=fixed;fact.tiebreaker=tiebreaker;

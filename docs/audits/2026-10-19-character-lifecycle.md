@@ -1287,3 +1287,57 @@ engine,UI or operator acceptance. No new mounted/public-host/package run for thi
 source-only phase;C52 evidence stays separate. Runtime final numeric fields remain gated
 pending C54 shared integration. Other final/Item/filter/flag/time/expression phases,
 E01/E02/E04/widerQ00/E05/fullDD/A/M/ADR gates stay open;experimental0.4.1 unchanged.
+
+### C54 — Shared final numeric fields and current score projection (2026-10-22)
+
+C53 qualification is `f4c84fe555eec5051d3408ed191475518c111a1f`.
+Partial M2/Q02a, DD-02/03/27/34, A02/A04/A18/A21.1300 frozen cases fail unchanged
+C53 with final maintained inputs and pass after. Shared check/save coefficient helpers
+now supply earlier prepared field inputs and fresh roll calculations. Qualified
+Actor-owned constant-guard final ability value/proficient and skill/tool.value changes
+use a separate finalNumbers map and record prepared/final operand provenance. Repeated
+final operations start from the preceding final result. Skill/tool.value starts from
+earlier effective proficiency,not raw source or a newly changed final global target.
+
+Current ability score and preparedScore/mod remain distinct. Both layouts show current
+scores and explain earlier modifiers. Fresh initiative tiebreakers use current score;
+fixed scores and earlier mod/prof/effectValue/static/passive data stay earlier. Current
+NumberField results are finite,cleaned by each field's integer/step rules and bounded to1e9; final scores
+may exceed30 without refreshing an earlier modifier. The initial-source score0–30
+profile remains unchanged. Source,canonical identities,ownership and metadata stay
+unchanged; unknown/malformed operands,flags,Item origins,unknown fields/dependent rules
+remain gated. Recovery requires fresh current intent and never replays held callbacks.
+
+C13's final-score fixture is now qualified (current WIS16,earlier mod2,roll5/passive15).
+Its numeric-method harness now applies initial/final changes on the proper sides of
+actual preparation; prior initial-only comparisons remain separate. C24's final-change
+fixture now preserves its Fire resistance; an unrelated qualified final score field
+cannot invalidate those earlier defenses. Still-unknown max/derived-field gates replace
+the narrowly superseded restrictions in older mode/proficiency tests; all1300 new
+independent expectations cover the admitted fields.
+
+Tiebreaker verification additionally executes the pinned Foundry parser association and
+AST arithmetic on already-evaluated numeric leaves.180 cases establish exact left-to-
+right IEEE addition. Regrouped binary and integer-scaled driver expectations were both
+incorrect for some operands; they are replaced with an independent ordered-operand
+oracle. All total/face/entropy/serialization assertions remain strict. No host result is
+rounded or rewritten,and no Core defect/extension follows. This controlled arithmetic
+probe is not a dice evaluator or native engine/operator acceptance.
+
+[Evidence](evidence/2026-10-22-c54-final-numbers.json) separates regression,
+controlled-source,mounted/public-host/package results and failed-run dispositions.
+Other final fields/Item/filter/flag/time/formula phases,E01/E02/E04/widerQ00/E05 and all
+fullDD/A/M/ADR/installed/native/operator gates remain open. Experimental0.4.1 and
+compatibility are unchanged. Continue the existing dependency-ordered M2 phases and
+bounded Q00 qualification before admitting broader rules or domain writes.
+
+C54 completed checks:61 assertions/9tooling/43module suites;193 explicit module/UI/server/
+test/hook files;exact source2242/591;native checks/effects/initial119/trait domains/
+condition matrices+1300numbers/4compositions/180strict ordered-arithmetic cases PASS.
+Focused mounted132 at1440/390 and the full retained behavior suite PASS. Public235850
+accepted/1candidate reject/40equal-index diagnostics/0native writes PASS. Final isolated
+check/package PASS;archive SHA256
+`b2fc3786df0d5a49ace98279e7991c8e388b5873b02e14ccff41bf757f387fc6`.
+Record retains commands,hashes,failed-run corrections and precise source/style/fixture
+boundaries. All owned services closed;production untouched. Node24.21 tested;CI Node22
+unrun locally. No full acceptance gate closes.

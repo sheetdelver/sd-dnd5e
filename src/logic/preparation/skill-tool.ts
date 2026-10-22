@@ -1,3 +1,4 @@
+import {checkProficiency606,sourceCheckCoefficient606} from './proficiency';
 import { numericAbilityValue } from './numeric';
 import type { EffectModeState } from './mode-effects';
 import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
@@ -49,10 +50,10 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
         return Object.fromEntries(Object.entries(raw).map(([key,value])=>{
             const data=record(value), multiplier=data?.value===undefined&&kind==='tool'?0:data?.value;
             const ability=data?.ability===undefined&&kind==='tool'?'int':typeof data?.ability==='string'?data.ability:'';
-            const valid=typeof multiplier==='number'&&[0,.5,1,1.5,2].includes(multiplier);
+            const prof=sourceCheckCoefficient606(multiplier),valid=prof!==null;
             const error=!data?`${kind==='skill'?'Skill':'Tool'} source entry malformed`:!Object.hasOwn(labels,key)?`${kind} identity outside qualified native configuration`:!valid?`${kind==='skill'?'Skill':'Tool'} proficiency source unavailable`:undefined;
             const passiveBonus=numericConstant(record(data?.bonuses)?.passive);
-            return [key,{ability,prof:valid?multiplier:null,label:Object.hasOwn(labels,key)?labels[key]:key,roll:rollInput(data?.roll),
+            return [key,{ability,prof,label:Object.hasOwn(labels,key)?labels[key]:key,roll:rollInput(data?.roll),
                 ...(error?{reason:error}:{}),...(kind==='skill'?{passiveBonus,...(record(data?.bonuses)?.check||passiveBonus===null?{primaryReason:'Skill formula requires Q00 qualification'}:{})}:{})}];
         }));
     }
@@ -89,8 +90,9 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     const targets=phase==='prepared'?model.proficiencies:model.executionProficiencies;
     // Native #rollSkillTool checks the earlier prepared prof objects for automatic
     // advantage. Its fresh builder independently reads current global targets.
-    const independentProf=(entry:Entry|undefined,type:SkillToolKind)=>Math.max(entry?.prof??0,model.proficiencies.check,model.proficiencies[type]);
-    const automaticAdvantage=!!secondary&&independentProf(primary,kind)>0&&independentProf(secondary,other)>0;
+    const independentProf=(entry:Entry|undefined,type:SkillToolKind)=>checkProficiency606(entry?.prof,undefined,[type],model.proficiencies);
+    const primaryPrepared=independentProf(primary,kind),secondaryPrepared=secondary?independentProf(secondary,other):null;
+    const automaticAdvantage=!!secondary&&primaryPrepared!==null&&secondaryPrepared!==null&&primaryPrepared>0&&secondaryPrepared>0;
     const qualifiedScopes=scopes.map(scope=>({...scope,effectMode:model.modeStates['system.'+scope.path+'.mode']}));
     const executionScopes=scopes.map(scope=>({...scope,effectMode:model.executionModeStates['system.'+scope.path+'.mode']}));
     const mode=sourceD20Mode([...executionScopes.slice(1),executionScopes[0]],automaticAdvantage);
@@ -100,7 +102,10 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     if (bonuses.some(value=>value===null)) reason ??= `${kind==='skill'?'Skill':'Tool'} formula requires Q00 qualification`;
     const base={ability:abilityId,label:primary?.label??key,automaticAdvantage};
     if (reason||!primary||primary.prof===null||model.proficiency===null||mode.mode===undefined||data?.score==null||data.mod===null) return {...base,prof:null,total:null,formula:null,unavailableReason:reason??'Check preparation unavailable'};
-    const prof=Math.max(primary.prof,secondary?.prof??0,targets.check,...(kind==='skill'||other==='skill'&&secondary?[targets.skill]:[]),...(kind==='tool'||other==='tool'&&secondary?[targets.tool]:[])), total=data.mod+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0)+model.rollReduction;
+    const selectedTypes:SkillToolKind[]=secondary?[kind,other]:[kind];
+    const prof=checkProficiency606(primary.prof,secondary?.prof,selectedTypes,targets);
+    if(prof===null)return {...base,prof:null,total:null,formula:null,unavailableReason:'Check proficiency operands unavailable'};
+    const total=data.mod+Math.floor(model.proficiency*prof)+(bonuses as number[]).reduce((a,b)=>a+b,0)+model.rollReduction;
     if (!qualifiedNumericTotal(total)) return {...base,prof,total:null,formula:null,unavailableReason:'Numeric result outside qualified roll representation'};
     return {...base,prof,total,sourceMode:mode.mode,passiveMode:passive.mode,...prepareD20Configuration(total,mode.mode,scopes)};
 }

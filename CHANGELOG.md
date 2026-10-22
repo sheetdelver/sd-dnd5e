@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Share qualified final numeric fields and current scores while preserving prepared modifiers, proficiency and fixed initiative scores.
+
 - Apply qualified final constant bonuses across shared rolls while retaining earlier passive and initiative-score values.
 
 - Share qualified final proficiency effects across rolls while preserving earlier passive and proficiency snapshots.

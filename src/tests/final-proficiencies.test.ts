@@ -24,7 +24,7 @@ for(const row of finalProficiencyCases){
 }
 console.log('Final proficiency failing-before count:',failures.length,'of',finalProficiencyCases.length,'first:',failures.slice(0,3));assert.deepEqual(failures,[]);
 
-for(const patch of [{value:null},{value:''},{value:true},{value:[]},{value:{}},{value:'@abilities.wis.mod'},{value:'1d4'},{value:1.5,type:'override'},{value:-1,type:'override'},{type:'custom'},{key:'system.rolls.ability.save.proficiency',value:.5,type:'override'},{key:'system.skills.prc.value'},{key:'system.abilities.wis.value'},{conditions:'{"k":"abilities.wis.value","v":14}'}]){
+for(const patch of [{value:null},{value:''},{value:true},{value:[]},{value:{}},{value:'@abilities.wis.mod'},{value:'1d4'},{value:1.5,type:'override'},{value:-1,type:'override'},{type:'custom'},{key:'system.rolls.ability.save.proficiency',value:.5,type:'override'},{key:'system.skills.prc.proficient'},{key:'system.abilities.wis.max'},{conditions:'{"k":"abilities.wis.value","v":14}'}]){
     const source=finalProficiencySource(finalProficiencyCases[0]);Object.assign((source.effects![1]as any).system.changes[0],patch);const before=structuredClone(source),actor=adapter.prepareActorData(source,skillContext());assert.equal(adapter.getRollData(actor,'skill','prc'),null,JSON.stringify(patch));assert.deepEqual(source,before);assert.equal((actor.derived as any).conditions.status,'unavailable');
 }
 for(const itemId of ['finalItem',undefined]){const source=finalProficiencySource(finalProficiencyCases[0]);source.items.push({_id:itemId,type:'tool',system:{equipped:true},effects:[source.effects!.pop()]}as any);assert.equal(adapter.getRollData(adapter.prepareActorData(source,skillContext()),'tool','thief'),null);}

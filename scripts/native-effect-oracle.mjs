@@ -151,14 +151,15 @@ for(const row of numericFixture.cases.filter(row=>row.expected&&row.id!=='bonus-
  const source={system:{abilities:{wis:{value:14,proficient:0},dex:{value:12,proficient:0}},skills:{prc:{ability:'wis',value:1,roll:{},bonuses:{passive:''}}},tools:{thief:{ability:'dex',value:1,roll:{}}},rolls:{ability:Object.fromEntries(['check','save','skill','tool'].map(key=>[key,{proficiency:0}]))}}};
  for(const [path,value] of Object.entries(row.patches))set(source,path,value);
  const changes=row.changes.map((change,order)=>({...change,priority:priorities[change.type],order})).sort((a,b)=>a.priority-b.priority||a.order-b.order),applied=[];
- for(const change of changes){
+ function applyNumericPhase(phase){for(const change of changes.filter(change=>(change.phase??'initial')===phase)){
   const options=change.key.startsWith('system.rolls')?{nullable:false,choices:change.key.includes('.save.')?[0,1]:[0,.5,1,2]}:change.key.endsWith('.value')&&!change.key.includes('.abilities.')?{nullable:false,min:0,max:2,step:.5}:{nullable:false,integer:true,min:0,...(change.key.endsWith('.proficient')?{max:1}:{})};
-  const field=Object.assign(new NumericField(),options),value=field.applyChange(get(source,change.key),{},change);set(source,change.key,value);applied.push({key:change.key,value});
- }
+  const field=Object.assign(new NumericField(),options),value=field.applyChange(get(source,change.key),{},change);set(source,change.key,value);applied.push({key:change.key,value,phase});
+ }}
+ applyNumericPhase('initial');
  const model=Object.assign(Object.create(CreatureTemplate.prototype),source.system);
  model.attributes={prof:3,ac:{cover:0}};model.parent={flags:{dnd5e:{}},conditionRollReduction:0,coverBonus:0,hasConditionEffect:()=>false,_isRemarkableAthlete:()=>false};
  for(const ability of Object.values(model.abilities)){ability.attack={roll:{}};ability.check={roll:{}};ability.save={roll:{}};ability.max=null;}
- model._source=structuredClone(source.system);model.prepareAbilities();model.skills.prc=model.prepareSkill('prc',{rollData:{},originalSkills:{}});model.prepareTools();
+ model._source=structuredClone(source.system);model.prepareAbilities();model.skills.prc=model.prepareSkill('prc',{rollData:{},originalSkills:{}});model.prepareTools();applyNumericPhase('final');
  const e=row.expected,observed={skill:model.skills.prc.total,passive:model.skills.prc.passive,tool:model.tools.thief.total,check:model.abilities.wis.check.value,save:model.abilities.wis.save.value,score:model.abilities.wis.value,skillProficiency:model.skills.prc.prof.multiplier,toolProficiency:model.tools.thief.prof.multiplier};
  for(const [key,value] of Object.entries(observed))assert.equal(value,e[key],row.id+'/'+key);
  const prof=CommonTemplate.calculateSkillToolProficiency({system:model},'wis',{skill:'prc',tool:'thief'});

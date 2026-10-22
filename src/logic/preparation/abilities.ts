@@ -4,9 +4,10 @@ import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
 import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
 import { abilityRollScopes, prepareD20Configuration, sourceD20Mode,numericScopeBonus,preparedBonusNote,type PreparedNumericD20 } from './d20-configuration';
+import {checkProficiency606,saveProficiency606} from './proficiency';
 
 export interface PreparedNumericAbility {
-    score: number | null; mod: number | null; save: number | null; saveProficient: boolean | null;
+    score: number | null; mod: number | null; save: number | null; saveProficient: boolean | null;preparedScore?:number|null;scorePreparationNote?:string;
     check: PreparedNumericD20; saveRoll: PreparedNumericD20;
 }
 /** Bounded CommonTemplate.prepareAbilities numeric check/save semantics at
@@ -33,18 +34,18 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             if ([...preparedBonuses,...bonuses].some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
             const mode = sourceD20Mode(abilityRollScopes(actor, key, type,effects.executionModes));
             if (mode.reason) unavailableReason = mode.reason;
-            const base = type === 'check' ? 0 : data.proficient;
-            const multipliers = [base, global.proficiency].filter(value => value !== undefined);
-            if (base === undefined || multipliers.some(value => typeof value !== 'number' || !(type === 'check' ? [0,.5,1,2] : [0,1]).includes(value))) unavailableReason = 'Ability proficiency source unavailable';
-            if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready') return { ability: key, total: null,preparedTotal:null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
-            const prof=Math.max(...multipliers as number[]),baseTotal=mod+Math.floor(profile.proficiency*prof)+effects.conditions.rollReduction;
+            const prof=type==='save'?saveProficiency606(data.proficient,global.proficiency):checkProficiency606(0,undefined,[],{check:global.proficiency,skill:0,tool:0});
+            if (prof===null) unavailableReason = 'Ability proficiency source unavailable';
+            if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready'||prof===null) return { ability: key, total: null,preparedTotal:null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
+            const baseTotal=mod+Math.floor(profile.proficiency*prof)+effects.conditions.rollReduction;
             const total=baseTotal+(bonuses[0]as number)+(bonuses[1]as number),preparedTotal=baseTotal+(preparedBonuses[0]as number)+(preparedBonuses[1]as number);
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
             return {ability:key,total,preparedTotal,preparationNote:preparedBonusNote(preparedTotal,total),sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,abilityRollScopes(actor,key,type,effects.executionModes))};
         }
         const check = prepare('check'), saveRoll = prepare('save');
-        const saveMultiplier = Math.max(typeof data.proficient === 'number' ? data.proficient : 0, typeof record(globals.save)?.proficiency === 'number' ? record(globals.save)!.proficiency as number : 0);
-        result[key] = { score, mod, check, saveRoll, save: saveRoll.total, saveProficient: saveRoll.total === null ? null : saveMultiplier >= 1 };
+        const saveMultiplier=saveProficiency606(data.proficient,record(globals.save)?.proficiency);
+        const currentScore=reason?null:effects.finalNumbers[`system.abilities.${key}.value`]??score;
+        result[key] = { score:currentScore,preparedScore:score,...(currentScore!==null&&score!==null&&currentScore!==score?{scorePreparationNote:`Modifier prepared from score ${score}.`}:{}),mod,check,saveRoll,save:saveRoll.total,saveProficient:saveRoll.total===null||saveMultiplier===null?null:saveMultiplier>=1 };
     }
     return result;
 }

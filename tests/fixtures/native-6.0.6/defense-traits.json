@@ -960,11 +960,32 @@
         }
       },
       "expected": {
-        "dr": null,
-        "di": null,
-        "dv": null,
-        "ci": null,
-        "dm": null
+        "dr": {
+          "values": [
+            "fire"
+          ],
+          "bypasses": [],
+          "custom": []
+        },
+        "di": {
+          "values": [],
+          "bypasses": [],
+          "custom": []
+        },
+        "dv": {
+          "values": [],
+          "bypasses": [],
+          "custom": []
+        },
+        "ci": {
+          "values": [],
+          "bypasses": [],
+          "custom": []
+        },
+        "dm": {
+          "amount": {},
+          "bypasses": []
+        }
       },
       "effect": "final-change"
     },
