@@ -977,3 +977,20 @@ synthetic CI executor and roll-build callbacks stay declared stubs. No preset/ri
 full DataModel/native boot/dice/installed/operator acceptance. Runtime Petrified stays
 gated until shared integration. [C42 record](../audits/evidence/2026-10-21-c42-petrification-foundation.json)
 contains exact source/script identities and new captures.
+
+
+### Petrification runtime profile integration (C43)
+
+C43 consumes C42's independent phase expectations through one shared path. It admits
+only the untimed,constant-guard Actor-owned Petrified document with explicit Petrified/
+incapacitated statuses and empty own changes/riders. Actual source/default/prepared
+phases stay distinct; no missing status is inferred. Trait grant validation precedes
+detached mutation. Existing defense preparation performs the later damage normalization.
+Actor statuses after current CI deletion remain separate from effective statuses
+after newly granted poison/disease immunity; numeric rules use the latter.
+
+18 maintained source contracts,mode/manual/selected/bound/context/poison regressions
+and actual desktop/mobile/public-host checks are recorded separately from native
+method captures. Malformed trait operands,other condition/rider/preset/flag/time/
+Item/final/expression behavior stays unqualified. [C43 record](../audits/evidence/2026-10-21-c43-petrification.json)
+retains identities and evidence limits; no full native DataModel/operator acceptance.

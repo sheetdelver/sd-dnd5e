@@ -2075,3 +2075,52 @@ before/after,actual consumers and public-host execution. Other conditions/combat
 flags/time/dependent rules,Item/final/expressions and full lifecycle gates remain open.
 E01/E02/widerQ00/E05/fullDD/A/M/ADR/nativeoperator acceptance stay open;experimental0.4.1
 and compatibility unchanged.
+
+### C43 — Shared petrification preparation (2026-10-21)
+
+Parent `7d85969`; partial M2/Q02a,DD-02/05/27/34,A02/A04/A21. The18 frozen C42
+source/projection contracts fail against unchanged C42 production and pass after;
+inactive numeric cases already worked,but the Actor-status provenance contract was
+absent. The same maintained driver/input hashes and failed IDs are in the
+[portable record](../audits/evidence/2026-10-21-c43-petrification.json). Source preservation,
+nonpersisted poison invariance,malformed traits/guards/time/flags,context loss/recovery,
+manual/selected checks and Normal-only bounds are covered. Native collected statuses
+and later rule-effective statuses stay distinct; defense normalization has one owner.
+
+Commands use `-- --core /tmp/dnd5e-core-baseline-iDcWjQ/core` (released0.19.3/90c13e5).
+`npm test`:60 assertions,8 tooling/39 module suites PASS. `typecheck`:184 explicit
+module/UI/server/test/hook files PASS. Exact `test:native-source`:2242 records/591
+expressions at87e94db PASS. Native checks/effects/initial filters retain prior comparisons
+(initial119) PASS; native conditions retain all earlier cases and18 petrification
+phase captures PASS. Model/guard/clock/custom-rule/CI executor/roll-build stubs remain
+explicit; these are controlled methods,not complete source boot or native acceptance.
+
+Focused `test:mounted -- --petrification-only`:38 desktop/mobile states PASS,
+`/tmp/dnd5e-mounted-SfrACa`. Actual conditions/defense readouts,movement/passive,
+selected checks,preview/shortcut/manual execution and held callbacks through source/CI/
+context recovery are checked. The first focused attempt corrected an independently
+expected label's capitalization (All Damage); no product correction or weakened rule
+assertion. Full retained mounted results are recorded below. These are mounted module/
+SDK seam checks,not installed Core UI evidence.
+
+`test:public-rolls`:62009 accepted requests PASS,including504 new petrification check/
+mode/bonus requests,18 Normal-bound and18 fixed initiative cases.40 equal-index
+plain-d20 diagnostics,1 unary candidate rejection,0 native writes. Strict ordered
+faces/entropy/value/count/states/totals/distributions and unequal indices remain;
+bounded advantage/disadvantage stays unavailable. Actual host serialization unchanged.
+Artifact `/tmp/dnd5e-public-rolls-AX8hiY`. `check:package`:isolated public-boundary/module
+checks,managed typing and logic/UI/server bundles PASS;
+`/tmp/dnd5e-package-9ZZjcQ/data/dist/modules/dnd5e-0.4.1.tgz`,SHA256
+`040a31b92d77080649223362e40f32d8af6d77461a8efda3c9b873876986eb48`.
+
+No full condition/combat/preset/rider,flags/time/dependent guard,Item/final/expression
+or lifecycle gate closes. E01/E02/widerQ00/E05/fullDD/A/M/native-operator acceptance
+remain open;experimental0.4.1/compatibility unchanged. Next qualify the remaining
+source condition phases before admission; no type/name-to-status inference.
+
+Final retained `test:mounted` PASS,`/tmp/dnd5e-mounted-MPTgJD`:1172 field/624 training
+plus50 transitions,8 preview,16 fact,18 source-mode,56 tool,80 selected,22 eligibility,
+58 mode-effect,58 health,102 AC/init,90 armor,84 movement,24 proficiency,149 defense,
+40 species and180 normal-range states and retained callbacks. Final fixture processes
+closed;pristine Core baseline stays clean;production listeners untouched. Node24.21/
+npm11.19 and Chromium143/Playwright1.56.1 used;Node22 CI remains unrun.

@@ -933,3 +933,23 @@ filtering once before all trait phases loses native behavior. The eventual share
 condition/trait path must retain separate snapshots and feed defenses,modes,passives
 and movement without source mutation. These captures use explicit status documents
 and initialized defense Sets; no preset/rider/source-bootstrap/combat acceptance.
+
+
+### Shared petrification trait phase (C43)
+
+C43 supersedes C42's runtime restriction for the bounded Petrified source envelope.
+Condition preparation stores actorStatuses after existing CI removal separately from
+rule-effective statuses after later grants. condition-traits.ts validates qualified
+initialized trait operands and applies only petrification's grant phase to a detached
+system: DR.ALL,cleared DR bypasses,DI.poison and CI.poisoned/diseased. Existing defense
+preparation remains the single owner of DR/DI/DV normalization and its projections.
+Unknown/malformed required operands produce unavailability,never guessed Sets.
+
+Check/passive/initiative/movement rules consume effective statuses; the earlier Actor
+snapshot remains provenance. A late poison immunity can suppress Poisoned without
+deleting the earlier collected status. Final Document.active cannot reconstruct
+either phase. Context/source changes retire held intents; source and its canonical
+IDs/ownership/metadata remain unchanged. No new command/cache/evaluator/transport.
+Petrified source statuses are explicit Petrified/incapacitated only; other condition
+family envelopes,riders/own changes/dependent guards/flags/time/Item/final/formula
+boundaries remain. Full native source boot/combat/operator acceptance remains open.

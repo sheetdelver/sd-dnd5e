@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes | RV01–RV04 retained; C06–C41 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases | RV01–RV04 retained; C06–C43 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -1644,3 +1644,31 @@ integrate only the qualified trait/status phases through shared preparation with
 source-preserving regressions,consumers and public-host execution. Other condition/
 rider/flag/time/Item/final/expression and full lifecycle gates remain open. E01/E02/
 widerQ00/E05/fullADR remain open;experimental0.4.1 unchanged.
+
+
+### C43 — Shared bounded petrification preparation (2026-10-21)
+
+C42 is `7d85969`. Partial M2/Q02a,DD-02/05/27/34,A02/A04/A21. Petrified
+now joins the qualified untimed Actor condition profile,with only explicit Petrified/
+incapacitated source statuses and constant guards/empty own changes/riders. Other
+family documents still cannot introduce an unqualified Petrified status. Source type
+never grants incapacity or any missing status.
+
+The shared condition path retains collected Actor statuses after current CI deletion,
+applies qualified petrification grants to the detached rules system,and derives
+rule-effective statuses using the later immunity state. Native ALL resistance/bypass
+clearing,poison damage immunity and poisoned/diseased condition immunity are shared
+with existing defense preparation. Damage normalization has one owner in the existing
+defense preparer; it is not recalculated by UI. Poisoned may remain in the Actor
+snapshot while its rule effect is suppressed. Source DI.ALL still clears resistance.
+No source data is mutated and no write command is added.
+
+18 maintained source/projection contracts fail C42 and pass after. Context/source
+recovery,prepared poison,malformed trait/guard/time/flag gates,manual/selected checks
+and Normal-only bounds are retained. [C43 record](../audits/evidence/2026-10-21-c43-petrification.json)
+and [ledger](../plans/0001-verification.md#c43--shared-petrification-preparation-2026-10-21)
+separate controlled methods,maintained regression,mounted consumers,public host and
+package evidence. This is not complete petrification/combat/preset/rider behavior.
+Other conditions,flags/time/dependent rules,Item/final/expressions and full lifecycle
+gates remain open. E01/E02/widerQ00/E05/nativeoperator/fullADR acceptance stay open;
+experimental0.4.1/compatibility unchanged.

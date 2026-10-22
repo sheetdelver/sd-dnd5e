@@ -14,7 +14,7 @@ interface ReadyCategory {status:'ready';values:string[];custom:string[];bypasses
 interface UnavailableCategory {status:'unavailable';values:null;custom:null;bypasses:null;amount:null;entries:null;display:'Unavailable';reason:string}
 export type DefenseCategory=ReadyCategory|UnavailableCategory;
 export interface DefenseFacts {status:'ready'|'partial'|'unavailable';provenance:string;reason?:string;categories:Record<DefenseKey,DefenseCategory>;summary:string}
-const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; qualified condition profile without petrification; initial fields and constant damage adjustments only';
+const provenance='release-6.0.6 SimpleTraitField/DamageTraitField/TraitsFields.prepareResistImmune; qualified condition trait grants; initial fields and constant damage adjustments only';
 const unavailable=(reason:string):UnavailableCategory=>({status:'unavailable',values:null,custom:null,bypasses:null,amount:null,entries:null,display:'Unavailable',reason});
 const physical=new Set<string>(PHYSICAL_DAMAGE_606);
 function finish(values:string[],custom:string[],bypasses:string[],amount:Record<string,number>={}):ReadyCategory {

@@ -1045,3 +1045,16 @@ No production gate is removed. [C42 ledger](../plans/0001-verification.md#c42--p
 and [portable record](evidence/2026-10-21-c42-petrification-foundation.json) retain
 expectations,source hashes and stubs. Shared integration follows; no complete rules,
 native/operator acceptance or full gate closure is claimed.
+
+
+### C43 disposition — shared petrification trait/status preparation
+
+C42 is `7d85969`. DD-02/05/27/34,A02/A04/A21 advance partially:18 maintained
+source/projection contracts fail before/pass after. Actor status snapshot and later
+rule-effective status are distinct; validated detached trait grants flow to the
+existing shared defense normalizer and all numeric consumers. Source data is unchanged.
+Malformed operands and unqualified rules stay unavailable. [C43 ledger](../plans/0001-verification.md#c43--shared-petrification-preparation-2026-10-21)
+and [portable record](evidence/2026-10-21-c43-petrification.json) distinguish controlled
+methods,regression,mounted UI,public-host and package evidence. No full condition/combat/
+preset/rider/native/operator acceptance or complete gate closure. E01/E02/widerQ00/E05
+and full ADR remain open.
