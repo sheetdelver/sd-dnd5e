@@ -1278,3 +1278,11 @@ The numeric-only Roll and prepared Actor modifier/proficiency shells are explici
 this does not establish raw source model boot,resource writes or native acceptance.
 SpellData schema declares level initial1 and canonical property IDs;effective casting
 preparation remains outside this metadata slice. Source tag/commit remains pinned.
+
+
+C76 executes exact Common/Creature schema definitions,MappingField initialize/key
+builders,primitive NumberField/StringField cleaning and native prepared arithmetic.
+Missing mapping/key defaults differ from existing partial-entry defaults. Native's8
+ability registry keys include optional Honor/Sanity;module qualification here covers
+6 standard abilities. Collection delegation/empty applied-rule collaborators are
+explicit;this does not claim complete DataModel source boot. [Evidence](../audits/evidence/2026-10-22-c76-source-initialization.json).

@@ -75,13 +75,13 @@ for(const value of [null,[],true,'tool']) {
     assert.match(check(prepare(source)).unavailableReason,/entry malformed/);
 }
 const missing=toolSource(); delete (missing.system as any).abilities.dex;
-assert.match(check(prepare(missing)).unavailableReason,/ability source score unavailable/i);
+assert.equal(check(prepare(missing)).total,3,'C76 native missing Dexterity initializes10');
 for(const key of ['Thieves\' tools','unknown','toString','__proto__']) {
     const source=toolSource();(source.system as any).tools=JSON.parse(JSON.stringify({[key]:{ability:'dex',value:1}}));
     assert.equal(adapter.getRollData(prepare(source),'tool',key),null,'Names and unknown keys never become rule identity');
 }
 assert.equal(Object.keys(TOOL_LABELS_606).length,40);
-for (const options of [{skill:'missing'},{tool:'missing'},{pace:'slow'},{ability:'str'},{situationalBonus:'1d4'},{situationalBonus:'1+2'},{situationalBonus:'1000000001'}]) {
+for (const options of [{skill:'missing'},{tool:'missing'},{pace:'slow'},{situationalBonus:'1d4'},{situationalBonus:'1+2'},{situationalBonus:'1000000001'}]) {
     assert.equal(adapter.getRollData(baseline,'tool','thief',options),null);
 }
 assert.equal(adapter.getRollData(baseline,'skill','prc',{tool:'missing'}),null,'Unavailable selected tool cannot fall back');
@@ -95,3 +95,5 @@ for(const change of [(source:any)=>source.effects=[{disabled:false}],(source:any
 const empty=toolSource();delete (empty.system as any).tools;
 assert.equal(Object.keys(prepare(empty).derived.tools as Record<string,unknown>).length,0,'No grants inferred from missing source');
 console.log(`R:8 independent source-only tools, ${modes} modes, source invariance and unavailable/recovery cases PASS`);
+
+assert.equal(adapter.getRollData(baseline,'tool','thief',{ability:'str'})?.formula,'1d20+3','C76 standard alternate ability initializes10');

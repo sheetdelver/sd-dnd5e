@@ -1439,3 +1439,12 @@ are unavailable pending M5. Explicit legacy projection remains separate. Live de
 modals resolve current exact owned IDs and use SDK rich text processing. C75 adds no
 world cache,transport,dice evaluator or writes;configured Item/effect phases and broader
 expressions remain explicit boundaries. See [C75 evidence](audits/evidence/2026-10-22-c75-item-read-surfaces.json).
+
+
+`source-initialization.ts` applies the qualified standard MappingField/default hooks
+before initial effects and filters. Both use the same detached initialized values;
+`effectPreparation.sourceInitialization` exposes defaults and ignored registry keys.
+Six standard abilities default10/0 and18 skills use keyed defaults only for missing
+entries;an existing partial skill instead uses dex. This is not source persistence,
+a migration write or a second source cache. Unknown tools/abilities are not inferred.
+See [C76 evidence](audits/evidence/2026-10-22-c76-source-initialization.json) for phase distinctions and superseded missing-key gates.

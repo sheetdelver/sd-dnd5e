@@ -1,0 +1,70 @@
+{
+  "checkpoint": "C76 shared sparse source initialization",
+  "parent": "aa305df",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/03/06/24/27/31/34 partial",
+    "A02/A03/A04/A18/A21 partial"
+  ],
+  "beforeAfter": {
+    "unchangedMaintainedInput": "src/tests/source-initialization.test.ts",
+    "before": "absent mapping:0 supported abilities,0 skills;assert expected6/18 fails",
+    "after": "6 standard abilities score10/proficient0,18 keyed skills;existing partial skill abilitydex distinct from missing keyed entry. Source unchanged."
+  },
+  "checks": {
+    "regression": {
+      "result": "9 tooling suites/61 assertions/54 module suites PASS",
+      "sha256": "f5e5c9c7aed92f96fbe5778852cb4cc44af6d18356c22af59e321bb97988306c"
+    },
+    "typing": {
+      "result": "222 explicit source/UI/server/test/hook files PASS",
+      "sha256": "98f1b1e881d35418e6d3eef4b450a2b82091e123042c1cdd54acc0e308f3268f"
+    },
+    "controlledNative": {
+      "command": "npm run test:native-defaults -- --core <Core0.19.3> --native <exact release> --foundry <static14.367>",
+      "result": "4 source/default profiles,6 standard/2 optional ability schema keys,18 skill defaults and actual prepared arithmetic PASS",
+      "sha256": "5e2f1dfa4e906ead4b7f3b5fb118125e62b49b4d89bd9b110fe11202a35c0cb4",
+      "sourceHashes": {
+        "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+        "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+        "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+        "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+        "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25"
+      }
+    },
+    "retainedNativeChecks": {
+      "command": "npm run test:native-checks -- --core <Core0.19.3> --native <exact release>",
+      "result": "PASS",
+      "sha256": "ba3037e1191f6d4558079a7ec0ccda8204dc473c50b4b07ed083645a029ab448"
+    },
+    "mounted": {
+      "result": "1440/390 actual Sheet and check/save/tool consumers,preview/manual/shortcut/context/malformed recovery/held callbacks/zero writes PASS",
+      "artifact": "/tmp/dnd5e-defaults-zXKvBm/evidence.json",
+      "sha256": "f69e3b21c55ecfa45ee755a0fcdc824517f2c4538e43c62e38d832a4adefa131"
+    },
+    "retainedMounted": "Full retained C76 run in progress at checkpoint;not claimed passed. Supplemental final index records its actual result. Driver now writes states.json rather than overflowing32MiB stdout;assertions preserved.",
+    "publicHost": {
+      "result": "311953 accepted,1 known unary candidate rejection,40 bounded equal-value index diagnostics,0 native writes PASS",
+      "newSourceDefaultRequests": 144,
+      "artifact": "/tmp/dnd5e-public-rolls-6oOobm/evidence.json",
+      "sha256": "0777c2d80cea463c31304fe2dab1778077aed596fc7ee7167217ecd649e9ddfb"
+    },
+    "isolatedManaged": {
+      "result": "module check/package PASS",
+      "artifact": "/tmp/dnd5e-package-sGThK5/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "2a6cc84742467725190163f65490d42861037cc69137cf19c19459af49f5b1d2"
+    }
+  },
+  "phaseCorrections": [
+    "Historical fixture JSON remains unchanged. Maintained source scenarios now explicitly supersede their prior unavailable missing-entry expectations:missing CON10 gives d8 HP8;STR10 gives jump5 and armor speed penalty10;DEX10 gives initiative0/score10 and Dodge save+0. Explicit malformed/null scalar gates remain.",
+    "Missing standard skill initializes untrained rather than disappearing;missing tool remains absent. Existing partial skill uses dex;missing keyed entry uses its registry ability. Combined/manual/alternate execution retains native proficiency/scopes.",
+    "Initial filter reads share initialized operands:missing WIS score10 does not match exact14. Global nonpersisted proficiency0/prepared-looking poison boundaries retained. Source/default provenance is attached once to shared effectPreparation and participates in intent retirement."
+  ],
+  "limits": [
+    "Primitive schema cleaning,actual definitions/MappingField/key hooks/native arithmetic run under declared collection-delegation/empty-rule shells;not full native DataModel/Document boot.",
+    "Only6 standard ability/18 skill mappings qualified;optional Honor/Sanity,custom registries,malformed/coerced/null mappings remain unavailable. Selected legacy behavior unchanged.",
+    "R/S/mounted SDK seam/public synthetic host/managed package evidence remain distinct from installed/native/operator acceptance. Full M2/ADR acceptance remains open.",
+    "Experimental0.4.1,compatibility unchanged;Core/sibling/native repositories read-only. E01/E02/E04/widerQ00/E05 open."
+  ]
+}

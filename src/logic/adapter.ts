@@ -150,7 +150,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
         prepared.derived.conditions=projectConditions606(actor,rules,effects.conditions);
         prepared.derived.equipmentPreparation=effects.equipment;
-        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied,initialized:effects.initialized,conditions:effects.conditions};
+        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,applied:effects.applied,initialized:effects.initialized,sourceInitialization:effects.sourceInitialization,conditions:effects.conditions};
         const checkModel = prepareSkillToolModel606(actor,rules,effects);
         prepared.derived.checkConfiguration = checkModel;
         prepared.derived.training=prepareTraining606(actor,rules,effects,checkModel);
@@ -162,7 +162,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             prepared.derived.castingPreparation={status:'unavailable',reason:'M5 casting capability preparation is not implemented'};
             prepared.derived.abilities = prepareNumericAbilities606(actor, rules,effects);
             const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules,checkModel)
-                : unavailableSkillChecks(actor, `Skill rules context unavailable: ${rules.reason ?? 'unknown profile'}`);
+                : unavailableSkillChecks({system:effects.system}, `Skill rules context unavailable: ${rules.reason ?? 'unknown profile'}`);
             prepared.derived.skillChecks = skills;
             prepared.derived.skills = Object.fromEntries(Object.entries(skills).map(([key, skill]) => [key, { ...skill, label: SKILL_LABELS[key] ?? key }]));
             prepared.derived.passivePerception = skills.prc?.passive ?? null;

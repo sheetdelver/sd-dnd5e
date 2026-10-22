@@ -52,7 +52,7 @@ for(const kind of ['skill','tool'] as const) {
     for(const invalid of ['absent','proficiency']) {
         const changed=structuredClone(source);
         if(invalid==='absent')delete (changed.system as any)[other+'s'][value];else (changed.system as any)[other+'s'][value].value='1';
-        assert.equal(adapter.getRollData(prepare(changed),kind,key,choices),null);
+        if(invalid==='absent'&&other==='skill')assert.equal(adapter.getRollData(prepare(changed),kind,key,choices)?.formula,'2d20kh1+10','Missing standard skill initializes proficiency0;secondary grants no automatic advantage');else assert.equal(adapter.getRollData(prepare(changed),kind,key,choices),null);
         assert.notEqual(rollIntentSignature(prepare(changed),kind),signature);
     }
     for(const field of ['min','max']) {

@@ -1,7 +1,9 @@
 import fixture from '../../../tests/fixtures/native-6.0.6/health.json';
 import type {FoundryItem} from '@sheet-delver/sdk';
 import { skillSource } from './skill-scenarios';
-export const healthCases=fixture.cases;
+// C76 source initialization supplies Constitution10 to the original missing-CON
+// source; native first-level d8 maximum is8,not an unavailable intermediate.
+export const healthCases=fixture.cases.map(row=>row.id==='missing-con'?{...row,hpUnavailable:false,expected:{max:8,effectiveMax:8,value:5,temp:0,hdMax:1,hdValue:1,bySize:{d8:1}}}:row);
 export function healthSource(row:typeof healthCases[number]){
     const actor=skillSource(),system=actor.system as Record<string,any>;
     if(row.con!==null)system.abilities.con={value:row.con,proficient:0,mod:99};

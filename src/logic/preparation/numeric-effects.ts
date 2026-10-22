@@ -1,3 +1,4 @@
+import {initializeCheckSource606,type SourceInitialization606} from './source-initialization';
 import {featFinalCustomReason606} from './feat-final-profile';
 import {sourceRuleFlags606,type SourceRuleFlags606} from './rule-flags';
 import {preparedDefenseSets606} from './defense-sets';
@@ -16,6 +17,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
+    sourceInitialization:SourceInitialization606;
     preparedDefenseSets?:Record<string,string[]>;
     finalDefenseSets?:Record<string,string[]>;
     finalTrainingSets?:Record<string,string[]>;
@@ -33,9 +35,9 @@ export interface NumericEffects {
  * constant roll bonuses, persisted numeric fields and literal custom Strings. Earlier
  * prepared proficiency/passive operands never change; other final/Item fields stay gated. */
 export function prepareNumericEffects606(actor:unknown):NumericEffects {
-    const source=record(actor)??{},system=structuredClone(record(source.system)??{}),plan=planEffects606(actor);
+    const source=record(actor)??{},initializedSource=initializeCheckSource606(source.system),system=initializedSource.system,sourceInitialization=initializedSource.initialization,plan=planEffects606(actor);
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
-    const initialized:NumericEffects['initialized']=[];
+    const initialized:NumericEffects['initialized']=sourceInitialization.defaults.filter(entry=>entry.path.endsWith('.proficient')).map(entry=>({key:'system.'+entry.path,value:entry.value as number,origin:'schema-default'}));
     for(const key of ['str','dex','con','int','wis','cha']){
         const ability=record(record(system.abilities)?.[key]);
         if(ability&&ability.proficient===undefined){
@@ -275,7 +277,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    return {sourceInitialization,ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
 }
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified

@@ -1,6 +1,8 @@
 import fixture from '../../../tests/fixtures/native-6.0.6/defenses-initiative.json';
 import {skillSource,skillWorld,skillContext} from './skill-scenarios';
-export const defenseCases=fixture.cases;
+// C76 adds raw-source missing-key initialization; historical method shells with
+// absent DEX remain separate. Native default10 now gives initiative0/score10.
+export const defenseCases=fixture.cases.map(row=>row.abilities?.dex===null?{...row,expected:{...row.expected,total:0,mode:0,score:10,rollBonus:0}}:row);
 /** Independent test expectation from persisted scope literals, not module output. */
 export function defenseRangeSuffix(row:typeof defenseCases[number]):string {
  if(row.expected.fixed)return '';

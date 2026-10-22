@@ -1,3 +1,4 @@
+import {initializeCheckSource606} from './source-initialization';
 import {initializeClassFacts606} from './class-initialization';
 import {record} from '../native/6.0.6/source';
 import {initializedSaveProficiency606} from './roll-initialization';
@@ -8,7 +9,7 @@ import type {InitialFilterRead} from './constant-filters';
  * or current derived values. Only schema-clean values unchanged by the verified
  * base/embedded phase can be read. Optional roll parents must actually exist. */
 export function initialFilterData606(actor:unknown):(key:string)=>InitialFilterRead|null {
-    const source=record(actor),system=record(source?.system),abilities=record(system?.abilities);
+    const source=record(actor),system=record(source?.system),initialized=initializeCheckSource606(system),abilities=record(initialized.system.abilities);
     const actorFlags=record(record(source?.flags)?.dnd5e);
     const common=source?.type!=='character'||!system||Object.values(actorFlags??{}).some(Boolean);
     return key=>{
@@ -22,7 +23,7 @@ export function initialFilterData606(actor:unknown):(key:string)=>InitialFilterR
             const ability=record(abilities?.[parts[1]]);if(!ability)return null;
             if(parts[2]==='value'){
                 const value=ability.value;
-                return typeof value==='number'&&Number.isInteger(value)&&value>=0&&value<=30?{key,value,origin:'source'}:null;
+                return typeof value==='number'&&Number.isInteger(value)&&value>=0&&value<=30?{key,value,origin:record(record(system?.abilities)?.[parts[1]])?.value===undefined?'schema-default':'source'}:null;
             }
             if(parts[2]==='proficient'){
                 const value=initializedSaveProficiency606(ability);

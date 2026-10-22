@@ -2603,3 +2603,25 @@ evidence,not installed/native/operator acceptance. C74 public-roll evidence is
 retained separately;C75 changes no roll compiler. Partial M2/DD-01–06/11/27/31/34
 and A02–A06 read preparation only. ADR-0001 stays open;next initialize sparse
 ability/skill source mappings before broadening formula and Item final preparation.
+
+
+### C76 — shared sparse source initialization (2026-10-22)
+
+The shared pre-effect initializer now creates the6 standard abilities and18 native
+skills from absent/empty mappings. Missing abilities receive score10/save coefficient0;
+missing skills receive the keyed registry ability and proficiency0. An existing partial
+skill receives RollConfig's dex default instead. Source/prepared-looking fields never
+supply derived overrides. Initial filters,checks/saves/tools,passives,AC/initiative,
+health/movement and attacks consume the same detached operands and default provenance.
+Explicit malformed values remain unavailable;missing tools are never granted.
+
+[Evidence](../audits/evidence/2026-10-22-c76-source-initialization.json) records the same-input 0/0 →6/18 regression,4 pinned schema/default
+profiles and native arithmetic,54 module/9 tooling suites/61 assertions,222 explicitly
+typed files,mounted1440/390 selections/recovery/held callbacks,311953 public-host
+requests including144 new default requests,and isolated check/package PASS. Full
+retained mounted checks are pending at this checkpoint and are not claimed passed.
+Historical initialized-method fixture JSON is preserved. Its missing-source assumptions
+are explicitly superseded in maintained source expectations:CON10/HP8,STR10/jump5,
+DEX10/initiative0 and Dodge save+0;missing standard skill becomes untrained. This is
+partial M2/A02–A04/A18/A21,not native/operator acceptance. Next address deterministic
+formula/reference preparation across shared readouts;full ADR gates remain open.

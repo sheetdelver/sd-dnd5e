@@ -20,7 +20,7 @@ assert.equal(adapter.getRollData(prepared, 'skill', 'prc')?.formula, expected.sk
 assert.equal(adapter.getRollData(prepared, 'skill', 'prc', { advantage: 'adv', situationalBonus: '2' })?.formula, '2d20kh1+5+(2)');
 assert.equal(adapter.getRollData(prepared, 'skill', 'prc', { advantage: 'dis', situationalBonus: '-2' })?.formula, '2d20kl1+5+(-2)');
 assert.equal(adapter.getRollData(prepared, 'skill', 'prc', { situationalBonus: '1+1d4' }), null);
-assert.equal(adapter.getRollData(prepared, 'skill', 'prc', { ability: 'dex' }), null);
+assert.equal(adapter.getRollData(prepared, 'skill', 'prc', { ability: 'dex' })?.formula,'1d20+3','C76 default Dexterity10 supports explicit alternate ability');
 assert.equal(adapter.getRollData(prepared, 'skill', 'prc', { advantage: 'invalid' }), null);
 assert.deepEqual(source, before);
 // Persisted source is authoritative; fake prepared-looking totals cannot win.

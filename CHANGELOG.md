@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Initialize sparse standard ability and skill source consistently across checks, effects and character readouts.
+
 - Share Item/activity counters, inventory facts, numeric attack readouts and current Item/spell details across both layouts.
 
 - Support qualified final Actor custom text from empty feat Items while retaining earlier language labels.
