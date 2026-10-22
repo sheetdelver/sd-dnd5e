@@ -1,0 +1,197 @@
+{
+  "checkpoint": "C87 known flag reads,Normal Reliable Talent and equipment modifiers",
+  "parent": "a0811a7c58d11e25825dc51bb8ea70d6439a88fb",
+  "requirements": [
+    "M2/Q00/Q02a partial",
+    "DD-01/02/03/04/24/27/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "checks": {
+    "before": {
+      "artifact": "temp/c87-before.log",
+      "sha256": "b2d459b40e79d30d6829dc0b734a4754828a9cb25fa3218fa33043ded60986c8",
+      "result": "Same known-flag source fails before:static number unavailable"
+    },
+    "regression": {
+      "artifact": "temp/c87-tests-final.log",
+      "sha256": "e536f836833502816bfb4b2044a3a433943d19464cc349409fc6764ab7ce78bf",
+      "result": "66 module/9 tooling suites,61 tooling assertions PASS"
+    },
+    "typing": {
+      "artifact": "temp/c87-types-checkpoint.log",
+      "sha256": "2b5e85a6fa99cc6979d178abe35b8c09607fdab617ac85062064e8135a8041f6",
+      "result": "255 explicit module/UI/server/test/hook files PASS"
+    },
+    "native": {
+      "artifact": "temp/c87-native-flags.json",
+      "sha256": "a2a4ee8753eb50ff569958ba889aee3878a4d6d4b73f23c5f00578388c45e051",
+      "result": "9 read/160 Talent-range/48 current-primary/36 weapon-mode/8 armor-speed initialized profiles PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-remaining-flags-mounted-mO9JbV/evidence.json",
+      "sha256": "b1d798908eeeb7e4b85f8bbb4d9d25b1cc6ac5834498d25e057b2b7b852fcf03",
+      "result": "1440/390 actual reads/disabled reroll controls/Normal Talent/half combined/current primary/live weapon/movement and held-intent/context recovery;0 writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-sxBBHd/evidence.json",
+      "sha256": "3ffabe10cd9ded775a4c73c891237f6bacb7b069d624cc58b2b501d8465d679b",
+      "result": "26394 accepted including4160 new requests/208 complete Normal distributions;1 retained unary candidate,40 ordinary tied-index diagnostics;0 native writes PASS"
+    },
+    "exactRelease": {
+      "artifact": "temp/c87-source-checkpoint.log",
+      "sha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff",
+      "result": "2242 records/591 candidate expressions match pinned inventory PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-Qbju49/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "3285983c35891341d4faa9f6099ef3e5649cc0dbc27416fb0066264d41240b84",
+      "result": "Isolated module check/package PASS"
+    }
+  },
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "readFlags": [
+      {
+        "key": "halflingLucky",
+        "value": true,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": false
+      },
+      {
+        "key": "elvenAccuracy",
+        "value": true,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": true
+      },
+      {
+        "key": "halflingNimbleness",
+        "value": true,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": true
+      },
+      {
+        "key": "enhancedDualWielding",
+        "value": true,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": true
+      },
+      {
+        "key": "ignoreArmorSpeedReduction",
+        "value": true,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": true
+      },
+      {
+        "key": "reliableTalent",
+        "value": true,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": true
+      },
+      {
+        "key": "weaponCriticalThreshold",
+        "value": 19,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": true
+      },
+      {
+        "key": "spellCriticalThreshold",
+        "value": 18,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": true
+      },
+      {
+        "key": "meleeCriticalDamageDice",
+        "value": 1,
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "ability": 2,
+        "save": 2,
+        "initiative": 2,
+        "rollAvailable": true
+      }
+    ],
+    "sourceHashes": {
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/dice/d20-roll.mjs": "d4e8b0c05995229b123f20cc93d6f35199047f5e18cee16803f0d42b7710e605",
+      "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/documents/activity/attack.mjs": "e84e40c2ee22659d98d4d996cefd71c4ed4dade9475a4e23e7619bf3bf70be50"
+    },
+    "limits": [
+      "Exact initialized Actor read preparation/skill-tool dispatch and D20 configure/range methods;single raw result input has no native entropy engine. Native20-face distributions qualified separately from public-host serialization.",
+      "Read-only flags not used by these native preparation methods do not alter these numeric facts. Halfling reroll and Elven attack accuracy remain execution boundaries,not qualified dice profiles.",
+      "Weapon attackModes getter and Attributes.prepareMovement use declared schema/Collection/parent/currency/units collaborators;no full Actor/Item lifecycle or native/runtime/operator acceptance."
+    ]
+  },
+  "fixture": {
+    "path": "tests/fixtures/native-6.0.6/remaining-flags.json",
+    "sha256": "3758dafe8d159b9999a33e7f44dc186693bd2697d11d92b5989e8c0b67eea05b",
+    "counts": {
+      "readFlags": 9,
+      "reliable": 160,
+      "finalCases": 48,
+      "weaponModes": 36,
+      "movement": 8
+    }
+  },
+  "commands": [
+    "npm test -- --core <Core0.19.3>",
+    "npm run typecheck -- --core <Core0.19.3>",
+    "npm run test:native-source -- --native <read-only checkout>",
+    "npm run test:native-remaining-flags -- --core <Core> --native <checkout> --foundry <static14.367> --write-evidence temp/c87-native-flags.json",
+    "npm run test:mounted-remaining-flags -- --core <Core> --chromium <isolated Chromium>",
+    "node scripts/test-public-rolls.mjs --core <Core> --dependency-profile",
+    "npm run check:package -- --core <Core>"
+  ],
+  "limits": [
+    "Native initialized source methods/field collaborators,not full source DataModel/lifecycle or runtime/operator acceptance. Actor#rollSkillTool dispatch captures options without running native dice. Single raw face input uses actual D20 configure and Foundry min/max/total methods.",
+    "Known typed Boolean/critical metadata source profiles preserve stats independently. Numeric critical metadata is bounded0..20 for thresholds/nonnegative integers for extra dice;missing stays absent. Wider values/coercions,effect-written flags,critical/Elven attack and reroll execution remain unqualified.",
+    "Halfling Lucky totals/passives/card facts remain known;affected direct/modal/shortcut d20 execution rejects. Fixed initiative score has no die to reroll.",
+    "Reliable Talent gates on current primary.value after final fields. Automatic combined advantage uses cached profs;fresh prof construction uses effectValue/current targets. No manual talent-flag override surface is claimed.",
+    "Native min/max contributions use original raw faces;contradictory bounds preserve that behavior. New compiler reuses existing range/public primitives;no dice evaluator or tied-index equivalence expansion.",
+    "Initial isolated-host attempt timed out during bootstrap;unchanged retry passed. Initial mounted driver tried nonexistent desktop Abilities tab;corrected navigation helper,actual consumers unchanged. Failed logs retained;no Core defect inferred.",
+    "C03 historical Halfling blanket-numeric assertion superseded by explicit+5/passive15/direct rejection;malformed/unknown/legacy/context/range/stale protections remain.",
+    "Core0.19.3 baseline;Node24.21,CI Node22 unrun. Experimental0.4.1/compatibility unchanged. All task-owned host/browser services closed;preexisting services untouched. M2/ADR stay open."
+  ]
+}

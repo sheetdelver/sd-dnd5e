@@ -1,3 +1,4 @@
+import {halflingExecutionReason606} from './rule-flags';
 import {configureRules606,ruleSnapshot606,ruleScopes606} from './applied-rules';
 import {preparedFormulaBindings606} from './formula-fields';
 import {executionFormulaContext606} from './formula-fields';
@@ -102,6 +103,7 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     const scoreSetting=context.settings['dnd5e.initiativeScore'],tie=context.settings['dnd5e.initiativeDexTiebreaker'];
     if(!scoreSetting||scoreSetting.status==='unavailable'||!['none','npcs','all'].includes(String(scoreSetting.value)))executionReason??='Initiative score setting unavailable';
     const fixed=scoreSetting?.status!=='unavailable'&&scoreSetting?.value==='all';
+    if(!fixed)executionReason??=halflingExecutionReason606(effects.ruleFlags);
     if(!fixed&&(!tie||tie.status==='unavailable'||typeof tie.value!=='boolean'))executionReason??='Initiative tiebreaker setting unavailable';
     const currentScore=numeric?effects.finalNumbers[`system.abilities.${key}.value`]??numeric.score:null;
     const tiebreaker=!fixed&&tie?.status!=='unavailable'&&tie?.value===true&&currentScore!==null?currentScore/100:0;

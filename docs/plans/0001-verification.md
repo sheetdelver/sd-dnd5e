@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C86)
+### Current M2 exit state (updated C87)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3432,3 +3432,21 @@ public driver's missing global-check proficiency expectation was corrected again
 the actual native ability method;no host/runtime workaround was needed.
 [C86 record](../audits/evidence/2026-10-22-c86-read-flags.json) contains commands,hashes,
 full results and limits. Full M2/ADR/native/operator acceptance remain open.
+
+
+### C87 — remaining known flag reads and Normal Talent (2026-10-22)
+
+Parent `a0811a7`;partial M2/Q00/Q02a,DD-01/02/03/04/24/27/34,A02–A06/A18/A21.
+Maintained before source fails on known flag numeric availability. Afterward9 read
+profiles,160 Talent/scope combinations,48 final-primary cases,36 weapon modes and8
+armor-speed profiles match pinned initialized methods. Talent uses current primary
+value;automatic combined advantage still uses earlier prof objects. Unknown current
+metadata cannot replay a cached eligibility decision. Source/poison/card/context
+checks preserve source. Public4160 new requests cover all20 faces for208 Normal
+configurations;existing full ordinary selection/Normal-range distributions and tied
+index diagnostics remain unchanged. Both-layout mounted static reads/disabled reroll
+controls,Talent/half/selected/current-field previews,live modes/movement and held
+callbacks pass. [C87 record](../audits/evidence/2026-10-22-c87-remaining-flags.json)
+contains commands,hashes and evidence limits. Initial isolated-host startup timed out;
+its unchanged retry passed and all owned processes stopped. No Core defect inferred.
+M2 remains open for effect-written flags and remaining formula/Item/filter phases.

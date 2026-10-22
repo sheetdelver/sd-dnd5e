@@ -1549,3 +1549,13 @@ passives and current modes retain native phase/order. Initial snapshot predicate
 admit only qualified flags that leave those source/default operands unchanged.
 Source flags and flag-writing effects remain distinct;unknown/transformation flags
 still fence unsupported interpretation. [C86 source/phase evidence](audits/evidence/2026-10-22-c86-read-flags.json).
+
+
+Known native flags have per-workflow execution readiness. Reroll flags preserve
+independently known preparation while affected d20 requests return a reason. Normal
+Reliable Talent contributes a range scope only during current construction,using the
+primary's current value;earlier prof objects still control combined advantage.
+`checkConfiguration.currentValues` is module-produced phase data,never a raw source
+override. Equipment flags feed shared weapon modes/movement;details format those
+same facts. Missing current metadata retires support rather than replaying cached
+eligibility. [C87 evidence](audits/evidence/2026-10-22-c87-remaining-flags.json).

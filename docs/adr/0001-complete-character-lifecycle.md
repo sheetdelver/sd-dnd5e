@@ -2863,3 +2863,29 @@ transformation flags and unqualified snapshots remain gated. Both-layout passive
 save proficiency,Athletics/initiative modes,tool/combined checks and stale intent
 recovery are verified separately from10240 new public-host requests. Broader flag/
 effect/formula and Item final obligations remain;M2 and ADR stay open.
+
+
+### C87 — known flag availability and Normal Reliable Talent (2026-10-22)
+
+Known native roll/critical metadata no longer erases independently prepared character
+facts. Halfling Lucky retains totals/passives/cards while reroll execution remains
+explicitly unavailable. Elven Accuracy/critical action behavior is not enabled by
+recognizing its source metadata. Enhanced Dual Wielding supplies native weapon modes;
+Ignore Armor Speed Reduction affects the shared movement result. Both layouts and
+live Item details use those same facts. Missing critical flags remain absent,not a
+fabricated placeholder override;source coercions outside the qualified types stay gated.
+
+Reliable Talent compiles through the existing Normal-range path. Its gate uses the
+current primary skill/tool value,including qualified final-field changes;cached prof
+and secondary proficiency remain distinct. Half-proficient skill plus trained tool
+can grant ordinary advantage without Talent;the trained tool as primary instead
+gets minimum10 and the existing bounded-advantage unavailable state. Bounds retain
+native original-face/count semantics,including contradictory minimum/maximum values.
+No reroll evaluator or extension of tied-index equivalence is introduced.
+
+[C87 evidence](../audits/evidence/2026-10-22-c87-remaining-flags.json) records9 independent
+flag-read,160 Talent/range,48 current-primary,36 weapon-mode and8 armor-speed native
+profiles. Public-host4160 new requests cover208 complete Normal face distributions;
+actual mounted both-layout reads/previews/controls/context recovery are separate.
+Effect-written flags,wider formulas/filters and Item final dependencies still keep
+M2/ADR open;native/operator/installed acceptance is not claimed.

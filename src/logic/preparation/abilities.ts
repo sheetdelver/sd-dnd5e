@@ -1,3 +1,4 @@
+import {halflingExecutionReason606} from './rule-flags';
 import {configureRules606,ruleSnapshot606,ruleScopes606} from './applied-rules';
 import {preparedFormulaBindings606} from './formula-fields';
 import {proficiencyDiceTerm606} from './proficiency-term';
@@ -49,7 +50,7 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             const baseTotal=mod+(profile.proficiencyMode==='dice'?0:Math.floor(profile.proficiency*prof))+effects.conditions.rollReduction;
             const total=rules.bonus+baseTotal+(bonuses[0]as number)+(bonuses[1]as number),preparedTotal=preparedRules.bonus+baseTotal+(preparedBonuses[0]as number)+(preparedBonuses[1]as number);
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
-            return {ability:key,total,preparedTotal,proficiencyMode:profile.proficiencyMode,...(proficiencyTerm?{proficiencyTerm}:{}),preparationNote:preparedBonusNote(preparedTotal,total),sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,[ruleScopes606(rules),...abilityRollScopes(actor,key,type,effects.executionModes)],0,true,proficiencyTerm)};
+            return {ability:key,total,preparedTotal,proficiencyMode:profile.proficiencyMode,...(proficiencyTerm?{proficiencyTerm}:{}),preparationNote:preparedBonusNote(preparedTotal,total),sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,[ruleScopes606(rules),...abilityRollScopes(actor,key,type,effects.executionModes)],0,true,proficiencyTerm),...(halflingExecutionReason606(effects.ruleFlags)?{formula:null,unavailableReason:halflingExecutionReason606(effects.ruleFlags)}:{})};
         }
         const check = prepare('check'), saveRoll = prepare('save');
         const saveMultiplier=saveProficiency606(data.proficient,record(globals.save)?.proficiency);

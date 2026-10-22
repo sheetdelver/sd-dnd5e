@@ -16,14 +16,14 @@ const no=<T>(reason:string):ItemFact<T>=>({status:'unavailable',value:null,reaso
 const yes=<T>(value:T):ItemFact<T>=>({status:'ready',value,origin:'prepared',provenance});
 const types:Record<string,'melee'|'ranged'>={simpleM:'melee',simpleR:'ranged',martialM:'melee',martialR:'ranged',siege:'ranged'};
 export interface AttackFacts {ability:string|null;proficiency:number;total:number;display:string;formula:string}
-export function weaponModes606(raw:unknown,reason?:string):ItemFact<string[]> {
+export function weaponModes606(raw:unknown,reason?:string,enhancedDualWielding=false):ItemFact<string[]> {
  const item=record(raw),s=record(item?.system)??{},type=record(s.type),key=type?.value??'simpleM',properties=initializeTraitSet606(s.properties),range=record(s.range)??{};
  if(item?.type!=='weapon')return {...yes<string[]>([]),status:'not-applicable'};
  if(reason||!properties||typeof key!=='string'||!['simpleM','simpleR','martialM','martialR','siege','natural','improv'].includes(key))return no(reason??'Weapon type/properties unavailable');
- const prop=new Set(properties),attackType=types[key],modes:string[]=[],versatile=prop.has('ver');
+ const prop=new Set(properties),attackType=types[key],modes:string[]=[],versatile=prop.has('ver'),light=prop.has('lgt')||enhancedDualWielding&&attackType==='melee'&&!prop.has('two');
  if(!(prop.has('thr')&&attackType==='ranged')){if(versatile||!prop.has('two'))modes.push('oneHanded');if(versatile||prop.has('two'))modes.push('twoHanded');}
- if(prop.has('lgt'))modes.push('offhand');
- if(prop.has('thr')){modes.push('thrown');if(prop.has('lgt'))modes.push('thrown-offhand');}
+ if(light)modes.push('offhand');
+ if(prop.has('thr')){modes.push('thrown');if(light)modes.push('thrown-offhand');}
  else if(!attackType){if([range.value,range.reach].some(value=>value!=null&&(typeof value!=='number'||!Number.isFinite(value))))return no('Weapon range source malformed');if((range.value as number??0)>(range.reach as number??0))modes.push('ranged');}
  return yes(modes);
 }

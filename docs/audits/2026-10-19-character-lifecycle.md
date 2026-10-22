@@ -2117,3 +2117,17 @@ global check target:raw0/check1 stays1,while raw0/tool1 becomes2. Modern Remarka
 Athlete grants no half proficiency. Earlier initial scalar/Set flag-only gates are
 explicitly superseded with additional expected facts,without rewriting old JSON.
 Other flags,flag-writing effects,legacy expansion and full M2 acceptance remain open.
+
+
+### C87 — retain known reads while qualifying execution separately
+
+[C87 evidence](evidence/2026-10-22-c87-remaining-flags.json) supersedes the historical
+Halfling Lucky blanket numeric refusal: same source keeps Perception5/passive15 and
+level5/card proficiency3,while direct/shortcut/modal reroll execution stays blocked.
+Normal Reliable Talent uses the existing range compiler after validating current
+primary value;final primary0 can disable its minimum without erasing cached prof,
+and final primary1 can enable minimum10 on an otherwise untrained fresh check.
+Enhanced dual-wielding modes and armor-speed flags share the Item/movement models.
+261 controlled native profiles and4160 new isolated public requests retain independent
+expected values and actual host serialization. Broader effect/flag/dice and M2 gates
+remain open;no new Core defect or compatibility change is asserted.

@@ -1398,3 +1398,18 @@ configured prc/inv passive scores. [C86 record](../audits/evidence/2026-10-22-c8
 separates initialized globals from source tests using real effect entries and
 preserves the older scalar/Set raw capture limits. Full source DataModel,flag-writing
 effects,unknown flags,legacy-world/runtime/operator acceptance are not asserted.
+
+
+C87 compares actual #rollSkillTool gating,_buildSkillToolConfig,D20Roll.configureModifiers,
+Foundry minimum/maximum/total,Weapon.attackModes and Attributes.prepareMovement.
+Reliable Talent checks current primary.value>=1;secondary/cached prof alone cannot
+supply the gate. It raises existing minimum to10;maximum still uses native raw-face
+count semantics,not a conventional clamp of the modified count. Known nonpreparation
+roll/critical flags leave these static Actor facts unchanged. Halfling Lucky produces
+native reroll options and remains execution-unqualified;Elven Accuracy is configured
+by AttackActivity for supported attack abilities,not ordinary skill checks. Enhanced
+Dual Wielding treats melee&&!two as light for modes;the armor-speed flag skips the
+Strength armor penalty. [C87 record](../audits/evidence/2026-10-22-c87-remaining-flags.json)
+declares initialized schemas,dispatch/Collection/units collaborators and raw-result
+injection.208 public-host Normal distributions remain distinct from source methods;
+no full DataModel,reroll/critical/native/operator or installed acceptance follows.

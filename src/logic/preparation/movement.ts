@@ -76,7 +76,7 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
         const item=(source.items as unknown[]).find(raw=>record(raw)?._id===armor.id),required=record(record(item)?.system)?.strength??0;
         if(typeof required!=='number'||!Number.isInteger(required)||required<0||!bounded(required))moveReason??='Equipped armor strength source unavailable';
         else if(required>0&&!ability)moveReason??='Strength source required for equipped armor movement';
-        else if(ability&&required>ability.score&&movementUnits)reduction+=10/units[movementUnits];
+        else if(ability&&required>ability.score&&movementUnits&&!effects.ruleFlags.ignoreArmorSpeedReduction)reduction+=10/units[movementUnits];
     }
     let max=0;
     for(const key of movementKeys){

@@ -50,6 +50,8 @@
     "test:native-rules": "node scripts/native-applied-rules-oracle.mjs",
     "test:mounted-rules": "node scripts/test-mounted-applied-rules.mjs",
     "test:native-read-flags": "node scripts/native-read-flags-oracle.mjs",
-    "test:mounted-read-flags": "node scripts/test-mounted-read-flags.mjs"
+    "test:mounted-read-flags": "node scripts/test-mounted-read-flags.mjs",
+    "test:native-remaining-flags": "node scripts/native-remaining-flags-oracle.mjs",
+    "test:mounted-remaining-flags": "node scripts/test-mounted-remaining-flags.mjs"
   }
 }

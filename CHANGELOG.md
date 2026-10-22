@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Preserve readouts with known roll flags; support qualified Normal Reliable Talent, dual-wielding modes and armor speed flags.
+
 - Prepare Diamond Soul, Tool Expertise, Observant and modern Remarkable Athlete consistently across read and roll surfaces.
 
 - Share conditional rule bonuses, advantage and die bounds across prepared checks and roll previews.

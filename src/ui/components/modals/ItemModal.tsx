@@ -1,4 +1,5 @@
 'use client';
+import {ATTACK_MODE_OPTIONS} from '../shared/rollOptions';
 
 import React from 'react';
 import { resolveImage,processHtmlContent } from '@sheet-delver/sdk';
@@ -116,6 +117,7 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
                     {legacy&&typeof sys.quantity==='number'?<PropertyRow label="Quantity" value={String(sys.quantity)}/>:<PropertyRow label="Quantity" value={prepared?.quantity.status==='not-applicable'?'Not applicable':prepared?.quantity.value==null?'Unavailable':String(prepared.quantity.value)}/>}
                     {!legacy&&<PropertyRow label="Weight" value={prepared?.weight.value?`${prepared.weight.value.value} ${prepared.weight.value.units}`:prepared?.weight.status==='not-applicable'?'Not applicable':'Unavailable'}/>}
                     {!legacy&&prepared?.proficiency&&prepared.proficiency.status!=='not-applicable'&&<PropertyRow label="Item proficiency (prepared)" value={prepared.proficiency.status==='ready'?prepared.proficiency.term??'Unavailable':'Unavailable'}/>}
+                    {!legacy&&liveItem.type==='weapon'&&<PropertyRow label="Attack modes" value={prepared?.attackModes.status==='ready'?prepared.attackModes.value?.map(key=>ATTACK_MODE_OPTIONS.find(option=>option.value===key)?.label??key).join(', ')||'None':prepared?.attackModes.reason??'Unavailable'}/>}
                     {!legacy&&prepared?.physical&&<>
                         <PropertyRow label="Total weight" value={prepared.physical.totalWeight.value==null?'Unavailable':`${prepared.physical.totalWeight.value} ${prepared.physical.units}`}/>
                         {liveItem.type==='container'&&<PropertyRow label="Capacity" value={prepared.physical.capacity.value?prepared.physical.capacity.value.max==null?'Unlimited':`${prepared.physical.capacity.value.value}/${prepared.physical.capacity.value.max} ${prepared.physical.capacity.value.units}`:prepared.physical.capacity.reason??'Unavailable'}/>}
