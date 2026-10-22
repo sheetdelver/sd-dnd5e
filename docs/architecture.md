@@ -1162,3 +1162,23 @@ normalized data. Petrified sheet AllDamage override is separately captured with 
 declared predicate stub; no condition-query/phase admission follows. Runtime remains
 gated until C58 shared snapshots and consumer tests. [Record](audits/evidence/2026-10-22-c57-final-defense-sets-foundation.json)
 keeps actual method/field comparisons separate from source boot/UI/native acceptance.
+
+### Final defense Set snapshot (C58)
+
+`normalizeDamageSets606` owns earlier ALL/overlap normalization for both initial
+projections and the final-effect input snapshot. Qualified final Actor Set changes
+start there and update `NumericEffects.finalDefenseSets`; each applied record retains
+its before/value/delta/phase and prepared-or-final operand provenance. Earlier detached
+system fields remain unchanged. Defense projections consume the final map and skip
+normalization replay. Final data may legitimately contain an overlap or ALL plus a
+specific value. No UI consumer calculates a defense rule or stores another copy.
+
+The bounded profile requires known initialized defense Sets, qualified primitive
+literal deltas and no condition preparation. Unknown/reference/malformed inputs,
+Item origins, final training/custom String/formula fields and condition compositions
+remain unavailable. In particular,48 petrified field-model cases do not authorize full
+final CI/status/query behavior. Earlier condition/check preparation stays separate.
+Cards, desktop/mobile defense readouts and physical bypass descriptions share these
+facts; existing intent signatures include the changed effect receipts.
+[Evidence](audits/evidence/2026-10-22-c58-final-defense-sets.json) distinguishes actual
+method/field construction, regression, mounted/public-host and native/operator limits.

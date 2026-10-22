@@ -10,6 +10,13 @@ for(const row of traitEffectCases){
     const source=traitEffectSource(row),before=structuredClone(source),effects=prepareNumericEffects606(source),prepared=adapter.prepareActorData(source,skillContext());
     const formula=adapter.getRollData(prepared,'skill','prc')?.formula??null;
     assert.deepEqual(source,before,row.id);
+    // C58 supersedes this historical final-Set restriction with the same input.
+    if(row.id==='unavailable-final'){
+        assert.equal(formula,'1d20+5');assert.equal(effects.reason,undefined);
+        assert.deepEqual((prepared.derived as any).defenses.categories.dr.values,['fire']);
+        assert.deepEqual(effects.applied.map(entry=>[entry.phase,entry.before,entry.value]),[['final',[],['fire']]]);
+        continue;
+    }
     if(row.expectedOperands){
         if(formula!=='1d20+5'){failures.push(row.id);continue;}
         assert.equal(effects.reason,undefined,row.id);

@@ -17938,6 +17938,498 @@
         }
       },
       "expectedPetrifiedDisplayOverride": true
+    },
+    {
+      "id": "physical/dr.bypasses/override",
+      "source": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "petrified": false,
+      "field": "dr.bypasses",
+      "change": {
+        "key": "system.traits.dr.bypasses",
+        "type": "override",
+        "value": "[\"sil\"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "expectedAfter": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "sil"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "expectedPetrifiedDisplayOverride": false
+    },
+    {
+      "id": "physical/di.bypasses/override",
+      "source": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "petrified": false,
+      "field": "di.bypasses",
+      "change": {
+        "key": "system.traits.di.bypasses",
+        "type": "override",
+        "value": "[\"sil\"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "expectedAfter": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "sil"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "expectedPetrifiedDisplayOverride": false
+    },
+    {
+      "id": "physical/dv.bypasses/override",
+      "source": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "petrified": false,
+      "field": "dv.bypasses",
+      "change": {
+        "key": "system.traits.dv.bypasses",
+        "type": "override",
+        "value": "[\"sil\"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "expectedAfter": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "sil"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "expectedPetrifiedDisplayOverride": false
+    },
+    {
+      "id": "physical/dm.bypasses/override",
+      "source": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "petrified": false,
+      "field": "dm.bypasses",
+      "change": {
+        "key": "system.traits.dm.bypasses",
+        "type": "override",
+        "value": "[\"sil\"]",
+        "phase": "final"
+      },
+      "expectedBefore": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "mgc"
+          ]
+        }
+      },
+      "expectedAfter": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "di": {
+          "value": [
+            "slashing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "dv": {
+          "value": [
+            "piercing"
+          ],
+          "bypasses": [
+            "mgc"
+          ]
+        },
+        "ci": {
+          "value": []
+        },
+        "dm": {
+          "amount": {
+            "bludgeoning": "2"
+          },
+          "bypasses": [
+            "sil"
+          ]
+        }
+      },
+      "expectedPetrifiedDisplayOverride": false
     }
   ]
 }

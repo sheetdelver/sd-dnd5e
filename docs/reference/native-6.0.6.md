@@ -1123,3 +1123,12 @@ normalized data. Petrified sheet AllDamage override is separately captured with 
 declared predicate stub; no condition-query/phase admission follows. Runtime remains
 gated until C58 shared snapshots and consumer tests. [Record](../audits/evidence/2026-10-22-c57-final-defense-sets-foundation.json)
 keeps actual method/field comparisons separate from source boot/UI/native acceptance.
+
+C58 extends the final defense Set fixture with four independent physical-bypass
+overrides. Current comparison196 includes C57's unchanged192 profiles, with native
+sheet physical icons checked for all four categories. Runtime admits148 condition-free
+profiles;48petrified initialized-model cases remain an explicit workflow boundary.
+The original C25 plain-fire final row is supported without changing its source input.
+Earlier normalization precedes final operations; current final Sets are not normalized
+again. [Record](../audits/evidence/2026-10-22-c58-final-defense-sets.json) retains source
+hashes and keeps field/shell/phase evidence distinct from full native acceptance.

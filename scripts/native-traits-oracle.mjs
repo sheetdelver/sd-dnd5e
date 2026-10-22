@@ -192,15 +192,16 @@ assert.equal(finalDefenseFixture.nativeCommit,nativeCommit);
 for(const row of finalDefenseFixture.cases){
  const model={traits:{},parent:{statuses:new Set(),hasConditionEffect:()=>row.petrified}};
  for(const key of ['dr','di','dv','ci']){const raw=row.source[key]??{};model.traits[key]={value:cleanSet(raw.value),custom:'',...(key!=='ci'?{bypasses:cleanSet(raw.bypasses)}:{})};}
- model.traits.dm={amount:{},bypasses:cleanSet(row.source.dm?.bypasses)};
+ model.traits.dm={amount:structuredClone(row.source.dm?.amount??{}),bypasses:cleanSet(row.source.dm?.bypasses)};
  TraitsFields.prepareResistImmune.call(model);
- const snapshot=()=>Object.fromEntries(Object.entries(model.traits).map(([key,v])=>[key,key==='dm'?{amount:{},bypasses:Array.from(v.bypasses)}:{value:Array.from(v.value),...(key!=='ci'?{bypasses:Array.from(v.bypasses)}:{})}]));
+ const snapshot=()=>Object.fromEntries(Object.entries(model.traits).map(([key,v])=>[key,key==='dm'?{amount:structuredClone(v.amount),bypasses:Array.from(v.bypasses)}:{value:Array.from(v.value),...(key!=='ci'?{bypasses:Array.from(v.bypasses)}:{})}]));
  assert.deepEqual(snapshot(),row.expectedBefore,row.id+'/prepared before');
  const path='traits.'+row.field,field=new SetField(new StringField(),{initial:[]}),before=get(model,path),value=field.applyChange(before,model,row.change);setAt(model,path,value);
  assert.deepEqual(snapshot(),row.expectedAfter,row.id+'/after final,no normalization replay');
  const sheet=Object.assign(new NativeSheet(),{actor:{system:model,getRollData:()=>({})},document:{hasConditionEffect:()=>row.petrified},_mode:'edit'}),display=sheet._prepareTraits({});
  if(row.petrified)assert.deepEqual(Array.from(display.dr,entry=>entry.label),[actualRegistry.allDamage]);
  else for(const key of ['dr','di','dv','ci'])assert.deepEqual(Array.from(display[key]??[],entry=>entry.key),row.expectedAfter[key].value,row.id+'/fresh native sheet values');
+ if(row.id.startsWith('physical/'))for(const key of ['dr','di','dv','dm'])assert.deepEqual(Array.from(display[key][0].icons,icon=>icon.icon),row.expectedAfter[key].bypasses,row.id+'/'+key+'/physical bypass icons');
  finalDefenseObservations.push({id:row.id,before:row.expectedBefore,after:snapshot(),display:JSON.parse(JSON.stringify(display)),petrifiedOverride:row.petrified});
 }
 const evidence={finalDefenseFixture,finalDefenseObservations,trainingEffectObservations,trainingRegistry:trainingConfig,trainingObservations,effectObservations,rawArrayDiagnostic:{sourceValue:['fire','cold'],nativeValue:rawArrayDiagnostic,module:'Explicitly unavailable; never interpreted as JSON array string'},nativeCommit,foundry:{generation:14,build:367,fieldsSha256:sha256(fields),helpersSha256:sha256(helpers),setPrimitivesSha256:sha256(setSource)},registry:actualRegistry,observations,

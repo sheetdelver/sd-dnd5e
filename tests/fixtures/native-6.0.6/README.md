@@ -398,3 +398,11 @@ condition-free and48petrified initialized field/presentation cases. Actual Trait
 SetField then sheet;no normalization replay after final. Petrification predicate and
 key-label/registry helpers declared stubs. Runtime admission and full condition phase
 qualification remain separate;no module output was used to generate expectations.
+
+C58 adds four physical-bypass overrides to `final-defense-sets.json`:196 source
+cases total,148 condition-free supported profiles and48petrified field-model cases
+remaining unavailable at runtime. Native sheet icons compare physical membership;
+DM amount is an independently declared numeric literal already in the C24 profile.
+C57's original192/hashes remain historical evidence. No module/native output was used
+to populate new expectations. C25's original plain-fire final source row is retained
+with its obsolete unavailable restriction explicitly superseded by C58.

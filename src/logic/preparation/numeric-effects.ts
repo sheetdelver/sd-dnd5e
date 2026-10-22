@@ -1,4 +1,5 @@
 import {sourceRuleFlags606,type SourceRuleFlags606} from './rule-flags';
+import {preparedDefenseSets606} from './defense-sets';
 import {prepareConditions606,type ConditionPreparation606} from './conditions';
 import { initializedModeState, applyEffectMode, resolvedEffectMode, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
@@ -13,6 +14,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
+    finalDefenseSets?:Record<string,string[]>;
     ruleFlags:SourceRuleFlags606;system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;executionBonuses:Record<string,number>;finalNumbers:Record<string,number>;checkExecutionReason?:string;
     applied:Array<{effectId:string;key:string;phase:'initial'|'final';before:number|string[];value:number|string[];formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
@@ -160,6 +162,8 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     // Keep their earlier count state separate; never move a final effect to initial.
     const executionModes=structuredClone(modes),executionGlobals=structuredClone(globals),executionBonuses:Record<string,number>={},finalNumbers:Record<string,number>={},equipment=prepareEquipment606(actor);
     let checkExecutionReason:string|undefined;
+    let finalDefenseSets:Record<string,string[]>|undefined;
+    const changedDefenseSets=new Set<string>();
     function addExecutionMode(key:string,delta:number){
         const field=target({key});
         if(!field?.mode)return false;
@@ -172,6 +176,15 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     for(const change of plan.final){
         if(change.itemId!==undefined){reason??='Transferred Item final phase requires qualification';continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
+        if(/^system\.traits\.(?:(?:dr|di|dv|ci)\.value|(?:dr|di|dv|dm)\.bypasses)$/.test(change.key)&&field?.set&&field.valid){
+            if(conditions.sources.length||conditions.actorStatuses.length||conditions.status!=='ready'){reason??='Final defense Sets with condition preparation require qualification';continue;}
+            if(!finalDefenseSets){const snapshot=preparedDefenseSets606(system);if(snapshot.reason){reason??=snapshot.reason;continue;}finalDefenseSets=snapshot.fields;}
+            const before=finalDefenseSets[change.key],result=applyTraitSet606(before,change.type,raw,field.valid);
+            if(!result){reason??=`Final defense Set operation/value requires qualification: ${change.key}`;continue;}
+            finalDefenseSets[change.key]=result.value;
+            applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:changedDefenseSets.has(change.key)?'final':'prepared',before:[...before],value:[...result.value],delta:result.delta});
+            changedDefenseSets.add(change.key);continue;
+        }
         const number=/^system\.(?:abilities\.(?:str|dex|con|int|wis|cha)\.(?:value|proficient)|(?:skills|tools)\.[^.]+\.value)$/.test(change.key);
         if(number&&field&&!field.formula&&!field.mode&&!field.set){
             const rawAbilityRolls=record(record(system.rolls)?.ability);
@@ -212,7 +225,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
         applied.push({effectId:change.effectId,key:change.key,phase:'final',before,value});
     }
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    return {ruleFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,finalDefenseSets,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
 }
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified

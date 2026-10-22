@@ -364,7 +364,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots; C49/50 final global proficiency snapshots and shared execution; C51/52 final constant bonuses with preserved passive/fixed-score snapshots; C53/54 final numeric fields/current scores with earlier modifiers and fresh initiative ties; C55/56 modern source Jack/Alert qualification and shared rules | RV01–RV04 retained; C06–C56 separate regression/controlled-source/mounted/isolated-host evidence |
+| M2 | In progress: C06 corrects DD-R03/R04; C07 source modes/passives; C08 corrects DD-R05 plain-d20 execution; C09 independent source tool checks. C10 corrects DD-R06; C11 qualifies selected checks/abilities. C12 eligibility, C13 initial numeric fields and C14 constant bonuses and C15 effect modes/passive order and C16 HP/HD, C17 armor/initiative and C18 source equipment and C19 movement/senses are bounded slices. Final/filters/Item phases, broader expressions and bounded adv/dis remain open; C20/C21 qualify and implement normal ranges; C22 corrects source/default Item effect eligibility; C23 shares truthful stored species identity; C24 prepares bounded defense traits; C25 initial trait-set/constant adjustment effects; C26 truthful fractional/unknown roll proficiency indicators; C27 source training/language facts; C28 initial training Sets; C29 snapshot-invariant filters; C30 envelope gates; C31 initial scalar filters/schema save default; C34 initial Set predicates; C35 shared class initialization; C36 condition qualification; C37 bounded poisoned status/check/passive preparation and readouts; C38/39 modern exhaustion phase qualification and shared reductions; C40/41 condition save/init/movement modes; C42/43 petrification trait/status phases; C44/45 explicit Stunned/Unconscious phases; C46 corrects DD-R07 Character phase composition; C47/48 final mode qualification and shared execution snapshots; C49/50 final global proficiency snapshots and shared execution; C51/52 final constant bonuses with preserved passive/fixed-score snapshots; C53/54 final numeric fields/current scores with earlier modifiers and fresh initiative ties; C55/56 modern source Jack/Alert qualification and shared rules; C57/58 final defense Set phase qualification and condition-free snapshots | RV01–RV04 retained; C06–C58 separate regression/controlled-source/mounted/isolated-host evidence |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -2131,3 +2131,51 @@ introduce a shared earlier-normalized/final Set snapshot, preserve raw source an
 partial-domain diagnostics, and test both layouts, stale intents and execution gates
 before admission. Other final training/Item/filter/formula/condition phases and all
 full ADR/DD/A/M gates remain open. Experimental0.4.1 and compatibility unchanged.
+
+### C58 — condition-free final defense Sets (2026-10-22)
+
+C58 admits Actor-owned constant-guard final value Sets for damage resistance, immunity,
+vulnerability and condition immunity, plus the four damage-category bypass Sets. One
+shared normalizer produces the earlier trait state. A detached finalDefenseSets map
+then applies qualified literal Set operations in native order; repeated changes consume
+the preceding final result. The projection reads this current map without normalizing
+it again. Earlier source/condition/check snapshots remain separate and unchanged.
+
+148 independent supported profiles fail on C57 with the same final inputs and pass
+after C58. Four added physical-bypass captures extend C57's192 historical source cases
+to196; native sheet icons and actual Set fields compare independently. The historical
+C25 `unavailable-final` row now supports its unchanged plain-fire input, with an actual
+final-phase receipt and Fire resistance. Its original fixture and historical evidence
+are preserved; only the obsolete unavailable expectation is superseded. Still-unknown
+String/training/formula/Item phases and malformed/reference deltas remain gated.
+
+Condition-bearing final-Set workflows stay explicitly unavailable. C57's48 petrified
+initialized field/presentation comparisons do not establish the complete actual Actor
+status/query lifecycle. No final immunity change may be treated as an initial grant,
+retroactively erase an earlier mode, or silently restore an omitted source status.
+These remaining condition phases must be qualified separately before admission.
+
+Both layouts' existing defense surfaces, physical bypass descriptions and cards read
+the same projection; roll previews/buttons/shortcuts/direct adapter requests keep the
+shared compiler. Source, canonical metadata and prepared-looking poison are preserved.
+Context loss, unsupported conditions and identity changes retire held callbacks;
+recovery requires fresh valid intent and never replays a roll.
+
+[Record](../audits/evidence/2026-10-22-c58-final-defense-sets.json) separates baseline failures, regression, controlled-native-method, mounted,
+public-host and package results. Temporary data/config and synthetic endpoints only;
+no live Foundry or native/operator acceptance. Experimental0.4.1 and compatibility
+unchanged. All full M/DD/A/ADR gates remain open, with E01/E02/E04/widerQ00/E05 external
+or unresolved as documented. Next executable M2 work: final training Set field/label
+phase qualification and final defense condition-query composition, before broader
+Item/filter/formula work. No unavailable state counts as completed rules support.
+
+C58 completed validation:61assertions/9tooling/45module suites and199 explicit
+source/UI/server/test/hook files PASS. Exact inventory2242/591, traits196 plus retained
+source domains, native effects and condition matrices PASS. Focused mounted106 at
+1440/390 and the full retained mounted suite PASS. Real isolated public-host262510
+accepted/1known candidate rejection/40equal-index diagnostics/0nativewrites PASS.
+Isolated check/package PASS; archive SHA256
+`9a35b65c8045e42be1161c5d20d8f347fbf12d3e3d7fae7b69b46ab1d0f055cd`.
+Failed retained-expectation/import/typing runs and their corrections remain recorded;
+none is reported as passing. All owned hosts/browsers closed. Experimental/version/
+compatibility unchanged;ADR/fullacceptance remains open.

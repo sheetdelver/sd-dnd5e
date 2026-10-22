@@ -2662,3 +2662,51 @@ introduce a shared earlier-normalized/final Set snapshot, preserve raw source an
 partial-domain diagnostics, and test both layouts, stale intents and execution gates
 before admission. Other final training/Item/filter/formula/condition phases and all
 full ADR/DD/A/M gates remain open. Experimental0.4.1 and compatibility unchanged.
+
+### C58 — condition-free final defense Sets (2026-10-22)
+
+C58 admits Actor-owned constant-guard final value Sets for damage resistance, immunity,
+vulnerability and condition immunity, plus the four damage-category bypass Sets. One
+shared normalizer produces the earlier trait state. A detached finalDefenseSets map
+then applies qualified literal Set operations in native order; repeated changes consume
+the preceding final result. The projection reads this current map without normalizing
+it again. Earlier source/condition/check snapshots remain separate and unchanged.
+
+148 independent supported profiles fail on C57 with the same final inputs and pass
+after C58. Four added physical-bypass captures extend C57's192 historical source cases
+to196; native sheet icons and actual Set fields compare independently. The historical
+C25 `unavailable-final` row now supports its unchanged plain-fire input, with an actual
+final-phase receipt and Fire resistance. Its original fixture and historical evidence
+are preserved; only the obsolete unavailable expectation is superseded. Still-unknown
+String/training/formula/Item phases and malformed/reference deltas remain gated.
+
+Condition-bearing final-Set workflows stay explicitly unavailable. C57's48 petrified
+initialized field/presentation comparisons do not establish the complete actual Actor
+status/query lifecycle. No final immunity change may be treated as an initial grant,
+retroactively erase an earlier mode, or silently restore an omitted source status.
+These remaining condition phases must be qualified separately before admission.
+
+Both layouts' existing defense surfaces, physical bypass descriptions and cards read
+the same projection; roll previews/buttons/shortcuts/direct adapter requests keep the
+shared compiler. Source, canonical metadata and prepared-looking poison are preserved.
+Context loss, unsupported conditions and identity changes retire held callbacks;
+recovery requires fresh valid intent and never replays a roll.
+
+[Record](../audits/evidence/2026-10-22-c58-final-defense-sets.json) separates baseline failures, regression, controlled-native-method, mounted,
+public-host and package results. Temporary data/config and synthetic endpoints only;
+no live Foundry or native/operator acceptance. Experimental0.4.1 and compatibility
+unchanged. All full M/DD/A/ADR gates remain open, with E01/E02/E04/widerQ00/E05 external
+or unresolved as documented. Next executable M2 work: final training Set field/label
+phase qualification and final defense condition-query composition, before broader
+Item/filter/formula work. No unavailable state counts as completed rules support.
+
+C58 completed validation:61assertions/9tooling/45module suites and199 explicit
+source/UI/server/test/hook files PASS. Exact inventory2242/591, traits196 plus retained
+source domains, native effects and condition matrices PASS. Focused mounted106 at
+1440/390 and the full retained mounted suite PASS. Real isolated public-host262510
+accepted/1known candidate rejection/40equal-index diagnostics/0nativewrites PASS.
+Isolated check/package PASS; archive SHA256
+`9a35b65c8045e42be1161c5d20d8f347fbf12d3e3d7fae7b69b46ab1d0f055cd`.
+Failed retained-expectation/import/typing runs and their corrections remain recorded;
+none is reported as passing. All owned hosts/browsers closed. Experimental/version/
+compatibility unchanged;ADR/fullacceptance remains open.
