@@ -3025,3 +3025,15 @@ states plus436final/480initial retained String states at1440/390 PASS. Public283
 accepted/1candidate/40tie diagnostics/0writes PASS. Isolated check/package PASS; archive
 SHA256 `6df931a8b9c54b7d013249b90073e8e9295066f517eb75ca1c417de2247ddee6`. Full retained mounted is still running at the code checkpoint
 and will be recorded separately. No installed/native/operator acceptance follows.
+
+
+C70 full retained mounted completion:50transitions,8preview,16facts,18modes,56tools,
+80selected,22eligibility,1172fields,58modeeffects,58health,102AC/init,90armor,84movement,
+624training,24proficiencyindicators,149defenses,40species,180normalranges and held-intent
+fences PASS at1440/390. C70 records the generated state/browser artifacts and distinguishes
+the final focused condition-transition check. All owned hosts/browsers are stopped;
+Core baseline clean. [C67–C70 index](../audits/evidence/2026-10-22-c67-c70-checkpoints.json)
+records full commit/evidence/archive identities and C70's later full-run completion.
+Next executable M2 work is bounded transferred Item Actor-target initial custom-field
+qualification through existing eligibility/default and native phase methods. Final/
+general Item preparation, broader condition/CI/filter/formula work and full gates remain open.

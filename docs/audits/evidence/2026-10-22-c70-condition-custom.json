@@ -129,5 +129,39 @@
     "Full retained mounted suite /tmp/dnd5e-mounted-is7McI stillrunning at codecheckpoint;completion will be recorded separately. Focused886+436+480complete. No liveFoundry/productionservices touched;all publichosts and focusedbrowsers closed.",
     "Petrification/otherconditions,mixed/immune/inactive/CI-changing sources,rawleveldefault/outofprofilelevels,Itemorigins,null/coercions/references and widerformulas remain gated in thisStringworkflow. Their independent previously qualified rules are preserved.",
     "Experimental0.4.1/compatibility unchanged. E01/E02/E04/widerQ00/E05 and fullADR/DD/A/M/nativeoperator gates remain open. Next bounded M2 work:transferred Item Actor-target initialcustomfield qualification using existing Item eligibility/source phase evidence;final/general Item preparation stays unqualified."
-  ]
+  ],
+  "fullMountedCompletion": {
+    "result": "PASS,all retained desktop/mobile consumers and intent fences",
+    "artifact": "/tmp/dnd5e-mounted-is7McI/evidence.json",
+    "sha256": "c07d4c0361aaa532d951ef5ee51eadcf70fb3fa68146ea1181bb9bdb7d9bc6b9",
+    "logSha256": "4fa0943b85ce4e6afbd34b22abbce6bf360b3b5f8f7d969230a7de3cf3285fc9",
+    "generatedStateSha256": "70bf435a2c0e5465207749a51641804d03daad42d4eabfe8ce77e06b02e5b77b",
+    "browserFixtureSha256": "f6ad00ed4c8470b93dc977664cc216969d1d9fa74adfa65bc7d55ff381df5b2f",
+    "counts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56,
+      "focusRows": 2,
+      "combinationRows": 80,
+      "effectRows": 22,
+      "numericEffectRows": 1172,
+      "effectModeRows": 58,
+      "healthRows": 58,
+      "defenseRows": 102,
+      "equipmentRows": 90,
+      "movementRows": 84,
+      "rangeRows": 180,
+      "speciesRows": 40,
+      "defenseTraitRows": 149,
+      "indicatorRows": 24,
+      "trainingRows": 624
+    },
+    "note": "Runtime files match C70. Full command started before the additional focused condition-transition assertion; final focused886 separately verifies that assertion. Full and focused artifacts remain distinct."
+  },
+  "cleanup": {
+    "listenersSha256": "7ad2d015783641e67af9571f13132d1467b380134c291a49d602e360db71143e",
+    "result": "All task-owned hosts/browsers stopped;Core baseline clean;pre-existing services untouched."
+  }
 }
