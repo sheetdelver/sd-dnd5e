@@ -1303,3 +1303,9 @@ and exact reference replacement.21 levels preserve zero and sparse/null inherita
 126 restriction cases and linked subclass level3 versus Actor8 are independent.
 Class NumberField declares missing level1;source/default tests qualify that case.
 Collection/model shells and explicit identifiers are recorded in [evidence](../audits/evidence/2026-10-22-c78-class-scales.json);no full model boot/native acceptance follows.
+
+
+C79 adds actual Actor/ActorModel roll data,skill/tool builder,generic d20 method and
+BasicRoll.constructParts to the formula comparisons. Root prof replacement explains
+prepared/fresh differences for half proficiency,expertise and global targets;source
+proficiency fields remain initialized/prepared separately. [Evidence](../audits/evidence/2026-10-22-c79-formula-roll-context.json) records initialized collaborators and numeric expectations;no native runtime acceptance follows.

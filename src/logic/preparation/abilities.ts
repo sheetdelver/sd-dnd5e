@@ -1,3 +1,4 @@
+import {executionFormulaContext606} from './formula-fields';
 import { numericAbilityValue } from './numeric';
 import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 import { record } from '../native/6.0.6/source';
@@ -30,11 +31,13 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             const local = record(data[type]) ?? {}, roll = record(local.roll) ?? {}, global = record(globals[type]) ?? {};
             if (data[type] != null && !record(data[type]) || globals[type] != null && !record(globals[type])) unavailableReason = 'Malformed native ability roll configuration';
             const scopes=[{path:`abilities.${key}.${type}.roll`,value:local.roll},{path:`rolls.ability.${type}`,value:global}];
-            const preparedBonuses = [roll.bonus, global.bonus].map(numericConstant),bonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses));
+            const prof=type==='save'?saveProficiency606(data.proficient,global.proficiency):checkProficiency606(0,undefined,[],{check:global.proficiency,skill:0,tool:0});
+            const formulaContext=executionFormulaContext606(effects,prof!==null&&profile.status==='ready'?(prof>0?Math.floor(profile.proficiency*prof):profile.proficiency):null);
+            const preparedBonuses = [roll.bonus, global.bonus].map(numericConstant),bonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses,formulaContext));
             if ([...preparedBonuses,...bonuses].some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
             const mode = sourceD20Mode(abilityRollScopes(actor, key, type,effects.executionModes));
             if (mode.reason) unavailableReason = mode.reason;
-            const prof=type==='save'?saveProficiency606(data.proficient,global.proficiency):checkProficiency606(0,undefined,[],{check:global.proficiency,skill:0,tool:0});
+
             if (prof===null) unavailableReason = 'Ability proficiency source unavailable';
             if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready'||prof===null) return { ability: key, total: null,preparedTotal:null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
             const baseTotal=mod+Math.floor(profile.proficiency*prof)+effects.conditions.rollReduction;

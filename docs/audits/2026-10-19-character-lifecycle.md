@@ -1959,3 +1959,26 @@ C77's full retained desktop/mobile suite also completed;its artifact/counts are
 supplemented in the historical C76/C77 records without relabeling runtime capture.
 No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
+
+
+### C79 — fresh roll reference correction (2026-10-22)
+
+Pinned builder comparisons found a module defect in C77's fresh `@prof` binding.
+BasicRoll.constructParts replaces root prof with a proficient check's term;an
+untrained check retains Actor base prof. The same half-profile source rolled+9
+before,where native construction requires+7;expertise rolled+14 instead of+17.
+The shared compiler now resolves original roll expressions after current selection/
+proficiency validation. Earlier prepared9/14 and passive21/26 remain unchanged.
+Selected tool expertise19 and prepared ability12/current15 are also covered.
+This supersedes C77's blanket fresh Actor-base substitution,not its prepared math
+proof. No Core/SDK change or native support expansion is implied.
+
+[Evidence](evidence/2026-10-22-c79-formula-roll-context.json) records8 native profiles/8 selected tools/1 ability build,
+58 module/9 tooling suites,61 assertions,231 explicitly typed files,both-layout
+half/expertise/clearing previews and stale-callback/context recovery,9878 public
+requests (12 new reference-context requests) and isolated check/package PASS.
+Old/incomplete formula context rejects execution. Notes report earlier/current
+numbers without assuming every difference comes from effects. Source is preserved.
+Controlled initialized native builders,mounted SDK seam and synthetic host evidence
+remain separate from installed/native/operator acceptance. Partial M2/Q00 only;
+next finish independent proficiency-dice qualification and other M2 exit work.

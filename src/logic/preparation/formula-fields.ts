@@ -72,3 +72,13 @@ export function prepareFormulaFields606(actor:unknown,context:RulesContext,effec
     return effects;
 }
 export const preparedFormulaBindings606=(effects:NumericEffects|undefined):FormulaBindings606=>effects?.formulaPreparation?.preparedBindings??{};
+
+/** BasicRoll.constructParts replaces root data.prof only when a check supplies a
+ * proficiency part. Preparation still uses the earlier Actor base object. */
+export function executionFormulaContext606(effects:NumericEffects,rootProficiency?:number|null){
+    const bindings={...effects.formulaPreparation?.executionBindings};
+    if(rootProficiency===null)delete bindings.prof;
+    else if(rootProficiency!==undefined)bindings.prof=rootProficiency;
+    const expressions=Object.fromEntries((effects.formulaPreparation?.receipts??[]).filter(row=>row.execution!==undefined).map(row=>['system.'+row.path,row.source]));
+    return {bindings,expressions};
+}

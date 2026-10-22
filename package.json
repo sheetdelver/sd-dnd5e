@@ -25,6 +25,8 @@
     "test:public-commands": "node scripts/test-public-commands.mjs",
     "test:native-conditions": "node scripts/native-condition-oracle.mjs",
     "test:native-custom-traits": "node scripts/native-custom-traits-oracle.mjs",
+    "test:native-formula-context": "node scripts/native-formula-roll-context-oracle.mjs",
+    "test:mounted-formula-context": "node scripts/test-mounted-formula-context.mjs",
     "test:native-scales": "node scripts/native-scale-oracle.mjs",
     "test:mounted-scales": "node scripts/test-mounted-scales.mjs",
     "test:native-formulas": "node scripts/native-formula-oracle.mjs",

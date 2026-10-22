@@ -1472,3 +1472,11 @@ inheritance order. It supplies the `classes.<identifier>.levels` and
 Raw/prepared-looking scale maps and names never supply replacements. Subclass parent,
 identifier collisions,grant roots and unqualified types yield diagnostics/no binding.
 [Source and phase evidence](audits/evidence/2026-10-22-c78-class-scales.json). No grant execution or source writes are introduced.
+
+
+Fresh d20 reference context is distinct from preparation. Native constructParts
+rebinds root prof only when a check supplies a proficiency part. Shared configuration
+retains original roll expressions and phase bindings,and resolves them after current
+selection/proficiency validation. Prepared passives continue using earlier Actor-base
+prof. Generic checks/saves/initiative use this same resolver;UI performs no rule math.
+Missing current formula metadata cannot fall back to cached totals. [C79 correction](audits/evidence/2026-10-22-c79-formula-roll-context.json) supersedes C77's blanket fresh prof binding.

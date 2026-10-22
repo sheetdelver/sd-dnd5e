@@ -1,3 +1,4 @@
+import {deterministicFormula606,qualifiedFormulaBonus606,type FormulaBindings606} from './deterministic-formula';
 import { initializedModeState, type EffectModeState } from './mode-effects';
 import { record } from '../native/6.0.6/source';
 import {numericConstant} from './numeric';
@@ -8,12 +9,14 @@ export interface PreparedNumericD20 {
 }
 /** Final constants are prepared by the shared effect phase, never inferred from
  * arbitrary formula strings or caller-supplied prepared-looking source. */
-export function numericScopeBonus(scope:{path:string;value:unknown},executionBonuses:Readonly<Record<string,number>>={}):number|null {
+export function numericScopeBonus(scope:{path:string;value:unknown},executionBonuses:Readonly<Record<string,number>>={},formulaContext?:{bindings:FormulaBindings606;expressions:Readonly<Record<string,string>>}):number|null {
+    const expression=formulaContext?.expressions['system.'+scope.path+'.bonus'];
+    if(expression!==undefined){const value=deterministicFormula606(expression,formulaContext!.bindings);return value!==null&&qualifiedFormulaBonus606(value)?value:null;}
     return executionBonuses['system.'+scope.path+'.bonus']??numericConstant(record(scope.value)?.bonus);
 }
 export function preparedBonusNote(prepared:number|null,current:number|null,preparedProf?:number|null,currentProf?:number|null):string|undefined {
     if(prepared===null||current===null||prepared===current&&preparedProf===currentProf)return undefined;
-    return `Prepared bonus ${prepared<0?'':'+'}${prepared}${preparedProf==null?'':` (${preparedProf}× proficiency)`}; current roll includes later effects.`;
+    return `Prepared bonus ${prepared<0?'':'+'}${prepared}${preparedProf==null?'':` (${preparedProf}× proficiency)`}; current roll bonus ${current<0?'':'+'}${current}${currentProf==null?'':` (${currentProf}× proficiency)`}.`;
 }
 export interface NumericD20Range {minimum?:number;maximum?:number}
 export function independentD20Options(options: Record<string, unknown> = {}): boolean {

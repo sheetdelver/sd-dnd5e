@@ -1,0 +1,81 @@
+{
+  "checkpoint": "C79 fresh roll reference context correction",
+  "parent": "b0d3080e45fa639343a3a73f9c2c17144b2b79e6",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirements": [
+    "M2/Q00 partial",
+    "DD-02/24/27/31/34 partial",
+    "A02/A18/A21 partial"
+  ],
+  "finding": {
+    "type": "module defect introduced by C77;not a Core defect",
+    "cause": "Source FormulaFields used fixed Actor-base @prof for execution. Actual native BasicRoll.constructParts overwrites root data.prof when a proficient check supplies its own term;untrained checks retain Actor base prof.",
+    "sameInputBeforeAfter": [
+      {
+        "coefficient": 0.5,
+        "before": 9,
+        "expectedAndAfter": 7,
+        "prepared": 9,
+        "passive": 21
+      },
+      {
+        "coefficient": 2,
+        "before": 14,
+        "expectedAndAfter": 17,
+        "prepared": 14,
+        "passive": 26
+      }
+    ],
+    "otherProof": [
+      "Selected tool with expertise skill uses19",
+      "Initial global check target2 retains prepared ability12 and rolls15",
+      "Class level0/half proficiency supplies root0 despite positive coefficient;level20 half/expertise tested"
+    ],
+    "implementation": "Keep original roll expressions and qualified phase bindings in shared check configuration. Compile them after validating current selections/proficiency;generic ability/save and initiative use the same resolver. Earlier preparation/passives retain Actor-base binding. Missing current formula context is unavailable rather than a precomputed fallback. Notes show both actual numeric bonuses without blaming all differences on later effects."
+  },
+  "checks": {
+    "regression": {
+      "result": "58 module/9 tooling suites,61 assertions PASS;additional edge/context tests passed focused run",
+      "sha256": "155390538eacc8d7b8a2d893461ff23baa44d813c4020efaa1967a09890431a4",
+      "focusedSha256": "0af86d4216a82e6dd6a48699688136e64a207f4be164fc2b1c3eba34b1344ac4"
+    },
+    "typing": {
+      "result": "231 explicit module/UI/server/test/hook files PASS",
+      "sha256": "95c942be2bf0d56747da9608f00dc63ddc2ab2781cc07b2c3028cdfef70bd93a"
+    },
+    "native": {
+      "command": "npm run test:native-formula-context -- --core <Core0.19.3> --native <exact release> --foundry <static14.367>",
+      "result": "8 numeric profiles,8 selected tool configurations and1 ability configuration through actual preparation/roll data/_buildSkillToolConfig/#rollD20Test/constructParts/recursive replacement PASS",
+      "sha256": "5a765ac309052c8d2b2ee88bf0321a67984b2d9747e3bf68fa7d9593b2a444e9",
+      "sourceHashes": {
+        "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+        "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+        "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+        "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+        "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+      }
+    },
+    "mounted": {
+      "result": "1440/390 current half-profile7/passive21,combined11/clearing7,expert selected tool19,preview/manual/shortcut/held callback and context recovery/zero writes PASS",
+      "artifact": "/tmp/dnd5e-formula-context-yrlJ23/evidence.json",
+      "sha256": "2b4eec4881b9e2477243d0869112c571e1ad964b3e097b22fb638cda4b447841"
+    },
+    "public": {
+      "command": "npm run test:public-rolls -- --core <Core0.19.3> --dependency-profile",
+      "result": "9878 accepted including12 new root-context requests;1 known unary candidate,40 bounded equal-index diagnostics,0 native writes PASS",
+      "artifact": "/tmp/dnd5e-public-rolls-Rlm1pi/evidence.json",
+      "sha256": "b3323fba031753968893833080e0cffeb6bbe02876b475607cc4eb6fe8a4b08e",
+      "scope": "Dependency execution subset preserves complete plain-d20/Normal-bound distributions. C77 full311995 run retained separately."
+    },
+    "managed": {
+      "result": "isolated module check/package PASS",
+      "artifact": "/tmp/dnd5e-package-Op16mH/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "03b5fc58387aeab6e8d67198a2bb9ab5f4889c2bc5cb0712ae748d1168401dc9"
+    }
+  },
+  "limits": [
+    "Controlled native builders use initialized numeric models,empty rule/condition collaborators and actual native replacement/Foundry Math sandbox;not full source DataModel/parser/native/operator acceptance.",
+    "C77 prepared arithmetic evidence remains useful;its blanket fresh @prof substitution claim is superseded here. New source expressions/proficiency dice and remaining Item/filter/modifier profiles still need Q00 qualification.",
+    "R/S/mounted SDK seam/isolated host/managed package evidence remain distinct. Experimental0.4.1/compatibility unchanged;ADR-0001 and full M2/A acceptance remain open."
+  ]
+}

@@ -115,5 +115,9 @@
     "artifact": "/tmp/dnd5e-mounted-coaAkv/evidence.json",
     "sha256": "706d28dba18c184394a3da807686b859d1c1010acf7e861ecbfe7b923fa4bf2e",
     "counts": "50 transitions,8 preview,16 facts,18 modes,56tools,80selected,22eligibility,1172fields,58mode/58health,102AC/init,90armor,84movement,624training,24proficiency,149defense,40species,180Normalrange and heldcallbacks"
+  },
+  "supersededExecutionContext": {
+    "finding": "Fixed Actor-base @prof is insufficient for fresh proficient checks;C79 corrects per-construction replacement. C77 prepared math and coefficient1 evidence retained.",
+    "evidence": "2026-10-22-c79-formula-roll-context.json"
   }
 }

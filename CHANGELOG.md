@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Resolve roll formula proficiency references from the current check while preserving earlier passive values.
+
 - Resolve qualified numeric class/subclass scales and native class defaults by persisted identity.
 
 - Prepare qualified arithmetic and Actor references consistently across checks, resources and character readouts.

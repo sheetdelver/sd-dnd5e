@@ -1,3 +1,4 @@
+import {executionFormulaContext606} from './formula-fields';
 import {record} from '../native/6.0.6/source';
 import type {RulesContext} from '../rules-context';
 import {numericFact,numericCharacterProfile,type NumericFact} from './character-profile';
@@ -90,7 +91,7 @@ export function prepareInitiative606(actor:unknown,context:RulesContext,effects:
     const fact:InitiativeFact={...numericFact(reason?null:total,reason),provenance:initProvenance,ability:key,score};
     if(fact.value!==null)fact.display=`${fact.value<0?'':'+'}${fact.value}`;
     let executionReason=reason;
-    const executionBonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses));
+    const executionBonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses,executionFormulaContext606(effects)));
     if(executionBonuses.some(value=>value===null))executionReason??='Initiative current bonus expression requires Q00 qualification';
     const executionTotal=!executionReason&&numeric?numeric.mod+proficiency+(executionBonuses as number[]).reduce((n,v)=>n+v,0)+effects.conditions.rollReduction:null;
     const scoreSetting=context.settings['dnd5e.initiativeScore'],tie=context.settings['dnd5e.initiativeDexTiebreaker'];
