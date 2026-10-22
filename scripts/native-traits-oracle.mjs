@@ -237,4 +237,4 @@ process.stdout.write('S: '+finalDefenseObservations.length+' final defense Set p
 
 process.stdout.write('S: '+finalTrainingObservations.length+' final training Set/current fields/earlier labels/sheet/fresh mastery configurations PASS\n');
 
-export {SetField,StringField,cleanSet,evidence as nativeTraitEvidence606};
+export {SetField,StringField,cleanSet,NativeSheet,evidence as nativeTraitEvidence606};

@@ -432,3 +432,9 @@ source,CI-only changes,no initial CI changes and qualified immunity identities. 
 fixtures remain unchanged. Module regression covers repeated masks and omitted-status
 nonrestoration;mounted/public/package evidence remains distinct from C61 method data.
 Other combinations/conditions/fields and full native/operator acceptance remain open.
+
+C63 reuses C57's48 unchanged petrified final-field expectations with actual Actor
+queries/status,2304native membership predicates and native sheet presentation through
+the real query. No new expected values from module/native captures. Only regular
+damage-type membership and physical bypasses,no amounts/actions/ignore/downgrade/
+healing. Runtime C64 and native/operator acceptance remain separate.

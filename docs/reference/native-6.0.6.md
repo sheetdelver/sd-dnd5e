@@ -1166,3 +1166,11 @@ filter the preserved earlier Actor snapshot. Native constructor/dispatcher/ordin
 query boundaries remain unchanged; other conditions and general fresh/Item/movement
 semantics stay open. [Record](../audits/evidence/2026-10-22-c62-final-ci-conditions.json)
 keeps native construction separate from module/mounted/public and operator acceptance.
+
+C63 compares actual Actor petrification query/status with48current final defense
+field snapshots and2304actual membership predicates. Native damage membership uses
+current fields/bypasses;native sheet AllDamage override remains a separate presentation
+contract. Earlier grants must not overwrite final values or be promoted into current
+membership. Runtime remains gated pendingC64 projection/tests. [Record](../audits/evidence/2026-10-22-c63-final-petrified-foundation.json)
+keeps initialized constructor/Color/presentation-copy and damage-action limitations
+separate from full native/operator acceptance.

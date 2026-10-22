@@ -2852,3 +2852,26 @@ Actual public-host268000accepted/1known candidate rejection/40equal-index diagno
 `da4ec5b3dba7302c204a4e984abf4c02b163935c958d3058a981d072e9cde07e`.
 All owned hosts/browsers closed;no live Foundry or production settings. Version/
 experimental/compatibility unchanged;fullADR and native/operator acceptance stay open.
+
+### C63 — actual petrification/final-field/query/presentation qualification (2026-10-22)
+
+48 unchanged C57 petrified final-field profiles now compare actual Actor condition
+queries, earlier Actor status/passive state and current field values.2,304 actual
+#changeHasEffect/#changeIsIgnored calls compare three defense categories, four damage
+types and four property variants. Current Sets and physical bypasses govern native
+membership, including final overrides/removals while petrification remains active.
+
+The native sheet independently keeps its All Damage display override through the real
+Actor query. Current field membership, earlier petrification grants and that native
+presentation are distinct contracts. C64 must preserve these distinctions in shared
+caller facts rather than reapplying grants or treating a display override as current
+resistance data. No damage totals/application or Item activity support is established.
+
+Maintained native comparison48profiles/2304predicates plus all retained matrices PASS;
+direct trait capture and explicit203-file module typing PASS. [Record](../audits/evidence/2026-10-22-c63-final-petrified-foundation.json) retains exact
+sources,constructor/Color/presentation-shell stubs and capture identities. This is
+initialized method/field construction,not full native dispatcher/source boot/preset/
+operator acceptance. C62 runtime/UI/public/package evidence remains separate. Runtime
+gate stays open pending C64 tests and projections. Other conditions, combinations,
+fields/Item/filter/formula phases and E01/E02/E04/widerQ00/E05 remain open. Experimental
+0.4.1 and compatibility unchanged;all full ADR/DD/A/M/native/operator gates stay open.

@@ -1251,3 +1251,11 @@ the same earlier/current snapshots. General fresh condition queries, movement/It
 automatic-result workflows are not newly qualified by these numeric comparisons.
 [Record](audits/evidence/2026-10-22-c62-final-ci-conditions.json) retains explicit source,
 method, UI/public/package and native/operator evidence limits.
+
+C63 compares actual Actor petrification query/status with48current final defense
+field snapshots and2304actual membership predicates. Native damage membership uses
+current fields/bypasses;native sheet AllDamage override remains a separate presentation
+contract. Earlier grants must not overwrite final values or be promoted into current
+membership. Runtime remains gated pendingC64 projection/tests. [Record](audits/evidence/2026-10-22-c63-final-petrified-foundation.json)
+keeps initialized constructor/Color/presentation-copy and damage-action limitations
+separate from full native/operator acceptance.
