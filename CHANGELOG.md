@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Apply qualified initial custom trait text before language labels while preserving final-field provenance.
+
 - Share bounded final custom defense/training text while retaining earlier language labels.
 
 - Share bounded petrification/final defense fields while preserving earlier grants and current physical bypasses.

@@ -1209,3 +1209,11 @@ Initial text enters the language cache; final text changes current fields withou
 replaying that cache. Native primitive/method execution and independently compared
 dispatcher phase order remain distinct evidence. Runtime admission awaits C68.
 [Record](../audits/evidence/2026-10-22-c67-initial-custom-foundation.json) preserves phase/source/default and initialized-shell limitations.
+
+
+C68 consumes C67's238 frozen initial/phase-chain cases without changing expectations.
+Initial custom text precedes native language preparation; final text follows it. One
+module interpreter preserves that phase and raw-delta behavior. Source/default origin
+survives into final receipts. The original C28 Cant input is now a supported String
+workflow, with historical Set-only evidence preserved. [Record](../audits/evidence/2026-10-22-c68-initial-custom.json)
+retains source/model, constructor/scheduling and native/operator evidence limits.

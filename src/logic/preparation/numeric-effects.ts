@@ -61,7 +61,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
                 const child=record(container[part]);if(!child)return null;container=child;
             }
             const name=keys.at(-1)!;
-            if(string)return {object:container,field:name,string:true};
+            if(string){origins[change.key]??=container[name]===undefined?'default':'source';return {object:container,field:name,string:true};}
             if(set){
                 const value=container[name];origins[change.key]??=value===undefined?'default':value===null?'null-cleaned':'source';
                 const labels=field==='bypasses'?BYPASS_LABELS_606:key==='ci'?CONDITION_STATUS_LABELS_606:DAMAGE_LABELS_606;
@@ -116,7 +116,13 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
     }
     for(const change of plan.initial){
         const field=target(change),raw=change.value;
-        if(field?.string){reason??='Initial custom String effects require qualification';continue;}
+        if(field?.string){
+            if(change.itemId!==undefined||plan.conditions?.length||Array.isArray(source.statuses)&&source.statuses.length){reason??='Initial custom Strings require a qualified condition-free Actor-owned phase';continue;}
+            const before=initializeCustomString606(field.object[field.field]),value=before===null?null:applyCustomString606(before,change.type,raw);
+            if(value===null){reason??=`Initial custom String source/delta/operation requires qualification: ${change.key}`;continue;}
+            field.object[field.field]=value;
+            applied.push({effectId:change.effectId,key:change.key,phase:'initial',before:before!,value,initializedFrom:origins[change.key]});continue;
+        }
         if(field?.set){
             const before=initializeTraitSet606(field.object[field.field]);
             const appliedSet=before&&field.valid?applyTraitSet606(before,change.type,raw,field.valid):null;
@@ -191,7 +197,7 @@ export function prepareNumericEffects606(actor:unknown):NumericEffects {
             const value=before===null?null:applyCustomString606(before,change.type,raw);
             if(value===null){reason??=`Final custom String source/delta/operation requires qualification: ${change.key}`;continue;}
             finalTraitStrings[change.key]=value;
-            applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before!,value,operandPhase:previous?'final':'prepared',initializedFrom:field.object[field.field]===undefined?'default':'source'});continue;
+            applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before!,value,operandPhase:previous?'final':'prepared',initializedFrom:origins[change.key]});continue;
         }
         const training=change.key.startsWith('system.traits.')?trainingSetField606(change.key.slice('system.traits.'.length)):null;
         if(training&&field?.set){

@@ -2962,3 +2962,26 @@ C68 source/default/projection/recovery checks. This is partial M0/M2 Q02a,DD-03/
 A03/A04, not DataModel/installed/native/operator acceptance. Condition/Item composition,
 null/coercions/references and wider formulas remain open. Experimental0.4.1/compatibility,
 E01/E02/E04/widerQ00/E05 and fullADR gates are unchanged.
+
+
+### C68 — initial custom text integration (2026-10-22)
+
+Parent `3d5f3bc`; partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21. Unchanged238 cases
+fail before/pass after. Repeated changes, original source/default provenance, poison
+invariance, unavailable/recovery, numeric source/manual modes, bounds and unqualified
+condition/Item cases are covered. The historical C28 Cant input is separately asserted
+and mounted with its original Actor source. [Portable evidence](../audits/evidence/2026-10-22-c68-initial-custom.json)
+records all commands/results/hashes. Native construction is not native/operator acceptance.
+
+Conditions/Item origins/null/coercions/references and broader expressions remain open.
+Next C69 qualifies single poisoned/exhaustion String/cache/build composition before
+runtime admission. E01/E02/E04/widerQ00/E05 and full DD/A/M/ADR gates remain open;
+experimental0.4.1/compatibility unchanged.
+
+
+C68 completed:49module/9tooling suites,61toolingassertions,208explicit typedfiles,
+exact2242/591 and native238initial+217final+retainedtrait comparisons PASS. Focused
+480desktop/mobile states and public270516accepted/1candidate/40tie diagnostics/0writes
+PASS. Isolatedcheck/package PASS; archive SHA256 `59f21ce49c5d99a711d2f2fb1cd0408712aff28ebd12aba9f4bed9af6dd7ae79`. All ownedfixtures
+stopped; source/metadata unchanged. Evidence remains separated from installed/native
+operator acceptance and full ADR gates.

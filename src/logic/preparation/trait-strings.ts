@@ -1,5 +1,5 @@
 /** Plain SimpleTraitField.custom StringField semantics, not FormulaField.
- * Source/default initialization and literal final operations are separate. */
+ * Source/default initialization and literal phase operations are separate. */
 export function customTraitPath606(path:string):boolean {
     return /^system\.traits\.(dr|di|dv|ci|armorProf|weaponProf|languages)\.custom$/.test(path);
 }

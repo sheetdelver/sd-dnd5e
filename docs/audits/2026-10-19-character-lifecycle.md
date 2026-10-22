@@ -1716,3 +1716,15 @@ C68 source/default/projection/recovery checks. This is partial M0/M2 Q02a,DD-03/
 A03/A04, not DataModel/installed/native/operator acceptance. Condition/Item composition,
 null/coercions/references and wider formulas remain open. Experimental0.4.1/compatibility,
 E01/E02/E04/widerQ00/E05 and fullADR gates are unchanged.
+
+
+### C68 disposition — initial custom Strings (2026-10-22)
+
+238 original inputs now pass shared preparation, including phase/priority chains and
+source/default provenance. C28's unchanged Cant String input is supported separately
+from Set syntax; its old unavailable disposition is superseded only for this profile.
+The maintained historical test exposed that earlier gate expectation and now asserts
+the actual independent label and receipt; no frozen inputs were rewritten. Cards and
+both layouts agree through shared projections. [C68 evidence](evidence/2026-10-22-c68-initial-custom.json)
+records before/after and checks. Conditions/Item origins/null/coercions/references remain
+unavailable. DD-R01–07 and full ADR/native/operator acceptance remain as previously stated.

@@ -10,6 +10,14 @@ for(const row of trainingEffectCases){
     const source=trainingEffectSource(row),before=structuredClone(source),effects=prepareNumericEffects606(source),actor=adapter.prepareActorData(source,skillContext());
     assert.deepEqual(source,before);
     const formula=adapter.getRollData(actor,'skill','prc')?.formula??null;
+    // C68 qualifies this original C28 String input separately from Set syntax.
+    if(row.id==='custom-string-not-set'){
+        assert.equal(formula,'1d20+5');assert.equal(effects.reason,undefined);
+        assert.deepEqual((actor.derived as any).training.categories.languages.spoken,['Cant']);
+        assert.deepEqual((actor.derived as any).training.categories.languages.preparedSpoken,['Cant']);
+        assert.deepEqual(effects.applied.map(entry=>[entry.phase,entry.before,entry.value]),[['initial','','Cant']]);
+        continue;
+    }
     // C60 supersedes this historical phase restriction with its original input.
     if(row.id==='final-training'){
         assert.equal(formula,'1d20+5');assert.equal(effects.reason,undefined);

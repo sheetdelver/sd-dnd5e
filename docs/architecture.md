@@ -1321,3 +1321,20 @@ Initial text enters the language cache; final text changes current fields withou
 replaying that cache. Native primitive/method execution and independently compared
 dispatcher phase order remain distinct evidence. Runtime admission awaits C68.
 [Record](audits/evidence/2026-10-22-c67-initial-custom-foundation.json) preserves phase/source/default and initialized-shell limitations.
+
+
+### Initial custom String preparation (C68)
+
+Qualified Actor-owned initial custom Strings use the same initializer/interpreter as
+final custom text. Initial results update detached preparation operands before language
+labels; final results remain in `finalTraitStrings`. Original source/default origin is
+captured once and retained through both phases. Receipts expose each before/current
+value in native phase/priority order. Source documents and prepared-looking label poison
+remain untouched. Existing defense/training/card/UI projections consume these facts.
+
+This supersedes C66's initial-String gate for condition-free Actor literal text. Item
+origins, conditions, null/coercions and reference expansion remain unavailable. C28's
+original `custom-string-not-set` input is now explicitly supported as String text;
+its historical Set-only evidence remains intact. [C68 evidence](audits/evidence/2026-10-22-c68-initial-custom.json)
+keeps initialized native methods, regressions, mounted consumers and real public-host
+execution distinct. No source boot/native/operator acceptance is claimed.
