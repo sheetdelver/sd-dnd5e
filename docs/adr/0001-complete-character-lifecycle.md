@@ -3358,3 +3358,31 @@ evidence,not proof that raw range already equals the prepared Item range. Then
 finish remaining Item/effect and A02–A06 read gate comparisons.
 
 [C103 evidence](../audits/evidence/2026-10-23-c103-damage-source.json) records commands,hashes,license and phase limits.
+
+
+### C104 — source-derived Weapon range and availability (2026-10-23)
+
+C103 is `adc097f`. The unchanged C97 simpleM source20/60/reach5 yielded60 before;
+actual Weapon derived preparation clears the stored range and Activity inherits5.
+Frozen C97/C98 captures remain initialized-parent evidence;their raw-source
+interpretation is superseded explicitly,not rewritten. One shared range path now
+serves Item facts,common inheritance,modes,final admission and both layouts.
+Undefined,null and zero remain distinct;only explicit null melee reach initializes
+native5ft/1.5m or10ft/3m. Source labels/getters never supply authority. Missing scalar
+range is explicitly unavailable while independently qualified final proficiency4
+remains available. Numeric strings,unknown units/types and unqualified effects stay
+gated. There is no new execution or Core dependency.
+
+36 actual schema/initialize/Weapon-derived/range/mode cases and36 Item/Actor final
+compositions establish the independent expectations.73/73 same-input regressions
+fail C103 and0 after.84 module/9 tooling suites (61 assertions),312 explicit typed
+files,2242/591 exact source verification,mounted1440/390 consumers/recovery/stale
+callbacks,119218 public-host requests (1128 new) and isolated check/package PASS.
+One unary candidate and1920 tied-index diagnostics remain;serialization is
+unchanged. The first mounted driver only needed text-case normalization for CSS
+uppercase units;its failed log is retained. Task-owned services stopped. These
+evidence classes remain separate from installed/native/operator acceptance.
+M2/ADR remain open;next reconcile remaining required Item/effect/formula/read
+exits and qualify any concrete public-contract blocker before reporting it.
+
+[C104 evidence](../audits/evidence/2026-10-23-c104-weapon-range.json) records commands,hashes,phase boundaries and historical correction.

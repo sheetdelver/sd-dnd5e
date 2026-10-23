@@ -1623,3 +1623,11 @@ locations are verified against the pinned subtype schemas. Adapted pure formula
 assembly retains [the upstream software notice](../../assets/licenses/dnd5e-system-MIT.txt)
 and [dependency/attribution record](../../assets/licenses/README.md).
 [C103 evidence](../audits/evidence/2026-10-23-c103-damage-source.json).
+
+
+C104 executes actual Weapon range schema clean/initialize,derived cleanup and
+mode getters before actual Activity common final.36 source cases and36 Item/Actor
+compositions preserve undefined/null/zero and metric defaults. Prior C97/C98
+initialized-parent captures remain distinct;description/physical/labels and prior
+Actor callback seams are declared. This is not full native runtime acceptance.
+[C104 evidence](../audits/evidence/2026-10-23-c104-weapon-range.json).

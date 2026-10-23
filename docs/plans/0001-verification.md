@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C103)
+### Current M2 exit state (updated C104)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3257,7 +3257,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;C101 records every predicate/operand and unknown-snapshot unsupported fixture/decision for Q02a;this does not complete unsupported rules support |
-| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;C99 adds qualified owned consumption references;remaining canonical compendium references/spell parents/subtypes and wider Item/effect final preparation remain |
+| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;C104 corrects source-derived Weapon range cleanup/inheritance/modes and separates missing metadata from independent Actor readiness;C99 adds qualified owned consumption references;remaining canonical compendium references/spell parents/subtypes and wider Item/effect final preparation remain |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;C100 adds exact per-spell class/subclass/Activity ability contexts and numeric spell attack read construction;C102 adds Spell intrinsic/common inheritance/overrides and Activity save DCs;C103 adds initialized base damage formulas/part roles;effective damage construction and wider Item/effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
 
@@ -3892,3 +3892,31 @@ evidence,not proof that raw range already equals the prepared Item range. Then
 finish remaining Item/effect and A02–A06 read gate comparisons.
 
 [C103 evidence](../audits/evidence/2026-10-23-c103-damage-source.json) records commands,hashes,license and phase limits.
+
+
+### C104 — source-derived Weapon range and availability (2026-10-23)
+
+C103 is `adc097f`. The unchanged C97 simpleM source20/60/reach5 yielded60 before;
+actual Weapon derived preparation clears the stored range and Activity inherits5.
+Frozen C97/C98 captures remain initialized-parent evidence;their raw-source
+interpretation is superseded explicitly,not rewritten. One shared range path now
+serves Item facts,common inheritance,modes,final admission and both layouts.
+Undefined,null and zero remain distinct;only explicit null melee reach initializes
+native5ft/1.5m or10ft/3m. Source labels/getters never supply authority. Missing scalar
+range is explicitly unavailable while independently qualified final proficiency4
+remains available. Numeric strings,unknown units/types and unqualified effects stay
+gated. There is no new execution or Core dependency.
+
+36 actual schema/initialize/Weapon-derived/range/mode cases and36 Item/Actor final
+compositions establish the independent expectations.73/73 same-input regressions
+fail C103 and0 after.84 module/9 tooling suites (61 assertions),312 explicit typed
+files,2242/591 exact source verification,mounted1440/390 consumers/recovery/stale
+callbacks,119218 public-host requests (1128 new) and isolated check/package PASS.
+One unary candidate and1920 tied-index diagnostics remain;serialization is
+unchanged. The first mounted driver only needed text-case normalization for CSS
+uppercase units;its failed log is retained. Task-owned services stopped. These
+evidence classes remain separate from installed/native/operator acceptance.
+M2/ADR remain open;next reconcile remaining required Item/effect/formula/read
+exits and qualify any concrete public-contract blocker before reporting it.
+
+[C104 evidence](../audits/evidence/2026-10-23-c104-weapon-range.json) records commands,hashes,phase boundaries and historical correction.

@@ -1750,3 +1750,10 @@ is introduced. Action/Item/Spell surfaces label these Base formulas. Empty data
 never supplies a die,legacy shapes diagnose migration and unqualified ammo base
 combinations remain unavailable. Schema-owned inputs ignore prepared-looking
 formula/base poison. [C103 evidence](audits/evidence/2026-10-23-c103-damage-source.json).
+
+
+Weapon range has a shared initialized-source→derived fact before Activity
+inheritance and natural/improvised mode selection. Source,default,missing and
+not-applicable fields remain distinct;missing scalar metadata does not poison
+independent qualified Actor final facts. Both layouts format these shared results.
+[C104 evidence](audits/evidence/2026-10-23-c104-weapon-range.json).

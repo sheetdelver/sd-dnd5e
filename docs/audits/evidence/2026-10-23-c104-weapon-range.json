@@ -1,0 +1,76 @@
+{
+  "checkpoint": "C104",
+  "parent": "adc097f",
+  "status": "Qualified source→initialized→Weapon derived range and Activity inheritance;M2/ADR remain open",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/03/11/24/27/31/34 partial",
+    "A02–A06 read preparation"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "adc097f",
+    "result": "Unchanged C97 simpleM20/60/reach5 source yielded60 before,actual native source preparation requires5;73/73 same-input cases fail before,0 after",
+    "beforeArtifact": "/tmp/dnd5e-c104-before-eu71i8tc",
+    "beforeLogSha256": "01d550f2295dde41d1b6acd01114ba0d026152c01831c29a7f556fdb856159c7",
+    "afterLogSha256": "28372c98571d6e4510a580a30aad68f639a67c7340fdc7ba33e4781cf78633a3"
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;84 module/9 tooling suites,61 tooling assertions",
+    "logSha256": "6d49acc0995e28a0b6dc8d09deddd66cc911f87b9e93dbef8f6e88ba842c7f59"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;312 explicit module/UI/server/test/hook files",
+    "logSha256": "d0bd4dedd923ad9c714b042a62dbbf45c4c063541eab50bb38991326c7d33366"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 exact records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "native": {
+    "command": "npm run test:native-weapon-range -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c104-native.json",
+    "result": "PASS;36 source/schema/derived/range/mode cases and36 Item/Actor final compositions",
+    "logSha256": "bf245a39f13cfb9e0b9d47c01cae0f43c2ec521659d4772a6ae26d6e4cda24b9",
+    "fixture": "tests/fixtures/native-6.0.6/weapon-range.json",
+    "sha256": "f696d7e072b242c80c24a90003a703bc8fc22fc9f165889ca24b4cc7bb4debd9"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-weapon-range -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 action/Item ranges,natural modes,missing/null/zero,metric/context/source recovery,held callbacks,focus/hover/shortcut;zero writes",
+    "artifact": "/tmp/dnd5e-weapon-range-mounted-rDcxBy/evidence.json",
+    "sha256": "ddcff8622524ba22c5a2bf11aae0cb7062227bad603803b140888b7eca1917ce",
+    "supersededDriverFailure": {
+      "reason": "First driver assumed lowercase text;Actions CSS displays uppercase units. Assertion normalized text case;rule expectations unchanged.",
+      "logSha256": "825d837796250809141845051b3d8cca9765fc4ccecb87ef721a3b628b4683a3"
+    }
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;119218 accepted,1128 new;complete plain-d20 distributions,1 unary candidate and1920 tied-index diagnostics;zero native writes;host serialization unchanged",
+    "artifact": "/tmp/dnd5e-public-rolls-Ny1MnV/evidence.json",
+    "sha256": "1fe41ef5db69253e600d79ebc3e78d23fe62707d639fee634bd51922eeb45835"
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;module check/isolated24-member archive (17 files);upstream MIT notice byte-preserved,test/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-QJyeJ7/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "272d98141057d8fe06e0246530a6a3b2d446562bd0c006badb3edb4af95c85e2",
+    "logSha256": "4862ca4bc5e438ebd831cf76b46ad349942c7042ffee4c0a1af39d3d2de3ea2d"
+  },
+  "cleanup": {
+    "result": "Task-owned host/synthetic endpoints/browser stopped;preexisting listeners untouched",
+    "beforeSha256": "59cc627d1a3c39b3740f3fc152c2cb0ab2f5fb956c878898b3109f36eb8a124a",
+    "afterSha256": "59cc627d1a3c39b3740f3fc152c2cb0ab2f5fb956c878898b3109f36eb8a124a"
+  },
+  "limits": [
+    "C97/C98 frozen initialized-parent observations remain unchanged. Their raw-source interpretation is superseded only by actual Weapon derived comparisons;current regressions explicitly separate these phase expectations.",
+    "Actual Weapon range schema/primitive and SchemaField clean AND initialize,attackType/hasRange/prepareDerivedData/attackModes and BaseActivity common final execute. Metric defaultUnits/convertLength use explicit setting/config. Description/physical/mount/identification/labels and prior C91/C97 Actor/Item callback seams remain declared,not full DataModel/runtime acceptance.",
+    "Undefined/null/zero remain distinct. Only explicit null melee reach defaults to5ft/1.5m or10ft/3m;non-ranged ranges clear. Missing scalar metadata is unavailable without blocking independently qualified final Actor proficiency4. Numeric strings,unknown mappings/units and unqualified effects retain gates.",
+    "Shared range facts serve Item/common/final eligibility/modes/UI;source getters/labels/attackType poison cannot supply authority. No new execution,evaluator,Core dependency or compatibility change.",
+    "Regression,controlled-source,mounted SDK seams and isolated public-host are distinct from installed/native/operator acceptance. M2/ADR open;experimental0.4.1/Core>=0.19.3 unchanged;Node24.21/npm11.19 local,CI Node22 unrun."
+  ],
+  "next": "Reconcile remaining required Item/effect/formula/read-preparation exits against exact native phases;qualify any concrete public-contract blocker before reporting it. Effective damage/action execution remains downstream M4."
+}

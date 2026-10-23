@@ -3,11 +3,13 @@ import {initializeTraitSet606} from './trait-fields';
 import {deterministicFormula606,type FormulaBindings606} from './deterministic-formula';
 import type {RulesContext} from '../rules-context';
 import {prepareConsumptionReferences606,type ConsumptionPreparation606} from './consumption-references';
+import {defaultLengthUnits606 as defaultLengthUnits} from './length-units';
+import {prepareWeaponRange606,type WeaponRange606} from './weapon-range';
 export interface ActivityTemplate606 {type:string;count:number;size:number;width:number|null;height:number|null;units:string;dimensions:Partial<Record<'size'|'width'|'height',string>>}
 export interface ActivityCommon606 {
  status:'ready'|'unavailable';reason?:string;provenance:string;
  activation?:{type:string;value:number|null};duration?:{units:string;value:number|null};
- range?:{units:string;value:number|null;inherited:boolean};target?:{type:string|null;count:number|null;template?:ActivityTemplate606};
+ range?:{units:string;value:number|null;inherited:boolean;status:'ready'|'unavailable';reason?:string};target?:{type:string|null;count:number|null;template?:ActivityTemplate606};
  visibility?:{requireMagic:boolean;requireAttunement:boolean;requireIdentification:boolean};
  inferredRangeValue?:string|number|null;
  consumption?:ConsumptionPreparation606;
@@ -15,7 +17,6 @@ export interface ActivityCommon606 {
 const provenance='release-6.0.6 BaseActivityData/SpellData schema/final and Activation/Duration/Range/Target fields;qualified utility/common read profile';
 const no=(reason:string):ActivityCommon606=>({status:'unavailable',reason,provenance});
 const areaDimensions:Record<string,ActivityTemplate606['dimensions']>={circle:{size:'Radius'},cone:{size:'Length'},cube:{size:'Width'},cylinder:{size:'Radius',height:'Height'},line:{size:'Length',width:'Width'},radius:{size:'Label'},ring:{size:'Radius',width:'Thickness',height:'Height'},sphere:{size:'Radius'},square:{size:'Width'},wall:{size:'Length',width:'Thickness',height:'Height'}};
-function defaultLengthUnits(context?:RulesContext):string|undefined {const setting=context?.settings['dnd5e.metricLengthUnits'];return context?.status==='supported'&&context.profile==='2024'&&setting&&setting.status!=='unavailable'&&typeof setting.value==='boolean'?setting.value?'m':'ft':undefined;}
 function prepareTemplate(raw:Record<string,unknown>,bindings:FormulaBindings606,context?:RulesContext):{template?:ActivityTemplate606;reason?:string}{
  const type=raw.type==null?'':typeof raw.type==='string'?raw.type.trim():null;if(type==='')return {};
  if(type===null||!Object.hasOwn(areaDimensions,type))return {reason:'Activity area template type unavailable'};
@@ -36,7 +37,7 @@ function prepareTemplate(raw:Record<string,unknown>,bindings:FormulaBindings606,
 /** One detached common-field preparation. Source/defaults,inferred range and
  * final scalar values stay separate. This does not authorize or execute an
  * Activity,apply its effects,or resolve content/consumption references. */
-export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:FormulaBindings606={},gate?:string,context?:RulesContext,actor?:unknown):ActivityCommon606 {
+export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:FormulaBindings606={},gate?:string,context?:RulesContext,actor?:unknown,preparedWeaponRange?:WeaponRange606):ActivityCommon606 {
  if(gate)return no(gate);
  const a=record(raw),parent=record(item),s=parent?.system===undefined?{}:record(parent.system);
  if(!a||!s||!['utility','save'].includes(String(a.type))||!['tool','equipment','consumable','weapon','spell'].includes(String(parent?.type)))return no('Activity common final preparation requires a qualified utility/save Item');
@@ -72,10 +73,8 @@ export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:Formu
  if(scalarDuration&&durationValue===null)return no('Activity duration expression/reference requires qualification');
  let rangeValue:unknown=range.value,rangeUnits=string(range.units,'self'),inherited=spell&&!override;
  if(parent?.type==='weapon'&&!override){
-  const r=mapping(s.range);if(!r)return no('Parent weapon range source malformed');
-  const valid=(v:unknown)=>v==null||typeof v==='number'&&Number.isFinite(v)&&v>=0&&v<=1e9;
-  const value=r.value,long=r.long,reach=r.reach;rangeUnits=r.units==null||typeof r.units==='string'&&!r.units.trim()?defaultLengthUnits(context)??null:string(r.units,'');
-  if(![value,long,reach].every(valid))return no('Parent weapon range source outside qualified numeric profile');
+  const prepared=preparedWeaponRange??prepareWeaponRange606(parent,context);if(prepared.status!=='ready'||!prepared.values)return no(prepared.reason??'Parent weapon derived range unavailable');
+  const {value,long,reach,units}=prepared.values;rangeUnits=units;
   rangeValue=value;inherited=true;
   if(typeof long==='number'&&long>Number(value))rangeValue=long;else if(reach&&!rangeValue)rangeValue=reach;
  }
@@ -83,8 +82,8 @@ export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:Formu
  const inferredRangeValue=rangeValue==null?null:typeof rangeValue==='string'||typeof rangeValue==='number'?rangeValue:undefined;
  if(inferredRangeValue===undefined)return no('Activity range formula source malformed');
  const scalarRange=['ft','mi','m','km'].includes(rangeUnits),preparedRange=scalarRange?deterministicFormula606(rangeValue,bindings):null;
- if(scalarRange&&(rangeValue==null||rangeValue===''))return no('Activity scalar range value unavailable');
- if(scalarRange&&preparedRange===null)return no('Activity range expression/reference requires qualification');
+ const missingRange=scalarRange&&(rangeValue==null||rangeValue==='');
+ if(scalarRange&&!missingRange&&preparedRange===null)return no('Activity range expression/reference requires qualification');
  const scalarTarget=targetType!==''&&targetType!=='self',targetCount=scalarTarget?deterministicFormula606(affects.count,bindings):null;
  if(scalarTarget&&(affects.count==null||affects.count===''))return no('Activity target count unavailable');
  if(scalarTarget&&targetCount===null)return no('Activity target expression/reference requires qualification');
@@ -92,7 +91,7 @@ export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:Formu
  const properties=initializeTraitSet606(s.properties),attunement=spell?'':string(s.attunement,'');
  if(!properties||attunement===null||!['','required','optional'].includes(attunement))return no('Activity Item magic/attunement source unavailable');
  const magic=spell||properties.includes('mgc'),currentAttunement=magic?(attunement==='required'?requireMagic!:Boolean(attunement)&&requireAttunement!):false;
- return {status:'ready',provenance,activation:{type:activationType,value:activationValue},duration:{units:durationUnits,value:durationValue},range:{units:rangeUnits,value:preparedRange,inherited},target:{type:targetType||null,count:targetCount,...(area.template?{template:area.template}:{})},visibility:{requireMagic:spell||magic&&requireMagic!,requireAttunement:currentAttunement,requireIdentification:!spell&&requireIdentification!},inferredRangeValue,...(references.targets.length?{consumption:references}:{})};
+ return {status:'ready',provenance,activation:{type:activationType,value:activationValue},duration:{units:durationUnits,value:durationValue},range:{units:rangeUnits,value:missingRange?null:preparedRange,inherited,status:missingRange?'unavailable':'ready',...(missingRange?{reason:'Activity scalar range not specified'}:{})},target:{type:targetType||null,count:targetCount,...(area.template?{template:area.template}:{})},visibility:{requireMagic:spell||magic&&requireMagic!,requireAttunement:currentAttunement,requireIdentification:!spell&&requireIdentification!},inferredRangeValue,...(references.targets.length?{consumption:references}:{})};
 }
 
 /** The Spell's four intrinsic fields use the same schema/default/field fold as

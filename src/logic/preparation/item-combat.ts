@@ -11,21 +11,21 @@ import {numericCharacterProfile} from './character-profile';
 import {numericAbilityValue,numericConstant} from './numeric';
 import {initializeTraitSet606} from './trait-fields';
 import {prepareSpellContexts606,type SpellContext606} from './spell-context';
+import {prepareWeaponRange606,weaponAttackTypes606 as types,type WeaponRange606} from './weapon-range';
 import type {ItemFact} from './item-facts';
 const provenance='release-6.0.6 WeaponData.attackModes/availableAbilities/proficiencyMultiplier; AttackData.getAttackData';
 const no=<T>(reason:string):ItemFact<T>=>({status:'unavailable',value:null,reason,origin:'prepared',provenance});
 const yes=<T>(value:T):ItemFact<T>=>({status:'ready',value,origin:'prepared',provenance});
-const types:Record<string,'melee'|'ranged'>={simpleM:'melee',simpleR:'ranged',martialM:'melee',martialR:'ranged',siege:'ranged'};
 export interface AttackFacts {ability:string|null;proficiency:number;total:number;display:string;formula:string}
-export function weaponModes606(raw:unknown,reason?:string,enhancedDualWielding=false):ItemFact<string[]> {
- const item=record(raw),s=record(item?.system)??{},type=record(s.type),key=type?.value??'simpleM',properties=initializeTraitSet606(s.properties),range=record(s.range)??{};
+export function weaponModes606(raw:unknown,reason?:string,enhancedDualWielding=false,preparedRange?:WeaponRange606):ItemFact<string[]> {
+ const item=record(raw),s=record(item?.system)??{},type=record(s.type),key=type?.value??'simpleM',properties=initializeTraitSet606(s.properties);
  if(item?.type!=='weapon')return {...yes<string[]>([]),status:'not-applicable'};
  if(reason||!properties||typeof key!=='string'||!['simpleM','simpleR','martialM','martialR','siege','natural','improv'].includes(key))return no(reason??'Weapon type/properties unavailable');
  const prop=new Set(properties),attackType=types[key],modes:string[]=[],versatile=prop.has('ver'),light=prop.has('lgt')||enhancedDualWielding&&attackType==='melee'&&!prop.has('two');
  if(!(prop.has('thr')&&attackType==='ranged')){if(versatile||!prop.has('two'))modes.push('oneHanded');if(versatile||prop.has('two'))modes.push('twoHanded');}
  if(light)modes.push('offhand');
  if(prop.has('thr')){modes.push('thrown');if(light)modes.push('thrown-offhand');}
- else if(!attackType){if([range.value,range.reach].some(value=>value!=null&&(typeof value!=='number'||!Number.isFinite(value))))return no('Weapon range source malformed');if((range.value as number??0)>(range.reach as number??0))modes.push('ranged');}
+ else if(!attackType){const range=preparedRange??prepareWeaponRange606(item);if(range.status!=='ready'||!range.values)return no(range.reason??'Weapon derived range unavailable for modes');if((range.values.value??0)>(range.values.reach??0))modes.push('ranged');}
  return yes(modes);
 }
 /** Read-only attack numbers; execution/consumption belongs to M4. Source
