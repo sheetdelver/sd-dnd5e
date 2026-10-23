@@ -33,6 +33,17 @@ and does not bootstrap native preparation or execute other oracle matrices.
 See the [repair evidence](../audits/evidence/2026-10-23-usability-repair.md) for
 controlled-method boundaries. This is source evidence, not runtime acceptance.
 
+## Manual temporary-HP editing boundary
+
+Exact6.0.6 `AttributesFields.hitPoints.temp` is a persisted NumberField with
+initial0,integer and min0. Native `Actor5e.applyTempHP` grants only when the amount
+exceeds the current value. The module's new manual field replacement explicitly
+allows lowering/clearing and does not claim to invoke that grant method. Its
+source/default/qualified-effect gate shares health preparation; any effect target
+on temp HP disables this edit. The focused `native-temporary-hp-oracle.mjs` compares
+schema and independent grant controls without importing executable matrices.
+Damage/healing,activity grants,native hooks and operator acceptance stay separate.
+
 ## Data and execution map
 
 Use the [versioned upstream tree](https://github.com/foundryvtt/dnd5e/tree/release-6.0.6) with the exact paths and symbols below. Preparation outputs must remain distinct from persisted source. The server receives JSON documents, not instances of these classes.

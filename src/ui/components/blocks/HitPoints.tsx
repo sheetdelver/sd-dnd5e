@@ -5,6 +5,7 @@ import {useSheet} from '../shared/SheetContext';
 import {hpProjection} from '../../../logic/preparation/health';
 import {HpReadout,HitDiceReadout} from '../shared/HealthFacts';
 import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
+import TemporaryHpControl from '../shared/TemporaryHpControl';
 export default function HitPoints({hp}:{hp?:unknown}){
     const {openModal}=useModal(),{actor,onUpdate}=useSheet(),fact=hpProjection({hp});
     // Modern commands require the shared M3 intent/receipt pipeline. Legacy
@@ -31,6 +32,7 @@ export default function HitPoints({hp}:{hp?:unknown}){
             <button type="button" disabled={!canEdit} title={!canEdit?unavailableTitle(reason):undefined} onClick={()=>open('damage')}>DAMAGE</button>
         </div>
         <HitDiceReadout hitDice={actor?.derived.hitDice}/>
+        <TemporaryHpControl/>
         {!canEdit&&fact.reason&&<UnavailableNote reason={fact.reason}/>}
     </div>;
 }

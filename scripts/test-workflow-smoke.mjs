@@ -47,7 +47,9 @@ try{for(const width of [390,1024,1280,1440]){
   assert.doesNotMatch(geometry.initialText,/Q02a|futureMechanic/,'technical reason must remain collapsed');
   if(row.formula){
    await button.scrollIntoViewIfNeeded();assert.equal(await button.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),true,'roll button is hit-testable');
-   const count=await page.evaluate(()=>window.skillFixture.calls.length);await button.click();await page.getByRole('dialog').waitFor();await page.getByRole('button',{name:'Normal',exact:true}).click();
+   const count=await page.evaluate(()=>window.skillFixture.calls.length);await button.click();await page.getByRole('dialog').waitFor();
+   const frame=await page.getByRole('dialog').boundingBox();await page.mouse.click(frame.x+1,frame.y+frame.height/2);assert.equal(await page.getByRole('dialog').count(),1,'Dialog border is not backdrop');
+   await page.getByRole('button',{name:'Normal',exact:true}).click();
    await page.waitForFunction(n=>window.skillFixture.calls.length===n+1,count);const call=await page.evaluate(()=>window.skillFixture.calls.at(-1));assert.equal(call.type,'ability');assert.ok(call.formula);
    await button.click({modifiers:['Shift']});await page.waitForFunction(n=>window.skillFixture.calls.length===n+2,count);
   }else{
@@ -62,6 +64,7 @@ try{for(const width of [390,1024,1280,1440]){
  const supported=rows[1],unsupported=rows.at(-1);await page.evaluate(a=>window.skillFixture.render(a),supported.actor);await page.getByRole('button',{name:'Wisdom Check',exact:true}).click();
  await page.evaluate(a=>window.skillFixture.render(a),unsupported.actor);await page.getByRole('dialog').waitFor({state:'detached'});
  const count=await page.evaluate(()=>window.skillFixture.calls.length);await page.evaluate(a=>window.skillFixture.render(a),supported.actor);assert.equal(await page.evaluate(()=>window.skillFixture.calls.length),count);
+ await page.getByRole('button',{name:'Wisdom Check',exact:true}).click();await page.getByRole('dialog').waitFor();await page.mouse.click(1,1);await page.getByRole('dialog').waitFor({state:'detached'});
  await context.close();
 }}finally{await browser.close();}
 writeFileSync(join(out,'evidence.json'),JSON.stringify({method:'Offline actual Sheet + SDK presentation seam, synthetic representative source. No native/operator acceptance.',results:evidence},null,2));

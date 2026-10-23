@@ -27,6 +27,8 @@
     "test:native-filters": "node scripts/native-filter-oracle.mjs",
     "test:native-initial-filters": "node scripts/native-initial-filter-oracle.mjs",
     "test:public-commands": "node scripts/test-public-commands.mjs",
+    "test:public-health": "node scripts/test-public-health.mjs",
+    "test:native-temporary-hp": "node scripts/native-temporary-hp-oracle.mjs",
     "test:native-conditions": "node scripts/native-condition-oracle.mjs",
     "test:native-custom-traits": "node scripts/native-custom-traits-oracle.mjs",
     "test:native-formula-context": "node scripts/native-formula-roll-context-oracle.mjs",

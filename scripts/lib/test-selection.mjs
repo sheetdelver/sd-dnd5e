@@ -6,7 +6,7 @@ export function selectRegressions(root,all,args){
  }
  if(args.includes('--smoke')&&selected.length)throw Error('Choose smoke or explicit affected tests');
  if(args.includes('--affected')&&!selected.length)throw Error('Affected checks require at least one --test path');
- const smoke=['player-workflow','effect-metadata','presentation','skill-review','rules-context','command-journal'].map(name=>join(root,'src/tests',name+'.test.ts'));
+ const smoke=['player-workflow','effect-metadata','presentation','skill-review','rules-context','command-journal','temporary-hp'].map(name=>join(root,'src/tests',name+'.test.ts'));
  const layer=args.includes('--smoke')?'smoke':selected.length?'affected':'deep';
  const tests=layer==='smoke'?smoke:layer==='affected'?[...new Set(selected)]:all;
  if(!tests.length||tests.some(path=>!all.includes(path)))throw Error('Selected test is not a maintained module regression');

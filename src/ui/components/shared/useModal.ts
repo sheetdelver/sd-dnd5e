@@ -20,6 +20,7 @@ export type ModalId =
     | 'theme'
     | 'roll'
     | 'hp'
+    | 'temporary-hp'
     | 'rest'
     | 'item'
     | 'spell'

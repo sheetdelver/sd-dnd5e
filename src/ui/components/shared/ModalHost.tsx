@@ -7,6 +7,7 @@ import { rollIntentSignature, type PreparedRollKind } from './skillIntent';
 import ThemeModal, { type ThemeModalProps } from '../modals/ThemeModal';
 import RollModal, { type RollModalProps } from '../modals/RollModal';
 import HPModal, { type HPModalProps } from '../modals/HPModal';
+import TemporaryHpModal,{type TemporaryHpModalProps} from '../modals/TemporaryHpModal';
 import RestModal, { type RestModalProps } from '../modals/RestModal';
 import ItemModal, { type ItemModalProps } from '../modals/ItemModal';
 import SpellModal, { type SpellModalProps } from '../modals/SpellModal';
@@ -34,6 +35,7 @@ export default function ModalHost() {
     if (activeId === null) return null;
 
     switch (activeId) {
+        case 'temporary-hp':return <TemporaryHpModal {...activeProps as Omit<TemporaryHpModalProps,'onClose'>} onClose={closeModal}/>;
         case 'conditions':
             return <ConditionsModal onClose={closeModal} />;
         case 'defenses':

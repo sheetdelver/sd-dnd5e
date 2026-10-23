@@ -8,6 +8,7 @@ export interface PreparedHp {
     status:'ready'|'unavailable'|'legacy-unqualified';reason?:string;calculation?:'source-override'|'class-advancements';provenance:string;commandReason:string;
     value:number|null;max:number|null;effectiveMax:number|null;temp:number|null;tempmax:number|null;damage:number|null;pct:number|null;
     advancements:Array<{classId:string;itemUuid:string;advancementId:string;total:number}>;
+    temporaryEdit?:{status:'ready'|'unavailable';value:number|null;reason?:string};
 }
 export interface PreparedHitDice {
     status:'ready'|'unavailable';reason?:string;provenance:string;max:number|null;value:number|null;bySize:Record<string,number>;
@@ -92,6 +93,13 @@ export function prepareHealth606(actor:unknown,context:RulesContext,effects:Nume
     const effectiveMax=Math.max(max+tempmax,0),current=Math.min(value,effectiveMax);
     const hp:PreparedHp={status:'ready',provenance,calculation:override===null?'class-advancements':'source-override',commandReason,max,effectiveMax,value:current,temp,tempmax,damage:effectiveMax-current,pct:Math.max(0,Math.min(effectiveMax?current/effectiveMax*100:0,100)),advancements};
     for(const key of ['value','max','temp','tempmax']as const){const current=effects.finalScalars?.['system.attributes.hp.'+key];if(current!==undefined)hp[key]=current;}
+    // A manual source edit is qualified only when this effective field has no
+    // effect dependency. Even a same-value override must not become editable.
+    const sourceTemp=record(record(record(source.system)?.attributes)?.hp)?.temp;
+    const stored=sourceTemp===undefined?0:sourceTemp;
+    const editedByEffect=[...effects.plan.initial,...effects.plan.final].some(change=>change.key==='system.attributes.hp.temp');
+    hp.temporaryEdit=integer(stored)&&!editedByEffect&&hp.temp===stored
+        ?{status:'ready',value:stored}:{status:'unavailable',value:null,reason:'Temporary HP is effect-dependent or its stored value is unavailable.'};
     return {hp,hitDice};
 }
 /** Projection access only, never reconstruction from source/default numbers. */

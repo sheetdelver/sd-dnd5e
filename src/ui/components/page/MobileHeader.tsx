@@ -14,6 +14,7 @@ import {armorClassProjection} from '../../../logic/preparation/defenses';
 import {HpReadout,HitDiceReadout} from '../shared/HealthFacts';
 import {movementProjection} from '../../../logic/preparation/movement';
 import {WalkingSpeedReadout} from '../shared/MovementFacts';
+import TemporaryHpControl from '../shared/TemporaryHpControl';
 
 /**
  * MobileHeader — compact header for the mobile character sheet view.
@@ -158,6 +159,8 @@ export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Prop
                     }}>
                         <HpReadout hp={derived.hp}/>
                     </span>
+                    <span style={{fontSize:'10px'}}>TEMP: {derived.hp?.temp??'—'}</span>
+                    <TemporaryHpControl/>
                     <span style={{
                         fontSize: '8px',
                         color: inspiration ? 'var(--theme-primary)' : 'var(--text-muted)',

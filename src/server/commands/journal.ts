@@ -182,6 +182,29 @@ export class CommandJournal {
         await this.owner(req, actor);
         return this.load(req, key, scope);
     }
+    /** Load only this caller's persisted plan, then use the ordinary owner-gated
+     * executor. In particular, ownership loss must reach execute's retirement
+     * guard rather than fail an earlier status read and leave a review reusable. */
+    async executeReviewed(req:ModuleServerRequest,actor:string,operation:string,driver:(plan:Readonly<CommandPlan>)=>CommandDriver):Promise<CommandRecord>{
+        const {scope,key}=this.binding(req,actor,operation),row=await this.load(req,key,scope);
+        if(!row)throw new SdkError('conflict','Current reviewed intent required');
+        return this.execute(req,actor,operation,row.plan,driver(copy(row.plan)));
+    }
+    /** Recovery inspection queues with execution. If dispatch has not begun,
+     * retire its capability so a delayed execute request cannot arrive later.
+     * An active dispatch finishes/fences before inspection returns. */
+    async inspect(req:ModuleServerRequest,actor:string,operation:string):Promise<CommandRecord|null>{
+        const bound=this.binding(req,actor,operation);
+        return this.serial(bound.actorKey,async()=>{
+            await this.owner(req,actor);const row=await this.load(req,bound.key,bound.scope);
+            if(row?.phase==='reviewed'){
+                row.phase='rejected-zero-write';row.reason='Review retired during recovery;fresh review required';
+                this.fences.set(bound.key,copy(row));
+                try{await this.persist(req,bound.key,row);}catch{/* Prior-session and local fences prevent replay. */}
+            }
+            return row;
+        });
+    }
     /** Only a server-derived plan is admissible; no source changes occur during review. */
     async review(req: ModuleServerRequest, actor: string, operation: string, input: CommandPlan): Promise<CommandRecord> {
         const plan = planValue(input), bound = this.binding(req, actor, operation);
@@ -276,5 +299,5 @@ export class CommandJournal {
         });
     }
 }
-/** Shared by future request-bound domain handlers, never a privileged bootstrap runtime. */
+/** Shared by request-bound domain handlers, never a privileged bootstrap runtime. */
 export const commandJournal = new CommandJournal();

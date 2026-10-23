@@ -50,8 +50,10 @@ export default function BaseModal({ open, onClose, title, children, maxWidth = 4
     }, [onClose]);
 
     const handleClick = (e: React.MouseEvent<HTMLDialogElement>) => {
-        // Click landed on the dialog element itself (not bubbled from a child) → backdrop.
-        if (e.target === ref.current) onClose();
+        // Native dialog targets itself for both backdrop and frame/padding.
+        // Only a point outside its rectangle is a backdrop dismissal.
+        const rect=ref.current?.getBoundingClientRect();
+        if (e.target === ref.current && rect && (e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)) onClose();
     };
 
     return (

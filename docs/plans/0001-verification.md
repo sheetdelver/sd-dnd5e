@@ -53,6 +53,21 @@ regression evidence. Smoke6 suites, explicit affected player-corpus suite and3 t
 regressions PASS (October23). Repair checkpoint `c40684d`; review `7275b2e`.
 Full M2 and native/operator gates remain open.
 
+## C110 — reviewed temporary-HP player operation
+
+Bounded DD-04/25/26/34/35,A16/A18 progress: review without a source write,owner-bound
+single-field replacement,exact acknowledgement and Core source readback,visible
+refresh,stale zero-write retirement and unknown-outcome recovery. Both layouts use
+the same modal and preparation. [Commands and evidence](../audits/evidence/2026-10-23-temporary-hp.md)
+separate synthetic SDK regressions,pinned schema/method evidence,real isolated
+public host,mounted SDK-seam UI and package checks. Matching Core readback does not
+close E02 or establish independent native acceptance. All full M gates remain open.
+
+Checkpoint identities: review `7275b2e`; C108 usability repair `c40684d`; C109
+proportional test/upgrade decision `23eeee4`; C110 implementation identity recorded
+at the next documentation checkpoint. Player outcomes and artifact identities are
+self-contained in the linked evidence,not dependent on ignored handoff files.
+
 ## Fixture format and acquisition
 
 M0 should create module-owned `tests/fixtures/native-6.0.6/` and a provenance index. Each fixture records:

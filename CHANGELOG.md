@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Review and manually replace or clear qualified temporary HP,with ownership checks,readback and recovery without replay.
+
 - Keep supported characters usable with native migration metadata;compact unavailable diagnostics and fix sheet grid overlap.
 
 - Continue experimental character preparation across checks, qualified conditional predicates,inventory and character readouts;unsupported rules remain explicit.

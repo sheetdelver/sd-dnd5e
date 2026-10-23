@@ -46,6 +46,13 @@ entry points added without discarding tests. Legacy executable oracle imports ar
 retained for affected-only migration. DD-QA06: [bounded native-data and upgrade
 decision](../plans/native-upgrades.md) recorded; exact version qualification remains.
 
+Player-delivery checkpoint C110 adds a complete bounded manual temporary-HP edit:
+review -> current authorization/source revalidation -> one patch -> acknowledgement/
+Core source readback -> visible result -> reconnect/status inspection without replay.
+[Evidence](evidence/2026-10-23-temporary-hp.md) records boundaries. Other health,
+inventory,attack/damage,casting/resource and rest workflows remain incomplete.
+The baseline table below is the historical review state,not the new route inventory.
+
 ## Baseline and quantified progress
 
 - Module HEAD `5b52545`, branch `feat/adr-0001-character-lifecycle`; latest runtime

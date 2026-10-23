@@ -481,6 +481,18 @@
 .sdk-module--dnd5e .dnd5e-preparation-diagnostics summary { cursor: pointer; }
 .sdk-module--dnd5e .dnd5e-preparation-diagnostics p { margin: 8px 0; }
 .sdk-module--dnd5e .dnd5e-preparation-diagnostics code { white-space: pre-wrap; }
+.sdk-module--dnd5e .dnd5e-health-edit p { margin: 8px 0; }
+.sdk-module--dnd5e .dnd5e-health-edit label { display: grid; gap: 6px; margin: 12px 0; }
+.sdk-module--dnd5e .dnd5e-health-edit input {
+    min-width: 0; padding: 8px; border: 1px solid var(--theme-border);
+    background: var(--surface-elevated); color: var(--text-primary); border-radius: 4px;
+}
+.sdk-module--dnd5e .dnd5e-health-edit button {
+    min-height: 36px; padding: 6px 12px; margin: 4px 8px 4px 0;
+    border: 1px solid var(--theme-border); border-radius: 4px;
+    background: var(--surface-elevated); color: var(--text-primary);
+}
+.sdk-module--dnd5e .dnd5e-health-edit button:disabled { opacity: .5; }
 @media (min-width: 1024px) and (max-width: 1279px) {
     .sdk-module--dnd5e .dnd5e-overview { grid-template-columns: minmax(0, 1fr); }
     .sdk-module--dnd5e .dnd5e-sheet-columns { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }

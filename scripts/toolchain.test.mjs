@@ -28,9 +28,9 @@ test('a missing required oracle/toolchain argument fails rather than silently sk
     assert.throws(() => option(['--native'], '--native'), /requires a value/);
 });
 test('smoke/affected/deep selection is explicit; CI tooling has only one invocation',()=>{
- const root='/module',all=['player-workflow','effect-metadata','presentation','skill-review','rules-context','command-journal','health'].map(n=>join(root,'src/tests',n+'.test.ts'));
+ const root='/module',all=['player-workflow','effect-metadata','presentation','skill-review','rules-context','command-journal','temporary-hp','health'].map(n=>join(root,'src/tests',n+'.test.ts'));
  assert.equal(selectRegressions(root,all,[]).tooling,true);
- assert.equal(selectRegressions(root,all,['--smoke']).tests.length,6);
+ assert.equal(selectRegressions(root,all,['--smoke']).tests.length,7);
  assert.deepEqual(selectRegressions(root,all,['--test','src/tests/health.test.ts']).tests,[all.at(-1)]);
  assert.throws(()=>selectRegressions(root,all,['--test','../foreign.test.ts']),/not a maintained/);
  assert.throws(()=>selectRegressions(root,all,['--test']),/requires/);

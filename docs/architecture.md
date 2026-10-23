@@ -15,8 +15,9 @@ Installed authorized documents/settings are the content authority. Versioned
 adapters cover only executable semantics unavailable as source data; avoid copied
 content tables and unnecessary global rejection. A representative native character
 corpus plus changed-domain comparisons qualifies updates offline/CI. The current
-exact6.0.6 gate has not yet been replaced; an unknown-version source-inspection
-fallback is planned, not implemented. Do not claim future-version rule support.
+exact6.0.6 gate remains. The mounted unqualified-version canary preserves identity
+and descriptive owned source with one compatibility notice;effective actions stay
+restricted. A complete version-independent inspection surface remains open.
 
 The review verifies Core0.21.0/SDK3.7 compatibility checks and inventories newly
 available public presentation/package APIs versus still-missing general content,
@@ -63,13 +64,15 @@ are superseded only by this profile.
 
 - The UI manifest registers the sheet, initiative modal and stylesheet. It has
   no builder/tool/dashboard action. The server entry exposes read-only D&D content
-  metadata and caller-owned command-status routes. C33 supplies server journal/queue
-  infrastructure; domain review/execute and rules-bearing writes remain unimplemented.
+  metadata, caller-owned command status and the reviewed temporary-HP edit route.
+  C33 journal/queue infrastructure now serves this bounded M3 operation; other
+  domain writes remain unimplemented.
 - Bounded source-derived numeric ability/save/skill formulas are available;
   unqualified rules and unknown contexts disable these controls with reasons.
   Weapon/spell controls currently request `item` rolls that the adapter does not
   resolve. They are not complete native activity execution.
-- Modern health/rest mutation controls are gated pending M3/M4. Selected legacy
+- Modern manual temporary-HP replacement uses review/execute/readback/recovery.
+  Effect-dependent temporary HP,damage/healing and rest commands remain gated. Selected legacy
   retains partial HP/temp-HP compatibility; complete HD/slot/resource/Item recovery
   remains unimplemented.
 - Conditions and appearance include placeholder presentation. Proficiencies now
@@ -791,6 +794,40 @@ qualify their acknowledgement shape and bounds before writes. Module-process
 serialization is not native/cross-process atomicity; C32/E02's external-edit gap and
 native ID/freshness/confirmation gates remain open.
 
+
+### Reviewed manual temporary-HP edit (October23, C110)
+
+`POST /api/modules/dnd5e/health/temporary` accepts only review (exact Actor ID,
+nonnegative whole-number amount), execute or status (Actor + server-issued operation
+ID). It accepts no client patch,formula,before-value,authority or execution plan.
+The shared health preparation exposes eligibility only for a qualified2024 world
+character with ready HP and no initial/final effect on temporary HP,even a same-value
+one. Source/default0 is distinct from the prepared effective field. Other health
+operations retain their boundaries. This is manual replacement/clearing,not native
+`applyTempHP` grant-max behavior or activity execution.
+
+Review binds the server's current source fingerprint and before/after intent to the
+existing caller/world/Actor journal. Execution rechecks owner,context,source and
+eligibility before its single public SDK patch. Exact Actor identity/temporary-HP
+acknowledgement and current owner-gated Core source readback confirm that field.
+No unrelated source field is patched. Missing acknowledgements,changed readback,
+context or storage failures fence the outcome. A matching stored field on later
+inspection never promotes an uncertain operation to confirmed. Public Core source
+readback is not an independent native fetch or proof against external-edit races;
+E02 remains open. Native hooks/operator parity remain unaccepted.
+
+Both layouts use the same shared modal,public `fetchWithAuth` and host document
+invalidate/refresh. The modal persists only a recovery operation ID,scoped by
+instance/world/caller/Actor. No optimistic Actor mutation or second cache is added.
+Source/access/connection changes retire review actions. After a lost response or
+reopen,the user checks status;the old write is never replayed. Prior-operation
+inspection queues with execution and retires an unexecuted capability,preventing
+a delayed execute after inspection. No source write is dispatched by inspection.
+Inspection remains reachable if preparation becomes unqualified,without enabling
+a fresh effective edit. Inspection must be
+finished explicitly before a fresh edit/review. A prior process's review is retired;
+interrupted execution remains fenced by the existing journal. No CAS or
+multi-document atomicity is implied. See the [workflow evidence](audits/evidence/2026-10-23-temporary-hp.md).
 
 ### Qualified initial collection reads (C34)
 

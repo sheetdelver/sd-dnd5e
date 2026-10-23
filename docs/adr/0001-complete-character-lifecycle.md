@@ -76,6 +76,19 @@ incremental migration when affected. [Native-data/upgrade decision](../plans/nat
 bounds DD-QA06 without loosening version gates or copying installed content.
 Next delivery remains an M3 operation, not further test refactoring.
 
+### First bounded M3 player operation — C110
+
+Players can review and manually replace/clear temporary HP through one authorized
+SDK patch,exact acknowledgement,Core source readback and visible sheet refresh in
+both layouts. Stale review is zero-write; partial/unknown outcomes are fenced and
+recovered by inspection without replay. Effect-dependent temp HP,healing,damage,
+death saves,rest,resources and other domain commands remain outside this slice.
+[Evidence and limits](../audits/evidence/2026-10-23-temporary-hp.md) advance DD-04/25/26/
+34/35 and A16/A18 partially. No full M3/M4 or native/operator gate closes.
+Next outcome: connect a qualified owned attack Activity to review/attack/damage
+and its native stored costs,implementing necessary read dependencies as encountered.
+Do not resume the superseded transferred-field permutation queue.
+
 ## Context and outcome
 
 The experimental 0.4.1 module has a substantial sheet layout but incomplete rules and persistence. Basic check rendering does not establish a usable character lifecycle. Modern spells, activities, source identity, effects, resting and advancement require integrated behavior, not isolated UI patches. This plan uses the current **Foundry-installable** release, not upstream development HEAD. C02 adopted the documented Core0.19.3/module-api1.5 floors; module release metadata remains0.4.1/experimental.
@@ -437,7 +450,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
 | M2 | In progress: shared source/default Actor rules, qualified checks/combined selections, typed initial/final effects and conditions; C75 Item reads, C76 mappings, C77–C79 formulas/class references, C80 Normal proficiency dice, C81 physical reads,C82 combat modifiers,C83 stored encumbrance,C84–C104 Item/spell/read phases and C106/C107 transferred final scalar/trait/text/flag composition. C105 qualifies the existing E04 timed-context read limitation. Full exit work is tracked in the verification ledger; earlier C06–C74 evidence remains below. | RV01–RV04 and C06–C78 preserve separate regression/controlled-source/mounted/public-host evidence; full acceptance open |
-| M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
+| M3 | C32/C33 journal foundation; C110 bounded reviewed manual temporary-HP operation | Other domain writes,inventory,full health and native/concurrency acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
 | M6 | Not started | Builder/advancement class-level matrix |
