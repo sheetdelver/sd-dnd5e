@@ -8,6 +8,7 @@ import BaseModal from '../shared/BaseModal';
 import ActivityCommonFacts from '../shared/ActivityCommonFacts';
 import SpellPreparationFacts from '../shared/SpellPreparationFacts';
 import ActivitySaveFacts from '../shared/ActivitySaveFacts';
+import DamageSourceFacts,{DamageSourceFact} from '../shared/DamageSourceFacts';
 import { useSheet } from '../shared/SheetContext';
 
 /**
@@ -163,7 +164,8 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
 
             {!legacy&&<p role="status" style={{fontSize:'12px'}}>Equipment changes require the reviewed inventory command workflow.</p>}
             {!legacy&&prepared?.type==='spell'&&<SpellPreparationFacts item={prepared}/>}
-            {!legacy&&prepared?.type!=='spell'&&prepared?.activities.map(activity=><section key={activity.id} aria-label={'Activity '+activity.id}><h3>{activity.name}</h3><p>{activity.type} · Uses: {activity.uses.display}</p><ActivityCommonFacts fact={activity.common}/><ActivitySaveFacts activity={activity}/>{activity.attack&&<p>Attack: {activity.attack.value?.display??'Unavailable'}</p>}<p>{activity.executionReason}</p></section>)}
+            {!legacy&&prepared?.damageSource&&<section aria-label="Weapon base damage"><DamageSourceFact fact={prepared.damageSource.base}/>{(prepared.damageSource.versatile.value?.formula||prepared.damageSource.versatile.status==='unavailable')&&<DamageSourceFact label="Versatile base formula" fact={prepared.damageSource.versatile}/>}</section>}
+            {!legacy&&prepared?.type!=='spell'&&prepared?.activities.map(activity=><section key={activity.id} aria-label={'Activity '+activity.id}><h3>{activity.name}</h3><p>{activity.type} · Uses: {activity.uses.display}</p><ActivityCommonFacts fact={activity.common}/><ActivitySaveFacts activity={activity}/><DamageSourceFacts source={activity.damageSource}/>{activity.attack&&<p>Attack: {activity.attack.value?.display??'Unavailable'}</p>}<p>{activity.executionReason}</p></section>)}
             {/* Equip / attune toggles */}
             {(item.type === 'weapon' || item.type === 'equipment' || canAttune) && (
                 <div style={{ display: 'flex', gap: 'var(--space-sm)', marginTop: 'var(--space-md)' }}>

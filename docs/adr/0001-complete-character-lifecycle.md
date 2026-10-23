@@ -3322,3 +3322,39 @@ acceptance. M2/ADR remain open;next finish damage/modifier read dependencies,Ite
 final/effect composition and existing A02–A06 source/override/order/multiclass exits.
 
 [C102 evidence](../audits/evidence/2026-10-23-c102-spell-fields.json) records commands,hashes,collaborators and limits.
+
+
+### C103 — initialized damage-source formulas and part identity (2026-10-23)
+
+C102 is `804cb2c`. One shared source/default model now prepares native DamageData
+base formulas for weapon and Activity readouts. Optional counts/denominations never
+become invented dice;empty source stays empty. Numeric0 bonus cleans to string0,
+custom/manual selection and first-die modifier placement match the native getter.
+Ordered types,modifiers,part bonuses and scaling metadata remain intact. Source
+formula/base/scaledFormula poison cannot replace schema-owned operands. Attack
+includeBase and omit-empty placement retain exact source roles;heal/save/damage
+parts use their own schema locations. Legacy weapon damage.parts and unqualified
+consumable/ammunition combinations show explicit unavailable reasons.
+
+These are Base formulas,not effective/current damage totals. UI labels retain that
+distinction in action rows and Item/Spell details. No reference substitution,dice
+evaluation,ability/magic/ammo/critical/rule additions or automatic cantrip/upcast
+scaling is enabled. The existing reviewed M4 execution gate stays closed. Adapted
+formula assembly retains the exact upstream MIT notice,attribution and dependency
+list in packaged assets;full M8 license/content qualification remains open.
+
+21 actual native schema/getter/zero-scaling cases and42 actual base-placement
+cases use independent expected tables;all63 final source/placement inputs fail
+C102 and0 after.63 further inline-location regressions pass.83 module/9 tooling
+suites (61 assertions),307 explicit typed files,exact2242/591 source verification,
+mounted1440/390 current base formulas/types/empty/includeBase/source-context
+recovery and held callbacks,118090 accepted public-host requests (420 new independent
+checks) and isolated check/package PASS. One unary candidate and1880 tied-index
+diagnostics remain;host serialization is unchanged. Task-owned services stopped.
+R/S,mounted seams and isolated host remain separate from installed/native/operator
+acceptance. M2/ADR remain open. Next qualify real Weapon derived range cleanup and
+source-to-Activity inheritance;C97 parent-range captures are intermediate-model
+evidence,not proof that raw range already equals the prepared Item range. Then
+finish remaining Item/effect and A02–A06 read gate comparisons.
+
+[C103 evidence](../audits/evidence/2026-10-23-c103-damage-source.json) records commands,hashes,license and phase limits.

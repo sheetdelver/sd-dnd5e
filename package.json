@@ -83,6 +83,8 @@
     "test:native-filter-dispositions": "node scripts/native-filter-dispositions-oracle.mjs",
     "test:mounted-predicates": "node scripts/test-mounted-predicates.mjs",
     "test:native-spell-fields": "node scripts/native-spell-fields-oracle.mjs",
-    "test:mounted-spell-fields": "node scripts/test-mounted-spell-fields.mjs"
+    "test:mounted-spell-fields": "node scripts/test-mounted-spell-fields.mjs",
+    "test:native-damage-source": "node scripts/native-damage-source-oracle.mjs",
+    "test:mounted-damage-source": "node scripts/test-mounted-damage-source.mjs"
   }
 }

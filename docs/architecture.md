@@ -1741,3 +1741,12 @@ remains0. Nonpersisted DC bonus/value never supply source overrides. Actor defau
 DC and Activity DC have distinct labels. Modern Spell summaries,action rows and
 Item/Spell details format the same facts;source and execution readiness stay separate.
 [C102 evidence](audits/evidence/2026-10-23-c102-spell-fields.json).
+
+
+DamageData source/default formulas have a shared initialized-source read model.
+Source part identity and computed includeBase placement stay separate. Symbolic
+references,manual/modifier/scaling metadata survive;no evaluator or effective roll
+is introduced. Action/Item/Spell surfaces label these Base formulas. Empty data
+never supplies a die,legacy shapes diagnose migration and unqualified ammo base
+combinations remain unavailable. Schema-owned inputs ignore prepared-looking
+formula/base poison. [C103 evidence](audits/evidence/2026-10-23-c103-damage-source.json).

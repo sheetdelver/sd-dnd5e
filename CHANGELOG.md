@@ -8,6 +8,7 @@ Historical entries are reconstructed from [published releases](https://github.co
 - Preserve source data and distinguish earlier preparation from current proficiency, formula, flag and effect results.
 - Share skill/tool/ability selections, previews and qualified roll execution across desktop/mobile, with context and stale-intent guards.
 - Support qualified Normal die bounds and proficiency dice and ordinary advantage/disadvantage;retain wider execution limits.
+- Preserve and display initialized base damage formulas without inventing missing dice.
 - Prepare attunement,qualified transferred check effects,independent Item counters and scalar readouts in native phase order.
 - Show qualified source-linked spell abilities,inherited fields,numeric attacks and Activity save DCs.
 - Share qualified utility Activity fields,template dimensions,units and owned consumption references;retire stale rolls on source changes.

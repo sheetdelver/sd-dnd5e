@@ -117,6 +117,7 @@ export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props)
                                     {row.damage}
                                 </span>
                             )}
+                            {row.baseDamage&&<span title={row.baseDamageReason} style={{fontSize:'11px'}}>Base: {row.baseDamage}</span>}
                             {row.save && (
                                 <span title={row.saveReason} style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                                     {row.save}

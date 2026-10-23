@@ -1612,3 +1612,14 @@ final DC profiles distinguish source calculation from initialized/prepared DCs,
 target-first formula modifiers,flat0 and no-caster11. Common/damage-label seams
 exclude save/damage/target execution and full DataModel/runtime acceptance.
 [C102 evidence](../audits/evidence/2026-10-23-c102-spell-fields.json).
+
+
+C103 executes actual DamageData schema,primitive/SchemaField cleaning and
+formula/automatic/manual/zero-step scaling with declared string-Set infrastructure.
+21 fixed expected cases precede module implementation.42 separate actual Attack
+includeBase/omit-empty placements use explicit clone/common/label seams;they do
+not qualify effective damage or full Activity final preparation. Source-only inline
+locations are verified against the pinned subtype schemas. Adapted pure formula
+assembly retains [the upstream software notice](../../assets/licenses/dnd5e-system-MIT.txt)
+and [dependency/attribution record](../../assets/licenses/README.md).
+[C103 evidence](../audits/evidence/2026-10-23-c103-damage-source.json).

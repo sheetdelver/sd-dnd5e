@@ -23,7 +23,7 @@ export interface ActionRow {
     /** Display string (e.g. "+5") for attack roll. */
     attackBonus?: string;
     /** Display string (e.g. "1d8+3 slashing"). */
-    damage?: string;
+    damage?: string;baseDamage?:string;baseDamageReason?:string;
     /** Display string (e.g. "5 ft." or "30/120 ft."). */
     range?: string;
     /** Display string for save DC (e.g. "DC 15 DEX"). */
