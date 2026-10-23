@@ -13,8 +13,10 @@ progress against their stable DD/A/M IDs; current task authority and checkpoints
 belong in the handoff. No live world authority follows from these documents.
 
 The October 23 [usability and delivery review](docs/audits/2026-10-23-usability-and-delivery-review.md)
-is the active audit. Its execution order supersedes the old next-field-matrix
-queue: repair DD-QA01/02, demonstrate integrated sheet usability, rationalize
+is the active audit. Its DD-QA07 operator follow-up pauses implementation until
+explicit user resumption; then verify the actual Actor/Item integration and usable
+basic sheet before attack/damage. Historical next-work entries do not override
+this pause. Its execution order supersedes the old next-field-matrix queue: repair DD-QA01/02, demonstrate integrated sheet usability, rationalize
 duplicated verification, and deliver a complete player operation. ADR-0001's full
 acceptance scope remains open. Report player outcomes, not case-count progress.
 Use installed native data wherever public contracts provide it. Qualify upgrades

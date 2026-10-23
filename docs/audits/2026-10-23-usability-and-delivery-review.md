@@ -26,6 +26,48 @@ repair usability, reduce redundant test execution, and deliver complete player
 workflows. Do not remove honest unsupported states or invent effective values to
 make the screenshot look populated.
 
+## Operator follow-up — DD-QA07; implementation paused
+
+At checkpoint `42dd6e8`, the user supplied another Krusky screenshot: layout
+containment improved, but abilities, level, HP and other readouts still show
+unavailable; class and actions are absent, and species displays an ID-like value.
+This is operator-reported failure of the integrated sheet, not evidence that the
+isolated regressions stopped passing. Actual Actor/API payloads were not inspected.
+
+Read-only code findings:
+
+- `src/logic/preparation/species-identity.ts` returns the stored species reference
+  as literal text when no owned Item matches. This explains a possible path to the
+  visible ID; missing/mismatched owned Items are a hypothesis, not a proven cause.
+- `src/logic/preparation/character-profile.ts` lets general `effects.reason` and
+  `effects.ruleFlags.reason` restrict level/proficiency. Review actual dependency
+  scope before treating unrelated descriptive facts as unavailable; do not bypass
+  genuine mechanical uncertainty or substitute base values as effective totals.
+- Mounted fixtures and synthetic public-host checks do not verify this Actor's
+  installed source → preparation → authorized API → UI integration. The missing
+  diagnostic summary in the screenshot also requires checking the actual payload.
+
+The user paused implementation to prioritize Shadowdark and conserve compute.
+No attack/damage work or further broad verification is selected during this pause.
+On explicit resumption, DD-QA07 takes precedence over the proposed attack workflow:
+
+1. Verify the selected local/managed module and runtime revision, then trace one
+   authorized representative Actor and its owned Items across ingestion,
+   preparation, API response and both sheet layouts. Live access needs scoped
+   authority; do not connect to hosted Foundry from test tooling by inference.
+2. Identify and fix the first data-loss or unjustified rejection point. Preserve
+   source identities and existing qualified rules; isolate unsupported dependencies.
+3. Demonstrate species/class, level, abilities, HP, inventory and existing Activity
+   information for the affected character, with specific explanations for any
+   legitimately unsupported fields. Informational Activity listing is distinct
+   from implementing attack/damage execution.
+4. Retain a focused regression for the discovered failure and operator evidence.
+   Only then select the next player operation. Suite counts are not acceptance.
+
+No runtime changes, new compatibility claims or additional test runs accompany
+this documentation checkpoint. Module 0.4.1 remains experimental; ADR-0001 stays
+open. Existing bounded fixes and evidence are preserved, not declared invalid.
+
 ## Repair disposition — October23
 
 DD-QA01 and DD-QA02 are corrected in the module. Supported metadata-bearing

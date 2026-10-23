@@ -6,6 +6,17 @@
 - Primary native target: **D&D 5e 6.0.6 / Foundry 14.367**, 2024 rules
 - Evidence: [current audit DD-01–36](../audits/2026-10-19-character-lifecycle.md), [versioned native map](../reference/native-6.0.6.md), [verification and completion matrix](../plans/0001-verification.md)
 
+## October 23 operator follow-up — paused
+
+The integrated Krusky sheet remains unusable after `42dd6e8`, despite bounded
+fixture and isolated-host successes. [DD-QA07](../audits/2026-10-23-usability-and-delivery-review.md#operator-follow-up--dd-qa07-implementation-paused)
+records observed symptoms, code findings, hypotheses and resumption acceptance.
+The user has paused D&D implementation while Shadowdark refinements proceed.
+Upon explicit resumption, trace and repair the actual Actor/owned-Item data path
+and demonstrate basic sheet information before the proposed attack/damage work.
+This supersedes next-work instructions below without reopening proven regressions
+or closing any native/operator gate. No version or compatibility change.
+
 ## October 23 QA amendment — delivery, usability and native updates
 
 The user's actual sheet is unusable despite the large passing rules test suite.

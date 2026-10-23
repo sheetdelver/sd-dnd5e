@@ -3,7 +3,9 @@
 The current audit is the [2026-10-23 usability, delivery and upgrade-maintenance review](2026-10-23-usability-and-delivery-review.md), governed by the October23 amendment to [ADR-0001](../adr/0001-complete-character-lifecycle.md).
 It reproduces the user's unusable-sheet state, quantifies implemented versus
 uncompleted work and sets the next repair order, proportional test strategy and
-native-update qualification workflow. Application fixes are still pending.
+native-update qualification workflow. Bounded application fixes are checkpointed; the DD-QA07 operator follow-up still
+reports an unusable actual sheet. Implementation is paused by the user; trace the
+Actor/Item integration before new operations on explicit resumption.
 
 The [2026-10-19 character-lifecycle discovery](2026-10-19-character-lifecycle.md)
 retains stable DD-01–36 requirements, historical evidence and unresolved E01–E05
