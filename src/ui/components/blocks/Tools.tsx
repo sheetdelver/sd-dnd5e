@@ -6,6 +6,7 @@ import { useSheet } from '../shared/SheetContext';
 import { useModal } from '../shared/useModal';
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
 import { ABILITY_FULL_NAME } from '../shared/abilityNames';
+import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
 
 export default function Tools({ onRoll }: {onRoll?: (type:string,key:string,options?:Record<string,unknown>)=>Promise<void>}) {
     const {actor} = useSheet(), {openModal} = useModal();
@@ -15,11 +16,11 @@ export default function Tools({ onRoll }: {onRoll?: (type:string,key:string,opti
     return <section className="block-card" aria-label="Tool checks">
         <h3>Tool checks</h3>
         <p style={{fontSize:'11px'}}>Choose a skill or ability in the roll dialog. Shift-click uses the independent default.</p>
-        {preparation?.reason && <p role="status">{preparation.reason}</p>}
+        <UnavailableNote reason={preparation?.reason}/>
         {!preparation?.reason && !Object.keys(tools).length && <p>No tool checks in actor source.</p>}
         {Object.values(tools).map(tool => <div key={tool.key} style={{marginBottom:'8px'}}>
             <button type="button" aria-label={`${tool.label} Tool Check`} disabled={!canRoll(tool.key)}
-                title={`${tool.provenance}; identity: ${tool.key}${(tool.unavailableReason??tool.defaultUnavailableReason) ? `; ${tool.unavailableReason??tool.defaultUnavailableReason}` : ''}`}
+                title={unavailableTitle(tool.unavailableReason??tool.defaultUnavailableReason)??`${tool.provenance}; identity: ${tool.key}`}
                 style={{width:'100%',textAlign:'left'}}
                 onClick={event => {
                     const intent = review(tool.key); if (!intent) return;
@@ -30,7 +31,7 @@ export default function Tools({ onRoll }: {onRoll?: (type:string,key:string,opti
                 <strong>{rollBonusLabel(tool)}</strong>
             </button>
             {tool.preparationNote && <small style={{display:'block'}}>{tool.preparationNote}</small>}
-            {(tool.unavailableReason??tool.defaultUnavailableReason) && <small style={{display:'block'}}>{tool.unavailableReason??tool.defaultUnavailableReason}</small>}
+            <UnavailableNote reason={tool.unavailableReason??tool.defaultUnavailableReason}/>
         </div>)}
     </section>;
 }

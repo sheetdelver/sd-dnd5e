@@ -8,6 +8,7 @@ import type { PreparedNumericD20 } from '../../../logic/preparation/d20-configur
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
 import {rollBonusLabel} from '../shared/rollBonusLabel';
 import ProficiencyIndicator from '../shared/ProficiencyIndicator';
+import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
 
 const SAVE_ORDER = ['str', 'dex', 'con', 'int', 'wis', 'cha'] as const;
 const SAVE_LABEL: Record<string, string> = {
@@ -50,7 +51,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
     return (
         <div className="block-card">
             <h2 className="block-heading">Saving Throws</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4px' }}>
+            <div data-save-grid style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '4px' }}>
                 {SAVE_ORDER.map(key => {
                     const ab = abilities?.[key];
                     const save = ab?.save ?? null;
@@ -62,8 +63,9 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                             aria-label={`${ABILITY_FULL_NAME[key] ?? key} Saving Throw`}
                             onClick={(e) => handleClick(e, key)}
                             disabled={!canRoll(key)}
-                            title={ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason}
+                            title={unavailableTitle(ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason)}
                             style={{
+                                minWidth:0,maxWidth:'100%',whiteSpace:'normal',overflowWrap:'anywhere',
                                 textAlign: 'center',
                                 padding: '8px 4px',
                                 borderRadius: 'var(--block-radius)',
@@ -95,7 +97,7 @@ export default function SavingThrows({ abilities, onRoll }: Props) {
                             <div style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--text-primary)' }}>
                                 {formatted}
                             </div>
-                            {(ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason) && <small>{ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason}</small>}
+                            <UnavailableNote reason={ab?.saveRoll?.unavailableReason??ab?.saveRoll?.defaultUnavailableReason}/>
                             {ab?.saveRoll?.preparationNote && <small style={{display:'block'}}>{ab.saveRoll.preparationNote}</small>}
                         </button>
                     );

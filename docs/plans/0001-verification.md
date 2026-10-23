@@ -33,6 +33,16 @@ Keep these separate in every checkpoint:
 
 Current R/S and packaging evidence is recorded in C01–C05 and independent RV01/RV02 below. RV02 confirms the original corrections and qualifies C05's card availability and source-phase claims. No milestone has native acceptance yet. Don't backfill an N result from an R/S/I run or a sibling module's acceptance.
 
+## October23 usability repair evidence
+
+DD-QA01/02 corrected; DD-QA03 bounded improvement: verified bookkeeping no longer
+causes a global refusal, and a malformed Item-only counter leaves independently
+qualified checks/HP available. Unknown global mechanics remain unavailable.
+[Repair commands, expected results and limits](../audits/evidence/2026-10-23-usability-repair.md)
+cover the unchanged synthetic reproducer, focused pinned native symbols and actual
+mounted sheet at390/1024/1280/1440px. This adds regression/offline mounted evidence;
+it does not establish installed/native/operator acceptance or close A01–A24.
+
 ## Fixture format and acquisition
 
 M0 should create module-owned `tests/fixtures/native-6.0.6/` and a provenance index. Each fixture records:

@@ -55,6 +55,18 @@ No Core work, native-runtime experiment resumption, version bump or live-world
 authority is inferred. A missing native-data/preparation contract needs a specific
 separately selected proposal, not indefinite reimplementation by tiny increments.
 
+### October23 repair checkpoint (DD-QA01/02; bounded DD-QA03)
+
+Verified migration bookkeeping no longer blanks supported checks, level or HP.
+Unknown mechanics remain restricted. Both layouts share one expandable, attributed
+diagnostic; compact field indicators and intrinsic grid fixes prevent the reproduced
+overlap. A small representative source corpus covers supported, localized failure
+and incompatible-context sheets, including mounted checks and recovery. Evidence:
+[repair record](../audits/evidence/2026-10-23-usability-repair.md). This is partial
+DD-01/24/27/34, A02/A03/A18 work, not completed M2/M7 or native/operator acceptance.
+Next: proportional test entry points/native upgrade decision and a complete bounded
+M3 operation. The former transferred-field matrix queue remains superseded.
+
 ## Context and outcome
 
 The experimental 0.4.1 module has a substantial sheet layout but incomplete rules and persistence. Basic check rendering does not establish a usable character lifecycle. Modern spells, activities, source identity, effects, resting and advancement require integrated behavior, not isolated UI patches. This plan uses the current **Foundry-installable** release, not upstream development HEAD. C02 adopted the documented Core0.19.3/module-api1.5 floors; module release metadata remains0.4.1/experimental.

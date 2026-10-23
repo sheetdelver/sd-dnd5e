@@ -7,6 +7,7 @@ import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 import {rollBonusLabel} from '../shared/rollBonusLabel';
 import type { PreparedNumericD20 } from '../../../logic/preparation/d20-configuration';
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
+import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
 
 /**
  * Convention for `components/blocks/*`:
@@ -68,9 +69,9 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
     };
 
     return (
-        <div style={{
+        <div data-ability-grid style={{
             display: 'grid',
-            gridTemplateColumns: `repeat(${columns}, 1fr)`,
+            gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
             gap: 'var(--space-sm)',
         }}>
             {ABILITY_ORDER.map(key => {
@@ -82,9 +83,10 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                         key={key}
                         aria-label={`${ABILITY_FULL_NAME[key] ?? key} Check`}
                         disabled={!canRoll(key)}
-                        title={ab.check?.unavailableReason??ab.check?.defaultUnavailableReason}
+                        title={unavailableTitle(ab.check?.unavailableReason??ab.check?.defaultUnavailableReason)}
                         onClick={(e) => handleClick(e, key)}
                         style={{
+                            minWidth:0,maxWidth:'100%',whiteSpace:'normal',overflowWrap:'anywhere',
                             background: 'var(--surface-card)',
                             border: 'var(--block-border-width) solid var(--theme-border)',
                             borderRadius: 'var(--block-radius)',
@@ -132,7 +134,7 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                         {ab.scorePreparationNote && <small style={{display:'block'}}>{ab.scorePreparationNote}</small>}
                         {ab.check?.total != null && <small>Check {ab.check.total >= 0 ? '+' : ''}{ab.check.total}</small>}
                         {ab.check?.preparationNote && <small style={{display:'block'}}>{ab.check.preparationNote}</small>}
-                        {(ab.check?.unavailableReason??ab.check?.defaultUnavailableReason) && <small style={{ display: 'block' }}>{ab.check?.unavailableReason??ab.check?.defaultUnavailableReason}</small>}
+                        <UnavailableNote reason={ab.check?.unavailableReason??ab.check?.defaultUnavailableReason}/>
                     </button>
                 );
             })}

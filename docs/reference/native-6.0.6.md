@@ -19,6 +19,20 @@ Temporary Foundry core source copies were available, without independently estab
 
 These copies help identify runtime coupling; they do not establish native acceptance on a specific build. The parked native preparation-runtime experiment remains parked.
 
+## October23 metadata classification
+
+Exact6.0.6 `ActiveEffect5e._initializeSource` and `Item5e._initializeSource` write
+`flags.dnd5e.persistSourceMigration` as migration bookkeeping. A Boolean marker
+and empty outgoing `dependents` array do not alter applicable type, temporary
+state, suppression or incoming `dependentOrigin`. The module preserves those
+fields and admits only these proven metadata forms. `dependentOn`, nonempty
+relationships, `spellLevel`, malformed metadata and unknown mechanics retain their
+existing gates. `scripts/native-metadata-oracle.mjs` extracts only relevant pinned
+symbols with explicit duration/registry seams; it imports an inert symbol reader
+and does not bootstrap native preparation or execute other oracle matrices.
+See the [repair evidence](../audits/evidence/2026-10-23-usability-repair.md) for
+controlled-method boundaries. This is source evidence, not runtime acceptance.
+
 ## Data and execution map
 
 Use the [versioned upstream tree](https://github.com/foundryvtt/dnd5e/tree/release-6.0.6) with the exact paths and symbols below. Preparation outputs must remain distinct from persisted source. The server receives JSON documents, not instances of these classes.

@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useId } from 'react';
+import {PreparationDiagnostics,PreparationDiagnosticScope} from './components/shared/PreparationDiagnostics';
 import type { ActorSheetData, FoundryItem } from '@sheet-delver/sdk';
 import type { ActorSheetProps } from '@sheet-delver/sdk/react';
 // The platform injects the declared `stylesheet` (info.json manifest) via a <link> to
@@ -32,6 +33,7 @@ const LAYOUT_BREAKPOINT = 1024;
 type Props = ActorSheetProps<ActorSheetData & Record<string, any>>;
 
 export default function Sheet({ actor, onRoll, onUpdate, foundryUrl, isOwner }: Props) {
+    const diagnosticsId='dnd5e-diagnostics-'+useId().replace(/[^a-zA-Z0-9-]/g,'');
     // --- Viewport detection ---
     const [isMobile, setIsMobile] = useState(false);
 
@@ -78,7 +80,10 @@ export default function Sheet({ actor, onRoll, onUpdate, foundryUrl, isOwner }: 
             isOwner={isOwner}
             foundryUrl={foundryUrl}
         >
-            {isMobile ? <MobileView {...viewProps} /> : <StandardView {...viewProps} />}
+            <PreparationDiagnosticScope.Provider value={diagnosticsId}>
+                <PreparationDiagnostics actor={actor} id={diagnosticsId}/>
+                {isMobile ? <MobileView {...viewProps} /> : <StandardView {...viewProps} />}
+            </PreparationDiagnosticScope.Provider>
         </SheetProvider>
     );
 }

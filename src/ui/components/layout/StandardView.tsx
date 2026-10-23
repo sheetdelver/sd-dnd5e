@@ -112,23 +112,17 @@ export default function StandardView({
                 borderBottom: '1px solid var(--theme-border)',
                 padding: 'var(--space-md) var(--space-lg)',
             }}>
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'stretch',
-                    gap: 'var(--space-md)',
-                    maxWidth: '1200px',
-                    margin: '0 auto',
-                }}>
+                <div className="dnd5e-overview">
                     {/* 6 ability score cards */}
-                    <div style={{ flex: '0 0 auto', width: '52%' }}>
+                    <div style={{ minWidth:0 }}>
                         <Abilities abilities={derived.abilities} onRoll={onRoll} />
                     </div>
 
                     {/* Stat chips: Prof, Speed, Inspiration, HP */}
                     <div style={{
-                        flex: 1,
+                        minWidth:0,
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(4, 1fr)',
+                        gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
                         gap: 'var(--space-sm)',
                     }}>
                         <ProficiencyBonus derived={derived} />
@@ -140,17 +134,9 @@ export default function StandardView({
             </div>
 
             {/* ---- Main 3-column layout ---- */}
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: '220px 260px 1fr',
-                gap: 'var(--space-lg)',
-                maxWidth: '1200px',
-                margin: '0 auto',
-                padding: 'var(--space-lg)',
-                minHeight: 'calc(100vh - 240px)',
-            }}>
+            <div className="dnd5e-sheet-columns">
                 {/* Left column: Saves, Senses, Proficiencies */}
-                <aside style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
+                <aside style={{ minWidth:0,display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
                     <SavingThrows abilities={derived.abilities} onRoll={onRoll} />
                     <PassiveSenses
                         perception={derived.passivePerception}
@@ -162,17 +148,17 @@ export default function StandardView({
                 </aside>
 
                 {/* Center column: Skills */}
-                <div>
+                <div style={{minWidth:0}}>
                     <Skills skills={derived.skills} onRoll={onRoll} />
                     <Tools onRoll={onRoll} />
                 </div>
 
                 {/* Right column: Init/AC/Def/Cond → Tab bar → Tab content */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+                <div className="dnd5e-sheet-main" style={{ minWidth:0,display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
                     {/* Stat blocks row: Initiative, AC, Defenses, Conditions */}
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(4, 1fr)',
+                        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
                         gap: 'var(--space-sm)',
                     }}>
                         <Initiative value={derived.initiative} onRoll={onRoll} />

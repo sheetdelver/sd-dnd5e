@@ -7,6 +7,7 @@ import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
 import {rollBonusLabel} from '../shared/rollBonusLabel';
 import ProficiencyIndicator from '../shared/ProficiencyIndicator';
+import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
 
 /**
  * Skills block — full skill list with columnar layout.
@@ -102,7 +103,7 @@ export default function Skills({ skills, onRoll }: Props) {
                     <button
                         key={key}
                         disabled={!canRoll(key)}
-                        title={skill.unavailableReason??skill.defaultUnavailableReason}
+                        title={unavailableTitle(skill.unavailableReason??skill.defaultUnavailableReason)}
                         onClick={(e) => handleClick(e, key)}
                         style={{
                             display: 'grid',
@@ -135,7 +136,7 @@ export default function Skills({ skills, onRoll }: Props) {
                         <span style={{ fontSize: '12px', color: 'var(--text-primary)' }}>
                             {skill.label}
                             {skill.preparationNote && <small style={{display:'block',color:'var(--text-muted)'}}>{skill.preparationNote}</small>}
-                            {(skill.unavailableReason??skill.defaultUnavailableReason) && <small style={{ display: 'block', color: 'var(--text-muted)' }}>{skill.unavailableReason??skill.defaultUnavailableReason}</small>}
+                            <UnavailableNote reason={skill.unavailableReason??skill.defaultUnavailableReason}/>
                         </span>
                         {/* Bonus value */}
                         <span style={{

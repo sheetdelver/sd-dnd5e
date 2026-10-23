@@ -1,4 +1,11 @@
 import {record} from '../native/6.0.6/source';
+/** Native _initializeSource bookkeeping and an empty outgoing dependency list
+ * do not control applicability. Keep them in source;never treat a real incoming
+ * dependency,temporary flag or unknown mechanic as bookkeeping. */
+function nativeBookkeeping606(key:string,value:unknown):boolean {
+ return key==='persistSourceMigration'&&typeof value==='boolean'
+  ||key==='dependents'&&Array.isArray(value)&&value.length===0;
+}
 /** Identity metadata does not participate in Item.dependentOrigin. Never resolve
  * or replace these UUIDs. Rider effect identities are exact embedded IDs. */
 export function itemEffectMetadata606(item:Record<string,unknown>):{riders:string[];reason?:string}{
@@ -6,6 +13,7 @@ export function itemEffectMetadata606(item:Record<string,unknown>):{riders:strin
  const fail=()=>({riders:[],reason:'Item dependency/rider preparation unavailable'});
  if(!flags)return fail();
  for(const [key,value]of Object.entries(flags)){
+  if(nativeBookkeeping606(key,value))continue;
   if(['sourceId','advancementOrigin','advancementRoot'].includes(key)){if(value!=null&&typeof value!=='string')return fail();continue;}
   if(key==='riders')continue;
   if(value)return fail();
@@ -38,5 +46,5 @@ export function permanentEffectReason606(effect:Record<string,unknown>):string|u
  const start=effect.start==null?{}:record(effect.start);if(!start)return 'Effect start source malformed';
  if(Object.entries(start).some(([key,value])=>!['combat','combatant','initiative','round','turn','time'].includes(key)||value!=null&&(['combat','combatant'].includes(key)?typeof value!=='string':typeof value!=='number'||!Number.isFinite(value))))return 'Effect start source malformed';
  const raw=record(effect.flags)?.dnd5e,flags=raw===undefined?{}:record(raw);if(!flags)return 'Effect flag source malformed';
- if(Object.entries(flags).some(([key,value])=>key==='isTemporary'?value!==undefined&&value!==false:Boolean(value)))return 'Effect conditions/dependencies require Q02a qualification';
+ if(Object.entries(flags).some(([key,value])=>!nativeBookkeeping606(key,value)&&(key==='isTemporary'?value!==undefined&&value!==false:Boolean(value))))return 'Effect conditions/dependencies require Q02a qualification';
 }

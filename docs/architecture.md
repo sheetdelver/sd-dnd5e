@@ -4,9 +4,11 @@
 
 The October23 [independent QA review](audits/2026-10-23-usability-and-delivery-review.md)
 and ADR-0001 amendment supersede the historical next-matrix queue. The current
-source has substantial partial preparation, but benign effect metadata can gate
-the whole character and repeated diagnostics break the actual sheet layout.
-Repair those outcomes before expanding rule permutations. Complete player
+source retains partial preparation. The October23 repair admits verified native
+migration bookkeeping and empty outgoing dependency lists without stripping source
+flags. Real dependencies, temporary states and unknown mechanics remain gated.
+A shared, collapsed sheet diagnostic attributes unavailable fields to their source;
+compact indicators and shrinkable grids keep both layouts readable. Complete player
 operations, with proportional regression checks, are the progress measure.
 
 Installed authorized documents/settings are the content authority. Versioned
@@ -35,7 +37,7 @@ chat/media/dice presentation. Use public SDK contracts, not private host APIs.
 
 The active implementation architecture is defined by
 [ADR-0001: complete character lifecycle](adr/0001-complete-character-lifecycle.md)
-and the [current audit](audits/2026-10-19-character-lifecycle.md). The planning
+and the [current audit](audits/2026-10-23-usability-and-delivery-review.md). The planning
 reference is the current Foundry-installable D&D system **6.0.6**, requiring
 Foundry **14.367+**, with 2024 rules primary. This is a future implementation
 target, not a new compatibility claim for module 0.4.1. See the

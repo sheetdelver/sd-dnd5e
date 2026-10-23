@@ -1,7 +1,7 @@
 # D&D usability, delivery and upgrade-maintenance review
 
 Date: 2026-10-23  
-Status: Audit complete; confirmed defects and repair plan open  
+Status: Audit complete; DD-QA01/02 corrected offline; player delivery and remaining gates open
 Authority: user-requested independent QA and documentation amendments, including
 test proportionality and greater use of native data. No application repair,
 commit, release or live Foundry mutation performed by this review.
@@ -25,6 +25,21 @@ next transferred-field matrix” instruction. Preserve valid rules and evidence;
 repair usability, reduce redundant test execution, and deliver complete player
 workflows. Do not remove honest unsupported states or invent effective values to
 make the screenshot look populated.
+
+## Repair disposition — October23
+
+DD-QA01 and DD-QA02 are corrected in the module. Supported metadata-bearing
+characters retain their checks, level and HP without source changes. A single
+accessible diagnostic and contained grids replace repeated tile prose/overlap.
+DD-QA03 improves within a bounded scope: Item-only unresolved counters do not
+blank independently qualified character facts; unknown global mechanics stay
+restricted. Full dependency isolation remains open. The original reproduction and
+review findings below are preserved as historical evidence.
+
+[Repair evidence and commands](evidence/2026-10-23-usability-repair.md) distinguish
+focused regressions, controlled pinned native methods, mounted SDK-seam rendering
+and packaging. The exact offending source on Krusky remains unknown.
+No live native/operator acceptance is claimed; ADR-0001 remains open.
 
 ## Baseline and quantified progress
 

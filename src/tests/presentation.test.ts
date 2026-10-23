@@ -31,7 +31,8 @@ const unavailableSkills = renderToStaticMarkup(createElement(SheetProvider, { ac
         prc: { total: null, prof: null, ability: 'wis', label: 'Perception', unavailableReason: 'Active effect preparation unavailable' },
     } }) }) }));
 assert.match(unavailableSkills, /disabled=""/);
-assert.match(unavailableSkills, /Active effect preparation unavailable/);
+assert.match(unavailableSkills, /Unavailable/);
+assert.match(unavailableSkills, /See sheet diagnostics/);
 const passives = renderToStaticMarkup(createElement(PassiveSenses, { perception: null, investigation: null, insight: null }));
 assert.match(passives, /Unavailable passive checks/);
 assert.doesNotMatch(passives, />10</);

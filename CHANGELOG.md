@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Keep supported characters usable with native migration metadata;compact unavailable diagnostics and fix sheet grid overlap.
+
 - Continue experimental character preparation across checks, qualified conditional predicates,inventory and character readouts;unsupported rules remain explicit.
 - Preserve source data and distinguish earlier preparation from current proficiency, formula, flag and effect results;identify missing timed-effect context.
 - Share skill/tool/ability selections, previews and qualified roll execution across desktop/mobile, with context and stale-intent guards.
