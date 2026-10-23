@@ -3007,3 +3007,31 @@ No final scalar/effect,Item activity lifecycle,broader expression or installed/n
 operator qualification is inferred. The M2 exit table and ADR remain open;continue
 final scalar snapshots and remaining Item/filter dependencies. No version/compatibility
 or external dependency change.
+
+
+### C93 — scalar field phases and cached operands (2026-10-22)
+
+Parent `5477229`;partial M2/Q02a,DD-01–06/11/27/31/34,A02–A06 preparation.
+432 independently expected typed scalar cases qualify literal effects on AC flat/
+override/cover,HP fields,movement multiplier and four sense ranges. Rounding,minimums,
+negative deltas and negative-zero diagnostics are retained.13 native final FormulaField
+cases use prepared AC bonus/minimum and movement speed/jump operands. One detached
+snapshot calls the existing shared preparation functions;final changes never rerun
+HP/AC/movement derivation. Earlier effective HP,max speed and AC stay cached while
+current fields,reads and fresh Dexterity saves use the appropriate values. Current
+proficiency references cannot rebind the earlier numeric AC operand.
+
+Twelve explicit unavailable cases retain the numeric-prepared FormulaField multiply/
+upgrade/downgrade boundary:the pinned native handlers pass a numeric value to a
+string-only Roll constructor. The controlled method diagnostic is recorded;this is
+not an installed native defect claim or a missing Core contract. Add/subtract/
+override are qualified. Nullable operands,broader effect references and remaining
+final scalar/Item/filter phases are not silently admitted.
+
+The unchanged maintained input fails C92 (AC flat effect receipt absent versus17)
+and passes after. Actual desktop/mobile AC/HP/movement/sense/save consumers,focus
+preview,shortcuts and held callbacks pass separately. The isolated public host adds
+1,896 cases,including complete plain-d20 distributions and Normal bounds for current
+cover. [C93 evidence](../audits/evidence/2026-10-22-c93-scalar-phases.json) records
+commands/artifact hashes and limitations. Full M2/ADR/installed/native/operator
+acceptance stays open;experimental0.4.1 and compatibility are unchanged.

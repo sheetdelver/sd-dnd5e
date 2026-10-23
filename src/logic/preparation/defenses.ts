@@ -69,9 +69,9 @@ export function prepareArmorClass606(actor:unknown,context:RulesContext,effects:
         if(value>base){base=value;calculation='custom';formula=String(config.formula);}
     }
     if(!Number.isFinite(base))base=flat;
-    const bonus=numericConstant(data.bonus),minimum=numericConstant(data.min);
-    if(bonus===null||minimum===null)return makeAc(null,'Armor bonus/minimum expression requires qualification');
-    const value=Math.max(minimum,0,base+(shield?.value??0)+bonus);
+    const bonus=numericConstant(data.bonus),minimum=numericConstant(data.min),cover=numericConstant(data.cover);
+    if(bonus===null||minimum===null||cover===null)return makeAc(null,'Armor bonus/minimum expression requires qualification');
+    const value=Math.max(minimum,base+(shield?.value??0)+bonus+cover);
     return qualifiedNumericTotal(value)&&Math.abs(value)<=1_000_000_000?{...makeAc(value),base,calculation,formula,armorId:armor?.id,shieldId:shield?.id,warnings:equipment.warnings}:makeAc(null,'Armor result outside qualified numeric range');
 }
 export function prepareInitiative606(actor:unknown,context:RulesContext,effects:NumericEffects=prepareNumericEffects606(actor,context)):{fact:InitiativeFact;check:PreparedNumericD20} {

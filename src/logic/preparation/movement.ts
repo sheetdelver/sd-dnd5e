@@ -72,11 +72,12 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
         else if(required>0&&!ability)moveReason??='Strength source required for equipped armor movement';
         else if(ability&&required>ability.score&&movementUnits&&!effects.ruleFlags.ignoreArmorSpeedReduction)reduction+=10/units[movementUnits];
     }
+    const multiplier=m.multiplier;if(typeof multiplier!=='number'||!Number.isFinite(multiplier)||multiplier<0||multiplier>1e9)moveReason??='Movement multiplier source/effect malformed';
     let max=0;
     for(const key of movementKeys){
         let value=Math.max(0,(speeds[key]??0)-reduction);
         // Native does not create a speed by adding a positive bonus to zero.
-        if(value>0)value=Math.max(0,value+(bonus?.number??0));
+        if(value*(typeof multiplier==='number'?multiplier:0)>0)value=Math.max(0,value+(bonus?.number??0))*(multiplier as number);else value=0;
         if(!bounded(value))moveReason??='Movement result outside qualified numeric range';
         const encumbrance=effects.conditions.rules.encumbrance;
         if(value>0){
@@ -91,12 +92,14 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
     const jump={...numericFact(ability?ability.score/2:null,ability?undefined:'Strength source unavailable for jump'),provenance};
     // Native computes max/slowed before overwriting the persisted jump operand.
     speeds.jump=jump.value;
+    for(const key of movementKeys)if(Object.hasOwn(effects.finalScalars??{},'system.attributes.movement.speeds.'+key))speeds[key]=effects.finalScalars!['system.attributes.movement.speeds.'+key];
+    if(Object.hasOwn(effects.finalScalars??{},'system.attributes.movement.speeds.jump'))Object.assign(jump,numericFact(speeds.jump));
     const movement:MovementFacts=moveReason?noMovement(moveReason):{status:'ready',provenance,units:movementUnits,speeds,jump,max,slowed,hover:hover===true||speciesHover===true,special:special as string,...(speciesUuid?{speciesUuid,fromSpecies}:{})};
     const ranges:Record<string,number|null>={};
     for(const key of senseKeys){
         const own=record(s.ranges)?.[key]??null,inherited=record(ss.ranges)?.[key]??null;
         if([own,inherited].some(v=>v!==null&&(typeof v!=='number'||!Number.isInteger(v)||v<0||!bounded(v))))senseReason??='Sense range source outside qualified numeric schema';
-        ranges[key]=typeof own==='number'?own:typeof inherited==='number'?inherited:0;
+        ranges[key]=effects.finalScalars?.['system.attributes.senses.ranges.'+key]??(typeof own==='number'?own:typeof inherited==='number'?inherited:0);
     }
     const ownSpecial=typeof s.special==='string'?s.special.trim():s.special??'',speciesSpecial='';
     if(typeof ownSpecial!=='string'||typeof speciesSpecial!=='string')senseReason??='Sense special source malformed';

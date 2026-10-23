@@ -1628,3 +1628,16 @@ read surfaces format the shared results. Unknown expressions keep their domain
 unavailable;this does not invent a value or erase independently qualified facts.
 Final scalar operands and broader Item hooks remain separately qualified phases.
 [C92 evidence](audits/evidence/2026-10-22-c92-scalar-fields.json).
+
+
+Scalar final effects take operands from one detached earlier-phase snapshot using
+existing preparation functions. Typed current HP/senses fields and movement speeds
+are projected without recomputing earlier effective HP,max/slowed or armor value.
+AC cover is nonpersisted0 before effects;initial cover contributes to earlier DEX
+saves and armor,and current cover contributes to fresh DEX saves. Current fields
+have effect receipts and a shared numeric projection. Initial movement multiplier
+applies before stored encumbrance reductions;final multiplier never replays movement.
+Prepared numeric AC/movement FormulaFields qualify add/subtract/override;other
+operations retain an explicit diagnostic boundary. Reference-bearing final text
+resolves using the existing current bindings after final changes;unknown values
+cannot fall back. [C93 evidence](audits/evidence/2026-10-22-c93-scalar-phases.json).

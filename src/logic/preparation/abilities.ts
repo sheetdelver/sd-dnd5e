@@ -47,8 +47,10 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             if (prof===null) unavailableReason = 'Ability proficiency source unavailable';
             if (unavailableReason || mod === null || mode.mode === undefined || profile.status !== 'ready'||prof===null) return { ability: key, total: null,preparedTotal:null, formula: null, unavailableReason: unavailableReason ?? 'Ability preparation unavailable' };
             const proficiencyTerm=profile.proficiencyMode==='dice'&&prof>0?proficiencyDiceTerm606(profile.proficiency,prof)??undefined:undefined;
+            const cover=key==='dex'&&type==='save'?numericConstant(record(record(system.attributes)?.ac)?.cover):0,currentCover=key==='dex'&&type==='save'?effects.finalScalars?.['system.attributes.ac.cover']??cover:0;
+            if(cover===null||currentCover===null)return {ability:key,total:null,formula:null,unavailableReason:'Prepared/current cover operand unavailable'};
             const baseTotal=mod+(profile.proficiencyMode==='dice'?0:Math.floor(profile.proficiency*prof))+effects.conditions.rollReduction;
-            const total=rules.bonus+baseTotal+(bonuses[0]as number)+(bonuses[1]as number),preparedTotal=preparedRules.bonus+baseTotal+(preparedBonuses[0]as number)+(preparedBonuses[1]as number);
+            const total=currentCover+rules.bonus+baseTotal+(bonuses[0]as number)+(bonuses[1]as number),preparedTotal=cover+preparedRules.bonus+baseTotal+(preparedBonuses[0]as number)+(preparedBonuses[1]as number);
             if (!qualifiedNumericTotal(total)) return { ability: key, total: null, formula: null, unavailableReason: 'Ability result outside qualified numeric representation' };
             return {ability:key,total,preparedTotal,proficiencyMode:profile.proficiencyMode,...(proficiencyTerm?{proficiencyTerm}:{}),preparationNote:preparedBonusNote(preparedTotal,total),sourceMode:mode.mode,...prepareD20Configuration(total,mode.mode,[ruleScopes606(rules),...abilityRollScopes(actor,key,type,effects.executionModes)],0,true,proficiencyTerm),...(halflingExecutionReason606(effects.executionFlags??effects.ruleFlags)?{formula:null,unavailableReason:halflingExecutionReason606(effects.executionFlags??effects.ruleFlags)}:{})};
         }

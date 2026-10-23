@@ -1,5 +1,7 @@
+import {deterministicFormula606} from './deterministic-formula';
+import {preparedScalarOperands606} from './scalar-phases';
 import {initializeMovement606,type MovementInitialization606} from './movement-initialization';
-import {initializeScalarFields606,scalarFormulaTarget606,scalarFormulaPath606} from './scalar-fields';
+import {initializeScalarFields606,scalarFormulaTarget606,scalarFormulaPath606,scalarNumberTarget606,scalarNumberPath606} from './scalar-fields';
 import {equippableActorFinalReason606} from './equippable-final';
 import {initializeClassFacts606} from './class-initialization';
 import {composeFormulaEffect606,checkBonusPath606} from './formula-effects';
@@ -25,6 +27,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
+    finalScalars?:Record<string,number>;finalScalarExpressions?:Record<string,string>;
     movementInitialization?:MovementInitialization606;
     proficiency?:{base:number|null;prepared:number|null;current:number|null};formulaPreparation?:FormulaPreparation606;finalFormulaExpressions?:Record<string,string>;
     sourceInitialization:SourceInitialization606;
@@ -69,6 +72,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;string?:boolean;valid?:(value:string)=>boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
         if(change.key==='system.attributes.prof'&&attributes)return {object:attributes,field:'prof'};
+        if(scalarNumberPath606(change.key))return scalarNumberTarget606(system,change.key);
         if(scalarFormulaPath606(change.key))return scalarFormulaTarget606(system,change.key);
         if(keys[1]==='traits'){
             const key=keys[2],field=keys[3];
@@ -236,6 +240,9 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     if(equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')&&!addExecutionMode('system.skills.ste.roll.mode',-1))checkExecutionReason='Equipped armor Stealth mode source malformed';
     for(const modifier of conditions.modes)if(modifier.phase==='initiative')addExecutionMode(modifier.path,modifier.mode);
     if(ruleFlags.remarkableAthlete&&!addExecutionMode('system.attributes.init.roll.mode',1))checkExecutionReason??='Remarkable Athlete initiative mode preparation unavailable';
+    const finalScalars:Record<string,number>={},finalScalarExpressions:Record<string,string>={};
+    const scalarPaths=plan.final.filter(change=>scalarNumberPath606(change.key)||/^system\.attributes\.(ac\.(bonus|min)|movement\.speeds\.(walk|burrow|climb|fly|jump|swim))$/.test(change.key)).map(change=>change.key);
+    const snapshot=scalarPaths.length&&context?preparedScalarOperands606(actor,context,{proficiency,movementInitialization,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,checkExecutionReason,initialized,equipment},scalarPaths):undefined;
     for(const change of plan.final){
         if(change.type.startsWith('dnd5e.'))continue;
         if(change.key.startsWith('flags.')){const itemReason=change.itemId!==undefined?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):undefined;if(itemReason){reason??=itemReason;continue;}const result=applyBooleanFlag606(executionFlags,change);if('reason'in result)reason??=result.reason;else applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'final',...result});continue;}
@@ -243,6 +250,19 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         if(change.itemId!==undefined){
             const itemReason=change.key==='system.attributes.prof'&&plan.equippable?equippableActorFinalReason606(change.itemId,plan.equippable,Boolean(plan.conditions?.length||plan.baseStatuses?.length)):field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
             if(itemReason){reason??=itemReason;continue;}
+        }
+        if(scalarPaths.includes(change.key)){
+            const previous=Object.hasOwn(finalScalars,change.key)||Object.hasOwn(finalScalarExpressions,change.key),before=finalScalars[change.key]??snapshot?.values[change.key];
+            if(snapshot?.reason||typeof before!=='number'||!Number.isFinite(before)){reason??=snapshot?.reason??'Prepared scalar operand unavailable: '+change.key;continue;}
+            let value:number|null=null;
+            if(field?.formula){
+                if(!['add','subtract','override'].includes(change.type)){reason??='Native numeric prepared FormulaField operation requires string-only Roll qualification: '+change.key;continue;}
+                const operand=finalScalarExpressions[change.key]??before,expression=composeFormulaEffect606(operand,raw,change.type);
+                if(expression===null){reason??='Final scalar FormulaField source/delta requires qualification: '+change.key;continue;}
+                finalScalarExpressions[change.key]=expression;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:operand,value:expression,formula:expression});continue;
+            }else if(field&&delta!==null)value=applyNumericFieldChange(before,delta,change.type,field);
+            if(value===null||!Number.isFinite(value)||Math.abs(value)>1e9){reason??='Final scalar value/expression outside qualified profile: '+change.key;continue;}
+            finalScalars[change.key]=value;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before,value});continue;
         }
         if(field?.string){
             if(conditions.status!=='ready'||customConditionReason){reason??=customConditionReason??'Final custom String condition preparation unavailable';continue;}
@@ -331,8 +351,12 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    const result:NumericEffects={movementInitialization,proficiency,finalFormulaExpressions,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
-    return context?prepareFormulaFields606(actor,context,result):result;
+    const result:NumericEffects={finalScalarExpressions,finalScalars,movementInitialization,proficiency,finalFormulaExpressions,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    if(context){const prepared=prepareFormulaFields606(actor,context,result),bindings=prepared.formulaPreparation?.executionBindings??{};
+        for(const [key,expression]of Object.entries(finalScalarExpressions)){const value=deterministicFormula606(expression,bindings);if(value===null)result.reason??='Final scalar expression/reference unavailable: '+key;else finalScalars[key]=value;}
+        return prepared;
+    }
+    return result;
 }
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified

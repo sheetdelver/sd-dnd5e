@@ -91,6 +91,7 @@ export function prepareHealth606(actor:unknown,context:RulesContext,effects:Nume
     if(!integer(max,-1_000_000_000))return {hp:noHp('HP result outside qualified numeric range'),hitDice};
     const effectiveMax=Math.max(max+tempmax,0),current=Math.min(value,effectiveMax);
     const hp:PreparedHp={status:'ready',provenance,calculation:override===null?'class-advancements':'source-override',commandReason,max,effectiveMax,value:current,temp,tempmax,damage:effectiveMax-current,pct:Math.max(0,Math.min(effectiveMax?current/effectiveMax*100:0,100)),advancements};
+    for(const key of ['value','max','temp','tempmax']as const){const current=effects.finalScalars?.['system.attributes.hp.'+key];if(current!==undefined)hp[key]=current;}
     return {hp,hitDice};
 }
 /** Projection access only, never reconstruction from source/default numbers. */

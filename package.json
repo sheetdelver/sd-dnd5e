@@ -63,6 +63,8 @@
     "test:native-equippable-final": "node scripts/native-equippable-final-oracle.mjs",
     "test:mounted-equippable-final": "node scripts/test-mounted-equippable-final.mjs",
     "test:native-scalars": "node scripts/native-scalar-fields-oracle.mjs",
-    "test:mounted-scalars": "node scripts/test-mounted-scalars.mjs"
+    "test:mounted-scalars": "node scripts/test-mounted-scalars.mjs",
+    "test:native-scalar-phases": "node scripts/native-scalar-phase-oracle.mjs",
+    "test:mounted-scalar-phases": "node scripts/test-mounted-scalar-phases.mjs"
   }
 }

@@ -1497,3 +1497,13 @@ threshold * size * multipliers,0.1) + local bonus + overall bonus. Test Roll del
 fixed deterministic arithmetic to the already captured Foundry safeEval/replacement;
 no native parser,dice,DataModel boot or operator acceptance is established. See
 [C92](../audits/evidence/2026-10-22-c92-scalar-fields.json);exact release objects only.
+
+
+C93:432 NumberField operation/phase/rounding profiles plus13 prepared FormulaField
+operand/cache captures. Actual Common.prepareAbilities and BasicRoll.constructParts
+separate earlier and current DEX cover. Native prepareArmorClass reduces bonus/min
+to numbers;prepareMovement reduces speeds and replaces jump before final. Numeric
+prepared multiply/upgrade/downgrade handlers reach a string-only Roll constructor;
+12 executable controlled diagnostics remain explicit unsupported fixtures. No full
+DataModel/native installation defect or Core contract defect is asserted. References,
+nullable operands and wider final hooks are distinct boundaries. See [C93](../audits/evidence/2026-10-22-c93-scalar-phases.json).
