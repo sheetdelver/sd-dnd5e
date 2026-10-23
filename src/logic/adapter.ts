@@ -431,6 +431,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 {title:'Defenses',value:defenses.summary,subValue:defenses.reason},
                 {title:'Training',value:training.summary,subValue:training.reason},
                 {title:'Resources',value:ownedItemProjection(actor.derived).resourceSummary},
+                ...((actor.derived.lifecycle as {profile?:string}|undefined)?.profile!=='legacy-limited'?[{title:'Attunement',value:ownedItemProjection(actor.derived).attunement?.display??'Unavailable',subValue:ownedItemProjection(actor.derived).attunement?.reason}]:[]),
                 ...((actor.derived.lifecycle as {profile?:string}|undefined)?.profile!=='legacy-limited'&&actor.items.some(item=>item.type==='spell')?[{title:'Spell DC',value:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.value??'—',subValue:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.reason}]:[]),
             ],
         };

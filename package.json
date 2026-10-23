@@ -59,6 +59,8 @@
     "test:native-formula-effects": "node scripts/native-formula-effects-oracle.mjs",
     "test:mounted-formula-effects": "node scripts/test-mounted-formula-effects.mjs",
     "test:native-base-proficiency": "node scripts/native-base-proficiency-oracle.mjs",
-    "test:mounted-base-proficiency": "node scripts/test-mounted-base-proficiency.mjs"
+    "test:mounted-base-proficiency": "node scripts/test-mounted-base-proficiency.mjs",
+    "test:native-equippable-final": "node scripts/native-equippable-final-oracle.mjs",
+    "test:mounted-equippable-final": "node scripts/test-mounted-equippable-final.mjs"
   }
 }

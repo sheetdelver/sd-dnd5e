@@ -1,0 +1,154 @@
+{
+  "checkpoint": "C91 equippable final cleanup,attunement reads and phase eligibility correction",
+  "parent": "a42a5b2",
+  "requirements": [
+    "M2/Q02a partial",
+    "DD-03/09/11/24/27/31/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "checks": {
+    "before": {
+      "artifact": "temp/c91-before.log",
+      "sha256": "d26f57f7a570e13bb7ea4f23223c093415aef07d183c30d60b75c71798b6a78b",
+      "result": "Unchanged required/unattuned/nonmagical/equipped tool final+1 source incorrectly rolled1d20+5 vs native1d20+6"
+    },
+    "regression": {
+      "artifact": "temp/c91-tests.log",
+      "sha256": "f20f3807318fdddd72eaebd76e65f4e1e1701a8c17cf8f57e3ea327e64670932",
+      "result": "71 module/9 tooling suites,61 assertions PASS"
+    },
+    "finalFocused": {
+      "artifact": "temp/c91-focus-final.log",
+      "sha256": "f10187f21b78b7a446b73ff283c721c7b17687cddf7d405abbdb41689618dffa",
+      "result": "240 phase/source profiles plus current card,unqualified recipe/field/condition and non-equippable/Actor poison/default checks PASS"
+    },
+    "typing": {
+      "artifact": "temp/c91-types-final.log",
+      "sha256": "e3d5ce637cc0079df35b594ab0df047d00ace14b166ef036ddbf48ef5ec04f61",
+      "result": "270 explicit module/UI/server/test/hook files PASS"
+    },
+    "source": {
+      "artifact": "temp/c91-source.log",
+      "sha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff",
+      "result": "2242 exact records/591 candidate expressions PASS"
+    },
+    "methods": {
+      "artifact": "temp/c91-native-checkpoint.json",
+      "sha256": "da858fb98765d653b790198fcebf023221402674f678e8645169b6697fa5a134",
+      "result": "240 actual native Item/Actor phase/cleanup/counter profiles and primitive count0/max3 defaults PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-equippable-final-mounted-1IfdTM/evidence.json",
+      "sha256": "a2cdbf6abfb0717a4eab162c7abf1ebcc4599830f091a484f32b625cbf53cad3",
+      "result": "1440/390 final boost/earlier passive,capacity/live badge/detail control cleanup,unchanged-total source change/held callbacks/context recovery;0 writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-0YscjW/evidence.json",
+      "sha256": "aabc61590861ba4c4040e49120857981dcd908f317a38788f379afd8d534e0d8",
+      "result": "55898 accepted/4080 new requests;4 complete plain and4 Normal-bound profiles;1 retained unary candidate/1120 bounded ordinary tie diagnostics;0 writes PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-POOxyq/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "f2a6091f34253966db030057ce6c59a84048807b749618f57505c2d18944ff19",
+      "result": "Isolated module check/package PASS"
+    }
+  },
+  "native": {
+    "commit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "profile": "release-6.0.6-c91-equippable-final-no-activities",
+    "sourceHashes": {
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/item/templates/equippable-item.mjs": "c281a334b5660dc9d00f585c17c69c04610204dec24f0f39e86b3a56ef006d95",
+      "module/data/item/templates/item-description.mjs": "4c8bbbd26f60c24ee28cf516a3120f4406fefcfb4a2661467673a73a2d206b63",
+      "module/data/item/templates/activities.mjs": "03d69007dfbd2598c7b8d195b654f7c6414dafff9e0c6a7616ed05d8972cec11",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/data/item/tool.mjs": "fc5e93bb34231759ff022fd2eaca4168d73d1eb3d544789bfc88f9771ff2e2a4",
+      "module/data/item/equipment.mjs": "1d34384efda647d0222e4ba3bfa7d4d905e6356fd3bd2500e9ae568875fd3c09",
+      "module/data/item/consumable.mjs": "3f4bacd4fa74a55dcffa48fcc3c9eda521178e49fca6683a1c426b9e7678a00d",
+      "module/data/item/container.mjs": "ea0ed15ae90928442179e667c7af7722829737b71555acbde007c3ab8340ca0a",
+      "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f"
+    },
+    "actorDefaults": {
+      "value": 0,
+      "max": 3
+    },
+    "independentTransition": {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    "limits": [
+      "Actual native Actor initial/final collection,Item suppression/final dispatch/proficiency/labels,per-type final methods,UsesField and Equippable final cleanup/counting execute on explicitly initialized no-activity models. Class-base3/defaults,empty actor rules/traits,hiddenfalse,no legacy override reflection,spellcasting callback and range formatting are declared collaborators.",
+      "Actual validProperties getter reads pinned config. No local enchantments,dependent Item/Actor references,conditions,timed effects,full Item base/derived/schema or Activity final lifecycle. No native dice/runtime/operator acceptance.",
+      "Source fields remain separate from mutated initialized models;this experiment compares later-phase semantics,not full raw DataModel preparation parity. C22 primitive source/default qualification is a separate prerequisite."
+    ]
+  },
+  "fixture": {
+    "path": "tests/fixtures/native-6.0.6/equippable-final.json",
+    "sha256": "3caeb0d89ef6ed8d095daa11ba77101aa29545396fd2cb604357f5047f8d618a",
+    "cases": 240,
+    "types": [
+      "tool",
+      "equipment",
+      "consumable",
+      "container",
+      "weapon"
+    ],
+    "magic": [
+      false,
+      true
+    ],
+    "attunement": [
+      "",
+      "required",
+      "optional"
+    ],
+    "attuned": [
+      false,
+      true
+    ],
+    "equipped": [
+      false,
+      true
+    ],
+    "phases": [
+      "initial",
+      "final"
+    ]
+  },
+  "commands": [
+    "npm test -- --core <Core0.19.3>",
+    "npm run typecheck -- --core <Core0.19.3>",
+    "npm run test:native-source -- --native <read-only checkout>",
+    "npm run test:native-equippable-final -- --core <Core> --native <checkout> --foundry <static14.367> --write-evidence temp/c91-native-checkpoint.json",
+    "npm run test:mounted-equippable-final -- --core <Core> --chromium <isolated Chromium>",
+    "node scripts/test-public-rolls.mjs --core <Core> --dependency-profile",
+    "npm run check:package -- --core <Core>"
+  ],
+  "limits": [
+    "Source persisted fields,primitive initialization,prepared cleanup fields,initial/final suppression and caller presentation are separate. C22 source/default cleaning is a prerequisite;240 initialized method cases do not establish full raw DataModel parity.",
+    "One revision-owned equippable result is shared by effect planning and owned facts. Raw Actor attunement.value99 is ignored;source max/default3 is independently identified. Count/max effect targets remain unqualified and cannot be silently ignored.",
+    "Only coupled final Actor proficiency changes are enabled for these no-activity/no-counter Item recipes. Simple-melee/zero-range/ft weapon profile is bounded;other ranges/labels,conditions,activities/counters and final targets remain unavailable. No complete Item/Activity preparation claim.",
+    "Current cleanup results are independently qualified pure rules;use does not establish native/installed overall lifecycle acceptance. Native private legacy-override reflection is a declared no-override collaborator;empty spellcasting callback is outside the profile.",
+    "Initial composite harness imported standalone async oracles sharing a mutable VM and hit contamination;imports now await sequential completion. Missing no-override reflection/Actor.getFlag/weapon-map collaborators were declared and verified;failed logs retained. These were fixture construction issues,no Core defect.",
+    "Unreleased implementation notes consolidated without changing release history;detailed progress/corrections and old captured JSON remain in ADR/audit/evidence.",
+    "Public dependency profile generated358119 cases and executes55899 requests including1 retained candidate. Historical omitted families retain earlier evidence;no full generation execution claim. Plain-d20 tie equivalence/host serialization/Normal bounds unchanged.",
+    "Core0.19.3/90c13e5 baseline;Node24.21,CI Node22 unrun. Experimental0.4.1/compatibility unchanged. Task-owned services closed;preexisting services untouched. No installed/native/operator/release acceptance. M2/ADR open."
+  ]
+}

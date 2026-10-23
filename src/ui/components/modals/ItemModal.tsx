@@ -70,7 +70,7 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
     const rarity = typeof sys?.rarity === 'string' ? sys.rarity : undefined;
     const liveEquipped = legacy?Boolean(sys?.equipped):prepared?.equipped.value===true;
     const liveAttuned = legacy?Boolean(sys?.attuned):prepared?.attuned.value===true;
-    const canAttune = legacy?(sys?.attunement===1||sys?.attunement===2||sys?.requiresAttunement):sys?.attunement==='required'||sys?.attunement==='optional';
+    const canAttune = legacy?(sys?.attunement===1||sys?.attunement===2||sys?.requiresAttunement):prepared?.attunement?.value==='required'||prepared?.attunement?.value==='optional';
     const canApply = legacy&&Boolean(onUpdate)&&Boolean(liveItem);
     if(!liveItem)return <BaseModal open onClose={onClose}><p role="status">Item no longer available</p><button onClick={onClose}>Close</button></BaseModal>;
     const writeField = async (path: string, value: unknown) => {

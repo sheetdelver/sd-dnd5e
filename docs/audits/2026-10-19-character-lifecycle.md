@@ -2176,3 +2176,18 @@ eligibility now gives+3→+4→+3 across attunement changes without source mutat
 Native method,regression,mounted SDK-seam and isolated-host evidence remain distinct.
 Nonpositive/fractional bases,unguided reference/compound deltas,wider die execution,
 other Item/effect/scene profiles and full M2/ADR acceptance remain unqualified.
+
+### C91 — correct final Item suppression and attunement reads
+
+[C91 evidence](evidence/2026-10-22-c91-equippable-final.json) records the unchanged
++5-before/+6-after reproduction and240 independently expected native phase cases.
+Initial source suppression no longer silently suppresses a final effect after
+Equippable cleanup changes eligibility. Initially suppressed/unqualified final
+recipes now reject execution. Only the qualified no-activity/no-counter Actor-prof
+composition is enabled;other final target/condition/range profiles stay explicit.
+
+Source attuned=true can prepare false without a persistence write. Shared inventory
+badges,live Item detail controls,Actor capacity and cards now use prepared values;
+raw Actor count99 is ignored. Actual mounted source changes retire held roll intent
+when totals remain equal;context loss/recovery does not replay. No new Core defect,
+full Item/Activity lifecycle,installed/native/operator or full M2 acceptance claim.

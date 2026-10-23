@@ -2960,3 +2960,27 @@ stay explicitly unavailable;wider die sides remain symbolic/readable with execut
 gated by existing Q00 qualification. No term is silently omitted. This advances
 M2/DD-03/11/24/27/34 and A02–A06 reads;full M2/ADR remain open. Next:remaining
 scalar/effect fields and Item final composition from the existing exit ledger.
+
+### C91 — equippable final cleanup and phase eligibility (2026-10-22)
+
+Actual per-type Item final hooks reveal a module defect:an initially suppressed
+transferred effect can become active after nonmagical gear loses its attunement
+requirement. The unchanged qualified source previously executed+5,where native
+final Actor proficiency requires+6. Effect planning now uses separate initial and
+final Item eligibility. Unqualified final recipes are fenced,including when initial
+suppression previously hid them;they do not silently restore an independent roll.
+
+One shared Item result prepares native Equippable cleanup and Actor attunement
+increments. Nonmagical gear loses attunement;unattunable Items clear attuned state;
+unequipped-but-attuned gear still counts. Raw Actor count99 is ignored. Inventory,
+current Item details,cards and capacity reads format the same prepared fields;
+source and ownership/identity metadata remain unchanged. Existing modern command
+restrictions remain. Coupled final Actor proficiency is qualified for the recorded
+no-activity/no-counter Item recipes;other final targets/activities remain gated.
+
+[C91 evidence](../audits/evidence/2026-10-22-c91-equippable-final.json) records240
+actual Item/Actor final phase profiles and unchanged source regressions,plus mounted
+and isolated-host checks. Primitive defaults/source initialization remain distinct
+from these initialized native-method comparisons. Full M2/ADR remain open;continue
+remaining scalar fields,Item activity/final composition and formula dependencies
+from the existing exit ledger. No Core or compatibility decision follows.

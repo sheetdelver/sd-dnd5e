@@ -1,5 +1,6 @@
 'use client';
 import CarriedWeight from '../../blocks/CarriedWeight';
+import Attunement from '../../blocks/Attunement';
 
 import React, { useState, useMemo } from 'react';
 import {useSheet} from '../../shared/SheetContext';
@@ -32,6 +33,7 @@ export default function Inventory({ weapons, gear }: Props) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
             <CarriedWeight/>
+            <Attunement/>
             <FilterBar
                 filterMap={INVENTORY_FILTERS}
                 activeFilter={activeFilter}

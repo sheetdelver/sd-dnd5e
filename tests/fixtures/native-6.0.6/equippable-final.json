@@ -1,0 +1,4805 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "cases": [
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "tool",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "equipment",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "consumable",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "container",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": []
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "required",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "required",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": false,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": false,
+        "count": 0,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": false,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": true,
+        "finalSuppressed": true,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 3
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "initial",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 4,
+        "currentBase": 4
+      }
+    },
+    {
+      "type": "weapon",
+      "source": {
+        "equipped": true,
+        "attuned": true,
+        "attunement": "optional",
+        "properties": [
+          "mgc"
+        ]
+      },
+      "phase": "final",
+      "expected": {
+        "initialSuppressed": false,
+        "finalSuppressed": false,
+        "attunement": "optional",
+        "attuned": true,
+        "count": 1,
+        "earlierBase": 3,
+        "currentBase": 4
+      }
+    }
+  ]
+}

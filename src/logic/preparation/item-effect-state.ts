@@ -1,7 +1,7 @@
 import {record} from '../native/6.0.6/source';
 
-const equippableTypes=['consumable','container','equipment','tool','weapon'];
-const otherTypes=['background','class','facility','feat','loot','race','spell','subclass'];
+export const EQUIPPABLE_TYPES_606=['consumable','container','equipment','tool','weapon'];
+export const OTHER_ITEM_TYPES_606=['background','class','facility','feat','loot','race','spell','subclass'];
 export interface ItemEffectState {
     suppressed:boolean;reason?:string;
     initialized?:{equipped:boolean;attuned:boolean;attunement:string};
@@ -12,8 +12,8 @@ export interface ItemEffectState {
  * these fields, so extra source properties cannot become prepared state. This
  * does not emulate Item creation hooks, effects or full schema coercion. */
 export function itemEffectState606(item:Record<string,unknown>):ItemEffectState {
-    if(typeof item.type!=='string'||![...equippableTypes,...otherTypes].includes(item.type))return {suppressed:false,reason:'Item effect eligibility type unavailable'};
-    if(!equippableTypes.includes(item.type))return {suppressed:false};
+    if(typeof item.type!=='string'||![...EQUIPPABLE_TYPES_606,...OTHER_ITEM_TYPES_606].includes(item.type))return {suppressed:false,reason:'Item effect eligibility type unavailable'};
+    if(!EQUIPPABLE_TYPES_606.includes(item.type))return {suppressed:false};
     const data=item.system===undefined?{}:record(item.system);
     if(!data)return {suppressed:false,reason:'Item effect eligibility source malformed or migrated'};
     const equipped=data.equipped??false,attuned=data.attuned??false,rawAttunement=data.attunement??'';

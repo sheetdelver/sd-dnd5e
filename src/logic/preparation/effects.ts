@@ -1,3 +1,4 @@
+import {prepareEquippableItems606,type EquippableItems606} from './equippable-final';
 import {itemEffectMetadata606,permanentEffectReason606} from './effect-admission';
 import {baseStatusSource606,type BaseStatusSource606} from './base-statuses';
 import {conditionSource606,type ConditionSource606} from './conditions';
@@ -5,9 +6,9 @@ import { record } from '../native/6.0.6/source';
 import {constantFilter606,initialFieldFilter606,type ConstantFilter,type ConstantFilterResult} from './constant-filters';
 import {initialFilterData606} from './initial-filter-data';
 import {itemEffectState606,type ItemEffectState} from './item-effect-state';
-export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState;condition?:ConstantFilter;key?:string}
+export interface EffectDecision {id:string;parentId?:string;status:string;reason?:string;eligibility?:ItemEffectState;finalEligibility?:ItemEffectState;phase?:'initial'|'final';condition?:ConstantFilter;key?:string}
 export interface EffectChange {effectId:string;itemId?:string|null;key:string;type:string;value:unknown;phase:'initial'|'final';priority:number;order:number;condition?:ConstantFilter;ruleCondition?:unknown;effectCondition?:unknown}
-export interface EffectPlan {initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];conditions?:ConditionSource606[];baseStatuses?:BaseStatusSource606[];reason?:string}
+export interface EffectPlan {equippable?:EquippableItems606;initial:EffectChange[];final:EffectChange[];decisions:EffectDecision[];conditions?:ConditionSource606[];baseStatuses?:BaseStatusSource606[];reason?:string}
 const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,subtract:20,downgrade:30,upgrade:40,override:50,'dnd5e.advantage':100,'dnd5e.bonus':100,'dnd5e.maximum':100,'dnd5e.minimum':100};
 /** Source-only eligibility/phase plan for exact6.0.6/Foundry14.367.
  * No Item preparation, snapshot-dependent filters, statuses or time are fabricated. Item-targeted
@@ -17,7 +18,7 @@ export function planEffects606(actor:unknown):EffectPlan {
     const source=record(actor)??{},initial:EffectChange[]=[],final:EffectChange[]=[],decisions:EffectDecision[]=[];
     const conditions:ConditionSource606[]=[],baseStatuses:BaseStatusSource606[]=[];
     let reason:string|undefined,order=0;
-    const initialRead=initialFilterData606(actor);
+    const initialRead=initialFilterData606(actor),equippable=prepareEquippableItems606(actor);
     const fail=(id:string,status:string,message:string,parentId?:string)=>{reason??=message;decisions.push({id,parentId,status,reason:message});};
     function collect(list:unknown,item?:Record<string,unknown>){
         if(list===undefined)return;
@@ -30,7 +31,7 @@ export function planEffects606(actor:unknown):EffectPlan {
             if(effect.disabled!==undefined&&effect.disabled!==false&&!(effect.type==='condition'&&effect.disabled===null)){fail(id,'malformed','Active effect disabled state malformed',parentId);continue;}
             if(effect.system!==undefined&&!record(effect.system)){fail(id,'malformed','Effect system source malformed',parentId);continue;}
             const system=record(effect.system)??{};
-            let eligibility:ItemEffectState|undefined;
+            let eligibility:ItemEffectState|undefined,finalEligibility:ItemEffectState|undefined;
             if(item){
                 // Source schema transfer defaults true; no Actor-target claim
                 // follows for Item-target/nontransfer effects.
@@ -39,10 +40,14 @@ export function planEffects606(actor:unknown):EffectPlan {
                 if(effect.type==='enchantment'){fail(id,'item-preparation-unavailable','Applied Item enchantment preparation requires qualification',parentId);continue;}
                 eligibility=itemEffectState606(item);
                 if(eligibility.reason){fail(id,'item-preparation-unavailable',eligibility.reason,parentId);continue;}
-                if(eligibility.suppressed){decisions.push({id,parentId,status:'item-suppressed',eligibility});continue;}
+                finalEligibility=equippable.items[parentId??'']?.current??eligibility;
+                const hasFinal=Array.isArray(system.changes)&&system.changes.some(change=>record(change)?.phase==='final');
+                if(eligibility.suppressed&&!hasFinal){decisions.push({id,parentId,status:'item-suppressed',eligibility});continue;}
+                if(hasFinal&&equippable.items[parentId??'']?.reason){fail(id,'item-preparation-unavailable',equippable.items[parentId!].reason!,parentId);continue;}
                 const metadata=itemEffectMetadata606(item);
                 if(metadata.reason){fail(id,'item-preparation-unavailable',metadata.reason,parentId);continue;}
                 if((effect.type===undefined||effect.type==='base')&&metadata.riders.includes(id)){decisions.push({id,parentId,status:'rider-template'});continue;}
+                if(hasFinal&&equippable.items[parentId??'']?.actorFinalReason){fail(id,'item-preparation-unavailable',equippable.items[parentId!].actorFinalReason!,parentId);continue;}
 
             }
             if(!item&&effect.type==='enchantment'){decisions.push({id,status:'no-applicable-item'});continue;}
@@ -97,6 +102,8 @@ export function planEffects606(actor:unknown):EffectPlan {
             }
             let any=false;
             for(const {change,key,phase,type,priority} of envelopes){
+                const phaseEligibility=phase==='initial'?eligibility:finalEligibility;
+                if(item&&phaseEligibility?.suppressed){decisions.push({id,parentId,key,phase,status:'item-phase-suppressed',eligibility,finalEligibility});continue;}
                 const rule=type.startsWith('dnd5e.');
                 if(rule&&!['d20','attack','check','save','damage','healing'].includes(key)){fail(id,'rule-target-unavailable','Applied rule category requires qualification',parentId);continue;}
                 const changeCondition=rule?constantFilter606(undefined):qualify(change.conditions,phase==='initial');
@@ -113,5 +120,5 @@ export function planEffects606(actor:unknown):EffectPlan {
     collect(source.effects);
     if(Array.isArray(source.items))for(const raw of source.items){const item=record(raw);if(item)collect(item.effects,item);}
     for(const changes of [initial,final])changes.sort((a,b)=>a.priority-b.priority||a.order-b.order);
-    return {initial,final,decisions,...(conditions.length?{conditions}:{}),...(baseStatuses.length?{baseStatuses}:{}),...(reason?{reason}:{})};
+    return {equippable,initial,final,decisions,...(conditions.length?{conditions}:{}),...(baseStatuses.length?{baseStatuses}:{}),...(reason?{reason}:{})};
 }

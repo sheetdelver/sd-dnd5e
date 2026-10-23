@@ -1599,3 +1599,19 @@ are separate;unknown die sides remain visible symbolic terms. Known miscellaneou
 equipment types are excluded from armor selection,as native does. This permits
 ordinary transferred SRD gear effects without changing armor,ownership or source.
 [C90 evidence](audits/evidence/2026-10-22-c90-base-proficiency.json).
+
+Equippable preparation is one revision-owned result shared by effect planning and
+owned Item projections. Initial source/default eligibility is distinct from final
+attunement cleanup and eligibility. Registered equippable types all permit mgc;
+without it the final hook clears attunement,then clears attuned when unattunable.
+The Actor count starts at verified nonpersisted0 and sums current attuned Items,
+including unequipped Items. Persisted source max/default3 stays separate;malformed
+max/context/unknown Item outcomes produce unavailable capacity. Count/max effects
+remain unqualified and cannot be ignored.
+
+Final transferred effects are tested against the final state,with qualified
+no-activity/no-counter recipes for Actor proficiency. Other final target/lifecycle
+profiles remain fenced. This corrects an initial-suppression shortcut that silently
+omitted a real final effect. Inventory badges/current detail controls/capacity/cards
+format shared results;source data is not repaired or persisted. [C91 evidence](audits/evidence/2026-10-22-c91-equippable-final.json)
+records the exact recipe,range/condition and source/default boundaries.

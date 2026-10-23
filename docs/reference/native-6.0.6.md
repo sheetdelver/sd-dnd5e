@@ -1469,3 +1469,21 @@ exact SRD Mastery Ioun Stone source key,type and initial+1 are pinned assertions
 module source tests use equipped/attuned transitions and preserve IDs/source/license.
 Full Item/effect/DataModel lifecycle/native dice/operator acceptance is not established.
 [C90 record](../audits/evidence/2026-10-22-c90-base-proficiency.json).
+
+C91 executes240 actual native Item final dispatch/proficiency/labels,per-type final
+methods,UsesField,Equippable cleanup and Actor initial/final effect/suppression
+profiles. Five equippable types × magic2 × three attunement strings × attuned2 ×
+equipped2 × phases2 distinguish initial versus final eligibility and count. Uses/
+activities are empty;weapon range/labels follow the declared simple-melee/no-range
+profile. Native validProperties and weapon type config are pinned. Cover/flags/
+class-base/defaults,no legacy overrides and spellcasting callback are explicit
+collaborators. Actual primitive getInitialValue plus schema declarations verify
+Actor count0/max3;full source DataModel initialization is not claimed.
+
+A required,unattuned,nonmagical,equipped tool is suppressed initially. Its final
+hook clears the requirement and final suppression disappears;the final Actor+1
+therefore applies. Native Actor.applyActiveEffects prepares all Item final hooks
+before collecting final effects. The module now models that distinction rather
+than applying one source eligibility to both phases. Attuned state can clear without
+source writes;the count includes attuned gear regardless equipped state. These are
+method/source comparisons,not native/runtime/operator acceptance. [C91 record](../audits/evidence/2026-10-22-c91-equippable-final.json).
