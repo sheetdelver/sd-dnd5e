@@ -1529,3 +1529,15 @@ zero/text FormulaField cases distinguish numeric0 from string"0";no new parser o
 native preparation runtime is introduced. Positive numeric string-constructor
 diagnostics remain unsupported. [C95](../audits/evidence/2026-10-23-c95-nullable-scalars.json)
 keeps these controlled-method comparisons separate from native/operator acceptance.
+
+
+C96 extends the C91 initialized no-activity model through actual Actor phase
+collection/Item final dispatch/per-type hooks/UsesField.prepareData/getStatblockLabel.
+960 profiles cover four equippable activity-bearing types,magic/attuned/equipped
+states,two phases and15 independent capacity/recovery recipes. Native counter and
+Actor proficiency outcomes are independently asserted. Raw null capacity initializes
+undefined before this later-phase capture;native unlimited max may remain empty.
+Localization,empty recharge selector labels and infrastructure remain declared
+collaborators. No recovery or full Activity lifecycle is executed.
+[C96](../audits/evidence/2026-10-23-c96-equippable-uses.json) separates these limits
+from earlier source/default qualification and from installed/native/operator evidence.

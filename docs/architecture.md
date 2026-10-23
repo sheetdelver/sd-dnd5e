@@ -1665,3 +1665,12 @@ zero uses falsey FormulaField semantics;after a text override,the string "0" use
 ordinary expression composition. Earlier HP/armor caches remain unchanged. Positive
 numeric prepared multiply/max/min and wider phases retain their explicit gates.
 [C95 evidence](audits/evidence/2026-10-23-c95-nullable-scalars.json).
+
+
+Owned Item counters and equippable final admission share the environment-neutral
+Uses preparation function. Qualified independent capacities/spent/fixed recovery
+metadata permit the no-activity final recipe;they do not replay Actor changes or
+execute recovery. Unknown capacities/scale recovery and malformed containers retain
+specific unavailable reasons. The prepared counter is not an extra cache and raw
+value/label/recharge fields never override it. Activity final and broader reference
+phases remain unqualified. [C96 evidence](audits/evidence/2026-10-23-c96-equippable-uses.json).

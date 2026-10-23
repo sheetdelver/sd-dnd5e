@@ -69,6 +69,8 @@
     "test:native-transferred-final": "node scripts/native-transferred-final-oracle.mjs",
     "test:mounted-transferred-final": "node scripts/test-mounted-transferred-final.mjs",
     "test:native-nullable-scalars": "node scripts/native-nullable-scalars-oracle.mjs",
-    "test:mounted-nullable-scalars": "node scripts/test-mounted-nullable-scalars.mjs"
+    "test:mounted-nullable-scalars": "node scripts/test-mounted-nullable-scalars.mjs",
+    "test:native-equippable-uses": "node scripts/native-equippable-uses-oracle.mjs",
+    "test:mounted-equippable-uses": "node scripts/test-mounted-equippable-uses.mjs"
   }
 }

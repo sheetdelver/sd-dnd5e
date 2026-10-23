@@ -1,0 +1,72 @@
+{
+  "checkpoint": "C96",
+  "parent": "9577a95",
+  "status": "Qualified independent parent Uses with no-activity equippable final hooks;M2/ADR remain open",
+  "requirements": [
+    "M2/Q02a partial",
+    "DD-01/02/03/06/27/31/34 partial",
+    "A02\u2013A06 preparation only"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "result": "Same maintained source inputs:480/960 fail C95 blanket final counter restriction;0 after",
+    "beforeLogSha256": "b029bd8e892bd702f1d999a8faf57148be8c99b93ce5c79864aece47daaf2b00",
+    "afterLogSha256": "902807dbc2b444c0cce70f8968a3e2a06a7bc5dd12f13c26c11ddc177f85c5ee"
+  },
+  "implementation": "One environment-neutral Uses function now serves owned Items and equippable final admission. Independent literal/arithmetic capacities,spent and fixed recovery metadata qualify;no extra Item cache or separate calculations. Source and prepared fields remain distinct. C91 counter3 restriction explicitly superseded;historical evidence retained.",
+  "checks": {
+    "regression": {
+      "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS;76 module/9 tooling suites,61 tooling assertions",
+      "sha256": "2db6402d871c63e4c451e45ebb3620a1db67723969bf91cdab6f0ee680fd2825"
+    },
+    "typing": {
+      "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS;284 explicitly typed module/UI/server/test/hook files",
+      "sha256": "f757718c883590aaa1805a580c2283f2c9bd3927ba527249d50b7773756cab2e"
+    },
+    "source": {
+      "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+      "result": "PASS;2242 records,591 candidates",
+      "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+    },
+    "native": {
+      "command": "npm run test:native-equippable-uses -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c96-native-final.json",
+      "result": "PASS;960 configured parent Uses/transfer/phase profiles",
+      "fixture": "tests/fixtures/native-6.0.6/equippable-uses.json",
+      "sha256": "1d31ff4a24846b41909cb4d7d91949272a6050bc38798caf0ed5985733b1a7c9",
+      "logSha256": "35ad3e1121f59cbfafe14c8ec598dad4089b6bac54e261703420fe83e6c7cb29"
+    },
+    "mounted": {
+      "command": "npm run test:mounted-equippable-uses -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+      "result": "PASS;actual1440/390 header/passive/skill,inventory attunement and live uses details,unchanged-total stale callbacks/context loss and recovery,zero writes",
+      "artifact": "/tmp/dnd5e-equippable-uses-mounted-nqkDn6/evidence.json",
+      "sha256": "cda3a53a107ac76d45d6e8bb8160e88825888df23b8170725091db01ff2be07b"
+    },
+    "public": {
+      "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+      "result": "PASS;110330 accepted requests,4680 new;1 retained unary candidate diagnostic,1760 equal-index diagnostics,zero native writes",
+      "artifact": "/tmp/dnd5e-public-rolls-0w7ycG/evidence.json",
+      "sha256": "d11fa9aa73dbfbe3978a549ace2507f96d5f87e49c0a60fc5955a1b4fbf8c774"
+    },
+    "package": {
+      "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS;isolated module checking/package;21files;fixtures/tests/temp/browser tools excluded",
+      "artifact": "/tmp/dnd5e-package-v53Dry/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "6c12388badbd33cd5f355ba543ec7c458aee5762bb9121ef99640d8286794aea"
+    }
+  },
+  "cleanup": {
+    "result": "Task-owned temporary host/synthetic endpoints/browser stopped;preexisting30000/8000/8001 untouched",
+    "beforeSha256": "ed01bf5f98d3cb269ab5848a7a43c834426ace42b7113262266a4611bd4a5d9f",
+    "afterSha256": "ed01bf5f98d3cb269ab5848a7a43c834426ace42b7113262266a4611bd4a5d9f"
+  },
+  "limits": [
+    "Actual native Actor phase collection,Item final/eligibility/per-type hooks,UsesField.prepareData/getStatblockLabel execute on explicitly initialized no-activity models. Class-base3/defaults,empty Actor rules/traits,hiddenfalse,spellcasting callback,range formatting and empty recharge selector labels are declared collaborators.",
+    "Source/default qualification remains separate. Raw null FormulaField initializes undefined;native unlimited max stays empty/undefined,while module unlimited projection uses max0/remaining0. No invented finite limit or source write.",
+    "No recovery execution,label localization/native UI acceptance,Item Activity final lifecycle,conditions/local enchantments,timed effects,dependent/reference capacities or scale-based recovery. Actual Activity final methods remain the next work package.",
+    "Mounted isolated SDK seam and synthetic public-host results are not installed/native/operator acceptance. Existing qualified plain-d20 equivalence and host serialization preserved;no wider profile claim.",
+    "Experimental0.4.1/Core>=0.19.3 unchanged. Node24.21/npm11.19 local;CI Node22 unrun. E01,E04 and wider Q00/E05 remain open."
+  ],
+  "next": "Qualify actual BaseActivity final/default/override/field preparation and typed reference dependencies,then remaining M2 filters/formulas and A02\u2013A06 comparisons."
+}

@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C95)
+### Current M2 exit state (updated C96)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3257,7 +3257,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
-| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;wider Item/effect final preparation remains |
+| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;Activity and wider Item/effect final preparation remain |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;per-Item casting/activity references,DC/damage construction and effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
 
@@ -3630,3 +3630,26 @@ numeric prepared multiply/upgrade/downgrade stays explicitly unqualified.
 Regression,controlled native methods,mounted SDK seam and synthetic public-host
 evidence remain separate;no installed/native/operator acceptance. M2/ADR stay open.
 Next:remaining Item/Activity final and formula/filter dependencies in the exit ledger.
+
+
+### C96 — configured parent Uses and Item final composition (2026-10-23)
+
+C95 committed as `9577a95`. One shared Uses preparation now serves owned Item
+readouts and the no-activity equippable final recipe. Literal/arithmetic capacity,
+spent and fixed recovery metadata no longer block a qualified transferred effect.
+Native initial suppression and final attunement cleanup still decide eligibility
+independently. Later Actor changes do not replay Item counters/proficiency. Source
+value/label/recharge poison remains ignored;dependent capacities,scale recovery,
+malformed data,Activity final hooks and condition composition remain unavailable.
+Recovery formulas are metadata here;none is executed. C91's blanket literal counter
+restriction is superseded only for this qualified recipe.
+
+[C96 evidence](../audits/evidence/2026-10-23-c96-equippable-uses.json) records
+480/960 same-input failures before and0 after against actual pinned per-type final
+hooks/UsesField/Actor phase methods.76 module/9 tooling suites,284 explicit typed
+files,exact2242/591 source comparison,mounted1440/390 live inventory details and
+stale intent recovery,110330 accepted public-host requests (4680 new) and isolated
+check/package PASS. Native initialized-model,regression,mounted SDK seam and public
+host evidence remain distinct;no installed/native/operator acceptance. Task-owned
+services stopped. M2/ADR remain open. Next:actual BaseActivity final/schema/override/
+field preparation and required formula/filter dependencies in the M2 exit ledger.

@@ -2,7 +2,9 @@ import {itemLocalEffectsReason606} from './effect-admission';
 import {prepareItemProficiency606,itemProficiencyBindings606,type ItemProficiency606} from './item-proficiency';
 import type {PhysicalItem606} from './physical';
 import {preparedFormulaBindings606} from './formula-fields';
-import {deterministicFormula606,formulaUnavailableReason606,type FormulaBindings606} from './deterministic-formula';
+import {prepareUses606,emptyUses606 as emptyUses,type UsesFacts} from './uses';
+export {prepareUses606} from './uses';
+export type {UsesFacts,RecoveryFact} from './uses';
 import {spellMetadata606,type SpellMetadata} from './spell-metadata';
 import {weaponModes606,itemAttack606,type AttackFacts} from './item-combat';
 import type {NumericEffects} from './numeric-effects';
@@ -11,8 +13,6 @@ import type {RulesContext} from '../rules-context';
 import {numericConstant} from './numeric';
 import {EQUIPPABLE_TYPES_606,itemEffectState606} from './item-effect-state';
 export interface ItemFact<T>{status:'ready'|'unavailable'|'not-applicable';value:T|null;reason?:string;origin:'source'|'schema-default'|'prepared';provenance:string}
-export interface RecoveryFact {period:string;type:string;formula:string|null}
-export interface UsesFacts {status:'ready'|'unavailable'|'not-applicable';reason?:string;max:number|null;spent:number|null;remaining:number|null;limited:boolean|null;capacitySource:string|null;origin:'source'|'schema-default';recovery:ItemFact<RecoveryFact[]>;display:string;provenance:string}
 export interface ActivityFacts {id:string;itemId:string;type:string;name:string;sort:number;activation:string|null;uses:UsesFacts;status:'ready'|'unavailable';reason?:string;executionReason:string;attack?:ItemFact<AttackFacts>}
 export interface ItemFacts {attunement?:ItemFact<string>;proficiency:ItemProficiency606;physical?:PhysicalItem606;id:string;uuid:string|null;type:string;name:string;status:'ready'|'partial'|'unavailable';reason?:string;quantity:ItemFact<number>;weight:ItemFact<{value:number;units:string;stack:number|null}>;equipped:ItemFact<boolean>;attuned:ItemFact<boolean>;uses:UsesFacts;activities:ActivityFacts[];activityStatus:'ready'|'unavailable';activityReason?:string;provenance:string;attackModes:ItemFact<string[]>;spell?:ItemFact<SpellMetadata>}
 export interface OwnedItemFacts {attunement?:{status:'ready'|'unavailable';value:number|null;max:number|null;display:string;reason?:string;provenance:string};resourceSummary:string;status:'ready'|'partial'|'unavailable';reason?:string;items:Record<string,ItemFacts>;provenance:string}
@@ -24,24 +24,6 @@ const knownTypes=[...new Set([...activityItemTypes,...physicalItemTypes,'backgro
 const fact=<T>(value:T|null,reason?:string,origin:ItemFact<T>['origin']='source'):ItemFact<T>=>({status:reason?'unavailable':'ready',value:reason?null:value,origin,provenance,...(reason?{reason}:{})});
 const na=<T>():ItemFact<T>=>({...fact<T>(null),status:'not-applicable'});
 const nat=(value:unknown,fallback:number,integer=false):number|null=>value===undefined?fallback:typeof value==='number'&&Number.isFinite(value)&&value>=0&&value<=1e9&&(!integer||Number.isSafeInteger(value))?value:null;
-const emptyUses=(status:UsesFacts['status'],reason?:string):UsesFacts=>({status,reason,max:null,spent:null,remaining:null,limited:null,capacitySource:null,origin:'schema-default',recovery:status==='not-applicable'?na<RecoveryFact[]>():fact<RecoveryFact[]>(null,reason??'Uses preparation unavailable'),display:status==='not-applicable'?'Not applicable':'Unavailable',provenance});
-/** The counter is independent of its recovery recipe. Source uses.value/label
- * are nonpersisted; neither can supply an override or hide a malformed maximum. */
-export function prepareUses606(raw:unknown,reason?:string,bindings:FormulaBindings606={}):UsesFacts {
- const data=raw===undefined?{}:record(raw);if(!data)return emptyUses('unavailable','Uses source mapping malformed');
- const source=data.max,capacity=source==null?undefined:typeof source==='string'?source.trim():typeof source==='number'&&Number.isFinite(source)?String(source):null;
- const spent=nat(data.spent,0,true),max=capacity===undefined||capacity===''?0:deterministicFormula606(capacity,bindings);
- const counterReason=reason??(capacity===null||max===null||max<0||max>1e9?formulaUnavailableReason606(capacity,bindings):spent===null?'Uses spent source must be a nonnegative integer':undefined);
- const recovery:RecoveryFact[]=[];let recoveryReason:string|undefined;
- if(data.recovery!==undefined&&!Array.isArray(data.recovery))recoveryReason='Uses recovery collection malformed';
- else for(const entry of (data.recovery as unknown[]|undefined)??[]){const row=record(entry),period=row?.period===undefined?'lr':row?.period,type=row?.type===undefined?'recoverAll':row?.type,formula=row?.formula;
-  if(!row||typeof period!=='string'||!period.trim()||typeof type!=='string'||!type.trim()||formula!=null&&typeof formula!=='string'){recoveryReason='Uses recovery source requires qualification';break;}
-  if(period.trim().startsWith('@scale')){recoveryReason='Recovery period scale dependency requires preparation qualification';break;}
-  recovery.push({period:period.trim(),type:period.trim()==='recharge'?'recoverAll':type,formula:period.trim()==='recharge'&&formula==null?'6':typeof formula==='string'?formula.trim():null});
- }
- const initialized=counterReason?emptyUses('unavailable',counterReason):{status:'ready' as const,max:max!,spent:spent!,remaining:max?Math.min(max,Math.max(0,max-spent!)):0,limited:Boolean(capacity),capacitySource:capacity??null,origin:(source===undefined?'schema-default':'source') as UsesFacts['origin'],display:capacity?`${max?Math.min(max,Math.max(0,max-spent!)):0}/${max}`:'No limited uses',provenance};
- return {...initialized,recovery:recoveryReason?fact<RecoveryFact[]>(null,recoveryReason):fact(recovery,undefined,data.recovery===undefined?'schema-default':'source')};
-}
 /** A single detached owned-Item projection. It does not execute activities,
  * infer grants from names, or present old prepared-looking fields as source. */
 export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?:NumericEffects):OwnedItemFacts {
