@@ -1,3 +1,4 @@
+import {composeFormulaEffect606,checkBonusPath606} from './formula-effects';
 import {applyBooleanFlag606} from './flag-effects';
 import {prepareFormulaFields606,type FormulaPreparation606} from './formula-fields';
 import type {RulesContext} from '../rules-context';
@@ -20,7 +21,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
-    formulaPreparation?:FormulaPreparation606;
+    formulaPreparation?:FormulaPreparation606;finalFormulaExpressions?:Record<string,string>;
     sourceInitialization:SourceInitialization606;
     preparedDefenseSets?:Record<string,string[]>;
     finalDefenseSets?:Record<string,string[]>;
@@ -33,8 +34,9 @@ export interface NumericEffects {
 /** Qualified initial numeric/defense/training trait fields. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
  * starts at verified0 despite stale nonpersisted source values (DD-R04).
- * Only constant FormulaField add/subtract/override is reduced by operation,
- * without parsing arbitrary expressions. Qualified final mode changes have a separate
+ * Constant FormulaFields retain their numeric receipts;qualified check bonus
+ * expressions compose as text before phase-specific deterministic folding.
+ * Qualified final mode changes have a separate
  * execution snapshot, as do final global proficiency NumberFields and qualified
  * constant roll bonuses, persisted numeric fields and literal custom Strings. Earlier
  * prepared proficiency/passive operands never change; other final/Item fields stay gated. */
@@ -147,6 +149,12 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         }
         const delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         const operand=field?.object[field.field],before=field?.formula?numericConstant(operand):field?.mode&&operand===undefined?0:operand;
+        if(field?.formula&&checkBonusPath606(change.key)&&(typeof before!=='number'||delta===null||!['add','subtract','override'].includes(change.type))){
+            const expression=composeFormulaEffect606(operand,raw,change.type);
+            if(expression===null){reason??=`FormulaField expression/source/operation requires qualification: ${change.key}`;continue;}
+            field.object[field.field]=expression;formulas[change.key]=expression;
+            applied.push({effectId:change.effectId,key:change.key,phase:'initial',before:typeof operand==='number'?operand:String(operand??''),value:expression,formula:expression});continue;
+        }
         if(!field||typeof before!=='number'||!Number.isFinite(before)||delta===null||Math.abs(delta)>1_000_000_000){reason??=`Initial numeric effect target/value requires qualification: ${change.key}`;continue;}
         if(field.mode){
             const state=modes[change.key]??initializedModeState(operand);
@@ -198,6 +206,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     // Native passives and initiative scores precede armor/initiative/final modes.
     // Keep their earlier count state separate; never move a final effect to initial.
     const executionFlags={...ruleFlags},executionModes=structuredClone(modes),executionGlobals=structuredClone(globals),executionBonuses:Record<string,number>={},finalNumbers:Record<string,number>={},equipment=prepareEquipment606(actor);
+    const finalFormulaExpressions:Record<string,string>={};
     let checkExecutionReason:string|undefined;
     let preparedDefenseSets:Record<string,string[]>|undefined,finalDefenseSets:Record<string,string[]>|undefined;
     const finalTrainingSets:Record<string,string[]>={};
@@ -270,6 +279,13 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         }
         const bonus=/^system\.(?:rolls\.ability\.(?:check|save|skill|tool)\.bonus|abilities\.(?:str|dex|con|int|wis|cha)\.(?:check|save)\.roll\.bonus|(?:skills|tools)\.[^.]+\.roll\.bonus|attributes\.init\.roll\.bonus|skills\.[^.]+\.bonuses\.passive)$/.test(change.key);
         if(bonus&&field?.formula){
+            const original=field.object[field.field];
+            if(Object.hasOwn(finalFormulaExpressions,change.key)||numericConstant(original)===null||delta===null||!['add','subtract','override'].includes(change.type)){
+                const before=finalFormulaExpressions[change.key]??formulas[change.key]??original,expression=composeFormulaEffect606(before,raw,change.type);
+                if(expression===null){reason??=`Final FormulaField expression/source/operation requires qualification: ${change.key}`;continue;}
+                finalFormulaExpressions[change.key]=expression;formulas[change.key]=expression;
+                applied.push({effectId:change.effectId,key:change.key,phase:'final',before:typeof before==='number'?before:String(before??''),value:expression,formula:expression});continue;
+            }
             const operand=field.object[field.field],before=executionBonuses[change.key]??numericConstant(operand);
             const value=before!==null&&operand!==null&&delta!==null&&qualifiedNumericTotal(delta)&&['add','subtract','override'].includes(change.type)?applyNumericFieldChange(before,delta,change.type,field):null;
             if(value===null||!qualifiedNumericTotal(value)){reason??=`Final constant bonus operation/source/value requires qualification: ${change.key}`;continue;}
@@ -296,7 +312,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    const result:NumericEffects={sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    const result:NumericEffects={finalFormulaExpressions,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
     return context?prepareFormulaFields606(actor,context,result):result;
 }
 

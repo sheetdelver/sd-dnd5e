@@ -2143,3 +2143,19 @@ Old blanket nontransfer/valid permanent-start refusals are explicitly superseded
 malformed starts,timed effects,dependent references and applied enchantments remain
 gated. Actual mounted consumers and isolated public execution are separate from
 controlled native-method evidence. No new Core defect or full M2/ADR acceptance.
+
+### C89 — FormulaField expression/effect composition
+
+[C89 evidence](evidence/2026-10-22-c89-formula-effects.json) adds120 operation,
+960 preparation/fresh and20 scope comparisons. The unchanged empty-bonus multiply
+source previously made even+2 unavailable;qualified composition now preserves it.
+An expert's raw@prof+1 with final multiply2 prepares+12/passive22 but rolls+22;
+half proficiency with initial multiply2 prepares+11/passive21 but rolls+7. These
+are actual native builder results,not formulas extrapolated from prepared totals.
+
+Named historical constant/final-bonus expression restrictions are supplemented;
+the old JSON evidence is unchanged. Missing references,random expressions,unsupported
+fractions,malformed source,Item-final and unrelated fields remain gated. Current
+invalid expressions cannot restore earlier execution. Controlled source,mounted
+SDK seam and isolated host evidence remain separate from installed/native/operator
+acceptance. Partial M2/Q00/Q02a only;no Core defect or compatibility decision.

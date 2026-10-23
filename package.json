@@ -55,6 +55,8 @@
     "test:mounted-remaining-flags": "node scripts/test-mounted-remaining-flags.mjs",
     "test:native-flag-effects": "node scripts/native-flag-effects-oracle.mjs",
     "test:native-effect-admission": "node scripts/native-effect-admission-oracle.mjs",
-    "test:mounted-flag-effects": "node scripts/test-mounted-flag-effects.mjs"
+    "test:mounted-flag-effects": "node scripts/test-mounted-flag-effects.mjs",
+    "test:native-formula-effects": "node scripts/native-formula-effects-oracle.mjs",
+    "test:mounted-formula-effects": "node scripts/test-mounted-formula-effects.mjs"
   }
 }

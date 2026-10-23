@@ -1573,3 +1573,13 @@ Item/physical/equipment consumers. Permanent durations reprepare expired=false;
 valid start fields do not imply expiry. Timed/flag-forced profiles remain gated.
 [C88 evidence](audits/evidence/2026-10-22-c88-effect-flags.json) describes phase and
 source/default limits separately from native/operator acceptance.
+
+Qualified check FormulaField effects compose expressions before deterministic
+folding. The model keeps earlier source/prepared expression and final expression
+separate. Fresh compilation rebinds references after current ability/proficiency
+selection;static passives use the earlier Actor context. Native compound negative
+add retains its unparenthesized text. Multiply groups both operands within the
+qualified arithmetic grammar;max/min can nest equivalently. This is formula text
+composition,not NumberField delta evaluation or dice evaluation. Unsupported final
+references cannot fall back to the earlier numeric bonus. Existing public compiler,
+bounds,mode and stale-intent gates apply unchanged. [C89 evidence](audits/evidence/2026-10-22-c89-formula-effects.json).

@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C88)
+### Current M2 exit state (updated C89)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3255,7 +3255,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Existing M2 obligation | Implemented/evidenced | Remaining to the full gate |
 | --- | --- | --- |
 | Actor facts and checks | Shared class/default/proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
-| Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | Broader expressions,dice-dependent terms,recursive/dependent references and expression/effect composition |
+| Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89 qualifies deterministic check FormulaField composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
 | Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;wider Item/effect final preparation remains |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;per-Item casting/activity references,DC/damage construction and effect profiles remain unqualified |
@@ -3467,3 +3467,20 @@ Full source DataModel,applied Item enchantment field preparation,timed expiry an
 native/operator/installed acceptance remain unqualified. Existing M2 gate remains
 open;continue formula/effect composition and Item final work. Experimental0.4.1 and
 compatibility remain unchanged;no Core/native repository changes or live connection.
+
+### C89 — deterministic check formula/effect phases (2026-10-22)
+
+[C89 evidence](../audits/evidence/2026-10-22-c89-formula-effects.json) records120
+independent native FormulaField operations,960 cached/fresh coefficient/phase
+profiles and20 scope builds. Maintained coverage includes all manual modes,source
+preservation,priority composition,current versus earlier score/modifier references,
+missing/malformed/nondeterministic/fractional expressions and final fallback refusal.
+Mounted desktop/mobile passives/current buttons/previews/shortcuts/selected tool/
+alternate ability/clearing/held callbacks/context recovery are checked separately.
+Public cases exercise native-expected totals through unchanged host primitives,
+including complete representative distributions and Normal bounds. Historical
+constant-only restrictions are superseded by name,not erased from captured data.
+
+This does not qualify NumberField reference deltas,wider FormulaField/Item-final
+composition,proficiency-dice expressions or native/operator/installed acceptance.
+Continue the existing M2 exit table;experimental0.4.1/compatibility and ADR open.

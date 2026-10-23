@@ -2914,3 +2914,22 @@ consumers and isolated public execution. No full DataModel/runtime/operator or
 installed acceptance follows. This advances existing M2/Q02a/DD-03/11/27/34 and
 A02–A06 read preparation;full M2/ADR remain open. Next:formula/effect composition
 and required Item final preparation,with existing Q00/E01/E02/E04/E05 boundaries.
+
+### C89 — shared deterministic check FormulaField effects (2026-10-22)
+
+The existing deterministic grammar now composes native add/subtract/multiply/
+upgrade/downgrade/override for qualified check/save/skill/tool/init/passive bonus
+FormulaFields. Text remains unresolved through effects;earlier preparation folds
+initial expressions,while fresh checks use final expressions/current fields and
+native proficient-check root-prof rebinding. This is distinct from NumberField
+delta evaluation. Compound negative addition follows native textual flattening;
+it must not be approximated by adding an independently reduced scalar.
+
+[C89 evidence](../audits/evidence/2026-10-22-c89-formula-effects.json) records120
+independent operation cases,960 actual native preparation/fresh profiles and20
+actual scope profiles. Earlier passives/cached modifiers stay unchanged by final
+fields. Source documents and historical captures remain unchanged. Multiplication
+is explicitly grouped with equivalent deterministic semantics;no dice AST/parser,
+evaluator or new SDK contract is introduced. Unknown references,dice/nonqualified
+fractions and unsupported fields remain unavailable. Full M2/ADR remain open;
+next finish required wider fields/Item final/filter preparations and Q00 boundaries.

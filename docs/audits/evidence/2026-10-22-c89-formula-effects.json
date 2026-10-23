@@ -1,0 +1,343 @@
+{
+  "checkpoint": "C89 shared deterministic check FormulaField effects",
+  "parent": "a9c390c",
+  "requirements": [
+    "M2/Q00/Q02a partial",
+    "DD-03/04/11/27/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "checks": {
+    "before": {
+      "artifact": "temp/c89-before.log",
+      "sha256": "234dd30422a3c2597f7f8d7eb0f296be0137ab15dfeaed92b51a8511fbb131c8",
+      "result": "Same empty bonus/multiply profile failed before:null vs native prepared+2"
+    },
+    "regression": {
+      "artifact": "temp/c89-tests-complete.log",
+      "sha256": "01ecaae9e3fa81962222d1275586d0fc2e4a6d6ae327f57a82fa4c8160d8e6d0",
+      "result": "69 module/9 tooling suites,61 assertions PASS,including final poison/unknown passive gates"
+    },
+    "typing": {
+      "artifact": "temp/c89-types-final.log",
+      "sha256": "89cce47dc633d8d4ab0c24158df9ad53e63f9b7620094cd49a33374cae69a4b6",
+      "result": "264 explicit module/UI/server/test/hook files PASS"
+    },
+    "source": {
+      "artifact": "temp/c89-source.log",
+      "sha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff",
+      "result": "2242 exact records/591 candidate expressions PASS"
+    },
+    "methods": {
+      "artifact": "temp/c89-native-formulas-final.json",
+      "sha256": "84ec5b4504c66022882ce58f7f38a38ae36d8d71b978ca862b0d4f8d033fffa7",
+      "result": "120 operations/960 preparation-fresh/20 scope comparisons PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-formula-effects-mounted-gLmJ2c/evidence.json",
+      "sha256": "dd1c16db69b5bf02bee54a09ee1b142a59982b4920c031198c5c4eb01d3d254a",
+      "result": "1440/390 real module passives/current preview/button/shortcut,selected tool/alternate ability/clearing,stale callbacks/context recovery;0 writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-jBl1FI/evidence.json",
+      "sha256": "56837134041cf4f28f00b9acef6adf6f8b8ea5bd8a702a4a9fbe90b7831bf86d",
+      "result": "36074 accepted/6240 new requests,complete4 representative distributions and4 Normal-bound distributions;1 retained unary candidate/320 bounded tie diagnostics;0 writes PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-WxJml4/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "0dda5acbd337ab3fc8fcaa2efd6ad877f2c9193be9fd1fb637a9230685c1a169",
+      "result": "Isolated module check/package PASS"
+    }
+  },
+  "native": {
+    "commit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "sourceHashes": {
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/abstract/actor-data-model.mjs": "0905d4b45c1e30d21ca7890fa6c133db9d68d4c479253662f83901f2593c8f8a",
+      "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360"
+    },
+    "operationCases": 120,
+    "phaseCases": 960,
+    "scopeCases": [
+      {
+        "path": "abilities.wis.check.roll.bonus",
+        "kind": "ability",
+        "key": "wis",
+        "phase": "initial",
+        "prepared": 10,
+        "current": 10,
+        "passive": 23,
+        "expanded": "2 + (3 + 1) * 2"
+      },
+      {
+        "path": "abilities.wis.check.roll.bonus",
+        "kind": "ability",
+        "key": "wis",
+        "phase": "final",
+        "prepared": 6,
+        "current": 10,
+        "passive": 19,
+        "expanded": "2 + (3 + 1) * 2"
+      },
+      {
+        "path": "abilities.wis.save.roll.bonus",
+        "kind": "save",
+        "key": "wis",
+        "phase": "initial",
+        "prepared": 13,
+        "current": 13,
+        "passive": 15,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "abilities.wis.save.roll.bonus",
+        "kind": "save",
+        "key": "wis",
+        "phase": "final",
+        "prepared": 9,
+        "current": 13,
+        "passive": 15,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "skills.prc.roll.bonus",
+        "kind": "skill",
+        "key": "prc",
+        "phase": "initial",
+        "prepared": 13,
+        "current": 13,
+        "passive": 23,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "skills.prc.roll.bonus",
+        "kind": "skill",
+        "key": "prc",
+        "phase": "final",
+        "prepared": 9,
+        "current": 13,
+        "passive": 19,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "tools.thief.roll.bonus",
+        "kind": "tool",
+        "key": "thief",
+        "phase": "initial",
+        "prepared": 13,
+        "current": 13,
+        "passive": 15,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "tools.thief.roll.bonus",
+        "kind": "tool",
+        "key": "thief",
+        "phase": "final",
+        "prepared": 9,
+        "current": 13,
+        "passive": 15,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "rolls.ability.check.bonus",
+        "kind": "skill",
+        "key": "prc",
+        "phase": "initial",
+        "prepared": 13,
+        "current": 13,
+        "passive": 23,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "rolls.ability.check.bonus",
+        "kind": "skill",
+        "key": "prc",
+        "phase": "final",
+        "prepared": 9,
+        "current": 13,
+        "passive": 19,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "rolls.ability.skill.bonus",
+        "kind": "skill",
+        "key": "prc",
+        "phase": "initial",
+        "prepared": 13,
+        "current": 13,
+        "passive": 23,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "rolls.ability.skill.bonus",
+        "kind": "skill",
+        "key": "prc",
+        "phase": "final",
+        "prepared": 9,
+        "current": 13,
+        "passive": 19,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "rolls.ability.tool.bonus",
+        "kind": "tool",
+        "key": "thief",
+        "phase": "initial",
+        "prepared": 13,
+        "current": 13,
+        "passive": 15,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "rolls.ability.tool.bonus",
+        "kind": "tool",
+        "key": "thief",
+        "phase": "final",
+        "prepared": 9,
+        "current": 13,
+        "passive": 15,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "rolls.ability.save.bonus",
+        "kind": "save",
+        "key": "wis",
+        "phase": "initial",
+        "prepared": 13,
+        "current": 13,
+        "passive": 15,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "rolls.ability.save.bonus",
+        "kind": "save",
+        "key": "wis",
+        "phase": "final",
+        "prepared": 9,
+        "current": 13,
+        "passive": 15,
+        "expanded": "2 + 3 + (3 + 1) * 2"
+      },
+      {
+        "path": "attributes.init.roll.bonus",
+        "kind": "initiative",
+        "key": "initiative",
+        "phase": "initial",
+        "prepared": 10,
+        "current": 10,
+        "passive": 15,
+        "expanded": "2 + (3 + 1) * 2"
+      },
+      {
+        "path": "attributes.init.roll.bonus",
+        "kind": "initiative",
+        "key": "initiative",
+        "phase": "final",
+        "prepared": 6,
+        "current": 10,
+        "passive": 15,
+        "expanded": "2 + (3 + 1) * 2"
+      },
+      {
+        "path": "skills.prc.bonuses.passive",
+        "kind": "passive",
+        "key": "prc",
+        "phase": "initial",
+        "prepared": 5,
+        "current": 5,
+        "passive": 23,
+        "expanded": "2 + 3"
+      },
+      {
+        "path": "skills.prc.bonuses.passive",
+        "kind": "passive",
+        "key": "prc",
+        "phase": "final",
+        "prepared": 5,
+        "current": 5,
+        "passive": 19,
+        "expanded": "2 + 3"
+      }
+    ],
+    "limits": [
+      "Actual native FormulaField operations retain references and Foundry safeEval computes only deterministic expanded text. Declared one/three term shapes for8 fixed inputs;no generic native parser or dice evaluation.",
+      "Add of compound negative delta preserves native textual flattening;not scalar delta arithmetic. Initial/final roll bindings and source defaults are tested separately."
+    ]
+  },
+  "fixture": {
+    "path": "tests/fixtures/native-6.0.6/formula-effects.json",
+    "sha256": "6470356e97d0366af0318ca29aa9278446bf580ebb27c012c06c639a5ab22e8e",
+    "sourceExpressions": [
+      "",
+      "2",
+      "@prof + 1",
+      "max(2, 3)",
+      "min(2, 3)"
+    ],
+    "deltas": [
+      "2",
+      "-2",
+      "@abilities.wis.value / 2",
+      "-1 + 2"
+    ],
+    "coefficients": [
+      0,
+      0.5,
+      1,
+      2
+    ],
+    "phases": [
+      "initial",
+      "final"
+    ]
+  },
+  "independentExamples": [
+    {
+      "source": "@prof + 1",
+      "effect": "initial multiply2",
+      "coefficient": 0.5,
+      "prepared": 11,
+      "passive": 21,
+      "current": 7
+    },
+    {
+      "source": "@prof + 1",
+      "effect": "final multiply2",
+      "coefficient": 2,
+      "prepared": 12,
+      "passive": 22,
+      "current": 22
+    },
+    {
+      "source": "2",
+      "effect": "add -1 + 2",
+      "coefficient": 1,
+      "current": 8,
+      "reason": "Native text flattens to2 -1 +2,not scalar delta multiplication or term reassociation"
+    }
+  ],
+  "commands": [
+    "npm test -- --core <Core0.19.3>",
+    "npm run typecheck -- --core <Core0.19.3>",
+    "npm run test:native-source -- --native <read-only checkout>",
+    "npm run test:native-formula-effects -- --core <Core> --native <checkout> --foundry <static14.367> --write-evidence temp/c89-native-formulas-final.json",
+    "npm run test:mounted-formula-effects -- --core <Core> --chromium <isolated Chromium>",
+    "node scripts/test-public-rolls.mjs --core <Core> --dependency-profile",
+    "npm run check:package -- --core <Core>"
+  ],
+  "limits": [
+    "Native source/default/schema collaborators and initialized model methods,not full DataModel/effect dispatcher/native dice/runtime/operator acceptance.120 expression method cases declare one/three-term shapes for8 fixedinputs;no generic AST/parser qualification.",
+    "All6 FormulaField operations are semantically qualified only within existing deterministic arithmetic/bindings. Multiply always groups both operands and max/min may nest;exact prepared-expression strings are not a serialization parity claim. Raw source and host serialization remain unchanged.",
+    "NumberField reference deltas,wider FormulaFields,Item final recipes,dice-bearing expressions and unqualified fractional execution remain separate work. Missing final references never fall back to earlier bonuses,including ignored-after-preparation passive fields.",
+    "Existing constant-only fixture rows multiply-open/expression-delta and named final-bonus expression restrictions explicitly supplemented;historical captured JSON unchanged.",
+    "Initial mounted helper used Ability instead of Check ability label;fixed driver only. Late poison test initially tried setting level on absent details;corrected fixture mapping. Full suites rerun after correction;failed logs retained.",
+    "Public dependency profile generated338295 cases and executes36075 requests including1 retained candidate;previous historical omitted families retain earlier evidence. No full current338295-request claim. Qualified plain-d20 equal-index equivalence and wider Q00/E05 boundaries unchanged.",
+    "Core0.19.3/90c13e5 baseline;Node24.21,CI Node22 unrun. Experimental0.4.1/compatibility unchanged. All task-owned services closed;preexisting services untouched. No release/native/operator/installed acceptance. M2/ADR open."
+  ]
+}

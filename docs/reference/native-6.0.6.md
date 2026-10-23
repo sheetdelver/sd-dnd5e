@@ -1429,3 +1429,20 @@ have no applicable target;only applied Item enchantments target an Item. Benign
 sourceId/advancement metadata never invokes the dependency resolver. Timed expiry,
 dependent references and applied enchantment field preparation remain separate.
 See [C88 evidence](../audits/evidence/2026-10-22-c88-effect-flags.json).
+
+C89 executes six actual FormulaField handlers with fixed declared one/three-term
+Roll shapes for8 inputs,then actual Foundry safeEval after native replacement.
+120 independent operation results precede module implementation.960 initialized
+models separately run Common/Creature ability/skill/tool preparation and native
+_buildSkillToolConfig/BasicRoll construction at coefficients0/.5/1/2 and both phases.
+20 additional actual native scope profiles cover ability/save/global/skill/tool/
+init/passive fields. Scope initiative uses getInitiativeRollConfig;ability/save
+capture #rollD20Test's built configuration. No die is rolled by these comparisons.
+
+FormulaField retains references while NumberField evaluates deltas immediately.
+Add flattens signed compound text;subtract groups the delta. Native multiplication
+conditionally groups compound terms;the module always groups both deterministic
+operands with equivalent values. Max/min nesting is likewise semantic equivalence,
+not identical prepared text serialization. Source and host serialization stay
+unchanged. Full grammar/native model initialization/effect dispatcher/dice engine
+and native/operator acceptance are not established. [C89 record](../audits/evidence/2026-10-22-c89-formula-effects.json).

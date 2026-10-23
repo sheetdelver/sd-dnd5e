@@ -18,6 +18,10 @@ for(const row of bonusEffectCases){
         for(const mode of ['normal','adv','dis'])assert.equal(adapter.getRollData(prepared,'skill','prc',{tool:'thief',advantage:mode,situationalBonus:'2'})?.formula,`${mode==='adv'?'2d20kh1':mode==='dis'?'2d20kl1':'1d20'}+${e.combined}+(2)`);
         const malformed=structuredClone(source);(malformed.system as any).rolls.ability.check='bad';assert.equal(adapter.getRollData(adapter.prepareActorData(malformed,skillContext()),'skill','prc'),null,row.id);
         const bounded=structuredClone(source);setSkillRoll(bounded,'skills.prc.roll',{...(bounded.system as any).skills.prc.roll,min:10});const boundPrepared=adapter.prepareActorData(bounded,skillContext());assert.equal(adapter.getRollData(boundPrepared,'skill','prc')?.formula,`1d20min10+${e.skill}`);assert.equal(adapter.getRollData(boundPrepared,'skill','prc',{advantage:'adv'}),null);
+    }else if(row.id==='multiply-open'||row.id==='expression-delta'){
+        // C89 supersedes only these named historical restrictions.
+        assert.equal(formula,row.id==='multiply-open'?'1d20+9':'1d20+10',row.id);
+        assert.equal((prepared.derived as any).skills.prc.passive,row.id==='multiply-open'?19:20,row.id);
     }else assert.equal(formula,null,row.id);
     assert.deepEqual(source,before,row.id);
 }
