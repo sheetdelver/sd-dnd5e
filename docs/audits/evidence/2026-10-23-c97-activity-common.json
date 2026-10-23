@@ -1,0 +1,92 @@
+{
+  "checkpoint": "C97",
+  "parent": "bb2dd55",
+  "status": "Qualified nonspell utility common/real final Activity preparation and caller-source intent retirement;M2/ADR open",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/03/06/24/27/31/34 partial",
+    "A02\u2013A06 preparation only"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "bb2dd55",
+    "result": "Same final maintained Node inputs:708/708 fail before;0 after",
+    "beforeLogSha256": "4ace6f6b024c83932ba372beb13ef2d09670f507870071be1c5675e5835cd12b",
+    "afterLogSha256": "d11429e47f74e77fe1e847d1c741e0b10c6539a0df1235cd429054d82849bc30",
+    "mountedSourceRetirement": {
+      "before": "Changing Activity metadata while the skill remains+6 leaves1 roll dialog open;expected0",
+      "beforeLogSha256": "99f45a06975a9777294c1f289363f666d6acdc32f340ca3420a63d5baaa285b6",
+      "after": "Dialog and held callbacks retire;both layouts recover only with current valid intent"
+    }
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;77 module/9 tooling suites,61 tooling assertions",
+    "sha256": "61d57e206f2b7a1c21ab4eafbfe67065ae8d1ffd1c2a9f7ab6e2312bb8c214d6"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;288 explicit module/UI/server/test/hook files",
+    "sha256": "99f63a070b3b328a6cb2eca0173190b5600d4463fcdc9d636556b553f2de54c5"
+  },
+  "native": {
+    "command": "npm run test:native-activity-common -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c97-native-final.json",
+    "result": "PASS;180 schema/default/Base final/field/visibility/override captures and528 actual per-type Item/Actor compositions,including real parent-before-child counters",
+    "fixture": "tests/fixtures/native-6.0.6/activity-common.json",
+    "sha256": "3b980c17b79151b72aacb489b67b53b90e5efbf3f6a6e26da42cdecbce7a887d",
+    "logSha256": "0de6a14632262d877fb2eb44df494ad23d03ac4912bb8fb8d16c5192fb5f0bfa",
+    "foundryFieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 records,591 candidate expressions",
+    "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-activity-common -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 source/default common fields,current details,earlier/current header and passives,Normal/adv preview-focus/shortcut/execution,source/context/unqualified recovery and retired held callbacks;0 writes",
+    "artifact": "/tmp/dnd5e-activity-common-mounted-JxsCMu/evidence.json",
+    "sha256": "313aa0463cdb0785f24695ca7dd696c14900d23c4b500075ff9849d3cf2e6e83",
+    "retained": [
+      {
+        "command": "node scripts/test-mounted-transferred-final.mjs <same isolated tool options>",
+        "result": "PASS;selected skill/tool/alternate ability,source/manual modes,context and held callbacks",
+        "artifact": "/tmp/dnd5e-transferred-final-mounted-MiiMvv/evidence.json",
+        "sha256": "730b5ddbcb7e9ebfbd674fc69e2d140ac22bdf78f20ecd7d4b1703c8a6cb1464"
+      },
+      {
+        "command": "node scripts/test-mounted-scalar-phases.mjs <same isolated tool options>",
+        "result": "PASS;save focus/preview/shortcut,current scalar facts/context and held callbacks",
+        "artifact": "/tmp/dnd5e-scalar-phases-mounted-YmsbLR/evidence.json",
+        "sha256": "525a878a288dab769617b8084da3d4bcb62bf3aa475688fb190ab915871998d0"
+      }
+    ]
+  },
+  "publicHost": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;113282 accepted,2952 new;1 retained unary candidate diagnostic,1800 equal-index diagnostics;0 native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-Aneewl/evidence.json",
+    "sha256": "edf08296c4d4b963fbe6ae6742e928f2de37f418944e8beeedcfd4680b138c8a",
+    "limits": "Core0.19.3 temporary data/config/synthetic endpoints/controlled entropy. Existing distribution,ordered-face/entropy/count/value/discard/unequal-index checks and actual serialization preserved. No wider dice equivalence."
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "Module checking and isolated packaging PASS;21files;fixtures/tests/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-qkumUN/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "7ef211028f1d5edd39bbacd112ebaf577cc1386e2afdc1336517bf25a55c66c1"
+  },
+  "cleanup": {
+    "result": "Task-owned public host/synthetic endpoints/browser stopped;preexisting30000/8000/8001 untouched",
+    "beforeSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb",
+    "afterSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb"
+  },
+  "limits": [
+    "Actual native schema getters/shared constructors/Foundry primitive SchemaField and ArrayField defaults,Base final/override/field prep,and per-type Item/Actor dispatch execute on declared initialized models. Constructor/entries/empty array infrastructure,label formatting,effect-duration execution,Actor embedded callback and spellcasting callback remain explicit collaborators. No full DataModel/Document runtime or native parser/operator acceptance.",
+    "Only the nonspell utility profile and recorded parent-range/independent-parent-child counter references qualify. Nonempty consumption targets/behaviors/effects,area templates,spell parents,other subtypes and dependent formulas remain unqualified. Activity identity/common readiness is not execution or complete usability readiness.",
+    "Source cleaning mutates only a detached initialized model. Native source fields absent from nonspell Item schemas cannot become Activity overrides. Raw source and nonpersisted poison invariance are maintained regressions.",
+    "Roll intent compares current caller-visible source;no derived source serialization is exposed and no document cache/revision/authorization authority is introduced. Broader M8 scale/performance and installed/native/operator evidence remain open.",
+    "One long write/execute command approval review timed out before starting;direct module apply_patch and short command retry completed. No remaining approval block.",
+    "Node24.21/npm11.19 local;CI Node22 unrun. Experimental0.4.1/Core>=0.19.3 unchanged. E01,E04 and wider Q00/E05 remain open."
+  ],
+  "next": "Remaining Activity field/reference/subtype/spell preparation and outstanding formula/filter decisions and A02\u2013A06 exit comparisons."
+}

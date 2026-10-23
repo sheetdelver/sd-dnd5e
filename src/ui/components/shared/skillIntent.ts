@@ -9,7 +9,12 @@ export type PreparedRollKind = 'skill' | 'ability' | 'save' | 'tool'|'initiative
 export function rollIntentSignature(actor: unknown, kind: PreparedRollKind): string | null {
     const value = record(actor), derived = record(value?.derived), lifecycle = record(derived?.lifecycle);
     if (lifecycle?.status !== 'supported' || !['2024', 'legacy-limited'].includes(String(lifecycle.profile))) return null;
+    // A source edit can leave every prepared total unchanged. Compare only the
+    // current caller-visible source alongside preparation;this ephemeral intent
+    // is not another document store,revision authority or authorization check.
+    const {derived:_prepared,...source}=value??{};
     return JSON.stringify({ actor: value?.uuid??value?._id ?? value?.id, identity: lifecycle.identity,
+        source,
         sourceRevision: lifecycle.sourceRevision, worldEpoch: lifecycle.worldEpoch,
         profile: lifecycle.profile, kind, effects:derived?.effectPreparation, equipment:derived?.equipmentPreparation, configuration: kind === 'skill' || kind === 'tool' ? derived?.checkConfiguration : undefined,
         checks:kind==='initiative'?derived?.initiativeCheck:kind === 'skill' ? derived?.skills : kind === 'tool' ? derived?.tools : derived?.abilities });

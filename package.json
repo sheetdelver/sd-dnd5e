@@ -71,6 +71,8 @@
     "test:native-nullable-scalars": "node scripts/native-nullable-scalars-oracle.mjs",
     "test:mounted-nullable-scalars": "node scripts/test-mounted-nullable-scalars.mjs",
     "test:native-equippable-uses": "node scripts/native-equippable-uses-oracle.mjs",
-    "test:mounted-equippable-uses": "node scripts/test-mounted-equippable-uses.mjs"
+    "test:mounted-equippable-uses": "node scripts/test-mounted-equippable-uses.mjs",
+    "test:native-activity-common": "node scripts/native-activity-common-oracle.mjs",
+    "test:mounted-activity-common": "node scripts/test-mounted-activity-common.mjs"
   }
 }

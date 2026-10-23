@@ -1,4 +1,5 @@
 import {itemLocalEffectsReason606} from './effect-admission';
+import {prepareActivityCommon606,type ActivityCommon606} from './activity-common';
 import {prepareItemProficiency606,itemProficiencyBindings606,type ItemProficiency606} from './item-proficiency';
 import type {PhysicalItem606} from './physical';
 import {preparedFormulaBindings606} from './formula-fields';
@@ -13,7 +14,7 @@ import type {RulesContext} from '../rules-context';
 import {numericConstant} from './numeric';
 import {EQUIPPABLE_TYPES_606,itemEffectState606} from './item-effect-state';
 export interface ItemFact<T>{status:'ready'|'unavailable'|'not-applicable';value:T|null;reason?:string;origin:'source'|'schema-default'|'prepared';provenance:string}
-export interface ActivityFacts {id:string;itemId:string;type:string;name:string;sort:number;activation:string|null;uses:UsesFacts;status:'ready'|'unavailable';reason?:string;executionReason:string;attack?:ItemFact<AttackFacts>}
+export interface ActivityFacts {id:string;itemId:string;type:string;name:string;sort:number;activation:string|null;common?:ActivityCommon606;uses:UsesFacts;status:'ready'|'unavailable';reason?:string;executionReason:string;attack?:ItemFact<AttackFacts>}
 export interface ItemFacts {attunement?:ItemFact<string>;proficiency:ItemProficiency606;physical?:PhysicalItem606;id:string;uuid:string|null;type:string;name:string;status:'ready'|'partial'|'unavailable';reason?:string;quantity:ItemFact<number>;weight:ItemFact<{value:number;units:string;stack:number|null}>;equipped:ItemFact<boolean>;attuned:ItemFact<boolean>;uses:UsesFacts;activities:ActivityFacts[];activityStatus:'ready'|'unavailable';activityReason?:string;provenance:string;attackModes:ItemFact<string[]>;spell?:ItemFact<SpellMetadata>}
 export interface OwnedItemFacts {attunement?:{status:'ready'|'unavailable';value:number|null;max:number|null;display:string;reason?:string;provenance:string};resourceSummary:string;status:'ready'|'partial'|'unavailable';reason?:string;items:Record<string,ItemFacts>;provenance:string}
 const provenance='release-6.0.6 PhysicalItemTemplate / ActivitiesTemplate / UsesField; source-only read preparation';
@@ -64,7 +65,8 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
    const scopedBindings={...activityBindings,...(nat(record(a.uses)?.spent,0,true)!==null?{'activity.uses.spent':nat(record(a.uses)?.spent,0,true)!}:{}),...(atype==='utility'&&type!=='spell'?{mod:0}:{})};
    const activityUses=prepareUses606(a.uses,reason,scopedBindings),currentBindings:Record<string,number>={...scopedBindings};
    if(activityUses.status==='ready'){currentBindings['activity.uses.value']=activityUses.remaining!;if(activityUses.limited)currentBindings['activity.uses.max']=activityUses.max!;}
-   activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:activationType,uses:activityUses,status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects,proficiency,currentBindings)}:{})});
+   const commonFields=prepareActivityCommon606(a,item,scopedBindings,reason);
+   activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:commonFields.activation?.type??activationType,common:commonFields,uses:activityUses,status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects,proficiency,currentBindings)}:{})});
   }
   activities.sort((a,b)=>a.sort-b.sort);
   if(activityReason)for(const a of activities){a.status='unavailable';a.reason??=activityReason;}

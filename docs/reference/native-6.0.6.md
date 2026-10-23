@@ -1541,3 +1541,18 @@ Localization,empty recharge selector labels and infrastructure remain declared
 collaborators. No recovery or full Activity lifecycle is executed.
 [C96](../audits/evidence/2026-10-23-c96-equippable-uses.json) separates these limits
 from earlier source/default qualification and from installed/native/operator evidence.
+
+
+C97 executes actual BaseActivity schema and shared field constructors,Foundry
+primitive/SchemaField defaults/cleaning and ArrayField defaults on detached raw
+source. Actual Base final,override,activation/duration/range/target preparation
+produce180 fixed independent expectations. Labels,empty-array infrastructure and
+effect-duration execution remain declared collaborators.528 further compositions
+run actual Actor phase/per-type Item hooks,Base ability/getRollData and full Base
+final,not the older Uses-only utility stub. Parent uses3/remaining2 feed the child
+reference before Actor proficiency changes to4. Nonspell Items except weapons have
+no parent range schema;this distinction is explicit in the initialized models.
+Absent versus null parent range yields native reach5 versus long60 in controlled
+override cases. No native parser,full Document/DataModel boot,spell/other subtype,
+nonempty consumption,area template or operator acceptance is established.
+[C97](../audits/evidence/2026-10-23-c97-activity-common.json) retains hashes and limits.

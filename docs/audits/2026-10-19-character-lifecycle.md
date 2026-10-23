@@ -2326,3 +2326,44 @@ check/package PASS. Native initialized-model,regression,mounted SDK seam and pub
 host evidence remain distinct;no installed/native/operator acceptance. Task-owned
 services stopped. M2/ADR remain open. Next:actual BaseActivity final/schema/override/
 field preparation and required formula/filter dependencies in the M2 exit ledger.
+
+
+### C97 — shared utility Activity common/final preparation (2026-10-23)
+
+C96 committed as `bb2dd55`. The shared owned-Item model now prepares qualified
+nonspell utility activation,duration,range,target and visibility requirements from
+raw source and verified schema defaults. Native default activation is action.
+Weapon range inheritance/override,long/reach and inferred versus final values stay
+distinct;nonspell Item source fields outside their schema cannot supply overrides.
+Parent uses prepare before child uses,including the qualified parent-counter
+reference. Actual per-type Item/Actor final composition permits these utility
+activities with the existing transferred check profile. This supersedes only the
+blanket activity restriction for the qualified recipe. Activity execution remains
+unavailable;common metadata is not a claim of complete subtype/usability support.
+
+The real schema/primitive/default and BaseActivity final methods supply180 independent
+captures,then528 real Item/Actor compositions execute actual Base final rather than
+C84's Uses-only stub. All708 final-input cases fail C96 and pass after. Raw source,
+initialized models and prepared results remain separate. Area templates,
+nonempty consumption references/behaviors/effects,spell parents,other subtypes and
+dependent field profiles remain explicit boundaries.
+
+Mounted checks also reproduced a source-retirement gap:Activity metadata could
+change without changing prepared skill results,leaving a roll dialog open. The
+shared UI intent identity now compares the current caller-visible source alongside
+world/profile/preparation identity. This ephemeral comparison adds no document
+store,revision authority or authorization bypass. Held callbacks retire and recovery
+requires current intent,including unchanged totals. Both layouts format shared
+common facts and current details;unsupported details have a clear unavailable state.
+
+[C97 evidence](evidence/2026-10-23-c97-activity-common.json) separates
+regression,controlled native methods,mounted SDK seam and isolated public-host
+results. No full DataModel/runtime,installed/native/operator or release acceptance
+follows. M2 and ADR remain open. Next:remaining Activity reference/field/subtype and
+spell modifier dependencies,then outstanding formula/filter and A02–A06 exit work.
+
+C97 checkpoint checks:77 module/9 tooling suites (61 assertions),288 explicit typed
+files,exact2242/591 source comparison,all three relevant mounted harnesses at1440/390,
+113282 accepted public-host requests (2952 new) and isolated check/package PASS.
+The retained unary candidate and1800 tied-index diagnostics remain visible;no host
+serialization is rewritten. Task-owned services stopped;version/compatibility unchanged.

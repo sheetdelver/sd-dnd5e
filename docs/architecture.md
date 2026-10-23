@@ -1674,3 +1674,21 @@ execute recovery. Unknown capacities/scale recovery and malformed containers ret
 specific unavailable reasons. The prepared counter is not an extra cache and raw
 value/label/recharge fields never override it. Activity final and broader reference
 phases remain unqualified. [C96 evidence](audits/evidence/2026-10-23-c96-equippable-uses.json).
+
+
+One shared rules function prepares qualified utility Activity common fields for
+owned-Item reads and final admission. Native defaults and Item
+schema ownership decide activation and range inheritance;unknown legacy-looking
+parent fields do not override Activity fields. Inferred range text/number and final
+scalar values remain distinct. Parent-before-child counters use the shared Uses
+path. The existing Item modal formats these facts in both layouts;action rows use
+the same default activation. Common readiness is independent of Activity execution
+and full subtype/usability readiness. Unsupported references/templates/subtypes
+retain explicit diagnostics. No new source writes or Item/world cache is added.
+
+Roll intent compares the current caller-visible Actor source as well as world,
+profile and prepared configuration. Metadata-only changes retire Numeric dialogs
+and held callbacks even when the prepared roll stays equal. The signature remains
+ephemeral UI intent,not a revision/permission authority. Native/operator acceptance
+and broader M8 performance/accessibility qualification remain open.
+[C97 evidence](audits/evidence/2026-10-23-c97-activity-common.json).

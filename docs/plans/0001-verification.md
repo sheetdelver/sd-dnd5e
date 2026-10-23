@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C96)
+### Current M2 exit state (updated C97)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3257,7 +3257,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
-| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;Activity and wider Item/effect final preparation remain |
+| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97 adds bounded real utility Activity common/final composition;remaining Activity references/fields/subtypes and wider Item/effect final preparation remain |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;per-Item casting/activity references,DC/damage construction and effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
 
@@ -3653,3 +3653,44 @@ check/package PASS. Native initialized-model,regression,mounted SDK seam and pub
 host evidence remain distinct;no installed/native/operator acceptance. Task-owned
 services stopped. M2/ADR remain open. Next:actual BaseActivity final/schema/override/
 field preparation and required formula/filter dependencies in the M2 exit ledger.
+
+
+### C97 — shared utility Activity common/final preparation (2026-10-23)
+
+C96 committed as `bb2dd55`. The shared owned-Item model now prepares qualified
+nonspell utility activation,duration,range,target and visibility requirements from
+raw source and verified schema defaults. Native default activation is action.
+Weapon range inheritance/override,long/reach and inferred versus final values stay
+distinct;nonspell Item source fields outside their schema cannot supply overrides.
+Parent uses prepare before child uses,including the qualified parent-counter
+reference. Actual per-type Item/Actor final composition permits these utility
+activities with the existing transferred check profile. This supersedes only the
+blanket activity restriction for the qualified recipe. Activity execution remains
+unavailable;common metadata is not a claim of complete subtype/usability support.
+
+The real schema/primitive/default and BaseActivity final methods supply180 independent
+captures,then528 real Item/Actor compositions execute actual Base final rather than
+C84's Uses-only stub. All708 final-input cases fail C96 and pass after. Raw source,
+initialized models and prepared results remain separate. Area templates,
+nonempty consumption references/behaviors/effects,spell parents,other subtypes and
+dependent field profiles remain explicit boundaries.
+
+Mounted checks also reproduced a source-retirement gap:Activity metadata could
+change without changing prepared skill results,leaving a roll dialog open. The
+shared UI intent identity now compares the current caller-visible source alongside
+world/profile/preparation identity. This ephemeral comparison adds no document
+store,revision authority or authorization bypass. Held callbacks retire and recovery
+requires current intent,including unchanged totals. Both layouts format shared
+common facts and current details;unsupported details have a clear unavailable state.
+
+[C97 evidence](../audits/evidence/2026-10-23-c97-activity-common.json) separates
+regression,controlled native methods,mounted SDK seam and isolated public-host
+results. No full DataModel/runtime,installed/native/operator or release acceptance
+follows. M2 and ADR remain open. Next:remaining Activity reference/field/subtype and
+spell modifier dependencies,then outstanding formula/filter and A02–A06 exit work.
+
+C97 checkpoint checks:77 module/9 tooling suites (61 assertions),288 explicit typed
+files,exact2242/591 source comparison,all three relevant mounted harnesses at1440/390,
+113282 accepted public-host requests (2952 new) and isolated check/package PASS.
+The retained unary candidate and1800 tied-index diagnostics remain visible;no host
+serialization is rewritten. Task-owned services stopped;version/compatibility unchanged.

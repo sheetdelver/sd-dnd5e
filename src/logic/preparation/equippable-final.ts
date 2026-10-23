@@ -1,4 +1,5 @@
 import {prepareUses606} from './uses';
+import {prepareActivityCommon606} from './activity-common';
 import {record,ownedItemUuid} from '../native/6.0.6/source';
 import {initializeTraitSet606} from './trait-fields';
 import {itemEffectState606,EQUIPPABLE_TYPES_606,OTHER_ITEM_TYPES_606,type ItemEffectState} from './item-effect-state';
@@ -22,9 +23,16 @@ function prepareItem(item:Record<string,unknown>,identityReason?:string):Equippa
 function actorFinalRecipeReason(item:Record<string,unknown>,data:Record<string,unknown>):string|undefined {
  if(item.type!=='container'){
   const activities=data.activities===undefined?{}:record(data.activities),uses=data.uses===undefined?{}:record(data.uses);
-  if(!activities||Object.keys(activities).length)return 'Transferred Item final activities require qualification';
+  if(!activities)return 'Transferred Item final activity source mapping malformed';
   const counter=prepareUses606(data.uses);
   if(!uses||counter.status!=='ready'||counter.recovery.status!=='ready')return 'Transferred Item final uses require qualified independent capacity/recovery metadata';
+  for(const [id,raw]of Object.entries(activities)){
+   const activity=record(raw);if(!activity||activity._id!==id)return 'Transferred Item final activity identity unavailable';
+   const bindings:Record<string,number>={mod:0,'item.uses.spent':counter.spent!,'item.uses.value':counter.remaining!};if(counter.limited)bindings['item.uses.max']=counter.max!;
+   const common=prepareActivityCommon606(activity,item,bindings);if(common.status!=='ready')return common.reason;
+   const childSpent=record(activity.uses)?.spent;if(childSpent===undefined)bindings['activity.uses.spent']=0;else if(typeof childSpent==='number')bindings['activity.uses.spent']=childSpent;
+   const child=prepareUses606(activity.uses,undefined,bindings);if(child.status!=='ready'||child.recovery.status!=='ready')return 'Transferred Activity uses require qualified independent/parent counter preparation';
+  }
  }
  if(item.type==='weapon'){
   const emptyRange=(value:unknown)=>value==null||value===0;
