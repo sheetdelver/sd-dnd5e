@@ -31,6 +31,9 @@ export function itemLocalEffectsReason606(item:Record<string,unknown>):string|un
  * scene/time phase. Start metadata alone cannot expire a permanent effect. */
 export function permanentEffectReason606(effect:Record<string,unknown>):string|undefined{
  const duration=effect.duration==null?{}:record(effect.duration);if(!duration)return 'Effect duration source malformed';
+ // C105 proves identical persisted source can change applicability solely with
+ // worldTime. Neither raw expired nor a local wall clock supplies that input.
+ if(typeof duration.value==='number'&&Number.isFinite(duration.value)&&Number.isInteger(duration.value)&&duration.value>=0)return 'Timed effect preparation needs public world-time context (E04)';
  if(Object.entries(duration).some(([key,value])=>!['units','value','expiry','expired'].includes(key)||key==='value'&&value!=null||key==='expiry'&&value!=null||key==='expired'&&typeof value!=='boolean'||key==='units'&&typeof value!=='string'))return 'Effect duration/expiry preparation unavailable';
  const start=effect.start==null?{}:record(effect.start);if(!start)return 'Effect start source malformed';
  if(Object.entries(start).some(([key,value])=>!['combat','combatant','initiative','round','turn','time'].includes(key)||value!=null&&(['combat','combatant'].includes(key)?typeof value!=='string':typeof value!=='number'||!Number.isFinite(value))))return 'Effect start source malformed';

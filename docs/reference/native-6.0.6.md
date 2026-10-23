@@ -1631,3 +1631,11 @@ compositions preserve undefined/null/zero and metric defaults. Prior C97/C98
 initialized-parent captures remain distinct;description/physical/labels and prior
 Actor callback seams are declared. This is not full native runtime acceptance.
 [C104 evidence](../audits/evidence/2026-10-23-c104-weapon-range.json).
+
+
+C105 executes16 actual Foundry14.367 duration methods,pinned native isTemporary
+and Actor collection/suppression getters with a declared seconds-only calendar
+and explicit concealment. Future remaining time clears source expired=true;at/after
+expiry that persisted flag remains,so source alone cannot decide applicability.
+Registry expiry/calendar/permission/native runtime acceptance is separate.
+[C105 native/public input evidence](../audits/evidence/2026-10-23-c105-effect-time.json).

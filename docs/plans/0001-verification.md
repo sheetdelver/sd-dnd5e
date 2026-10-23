@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C104)
+### Current M2 exit state (updated C105)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3256,7 +3256,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | --- | --- | --- |
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
-| Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;C101 records every predicate/operand and unknown-snapshot unsupported fixture/decision for Q02a;this does not complete unsupported rules support |
+| Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;C105 proves existing E04 blocks the full timed-effect profile;wider filters and Item final composition remain;C101 records every predicate/operand and unknown-snapshot unsupported fixture/decision for Q02a;this does not complete unsupported rules support |
 | Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;C104 corrects source-derived Weapon range cleanup/inheritance/modes and separates missing metadata from independent Actor readiness;C99 adds qualified owned consumption references;remaining canonical compendium references/spell parents/subtypes and wider Item/effect final preparation remain |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;C100 adds exact per-spell class/subclass/Activity ability contexts and numeric spell attack read construction;C102 adds Spell intrinsic/common inheritance/overrides and Activity save DCs;C103 adds initialized base damage formulas/part roles;effective damage construction and wider Item/effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
@@ -3920,3 +3920,32 @@ M2/ADR remain open;next reconcile remaining required Item/effect/formula/read
 exits and qualify any concrete public-contract blocker before reporting it.
 
 [C104 evidence](../audits/evidence/2026-10-23-c104-weapon-range.json) records commands,hashes,phase boundaries and historical correction.
+
+
+### C105 — timed-effect public input qualification (2026-10-23)
+
+C104 is `12c1116`.16 pinned duration/Actor collection comparisons prove a concrete
+read limitation within existing E04:identical persisted value1/start100/expired=true
+source is active at worldTime99 and inactive at102 for the explicit unconcealed
+profile. Future remaining time clears expired;elapsed time alone does not set it
+true here. Seconds-calendar formatting and concealment are declared collaborators;
+registry automation and full native runtime remain outside this evidence.
+
+Two isolated Core0.19.3 public-host bootstraps expose identical authorized source
+and identity/settings snapshots,but no clock;core.worldTime is undeclared. The
+minimum missing input is host-owned authorized native time with readiness and
+revision/invalidation,plus calendar/combat context for their dependent profiles.
+This qualifies E04's read boundary,not a new Core defect. It blocks full M2/A04
+timed applicability and dependent M4/M7 gates. No Date.now inference,raw expired
+override,private API,transport or clock cache is added. The affected UI/direct roll
+now names E04 precisely;independent module work continues.
+
+85 module/9 tooling suites (61 assertions),313 explicit typed files,2242/591 source
+verification,mounted1440/390 reasons/disabled controls/held callbacks/recovery,
+119218 public rolls and isolated check/package PASS.1 unary candidate and1920 tie
+diagnostics remain;serialization is unchanged. Task-owned services stopped.
+Controlled native methods,public-host and mounted seams remain separate from
+installed/native/operator acceptance. M2/ADR stay open. Next:qualify transferred
+final scalar effects together through shared Item/Actor preparation.
+
+[C105 evidence](../audits/evidence/2026-10-23-c105-effect-time.json) records reproduction,contract,gates,commands,hashes and limits.

@@ -1757,3 +1757,10 @@ inheritance and natural/improvised mode selection. Source,default,missing and
 not-applicable fields remain distinct;missing scalar metadata does not poison
 independent qualified Actor final facts. Both layouts format these shared results.
 [C104 evidence](audits/evidence/2026-10-23-c104-weapon-range.json).
+
+
+Finite timed effects retain an explicit E04 gate:source expired can differ from
+native prepared applicability when worldTime changes. Neither local wall time nor
+raw native-looking duration metadata supplies the missing public host input.
+Source/context changes retire open roll intents;recovery requires a fresh intent.
+[C105 contract/evidence](audits/evidence/2026-10-23-c105-effect-time.json).

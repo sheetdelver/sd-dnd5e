@@ -2593,3 +2593,32 @@ M2/ADR remain open;next reconcile remaining required Item/effect/formula/read
 exits and qualify any concrete public-contract blocker before reporting it.
 
 [C104 evidence](evidence/2026-10-23-c104-weapon-range.json) records commands,hashes,phase boundaries and historical correction.
+
+
+### C105 — timed-effect public input qualification (2026-10-23)
+
+C104 is `12c1116`.16 pinned duration/Actor collection comparisons prove a concrete
+read limitation within existing E04:identical persisted value1/start100/expired=true
+source is active at worldTime99 and inactive at102 for the explicit unconcealed
+profile. Future remaining time clears expired;elapsed time alone does not set it
+true here. Seconds-calendar formatting and concealment are declared collaborators;
+registry automation and full native runtime remain outside this evidence.
+
+Two isolated Core0.19.3 public-host bootstraps expose identical authorized source
+and identity/settings snapshots,but no clock;core.worldTime is undeclared. The
+minimum missing input is host-owned authorized native time with readiness and
+revision/invalidation,plus calendar/combat context for their dependent profiles.
+This qualifies E04's read boundary,not a new Core defect. It blocks full M2/A04
+timed applicability and dependent M4/M7 gates. No Date.now inference,raw expired
+override,private API,transport or clock cache is added. The affected UI/direct roll
+now names E04 precisely;independent module work continues.
+
+85 module/9 tooling suites (61 assertions),313 explicit typed files,2242/591 source
+verification,mounted1440/390 reasons/disabled controls/held callbacks/recovery,
+119218 public rolls and isolated check/package PASS.1 unary candidate and1920 tie
+diagnostics remain;serialization is unchanged. Task-owned services stopped.
+Controlled native methods,public-host and mounted seams remain separate from
+installed/native/operator acceptance. M2/ADR stay open. Next:qualify transferred
+final scalar effects together through shared Item/Actor preparation.
+
+[C105 evidence](evidence/2026-10-23-c105-effect-time.json) records reproduction,contract,gates,commands,hashes and limits.

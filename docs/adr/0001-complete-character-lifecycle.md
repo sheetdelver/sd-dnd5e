@@ -190,6 +190,8 @@ Only an actually missing generic presentation/read capability becomes a Core pro
 
 Evidence: ordinary SDK document store mapping in `src/server/shared/utils/moduleDocumentServices.ts` excludes Scene and Setting; migration target relations do not grant gameplay access. Native summon/transform/teleport/area/rest-time code depends on scene/token/time or native registry behavior.
 
+C105 also qualifies the required **read** boundary for timed-effect preparation: identical source needs different applicability at different native clocks,while Core0.19.3 public world snapshots expose no time. [Executable reproduction and minimum input](../audits/evidence/2026-10-23-c105-effect-time.json) keep full M2/A04 timed applicability open;independent preparation continues.
+
 M7 Q04 separates PC-facing rules from canvas/world automation. Existing authorized Actor/Combat/Item/effect operations may satisfy companion and concentration work. If selected behavior needs scene token targets/placement or advancing world time, propose narrow typed caller-authorized capabilities with readiness/revision/outcome rules and explicit native permissions. No generic “execute native method” bridge. Accept exact Actor/Token identity, source-preserving unlinked-token semantics, denied cross-owner actions, world switch and cleanup. Keep canvas/Bastion automation outside this release unless the user selects it; do not claim it is implemented by a card or chat instruction.
 
 ### E05 — Numeric roll expressiveness (Q00 open; plain tied-value equivalence reviewed)
@@ -3386,3 +3388,32 @@ M2/ADR remain open;next reconcile remaining required Item/effect/formula/read
 exits and qualify any concrete public-contract blocker before reporting it.
 
 [C104 evidence](../audits/evidence/2026-10-23-c104-weapon-range.json) records commands,hashes,phase boundaries and historical correction.
+
+
+### C105 — timed-effect public input qualification (2026-10-23)
+
+C104 is `12c1116`.16 pinned duration/Actor collection comparisons prove a concrete
+read limitation within existing E04:identical persisted value1/start100/expired=true
+source is active at worldTime99 and inactive at102 for the explicit unconcealed
+profile. Future remaining time clears expired;elapsed time alone does not set it
+true here. Seconds-calendar formatting and concealment are declared collaborators;
+registry automation and full native runtime remain outside this evidence.
+
+Two isolated Core0.19.3 public-host bootstraps expose identical authorized source
+and identity/settings snapshots,but no clock;core.worldTime is undeclared. The
+minimum missing input is host-owned authorized native time with readiness and
+revision/invalidation,plus calendar/combat context for their dependent profiles.
+This qualifies E04's read boundary,not a new Core defect. It blocks full M2/A04
+timed applicability and dependent M4/M7 gates. No Date.now inference,raw expired
+override,private API,transport or clock cache is added. The affected UI/direct roll
+now names E04 precisely;independent module work continues.
+
+85 module/9 tooling suites (61 assertions),313 explicit typed files,2242/591 source
+verification,mounted1440/390 reasons/disabled controls/held callbacks/recovery,
+119218 public rolls and isolated check/package PASS.1 unary candidate and1920 tie
+diagnostics remain;serialization is unchanged. Task-owned services stopped.
+Controlled native methods,public-host and mounted seams remain separate from
+installed/native/operator acceptance. M2/ADR stay open. Next:qualify transferred
+final scalar effects together through shared Item/Actor preparation.
+
+[C105 evidence](../audits/evidence/2026-10-23-c105-effect-time.json) records reproduction,contract,gates,commands,hashes and limits.

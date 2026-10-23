@@ -1,0 +1,88 @@
+{
+  "checkpoint": "C105",
+  "parent": "12c1116",
+  "status": "Existing E04 world-time READ limitation qualified with executable native/public-host evidence;full timed effects/M2/ADR remain open",
+  "requirements": [
+    "M2 partial",
+    "DD-05/06/31/34 partial",
+    "A04/A18 partial",
+    "E04 bounded read qualification"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "native": {
+    "command": "npm run test:native-effect-time -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c105-native-time.json",
+    "result": "PASS;16 actual duration/expiry/concealment/Actor collection cases. Same source expired=true,value1,start100 needs active at99 and inactive at102 under explicit unconcealed profile.",
+    "fixture": "tests/fixtures/native-6.0.6/effect-time.json",
+    "sha256": "30b5e00c8d6f637ec4bfd068f8ef06b4320ee4fda0c6aaea90f92781898cc8a2",
+    "logSha256": "acba648a055ee6627f55fa4c128e767a544ae8a9ad6a89d2d168d96a8473dfe0"
+  },
+  "publicTime": {
+    "command": "npm run test:public-effect-time -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;two real released-host bootstraps at synthetic99/102;authorized source identical;public snapshot keys identity/settings,core.worldTime undeclared,no typed runtime clock;zero writes",
+    "artifact": "/tmp/dnd5e-public-effect-time-pxDzrs/evidence.json",
+    "sha256": "e15aff15c94be4f6ea24282eb92d46fc49622956bc42a3258cb0ebe35fd68397",
+    "supersededDriverFailure": {
+      "reason": "Initial synthetic handler returned no Actor for fresh get;corrected declared read transport to return the exact source. Host/source/rule assertions were not weakened.",
+      "logSha256": "f11fd68070401cd5facfbc8c6be6bd5d3372e9ca3b0483762baa67701df57563"
+    }
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;85 module/9 tooling suites,61 tooling assertions;16 maintained timed-source/poison/context/recovery gates",
+    "logSha256": "fa76b5598971762be31d6b1ce3d4161b38018fc299b1ac04af6d40d2b9987d5a"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;313 explicit module/UI/server/test/hook files",
+    "logSha256": "7b1ab09d428fbcda62431e5ff5637fecabd2e802d94b9f2227c92961146f068b"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-effect-time -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 affected controls/reasons,source/context loss and recovery,held callbacks retired,fresh intent,shortcut/direct agreement;zero writes",
+    "artifact": "/tmp/dnd5e-effect-time-mounted-04tdm6/evidence.json",
+    "sha256": "b6b87be3886bd3c12082c8f5f959f6020959ae97e1221fc5f059d1950663c633"
+  },
+  "publicRolls": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;119218 accepted,1 unary candidate,1920 nonblocking tied-index diagnostics;unchanged qualification criteria/serialization,zero native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-kxixeU/evidence.json",
+    "sha256": "1fe41ef5db69253e600d79ebc3e78d23fe62707d639fee634bd51922eeb45835"
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;isolated module check/package,experimental0.4.1/compatibility unchanged",
+    "artifact": "/tmp/dnd5e-package-2LashC/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "aaa0aabcbc423d1ca91773880ddc5644a7976dae8c66e2b21a60c69b21c48c6d"
+  },
+  "cleanup": {
+    "result": "Task-owned host/synthetic endpoints/browser stopped;preexisting listeners untouched",
+    "beforeSha256": "59cc627d1a3c39b3740f3fc152c2cb0ab2f5fb956c878898b3109f36eb8a124a",
+    "afterSha256": "59cc627d1a3c39b3740f3fc152c2cb0ab2f5fb956c878898b3109f36eb8a124a"
+  },
+  "minimalContract": {
+    "existingDependency": "E04;this is an evidenced read limitation,not a newly declared Core defect",
+    "needed": "Host-owned authorized native world-time snapshot with readiness and revision/invalidation in preparation/request contexts;required calendar/combat context for corresponding profiles. No generic native-method bridge.",
+    "gates": "Full M2/A04 timed applicability;M4 effect expiry/rest and M7 linked timed workflows. Time advancement/registry writes remain separate. E01 remains unrelated.",
+    "acceptance": "Same source at99/102 gets correct phase applicability,world-time/context changes retire stale callbacks,denied/unready contexts gate,recovery uses fresh intent,no source writes during preparation.",
+    "forbiddenWorkarounds": [
+      "Date.now inference",
+      "raw expired as prepared authority",
+      "private Core imports",
+      "direct Foundry transport",
+      "duplicate module clock/cache"
+    ]
+  },
+  "limits": [
+    "Actual pinned native isTemporary and Foundry14.367 duration/suppression/Actor collection methods with seconds-only calendar formatting and explicit concealment collaborators. No full calendar/permission/registry/DataModel/native/operator parity.",
+    "Finite time elapsed does not automatically set expired=true here:future remaining time clears true,while at/after expiry persisted true remains. Registry changes are separately owned. Source expired is persisted but cannot replace prepared applicability.",
+    "Public-host evidence uses temporary config/synthetic bootstrap and auth/two independent starts. It does not claim an unsupported native time update event was exercised. No Core edits,compatibility change or new execution support.",
+    "C104/C103 archive count clarification:24 archive members include17 regular files;earlier wording24files meant members. Asset/license byte verification is unchanged.",
+    "M2 still has independent Item/effect/formula/read work. The proven timed gate prevents full completion;unavailable is not rules support. ADR/full installed/native/operator acceptance remain open."
+  ],
+  "next": "Qualify transferred final scalar fields as one composition package using earlier independently captured schema/prepared operands and actual Item/Actor final hooks;reuse shared handlers and consumer facts."
+}

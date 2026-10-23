@@ -87,6 +87,9 @@
     "test:native-damage-source": "node scripts/native-damage-source-oracle.mjs",
     "test:mounted-damage-source": "node scripts/test-mounted-damage-source.mjs",
     "test:native-weapon-range": "node scripts/native-weapon-range-oracle.mjs",
-    "test:mounted-weapon-range": "node scripts/test-mounted-weapon-range.mjs"
+    "test:mounted-weapon-range": "node scripts/test-mounted-weapon-range.mjs",
+    "test:native-effect-time": "node scripts/native-effect-time-oracle.mjs",
+    "test:public-effect-time": "node scripts/test-public-effect-time.mjs",
+    "test:mounted-effect-time": "node scripts/test-mounted-effect-time.mjs"
   }
 }

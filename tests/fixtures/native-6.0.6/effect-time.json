@@ -1,0 +1,334 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "cases": [
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": false
+        }
+      },
+      "worldTime": 99,
+      "concealed": false,
+      "expected": {
+        "expired": false,
+        "remaining": 2,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": false
+        }
+      },
+      "worldTime": 100,
+      "concealed": false,
+      "expected": {
+        "expired": false,
+        "remaining": 1,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": false
+        }
+      },
+      "worldTime": 101,
+      "concealed": false,
+      "expected": {
+        "expired": false,
+        "remaining": 0,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": false
+        }
+      },
+      "worldTime": 102,
+      "concealed": false,
+      "expected": {
+        "expired": false,
+        "remaining": -1,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": false
+        }
+      },
+      "worldTime": 99,
+      "concealed": true,
+      "expected": {
+        "expired": false,
+        "remaining": 2,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": false
+        }
+      },
+      "worldTime": 100,
+      "concealed": true,
+      "expected": {
+        "expired": false,
+        "remaining": 1,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": false
+        }
+      },
+      "worldTime": 101,
+      "concealed": true,
+      "expected": {
+        "expired": false,
+        "remaining": 0,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": false
+        }
+      },
+      "worldTime": 102,
+      "concealed": true,
+      "expected": {
+        "expired": false,
+        "remaining": -1,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": true
+        }
+      },
+      "worldTime": 99,
+      "concealed": false,
+      "expected": {
+        "expired": false,
+        "remaining": 2,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": true
+        }
+      },
+      "worldTime": 100,
+      "concealed": false,
+      "expected": {
+        "expired": false,
+        "remaining": 1,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": true
+        }
+      },
+      "worldTime": 101,
+      "concealed": false,
+      "expected": {
+        "expired": true,
+        "remaining": 0,
+        "active": 0
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": true
+        }
+      },
+      "worldTime": 102,
+      "concealed": false,
+      "expected": {
+        "expired": true,
+        "remaining": -1,
+        "active": 0
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": true
+        }
+      },
+      "worldTime": 99,
+      "concealed": true,
+      "expected": {
+        "expired": false,
+        "remaining": 2,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": true
+        }
+      },
+      "worldTime": 100,
+      "concealed": true,
+      "expected": {
+        "expired": false,
+        "remaining": 1,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": true
+        }
+      },
+      "worldTime": 101,
+      "concealed": true,
+      "expected": {
+        "expired": false,
+        "remaining": 0,
+        "active": 1
+      }
+    },
+    {
+      "source": {
+        "start": {
+          "time": 100
+        },
+        "duration": {
+          "value": 1,
+          "units": "seconds",
+          "expiry": "turnStart",
+          "expired": true
+        }
+      },
+      "worldTime": 102,
+      "concealed": true,
+      "expected": {
+        "expired": false,
+        "remaining": -1,
+        "active": 1
+      }
+    }
+  ],
+  "sourceHashes": {
+    "nativeEffect": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+    "foundryEffect": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8"
+  },
+  "limits": [
+    "Actual Foundry14.367 duration methods and pinned native isTemporary,Actor collection,active/suppression getters execute. Seconds-only calendar/formatting and explicit concealment are declared collaborators;no calendar,permission,registry or full DataModel parity.",
+    "Source duration.expired is persisted,but not always the prepared applicability:future remaining time clears true;at/after expiry it is retained,not automatically set true here. Registry expiry automation is separate. Concealment resets indefinite applicability even while finite readout computes remaining time.",
+    "Two identical source snapshots require different applicability at99 and102. This establishes a world-time read dependency for the full timed profile,not a license to infer Date.now or replay source expired as authoritative preparation."
+  ]
+}
