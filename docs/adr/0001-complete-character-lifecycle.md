@@ -3190,3 +3190,36 @@ is unchanged. Task-owned services stopped. These evidence classes remain separat
 from full DataModel/runtime,installed UI,native/operator or release acceptance.
 M2/ADR remain open;next qualify owned consumption-reference indexes/remapping,then
 remaining Activity/spell/formula/filter dependencies in the existing exit ledger.
+
+
+### C99 — shared source-only consumption references (2026-10-23)
+
+C98 is `46bbcb3`. One shared preparation path now resolves qualified utility
+Activity itemUses/material references from caller-visible owned sources. Bare
+owned IDs, exact world/owned source UUIDs and explicit persisted identifiers
+(including type prefixes) retain native first-insertion order. Native Item base
+indexing prefers `_stats.compendiumSource` over `flags.dnd5e.sourceId`; source and
+prepared targets remain separate. Names and prepared-looking index fields never
+supply identities. Both layouts format these facts from the existing owned-Item
+model. No consumption is executed and no source is changed.
+
+Actual release index/schema/Base final methods establish44 remap/default/warning
+cases and176 real Item/Actor final compositions. All176 composition inputs fail
+C98 and pass after. A missing known target produces a native warning without
+blocking an independent Actor check; reference availability is distinct from common
+schema preparation. This supersedes C97's blanket nonempty-consumption restriction
+only for this bounded read/final-composition recipe. Unknown index members remain
+unavailable. An executable compendium redirect collision proves raw string matching
+is insufficient; canonical compendium consumption matching stays unqualified. This
+is no new Core defect or dependency claim. E01 remains separately open.
+
+79 module/9 tooling suites (61 assertions),293 explicitly typed files,exact2242/591
+source verification,mounted1440/390 current details/order/warnings/source-context
+retirement/recovery,116946 accepted public-host requests (1544 new) and isolated
+check/package PASS. One unary candidate and1880 tied-index diagnostics stay visible;
+host serialization is unchanged. Task-owned services stopped. Controlled native
+methods,regression,mounted seams and isolated-host evidence remain separate from
+full DataModel/installed/native/operator acceptance. M2/ADR remain open;next finish
+remaining Item/spell/formula/filter obligations and A02–A06/Q02a exit comparisons.
+
+[C99 evidence](../audits/evidence/2026-10-23-c99-consumption-references.json) records commands,hashes,declared collaborators and limits.

@@ -2,6 +2,7 @@ import {record} from '../native/6.0.6/source';
 import {initializeTraitSet606} from './trait-fields';
 import {deterministicFormula606,type FormulaBindings606} from './deterministic-formula';
 import type {RulesContext} from '../rules-context';
+import {prepareConsumptionReferences606,type ConsumptionPreparation606} from './consumption-references';
 export interface ActivityTemplate606 {type:string;count:number;size:number;width:number|null;height:number|null;units:string;dimensions:Partial<Record<'size'|'width'|'height',string>>}
 export interface ActivityCommon606 {
  status:'ready'|'unavailable';reason?:string;provenance:string;
@@ -9,6 +10,7 @@ export interface ActivityCommon606 {
  range?:{units:string;value:number|null;inherited:boolean};target?:{type:string|null;count:number|null;template?:ActivityTemplate606};
  visibility?:{requireMagic:boolean;requireAttunement:boolean;requireIdentification:boolean};
  inferredRangeValue?:string|number|null;
+ consumption?:ConsumptionPreparation606;
 }
 const provenance='release-6.0.6 BaseActivityData schema/prepareFinalData and Activation/Duration/Range/Target fields;nonspell utility profile';
 const no=(reason:string):ActivityCommon606=>({status:'unavailable',reason,provenance});
@@ -34,7 +36,7 @@ function prepareTemplate(raw:Record<string,unknown>,bindings:FormulaBindings606,
 /** One detached common-field preparation. Source/defaults,inferred range and
  * final scalar values stay separate. This does not authorize or execute an
  * Activity,apply its effects,or resolve content/consumption references. */
-export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:FormulaBindings606={},gate?:string,context?:RulesContext):ActivityCommon606 {
+export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:FormulaBindings606={},gate?:string,context?:RulesContext,actor?:unknown):ActivityCommon606 {
  if(gate)return no(gate);
  const a=record(raw),parent=record(item),s=parent?.system===undefined?{}:record(parent.system);
  if(!a||!s||a.type!=='utility'||!['tool','equipment','consumable','weapon'].includes(String(parent?.type)))return no('Activity common final preparation requires a qualified nonspell utility Item');
@@ -43,7 +45,7 @@ export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:Formu
  if(!activation||!duration||!range||!target||!visibility||!consumption)return no('Activity common source container malformed');
  const affects=mapping(target.affects),template=mapping(target.template);
  if(!affects||!template)return no('Activity target source container malformed');
- if(consumption.targets!==undefined&&(!Array.isArray(consumption.targets)||consumption.targets.length))return no('Activity consumption target final references require qualification');
+ const references=prepareConsumptionReferences606(consumption,actor,item);if(references.status!=='ready')return no(references.reason!);
  const string=(value:unknown,fallback:string):string|null=>value==null?fallback:typeof value==='string'?value.trim():null;
  const bool=(value:unknown):boolean|null=>value==null?false:typeof value==='boolean'?value:null;
  const activationType=string(activation.type,'action'),durationUnits=string(duration.units,'inst'),targetType=string(affects.type,''),override=bool(range.override);
@@ -77,5 +79,5 @@ export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:Formu
  const properties=initializeTraitSet606(s.properties),attunement=string(s.attunement,'');
  if(!properties||attunement===null||!['','required','optional'].includes(attunement))return no('Activity Item magic/attunement source unavailable');
  const magic=properties.includes('mgc'),currentAttunement=magic?(attunement==='required'?requireMagic!:Boolean(attunement)&&requireAttunement!):false;
- return {status:'ready',provenance,activation:{type:activationType,value:activationValue},duration:{units:durationUnits,value:durationValue},range:{units:rangeUnits,value:preparedRange,inherited},target:{type:targetType||null,count:targetCount,...(area.template?{template:area.template}:{})},visibility:{requireMagic:magic&&requireMagic!,requireAttunement:currentAttunement,requireIdentification:requireIdentification!},inferredRangeValue};
+ return {status:'ready',provenance,activation:{type:activationType,value:activationValue},duration:{units:durationUnits,value:durationValue},range:{units:rangeUnits,value:preparedRange,inherited},target:{type:targetType||null,count:targetCount,...(area.template?{template:area.template}:{})},visibility:{requireMagic:magic&&requireMagic!,requireAttunement:currentAttunement,requireIdentification:requireIdentification!},inferredRangeValue,...(references.targets.length?{consumption:references}:{})};
 }

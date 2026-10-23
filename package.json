@@ -75,6 +75,8 @@
     "test:native-activity-common": "node scripts/native-activity-common-oracle.mjs",
     "test:mounted-activity-common": "node scripts/test-mounted-activity-common.mjs",
     "test:native-activity-targets": "node scripts/native-activity-targets-oracle.mjs",
-    "test:mounted-activity-targets": "node scripts/test-mounted-activity-targets.mjs"
+    "test:mounted-activity-targets": "node scripts/test-mounted-activity-targets.mjs",
+    "test:native-consumption-references": "node scripts/native-consumption-references-oracle.mjs",
+    "test:mounted-consumption-references": "node scripts/test-mounted-consumption-references.mjs"
   }
 }

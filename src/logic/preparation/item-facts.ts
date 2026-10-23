@@ -65,7 +65,7 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
    const scopedBindings={...activityBindings,...(nat(record(a.uses)?.spent,0,true)!==null?{'activity.uses.spent':nat(record(a.uses)?.spent,0,true)!}:{}),...(atype==='utility'&&type!=='spell'?{mod:0}:{})};
    const activityUses=prepareUses606(a.uses,reason,scopedBindings),currentBindings:Record<string,number>={...scopedBindings};
    if(activityUses.status==='ready'){currentBindings['activity.uses.value']=activityUses.remaining!;if(activityUses.limited)currentBindings['activity.uses.max']=activityUses.max!;}
-   const commonFields=prepareActivityCommon606(a,item,scopedBindings,reason,context);
+   const commonFields=prepareActivityCommon606(a,item,scopedBindings,reason,context,actor);
    activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:commonFields.activation?.type??activationType,common:commonFields,uses:activityUses,status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects,proficiency,currentBindings)}:{})});
   }
   activities.sort((a,b)=>a.sort-b.sort);

@@ -1568,3 +1568,15 @@ input dimensions cannot override these roles. Labels/empty-array infrastructure/
 Actor callbacks retain C97's declared seams. No canvas,consumption,full DataModel,
 native runtime/operator or installed UI acceptance follows.
 [C98](../audits/evidence/2026-10-23-c98-activity-targets.json) retains hashes/limits.
+
+
+C99 executes actual ItemDataModel base index registration,IdentifiedItemsMap and
+SourcedItemsMap get/set,Foundry parseUuid,ConsumptionTargetData schema and BaseActivity
+final/remap/warnings.44 cases and176 Item/Actor compositions separate source/default
+initialization from final lookup. `_stats.compendiumSource ?? flags.dnd5e.sourceId`
+is the index precedence (unlike description provenance). Missing references warn
+but do not abort Actor final. A synthetic real-parser redirect collision retains
+executable evidence against raw compendium string matching. Set helpers,registry,
+array attachment,labels and C91/C97 callbacks remain declared seams;no consumption
+or full DataModel/runtime/operator acceptance follows.
+[C99 evidence](../audits/evidence/2026-10-23-c99-consumption-references.json).

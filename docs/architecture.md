@@ -1703,3 +1703,13 @@ units remain independent of that setting;missing required defaults are unavailab
 Nonpersisted dimensions/labels never override source or computed results. These
 are read facts,not canvas placement/collision/application or Activity execution.
 [C98 evidence](audits/evidence/2026-10-23-c98-activity-targets.json).
+
+
+Consumption references share one environment-neutral helper across Activity reads
+and final admission. Raw targets,prepared IDs,missing/unqualified references and
+schema readiness stay distinct. Source indexes use only caller-visible owned Items
+and explicit identifiers;native source precedence/order is preserved. Missing known
+references warn without blocking independent checks;unknown canonical identity does
+not select another Item. UI formats the shared result in both layouts. No secondary
+index cache or consumption write is added.
+[C99 evidence](audits/evidence/2026-10-23-c99-consumption-references.json).

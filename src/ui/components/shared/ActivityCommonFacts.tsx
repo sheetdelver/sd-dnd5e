@@ -17,5 +17,8 @@ export default function ActivityCommonFacts({fact}:{fact?:ActivityCommon606}){
    <p>Area: {target.template.count} × {target.template.type==='radius'?'Emanation':target.template.type}</p>
    {Object.entries(target.template.dimensions).map(([key,label])=><p key={key} aria-label={'Area '+key}>{label==='Label'?'Size':label}: {target.template![key as 'size'|'width'|'height']??'—'} {target.template!.units}</p>)}
   </div>}
+  {fact.consumption&&<ul aria-label="Activity consumption">{fact.consumption.targets.map(reference=><li key={reference.index} data-reference-status={reference.status} title={reference.reason}>
+   {reference.type}: {reference.status==='owned'||reference.status==='self'?reference.itemId??'This Item':reference.status==='not-applicable'?reference.sourceTarget??'This activity':'Unavailable'}
+  </li>)}</ul>}
  </div>;
 }

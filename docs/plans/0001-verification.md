@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C98)
+### Current M2 exit state (updated C99)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3257,7 +3257,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
-| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;remaining Activity references/spell parents/subtypes and wider Item/effect final preparation remain |
+| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;C99 adds qualified owned consumption references;remaining canonical compendium references/spell parents/subtypes and wider Item/effect final preparation remain |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;per-Item casting/activity references,DC/damage construction and effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
 
@@ -3724,3 +3724,36 @@ is unchanged. Task-owned services stopped. These evidence classes remain separat
 from full DataModel/runtime,installed UI,native/operator or release acceptance.
 M2/ADR remain open;next qualify owned consumption-reference indexes/remapping,then
 remaining Activity/spell/formula/filter dependencies in the existing exit ledger.
+
+
+### C99 — shared source-only consumption references (2026-10-23)
+
+C98 is `46bbcb3`. One shared preparation path now resolves qualified utility
+Activity itemUses/material references from caller-visible owned sources. Bare
+owned IDs, exact world/owned source UUIDs and explicit persisted identifiers
+(including type prefixes) retain native first-insertion order. Native Item base
+indexing prefers `_stats.compendiumSource` over `flags.dnd5e.sourceId`; source and
+prepared targets remain separate. Names and prepared-looking index fields never
+supply identities. Both layouts format these facts from the existing owned-Item
+model. No consumption is executed and no source is changed.
+
+Actual release index/schema/Base final methods establish44 remap/default/warning
+cases and176 real Item/Actor final compositions. All176 composition inputs fail
+C98 and pass after. A missing known target produces a native warning without
+blocking an independent Actor check; reference availability is distinct from common
+schema preparation. This supersedes C97's blanket nonempty-consumption restriction
+only for this bounded read/final-composition recipe. Unknown index members remain
+unavailable. An executable compendium redirect collision proves raw string matching
+is insufficient; canonical compendium consumption matching stays unqualified. This
+is no new Core defect or dependency claim. E01 remains separately open.
+
+79 module/9 tooling suites (61 assertions),293 explicitly typed files,exact2242/591
+source verification,mounted1440/390 current details/order/warnings/source-context
+retirement/recovery,116946 accepted public-host requests (1544 new) and isolated
+check/package PASS. One unary candidate and1880 tied-index diagnostics stay visible;
+host serialization is unchanged. Task-owned services stopped. Controlled native
+methods,regression,mounted seams and isolated-host evidence remain separate from
+full DataModel/installed/native/operator acceptance. M2/ADR remain open;next finish
+remaining Item/spell/formula/filter obligations and A02–A06/Q02a exit comparisons.
+
+[C99 evidence](../audits/evidence/2026-10-23-c99-consumption-references.json) records commands,hashes,declared collaborators and limits.
