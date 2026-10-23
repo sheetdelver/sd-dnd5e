@@ -3,7 +3,7 @@ import type {RulesContext} from '../rules-context';
 import {numericFact,type NumericFact} from './character-profile';
 import {numericConstant,numericAbilityValue} from './numeric';
 import {prepareNumericEffects606,type NumericEffects} from './numeric-effects';
-import {resolveSpecies606} from './species-identity';
+import {initializeMovement606} from './movement-initialization';
 
 export const movementKeys=['walk','burrow','climb','fly','jump','swim'] as const;
 export const senseKeys=['blindsight','darkvision','tremorsense','truesight'] as const;
@@ -36,34 +36,28 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
     common??=effects.reason;
     common ??= effects.ruleFlags.reason;
     if(attributes.exhaustion!==undefined&&attributes.exhaustion!==0||source.statuses!==undefined&&(!Array.isArray(source.statuses)||source.statuses.length))common??='Movement/senses condition preparation unavailable';
-    const ref=resolveSpecies606(actor,system);let species:Record<string,unknown>|null=null,speciesUuid:string|undefined;
-    if(ref.kind==='text'||ref.kind==='unavailable')common??=ref.reason;
-    if(ref.kind==='resolved'){
-        species=record(ref.item?.system);speciesUuid=ref.uuid;
-        if(!species)common??='Species identity/source unavailable';
-    }
+    const initialization=effects.movementInitialization??initializeMovement606(actor,system,context),speciesUuid=initialization.speciesUuid;
     if(common)return {movement:noMovement(common),senses:noSenses(common)};
     const setting=context.settings['dnd5e.metricLengthUnits'];
     const fallback=setting&&setting.status!=='unavailable'&&typeof setting.value==='boolean'?(setting.value?'m':'ft'):null;
     function unit(actorUnits:unknown,speciesUnits:unknown):string|null {
-        const value=actorUnits??(species?speciesUnits??fallback:fallback);
+        const value=actorUnits??fallback;
         return typeof value==='string'&&Object.hasOwn(units,value)?value:null;
     }
-    const rawMovement=attributes.movement,rawSenses=attributes.senses,m=record(rawMovement)??{},s=record(rawSenses)??{},sm=record(species?.movement)??{},ss=record(species?.senses)??{};
-    let moveReason:string|undefined,senseReason:string|undefined;
-    if(rawMovement!=null&&!record(rawMovement)||m.speeds!=null&&!record(m.speeds)||species?.movement!=null&&!record(species.movement)||sm.speeds!=null&&!record(sm.speeds))moveReason='Movement source mapping malformed';
-    if(rawSenses!=null&&!record(rawSenses)||s.ranges!=null&&!record(s.ranges)||species?.senses!=null&&!record(species.senses)||ss.ranges!=null&&!record(ss.ranges))senseReason='Senses source mapping malformed';
+    const rawMovement=attributes.movement,rawSenses=attributes.senses,m=record(rawMovement)??{},s=record(rawSenses)??{},sm:Record<string,unknown>={},ss:Record<string,unknown>={};
+    let moveReason=initialization.movementReason,senseReason=initialization.sensesReason;
+    if(rawMovement!=null&&!record(rawMovement)||m.speeds!=null&&!record(m.speeds))moveReason='Movement source mapping malformed';
+    if(rawSenses!=null&&!record(rawSenses)||s.ranges!=null&&!record(s.ranges))senseReason='Senses source mapping malformed';
     if(attributes.speed!==undefined||movementKeys.some(k=>m[k]!==undefined||sm[k]!==undefined))moveReason??='Legacy movement source migration requires qualification';
     if(senseKeys.some(k=>s[k]!==undefined||ss[k]!==undefined))senseReason??='Legacy senses source migration requires qualification';
     const movementUnits=unit(m.units,sm.units),senseUnits=unit(s.units,ss.units);
     if(!movementUnits)moveReason??='Movement units or default setting unavailable';
     if(!senseUnits)senseReason??='Sense units or default setting unavailable';
-    const speeds:Record<string,number|null>={},fromSpecies:Record<string,string|undefined>={};
-    const initializedWalk=literal(record(m.speeds)?.walk);
+    const speeds:Record<string,number|null>={},fromSpecies=initialization.fromSpecies;
+    const initializedWalk=literal(initialization.sourceWalk);
     for(const key of movementKeys){
         let value=literal(record(m.speeds)?.[key]);const inherited=literal(record(sm.speeds)?.[key]);
         if(!value||!inherited){moveReason??='Movement expression requires Q00 qualification';speeds[key]=null;continue;}
-        if(species&&inherited.text&&!value.text){value=inherited;fromSpecies[key]=inherited.text;}
         speeds[key]=effects.conditions.rules.noMovement||effects.conditions.rules.crawl&&key!=='walk'?0:Math.max(0,value.number);
     }
     const bonus=literal(m.bonus),hover=m.hover??false,speciesHover=sm.hover??false,special=typeof m.special==='string'?m.special.trim():m.special??'';
@@ -104,7 +98,7 @@ export function prepareMovement606(actor:unknown,context:RulesContext,effects:Nu
         if([own,inherited].some(v=>v!==null&&(typeof v!=='number'||!Number.isInteger(v)||v<0||!bounded(v))))senseReason??='Sense range source outside qualified numeric schema';
         ranges[key]=typeof own==='number'?own:typeof inherited==='number'?inherited:0;
     }
-    const ownSpecial=typeof s.special==='string'?s.special.trim():s.special??'',speciesSpecial=typeof ss.special==='string'?ss.special.trim():ss.special??'';
+    const ownSpecial=typeof s.special==='string'?s.special.trim():s.special??'',speciesSpecial='';
     if(typeof ownSpecial!=='string'||typeof speciesSpecial!=='string')senseReason??='Sense special source malformed';
     const senses:SensesFacts=senseReason?noSenses(senseReason):{status:'ready',provenance,units:senseUnits,ranges,special:[ownSpecial,speciesSpecial].filter(Boolean).join(';'),...(speciesUuid?{speciesUuid}:{})};
     return {movement,senses};

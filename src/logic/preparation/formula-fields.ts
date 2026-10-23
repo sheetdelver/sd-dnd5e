@@ -70,6 +70,7 @@ export function prepareFormulaFields606(actor:unknown,context:RulesContext,effec
     for(const key of ['level','overall'])fold('attributes.hp.bonuses.'+key);
     for(const key of ['walk','burrow','climb','fly','jump','swim'])fold('attributes.movement.speeds.'+key);
     fold('attributes.movement.bonus');
+    for(const path of ['attributes.ac.bonus','attributes.ac.min','bonuses.spell.dc',...['bonuses','multipliers'].flatMap(group=>['encumbered','heavilyEncumbered','maximum','overall'].map(key=>'attributes.encumbrance.'+group+'.'+key)),...['mwak','rwak','msak','rsak'].map(key=>'rolls.damage.'+key+'.bonus')])fold(path);
     const ac=record(record(effects.system.attributes)?.ac);
     if(Array.isArray(ac?.formulas))ac.formulas.forEach((value,index)=>{const row=record(value);if(row)fold(`attributes.ac.formulas.${index}.formula`,false,row,['formula']);});
     const attacks=record(record(effects.system.rolls)?.attack);

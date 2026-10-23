@@ -1,3 +1,4 @@
+import {numericConstant} from './numeric';
 import {itemLocalEffectsReason606} from './effect-admission';
 import {record} from '../native/6.0.6/source';
 import type {RulesContext} from '../rules-context';
@@ -72,7 +73,14 @@ export function preparePhysical606(actor:unknown,context:RulesContext,owned:Owne
  if(index<0||build!==undefined&&typeof build!=='boolean')thresholdReason??='Carrying size/Powerful Build source requires qualification';
  const sizeMod=[.5,1,1,2,4,8][Math.min(index+Number(build===true),5)],strength=effects.formulaPreparation?.preparedBindings['abilities.str.value'];if(typeof strength!=='number')thresholdReason??='Carrying Strength preparation unavailable';
  const setting=context.settings['dnd5e.encumbrance'];if(!setting||setting.status==='unavailable'||!['none','normal','variant'].includes(String(setting.value)))thresholdReason??='Encumbrance setting unavailable';
- const thresholds={encumbered:tenth((strength??0)*(units==='kg'?2.5:5)*sizeMod),heavilyEncumbered:tenth((strength??0)*(units==='kg'?5:10)*sizeMod),maximum:tenth((strength??0)*(units==='kg'?7.5:15)*sizeMod)};
- const encumbrance=fact<Encumbrance606>({value:weight.value??0,max:thresholds.maximum,mod:sizeMod,thresholds,percent:thresholds.maximum===0&&(weight.value??0)===0?null:percent(weight.value??0,thresholds.maximum),setting:setting&&setting.status!=='unavailable'?setting.value as Encumbrance606['setting']:'none'},thresholdReason);
+ const data=record(record(effects.system.attributes)?.encumbrance),bonuses=record(data?.bonuses),multipliers=record(data?.multipliers);
+ const thresholds={encumbered:0,heavilyEncumbered:0,maximum:0};let maximumMultiplier=1;
+ for(const [i,key]of (['encumbered','heavilyEncumbered','maximum']as const).entries()){const bonus=numericConstant(bonuses?.[key]),overall=numericConstant(bonuses?.overall),multiple=numericConstant(multipliers?.[key]),all=numericConstant(multipliers?.overall);
+  if([bonus,overall,multiple,all].some(value=>value===null)){thresholdReason??='Carrying bonus/multiplier expression requires qualification';continue;}
+  const multiplier=multiple!*all!;if(key==='maximum')maximumMultiplier=multiplier;
+  thresholds[key]=tenth((strength??0)*(units==='kg'?[2.5,5,7.5]:[5,10,15])[i]*sizeMod*multiplier)+bonus!+overall!;
+  if(!Number.isFinite(thresholds[key])||Math.abs(thresholds[key])>1e9)thresholdReason??='Carrying threshold outside qualified numeric range';
+ }
+ const encumbrance=fact<Encumbrance606>({value:weight.value??0,max:thresholds.maximum,mod:tenth(sizeMod*maximumMultiplier),thresholds,percent:thresholds.maximum===0&&(weight.value??0)===0?null:percent(weight.value??0,thresholds.maximum),setting:setting&&setting.status!=='unavailable'?setting.value as Encumbrance606['setting']:'none'},thresholdReason);
  return {weight,currency:fact(currency,context.status!=='supported'||context.profile!=='2024'?'Currency rules context unavailable':!currency?'Actor currency source malformed':undefined),encumbrance,items,units,provenance};
 }

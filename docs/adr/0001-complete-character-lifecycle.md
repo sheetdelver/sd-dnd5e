@@ -2984,3 +2984,26 @@ and isolated-host checks. Primitive defaults/source initialization remain distin
 from these initialized native-method comparisons. Full M2/ADR remain open;continue
 remaining scalar fields,Item activity/final composition and formula dependencies
 from the existing exit ledger. No Core or compatibility decision follows.
+
+
+### C92 — initial scalar fields and embedded movement (2026-10-22)
+
+Parent `5cd067f`;partial M2/Q02a,DD-01–06/11/27/31/34,A02–A06 read preparation.
+126 independently expected FormulaField/domain cases now cover AC bonus/minimum,
+HP level/overall bonuses,movement speeds/bonus,carrying bonuses/multipliers and
+Actor ability/global attack,spell DC and four damage scopes. Six pinned native
+embedded-method cases establish species inheritance before initial effects;zero
+blocks inheritance and an effect-created zero is never overwritten by the species.
+Raw nonpersisted AC/carrying/movement multiplier poison is ignored without source
+changes. Carrying adds bonuses after native multiplier/size rounding. All read
+consumers use the same prepared model. Unknown domain expressions stay unavailable;
+independent known checks can remain available.
+
+The maintained regression fails unchanged against C91 (AC null versus independently
+expected16) and passes after. Actual desktop/mobile consumers,stale callbacks and
+context recovery are exercised separately from extracted native methods. Commands,
+hashes and limits: [C92 record](../audits/evidence/2026-10-22-c92-scalar-fields.json).
+No final scalar/effect,Item activity lifecycle,broader expression or installed/native/
+operator qualification is inferred. The M2 exit table and ADR remain open;continue
+final scalar snapshots and remaining Item/filter dependencies. No version/compatibility
+or external dependency change.

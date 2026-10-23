@@ -1,3 +1,5 @@
+import {initializeMovement606,type MovementInitialization606} from './movement-initialization';
+import {initializeScalarFields606,scalarFormulaTarget606,scalarFormulaPath606} from './scalar-fields';
 import {equippableActorFinalReason606} from './equippable-final';
 import {initializeClassFacts606} from './class-initialization';
 import {composeFormulaEffect606,checkBonusPath606} from './formula-effects';
@@ -23,6 +25,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
+    movementInitialization?:MovementInitialization606;
     proficiency?:{base:number|null;prepared:number|null;current:number|null};formulaPreparation?:FormulaPreparation606;finalFormulaExpressions?:Record<string,string>;
     sourceInitialization:SourceInitialization606;
     preparedDefenseSets?:Record<string,string[]>;
@@ -45,6 +48,8 @@ export interface NumericEffects {
 export function prepareNumericEffects606(actor:unknown,context?:RulesContext):NumericEffects {
     const source=record(actor)??{},initializedSource=initializeCheckSource606(source.system),system=initializedSource.system,sourceInitialization=initializedSource.initialization,plan=planEffects606(actor);
     if(system.attributes===undefined)system.attributes={};
+    initializeScalarFields606(system);
+    const movementInitialization=initializeMovement606(actor,system,context);
     const classes=initializeClassFacts606(actor),base=classes.status==='ready'?classes.proficiency:null,proficiency={base,prepared:base,current:base},attributes=record(system.attributes);
     if(attributes)attributes.prof=base;
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
@@ -64,6 +69,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;string?:boolean;valid?:(value:string)=>boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
         if(change.key==='system.attributes.prof'&&attributes)return {object:attributes,field:'prof'};
+        if(scalarFormulaPath606(change.key))return scalarFormulaTarget606(system,change.key);
         if(keys[1]==='traits'){
             const key=keys[2],field=keys[3];
             const training=trainingSetField606(keys.slice(2).join('.'));
@@ -133,6 +139,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     for(const change of plan.initial){
         if(change.type.startsWith('dnd5e.'))continue;
         if(change.key.startsWith('flags.')){const result=applyBooleanFlag606(ruleFlags,change);if('reason'in result)reason??=result.reason;else applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'initial',...result});continue;}
+        if(change.key.startsWith('system.attributes.movement.')&&movementInitialization.movementReason){reason??=movementInitialization.movementReason;continue;}
         const field=target(change),raw=change.value;
         if(field?.string){
             // C71 qualifies identified, eligible transferred Items in the
@@ -155,7 +162,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         }
         const delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         const operand=field?.object[field.field],before=field?.formula?numericConstant(operand):field?.mode&&operand===undefined?0:operand;
-        if(field?.formula&&checkBonusPath606(change.key)&&(typeof before!=='number'||delta===null||!['add','subtract','override'].includes(change.type))){
+        if(field?.formula&&(checkBonusPath606(change.key)||scalarFormulaPath606(change.key))&&(typeof before!=='number'||delta===null||!['add','subtract','override'].includes(change.type))){
             const expression=composeFormulaEffect606(operand,raw,change.type);
             if(expression===null){reason??=`FormulaField expression/source/operation requires qualification: ${change.key}`;continue;}
             field.object[field.field]=expression;formulas[change.key]=expression;
@@ -324,7 +331,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    const result:NumericEffects={proficiency,finalFormulaExpressions,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    const result:NumericEffects={movementInitialization,proficiency,finalFormulaExpressions,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
     return context?prepareFormulaFields606(actor,context,result):result;
 }
 

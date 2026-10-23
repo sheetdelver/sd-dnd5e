@@ -31,7 +31,7 @@ class Item {static metadata={collection:'items'};constructor(id,type,system){thi
 class EmbeddedBase {prepareEmbeddedData(){}}
 class Character extends EmbeddedBase {${n('module/data/actor/character.mjs','CharacterData','prepareEmbeddedData')} }
 class AttributesFields {${['prepareRace','prepareMovement'].map(m=>n('module/data/actor/templates/attributes.mjs','AttributesFields',m)).join('\n')} }
-class Roll {static create(value){return {isDeterministic:true,evaluateSync:()=>({total:constant(value)})};} }
+class Roll {constructor(value){this.value=value;this.isDeterministic=true;}evaluateSync(){return {total:constant(this.value)};}static create(value){return new Roll(value);} }
 ${['simplifyBonus','_convertSystemUnits','convertLength','defaultUnits'].map(declaration).join('\n')}
 CONFIG.DND5E.movementTypes=${registry('movementTypes')};CONFIG.DND5E.senses=${registry('senses')};CONFIG.DND5E.defaultUnits=${registry('defaultUnits')};CONFIG.DND5E.movementUnits=${registry('movementUnits')};
 globalThis.native={Item,Character,AttributesFields,LocalDocumentField,ScalarString,NumberField,defaultUnits};`,sandbox);

@@ -61,6 +61,8 @@
     "test:native-base-proficiency": "node scripts/native-base-proficiency-oracle.mjs",
     "test:mounted-base-proficiency": "node scripts/test-mounted-base-proficiency.mjs",
     "test:native-equippable-final": "node scripts/native-equippable-final-oracle.mjs",
-    "test:mounted-equippable-final": "node scripts/test-mounted-equippable-final.mjs"
+    "test:mounted-equippable-final": "node scripts/test-mounted-equippable-final.mjs",
+    "test:native-scalars": "node scripts/native-scalar-fields-oracle.mjs",
+    "test:mounted-scalars": "node scripts/test-mounted-scalars.mjs"
   }
 }

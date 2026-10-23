@@ -1,0 +1,1632 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Explicit initialized/earlier-effect intermediates,independent arithmetic;not raw-source native runtime acceptance",
+  "cases": [
+    {
+      "id": "ac-bonus",
+      "path": "attributes.ac.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "ac",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 16
+    },
+    {
+      "id": "ac-bonus",
+      "path": "attributes.ac.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "ac",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 12
+    },
+    {
+      "id": "ac-bonus",
+      "path": "attributes.ac.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "ac",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 16
+    },
+    {
+      "id": "ac-bonus",
+      "path": "attributes.ac.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "ac",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 14
+    },
+    {
+      "id": "ac-bonus",
+      "path": "attributes.ac.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "ac",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 14
+    },
+    {
+      "id": "ac-bonus",
+      "path": "attributes.ac.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "ac",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 14
+    },
+    {
+      "id": "ac-min",
+      "path": "attributes.ac.min",
+      "before": "15",
+      "delta": "2",
+      "type": "add",
+      "domain": "ac",
+      "expression": "15 + 2",
+      "fieldValue": 17,
+      "expected": 17
+    },
+    {
+      "id": "ac-min",
+      "path": "attributes.ac.min",
+      "before": "15",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "ac",
+      "expression": "15 - (2)",
+      "fieldValue": 13,
+      "expected": 13
+    },
+    {
+      "id": "ac-min",
+      "path": "attributes.ac.min",
+      "before": "15",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "ac",
+      "expression": "15 * 2",
+      "fieldValue": 30,
+      "expected": 30
+    },
+    {
+      "id": "ac-min",
+      "path": "attributes.ac.min",
+      "before": "15",
+      "delta": "2",
+      "type": "override",
+      "domain": "ac",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 12
+    },
+    {
+      "id": "ac-min",
+      "path": "attributes.ac.min",
+      "before": "15",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "ac",
+      "expression": "max(15, 2)",
+      "fieldValue": 15,
+      "expected": 15
+    },
+    {
+      "id": "ac-min",
+      "path": "attributes.ac.min",
+      "before": "15",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "ac",
+      "expression": "min(15, 2)",
+      "fieldValue": 2,
+      "expected": 12
+    },
+    {
+      "id": "hp-level",
+      "path": "attributes.hp.bonuses.level",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "hp",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 64
+    },
+    {
+      "id": "hp-level",
+      "path": "attributes.hp.bonuses.level",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "hp",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 44
+    },
+    {
+      "id": "hp-level",
+      "path": "attributes.hp.bonuses.level",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "hp",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 64
+    },
+    {
+      "id": "hp-level",
+      "path": "attributes.hp.bonuses.level",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "hp",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 54
+    },
+    {
+      "id": "hp-level",
+      "path": "attributes.hp.bonuses.level",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "hp",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 54
+    },
+    {
+      "id": "hp-level",
+      "path": "attributes.hp.bonuses.level",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "hp",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 54
+    },
+    {
+      "id": "hp-overall",
+      "path": "attributes.hp.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "hp",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 48
+    },
+    {
+      "id": "hp-overall",
+      "path": "attributes.hp.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "hp",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 44
+    },
+    {
+      "id": "hp-overall",
+      "path": "attributes.hp.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "hp",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 48
+    },
+    {
+      "id": "hp-overall",
+      "path": "attributes.hp.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "hp",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 46
+    },
+    {
+      "id": "hp-overall",
+      "path": "attributes.hp.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "hp",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 46
+    },
+    {
+      "id": "hp-overall",
+      "path": "attributes.hp.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "hp",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 46
+    },
+    {
+      "id": "walk",
+      "path": "attributes.movement.speeds.walk",
+      "before": "30",
+      "delta": "2",
+      "type": "add",
+      "domain": "movement",
+      "expression": "30 + 2",
+      "fieldValue": 32,
+      "expected": 32
+    },
+    {
+      "id": "walk",
+      "path": "attributes.movement.speeds.walk",
+      "before": "30",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "movement",
+      "expression": "30 - (2)",
+      "fieldValue": 28,
+      "expected": 28
+    },
+    {
+      "id": "walk",
+      "path": "attributes.movement.speeds.walk",
+      "before": "30",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "movement",
+      "expression": "30 * 2",
+      "fieldValue": 60,
+      "expected": 60
+    },
+    {
+      "id": "walk",
+      "path": "attributes.movement.speeds.walk",
+      "before": "30",
+      "delta": "2",
+      "type": "override",
+      "domain": "movement",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 2
+    },
+    {
+      "id": "walk",
+      "path": "attributes.movement.speeds.walk",
+      "before": "30",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "movement",
+      "expression": "max(30, 2)",
+      "fieldValue": 30,
+      "expected": 30
+    },
+    {
+      "id": "walk",
+      "path": "attributes.movement.speeds.walk",
+      "before": "30",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "movement",
+      "expression": "min(30, 2)",
+      "fieldValue": 2,
+      "expected": 2
+    },
+    {
+      "id": "move-bonus",
+      "path": "attributes.movement.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "movement",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 34
+    },
+    {
+      "id": "move-bonus",
+      "path": "attributes.movement.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "movement",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 30
+    },
+    {
+      "id": "move-bonus",
+      "path": "attributes.movement.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "movement",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 34
+    },
+    {
+      "id": "move-bonus",
+      "path": "attributes.movement.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "movement",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 32
+    },
+    {
+      "id": "move-bonus",
+      "path": "attributes.movement.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "movement",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 32
+    },
+    {
+      "id": "move-bonus",
+      "path": "attributes.movement.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "movement",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 32
+    },
+    {
+      "id": "enc-bonuses-encumbered",
+      "path": "attributes.encumbrance.bonuses.encumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "encumbrance",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": {
+        "encumbered": 54,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-encumbered",
+      "path": "attributes.encumbrance.bonuses.encumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "encumbrance",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-encumbered",
+      "path": "attributes.encumbrance.bonuses.encumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "encumbrance",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": {
+        "encumbered": 54,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-encumbered",
+      "path": "attributes.encumbrance.bonuses.encumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "encumbrance",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 52,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-encumbered",
+      "path": "attributes.encumbrance.bonuses.encumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "encumbrance",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 52,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-encumbered",
+      "path": "attributes.encumbrance.bonuses.encumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "encumbrance",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 52,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-heavilyEncumbered",
+      "path": "attributes.encumbrance.bonuses.heavilyEncumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "encumbrance",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 104,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-heavilyEncumbered",
+      "path": "attributes.encumbrance.bonuses.heavilyEncumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "encumbrance",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-heavilyEncumbered",
+      "path": "attributes.encumbrance.bonuses.heavilyEncumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "encumbrance",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 104,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-heavilyEncumbered",
+      "path": "attributes.encumbrance.bonuses.heavilyEncumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "encumbrance",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 102,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-heavilyEncumbered",
+      "path": "attributes.encumbrance.bonuses.heavilyEncumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "encumbrance",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 102,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-heavilyEncumbered",
+      "path": "attributes.encumbrance.bonuses.heavilyEncumbered",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "encumbrance",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 102,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-maximum",
+      "path": "attributes.encumbrance.bonuses.maximum",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "encumbrance",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 154,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-maximum",
+      "path": "attributes.encumbrance.bonuses.maximum",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "encumbrance",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-maximum",
+      "path": "attributes.encumbrance.bonuses.maximum",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "encumbrance",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 154,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-maximum",
+      "path": "attributes.encumbrance.bonuses.maximum",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "encumbrance",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 152,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-maximum",
+      "path": "attributes.encumbrance.bonuses.maximum",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "encumbrance",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 152,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-maximum",
+      "path": "attributes.encumbrance.bonuses.maximum",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "encumbrance",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 152,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-overall",
+      "path": "attributes.encumbrance.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "encumbrance",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": {
+        "encumbered": 54,
+        "heavilyEncumbered": 104,
+        "maximum": 154,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-overall",
+      "path": "attributes.encumbrance.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "encumbrance",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-overall",
+      "path": "attributes.encumbrance.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "encumbrance",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": {
+        "encumbered": 54,
+        "heavilyEncumbered": 104,
+        "maximum": 154,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-overall",
+      "path": "attributes.encumbrance.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "encumbrance",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 52,
+        "heavilyEncumbered": 102,
+        "maximum": 152,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-overall",
+      "path": "attributes.encumbrance.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "encumbrance",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 52,
+        "heavilyEncumbered": 102,
+        "maximum": 152,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-bonuses-overall",
+      "path": "attributes.encumbrance.bonuses.overall",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "encumbrance",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 52,
+        "heavilyEncumbered": 102,
+        "maximum": 152,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-encumbered",
+      "path": "attributes.encumbrance.multipliers.encumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "add",
+      "domain": "encumbrance",
+      "expression": "1 + 2",
+      "fieldValue": 3,
+      "expected": {
+        "encumbered": 150,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-encumbered",
+      "path": "attributes.encumbrance.multipliers.encumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "encumbrance",
+      "expression": "1 - (2)",
+      "fieldValue": -1,
+      "expected": {
+        "encumbered": -50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-encumbered",
+      "path": "attributes.encumbrance.multipliers.encumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "encumbrance",
+      "expression": "1 * 2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 100,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-encumbered",
+      "path": "attributes.encumbrance.multipliers.encumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "override",
+      "domain": "encumbrance",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 100,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-encumbered",
+      "path": "attributes.encumbrance.multipliers.encumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "encumbrance",
+      "expression": "max(1, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 100,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-encumbered",
+      "path": "attributes.encumbrance.multipliers.encumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "encumbrance",
+      "expression": "min(1, 2)",
+      "fieldValue": 1,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-heavilyEncumbered",
+      "path": "attributes.encumbrance.multipliers.heavilyEncumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "add",
+      "domain": "encumbrance",
+      "expression": "1 + 2",
+      "fieldValue": 3,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 300,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-heavilyEncumbered",
+      "path": "attributes.encumbrance.multipliers.heavilyEncumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "encumbrance",
+      "expression": "1 - (2)",
+      "fieldValue": -1,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": -100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-heavilyEncumbered",
+      "path": "attributes.encumbrance.multipliers.heavilyEncumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "encumbrance",
+      "expression": "1 * 2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 200,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-heavilyEncumbered",
+      "path": "attributes.encumbrance.multipliers.heavilyEncumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "override",
+      "domain": "encumbrance",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 200,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-heavilyEncumbered",
+      "path": "attributes.encumbrance.multipliers.heavilyEncumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "encumbrance",
+      "expression": "max(1, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 200,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-heavilyEncumbered",
+      "path": "attributes.encumbrance.multipliers.heavilyEncumbered",
+      "before": "1",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "encumbrance",
+      "expression": "min(1, 2)",
+      "fieldValue": 1,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-maximum",
+      "path": "attributes.encumbrance.multipliers.maximum",
+      "before": "1",
+      "delta": "2",
+      "type": "add",
+      "domain": "encumbrance",
+      "expression": "1 + 2",
+      "fieldValue": 3,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 450,
+        "mod": 3
+      }
+    },
+    {
+      "id": "enc-multipliers-maximum",
+      "path": "attributes.encumbrance.multipliers.maximum",
+      "before": "1",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "encumbrance",
+      "expression": "1 - (2)",
+      "fieldValue": -1,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": -150,
+        "mod": -1
+      }
+    },
+    {
+      "id": "enc-multipliers-maximum",
+      "path": "attributes.encumbrance.multipliers.maximum",
+      "before": "1",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "encumbrance",
+      "expression": "1 * 2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 300,
+        "mod": 2
+      }
+    },
+    {
+      "id": "enc-multipliers-maximum",
+      "path": "attributes.encumbrance.multipliers.maximum",
+      "before": "1",
+      "delta": "2",
+      "type": "override",
+      "domain": "encumbrance",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 300,
+        "mod": 2
+      }
+    },
+    {
+      "id": "enc-multipliers-maximum",
+      "path": "attributes.encumbrance.multipliers.maximum",
+      "before": "1",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "encumbrance",
+      "expression": "max(1, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 300,
+        "mod": 2
+      }
+    },
+    {
+      "id": "enc-multipliers-maximum",
+      "path": "attributes.encumbrance.multipliers.maximum",
+      "before": "1",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "encumbrance",
+      "expression": "min(1, 2)",
+      "fieldValue": 1,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "enc-multipliers-overall",
+      "path": "attributes.encumbrance.multipliers.overall",
+      "before": "1",
+      "delta": "2",
+      "type": "add",
+      "domain": "encumbrance",
+      "expression": "1 + 2",
+      "fieldValue": 3,
+      "expected": {
+        "encumbered": 150,
+        "heavilyEncumbered": 300,
+        "maximum": 450,
+        "mod": 3
+      }
+    },
+    {
+      "id": "enc-multipliers-overall",
+      "path": "attributes.encumbrance.multipliers.overall",
+      "before": "1",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "encumbrance",
+      "expression": "1 - (2)",
+      "fieldValue": -1,
+      "expected": {
+        "encumbered": -50,
+        "heavilyEncumbered": -100,
+        "maximum": -150,
+        "mod": -1
+      }
+    },
+    {
+      "id": "enc-multipliers-overall",
+      "path": "attributes.encumbrance.multipliers.overall",
+      "before": "1",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "encumbrance",
+      "expression": "1 * 2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 100,
+        "heavilyEncumbered": 200,
+        "maximum": 300,
+        "mod": 2
+      }
+    },
+    {
+      "id": "enc-multipliers-overall",
+      "path": "attributes.encumbrance.multipliers.overall",
+      "before": "1",
+      "delta": "2",
+      "type": "override",
+      "domain": "encumbrance",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 100,
+        "heavilyEncumbered": 200,
+        "maximum": 300,
+        "mod": 2
+      }
+    },
+    {
+      "id": "enc-multipliers-overall",
+      "path": "attributes.encumbrance.multipliers.overall",
+      "before": "1",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "encumbrance",
+      "expression": "max(1, 2)",
+      "fieldValue": 2,
+      "expected": {
+        "encumbered": 100,
+        "heavilyEncumbered": 200,
+        "maximum": 300,
+        "mod": 2
+      }
+    },
+    {
+      "id": "enc-multipliers-overall",
+      "path": "attributes.encumbrance.multipliers.overall",
+      "before": "1",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "encumbrance",
+      "expression": "min(1, 2)",
+      "fieldValue": 1,
+      "expected": {
+        "encumbered": 50,
+        "heavilyEncumbered": 100,
+        "maximum": 150,
+        "mod": 1
+      }
+    },
+    {
+      "id": "attack-global",
+      "path": "rolls.attack.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "combat",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 9
+    },
+    {
+      "id": "attack-global",
+      "path": "rolls.attack.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "combat",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 5
+    },
+    {
+      "id": "attack-global",
+      "path": "rolls.attack.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "combat",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 9
+    },
+    {
+      "id": "attack-global",
+      "path": "rolls.attack.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "combat",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 7
+    },
+    {
+      "id": "attack-global",
+      "path": "rolls.attack.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "combat",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 7
+    },
+    {
+      "id": "attack-global",
+      "path": "rolls.attack.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "combat",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 7
+    },
+    {
+      "id": "attack-wis",
+      "path": "abilities.wis.attack.roll.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "combat",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 9
+    },
+    {
+      "id": "attack-wis",
+      "path": "abilities.wis.attack.roll.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "combat",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 5
+    },
+    {
+      "id": "attack-wis",
+      "path": "abilities.wis.attack.roll.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "combat",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 9
+    },
+    {
+      "id": "attack-wis",
+      "path": "abilities.wis.attack.roll.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "combat",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 7
+    },
+    {
+      "id": "attack-wis",
+      "path": "abilities.wis.attack.roll.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "combat",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 7
+    },
+    {
+      "id": "attack-wis",
+      "path": "abilities.wis.attack.roll.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "combat",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 7
+    },
+    {
+      "id": "spell-dc",
+      "path": "bonuses.spell.dc",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "combat",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 17
+    },
+    {
+      "id": "spell-dc",
+      "path": "bonuses.spell.dc",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "combat",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 13
+    },
+    {
+      "id": "spell-dc",
+      "path": "bonuses.spell.dc",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "combat",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 17
+    },
+    {
+      "id": "spell-dc",
+      "path": "bonuses.spell.dc",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "combat",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 15
+    },
+    {
+      "id": "spell-dc",
+      "path": "bonuses.spell.dc",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "combat",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 15
+    },
+    {
+      "id": "spell-dc",
+      "path": "bonuses.spell.dc",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "combat",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 15
+    },
+    {
+      "id": "damage-mwak",
+      "path": "rolls.damage.mwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "damage",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 10
+    },
+    {
+      "id": "damage-mwak",
+      "path": "rolls.damage.mwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "damage",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 6
+    },
+    {
+      "id": "damage-mwak",
+      "path": "rolls.damage.mwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "damage",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 10
+    },
+    {
+      "id": "damage-mwak",
+      "path": "rolls.damage.mwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "damage",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-mwak",
+      "path": "rolls.damage.mwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "damage",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-mwak",
+      "path": "rolls.damage.mwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "damage",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-rwak",
+      "path": "rolls.damage.rwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "damage",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 10
+    },
+    {
+      "id": "damage-rwak",
+      "path": "rolls.damage.rwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "damage",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 6
+    },
+    {
+      "id": "damage-rwak",
+      "path": "rolls.damage.rwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "damage",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 10
+    },
+    {
+      "id": "damage-rwak",
+      "path": "rolls.damage.rwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "damage",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-rwak",
+      "path": "rolls.damage.rwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "damage",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-rwak",
+      "path": "rolls.damage.rwak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "damage",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-msak",
+      "path": "rolls.damage.msak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "damage",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 10
+    },
+    {
+      "id": "damage-msak",
+      "path": "rolls.damage.msak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "damage",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 6
+    },
+    {
+      "id": "damage-msak",
+      "path": "rolls.damage.msak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "damage",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 10
+    },
+    {
+      "id": "damage-msak",
+      "path": "rolls.damage.msak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "damage",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-msak",
+      "path": "rolls.damage.msak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "damage",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-msak",
+      "path": "rolls.damage.msak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "damage",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-rsak",
+      "path": "rolls.damage.rsak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "add",
+      "domain": "damage",
+      "expression": "2 + 2",
+      "fieldValue": 4,
+      "expected": 10
+    },
+    {
+      "id": "damage-rsak",
+      "path": "rolls.damage.rsak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "subtract",
+      "domain": "damage",
+      "expression": "2 - (2)",
+      "fieldValue": 0,
+      "expected": 6
+    },
+    {
+      "id": "damage-rsak",
+      "path": "rolls.damage.rsak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "multiply",
+      "domain": "damage",
+      "expression": "2 * 2",
+      "fieldValue": 4,
+      "expected": 10
+    },
+    {
+      "id": "damage-rsak",
+      "path": "rolls.damage.rsak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "override",
+      "domain": "damage",
+      "expression": "2",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-rsak",
+      "path": "rolls.damage.rsak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "upgrade",
+      "domain": "damage",
+      "expression": "max(2, 2)",
+      "fieldValue": 2,
+      "expected": 8
+    },
+    {
+      "id": "damage-rsak",
+      "path": "rolls.damage.rsak.bonus",
+      "before": "2",
+      "delta": "2",
+      "type": "downgrade",
+      "domain": "damage",
+      "expression": "min(2, 2)",
+      "fieldValue": 2,
+      "expected": 8
+    }
+  ]
+}

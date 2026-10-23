@@ -1615,3 +1615,16 @@ profiles remain fenced. This corrects an initial-suppression shortcut that silen
 omitted a real final effect. Inventory badges/current detail controls/capacity/cards
 format shared results;source data is not repaired or persisted. [C91 evidence](audits/evidence/2026-10-22-c91-equippable-final.json)
 records the exact recipe,range/condition and source/default boundaries.
+
+
+Scalar FormulaFields share the same deterministic composition/folding path as
+checks. Source/default initialization precedes initial effects;AC bonus/minimum,
+entire encumbrance fields and movement multiplier ignore nonpersisted raw poison.
+Native species movement/senses inheritance runs once in embedded preparation,
+before effects. Original walk/from-species metadata remains available for slowed;
+late preparation cannot re-inherit over an effect. Carrying threshold bonuses are
+added after native multiplier/size rounding. AC,HP,movement,carrying and combat
+read surfaces format the shared results. Unknown expressions keep their domain
+unavailable;this does not invent a value or erase independently qualified facts.
+Final scalar operands and broader Item hooks remain separately qualified phases.
+[C92 evidence](audits/evidence/2026-10-22-c92-scalar-fields.json).

@@ -1487,3 +1487,13 @@ before collecting final effects. The module now models that distinction rather
 than applying one source eligibility to both phases. Attuned state can clear without
 source writes;the count includes attuned gear regardless equipped state. These are
 method/source comparisons,not native/runtime/operator acceptance. [C91 record](../audits/evidence/2026-10-22-c91-equippable-final.json).
+
+
+C92 adds126 initialized scalar FormulaField/native derived-method comparisons and
+six embedded-species-before-initial-effect cases. AC bonus/min and carrying are
+nonpersisted;movement multiplier initializes1. Species zero/string cleaning and
+source walk versus current speed remain separate. Carrying is round(base * native
+threshold * size * multipliers,0.1) + local bonus + overall bonus. Test Roll delegates
+fixed deterministic arithmetic to the already captured Foundry safeEval/replacement;
+no native parser,dice,DataModel boot or operator acceptance is established. See
+[C92](../audits/evidence/2026-10-22-c92-scalar-fields.json);exact release objects only.
