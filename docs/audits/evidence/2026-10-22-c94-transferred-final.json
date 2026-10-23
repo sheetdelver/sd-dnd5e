@@ -1,0 +1,180 @@
+{
+  "checkpoint": "C94",
+  "parent": "6ce43c6",
+  "status": "Qualified transferred final check fields implemented;full M2 and ADR remain open",
+  "requirements": [
+    "M2 partial",
+    "Q02a partial",
+    "DD-01/02/03/06/24/27/31/34 partial",
+    "A02\u2013A06 preparation only"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "profile": "no-activity-equippable-transferred-final-typed-check-fields",
+  "failingBefore": {
+    "implementation": "6ce43c6",
+    "command": "Same maintained transferred-final.test.ts and frozen fixture on historical source snapshot in/tmp;DND5E_REPRO_ONLY collects all unavailable inputs before asserting failure",
+    "result": "792 of1440 independent profiles fail before;0 after",
+    "logSha256": "7e2cf36d18e9743217e945662bdce95ff3a71d373ae393e50da0992c75f93d9a"
+  },
+  "nativeComparisons": {
+    "caseCount": 1440,
+    "fieldGroups": 18,
+    "itemTypes": 5,
+    "eligibilityStates": 4,
+    "proficiencyCoefficients": [
+      0,
+      0.5,
+      1,
+      2
+    ],
+    "configurationsPerCase": [
+      "independent skill",
+      "independent tool",
+      "combined primary skill",
+      "combined primary tool",
+      "combined alternateDEX primary skill",
+      "combined alternateDEX primary tool"
+    ],
+    "sourceHashes": {
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/item/templates/equippable-item.mjs": "c281a334b5660dc9d00f585c17c69c04610204dec24f0f39e86b3a56ef006d95",
+      "module/data/item/templates/activities.mjs": "03d69007dfbd2598c7b8d195b654f7c6414dafff9e0c6a7616ed05d8972cec11"
+    },
+    "artifactSha256": "d5aa6a0130cdb9183c8ad3c711ca64523ad9ad15c89b7f2ddba876c3f5f9a20b",
+    "fixture": "tests/fixtures/native-6.0.6/transferred-final.json",
+    "fixtureSha256": "dedea4084147f722e931084b45d8c25bae2cece7b62a2226db2f9e0fd9dba16c",
+    "independentObservations": [
+      "Final current value does not overwrite the earlier effectValue/proficiency caches. Fresh checks read earlier effectValue and current global fields.",
+      "Native hasProficiency tests base>0 and multiplier>0;half proficiency participates in automatic advantage.",
+      "Primary scopes contribute bonuses/modes;secondary contributes qualified proficiency and earlier-positive-prof automatic advantage.",
+      "Default source modes combine/cancel automatic advantage;manual choices use the existing qualified compiler."
+    ],
+    "limits": [
+      "Actual Actor initial/final collector,Item final hooks/suppression,typed numeric/mode/FormulaField operations,Common ability/skill/tool preparation and fresh native skill builder. Explicit initialized model/defaults,empty Item activities/counters and C91 collaborators.",
+      "Schema routing is declared. No general validation/DataModel boot,activity final lifecycle,conditions/time,Item effects,spellcasting callback or native/operator acceptance.",
+      "Independent expected arithmetic is frozen before module admission. Raw source fixtures use persisted fields and actual effect source,not injected global proficiency intermediates."
+    ]
+  },
+  "mounted": {
+    "artifact": "/tmp/dnd5e-transferred-final-mounted-NTsTZG/evidence.json",
+    "sha256": "730b5ddbcb7e9ebfbd674fc69e2d140ac22bdf78f20ecd7d4b1703c8a6cb1464",
+    "rows": [
+      {
+        "width": 1440,
+        "finalBonusEarlierPassive": true,
+        "skillToolPrimaryScopesAndAlternateAbilities": true,
+        "sourceDisadvantageAutoCancellationManualOverride": true,
+        "sourceSameTotalContextStaleIntentRecovery": true,
+        "zeroWrites": true
+      },
+      {
+        "width": 390,
+        "finalBonusEarlierPassive": true,
+        "skillToolPrimaryScopesAndAlternateAbilities": true,
+        "sourceDisadvantageAutoCancellationManualOverride": true,
+        "sourceSameTotalContextStaleIntentRecovery": true,
+        "zeroWrites": true
+      }
+    ],
+    "limit": "Actual module consumers with isolated SDK seam;not installed/native/operator acceptance"
+  },
+  "publicHost": {
+    "artifact": "/tmp/dnd5e-public-rolls-2RY5n6/evidence.json",
+    "sha256": "302fd32ac452774aa70be4c11400efcd6bb221217fc1d34998e41e6101d1fb2a",
+    "accepted": 102434,
+    "newCases": 44640,
+    "executionProfile": "dependency-profile",
+    "equalIndexDiagnostics": 1680,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "writes": 0,
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "limits": [
+      "New inputs cover six independently frozen configurations,four manual/default requests,complete plain-d20 distributions and Normal bounds.",
+      "Actual host serialization preserved;bounded equal-index equivalence is unchanged. No wider dice/flags/reroll/range qualification."
+    ]
+  },
+  "package": {
+    "artifact": "/tmp/dnd5e-package-Xuhb9m/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "aa4fd91a92ad89e15a09d8836f3be61b8a7252fbb9246ea3ea16a09abad1e072",
+    "version": "experimental0.4.1",
+    "compatibility": "unchanged",
+    "archiveContents": "21 files;no tests,fixtures,temp evidence or browser tooling"
+  },
+  "commands": [
+    {
+      "command": "npm test -- --core <released0.19.3> (74 module/9 tooling suites)",
+      "log": "temp/c94-tests-final-tree.log",
+      "sha256": "a3761c9ee3433ea58a05b37293045b6c08093c0b695be31022ee649a3975b984",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run typecheck -- --core <baseline> (279 explicit module/UI/server/hook/test files)",
+      "log": "temp/c94-types-final-tree.log",
+      "sha256": "2cfa6d7eee884b9394586505cb3f79d900a4ecdec051200891399563f4d06477",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:native-source -- --core <baseline> --native <exact release repo>",
+      "log": "temp/c94-source.log",
+      "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:native-transferred-final -- --core <baseline> --native <repo> --foundry <static14.367>",
+      "log": "temp/c94-native.log",
+      "sha256": "5a959ad9467f3ae5e385a25a0de371fbcd762df51a6e474076a7527fd22cdb25",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:mounted-transferred-final -- --core <baseline> --chromium <offline binary>",
+      "log": "temp/c94-mounted.log",
+      "sha256": "381c23c5a7832a2f21eac242f98b0a3c571463f27add80e4db156181792718cc",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core <baseline> --dependency-profile",
+      "log": "temp/c94-public.log",
+      "sha256": "8b35aa09ff6592d580c7343f4d0988ef6c8e569419995d24a3d32c1bc08f2e02",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run check:package -- --core <baseline>",
+      "log": "temp/c94-package-final.log",
+      "sha256": "a07c37002b735c4fbacaef3b3a5dbaf0864baf2cc8eb25659be1224328726c3d",
+      "result": "PASS"
+    },
+    {
+      "command": "Corrected C93 final poison fixture maintained regression",
+      "log": "temp/c94-c93-poison-correction.log",
+      "sha256": "65256ac295c89a444891c8a12b964a71caffaff9dfd0243d654d06d8db32ad79",
+      "result": "PASS"
+    }
+  ],
+  "historicalCorrection": {
+    "record": "2026-10-22-c93-scalar-phases.json",
+    "issue": "The final C93 poison test referenced an absent raw senses container. It was appended after a successful full run and its failed supplemental command was recorded as PASS.",
+    "resolution": "Initialize that optional raw test mapping;retain original failed-log hash and original recorded result;correct the C93 record and supersede its final-tree claim with this 74-suite final-tree run.",
+    "runtimeImpact": "Test fixture/evidence correction only;C93 main arithmetic/source-method/public-host evidence remains separately identified."
+  },
+  "environment": {
+    "toolchain": "Node24.21/npm11.19;CI Node22 not run",
+    "services": "Listener inventory inspected before/after;temporary data/configuration and synthetic transport only;owned host/browser services stopped;preexisting30000/8000/8001 untouched.",
+    "approval": "One module-only harness command timed out during automatic approval review before starting. Smaller apply_patch plus a short harness command completed;no permission bypass or external action."
+  },
+  "remaining": [
+    "No-activity/no-counter known equippable final recipe only;Item activities,counters,range variants,local effects and conditions remain unqualified.",
+    "Broader fields/filters/expressions,nullable scalar defaults and wider Q00/E05 remain dependency-ordered work.",
+    "E01 remains external;no new Core contract or version/compatibility change.",
+    "Controlled methods,regression,mounted SDK seam and isolated host are separate evidence classes;not installed/native/operator acceptance. Full M2/ADR stay open."
+  ]
+}

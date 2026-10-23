@@ -1507,3 +1507,14 @@ prepared multiply/upgrade/downgrade handlers reach a string-only Roll constructo
 12 executable controlled diagnostics remain explicit unsupported fixtures. No full
 DataModel/native installation defect or Core contract defect is asserted. References,
 nullable operands and wider final hooks are distinct boundaries. See [C93](../audits/evidence/2026-10-22-c93-scalar-phases.json).
+
+
+C94 runs1,440 initialized transferred-final check profiles through actual Actor
+phase collection,Item final hooks/eligibility,primitive field operations and native
+fresh skill/tool builders. It captures both independent checks,combined checks and
+alternate DEX selection.18 field groups,five types,four eligibility states and
+zero/half/full/expert proficiency have independent arithmetic/mode expectations.
+The declared schema router uses already qualified field methods;Item activities,
+uses,conditions/time,spellcasting callback and full schema/Document boot remain
+outside this capture. Existing source/default prerequisites are separate evidence;
+no intermediate proficiency map is reclassified as persisted source. [C94](../audits/evidence/2026-10-22-c94-transferred-final.json).

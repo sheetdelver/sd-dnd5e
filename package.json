@@ -65,6 +65,8 @@
     "test:native-scalars": "node scripts/native-scalar-fields-oracle.mjs",
     "test:mounted-scalars": "node scripts/test-mounted-scalars.mjs",
     "test:native-scalar-phases": "node scripts/native-scalar-phase-oracle.mjs",
-    "test:mounted-scalar-phases": "node scripts/test-mounted-scalar-phases.mjs"
+    "test:mounted-scalar-phases": "node scripts/test-mounted-scalar-phases.mjs",
+    "test:native-transferred-final": "node scripts/native-transferred-final-oracle.mjs",
+    "test:mounted-transferred-final": "node scripts/test-mounted-transferred-final.mjs"
   }
 }

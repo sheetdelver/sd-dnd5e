@@ -8,7 +8,7 @@ Historical entries are reconstructed from [published releases](https://github.co
 - Preserve source data and distinguish earlier preparation from current proficiency, formula, flag and effect results.
 - Share skill/tool/ability selections, previews and qualified roll execution across desktop/mobile, with context and stale-intent guards.
 - Support qualified Normal die bounds and proficiency dice and ordinary advantage/disadvantage;retain wider execution limits.
-- Prepare attunement cleanup/capacity,phase-correct transferred Item eligibility and phase-correct scalar effect readouts.
+- Prepare attunement,qualified transferred check effects and scalar readouts in native phase order.
 - Add exact-release fixtures, isolated verification and caller-safe content/rule context;correct bundled SRD labels.
 - Require the existing Core 0.19.3 public world/content contracts.
 - Reuse merge validation checks

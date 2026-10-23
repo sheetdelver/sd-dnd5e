@@ -158,13 +158,16 @@
       "command": "npm test -- --core <released0.19.3> (73 module/9 tooling suites)",
       "log": "temp/c93-tests.log",
       "sha256": "17f22eb3e25598c61a0296d763ecef2d9c6005a14c01fae2f8b42753b7eff37b",
-      "result": "PASS"
+      "result": "PASS",
+      "qualification": "This successful 73-suite run preceded the last poison-test addition;it does not validate the final C93 committed test tree."
     },
     {
       "command": "Maintained scalar-phases.test.ts final poison supplement",
       "log": "temp/c93-focus-final.log",
       "sha256": "5696e3b9ddf65545ac9e3c1e945590820f0451983be9336e7de6a2e0ec2b0db0",
-      "result": "PASS"
+      "result": "FAIL (corrected C94): the raw senses container was absent in the poison fixture",
+      "originalRecordedResult": "PASS",
+      "supersededBy": "2026-10-22-c94-transferred-final.json"
     },
     {
       "command": "npm run typecheck -- --core <baseline> (277 explicit module/UI/server/hook/test files)",
@@ -208,5 +211,13 @@
     "Pinned method diagnostics are not installed-native fault/acceptance or new Core defect evidence.",
     "Remaining Item/filter/formula qualification and A02\u2013A06 installed/native/operator gates keep full M2/ADR open.",
     "No Core/sibling/native modifications,no live connections,no version/compatibility change;task-owned isolated services stopped."
-  ]
+  ],
+  "verificationCorrection": {
+    "recordedAt": "C94",
+    "issue": "C93 appended a poison fixture after its successful full run. The supplemental run failed on an absent raw senses container but was recorded as PASS.",
+    "originalFailureLogSha256": "5696e3b9ddf65545ac9e3c1e945590820f0451983be9336e7de6a2e0ec2b0db0",
+    "correction": "Initialize the optional raw senses mapping in the test fixture,then run the final complete tree. No module runtime behavior changed for this correction.",
+    "supersededBy": "2026-10-22-c94-transferred-final.json"
+  },
+  "implementationCommit": "6ce43c6"
 }

@@ -48,3 +48,8 @@ export function equippableActorFinalReason606(itemId:string|null,prepared:Equipp
  if(hasConditions)return 'Transferred Item final condition composition requires qualification';
  const state=prepared.items[itemId];return state.reason??state.actorFinalReason;
 }
+
+/** Same Actor field handlers after the qualified Item final hook. Identity and
+ * native schema validation still occur in numeric-effects;this permits no new
+ * Item activities,counters,conditions or field arithmetic. */
+export const transferredFinalCheckPath606=(key:string):boolean=>/^system\.(?:abilities\.(?:str|dex|con|int|wis|cha)\.(?:value|check\.roll\.(?:bonus|mode))|(?:skills|tools)\.[^.]+\.(?:value|roll\.(?:bonus|mode))|rolls\.ability\.(?:check|skill|tool)\.(?:proficiency|bonus|mode))$/.test(key);

@@ -1641,3 +1641,16 @@ Prepared numeric AC/movement FormulaFields qualify add/subtract/override;other
 operations retain an explicit diagnostic boundary. Reference-bearing final text
 resolves using the existing current bindings after final changes;unknown values
 cannot fall back. [C93 evidence](audits/evidence/2026-10-22-c93-scalar-phases.json).
+
+
+Transferred final check fields share the Actor handlers after the qualified
+no-activity/no-counter equippable final hook. Earlier source/default and final
+eligibility still differ;nonmagic attunement cleanup can activate a final effect.
+The explicit field family covers scores,skill/tool current values and check/skill/
+tool proficiency,bonus and mode fields. It introduces no extra calculation or
+Item-data cache. Current value fields,earlier effectValue/proficiency and fresh
+configuration remain separate. Combined advantage uses earlier positive-prof flags;
+selected secondary checks contribute their qualified proficiency,not their bonuses
+or modes. Actor/context/source changes retire current dialogs even when totals stay
+equal. Unknown Item hooks/fields/identities and conditions still gate the workflow.
+[C94 evidence](audits/evidence/2026-10-22-c94-transferred-final.json).

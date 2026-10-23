@@ -2,7 +2,7 @@ import {deterministicFormula606} from './deterministic-formula';
 import {preparedScalarOperands606} from './scalar-phases';
 import {initializeMovement606,type MovementInitialization606} from './movement-initialization';
 import {initializeScalarFields606,scalarFormulaTarget606,scalarFormulaPath606,scalarNumberTarget606,scalarNumberPath606} from './scalar-fields';
-import {equippableActorFinalReason606} from './equippable-final';
+import {equippableActorFinalReason606,transferredFinalCheckPath606} from './equippable-final';
 import {initializeClassFacts606} from './class-initialization';
 import {composeFormulaEffect606,checkBonusPath606} from './formula-effects';
 import {applyBooleanFlag606} from './flag-effects';
@@ -248,7 +248,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         if(change.key.startsWith('flags.')){const itemReason=change.itemId!==undefined?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):undefined;if(itemReason){reason??=itemReason;continue;}const result=applyBooleanFlag606(executionFlags,change);if('reason'in result)reason??=result.reason;else applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'final',...result});continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         if(change.itemId!==undefined){
-            const itemReason=change.key==='system.attributes.prof'&&plan.equippable?equippableActorFinalReason606(change.itemId,plan.equippable,Boolean(plan.conditions?.length||plan.baseStatuses?.length)):field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
+            const itemReason=(change.key==='system.attributes.prof'||transferredFinalCheckPath606(change.key))&&plan.equippable?equippableActorFinalReason606(change.itemId,plan.equippable,Boolean(plan.conditions?.length||plan.baseStatuses?.length)):field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
             if(itemReason){reason??=itemReason;continue;}
         }
         if(scalarPaths.includes(change.key)){
