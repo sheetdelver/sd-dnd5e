@@ -2933,3 +2933,30 @@ is explicitly grouped with equivalent deterministic semantics;no dice AST/parser
 evaluator or new SDK contract is introduced. Unknown references,dice/nonqualified
 fractions and unsupported fields remain unavailable. Full M2/ADR remain open;
 next finish required wider fields/Item final/filter preparations and Q00 boundaries.
+
+### C90 — Actor proficiency effects and ordinary equipped gear (2026-10-22)
+
+One shared model now distinguishes class-base,initial-prepared and current Actor
+proficiency. Literal numeric effects on derived `system.attributes.prof` use the
+native unguided number operations,not raw prepared-looking source overrides or
+NumberField formula arithmetic. Cached passives/Item/generic proficiency retain
+the earlier base;fresh skill/tool configuration and current header/card facts see
+the current base. An untrained generic roll retains current root prof,a trained
+one uses its cached term. Explicit notes explain differing current/prepared facts.
+
+Native Actor roll-data `attributes.prof` is a current numeric reference;root
+`prof` is a separate object rebound by construction. Both are qualified separately.
+Prepared folding now preserves a known earlier bonus when the current reference
+profile is unavailable;current execution cannot fall back to that earlier number.
+The named historical damage-reference refusal is superseded with native3;other
+unknown references remain gated. Known native miscellaneous equipment types do
+not become armor. The real SRD Ioun Stone effect key and equipped/attuned eligibility
+work without name inference,content substitution or hard-coded module grants.
+
+[C90 evidence](../audits/evidence/2026-10-22-c90-base-proficiency.json) records192
+actual initialized native phase/configuration profiles and7 nonarmor AC profiles.
+Positive integer proficiency bases are qualified for numeric checks. Other bases
+stay explicitly unavailable;wider die sides remain symbolic/readable with execution
+gated by existing Q00 qualification. No term is silently omitted. This advances
+M2/DD-03/11/24/27/34 and A02–A06 reads;full M2/ADR remain open. Next:remaining
+scalar/effect fields and Item final composition from the existing exit ledger.

@@ -20,7 +20,7 @@ const fact=(value:number|null,reason?:string):NumericFact=>({...numericFact(valu
  * runtime activity construction remains separate. Raw dc/attack.value/spell maps
  * never replace persisted bonus fields or verified earlier phase operands. */
 export function prepareCombatModifiers606(actor:unknown,context:RulesContext,effects:NumericEffects):CombatModifiers606 {
- const source=record(actor),s=effects.system,facts=characterFacts606(actor,context,effects),bindings=preparedFormulaBindings606(effects),base=facts.proficiency.value;
+ const source=record(actor),s=effects.system,facts=characterFacts606(actor,context,effects,'prepared'),bindings=preparedFormulaBindings606(effects),base=facts.proficiency.value;
  let reason=context.status!=='supported'||context.profile!=='2024'||source?.type!=='character'?'Combat modifier rules context unavailable':effects.reason??facts.proficiency.reason;
  if(base===null)reason??='Prepared base proficiency unavailable';
  const abilities:Record<string,AbilityCombat606>=Object.create(null),attacks=record(record(s.rolls)?.attack),bonuses=s.bonuses===undefined?{}:record(s.bonuses),spellBonus=bonuses?.spell===undefined?{}:record(bonuses?.spell);

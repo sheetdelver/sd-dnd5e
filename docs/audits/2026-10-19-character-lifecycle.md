@@ -2159,3 +2159,20 @@ fractions,malformed source,Item-final and unrelated fields remain gated. Current
 invalid expressions cannot restore earlier execution. Controlled source,mounted
 SDK seam and isolated host evidence remain separate from installed/native/operator
 acceptance. Partial M2/Q00/Q02a only;no Core defect or compatibility decision.
+
+### C90 — class/prepared/current Actor proficiency and nonarmor gear
+
+[C90 evidence](evidence/2026-10-22-c90-base-proficiency.json) adds192 native phase/
+root/cached-term profiles and7 nonarmor AC cases. Same+1 source formerly blocked
+all checks;current+4 and correct earlier/current numbers now agree across consumers.
+A final expert check keeps prepared11/passive21 but rolls18;cached save8 and Item
+flat6 remain. Current unqualified base no longer erases a known earlier passive.
+Raw prof99 remains ignored. Named historical @attributes.prof defense-reference
+refusal is supplemented by native3,not changed in the original capture.
+
+Equipped wondrous/clothing/ring/rod/trinket/vehicle/wand sources are not armor;
+formerly they incorrectly gated ordinary stats. Exact SRD Mastery Stone source
+eligibility now gives+3→+4→+3 across attunement changes without source mutations.
+Native method,regression,mounted SDK-seam and isolated-host evidence remain distinct.
+Nonpositive/fractional bases,unguided reference/compound deltas,wider die execution,
+other Item/effect/scene profiles and full M2/ADR acceptance remain unqualified.

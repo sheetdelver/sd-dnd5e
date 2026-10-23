@@ -18,7 +18,7 @@ export function prepareItemProficiency606(actor:unknown,item:unknown,context:Rul
  if(context.status!=='supported'||context.profile!=='2024'||record(actor)?.type!=='character')return unavailable('Item proficiency rules context unavailable');
  if(!source||!s||typeof type!=='string')return unavailable('Item proficiency source malformed');
  if(!['weapon','equipment','tool','feat','spell','consumable'].includes(type))return {status:'not-applicable',base:null,multiplier:null,flat:null,term:null,mode:null,origin:'native-type',provenance};
- const facts=characterFacts606(actor,context,effects),base=facts.proficiency.value;
+ const facts=characterFacts606(actor,context,effects,'prepared'),base=facts.proficiency.value;
  if(effects.reason||base===null)return unavailable(effects.reason??facts.proficiency.reason??'Actor base proficiency unavailable');
  let multiplier:number|null=null,origin='native-fixed';
  if(type==='feat'||type==='spell')multiplier=1;

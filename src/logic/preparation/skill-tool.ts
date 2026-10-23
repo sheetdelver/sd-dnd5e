@@ -8,7 +8,7 @@ import type { EffectModeState } from './mode-effects';
 import { prepareNumericEffects606, type NumericEffects } from './numeric-effects';
 import { record } from '../native/6.0.6/source';
 import type { RulesContext } from '../rules-context';
-import { numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
+import { characterFacts606,numericCharacterProfile, numericConstant, qualifiedNumericTotal } from './character-profile';
 import { SKILL_LABELS, TOOL_LABELS_606 } from './check-identities';
 import { sourceD20Mode, prepareD20Configuration, numericD20Roll,numericScopeBonus,preparedBonusNote, type PreparedNumericD20 } from './d20-configuration';
 
@@ -19,7 +19,7 @@ interface Ability { score:number|null;mod:number|null; roll:unknown; reason?:str
  * Initial qualified field effects are separate from raw source. No source
  * references, unqualified prepared totals or browser world cache. */
 export interface SkillToolModel {
-    executionFlags?:SourceRuleFlags606;currentValues?:Record<string,number>;rules:RuleSnapshot606;preparedFormulaBindings:Record<string,number>;proficiencyMode:'bonus'|'dice';formulaContext:ReturnType<typeof executionFormulaContext606>;
+    currentProficiency?:number|null;currentProficiencyReason?:string;executionFlags?:SourceRuleFlags606;currentValues?:Record<string,number>;rules:RuleSnapshot606;preparedFormulaBindings:Record<string,number>;proficiencyMode:'bonus'|'dice';formulaContext:ReturnType<typeof executionFormulaContext606>;
     halflingLucky?:boolean;reliableTalent?:boolean;jackOfAllTrades:boolean;toolExpertise?:boolean;observantFeat?:boolean;reason?:string; proficiency:number|null;rollReduction:number;modeStates:Record<string,EffectModeState>;executionModeStates:Record<string,EffectModeState>;
     abilities:Record<string,Ability>; skills:Record<string,Entry>; tools:Record<string,Entry>;
     proficiencies:Record<'check'|'skill'|'tool',number>;
@@ -62,8 +62,9 @@ export function prepareSkillToolModel606(actor:unknown, context:RulesContext,eff
                 ...(error?{reason:error}:{}),...(kind==='skill'?{passiveBonus,...(record(data?.bonuses)?.check||passiveBonus===null?{primaryReason:'Skill formula requires Q00 qualification'}:{})}:{})}];
         }));
     }
+    const current=characterFacts606(actor,context,effects).proficiency;
     const executionModeStates=structuredClone(effects.executionModes);
-    return {executionFlags:{...(effects.executionFlags??effects.ruleFlags)},currentValues:{...effects.finalNumbers},rules:ruleSnapshot606(effects.plan),preparedFormulaBindings:{...effects.formulaPreparation?.preparedBindings},proficiencyMode:profile.status==='ready'?profile.proficiencyMode:'bonus',formulaContext:executionFormulaContext606(effects),halflingLucky:effects.ruleFlags.halflingLucky,reliableTalent:effects.ruleFlags.reliableTalent,jackOfAllTrades:effects.ruleFlags.jackOfAllTrades,toolExpertise:effects.ruleFlags.toolExpertise,observantFeat:effects.ruleFlags.observantFeat,reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,executionBonuses:structuredClone(effects.executionBonuses),proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},executionProficiencies:{check:effects.executionGlobals.check.proficiency as number,skill:effects.executionGlobals.skill.proficiency as number,tool:effects.executionGlobals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
+    return {currentProficiency:current.value,currentProficiencyReason:current.reason,executionFlags:{...(effects.executionFlags??effects.ruleFlags)},currentValues:{...effects.finalNumbers},rules:ruleSnapshot606(effects.plan),preparedFormulaBindings:{...effects.formulaPreparation?.preparedBindings},proficiencyMode:profile.status==='ready'?profile.proficiencyMode:'bonus',formulaContext:executionFormulaContext606(effects),halflingLucky:effects.ruleFlags.halflingLucky,reliableTalent:effects.ruleFlags.reliableTalent,jackOfAllTrades:effects.ruleFlags.jackOfAllTrades,toolExpertise:effects.ruleFlags.toolExpertise,observantFeat:effects.ruleFlags.observantFeat,reason,rollReduction:effects.conditions.rollReduction,modeStates:structuredClone(effects.modes),executionModeStates,executionBonuses:structuredClone(effects.executionBonuses),proficiencies:{check:effects.globals.check.proficiency as number,skill:effects.globals.skill.proficiency as number,tool:effects.globals.tool.proficiency as number},executionProficiencies:{check:effects.executionGlobals.check.proficiency as number,skill:effects.executionGlobals.skill.proficiency as number,tool:effects.executionGlobals.tool.proficiency as number},proficiency:profile.status==='ready'?profile.proficiency:null,abilities,skills:entries('skill'),tools:entries('tool'),
         globals:Object.fromEntries(['check','skill','tool'].map(key=>[key,sourceGlobals[key]!=null&&!record(sourceGlobals[key])?false:rollInput(rawGlobals[key])])) as SkillToolModel['globals']};
 }
 /** Native fresh #rollSkillTool + _buildSkillToolConfig source-only profile.
@@ -104,9 +105,11 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     const executionScopes=scopes.map(scope=>({...scope,effectMode:model.executionModeStates['system.'+scope.path+'.mode']}));
     const selectedTypes:SkillToolKind[]=secondary?[kind,other]:[kind];
     const prof=checkProficiency606(primary?.prof,secondary?.prof,selectedTypes,targets,phase==='execution'?model.executionFlags?.jackOfAllTrades:model.jackOfAllTrades,phase==='execution'?model.executionFlags?.toolExpertise:model.toolExpertise);
+    const baseProficiency=phase==='execution'?model.currentProficiency:model.proficiency;
+    if(baseProficiency==null)reason??=model.currentProficiencyReason??'Current Actor proficiency preparation unavailable';
     const formulaContext={expressions:model.formulaContext?.expressions??{},bindings:{...model.formulaContext?.bindings}};
     if(model.proficiencyMode==='dice')delete formulaContext.bindings.prof;
-    else if(prof!==null&&model.proficiency!==null)formulaContext.bindings.prof=prof>0?Math.floor(model.proficiency*prof):model.proficiency;
+    else if(prof!==null&&baseProficiency!=null)formulaContext.bindings.prof=prof>0?Math.floor(baseProficiency*prof):baseProficiency;
     else delete formulaContext.bindings.prof;
     const ruleRoll={ability:abilityId,proficient:(prof??0)>=1,type:kind,[kind]:key};
     const rules=configureRules606(model.rules,'check',ruleRoll,phase==='prepared'?model.preparedFormulaBindings:formulaContext.bindings,phase,phase==='prepared'?model.preparedFormulaBindings:model.formulaContext?.bindings??{});
@@ -120,10 +123,10 @@ export function configureSkillToolCheck(model:SkillToolModel,kind:SkillToolKind,
     const bonuses=scopes.map(scope=>numericScopeBonus(scope,phase==='execution'?model.executionBonuses:{},phase==='execution'?formulaContext:undefined));
     if (bonuses.some(value=>value===null)) reason ??= `${kind==='skill'?'Skill':'Tool'} formula requires Q00 qualification`;
     const base={ability:abilityId,label:primary?.label??key,automaticAdvantage};
-    if (reason||!primary||primary.prof===null||model.proficiency===null||mode.mode===undefined||data?.score==null||data.mod===null) return {...base,prof:null,total:null,formula:null,unavailableReason:reason??'Check preparation unavailable'};
+    if (reason||!primary||primary.prof===null||baseProficiency==null||mode.mode===undefined||data?.score==null||data.mod===null) return {...base,prof:null,total:null,formula:null,unavailableReason:reason??'Check preparation unavailable'};
 
     if(prof===null)return {...base,prof:null,total:null,formula:null,unavailableReason:'Check proficiency operands unavailable'};
-    const flat=Math.floor(model.proficiency*prof),proficiencyTerm=model.proficiencyMode==='dice'&&prof>0?proficiencyDiceTerm606(model.proficiency,prof)??undefined:undefined;
+    const flat=Math.floor(baseProficiency*prof),proficiencyTerm=model.proficiencyMode==='dice'&&prof>0?proficiencyDiceTerm606(baseProficiency,prof)??undefined:undefined;
     const total=rules.bonus+data.mod+(model.proficiencyMode==='dice'?0:flat)+(bonuses as number[]).reduce((a,b)=>a+b,0)+model.rollReduction;
     if (!qualifiedNumericTotal(total)) return {...base,prof,total:null,formula:null,unavailableReason:'Numeric result outside qualified roll representation'};
     return {...base,prof,total,preparedPassiveBase:total+(model.proficiencyMode==='dice'?flat:0),proficiencyMode:model.proficiencyMode,...(proficiencyTerm?{proficiencyTerm}:{}),sourceMode:mode.mode,passiveMode:passive.mode,...prepareD20Configuration(total,mode.mode,[ruleScope,talentScope,...scopes],0,true,proficiencyTerm),...(phase==='execution'&&halflingExecutionReason606(model.executionFlags??{})?{formula:null,unavailableReason:halflingExecutionReason606(model.executionFlags??{})}:{})};

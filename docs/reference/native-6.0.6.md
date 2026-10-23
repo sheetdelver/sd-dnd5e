@@ -1446,3 +1446,26 @@ operands with equivalent values. Max/min nesting is likewise semantic equivalenc
 not identical prepared text serialization. Source and host serialization stay
 unchanged. Full grammar/native model initialization/effect dispatcher/dice engine
 and native/operator acceptance are not established. [C89 record](../audits/evidence/2026-10-22-c89-formula-effects.json).
+
+C90 executes actual Foundry `_applyChangeUnguided`,private number casting and six
+handlers on an explicitly initialized class-base3;actual native preparation/fresh
+skill/tool/generic check/save builders and Item._prepareProficiency then compare192
+profiles. DataModel base initialization is a separately qualified prerequisite,
+not proved by initializing this intermediate. Literal string/number deltas are
+qualified;unguided Number(expandedText)||0 does not evaluate compound arithmetic.
+
+ActorModel roll data shallowly shares attributes:after final writes the earlier
+data.attributes.prof sees current base while its root Proficiency object retains
+the earlier base. Actual native replacement/simplifyBonus assertions and separate
+root/attributes bonus profiles expose that distinction. A final+1 at base3/expertise
+rolls+18 with root@prof but+14 with @attributes.prof;both keep passive21. A generic
+trained save remains+8 with root@prof but+9 with @attributes.prof. These are native
+constructed parts,not prepared-total extrapolation.
+
+Seven actual Equipment.isArmor/Attributes.prepareArmorClass profiles confirm that
+registered miscellaneous types do not count as armor,even with an extra armor99
+field. Cover0 and initialized AC formulas are explicit fixture collaborators. The
+exact SRD Mastery Ioun Stone source key,type and initial+1 are pinned assertions;
+module source tests use equipped/attuned transitions and preserve IDs/source/license.
+Full Item/effect/DataModel lifecycle/native dice/operator acceptance is not established.
+[C90 record](../audits/evidence/2026-10-22-c90-base-proficiency.json).

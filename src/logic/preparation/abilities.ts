@@ -36,7 +36,7 @@ export function prepareNumericAbilities606(actor: unknown, context: RulesContext
             if (data[type] != null && !record(data[type]) || globals[type] != null && !record(globals[type])) unavailableReason = 'Malformed native ability roll configuration';
             const scopes=[{path:`abilities.${key}.${type}.roll`,value:local.roll},{path:`rolls.ability.${type}`,value:global}];
             const prof=type==='save'?saveProficiency606(data.proficient,global.proficiency):checkProficiency606(0,undefined,[],{check:global.proficiency,skill:0,tool:0});
-            const formulaContext=executionFormulaContext606(effects,profile.status==='ready'&&profile.proficiencyMode==='dice'?null:prof!==null&&profile.status==='ready'?(prof>0?Math.floor(profile.proficiency*prof):profile.proficiency):null);
+            const formulaContext=executionFormulaContext606(effects,profile.status==='ready'&&profile.proficiencyMode==='dice'?null:prof!==null&&profile.status==='ready'?(prof>0?Math.floor(profile.proficiency*prof):effects.proficiency?.current??null):null);
             const preparedBonuses = [roll.bonus, global.bonus].map(numericConstant),bonuses=scopes.map(scope=>numericScopeBonus(scope,effects.executionBonuses,formulaContext));
             if ([...preparedBonuses,...bonuses].some(value => value === null) || record(data.bonuses)?.[type]) unavailableReason = 'Ability bonus formula requires Q00 qualification';
             const ruleRoll={ability:key,proficient:(prof??0)>=1,type:'ability'},rules=configureRules606(ruleSnapshot606(effects.plan),type,ruleRoll,formulaContext.bindings,'execution',executionFormulaContext606(effects).bindings),preparedRules=configureRules606(ruleSnapshot606(effects.plan),type,ruleRoll,preparedFormulaBindings606(effects),'prepared');

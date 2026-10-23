@@ -57,6 +57,8 @@
     "test:native-effect-admission": "node scripts/native-effect-admission-oracle.mjs",
     "test:mounted-flag-effects": "node scripts/test-mounted-flag-effects.mjs",
     "test:native-formula-effects": "node scripts/native-formula-effects-oracle.mjs",
-    "test:mounted-formula-effects": "node scripts/test-mounted-formula-effects.mjs"
+    "test:mounted-formula-effects": "node scripts/test-mounted-formula-effects.mjs",
+    "test:native-base-proficiency": "node scripts/native-base-proficiency-oracle.mjs",
+    "test:mounted-base-proficiency": "node scripts/test-mounted-base-proficiency.mjs"
   }
 }

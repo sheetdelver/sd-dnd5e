@@ -156,7 +156,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
         prepared.derived.conditions=projectConditions606(actor,rules,effects.conditions);
         prepared.derived.equipmentPreparation=effects.equipment;
-        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,sourceFlags:effects.sourceFlags,preparedFlags:effects.ruleFlags,currentFlags:effects.executionFlags,applied:effects.applied,initialized:effects.initialized,sourceInitialization:effects.sourceInitialization,formulaPreparation:effects.formulaPreparation,conditions:effects.conditions};
+        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,proficiency:effects.proficiency,sourceFlags:effects.sourceFlags,preparedFlags:effects.ruleFlags,currentFlags:effects.executionFlags,applied:effects.applied,initialized:effects.initialized,sourceInitialization:effects.sourceInitialization,formulaPreparation:effects.formulaPreparation,conditions:effects.conditions};
         const checkModel = prepareSkillToolModel606(actor,rules,effects);
         prepared.derived.checkConfiguration = checkModel;
         prepared.derived.training=prepareTraining606(actor,rules,effects,checkModel);
@@ -426,7 +426,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 },
                 {
                     title: 'Prof',
-                    value: facts.proficiency.display, subValue: facts.proficiency.reason,
+                    value: facts.proficiency.display, subValue: facts.proficiency.reason??facts.proficiency.preparationNote,
                 },
                 {title:'Defenses',value:defenses.summary,subValue:defenses.reason},
                 {title:'Training',value:training.summary,subValue:training.reason},

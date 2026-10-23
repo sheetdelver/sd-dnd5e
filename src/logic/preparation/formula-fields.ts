@@ -19,7 +19,7 @@ export function formulaBindings606(actor:unknown,context:RulesContext,effects:Nu
     if(classes.status==='ready'){
         result['details.level']=classes.level;
         const setting=context.settings['dnd5e.proficiencyModifier'];
-        if(setting?.status!=='unavailable'&&['bonus','dice'].includes(String(setting?.value)))result.prof=classes.proficiency;
+        if(setting?.status!=='unavailable'&&['bonus','dice'].includes(String(setting?.value))){const value=phase==='execution'?effects.proficiency?.current:effects.proficiency?.prepared;if(typeof value==='number'&&Number.isSafeInteger(value)&&value>=1&&value<=1e9){result.prof=value;result['attributes.prof']=value;}}
     }
     for(const key of ['str','dex','con','int','wis','cha']){
         const numeric=numericAbilityValue(record(record(effects.system.abilities)?.[key])?.value);
@@ -47,12 +47,14 @@ export function prepareFormulaFields606(actor:unknown,context:RulesContext,effec
         if(finalExpression!==undefined&&!roll&&deterministicFormula606(finalExpression,execution)===null){model.unavailable.push({path,reason:'Final effect expression/reference unavailable'});effects.reason??='Final effect formula expression/reference unavailable: '+path;return;}
         const value=deterministicFormula606(raw,prepared),currentSource=roll?finalExpression??raw:raw,current=roll?deterministicFormula606(currentSource,execution):value;
         const modeSetting=context.settings['dnd5e.proficiencyModifier'],diceContext=modeSetting?.status!=='unavailable'&&modeSetting?.value==='dice';
-        if(value===null||current===null&&!diceContext||roll&&(!qualifiedFormulaBonus606(value)||current!==null&&!qualifiedFormulaBonus606(current))){
-            model.unavailable.push({path,reason:'Formula expression/reference or fractional execution profile unavailable'});
-            if(finalExpression!==undefined)effects.reason??='Effect formula expression/reference or execution profile unavailable: '+path;return;
+        if(value===null||roll&&!qualifiedFormulaBonus606(value)){
+            model.unavailable.push({path,reason:'Prepared formula expression/reference or fractional profile unavailable'});
+            if(finalExpression!==undefined)effects.reason??='Effect formula prepared expression/reference unavailable: '+path;return;
         }
+        const currentInvalid=roll&&(current===null||!qualifiedFormulaBonus606(current));
+        if(currentInvalid){model.unavailable.push({path,reason:'Current formula expression/reference or execution profile unavailable'});if(finalExpression!==undefined&&(!diceContext||current!==null))effects.reason??='Effect formula expression/reference or execution profile unavailable: '+path;}
         parent[key]=String(value);
-        if(roll&&current!==null&&(finalExpression!==undefined||!Object.hasOwn(effects.executionBonuses,'system.'+path)))effects.executionBonuses['system.'+path]=current;
+        if(roll&&!currentInvalid&&current!==null&&(finalExpression!==undefined||!Object.hasOwn(effects.executionBonuses,'system.'+path)))effects.executionBonuses['system.'+path]=current;
         model.receipts.push({path,source:String(currentSource??''),...(finalExpression!==undefined?{preparedSource:String(raw??'')}:{}),prepared:value,...(roll?{roll:true,...(current!==null?{execution:current}:{})}:{})});
     }
     for(const key of ['str','dex','con','int','wis','cha'])for(const kind of ['check','save','attack'])fold(`abilities.${key}.${kind}.roll.bonus`,kind!=='attack');

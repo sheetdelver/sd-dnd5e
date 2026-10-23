@@ -1583,3 +1583,19 @@ qualified arithmetic grammar;max/min can nest equivalently. This is formula text
 composition,not NumberField delta evaluation or dice evaluation. Unsupported final
 references cannot fall back to the earlier numeric bonus. Existing public compiler,
 bounds,mode and stale-intent gates apply unchanged. [C89 evidence](audits/evidence/2026-10-22-c89-formula-effects.json).
+
+Actor proficiency has class-base,prepared and current phase metadata. The adapter,
+cards,headers and proficiency block format the same facts;cached ability/save/Item
+proficiency and passives use the earlier base. Fresh skill/tool selection computes
+against current base. Generic rolls use cached proficiency terms,with current
+root prof retained when no term is supplied. `attributes.prof` remains a separate
+numeric roll-data reference. Raw prof/level poison is ignored. Native derived-field
+unguided number deltas are not evaluated as NumberField formulas.
+
+When current reference readiness is lost,the earlier folded bonus/passive remains
+known;fresh compilation retains its original expression and rejects unavailable
+current operands. Positive integer base qualification and die execution readiness
+are separate;unknown die sides remain visible symbolic terms. Known miscellaneous
+equipment types are excluded from armor selection,as native does. This permits
+ordinary transferred SRD gear effects without changing armor,ownership or source.
+[C90 evidence](audits/evidence/2026-10-22-c90-base-proficiency.json).

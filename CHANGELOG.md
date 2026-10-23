@@ -4,6 +4,8 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
+- Prepare Actor proficiency effects by phase; preserve cached stats and support ordinary equipped non-armor gear.
+
 - Share deterministic check bonus effects across preparation and current roll compilation.
 
 - Prepare effect-written flags by phase and admit permanent effects and dormant Item templates.

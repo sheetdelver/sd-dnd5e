@@ -11,6 +11,7 @@ export interface EquipmentPreparation {
     items:PreparedArmorItem[];warnings:string[];
 }
 const armorTypes=['light','medium','heavy','natural','shield'];
+const miscTypes=['clothing','ring','rod','trinket','vehicle','wand','wondrous'];
 /** Exact source-only Item base/derived armor subset. No Item effect, activity,
  * flag, migration or final phase is fabricated. The immutable prepared result
  * belongs to this Actor revision and is shared by all downstream consumers. */
@@ -33,6 +34,7 @@ export function prepareEquipment606(actor:unknown):EquipmentPreparation {
         const id=item._id,uuid=`Actor.${source._id}.Item.${id}`,identity=documentIdentity(uuid);
         if(duplicate||typeof id!=='string'||!identity||item.uuid!==undefined&&item.uuid!==uuid||source.uuid!==undefined&&source.uuid!==`Actor.${source._id}`){fail('Equipped Item canonical identity unavailable');continue;}
         const type=record(data.type)?.value;
+        if(typeof type==='string'&&miscTypes.includes(type))continue;
         if(typeof type!=='string'||!armorTypes.includes(type)){fail('Equipped Item type outside qualified armor profile');continue;}
         if(itemEffectMetadata606(item).reason||itemLocalEffectsReason606(item)||data.stealth!==undefined){fail('Equipped Item flags/migration require qualification');continue;}
         if(data.armor!=null&&!record(data.armor)){fail('Equipped armor source mapping malformed');continue;}

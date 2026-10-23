@@ -1,6 +1,8 @@
 import fixture from '../../../tests/fixtures/native-6.0.6/defense-traits.json';
 import {skillSource} from './skill-scenarios';
-export const defenseTraitCases=fixture.cases;
+// C90 qualifies the initialized Actor attributes.prof reference. Preserve the
+// earlier refusal capture and supplement only its named current expectation.
+export const defenseTraitCases=fixture.cases.map(row=>row.id==='damage-reference-gated'?{...row,expected:{...row.expected,dm:{amount:{fire:3},bypasses:[]}}}:row);
 export function defenseTraitSource(row:typeof defenseTraitCases[number]) {
     const actor=skillSource();(actor.system as any).traits=structuredClone(row.traits);
     if(row.invalidClass)(actor.items[0].system as any).levels='unknown';

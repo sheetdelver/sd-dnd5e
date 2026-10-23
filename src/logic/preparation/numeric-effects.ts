@@ -1,3 +1,4 @@
+import {initializeClassFacts606} from './class-initialization';
 import {composeFormulaEffect606,checkBonusPath606} from './formula-effects';
 import {applyBooleanFlag606} from './flag-effects';
 import {prepareFormulaFields606,type FormulaPreparation606} from './formula-fields';
@@ -21,7 +22,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
-    formulaPreparation?:FormulaPreparation606;finalFormulaExpressions?:Record<string,string>;
+    proficiency?:{base:number|null;prepared:number|null;current:number|null};formulaPreparation?:FormulaPreparation606;finalFormulaExpressions?:Record<string,string>;
     sourceInitialization:SourceInitialization606;
     preparedDefenseSets?:Record<string,string[]>;
     finalDefenseSets?:Record<string,string[]>;
@@ -42,6 +43,9 @@ export interface NumericEffects {
  * prepared proficiency/passive operands never change; other final/Item fields stay gated. */
 export function prepareNumericEffects606(actor:unknown,context?:RulesContext):NumericEffects {
     const source=record(actor)??{},initializedSource=initializeCheckSource606(source.system),system=initializedSource.system,sourceInitialization=initializedSource.initialization,plan=planEffects606(actor);
+    if(system.attributes===undefined)system.attributes={};
+    const classes=initializeClassFacts606(actor),base=classes.status==='ready'?classes.proficiency:null,proficiency={base,prepared:base,current:base},attributes=record(system.attributes);
+    if(attributes)attributes.prof=base;
     const globals=initializedAbilityRolls606(actor),applied:NumericEffects['applied']=[];
     const initialized:NumericEffects['initialized']=sourceInitialization.defaults.filter(entry=>entry.path.endsWith('.proficient')).map(entry=>({key:'system.'+entry.path,value:entry.value as number,origin:'schema-default'}));
     for(const key of ['str','dex','con','int','wis','cha']){
@@ -58,6 +62,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     const customConditionReason=customStringConditionReason606(actor,plan.conditions??[],[...plan.initial,...plan.final]);
     function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;string?:boolean;valid?:(value:string)=>boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
+        if(change.key==='system.attributes.prof'&&attributes)return {object:attributes,field:'prof'};
         if(keys[1]==='traits'){
             const key=keys[2],field=keys[3];
             const training=trainingSetField606(keys.slice(2).join('.'));
@@ -179,6 +184,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         field.object[field.field]=value;if(formula!==undefined)formulas[change.key]=formula;
         applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(formula!==undefined?{formula}:{})});
     }
+    proficiency.prepared=typeof attributes?.prof==='number'?attributes.prof:null;proficiency.current=proficiency.prepared;
     // Native Diamond Soul assigns save proficiency during ability preparation,
     // after initial effects and before cached saves/final fields.
     if(ruleFlags.diamondSoul)for(const key of ['str','dex','con','int','wis','cha']){const ability=record(record(system.abilities)?.[key]);if(ability)ability.proficient=1;}
@@ -264,6 +270,11 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
             applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:changedDefenseSets.has(change.key)?'final':'prepared',before:[...before],value:[...result.value],delta:result.delta});
             changedDefenseSets.add(change.key);continue;
         }
+        if(change.key==='system.attributes.prof'&&field){
+            const before=proficiency.current,value=typeof before==='number'&&delta!==null?applyNumericFieldChange(before,delta,change.type,field):null;
+            if(value===null){reason??='Final Actor proficiency effect delta/operation requires qualification';continue;}
+            proficiency.current=value;applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before!,value});continue;
+        }
         const number=/^system\.(?:abilities\.(?:str|dex|con|int|wis|cha)\.(?:value|proficient)|(?:skills|tools)\.[^.]+\.value)$/.test(change.key);
         if(number&&field&&!field.formula&&!field.mode&&!field.set){
             const rawAbilityRolls=record(record(system.rolls)?.ability);
@@ -294,9 +305,9 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
             executionBonuses[change.key]=value;formulas[change.key]=formula;
             applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before!,value,formula});continue;
         }
-        const proficiency=/^system\.rolls\.ability\.(check|save|skill|tool)\.proficiency$/.exec(change.key);
-        if(proficiency&&field?.choices){
-            const target=executionGlobals[proficiency[1]],before=target.proficiency;
+        const proficiencyTarget=/^system\.rolls\.ability\.(check|save|skill|tool)\.proficiency$/.exec(change.key);
+        if(proficiencyTarget&&field?.choices){
+            const target=executionGlobals[proficiencyTarget[1]],before=target.proficiency;
             const value=typeof before==='number'&&delta!==null&&Math.abs(delta)<=1_000_000_000?applyNumericFieldChange(before,delta,change.type,field):null;
             if(value===null){reason??=`Final proficiency operation/value requires qualification: ${change.key}`;continue;}
             target.proficiency=value;applied.push({effectId:change.effectId,key:change.key,phase:'final',before:before as number,value});continue;
@@ -312,7 +323,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     }
     if(finalDefenseSets)conditions=currentConditionImmunities606(conditions,finalDefenseSets['system.traits.ci.value']);
     if(reason&&!conditions.reason){conditions.status='unavailable';conditions.reason=reason;}
-    const result:NumericEffects={finalFormulaExpressions,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
+    const result:NumericEffects={proficiency,finalFormulaExpressions,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,preparedDefenseSets,finalDefenseSets,finalTrainingSets,finalTraitStrings,checkExecutionReason,initialized,equipment,...(reason?{reason}:{})};
     return context?prepareFormulaFields606(actor,context,result):result;
 }
 
