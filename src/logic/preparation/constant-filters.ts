@@ -4,10 +4,10 @@ export type InitialFilterRead = {key:string;value:number;origin:'class-base-prep
     | {key:string;value:number;origin:'source'|'schema-default'|'nonpersisted-schema-default'}
     | {key:string;kind:'set';value:string[];sourceValue:string[]|null|'[absent]';origin:'schema-initialized-source'|'schema-default'};
 export type RuleFilterRead606=InitialFilterRead|{key:string;kind:'scalar';value:string|boolean|null|undefined;origin:'configured-roll'};
-export interface ConstantFilter {status:'ready';origin:'default'|'source';definition:string;matches:boolean;phase?:'initial';reads?:RuleFilterRead606[]}
+export interface ConstantFilter {status:'ready';origin:'default'|'source';definition:string;matches:boolean;phase?:'initial'|'configured-roll'|'mixed';reads?:RuleFilterRead606[]}
 export type ConstantFilterResult=ConstantFilter|{status:'unavailable';reason:string};
-/** Only snapshot-invariant native boolean filters. This is not a roll evaluator
- * or a replacement-data model. Validate every branch before applying boolean
+/** Native predicates over explicitly qualified scalar/Set snapshots. This is
+ * not a roll evaluator or replacement-data model. Validate every branch before applying boolean
  * logic: short-circuiting must never hide an unqualified property comparison. */
 export function constantFilter606(raw:unknown):ConstantFilterResult {return filter606(raw);}
 export function initialFieldFilter606(raw:unknown,read:(key:string)=>InitialFilterRead|null):ConstantFilterResult {return filter606(raw,read);}
@@ -42,6 +42,16 @@ function filter606(raw:unknown,read?:(key:string)=>RuleFilterRead606|null):Const
                 }else return null;
                 reads.push(input);return matches;
             }
+            const primitive=(value:unknown)=>value==null||['string','boolean'].includes(typeof value)||typeof value==='number'&&Number.isFinite(value);
+            if(['contains','startswith','endswith'].includes(operation)){
+                if(!primitive(input.value)||!primitive(literal)||String(literal).length>256)return null;
+                const data=String(input.value),value=String(literal),matches=operation==='contains'?data.includes(value):operation==='startswith'?data.startsWith(value):data.endsWith(value);
+                reads.push(input);return matches;
+            }
+            if(operation==='in'){
+                if(!primitive(input.value)||!Array.isArray(literal)||literal.length>256||literal.some(value=>!primitive(value)||typeof value==='string'&&value.length>256))return null;
+                reads.push(input);return literal.includes(input.value);
+            }
             if('kind'in input&&input.kind==='scalar'){if(operation!=='exact'||literal!==null&&!['string','boolean','number'].includes(typeof literal))return null;reads.push(input);return input.value===literal;}
             if(!['exact','gt','gte','lt','lte'].includes(operation)||typeof input.value!=='number'
                 ||literal!==null&&!['string','boolean','number'].includes(typeof literal)||typeof literal==='number'&&!Number.isFinite(literal))return null;
@@ -71,5 +81,7 @@ function filter606(raw:unknown,read?:(key:string)=>RuleFilterRead606|null):Const
         const values=tree.map(value=>node(value,0));matches=values.some(value=>value===null)?null:values.every(Boolean);
     }else if(root&&Object.keys(root).length===0)matches=true;
     else matches=node(tree,0);
-    return matches===null?unavailable:{status:'ready',origin:raw===undefined?'default':'source',definition,matches,...(reads.length?{phase:'initial' as const,reads}:{})};
+    const configured=reads.some(read=>read.origin==='configured-roll'),initial=reads.some(read=>read.origin!=='configured-roll');
+    const phase=configured?initial?'mixed' as const:'configured-roll' as const:'initial' as const;
+    return matches===null?unavailable:{status:'ready',origin:raw===undefined?'default':'source',definition,matches,...(reads.length?{phase,reads}:{})};
 }

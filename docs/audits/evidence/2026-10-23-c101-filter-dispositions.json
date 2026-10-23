@@ -1,0 +1,76 @@
+{
+  "checkpoint": "C101",
+  "parent": "98372c5",
+  "status": "Q02a predicate inventory/unsupported decisions and qualified scalar predicates;remaining M2 read dependencies open",
+  "requirements": [
+    "M2/Q02a predicate decision gate",
+    "DD-01/02/05/27/31/34 partial",
+    "A02\u2013A06 read preparation"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "98372c5",
+    "result": "8/36 final predicate dispositions fail before;0 after;the remaining28 already agree with the intended ready/unavailable decision",
+    "beforeLogSha256": "eaf8beb8afd5ac3d09ae340c93846a2b6bcb662fed2d078f79d649672718a66d",
+    "afterLogSha256": "870c9fbc756239283775539d2c5713d1f0a8757be924b4a87a295e065b74bf45"
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;81 module/9 tooling suites,61 tooling assertions",
+    "logSha256": "f33fece994be3712e0b4a2b27106d2720fd82a0effaf7fe2649323641544ab7b"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;299 explicit module/UI/server/test/hook files",
+    "logSha256": "e24ee485c10f6b60d1e384d51b56349b5d7938026abc7b0da63cb0db4bb3b247"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 exact source records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "native": {
+    "command": "npm run test:native-filter-dispositions -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c101-native-final.json",
+    "result": "PASS;actual17 comparison/6 operator inventory,18 predicate examples and frozen contains(14,14) comparison",
+    "logSha256": "eed5566a475eb1dda9e136967f30c4374223a54acf83e00c9b51b81ef2404ade",
+    "fixture": "tests/fixtures/native-6.0.6/filter-dispositions.json",
+    "sha256": "5c1591e700f16629b53c38f63a6380a29f40b579f50399a7760ee36dd1304397"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-predicates -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 passives/skill controls,condition change with equal totals,removal,unavailable/recovery,focus/preview/shortcut and held callbacks;zero writes",
+    "artifact": "/tmp/dnd5e-predicates-mounted-UE8fbt/evidence.json",
+    "sha256": "370894e0cc3d3ab783c8f1f0424ad3049f49c8d18b334dca16908b01758cc1a2"
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;117042 accepted,32 new predicate source requests,retained complete distributions,1 unary candidate and1880 tied-index diagnostics,zero native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-V5m8Wa/evidence.json",
+    "sha256": "97e6967534955b42a0f54954b09aff51db1ace95956c7eaa70f0bd7a86afbe1f"
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;module check/isolated package;21files;test/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-twahcR/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "95bd659a313b4f2ac97f99b14b6c0a43325610b91369a1964ef85fbb0c9688f6"
+  },
+  "cleanup": {
+    "result": "Task-owned host/synthetic endpoints/browser stopped;preexisting listeners untouched",
+    "beforeSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb",
+    "afterSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb"
+  },
+  "decisions": {
+    "supported": "Boolean operators;qualified numeric exact/order;scalar strict equality,String contains/startswith/endswith and literal Array membership;qualified Set membership/any/all/subset/empty. Every branch and operand is validated before boolean combination.",
+    "unavailableLocale": "icontains,istartswith,iendswith:caller/native locale has not been qualified. Native English examples are oracle inputs,not a module fallback. No new Core defect is established.",
+    "unavailableCollections": "Nested object/filter has and general Array/Item traversal require initialized collection snapshots;do not reduce them to string Set membership.",
+    "unavailableSnapshots": "Only initialFilterData606 and configured-rule explicit read whitelists are authoritative. Existing initial-filters prepared-mod-poison/unknown-identity/prototype-path/missing-global-container/unknown-branch-in-OR and applied-rules scene.darkness cases preserve explicit unavailable decisions. Unknown paths do not read arbitrary raw or final Actor data.",
+    "phase": "Receipts distinguish initial,configured-roll and mixed reads;effect first-evaluation/fresh-change cache semantics remain the separately qualified C34\u2013C36/C85 paths."
+  },
+  "limits": [
+    "Actual release predicates/operators and static Foundry helper types execute on explicit same-realm initialized scalar/Array snapshots;not full native replacement-data/source initialization. Nested collection and locale examples remain unavailable despite native truth on a declared snapshot.",
+    "An original regression expected frozen C35 unsupported-contains to remain unavailable. Actual native contains(14,14) is true. The original fixture remains unchanged;initialFilterExpected explicitly supersedes only that boundary with +6/passive16 and existing derived-check arithmetic. Public generation retains that34th initial-filter workflow (816 requests/34 bounds);unrelated unavailable assertions remain. Failed first regression log hash: 7c49213a1a03814afff462910e1ec62c9d25a16186a26643ae72d1dc7ae39de5.",
+    "R/S,mounted SDK seam and isolated host evidence remain separate;no installed/native/operator acceptance. No new dice evaluator,cache,transport,Core/compatibility/version change. Node24.21/npm11.19 local;CI Node22 unrun.",
+    "Q02a vocabulary/operand/unknown-snapshot decisions are recorded,not a claim of complete effect/filter rules support. Required remaining Item/spell/formula preparation and M2 exit comparisons stay open."
+  ],
+  "next": "Qualify and implement shared spell parent/common-field inheritance/overrides and save DC dependencies,then remaining damage/read and M2 exit comparisons."
+}

@@ -21,6 +21,8 @@ vm.runInNewContext(`class Color {}
 ${['typePrototypes','plainObjectPrototype'].map(name=>variable(helpers,name)).join('\n')}
 ${['isPlainObject','getType','isEmpty'].map(name=>declaration(helpers,name)).join('\n')}
 foundry.utils.isEmpty=isEmpty;
+foundry.utils.getType=getType;
+foundry.utils.isPlainObject=isPlainObject;
 ${files.get(filterPath).replace(/^export /gm,'')}
 class FiltersField {${member(files.get(fieldPath),'FiltersField','initialize')}}
 class ModelBase {prepareBaseData(){}}
@@ -31,7 +33,7 @@ class DocumentBase {shouldApplyChange(){return true;}}
 class NativeEffectDocument extends DocumentBase {get isSuppressed(){return this.system.isSuppressed;}
 ${member(files.get(documentPath),'ActiveEffect5e','shouldApplyChange')}
 }
-globalThis.native={Filter,FiltersField,NativeEffectModel,NativeEffectDocument};`,box);
+globalThis.native={Filter,FiltersField,NativeEffectModel,NativeEffectDocument,parse:JSON.parse,comparisonNames:Object.keys(COMPARISON_FUNCTIONS),operatorNames:Object.keys(OPERATOR_FUNCTIONS)};`,box);
 const fixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/constant-filters.json'),'utf8'));assert.equal(fixture.nativeCommit,nativeCommit);
 const {Filter,FiltersField,NativeEffectModel,NativeEffectDocument}=box.native,observations=[];
 function effect(filter){const system=new NativeEffectModel();let replacements=0;system.conditions=filter;system.parent={target:{getRollData:()=>({})},getReplacementData:data=>{replacements++;return data;}};return {system,replacements:()=>replacements};}
@@ -58,3 +60,4 @@ assert.equal(document.shouldApplyChange(change,{replacementData:{phase:'final'}}
 const evidence={nativeCommit,foundry:{generation:14,build:367,helpersSha256:sha256(helpers)},observations,propertyReads,effectCacheProbe:{initial:false,finalBeforeReset:false,finalAfterReset:true,replacementCalls:2},changeProbe:{initial:false,final:true},sourceHashes:Object.fromEntries([filterPath,fieldPath,modelPath,documentPath,'module/documents/actor/actor.mjs'].map(path=>[path,sha256(files.get(path))])),stubs:['Exact Filter functions, FiltersField.initialize/default schema assertion, effect evaluateCondition/cache reset and document shouldApplyChange methods only','Primitive field initialization receives persisted JSON strings/default{} explicitly; no DataModel source cleaning/validation boot','Property reads throw; supported trees must be snapshot-invariant even with changed snapshots; data-dependent/unknown/malformed branches not qualified','Document superclass eligibility returns true, no replacement-source Item and changeTypes.add skipConditions=false; module eligibility/phase tests remain separate','Replacement-data adapter is identity; no claim that raw source/current derived values equal native initial/final getRollData','Cache/fresh-change callback probes establish method lifetime only, not data-dependent filters, statuses/rider lifecycle, clocks, native engine or operator acceptance']};
 const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');
 process.stdout.write(`S: ${observations.length} pinned snapshot-invariant filter guards, zero property reads and separate cache/change probes PASS\n`);
+export const filterOracle606={box,files,Filter,foundryHelpersSha256:sha256(helpers)};

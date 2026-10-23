@@ -4,7 +4,7 @@ Historical entries are reconstructed from [published releases](https://github.co
 
 ## Unreleased
 
-- Continue experimental character preparation across checks, conditions, inventory and character readouts;unsupported rules remain explicit.
+- Continue experimental character preparation across checks, qualified conditional predicates,inventory and character readouts;unsupported rules remain explicit.
 - Preserve source data and distinguish earlier preparation from current proficiency, formula, flag and effect results.
 - Share skill/tool/ability selections, previews and qualified roll execution across desktop/mobile, with context and stale-intent guards.
 - Support qualified Normal die bounds and proficiency dice and ordinary advantage/disadvantage;retain wider execution limits.

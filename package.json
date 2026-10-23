@@ -79,6 +79,8 @@
     "test:native-consumption-references": "node scripts/native-consumption-references-oracle.mjs",
     "test:mounted-consumption-references": "node scripts/test-mounted-consumption-references.mjs",
     "test:native-spell-context": "node scripts/native-spell-context-oracle.mjs",
-    "test:mounted-spell-context": "node scripts/test-mounted-spell-context.mjs"
+    "test:mounted-spell-context": "node scripts/test-mounted-spell-context.mjs",
+    "test:native-filter-dispositions": "node scripts/native-filter-dispositions-oracle.mjs",
+    "test:mounted-predicates": "node scripts/test-mounted-predicates.mjs"
   }
 }

@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C100)
+### Current M2 exit state (updated C101)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3256,7 +3256,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | --- | --- | --- |
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
-| Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
+| Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;C101 records every predicate/operand and unknown-snapshot unsupported fixture/decision for Q02a;this does not complete unsupported rules support |
 | Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;C99 adds qualified owned consumption references;remaining canonical compendium references/spell parents/subtypes and wider Item/effect final preparation remain |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;C100 adds exact per-spell class/subclass/Activity ability contexts and numeric spell attack read construction;parent common fields,save DC/damage construction and wider effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
@@ -3790,3 +3790,34 @@ filter vocabulary/snapshot dispositions and remaining shared Item/spell common
 read preparation,then the existing M2 source/override/effect-order exit comparisons.
 
 [C100 evidence](../audits/evidence/2026-10-23-c100-spell-context.json) records commands,hashes and limits.
+
+
+### C101 — Q02a predicate inventory and explicit dispositions (2026-10-23)
+
+C100 is `98372c5`. Exact-release comparison inventory now checks all17 predicates
+and6 Boolean operators. Qualified scalar String contains/startswith/endswith and
+strict literal-Array membership share the existing filter/preparation path. Native
+String conversion is preserved for known scalars;membership never coerces literals.
+Receipts distinguish initial,configured-roll and mixed snapshots. All branches
+remain validated before Boolean combination,including otherwise true OR branches.
+
+Q02a predicate/operand decisions are explicit:the three case-insensitive predicates
+need qualified locale;nested object collection traversal needs a qualified initialized
+collection;unknown snapshot paths remain unavailable under existing prepared-poison,
+unknown-identity/prototype/container/scene fixtures. Neither raw source nor final
+prepared-looking fields supply missing snapshot authority. These decisions complete
+the predicate inventory obligation,not the remaining effect/filter rules support.
+
+8/36 same-input predicate dispositions fail C100 and0 after. Actual native
+contains(14,14) also supersedes only C35's frozen unsupported-contains restriction:
+the historical fixture remains unchanged and the current expectation is explicitly
++6/passive16. The first full regression correctly caught that old restriction;the
+final81 module/9 tooling suites (61 assertions) PASS.299 explicit typed files,
+exact2242/591 source verification,mounted1440/390 equal-result condition changes/
+removal/retired callbacks/recovery,117042 accepted public-host requests (32 new) and
+isolated check/package PASS. One unary candidate and1880 tied-index diagnostics
+remain;host serialization is unchanged. Task-owned services stopped. Evidence
+classes remain separate from installed/native/operator acceptance. M2/ADR stay open.
+Next:shared spell/common inheritance,save DC/damage read dependencies and M2 exits.
+
+[C101 evidence](../audits/evidence/2026-10-23-c101-filter-dispositions.json) includes every decision,command,hash and limitation.

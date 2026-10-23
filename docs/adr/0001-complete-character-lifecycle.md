@@ -3256,3 +3256,34 @@ filter vocabulary/snapshot dispositions and remaining shared Item/spell common
 read preparation,then the existing M2 source/override/effect-order exit comparisons.
 
 [C100 evidence](../audits/evidence/2026-10-23-c100-spell-context.json) records commands,hashes and limits.
+
+
+### C101 — Q02a predicate inventory and explicit dispositions (2026-10-23)
+
+C100 is `98372c5`. Exact-release comparison inventory now checks all17 predicates
+and6 Boolean operators. Qualified scalar String contains/startswith/endswith and
+strict literal-Array membership share the existing filter/preparation path. Native
+String conversion is preserved for known scalars;membership never coerces literals.
+Receipts distinguish initial,configured-roll and mixed snapshots. All branches
+remain validated before Boolean combination,including otherwise true OR branches.
+
+Q02a predicate/operand decisions are explicit:the three case-insensitive predicates
+need qualified locale;nested object collection traversal needs a qualified initialized
+collection;unknown snapshot paths remain unavailable under existing prepared-poison,
+unknown-identity/prototype/container/scene fixtures. Neither raw source nor final
+prepared-looking fields supply missing snapshot authority. These decisions complete
+the predicate inventory obligation,not the remaining effect/filter rules support.
+
+8/36 same-input predicate dispositions fail C100 and0 after. Actual native
+contains(14,14) also supersedes only C35's frozen unsupported-contains restriction:
+the historical fixture remains unchanged and the current expectation is explicitly
++6/passive16. The first full regression correctly caught that old restriction;the
+final81 module/9 tooling suites (61 assertions) PASS.299 explicit typed files,
+exact2242/591 source verification,mounted1440/390 equal-result condition changes/
+removal/retired callbacks/recovery,117042 accepted public-host requests (32 new) and
+isolated check/package PASS. One unary candidate and1880 tied-index diagnostics
+remain;host serialization is unchanged. Task-owned services stopped. Evidence
+classes remain separate from installed/native/operator acceptance. M2/ADR stay open.
+Next:shared spell/common inheritance,save DC/damage read dependencies and M2 exits.
+
+[C101 evidence](../audits/evidence/2026-10-23-c101-filter-dispositions.json) includes every decision,command,hash and limitation.

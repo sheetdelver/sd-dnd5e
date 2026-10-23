@@ -1591,3 +1591,13 @@ empty versus missing class ability,subclass effective ability and grant-root lin
 retain explicit common/damage-label/neutral-label seams. These are separate method
 comparisons,not a full final pipeline or casting acceptance.
 [C100 evidence](../audits/evidence/2026-10-23-c100-spell-context.json).
+
+
+C101 checks actual Filter.COMPARISON_FUNCTIONS (17) and OPERATOR_FUNCTIONS (6),
+then native predicate truth on explicit same-realm scalar/Array snapshots. Native
+Foundry type/isEmpty helpers execute;the snapshot getter and English locale for
+case-insensitive oracle examples are declared inputs. These are predicate examples,
+not proof of native effect replacement-data/source initialization. The module
+keeps locale/object-collection/unknown-path cases explicitly unavailable. Frozen
+C35 contains(14,14) truth is separately asserted before its restriction is superseded.
+[C101 decisions/evidence](../audits/evidence/2026-10-23-c101-filter-dispositions.json).

@@ -1722,3 +1722,12 @@ and numeric attack result;neither enables casting. Unknown identities,malformed
 abilities,unqualified Item effects and contexts keep explicit reasons. Source
 availableAbilities/classIdentifier and old attack totals never override the model.
 [C100 evidence](audits/evidence/2026-10-23-c100-spell-context.json).
+
+
+Filter predicates consume only explicit initialized or configured-roll read
+whitelists. Scalar substring/prefix/suffix conversion and strict Array membership
+share the same path as numeric/Set predicates. Native case-insensitive comparisons
+remain unavailable pending locale qualification;object collection traversal and
+unknown snapshot paths remain unavailable. Reads retain initial/configured/mixed
+provenance. Boolean short-circuiting cannot conceal an unqualified branch.
+[C101 decisions/evidence](audits/evidence/2026-10-23-c101-filter-dispositions.json).
