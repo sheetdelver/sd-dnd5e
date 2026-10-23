@@ -4,6 +4,22 @@ Status: implementation in progress, 2026-10-19. Governed by [ADR-0001](../adr/00
 
 ## Evidence classes
 
+### October 23 delivery amendment
+
+Follow the [active QA review](../audits/2026-10-23-usability-and-delivery-review.md)
+for current execution order and the smoke/affected/deep verification split.
+All87 module suites passed on Core0.21.0 while the actual unavailable sheet still
+overflowed. Case counts are not user acceptance. DD-QA01/02 now take priority over
+the historical next transferred-field task. Add compact integrated regression
+coverage, including ordinary metadata and unavailable states at1024/1280px, before
+more Cartesian rule matrices. Keep existing proven regressions and native evidence.
+
+Upgrade qualification uses a representative native character corpus and comparisons
+of changed consumed schemas/rules. Do not expand the6.0.6 compatibility gate merely
+because source shapes match, and do not rerun deep qualification at bootstrap or
+on each Actor load. Report player outcomes and remaining full gates at checkpoints.
+This amendment changes execution priority, not the A01–A24 acceptance definitions.
+
 Keep these separate in every checkpoint:
 
 | Class | Establishes | Does not establish |

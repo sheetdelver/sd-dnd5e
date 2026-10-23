@@ -1,0 +1,1361 @@
+{
+  "method": "Offline module adapter and actual Sheet with SDK presentation seam; local fonts; all network intercepted. Not Krusky source/native acceptance.",
+  "coreCss": "/home/juvinious/projects/sheet-delver/.next/dev/static/css/app/layout.css",
+  "preparation": [
+    {
+      "id": "baseline",
+      "level": 1,
+      "proficiency": 2,
+      "hp": 7,
+      "hpMax": 10,
+      "ac": 10,
+      "initiative": 0,
+      "scores": [
+        10,
+        10,
+        14,
+        10,
+        14,
+        10
+      ],
+      "readyAbilityChecks": 6,
+      "readySkillChecks": 18,
+      "reason": null,
+      "decisions": [
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "plain-effect",
+      "level": 1,
+      "proficiency": 2,
+      "hp": 7,
+      "hpMax": 10,
+      "ac": 10,
+      "initiative": 0,
+      "scores": [
+        10,
+        10,
+        14,
+        10,
+        16,
+        10
+      ],
+      "readyAbilityChecks": 6,
+      "readySkillChecks": 18,
+      "reason": null,
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "eligible",
+          "condition": {
+            "status": "ready",
+            "origin": "default",
+            "definition": "{}",
+            "matches": true
+          }
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "migration-marker",
+      "level": null,
+      "proficiency": null,
+      "hp": null,
+      "hpMax": null,
+      "ac": null,
+      "initiative": null,
+      "scores": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "readyAbilityChecks": 0,
+      "readySkillChecks": 0,
+      "reason": "Effect conditions/dependencies require Q02a qualification",
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "duration-unavailable",
+          "reason": "Effect conditions/dependencies require Q02a qualification"
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "empty-dependents",
+      "level": null,
+      "proficiency": null,
+      "hp": null,
+      "hpMax": null,
+      "ac": null,
+      "initiative": null,
+      "scores": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "readyAbilityChecks": 0,
+      "readySkillChecks": 0,
+      "reason": "Effect conditions/dependencies require Q02a qualification",
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "duration-unavailable",
+          "reason": "Effect conditions/dependencies require Q02a qualification"
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "spell-level-metadata",
+      "level": null,
+      "proficiency": null,
+      "hp": null,
+      "hpMax": null,
+      "ac": null,
+      "initiative": null,
+      "scores": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "readyAbilityChecks": 0,
+      "readySkillChecks": 0,
+      "reason": "Effect conditions/dependencies require Q02a qualification",
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "duration-unavailable",
+          "reason": "Effect conditions/dependencies require Q02a qualification"
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "real-dependency",
+      "level": null,
+      "proficiency": null,
+      "hp": null,
+      "hpMax": null,
+      "ac": null,
+      "initiative": null,
+      "scores": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "readyAbilityChecks": 0,
+      "readySkillChecks": 0,
+      "reason": "Effect conditions/dependencies require Q02a qualification",
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "duration-unavailable",
+          "reason": "Effect conditions/dependencies require Q02a qualification"
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "temporary",
+      "level": null,
+      "proficiency": null,
+      "hp": null,
+      "hpMax": null,
+      "ac": null,
+      "initiative": null,
+      "scores": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "readyAbilityChecks": 0,
+      "readySkillChecks": 0,
+      "reason": "Effect conditions/dependencies require Q02a qualification",
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "duration-unavailable",
+          "reason": "Effect conditions/dependencies require Q02a qualification"
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "explicit-nontemporary",
+      "level": 1,
+      "proficiency": 2,
+      "hp": 7,
+      "hpMax": 10,
+      "ac": 10,
+      "initiative": 0,
+      "scores": [
+        10,
+        10,
+        14,
+        10,
+        16,
+        10
+      ],
+      "readyAbilityChecks": 6,
+      "readySkillChecks": 18,
+      "reason": null,
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "eligible",
+          "condition": {
+            "status": "ready",
+            "origin": "default",
+            "definition": "{}",
+            "matches": true
+          }
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "disabled-marker",
+      "level": 1,
+      "proficiency": 2,
+      "hp": 7,
+      "hpMax": 10,
+      "ac": 10,
+      "initiative": 0,
+      "scores": [
+        10,
+        10,
+        14,
+        10,
+        14,
+        10
+      ],
+      "readyAbilityChecks": 6,
+      "readySkillChecks": 18,
+      "reason": null,
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "disabled"
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "condition-baseline",
+      "level": 1,
+      "proficiency": 2,
+      "hp": 7,
+      "hpMax": 10,
+      "ac": 10,
+      "initiative": 0,
+      "scores": [
+        10,
+        10,
+        14,
+        10,
+        14,
+        10
+      ],
+      "readyAbilityChecks": 6,
+      "readySkillChecks": 18,
+      "reason": null,
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "condition-source-qualified",
+          "condition": {
+            "status": "ready",
+            "origin": "default",
+            "definition": "{}",
+            "matches": true
+          }
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "condition-migration-marker",
+      "level": null,
+      "proficiency": null,
+      "hp": null,
+      "hpMax": null,
+      "ac": null,
+      "initiative": null,
+      "scores": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "readyAbilityChecks": 0,
+      "readySkillChecks": 0,
+      "reason": "Effect conditions/dependencies require Q02a qualification",
+      "decisions": [
+        {
+          "id": "QAEffect",
+          "status": "duration-unavailable",
+          "reason": "Effect conditions/dependencies require Q02a qualification"
+        },
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        }
+      ]
+    },
+    {
+      "id": "item-migration-marker",
+      "level": null,
+      "proficiency": null,
+      "hp": null,
+      "hpMax": null,
+      "ac": null,
+      "initiative": null,
+      "scores": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "readyAbilityChecks": 0,
+      "readySkillChecks": 0,
+      "reason": "Item dependency/rider preparation unavailable",
+      "decisions": [
+        {
+          "id": "fixtureEffect001",
+          "parentId": "fixtureSpell0001",
+          "status": "disabled"
+        },
+        {
+          "id": "QAEffect",
+          "parentId": "QAFeature",
+          "status": "item-preparation-unavailable",
+          "reason": "Item dependency/rider preparation unavailable"
+        }
+      ]
+    }
+  ],
+  "geometry": [
+    {
+      "id": "baseline",
+      "width": 390,
+      "viewport": 390,
+      "documentWidth": 390,
+      "repeatedDiagnostic": 0,
+      "abilityOverflow": 0,
+      "saveOverflow": 0,
+      "cards": [
+        {
+          "title": "Saving Throws",
+          "x": 16,
+          "y": 474.59375,
+          "width": 358,
+          "height": 193,
+          "right": 374,
+          "bottom": 667.59375
+        },
+        {
+          "title": "Passive Senses",
+          "x": 16,
+          "y": 683.59375,
+          "width": 358,
+          "height": 141,
+          "right": 374,
+          "bottom": 824.59375
+        }
+      ],
+      "blockedButtons": 3,
+      "errors": []
+    },
+    {
+      "id": "migration-marker",
+      "width": 390,
+      "viewport": 390,
+      "documentWidth": 390,
+      "repeatedDiagnostic": 18,
+      "abilityOverflow": 96,
+      "saveOverflow": 86,
+      "cards": [
+        {
+          "title": "Saving Throws",
+          "x": 16,
+          "y": 601.75,
+          "width": 358,
+          "height": 327.375,
+          "right": 374,
+          "bottom": 929.125
+        },
+        {
+          "title": "Passive Senses",
+          "x": 16,
+          "y": 945.125,
+          "width": 358,
+          "height": 174,
+          "right": 374,
+          "bottom": 1119.125
+        }
+      ],
+      "blockedButtons": 16,
+      "errors": []
+    },
+    {
+      "id": "baseline",
+      "width": 1024,
+      "viewport": 1024,
+      "documentWidth": 1064,
+      "repeatedDiagnostic": 0,
+      "abilityOverflow": 0,
+      "saveOverflow": 0,
+      "cards": [
+        {
+          "title": "Proficiency Bonus",
+          "x": 543.828125,
+          "y": 94,
+          "width": 116.109375,
+          "height": 191.5,
+          "right": 659.9375,
+          "bottom": 285.5
+        },
+        {
+          "title": "Walking Speed",
+          "x": 667.9375,
+          "y": 94,
+          "width": 88.703125,
+          "height": 191.5,
+          "right": 756.640625,
+          "bottom": 285.5
+        },
+        {
+          "title": "Heroic Inspiration",
+          "x": 764.640625,
+          "y": 94,
+          "width": 114.109375,
+          "height": 191.5,
+          "right": 878.75,
+          "bottom": 285.5
+        },
+        {
+          "title": "Hit Points",
+          "x": 886.75,
+          "y": 94,
+          "width": 177,
+          "height": 191.5,
+          "right": 1063.75,
+          "bottom": 285.5
+        },
+        {
+          "title": "Saving Throws",
+          "x": 16,
+          "y": 314.5,
+          "width": 220,
+          "height": 191.5,
+          "right": 236,
+          "bottom": 506
+        },
+        {
+          "title": "Passive Senses",
+          "x": 16,
+          "y": 522,
+          "width": 220,
+          "height": 139.5,
+          "right": 236,
+          "bottom": 661.5
+        },
+        {
+          "title": "Proficiencies & Training",
+          "x": 16,
+          "y": 677.5,
+          "width": 220,
+          "height": 275,
+          "right": 236,
+          "bottom": 952.5
+        },
+        {
+          "title": "",
+          "x": 252,
+          "y": 314.5,
+          "width": 260,
+          "height": 673,
+          "right": 512,
+          "bottom": 987.5
+        },
+        {
+          "title": "",
+          "x": 252,
+          "y": 987.5,
+          "width": 260,
+          "height": 109,
+          "right": 512,
+          "bottom": 1096.5
+        },
+        {
+          "title": "Initiative",
+          "x": 528,
+          "y": 314.5,
+          "width": 114,
+          "height": 330,
+          "right": 642,
+          "bottom": 644.5
+        },
+        {
+          "title": "Armor Class",
+          "x": 650,
+          "y": 314.5,
+          "width": 114,
+          "height": 330,
+          "right": 764,
+          "bottom": 644.5
+        },
+        {
+          "title": "Defenses",
+          "x": 772,
+          "y": 314.5,
+          "width": 114,
+          "height": 330,
+          "right": 886,
+          "bottom": 644.5
+        },
+        {
+          "title": "Conditions",
+          "x": 894,
+          "y": 314.5,
+          "width": 114,
+          "height": 330,
+          "right": 1008,
+          "bottom": 644.5
+        },
+        {
+          "title": "Damage bonuses",
+          "x": 528,
+          "y": 741.5,
+          "width": 480,
+          "height": 167.6875,
+          "right": 1008,
+          "bottom": 909.1875
+        },
+        {
+          "title": "Actions",
+          "x": 528,
+          "y": 987.1875,
+          "width": 480,
+          "height": 112.5,
+          "right": 1008,
+          "bottom": 1099.6875
+        }
+      ],
+      "blockedButtons": 5,
+      "errors": []
+    },
+    {
+      "id": "migration-marker",
+      "width": 1024,
+      "viewport": 1024,
+      "documentWidth": 1307,
+      "repeatedDiagnostic": 50,
+      "abilityOverflow": 508.171875,
+      "saveOverflow": 278,
+      "cards": [
+        {
+          "title": "Proficiency Bonus",
+          "x": 543.828125,
+          "y": 102.390625,
+          "width": 209,
+          "height": 191.5,
+          "right": 752.828125,
+          "bottom": 293.890625
+        },
+        {
+          "title": "Walking Speed",
+          "x": 760.828125,
+          "y": 102.390625,
+          "width": 154,
+          "height": 191.5,
+          "right": 914.828125,
+          "bottom": 293.890625
+        },
+        {
+          "title": "Heroic Inspiration",
+          "x": 922.828125,
+          "y": 102.390625,
+          "width": 114.109375,
+          "height": 191.5,
+          "right": 1036.9375,
+          "bottom": 293.890625
+        },
+        {
+          "title": "Hit Points",
+          "x": 1044.9375,
+          "y": 102.390625,
+          "width": 177,
+          "height": 191.5,
+          "right": 1221.9375,
+          "bottom": 293.890625
+        },
+        {
+          "title": "Saving Throws",
+          "x": 16,
+          "y": 322.890625,
+          "width": 220,
+          "height": 306.625,
+          "right": 236,
+          "bottom": 629.515625
+        },
+        {
+          "title": "Passive Senses",
+          "x": 16,
+          "y": 645.515625,
+          "width": 220,
+          "height": 205.5,
+          "right": 236,
+          "bottom": 851.015625
+        },
+        {
+          "title": "Proficiencies & Training",
+          "x": 16,
+          "y": 867.015625,
+          "width": 220,
+          "height": 418.90625,
+          "right": 236,
+          "bottom": 1285.921875
+        },
+        {
+          "title": "",
+          "x": 252,
+          "y": 322.890625,
+          "width": 260,
+          "height": 1423.09375,
+          "right": 512,
+          "bottom": 1745.984375
+        },
+        {
+          "title": "",
+          "x": 252,
+          "y": 1745.984375,
+          "width": 260,
+          "height": 133,
+          "right": 512,
+          "bottom": 1878.984375
+        },
+        {
+          "title": "Initiative",
+          "x": 528,
+          "y": 322.890625,
+          "width": 209,
+          "height": 494.8125,
+          "right": 737,
+          "bottom": 817.703125
+        },
+        {
+          "title": "Armor Class",
+          "x": 745,
+          "y": 322.890625,
+          "width": 209,
+          "height": 494.8125,
+          "right": 954,
+          "bottom": 817.703125
+        },
+        {
+          "title": "Defenses",
+          "x": 962,
+          "y": 322.890625,
+          "width": 131,
+          "height": 494.8125,
+          "right": 1093,
+          "bottom": 817.703125
+        },
+        {
+          "title": "Conditions",
+          "x": 1101,
+          "y": 322.890625,
+          "width": 206,
+          "height": 494.8125,
+          "right": 1307,
+          "bottom": 817.703125
+        },
+        {
+          "title": "Damage bonuses",
+          "x": 528,
+          "y": 884.203125,
+          "width": 779,
+          "height": 167.6875,
+          "right": 1307,
+          "bottom": 1051.890625
+        },
+        {
+          "title": "Actions",
+          "x": 528,
+          "y": 1100.890625,
+          "width": 779,
+          "height": 112.5,
+          "right": 1307,
+          "bottom": 1213.390625
+        }
+      ],
+      "blockedButtons": 36,
+      "errors": []
+    },
+    {
+      "id": "baseline",
+      "width": 1280,
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "repeatedDiagnostic": 0,
+      "abilityOverflow": 0,
+      "saveOverflow": 0,
+      "cards": [
+        {
+          "title": "Proficiency Bonus",
+          "x": 676,
+          "y": 94,
+          "width": 121,
+          "height": 190,
+          "right": 797,
+          "bottom": 284
+        },
+        {
+          "title": "Walking Speed",
+          "x": 805,
+          "y": 94,
+          "width": 121,
+          "height": 190,
+          "right": 926,
+          "bottom": 284
+        },
+        {
+          "title": "Heroic Inspiration",
+          "x": 934,
+          "y": 94,
+          "width": 121,
+          "height": 190,
+          "right": 1055,
+          "bottom": 284
+        },
+        {
+          "title": "Hit Points",
+          "x": 1063,
+          "y": 94,
+          "width": 177,
+          "height": 190,
+          "right": 1240,
+          "bottom": 284
+        },
+        {
+          "title": "Saving Throws",
+          "x": 56,
+          "y": 313,
+          "width": 220,
+          "height": 190,
+          "right": 276,
+          "bottom": 503
+        },
+        {
+          "title": "Passive Senses",
+          "x": 56,
+          "y": 519,
+          "width": 220,
+          "height": 138,
+          "right": 276,
+          "bottom": 657
+        },
+        {
+          "title": "Proficiencies & Training",
+          "x": 56,
+          "y": 673,
+          "width": 220,
+          "height": 273.5,
+          "right": 276,
+          "bottom": 946.5
+        },
+        {
+          "title": "",
+          "x": 292,
+          "y": 313,
+          "width": 260,
+          "height": 673,
+          "right": 552,
+          "bottom": 986
+        },
+        {
+          "title": "",
+          "x": 292,
+          "y": 986,
+          "width": 260,
+          "height": 109,
+          "right": 552,
+          "bottom": 1095
+        },
+        {
+          "title": "Initiative",
+          "x": 568,
+          "y": 313,
+          "width": 158,
+          "height": 246,
+          "right": 726,
+          "bottom": 559
+        },
+        {
+          "title": "Armor Class",
+          "x": 734,
+          "y": 313,
+          "width": 158,
+          "height": 246,
+          "right": 892,
+          "bottom": 559
+        },
+        {
+          "title": "Defenses",
+          "x": 900,
+          "y": 313,
+          "width": 158,
+          "height": 246,
+          "right": 1058,
+          "bottom": 559
+        },
+        {
+          "title": "Conditions",
+          "x": 1066,
+          "y": 313,
+          "width": 158,
+          "height": 246,
+          "right": 1224,
+          "bottom": 559
+        },
+        {
+          "title": "Damage bonuses",
+          "x": 568,
+          "y": 625.5,
+          "width": 656,
+          "height": 166.1875,
+          "right": 1224,
+          "bottom": 791.6875
+        },
+        {
+          "title": "Actions",
+          "x": 568,
+          "y": 840.6875,
+          "width": 656,
+          "height": 111,
+          "right": 1224,
+          "bottom": 951.6875
+        }
+      ],
+      "blockedButtons": 5,
+      "errors": []
+    },
+    {
+      "id": "migration-marker",
+      "width": 1280,
+      "viewport": 1280,
+      "documentWidth": 1347,
+      "repeatedDiagnostic": 50,
+      "abilityOverflow": 400,
+      "saveOverflow": 278,
+      "cards": [
+        {
+          "title": "Proficiency Bonus",
+          "x": 676,
+          "y": 102.390625,
+          "width": 209,
+          "height": 190,
+          "right": 885,
+          "bottom": 292.390625
+        },
+        {
+          "title": "Walking Speed",
+          "x": 893,
+          "y": 102.390625,
+          "width": 154,
+          "height": 190,
+          "right": 1047,
+          "bottom": 292.390625
+        },
+        {
+          "title": "Heroic Inspiration",
+          "x": 1055,
+          "y": 102.390625,
+          "width": 103,
+          "height": 190,
+          "right": 1158,
+          "bottom": 292.390625
+        },
+        {
+          "title": "Hit Points",
+          "x": 1166,
+          "y": 102.390625,
+          "width": 177,
+          "height": 190,
+          "right": 1343,
+          "bottom": 292.390625
+        },
+        {
+          "title": "Saving Throws",
+          "x": 56,
+          "y": 321.390625,
+          "width": 220,
+          "height": 305.125,
+          "right": 276,
+          "bottom": 626.515625
+        },
+        {
+          "title": "Passive Senses",
+          "x": 56,
+          "y": 642.515625,
+          "width": 220,
+          "height": 204,
+          "right": 276,
+          "bottom": 846.515625
+        },
+        {
+          "title": "Proficiencies & Training",
+          "x": 56,
+          "y": 862.515625,
+          "width": 220,
+          "height": 417.40625,
+          "right": 276,
+          "bottom": 1279.921875
+        },
+        {
+          "title": "",
+          "x": 292,
+          "y": 321.390625,
+          "width": 260,
+          "height": 1423.09375,
+          "right": 552,
+          "bottom": 1744.484375
+        },
+        {
+          "title": "",
+          "x": 292,
+          "y": 1744.484375,
+          "width": 260,
+          "height": 133,
+          "right": 552,
+          "bottom": 1877.484375
+        },
+        {
+          "title": "Initiative",
+          "x": 568,
+          "y": 321.390625,
+          "width": 209,
+          "height": 493.3125,
+          "right": 777,
+          "bottom": 814.703125
+        },
+        {
+          "title": "Armor Class",
+          "x": 785,
+          "y": 321.390625,
+          "width": 209,
+          "height": 493.3125,
+          "right": 994,
+          "bottom": 814.703125
+        },
+        {
+          "title": "Defenses",
+          "x": 1002,
+          "y": 321.390625,
+          "width": 131,
+          "height": 493.3125,
+          "right": 1133,
+          "bottom": 814.703125
+        },
+        {
+          "title": "Conditions",
+          "x": 1141,
+          "y": 321.390625,
+          "width": 206,
+          "height": 493.3125,
+          "right": 1347,
+          "bottom": 814.703125
+        },
+        {
+          "title": "Damage bonuses",
+          "x": 568,
+          "y": 881.203125,
+          "width": 779,
+          "height": 166.1875,
+          "right": 1347,
+          "bottom": 1047.390625
+        },
+        {
+          "title": "Actions",
+          "x": 568,
+          "y": 1096.390625,
+          "width": 779,
+          "height": 111,
+          "right": 1347,
+          "bottom": 1207.390625
+        }
+      ],
+      "blockedButtons": 36,
+      "errors": []
+    },
+    {
+      "id": "baseline",
+      "width": 1440,
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "repeatedDiagnostic": 0,
+      "abilityOverflow": 0,
+      "saveOverflow": 0,
+      "cards": [
+        {
+          "title": "Proficiency Bonus",
+          "x": 756,
+          "y": 94,
+          "width": 121,
+          "height": 190,
+          "right": 877,
+          "bottom": 284
+        },
+        {
+          "title": "Walking Speed",
+          "x": 885,
+          "y": 94,
+          "width": 121,
+          "height": 190,
+          "right": 1006,
+          "bottom": 284
+        },
+        {
+          "title": "Heroic Inspiration",
+          "x": 1014,
+          "y": 94,
+          "width": 121,
+          "height": 190,
+          "right": 1135,
+          "bottom": 284
+        },
+        {
+          "title": "Hit Points",
+          "x": 1143,
+          "y": 94,
+          "width": 177,
+          "height": 190,
+          "right": 1320,
+          "bottom": 284
+        },
+        {
+          "title": "Saving Throws",
+          "x": 136,
+          "y": 313,
+          "width": 220,
+          "height": 190,
+          "right": 356,
+          "bottom": 503
+        },
+        {
+          "title": "Passive Senses",
+          "x": 136,
+          "y": 519,
+          "width": 220,
+          "height": 138,
+          "right": 356,
+          "bottom": 657
+        },
+        {
+          "title": "Proficiencies & Training",
+          "x": 136,
+          "y": 673,
+          "width": 220,
+          "height": 273.5,
+          "right": 356,
+          "bottom": 946.5
+        },
+        {
+          "title": "",
+          "x": 372,
+          "y": 313,
+          "width": 260,
+          "height": 673,
+          "right": 632,
+          "bottom": 986
+        },
+        {
+          "title": "",
+          "x": 372,
+          "y": 986,
+          "width": 260,
+          "height": 109,
+          "right": 632,
+          "bottom": 1095
+        },
+        {
+          "title": "Initiative",
+          "x": 648,
+          "y": 313,
+          "width": 158,
+          "height": 246,
+          "right": 806,
+          "bottom": 559
+        },
+        {
+          "title": "Armor Class",
+          "x": 814,
+          "y": 313,
+          "width": 158,
+          "height": 246,
+          "right": 972,
+          "bottom": 559
+        },
+        {
+          "title": "Defenses",
+          "x": 980,
+          "y": 313,
+          "width": 158,
+          "height": 246,
+          "right": 1138,
+          "bottom": 559
+        },
+        {
+          "title": "Conditions",
+          "x": 1146,
+          "y": 313,
+          "width": 158,
+          "height": 246,
+          "right": 1304,
+          "bottom": 559
+        },
+        {
+          "title": "Damage bonuses",
+          "x": 648,
+          "y": 625.5,
+          "width": 656,
+          "height": 166.1875,
+          "right": 1304,
+          "bottom": 791.6875
+        },
+        {
+          "title": "Actions",
+          "x": 648,
+          "y": 840.6875,
+          "width": 656,
+          "height": 111,
+          "right": 1304,
+          "bottom": 951.6875
+        }
+      ],
+      "blockedButtons": 5,
+      "errors": []
+    },
+    {
+      "id": "migration-marker",
+      "width": 1440,
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "repeatedDiagnostic": 50,
+      "abilityOverflow": 400,
+      "saveOverflow": 278,
+      "cards": [
+        {
+          "title": "Proficiency Bonus",
+          "x": 756,
+          "y": 102.390625,
+          "width": 209,
+          "height": 190,
+          "right": 965,
+          "bottom": 292.390625
+        },
+        {
+          "title": "Walking Speed",
+          "x": 973,
+          "y": 102.390625,
+          "width": 154,
+          "height": 190,
+          "right": 1127,
+          "bottom": 292.390625
+        },
+        {
+          "title": "Heroic Inspiration",
+          "x": 1135,
+          "y": 102.390625,
+          "width": 103,
+          "height": 190,
+          "right": 1238,
+          "bottom": 292.390625
+        },
+        {
+          "title": "Hit Points",
+          "x": 1246,
+          "y": 102.390625,
+          "width": 177,
+          "height": 190,
+          "right": 1423,
+          "bottom": 292.390625
+        },
+        {
+          "title": "Saving Throws",
+          "x": 136,
+          "y": 321.390625,
+          "width": 220,
+          "height": 305.125,
+          "right": 356,
+          "bottom": 626.515625
+        },
+        {
+          "title": "Passive Senses",
+          "x": 136,
+          "y": 642.515625,
+          "width": 220,
+          "height": 204,
+          "right": 356,
+          "bottom": 846.515625
+        },
+        {
+          "title": "Proficiencies & Training",
+          "x": 136,
+          "y": 862.515625,
+          "width": 220,
+          "height": 417.40625,
+          "right": 356,
+          "bottom": 1279.921875
+        },
+        {
+          "title": "",
+          "x": 372,
+          "y": 321.390625,
+          "width": 260,
+          "height": 1423.09375,
+          "right": 632,
+          "bottom": 1744.484375
+        },
+        {
+          "title": "",
+          "x": 372,
+          "y": 1744.484375,
+          "width": 260,
+          "height": 133,
+          "right": 632,
+          "bottom": 1877.484375
+        },
+        {
+          "title": "Initiative",
+          "x": 648,
+          "y": 321.390625,
+          "width": 209,
+          "height": 493.3125,
+          "right": 857,
+          "bottom": 814.703125
+        },
+        {
+          "title": "Armor Class",
+          "x": 865,
+          "y": 321.390625,
+          "width": 209,
+          "height": 493.3125,
+          "right": 1074,
+          "bottom": 814.703125
+        },
+        {
+          "title": "Defenses",
+          "x": 1082,
+          "y": 321.390625,
+          "width": 131,
+          "height": 493.3125,
+          "right": 1213,
+          "bottom": 814.703125
+        },
+        {
+          "title": "Conditions",
+          "x": 1221,
+          "y": 321.390625,
+          "width": 206,
+          "height": 493.3125,
+          "right": 1427,
+          "bottom": 814.703125
+        },
+        {
+          "title": "Damage bonuses",
+          "x": 648,
+          "y": 881.203125,
+          "width": 779,
+          "height": 166.1875,
+          "right": 1427,
+          "bottom": 1047.390625
+        },
+        {
+          "title": "Actions",
+          "x": 648,
+          "y": 1096.390625,
+          "width": 779,
+          "height": 111,
+          "right": 1427,
+          "bottom": 1207.390625
+        }
+      ],
+      "blockedButtons": 36,
+      "errors": []
+    }
+  ],
+  "moduleCommit": "5b52545",
+  "runtimeCheckpoint": "68d1a29",
+  "coreVersion": "0.21.0",
+  "nativeReference": "6.0.6 at 87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "limits": [
+    "Synthetic module-authored character, not the user Krusky source. Exact Krusky effect unknown.",
+    "Actual module adapter and Sheet, Core compiled CSS, local module fonts; SDK presentation seam; no live Core or Foundry connection.",
+    "Does not establish complete native preparation, permissions or activity execution."
+  ]
+}

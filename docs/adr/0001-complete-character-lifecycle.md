@@ -6,6 +6,55 @@
 - Primary native target: **D&D 5e 6.0.6 / Foundry 14.367**, 2024 rules
 - Evidence: [current audit DD-01–36](../audits/2026-10-19-character-lifecycle.md), [versioned native map](../reference/native-6.0.6.md), [verification and completion matrix](../plans/0001-verification.md)
 
+## October 23 QA amendment — delivery, usability and native updates
+
+The user's actual sheet is unusable despite the large passing rules test suite.
+The [independent usability/delivery review](../audits/2026-10-23-usability-and-delivery-review.md)
+is now the active audit and next-work authority for this ADR. DD-QA01/02 reproduce
+benign metadata refusing preparation and repeated diagnostics overflowing the
+actual sheet. No milestone is closed by this amendment.
+
+**Change execution order:** repair those defects and bounded diagnostic scopes;
+add a small integrated smoke regression; remove demonstrated duplicate test work;
+record the native-data/upgrade boundary; then deliver a complete player operation
+through review, execution, readback and recovery. Do not resume the former next
+transferred-field permutation matrix as the default task. Independent usability
+work must not wait for all M2 or the external world-clock gap. The full M0–M9
+acceptance scope remains, with incomplete milestones honestly labeled incomplete.
+
+**Measure outcomes:** every checkpoint states what a player can now do. Counts of
+commits, fixtures or native-method permutations are supporting evidence, not
+product completion. Retain meaningful regressions; split verification into
+workflow smoke, changed-domain rules/contracts and deep native qualification.
+New exhaustive combinations need a concrete interaction/risk justification.
+Do not run every imported oracle matrix as a prerequisite for a small repair.
+
+**Native data first:** consume installed authorized documents, activities,
+advancement choices, formulas and settings. Do not maintain copies of content
+tables available through public data. Distinguish data from native executable
+preparation; full prepared values are not all present in source documents.
+Copied registries and rule adapters need explicit provenance and bounded upgrade
+checks. The pinned6.0.6 baseline is not a claim that it remains the latest release.
+
+**Upgrade qualification:** maintain a small representative character corpus with
+native source, selected prepared values and action outcomes. On candidate updates,
+review changed consumed schemas/rules and run smoke plus affected comparisons.
+Classify data-only changes, schema adaptation, rule changes and missing public
+inputs. Expand a supported profile/range only after evidence; matching shapes are
+not sufficient. Implement a safe descriptive/source fallback with one clear
+compatibility notice for unqualified versions, while restricting unqualified
+effective actions. Unknown metadata must not automatically blank every stat.
+Heavy comparison runs belong to offline/CI update qualification, not each sheet
+load or bootstrap. See the active audit for the concrete workflow and test policy.
+
+Core0.21.0 provides package/artwork/reference, settings and background improvements;
+the review's capability table identifies their versions and adoption boundaries.
+It does not close arbitrary compendium reads (E01), exact concurrency (E02),
+world clock/scene input (E04), or D&D-specific roll expressiveness (E05).
+No Core work, native-runtime experiment resumption, version bump or live-world
+authority is inferred. A missing native-data/preparation contract needs a specific
+separately selected proposal, not indefinite reimplementation by tiny increments.
+
 ## Context and outcome
 
 The experimental 0.4.1 module has a substantial sheet layout but incomplete rules and persistence. Basic check rendering does not establish a usable character lifecycle. Modern spells, activities, source identity, effects, resting and advancement require integrated behavior, not isolated UI patches. This plan uses the current **Foundry-installable** release, not upstream development HEAD. C02 adopted the documented Core0.19.3/module-api1.5 floors; module release metadata remains0.4.1/experimental.

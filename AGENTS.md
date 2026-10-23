@@ -7,10 +7,22 @@ Do not inherit another module's active audit. This module remains experimental.
 Current planning context: [ADR-0001](docs/adr/0001-complete-character-lifecycle.md),
 [active audit](docs/audits/README.md), [native release map](docs/reference/native-6.0.6.md)
 and [verification matrix](docs/plans/0001-verification.md). The target is the
-current Foundry-installable D&D system 6.0.6, primarily 2024 rules. These are
+pinned D&D system 6.0.6 baseline, primarily 2024 rules. These are
 active implementation documents, not current support claims. Record actual
 progress against their stable DD/A/M IDs; current task authority and checkpoints
 belong in the handoff. No live world authority follows from these documents.
+
+The October 23 [usability and delivery review](docs/audits/2026-10-23-usability-and-delivery-review.md)
+is the active audit. Its execution order supersedes the old next-field-matrix
+queue: repair DD-QA01/02, demonstrate integrated sheet usability, rationalize
+duplicated verification, and deliver a complete player operation. ADR-0001's full
+acceptance scope remains open. Report player outcomes, not case-count progress.
+Use installed native data wherever public contracts provide it. Qualify upgrades
+with representative character workflows and changed-domain tests; do not silently
+broaden exact-version rules or run deep qualification on each character load.
+Preserve proven regressions, but justify new exhaustive permutations by a concrete
+failure/risk. Core0.21/SDK3.7 adoption opportunities and remaining E01–E05 gaps are
+documented in the review; no compatibility or Core change is implied.
 
 ## Scope and repository ownership
 

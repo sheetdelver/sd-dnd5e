@@ -1,6 +1,13 @@
 # D&D module audits
 
-The current audit is [2026-10-19 character-lifecycle discovery](2026-10-19-character-lifecycle.md), governed by [ADR-0001](../adr/0001-complete-character-lifecycle.md). It contains stable DD-01–36 findings and the verified repository/toolchain baseline.
+The current audit is the [2026-10-23 usability, delivery and upgrade-maintenance review](2026-10-23-usability-and-delivery-review.md), governed by the October23 amendment to [ADR-0001](../adr/0001-complete-character-lifecycle.md).
+It reproduces the user's unusable-sheet state, quantifies implemented versus
+uncompleted work and sets the next repair order, proportional test strategy and
+native-update qualification workflow. Application fixes are still pending.
+
+The [2026-10-19 character-lifecycle discovery](2026-10-19-character-lifecycle.md)
+retains stable DD-01–36 requirements, historical evidence and unresolved E01–E05
+dependencies. Nothing is marked complete or discarded by selecting the new audit.
 
 Implementation progress belongs in that ADR's milestone ledger and the linked [verification matrix](../plans/0001-verification.md). This is the module's only active plan. Ignored `temp/audit-report/` preparation-runtime research remains parked and is not a parallel implementation queue. Core and sibling-module audits are references only.
 

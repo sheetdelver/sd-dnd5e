@@ -1,5 +1,26 @@
 # D&D 5e module architecture
 
+## Current repair and maintenance direction
+
+The October23 [independent QA review](audits/2026-10-23-usability-and-delivery-review.md)
+and ADR-0001 amendment supersede the historical next-matrix queue. The current
+source has substantial partial preparation, but benign effect metadata can gate
+the whole character and repeated diagnostics break the actual sheet layout.
+Repair those outcomes before expanding rule permutations. Complete player
+operations, with proportional regression checks, are the progress measure.
+
+Installed authorized documents/settings are the content authority. Versioned
+adapters cover only executable semantics unavailable as source data; avoid copied
+content tables and unnecessary global rejection. A representative native character
+corpus plus changed-domain comparisons qualifies updates offline/CI. The current
+exact6.0.6 gate has not yet been replaced; an unknown-version source-inspection
+fallback is planned, not implemented. Do not claim future-version rule support.
+
+The review verifies Core0.21.0/SDK3.7 compatibility checks and inventories newly
+available public presentation/package APIs versus still-missing general content,
+world-clock and concurrency capabilities. D&D minimums remain unchanged. Native
+runtime research remains parked; no Core capability is fabricated by this plan.
+
 `info.json` is the compatibility authority. The module requires Core 0.19.3
 and UI API 3.1; the remaining API ranges are declared there. Its experimental
 designation is intentional and must not be removed as release housekeeping.

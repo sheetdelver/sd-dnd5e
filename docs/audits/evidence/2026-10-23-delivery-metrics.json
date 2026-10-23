@@ -1,0 +1,44 @@
+{
+  "baseline": "e0fd608",
+  "head": "5b525454b9b99368b8f5c70a7a5f4fef4e1340af",
+  "commitsAfterBaseline": 125,
+  "diffCategories": {
+    "other": {
+      "filesChanged": 7,
+      "linesAdded": 764,
+      "linesDeleted": 59
+    },
+    "runtime/UI": {
+      "filesChanged": 130,
+      "linesAdded": 5374,
+      "linesDeleted": 477
+    },
+    "docs": {
+      "filesChanged": 128,
+      "linesAdded": 451755,
+      "linesDeleted": 66
+    },
+    "scripts": {
+      "filesChanged": 108,
+      "linesAdded": 7263,
+      "linesDeleted": 0
+    },
+    "tests/fixtures": {
+      "filesChanged": 236,
+      "linesAdded": 761116,
+      "linesDeleted": 4
+    }
+  },
+  "caveat": "Diff volumes include generated JSON matrices, evidence and scripts. They are not product completion or redundancy percentages.",
+  "verification": {
+    "core": "0.21.0 at 597ffbae",
+    "toolingSuites": 9,
+    "moduleSuites": 87,
+    "explicitTypedFiles": 317,
+    "result": "passed"
+  },
+  "documentationLines": {
+    "docs/adr/0001-complete-character-lifecycle.md": 3481,
+    "docs/plans/0001-verification.md": 4047
+  }
+}

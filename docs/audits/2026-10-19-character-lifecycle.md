@@ -1,6 +1,11 @@
 # D&D module: complete character-lifecycle discovery audit
 
-Status: **active implementation; investigation retained, acceptance open**. Date: 2026-10-19.
+Status: **historical discovery and implementation evidence retained; acceptance open**. Date: 2026-10-19.
+
+The active review is now [October23 usability/delivery QA](2026-10-23-usability-and-delivery-review.md).
+It supersedes the next-field-matrix work queue with confirmed sheet repairs,
+proportional tests and complete player workflows. DD-01–36 and existing external
+dependencies below remain requirements/evidence; they are not closed or discarded.
 
 Owning plan: [accepted module ADR-0001](../adr/0001-complete-character-lifecycle.md). Supporting [native reference](../reference/native-6.0.6.md) and [acceptance matrix](../plans/0001-verification.md). This audit replaces no completed Core or sibling-module decision and does not activate parked native-runtime research.
 
