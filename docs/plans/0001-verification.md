@@ -4011,3 +4011,37 @@ M2/ADR remain open,including the proven E04 timed-input gap. Next finish remaini
 save/ability/initiative transfer scopes and Item subtype/condition composition.
 
 [C107 evidence](../audits/evidence/2026-10-23-c107-transferred-fields.json) records commands,hashes,historical restrictions and phase limits.
+
+
+### Implementation checkpoint identities — C99–C107
+
+These local commits retain separate regression,controlled-source,mounted and
+isolated public-host evidence. Full M2/ADR and installed/native/operator acceptance
+remain open. No version/compatibility metadata changed in these checkpoints.
+
+| Checkpoint | Implementation commit | Scope |
+| --- | --- | --- |
+| C99 | `a6a5028` | Owned consumption references and exact source identities |
+| C100 | `98372c5` | Source-linked spell contexts and numeric spell attacks |
+| C101 | `441462b` | Scalar predicates and explicit Q02a dispositions |
+| C102 | `804cb2c` | Shared Spell fields and Activity save DCs |
+| C103 | `adc097f` | Initialized base damage formulas and source parts |
+| C104 | `12c1116` | Weapon source→derived range correction |
+| C105 | `3f0adbf` | Executable E04 timed-context read qualification |
+| C106 | `3022989` | Transferred final scalar inventory |
+| C107 | `68d1a29` | Transferred final trait/text/flag inventory |
+
+The C104 correction fails73/73 before and0 after;C106 fails2644/4760 before
+and0 after;C107 fails4327/7868 before and0 after. Each same-input source fixture,
+command,artifact hash and evidence limitation is retained in its checkpoint entry.
+Latest complete checks:87 module/9 tooling suites (61 assertions),317 explicit typed
+files,2242/591 exact-release records/expressions,mounted1440/390,162826 public-host
+requests and isolated check/package PASS. Latest final focused checks add the
+representative empty-recipe/poison cases without changing runtime implementation.
+All task-owned services stopped;preexisting listeners untouched.
+
+Full timed applicability requires the evidenced E04 public clock input;this is
+not a completed rule profile or a newly declared Core defect. Independent next
+work remains save/ability/initiative transfer scopes and Item subtype/condition/
+local-effect composition. E01 and wider Q00/E05 stay open. Effective activity,
+casting and write execution remain downstream milestones.

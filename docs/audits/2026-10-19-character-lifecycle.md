@@ -2684,3 +2684,7 @@ M2/ADR remain open,including the proven E04 timed-input gap. Next finish remaini
 save/ability/initiative transfer scopes and Item subtype/condition composition.
 
 [C107 evidence](evidence/2026-10-23-c107-transferred-fields.json) records commands,hashes,historical restrictions and phase limits.
+
+
+C107 implementation is `68d1a29`;C99–C107 identities and the current open M2 gates
+are indexed in [the verification ledger](../plans/0001-verification.md#implementation-checkpoint-identities--c99c107).
