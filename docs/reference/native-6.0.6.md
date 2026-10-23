@@ -1601,3 +1601,14 @@ not proof of native effect replacement-data/source initialization. The module
 keeps locale/object-collection/unknown-path cases explicitly unavailable. Frozen
 C35 contains(14,14) truth is separately asserted before its restriction is superseded.
 [C101 decisions/evidence](../audits/evidence/2026-10-23-c101-filter-dispositions.json).
+
+
+C102 executes SpellData shared-field schema/cleaning,derived mgc/concentration and
+final hooks with actual BaseActivity common final.6 cases cover defaults,parent
+inheritance,ignored nonoverrides,explicit overrides,zero and Uses-before-field
+references. Description/base/component labels/Set.reduce and explicit casting/Item
+roll-data collaborators are declared.151 actual Save prepareData/ability/getRollData/
+final DC profiles distinguish source calculation from initialized/prepared DCs,
+target-first formula modifiers,flat0 and no-caster11. Common/damage-label seams
+exclude save/damage/target execution and full DataModel/runtime acceptance.
+[C102 evidence](../audits/evidence/2026-10-23-c102-spell-fields.json).

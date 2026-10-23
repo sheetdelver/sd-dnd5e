@@ -3287,3 +3287,38 @@ classes remain separate from installed/native/operator acceptance. M2/ADR stay o
 Next:shared spell/common inheritance,save DC/damage read dependencies and M2 exits.
 
 [C101 evidence](../audits/evidence/2026-10-23-c101-filter-dispositions.json) includes every decision,command,hash and limitation.
+
+
+### C102 — shared spell fields and Activity save DCs (2026-10-23)
+
+C101 is `441462b`. Spell intrinsic activation,duration,range and targets now share
+the existing common-field fold with qualified utility/save Activities. Verified
+parent defaults apply before explicit child overrides;prepared-looking overrideSet
+never substitutes for source override intent. Native magical/identification and
+attunement visibility defaults,initialized zero and parent-before-child counters
+remain distinct from source. Modern Spell summaries use shared prepared facts
+instead of raw range/duration/casting heuristics.
+
+Save DCs share earlier prepared ability/DC and casting contexts. Initial calculation
+normalizes separately for Spell and nonspell Items;explicit abilities,ordered target
+Sets,spellcasting and flat formulas retain their native semantics. An absent flat
+formula prepares0,not an Actor DC fallback. The verified no-caster default is11 at
+base proficiency3. Nonpersisted save.dc.bonus/value poison never becomes a source
+override;persisted save.bonus remains a separate M4 saving-throw dependency. Actor
+cards say Spell default DC,while action rows and both detail layouts format the
+specific Activity DC. Source is unchanged;execution remains gated. Save common
+readiness does not admit unqualified transferred Item final subtype effects.
+
+6 actual native Spell/schema/derived/final/common cases plus151 save DC phase
+profiles establish independent expectations;all157 same final inputs fail C101
+and pass after.82 module/9 tooling suites (61 assertions),303 explicit typed files,
+exact2242/591 source verification,mounted1440/390 live intrinsic/override fields,
+DC15→0→unavailable→15 and held callbacks,117670 accepted public-host requests
+(628 new independent check requests) and isolated check/package PASS. One unary
+candidate and1880 tied-index diagnostics stay recorded;host serialization is
+unchanged. Task-owned services stopped. Method/schema,regression,mounted seams and
+isolated-host evidence remain distinct from full DataModel/installed/native/operator
+acceptance. M2/ADR remain open;next finish damage/modifier read dependencies,Item
+final/effect composition and existing A02–A06 source/override/order/multiclass exits.
+
+[C102 evidence](../audits/evidence/2026-10-23-c102-spell-fields.json) records commands,hashes,collaborators and limits.

@@ -27,7 +27,7 @@ export interface ActionRow {
     /** Display string (e.g. "5 ft." or "30/120 ft."). */
     range?: string;
     /** Display string for save DC (e.g. "DC 15 DEX"). */
-    save?: string;
+    save?: string;saveReason?:string;
     /** Uses remaining / max, when limited. */
     uses?: { value: number; max: number };
     /**

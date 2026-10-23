@@ -7,7 +7,10 @@ import {prepareUses606,emptyUses606 as emptyUses,type UsesFacts} from './uses';
 export {prepareUses606} from './uses';
 export type {UsesFacts,RecoveryFact} from './uses';
 import {spellMetadata606,type SpellMetadata} from './spell-metadata';
-import {prepareSpellContexts606,type SpellContext606} from './spell-context';
+import {prepareCastingContexts606,type SpellContext606} from './spell-context';
+import {prepareSpellCommon606} from './activity-common';
+import {prepareActivitySave606,type ActivitySave606} from './activity-save';
+import {prepareCombatModifiers606,type CombatModifiers606} from './combat-modifiers';
 import {weaponModes606,itemAttack606,type AttackFacts} from './item-combat';
 import type {NumericEffects} from './numeric-effects';
 import {record,activityTypes,ownedItemUuid} from '../native/6.0.6/source';
@@ -15,8 +18,8 @@ import type {RulesContext} from '../rules-context';
 import {numericConstant} from './numeric';
 import {EQUIPPABLE_TYPES_606,itemEffectState606} from './item-effect-state';
 export interface ItemFact<T>{status:'ready'|'unavailable'|'not-applicable';value:T|null;reason?:string;origin:'source'|'schema-default'|'prepared';provenance:string}
-export interface ActivityFacts {id:string;itemId:string;type:string;name:string;sort:number;activation:string|null;common?:ActivityCommon606;uses:UsesFacts;status:'ready'|'unavailable';reason?:string;executionReason:string;attack?:ItemFact<AttackFacts>}
-export interface ItemFacts {attunement?:ItemFact<string>;proficiency:ItemProficiency606;physical?:PhysicalItem606;id:string;uuid:string|null;type:string;name:string;status:'ready'|'partial'|'unavailable';reason?:string;quantity:ItemFact<number>;weight:ItemFact<{value:number;units:string;stack:number|null}>;equipped:ItemFact<boolean>;attuned:ItemFact<boolean>;uses:UsesFacts;activities:ActivityFacts[];activityStatus:'ready'|'unavailable';activityReason?:string;provenance:string;attackModes:ItemFact<string[]>;spell?:ItemFact<SpellMetadata>;casting?:SpellContext606}
+export interface ActivityFacts {id:string;itemId:string;type:string;name:string;sort:number;activation:string|null;common?:ActivityCommon606;uses:UsesFacts;status:'ready'|'unavailable';reason?:string;executionReason:string;attack?:ItemFact<AttackFacts>;save?:ItemFact<ActivitySave606>}
+export interface ItemFacts {attunement?:ItemFact<string>;proficiency:ItemProficiency606;physical?:PhysicalItem606;id:string;uuid:string|null;type:string;name:string;status:'ready'|'partial'|'unavailable';reason?:string;quantity:ItemFact<number>;weight:ItemFact<{value:number;units:string;stack:number|null}>;equipped:ItemFact<boolean>;attuned:ItemFact<boolean>;uses:UsesFacts;activities:ActivityFacts[];activityStatus:'ready'|'unavailable';activityReason?:string;provenance:string;attackModes:ItemFact<string[]>;spell?:ItemFact<SpellMetadata>;casting?:SpellContext606;spellCommon?:ActivityCommon606}
 export interface OwnedItemFacts {attunement?:{status:'ready'|'unavailable';value:number|null;max:number|null;display:string;reason?:string;provenance:string};resourceSummary:string;status:'ready'|'partial'|'unavailable';reason?:string;items:Record<string,ItemFacts>;provenance:string}
 const provenance='release-6.0.6 PhysicalItemTemplate / ActivitiesTemplate / UsesField; source-only read preparation';
 export const activityItemTypes=['consumable','equipment','facility','feat','spell','tool','weapon'];
@@ -28,9 +31,9 @@ const na=<T>():ItemFact<T>=>({...fact<T>(null),status:'not-applicable'});
 const nat=(value:unknown,fallback:number,integer=false):number|null=>value===undefined?fallback:typeof value==='number'&&Number.isFinite(value)&&value>=0&&value<=1e9&&(!integer||Number.isSafeInteger(value))?value:null;
 /** A single detached owned-Item projection. It does not execute activities,
  * infer grants from names, or present old prepared-looking fields as source. */
-export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?:NumericEffects):OwnedItemFacts {
+export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?:NumericEffects,preparedCombat?:CombatModifiers606):OwnedItemFacts {
  const source=record(actor),list=source?.items,items:Record<string,ItemFacts>=Object.create(null),ids=new Map<string,number>();
- const casting=effects?prepareSpellContexts606(actor,context,effects):{};
+ const castingContexts=effects?prepareCastingContexts606(actor,context,effects):undefined,casting=castingContexts?.spells??{},combat=effects?preparedCombat??prepareCombatModifiers606(actor,context,effects):undefined;
  if(!Array.isArray(list))return {resourceSummary:'Unavailable',status:'unavailable',reason:'Owned Item collection unavailable',items,provenance};
  for(const raw of list){const id=record(raw)?._id;if(typeof id==='string')ids.set(id,(ids.get(id)??0)+1);}
  let overallReason:string|undefined;
@@ -57,6 +60,7 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
   const uses=hasActivities?prepareUses606(data.uses,common??itemEffectReason,itemBindings):emptyUses('not-applicable');
   const activityBindings={...itemBindings};
   if(uses.status==='ready'){activityBindings['item.uses.value']=uses.remaining!;if(uses.limited)activityBindings['item.uses.max']=uses.max!;}
+  const spellCommon=type==='spell'?prepareSpellCommon606(item,activityBindings,common??itemEffectReason,context,actor):undefined;
   const activities:ActivityFacts[]=[];let activityReason=common??itemEffectReason;
   const collection=data.activities===undefined?{}:record(data.activities);
   if(!collection)activityReason??='Activity source mapping malformed';
@@ -64,16 +68,18 @@ export function prepareOwnedItems606(actor:unknown,context:RulesContext,effects?
    if(!a||typeof aid!=='string'||aid!==key||!aid||typeof atype!=='string'||!activityTypes.includes(atype as typeof activityTypes[number])){activityReason??='Activity identity/type unavailable';continue;}
    const activation=record(a.activation),activationType=activation?.type===undefined?null:typeof activation.type==='string'?activation.type:null;
    const reason=common??itemEffectReason??(a.activation!==undefined&&!activation?'Activity activation source malformed':undefined);
-   const scopedBindings={...activityBindings,...(nat(record(a.uses)?.spent,0,true)!==null?{'activity.uses.spent':nat(record(a.uses)?.spent,0,true)!}:{}),...(atype==='utility'&&type!=='spell'?{mod:0}:{})};
+   const scopedBindings={...activityBindings,...(nat(record(a.uses)?.spent,0,true)!==null?{'activity.uses.spent':nat(record(a.uses)?.spent,0,true)!}:{}),...(atype==='utility'?(type!=='spell'?{mod:0}:casting[id]?.status==='ready'?{mod:casting[id].modifier!}:{}):{})};
    const activityUses=prepareUses606(a.uses,reason,scopedBindings),currentBindings:Record<string,number>={...scopedBindings};
    if(activityUses.status==='ready'){currentBindings['activity.uses.value']=activityUses.remaining!;if(activityUses.limited)currentBindings['activity.uses.max']=activityUses.max!;}
-   const commonFields=prepareActivityCommon606(a,item,scopedBindings,reason,context,actor);
-   activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:commonFields.activation?.type??activationType,common:commonFields,uses:activityUses,status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects,proficiency,currentBindings,casting[id])}:{})});
+   const save=atype==='save'&&combat?prepareActivitySave606(a,type==='spell',type==='spell'?casting[id]:castingContexts?.actor,combat,currentBindings,reason):undefined;
+   const commonBindings=save?.status==='ready'?{...scopedBindings,mod:save.value!.modifier}:scopedBindings;
+   const commonFields=prepareActivityCommon606(a,item,commonBindings,reason??(atype==='save'&&save?.status!=='ready'?save?.reason??'Save common ability context unavailable':undefined),context,actor);
+   activities.push({id:aid,itemId:id,type:atype,name:typeof a.name==='string'&&a.name?a.name:`${name}: ${atype}`,sort:typeof a.sort==='number'&&Number.isFinite(a.sort)?a.sort:0,activation:commonFields.activation?.type??activationType,common:commonFields,uses:activityUses,status:reason?'unavailable':'ready',reason,executionReason:'Activity execution requires the M4 reviewed command pipeline',...(save?{save}:{}),...(atype==='attack'&&effects?{attack:reason?fact<AttackFacts>(null,reason,'prepared'):itemAttack606(actor,item,a,context,effects,proficiency,currentBindings,casting[id])}:{})});
   }
   activities.sort((a,b)=>a.sort-b.sort);
   if(activityReason)for(const a of activities){a.status='unavailable';a.reason??=activityReason;}
   const status=common?'unavailable':uses.status==='unavailable'||proficiency.status==='unavailable'||attuned.status==='unavailable'||q.status==='unavailable'||w.status==='unavailable'||activityReason||activities.some(activity=>activity.uses.status==='unavailable')?'partial':'ready';
-  items[id]={id,...(equippable?{attunement:fact(finalEquippable?.attunement??null,attunementReason,'prepared')}:{}),proficiency,...(type==='spell'?{spell:spellMetadata606(data,common),casting:casting[id]}:{}),attackModes:weaponModes606(item,common??effects?.ruleFlags.reason,(effects?.executionFlags??effects?.ruleFlags)?.enhancedDualWielding),uuid:identityReason?null:uuid,type,name,status,reason:common??attuned.reason??uses.reason??q.reason??w.reason??activityReason??proficiency.reason??activities.find(activity=>activity.uses.status==='unavailable')?.uses.reason,quantity:q,weight:w,equipped,attuned,uses,activities,activityStatus:activityReason?'unavailable':'ready',activityReason,provenance};
+  items[id]={id,...(equippable?{attunement:fact(finalEquippable?.attunement??null,attunementReason,'prepared')}:{}),proficiency,...(type==='spell'?{spell:spellMetadata606(data,common),casting:casting[id],spellCommon}:{}),attackModes:weaponModes606(item,common??effects?.ruleFlags.reason,(effects?.executionFlags??effects?.ruleFlags)?.enhancedDualWielding),uuid:identityReason?null:uuid,type,name,status,reason:common??attuned.reason??uses.reason??q.reason??w.reason??activityReason??proficiency.reason??activities.find(activity=>activity.uses.status==='unavailable')?.uses.reason,quantity:q,weight:w,equipped,attuned,uses,activities,activityStatus:activityReason?'unavailable':'ready',activityReason,provenance};
  }
  const attunementValue=effects?.plan.equippable?.count??null,rawMax=record(record(record(source?.system)?.attributes)?.attunement)?.max,max=rawMax===undefined?3:typeof rawMax==='number'&&Number.isSafeInteger(rawMax)&&rawMax>=0&&rawMax<=1e9?rawMax:null,attunementReason=contextReason??effects?.reason??effects?.plan.equippable?.reason??overallReason??(record(actor)?.type!=='character'?'Character attunement profile unavailable':attunementValue===null||max===null?'Attunement preparation/source maximum unavailable':undefined),attunement={status:(attunementReason?'unavailable':'ready') as 'unavailable'|'ready',value:attunementReason?null:attunementValue,max:attunementReason?null:max,display:attunementReason?'Unavailable':attunementValue+'/'+max,reason:attunementReason,provenance:'release-6.0.6 nonpersisted Actor attunement0 / EquippableItemTemplate final increments;source max/default3'};
  return {attunement,resourceSummary:Object.values(items).filter(item=>item.uses.limited||item.uses.status==='unavailable').map(item=>item.name+': '+item.uses.display).join('; ')||(overallReason||contextReason?'Unavailable':'No limited uses'),status:overallReason?'partial':Object.values(items).some(item=>item.status!=='ready')?'partial':'ready',reason:overallReason,items,provenance};

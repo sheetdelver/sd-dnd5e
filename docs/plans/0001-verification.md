@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C101)
+### Current M2 exit state (updated C102)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3258,7 +3258,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;C101 records every predicate/operand and unknown-snapshot unsupported fixture/decision for Q02a;this does not complete unsupported rules support |
 | Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;C99 adds qualified owned consumption references;remaining canonical compendium references/spell parents/subtypes and wider Item/effect final preparation remain |
-| Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;C100 adds exact per-spell class/subclass/Activity ability contexts and numeric spell attack read construction;parent common fields,save DC/damage construction and wider effect profiles remain unqualified |
+| Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;C100 adds exact per-spell class/subclass/Activity ability contexts and numeric spell attack read construction;C102 adds Spell intrinsic/common inheritance/overrides and Activity save DCs;damage read construction and wider Item/effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
 
 Next executable M2 work:resolve remaining Item-final and applied-rule/filter phases,
@@ -3821,3 +3821,38 @@ classes remain separate from installed/native/operator acceptance. M2/ADR stay o
 Next:shared spell/common inheritance,save DC/damage read dependencies and M2 exits.
 
 [C101 evidence](../audits/evidence/2026-10-23-c101-filter-dispositions.json) includes every decision,command,hash and limitation.
+
+
+### C102 — shared spell fields and Activity save DCs (2026-10-23)
+
+C101 is `441462b`. Spell intrinsic activation,duration,range and targets now share
+the existing common-field fold with qualified utility/save Activities. Verified
+parent defaults apply before explicit child overrides;prepared-looking overrideSet
+never substitutes for source override intent. Native magical/identification and
+attunement visibility defaults,initialized zero and parent-before-child counters
+remain distinct from source. Modern Spell summaries use shared prepared facts
+instead of raw range/duration/casting heuristics.
+
+Save DCs share earlier prepared ability/DC and casting contexts. Initial calculation
+normalizes separately for Spell and nonspell Items;explicit abilities,ordered target
+Sets,spellcasting and flat formulas retain their native semantics. An absent flat
+formula prepares0,not an Actor DC fallback. The verified no-caster default is11 at
+base proficiency3. Nonpersisted save.dc.bonus/value poison never becomes a source
+override;persisted save.bonus remains a separate M4 saving-throw dependency. Actor
+cards say Spell default DC,while action rows and both detail layouts format the
+specific Activity DC. Source is unchanged;execution remains gated. Save common
+readiness does not admit unqualified transferred Item final subtype effects.
+
+6 actual native Spell/schema/derived/final/common cases plus151 save DC phase
+profiles establish independent expectations;all157 same final inputs fail C101
+and pass after.82 module/9 tooling suites (61 assertions),303 explicit typed files,
+exact2242/591 source verification,mounted1440/390 live intrinsic/override fields,
+DC15→0→unavailable→15 and held callbacks,117670 accepted public-host requests
+(628 new independent check requests) and isolated check/package PASS. One unary
+candidate and1880 tied-index diagnostics stay recorded;host serialization is
+unchanged. Task-owned services stopped. Method/schema,regression,mounted seams and
+isolated-host evidence remain distinct from full DataModel/installed/native/operator
+acceptance. M2/ADR remain open;next finish damage/modifier read dependencies,Item
+final/effect composition and existing A02–A06 source/override/order/multiclass exits.
+
+[C102 evidence](../audits/evidence/2026-10-23-c102-spell-fields.json) records commands,hashes,collaborators and limits.

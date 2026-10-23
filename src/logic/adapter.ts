@@ -148,9 +148,10 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         prepared.derived.speciesIdentity=species;
         prepared.derived.race=species.name??'';
         const effects=prepareNumericEffects606(actor,rules);
-        const owned=prepareOwnedItems606(actor,rules,effects);const physical=preparePhysical606(actor,rules,owned,effects);
+        const combat=prepareCombatModifiers606(actor,rules,effects);
+        const owned=prepareOwnedItems606(actor,rules,effects,combat);const physical=preparePhysical606(actor,rules,owned,effects);
         prepared.derived.physical=physical;
-        prepared.derived.combatModifiers=prepareCombatModifiers606(actor,rules,effects);
+        prepared.derived.combatModifiers=combat;
         for(const [id,facts]of Object.entries(physical.items))if(owned.items[id])owned.items[id].physical=facts;
         prepared.derived.ownedItems=owned;
         prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
@@ -432,7 +433,7 @@ export class DnD5eAdapter extends BaseSystemAdapter {
                 {title:'Training',value:training.summary,subValue:training.reason},
                 {title:'Resources',value:ownedItemProjection(actor.derived).resourceSummary},
                 ...((actor.derived.lifecycle as {profile?:string}|undefined)?.profile!=='legacy-limited'?[{title:'Attunement',value:ownedItemProjection(actor.derived).attunement?.display??'Unavailable',subValue:ownedItemProjection(actor.derived).attunement?.reason}]:[]),
-                ...((actor.derived.lifecycle as {profile?:string}|undefined)?.profile!=='legacy-limited'&&actor.items.some(item=>item.type==='spell')?[{title:'Spell DC',value:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.value??'—',subValue:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.reason}]:[]),
+                ...((actor.derived.lifecycle as {profile?:string}|undefined)?.profile!=='legacy-limited'&&actor.items.some(item=>item.type==='spell')?[{title:'Spell default DC',value:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.value??'—',subValue:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.reason}]:[]),
             ],
         };
     }

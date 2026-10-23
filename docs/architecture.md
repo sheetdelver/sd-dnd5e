@@ -1731,3 +1731,13 @@ remain unavailable pending locale qualification;object collection traversal and
 unknown snapshot paths remain unavailable. Reads retain initial/configured/mixed
 provenance. Boolean short-circuiting cannot conceal an unqualified branch.
 [C101 decisions/evidence](audits/evidence/2026-10-23-c101-filter-dispositions.json).
+
+
+Spell intrinsic fields and qualified child common fields use one schema/default/
+expression fold. Child override flags apply before preparation;overrideSet/labels
+from source never override that intent. Parent and child counters stay phase-ordered.
+Save DCs use the shared casting context and earlier prepared combat facts;flat0
+remains0. Nonpersisted DC bonus/value never supply source overrides. Actor default
+DC and Activity DC have distinct labels. Modern Spell summaries,action rows and
+Item/Spell details format the same facts;source and execution readiness stay separate.
+[C102 evidence](audits/evidence/2026-10-23-c102-spell-fields.json).

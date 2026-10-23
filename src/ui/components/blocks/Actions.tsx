@@ -118,7 +118,7 @@ export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props)
                                 </span>
                             )}
                             {row.save && (
-                                <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                                <span title={row.saveReason} style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                                     {row.save}
                                 </span>
                             )}

@@ -29,6 +29,7 @@ function actorFinalRecipeReason(item:Record<string,unknown>,data:Record<string,u
   if(!uses||counter.status!=='ready'||counter.recovery.status!=='ready')return 'Transferred Item final uses require qualified independent capacity/recovery metadata';
   for(const [id,raw]of Object.entries(activities)){
    const activity=record(raw);if(!activity||activity._id!==id)return 'Transferred Item final activity identity unavailable';
+   if(activity.type!=='utility')return 'Transferred Item final Activity subtype requires qualification';
    const bindings:Record<string,number>={mod:0,'item.uses.spent':counter.spent!,'item.uses.value':counter.remaining!};if(counter.limited)bindings['item.uses.max']=counter.max!;
    const common=prepareActivityCommon606(activity,item,bindings,undefined,context,actor);if(common.status!=='ready')return common.reason;
    const childSpent=record(activity.uses)?.spent;if(childSpent===undefined)bindings['activity.uses.spent']=0;else if(typeof childSpent==='number')bindings['activity.uses.spent']=childSpent;

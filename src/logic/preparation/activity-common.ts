@@ -12,7 +12,7 @@ export interface ActivityCommon606 {
  inferredRangeValue?:string|number|null;
  consumption?:ConsumptionPreparation606;
 }
-const provenance='release-6.0.6 BaseActivityData schema/prepareFinalData and Activation/Duration/Range/Target fields;nonspell utility profile';
+const provenance='release-6.0.6 BaseActivityData/SpellData schema/final and Activation/Duration/Range/Target fields;qualified utility/common read profile';
 const no=(reason:string):ActivityCommon606=>({status:'unavailable',reason,provenance});
 const areaDimensions:Record<string,ActivityTemplate606['dimensions']>={circle:{size:'Radius'},cone:{size:'Length'},cube:{size:'Width'},cylinder:{size:'Radius',height:'Height'},line:{size:'Length',width:'Width'},radius:{size:'Label'},ring:{size:'Radius',width:'Thickness',height:'Height'},sphere:{size:'Radius'},square:{size:'Width'},wall:{size:'Length',width:'Thickness',height:'Height'}};
 function defaultLengthUnits(context?:RulesContext):string|undefined {const setting=context?.settings['dnd5e.metricLengthUnits'];return context?.status==='supported'&&context.profile==='2024'&&setting&&setting.status!=='unavailable'&&typeof setting.value==='boolean'?setting.value?'m':'ft':undefined;}
@@ -39,16 +39,29 @@ function prepareTemplate(raw:Record<string,unknown>,bindings:FormulaBindings606,
 export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:FormulaBindings606={},gate?:string,context?:RulesContext,actor?:unknown):ActivityCommon606 {
  if(gate)return no(gate);
  const a=record(raw),parent=record(item),s=parent?.system===undefined?{}:record(parent.system);
- if(!a||!s||a.type!=='utility'||!['tool','equipment','consumable','weapon'].includes(String(parent?.type)))return no('Activity common final preparation requires a qualified nonspell utility Item');
+ if(!a||!s||!['utility','save'].includes(String(a.type))||!['tool','equipment','consumable','weapon','spell'].includes(String(parent?.type)))return no('Activity common final preparation requires a qualified utility/save Item');
  if(['behaviors','effects'].some(key=>a[key]!==undefined&&(!Array.isArray(a[key])||(a[key]as unknown[]).length)))return no('Activity behaviors/effect profiles require final preparation qualification');
- const mapping=(value:unknown)=>value===undefined?{}:record(value),activation=mapping(a.activation),duration=mapping(a.duration),range=mapping(a.range),target=mapping(a.target),visibility=mapping(a.visibility),consumption=mapping(a.consumption);
+ const mapping=(value:unknown)=>value===undefined?{}:record(value),visibility=mapping(a.visibility),consumption=mapping(a.consumption);
+ let activation=mapping(a.activation),duration=mapping(a.duration),range=mapping(a.range),target=mapping(a.target);
  if(!activation||!duration||!range||!target||!visibility||!consumption)return no('Activity common source container malformed');
+ const spell=parent?.type==='spell',overrides:Record<string,boolean>={};
+ for(const [key,value]of Object.entries({activation,duration,range,target})){
+  if(value.override!=null&&typeof value.override!=='boolean')return no('Activity field override source malformed: '+key);
+  overrides[key]=value.override===true;
+ }
+ if(spell){
+  // These four fields belong to the Spell schema. Parent defaults exist even
+  // when absent from raw source. Nonpersisted overrideSet never changes intent.
+  const inherit=(key:string,child:Record<string,unknown>)=>overrides[key]?child:mapping(s[key]);
+  activation=inherit('activation',activation);duration=inherit('duration',duration);range=inherit('range',range);target=inherit('target',target);
+  if(!activation||!duration||!range||!target)return no('Spell common source container malformed');
+ }
  const affects=mapping(target.affects),template=mapping(target.template);
  if(!affects||!template)return no('Activity target source container malformed');
  const references=prepareConsumptionReferences606(consumption,actor,item);if(references.status!=='ready')return no(references.reason!);
  const string=(value:unknown,fallback:string):string|null=>value==null?fallback:typeof value==='string'?value.trim():null;
  const bool=(value:unknown):boolean|null=>value==null?false:typeof value==='boolean'?value:null;
- const activationType=string(activation.type,'action'),durationUnits=string(duration.units,'inst'),targetType=string(affects.type,''),override=bool(range.override);
+ const activationType=string(activation.type,'action'),durationUnits=string(duration.units,'inst'),targetType=string(affects.type,''),override=overrides.range;
  const requireMagic=bool(visibility.requireMagic),requireAttunement=bool(visibility.requireAttunement),requireIdentification=bool(visibility.requireIdentification);
  if(activationType===null||!['action','bonus','reaction','minute','hour','day'].includes(activationType)||durationUnits===null||!['inst','spec','disp','dstr','perm','turn','round','second','minute','hour','day','week','month','year'].includes(durationUnits)||targetType===null||!['','self','ally','enemy','creature','object','space','creatureOrObject','any','willing'].includes(targetType)||[override,requireMagic,requireAttunement,requireIdentification].some(v=>v===null))return no('Activity common selector/Boolean source outside qualified profile');
  const scalarActivation=['minute','hour','day'].includes(activationType),activationValue=scalarActivation?(activation.value==null?null:typeof activation.value==='number'&&Number.isInteger(activation.value)&&activation.value>=0&&activation.value<=1e9?activation.value:undefined):null;
@@ -57,7 +70,7 @@ export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:Formu
  // Native does not fold an absent/blank FormulaField into a numeric zero here.
  if(scalarDuration&&(duration.value==null||duration.value===''))return no('Activity scalar duration value unavailable');
  if(scalarDuration&&durationValue===null)return no('Activity duration expression/reference requires qualification');
- let rangeValue:unknown=range.value,rangeUnits=string(range.units,'self'),inherited=false;
+ let rangeValue:unknown=range.value,rangeUnits=string(range.units,'self'),inherited=spell&&!override;
  if(parent?.type==='weapon'&&!override){
   const r=mapping(s.range);if(!r)return no('Parent weapon range source malformed');
   const valid=(v:unknown)=>v==null||typeof v==='number'&&Number.isFinite(v)&&v>=0&&v<=1e9;
@@ -76,8 +89,15 @@ export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:Formu
  if(scalarTarget&&(affects.count==null||affects.count===''))return no('Activity target count unavailable');
  if(scalarTarget&&targetCount===null)return no('Activity target expression/reference requires qualification');
  const area=prepareTemplate(template,bindings,context);if(area.reason)return no(area.reason);
- const properties=initializeTraitSet606(s.properties),attunement=string(s.attunement,'');
+ const properties=initializeTraitSet606(s.properties),attunement=spell?'':string(s.attunement,'');
  if(!properties||attunement===null||!['','required','optional'].includes(attunement))return no('Activity Item magic/attunement source unavailable');
- const magic=properties.includes('mgc'),currentAttunement=magic?(attunement==='required'?requireMagic!:Boolean(attunement)&&requireAttunement!):false;
- return {status:'ready',provenance,activation:{type:activationType,value:activationValue},duration:{units:durationUnits,value:durationValue},range:{units:rangeUnits,value:preparedRange,inherited},target:{type:targetType||null,count:targetCount,...(area.template?{template:area.template}:{})},visibility:{requireMagic:magic&&requireMagic!,requireAttunement:currentAttunement,requireIdentification:requireIdentification!},inferredRangeValue,...(references.targets.length?{consumption:references}:{})};
+ const magic=spell||properties.includes('mgc'),currentAttunement=magic?(attunement==='required'?requireMagic!:Boolean(attunement)&&requireAttunement!):false;
+ return {status:'ready',provenance,activation:{type:activationType,value:activationValue},duration:{units:durationUnits,value:durationValue},range:{units:rangeUnits,value:preparedRange,inherited},target:{type:targetType||null,count:targetCount,...(area.template?{template:area.template}:{})},visibility:{requireMagic:spell||magic&&requireMagic!,requireAttunement:currentAttunement,requireIdentification:!spell&&requireIdentification!},inferredRangeValue,...(references.targets.length?{consumption:references}:{})};
+}
+
+/** The Spell's four intrinsic fields use the same schema/default/field fold as
+ * a child which inherits all four. No synthetic source Item or cache is created. */
+export function prepareSpellCommon606(item:unknown,bindings:FormulaBindings606={},gate?:string,context?:RulesContext,actor?:unknown):ActivityCommon606 {
+ if(record(item)?.type!=='spell')return no('Spell common fields require an exact Spell Item');
+ return prepareActivityCommon606({type:'utility'},item,bindings,gate,context,actor);
 }

@@ -81,6 +81,8 @@
     "test:native-spell-context": "node scripts/native-spell-context-oracle.mjs",
     "test:mounted-spell-context": "node scripts/test-mounted-spell-context.mjs",
     "test:native-filter-dispositions": "node scripts/native-filter-dispositions-oracle.mjs",
-    "test:mounted-predicates": "node scripts/test-mounted-predicates.mjs"
+    "test:mounted-predicates": "node scripts/test-mounted-predicates.mjs",
+    "test:native-spell-fields": "node scripts/native-spell-fields-oracle.mjs",
+    "test:mounted-spell-fields": "node scripts/test-mounted-spell-fields.mjs"
   }
 }

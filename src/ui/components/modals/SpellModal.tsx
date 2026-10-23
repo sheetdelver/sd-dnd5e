@@ -67,12 +67,12 @@ export default function SpellModal({ item, onRoll, onClose }: SpellModalProps) {
     const school=typeof schoolKey==='string'?(SCHOOL_LABEL[schoolKey]??schoolKey):undefined;
     const isConcentration=legacy?Boolean(sys.components?.concentration??sys.properties?.concentration):prepared?.value?.concentration;
     const isRitual=legacy?Boolean(sys.components?.ritual??sys.properties?.ritual):prepared?.value?.ritual;
-    const castTime=typeof sys.activation?.type==='string'?sys.activation.type:undefined;
-    const range=typeof sys.range?.value==='number'&&typeof sys.range?.units==='string'?`${sys.range.value} ${sys.range.units}`:['self','touch'].includes(sys.range?.units)?sys.range.units:undefined;
+    const castTime=legacy&&typeof sys.activation?.type==='string'?sys.activation.type:undefined;
+    const range=legacy?(typeof sys.range?.value==='number'&&typeof sys.range?.units==='string'?`${sys.range.value} ${sys.range.units}`:['self','touch'].includes(sys.range?.units)?sys.range.units:undefined):undefined;
     const components=legacy?['vocal','somatic','material'].filter(key=>sys.components?.[key]).map(key=>key[0].toUpperCase()):prepared?.value?.components??[];
-    const duration = sys?.duration?.value && sys?.duration?.units
+    const duration = legacy?(sys?.duration?.value && sys?.duration?.units
         ? `${sys.duration.value} ${sys.duration.units}`
-        : (sys?.duration?.units === 'inst' ? 'Instantaneous' : undefined);
+        : (sys?.duration?.units === 'inst' ? 'Instantaneous' : undefined)):undefined;
 
     if(!liveItem)return <BaseModal open onClose={onClose}><p role="status">Spell no longer available</p><button onClick={onClose}>Close</button></BaseModal>;
     const handleCast = () => {

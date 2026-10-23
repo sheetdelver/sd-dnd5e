@@ -18,7 +18,7 @@ const unavailable=(reason:string):SpellContext606=>({status:'unavailable',reason
  * ability modifiers remain distinct;this is not spell eligibility,slot planning
  * or an alternate Actor cache. Display names and nonpersisted casting maps are
  * deliberately excluded from the identity graph. */
-export function prepareSpellContexts606(actor:unknown,context:RulesContext,effects:NumericEffects):Record<string,SpellContext606> {
+export function prepareCastingContexts606(actor:unknown,context:RulesContext,effects:NumericEffects):{actor:SpellContext606;spells:Record<string,SpellContext606>} {
  const source=record(actor),items=Array.isArray(source?.items)?source.items.map(record):[],out:Record<string,SpellContext606>=Object.create(null);
  const spells=items.filter(item=>item?.type==='spell');
  let gate=context.status!=='supported'||context.profile!=='2024'||source?.type!=='character'?'Spell ability rules context unavailable':effects.reason;
@@ -68,5 +68,7 @@ export function prepareSpellContexts606(actor:unknown,context:RulesContext,effec
   if(!reason&&mod===null)reason='Spell activity ability modifier unavailable';
   out[id]=reason?unavailable(reason):{status:'ready',classIdentifier,availableAbilities:list,activityAbility:activity||'',modifier:mod,provenance};
  }
- return out;
+ const reason=gate??classReason,mod=modifier(fallback);
+ return {spells:out,actor:reason||mod===null?unavailable(reason??'Actor casting modifier unavailable'):{status:'ready',classIdentifier:'',availableAbilities:fallback?[fallback]:[],activityAbility:fallback,modifier:mod,provenance}};
 }
+export const prepareSpellContexts606=(actor:unknown,context:RulesContext,effects:NumericEffects):Record<string,SpellContext606>=>prepareCastingContexts606(actor,context,effects).spells;
