@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';import {DnD5eAdapter} from '../logic/adapter';
+import {flagEffectCases,flagEffectSource,flagEffectContext} from './fixtures/flag-effect-scenarios';
+const adapter=new DnD5eAdapter();
+for(const row of flagEffectCases){const source=flagEffectSource(row),before=structuredClone(source),actor=adapter.prepareActorData(source,flagEffectContext()),d=actor.derived as any,e=row.expected,id=JSON.stringify([row.key,row.sourceValue,row.raw,row.type,row.phase]);
+ assert.equal(d.skills.prc.preparedTotal,e.skill,id);assert.equal(d.skills.prc.total,e.currentSkill,id);assert.equal(d.skills.prc.passive,e.passive,id);assert.equal(d.tools.thief.preparedTotal,e.tool,id);assert.equal(d.tools.thief.total,e.currentTool,id);assert.equal(d.abilities.wis.save,e.save,id);assert.equal(d.initiativeFacts.value,e.initiative,id);assert.equal(d.initiativeFacts.score,e.score,id);assert.equal(d.skills.ath.sourceMode,e.athMode,id);
+ const skill=adapter.getRollData(actor,'skill','prc',{advantage:'normal'}),tool=adapter.getRollData(actor,'tool','thief',{advantage:'normal'});assert.equal(skill?.formula??null,e.halflingBlocked?null:'1d20+'+e.currentSkill,id);assert.equal(tool?.formula??null,e.halflingBlocked?null:'1d20'+(e.toolTalent?'min10':'')+'+'+e.currentTool,id);assert.deepEqual(source,before,id);
+}
+process.stdout.write('R:3024 source/default Boolean flag effect operation and native phase profiles PASS\n');
+// Current intent requires phase metadata;never fall back to stale initial flags.
+{const row=flagEffectCases.find(row=>row.key==='jackOfAllTrades'&&row.sourceValue==='absent'&&row.raw===true&&row.type==='override'&&row.phase==='final')!,source=flagEffectSource(row),actor=adapter.prepareActorData(source,flagEffectContext());delete (actor.derived as any).checkConfiguration.executionFlags;assert.equal(adapter.getRollData(actor,'skill','prc'),null);assert.equal(adapter.getRollData(adapter.prepareActorData(source,flagEffectContext()),'skill','prc')?.formula,'1d20+3');}
+for(const raw of [{value:true},[],Infinity,'x'.repeat(1025)]){const source=flagEffectSource(flagEffectCases[0]);(source.effects![0] as any).system.changes[0].value=raw;assert.equal(adapter.getRollData(adapter.prepareActorData(source,flagEffectContext()),'skill','prc'),null);}

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-22",
+  "checkpoints": [
+    {
+      "checkpoint": "C55",
+      "commit": "85e7e870cdefa993362ba47566c5a9b8fa874a70",
+      "evidence": "docs/audits/evidence/2026-10-22-c55-source-flags-foundation.json",
+      "evidenceSha256": "acc924a0032ba02f834ea5f420a2e3a308b147c3a046b713a118f57624497ab8"
+    },
+    {
+      "checkpoint": "C56",
+      "commit": "4cfbf209857dfadb65ececdff6f094fba396828e",
+      "evidence": "docs/audits/evidence/2026-10-22-c56-source-flags.json",
+      "evidenceSha256": "f826f630689c38402e46c9a7a79d437a1aa8632292dff3579b23a9c7a70aa377"
+    }
+  ],
+  "scope": "Local module checkpoints only;full ADR acceptance open"
+}

@@ -1,104 +1,38 @@
 'use client';
-
 import React from 'react';
-import { useModal } from '../shared/useModal';
-import { useSheet } from '../shared/SheetContext';
-
-interface HpData {
-    value?: number;
-    max?: number;
-    temp?: number;
-}
-
-interface Props {
-    hp?: HpData;
-}
-
-export default function HitPoints({ hp }: Props) {
-    const { openModal } = useModal();
-    const { onUpdate } = useSheet();
-
-    const value = hp?.value ?? 0;
-    const max = hp?.max ?? 0;
-    const temp = hp?.temp ?? 0;
-
-    const open = (initialMode: 'heal' | 'damage' | 'temp') => {
-        openModal('hp', {
-            hp: { value, max, temp },
-            initialMode,
-            onApply: async (next: { value: number; temp: number }) => {
-                if (!onUpdate) return;
-                if (next.value !== value) {
-                    await onUpdate('system.attributes.hp.value', next.value);
-                }
-                if (next.temp !== temp) {
-                    await onUpdate('system.attributes.hp.temp', next.temp);
-                }
-            },
-        });
-    };
-
-    return (
-        <div className="block-card">
-            <h2 className="block-heading">Hit Points</h2>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <button
-                    onClick={() => open('heal')}
-                    disabled={!onUpdate}
-                    style={{
-                        fontSize: '10px',
-                        padding: '4px 8px',
-                        borderRadius: '4px',
-                        border: '1px solid var(--prof-full)',
-                        color: 'var(--prof-full)',
-                        background: 'transparent',
-                        cursor: onUpdate ? 'pointer' : 'default',
-                        opacity: onUpdate ? 1 : 0.4,
-                    }}
-                >
-                    HEAL
-                </button>
-
-                <button
-                    onClick={() => open('temp')}
-                    disabled={!onUpdate}
-                    style={{
-                        flex: 1,
-                        textAlign: 'center',
-                        background: 'transparent',
-                        border: 'none',
-                        cursor: onUpdate ? 'pointer' : 'default',
-                        padding: 0,
-                    }}
-                    title={onUpdate ? 'Edit hit points' : undefined}
-                >
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', gap: '4px' }}>
-                        <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--text-primary)' }}>{value}</span>
-                        <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>/</span>
-                        <span style={{ fontSize: '16px', fontWeight: 'bold', color: 'var(--text-primary)' }}>{max}</span>
-                    </div>
-                    <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>
-                        TEMP: {temp > 0 ? temp : '--'}
-                    </div>
-                </button>
-
-                <button
-                    onClick={() => open('damage')}
-                    disabled={!onUpdate}
-                    style={{
-                        fontSize: '10px',
-                        padding: '4px 8px',
-                        borderRadius: '4px',
-                        border: '1px solid #e74c3c',
-                        color: '#e74c3c',
-                        background: 'transparent',
-                        cursor: onUpdate ? 'pointer' : 'default',
-                        opacity: onUpdate ? 1 : 0.4,
-                    }}
-                >
-                    DAMAGE
-                </button>
-            </div>
+import {useModal} from '../shared/useModal';
+import {useSheet} from '../shared/SheetContext';
+import {hpProjection} from '../../../logic/preparation/health';
+import {HpReadout,HitDiceReadout} from '../shared/HealthFacts';
+import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
+import TemporaryHpControl from '../shared/TemporaryHpControl';
+export default function HitPoints({hp}:{hp?:unknown}){
+    const {openModal}=useModal(),{actor,onUpdate}=useSheet(),fact=hpProjection({hp});
+    // Modern commands require the shared M3 intent/receipt pipeline. Legacy
+    // keeps its explicitly selected, unqualified compatibility behavior.
+    const canEdit=Boolean(onUpdate&&actor?.derived.lifecycle?.profile==='legacy-limited'&&fact.status==='legacy-unqualified');
+    const reason=fact.reason??fact.commandReason;
+    function open(initialMode:'heal'|'damage'|'temp'){
+        if(!canEdit||fact.value===null||fact.effectiveMax===null||fact.temp===null)return;
+        const {value,temp}=fact;
+        openModal('hp',{hp:{value,max:fact.effectiveMax,temp},initialMode,onApply:async(next:{value:number;temp:number})=>{
+            if(!onUpdate)return;
+            if(next.value!==value)await onUpdate('system.attributes.hp.value',next.value);
+            if(next.temp!==temp)await onUpdate('system.attributes.hp.temp',next.temp);
+        }});
+    }
+    return <div className="block-card">
+        <h2 className="block-heading">Hit Points</h2>
+        <div className="dnd5e-hp-controls" style={{display:'grid',gridTemplateColumns:'repeat(2,minmax(0,1fr))',alignItems:'center',gap:'4px'}}>
+            <button type="button" disabled={!canEdit} title={!canEdit?unavailableTitle(reason):undefined} onClick={()=>open('heal')}>HEAL</button>
+            <button type="button" aria-label="Edit hit points" disabled={!canEdit} title={!canEdit?unavailableTitle(reason):'Edit hit points'} onClick={()=>open('temp')} style={{gridColumn:'1 / -1',gridRow:1,minWidth:0,textAlign:'center',background:'transparent',border:'none',color:'var(--text-primary)',fontSize:'20px',fontWeight:700}}>
+                <HpReadout hp={fact}/>
+                <div style={{fontSize:'10px',fontWeight:400,color:'var(--text-muted)'}}>TEMP: <span aria-label="Temporary hit points">{fact.temp??'—'}</span></div>
+            </button>
+            <button type="button" disabled={!canEdit} title={!canEdit?unavailableTitle(reason):undefined} onClick={()=>open('damage')}>DAMAGE</button>
         </div>
-    );
+        <HitDiceReadout hitDice={actor?.derived.hitDice}/>
+        <TemporaryHpControl/>
+        {!canEdit&&fact.reason&&<UnavailableNote reason={fact.reason}/>}
+    </div>;
 }

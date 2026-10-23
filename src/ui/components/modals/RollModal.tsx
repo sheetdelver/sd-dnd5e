@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import RollModalFrame, { ConfigRow, AdvantageButton, inputStyle, selectStyle } from './RollModalFrame';
+import { ABILITY_FULL_NAME } from '../shared/abilityNames';
 
 /**
  * RollModal — pre-flight dialog for any roll, modeled on the Foundry dnd5e
@@ -38,7 +39,7 @@ export interface ConfigField {
     key: string;
     label: string;
     initialValue: string;
-    options: { value: string; label: string }[];
+    options: { value: string; label: string; disabled?:boolean }[];
 }
 
 /**
@@ -71,6 +72,10 @@ export interface RollModalProps {
      * checks where switching the ability re-derives the total).
      */
     computeFormula?: (ctx: FormulaContext) => string;
+    /** Shared prepared-rule compiler; null disables unsupported choices. */
+    preparedDefaultMode?: -1 | 0 | 1;
+    resolveFormula?: (options: Record<string, unknown>) => string | null;
+    resolveCheck?: (options:Record<string,unknown>)=>{sourceMode?:-1|0|1;fixed?:boolean;unavailableReason?:string;defaultUnavailableReason?:string;ability?:string;label?:string}|undefined;
     /** Placeholder text for the situational bonus input. */
     bonusPlaceholder?: string;
     /** Roll-type-specific dropdowns (e.g. Abilities, Attack Mode). */
@@ -88,16 +93,25 @@ export default function RollModal({
     subtitle,
     formula,
     computeFormula,
+    resolveFormula,
+    resolveCheck,
+    preparedDefaultMode: initialDefaultMode = 0,
     bonusPlaceholder = 'Situational Bonus?',
     configFields = [],
     onConfirm,
     onClose,
 }: RollModalProps) {
     const [rollMode, setRollMode] = useState<RollMode>('publicroll');
+    const [hoverMode, setHoverMode] = useState<Advantage>();
+    const [focusMode, setFocusMode] = useState<Advantage>();
+    // Keyboard activation follows focus; hover previews only in its absence.
+    const previewMode = focusMode ?? hoverMode;
     const [bonus, setBonus] = useState<string>('');
     const [configValues, setConfigValues] = useState<Record<string, string>>(() =>
         Object.fromEntries(configFields.map(f => [f.key, f.initialValue]))
     );
+    const configured=resolveCheck?.(configValues);
+    const preparedDefaultMode=configured?.sourceMode??initialDefaultMode;
 
     // Live formula recompute. If the call site passed `computeFormula`, use it
     // (skill ability swap, attack-mode-aware formulas, etc.). Otherwise, just
@@ -105,11 +119,14 @@ export default function RollModal({
     // see what they typed flowing into the roll.
     const displayedFormula = useMemo(() => {
         const ctx: FormulaContext = { ...configValues, situationalBonus: bonus };
+        if (resolveFormula) return resolveFormula({ ...configValues, ...(previewMode ? {advantage:previewMode} : {}), ...(bonus.trim() ? { situationalBonus: bonus.trim() } : {}) });
         if (computeFormula) return computeFormula(ctx);
         const base = formula ?? '1d20';
         const trimmed = bonus.trim();
         return trimmed ? `${base} + ${trimmed}` : base;
-    }, [formula, computeFormula, configValues, bonus]);
+    }, [formula, computeFormula, resolveFormula, configValues, bonus, previewMode]);
+
+    const modeAvailable = (advantage: Advantage) => !resolveFormula || resolveFormula({...configValues, advantage, ...(bonus.trim() ? {situationalBonus:bonus.trim()} : {})}) !== null;
 
     const submit = async (advantage: Advantage) => {
         const trimmed = bonus.trim();
@@ -119,12 +136,13 @@ export default function RollModal({
             ...configValues,
         };
         if (trimmed) options.situationalBonus = trimmed;
+        if (resolveFormula && !resolveFormula(options)) return;
         await onConfirm(options);
         onClose();
     };
 
     return (
-        <RollModalFrame title={label ?? 'Roll'} subtitle={subtitle} onClose={onClose}>
+        <RollModalFrame title={configured?.label && configured.ability ? `${ABILITY_FULL_NAME[configured.ability]??configured.ability} (${configured.label}) Check` : label ?? 'Roll'} subtitle={subtitle} onClose={onClose}>
             {/* Formula row — live updates with bonus + config */}
             <div style={{
                 display: 'flex',
@@ -141,7 +159,7 @@ export default function RollModal({
                     color: 'var(--text-primary)',
                     fontVariantNumeric: 'tabular-nums',
                 }}>
-                    {displayedFormula}
+                    {displayedFormula ?? `Unavailable: ${configured?.unavailableReason??configured?.defaultUnavailableReason??'situational bonus outside the supported numeric profile'}`}
                 </span>
                 <span style={{
                     fontSize: '11px',
@@ -153,12 +171,16 @@ export default function RollModal({
                 </span>
             </div>
 
+            {resolveFormula && !configured?.fixed && <small>Default: {preparedDefaultMode === 1 ? 'Advantage' : preparedDefaultMode === -1 ? 'Disadvantage' : 'Normal'}. Buttons select this roll’s mode.</small>}
             {/* Situational bonus input */}
             <input
                 type="text"
+                disabled={configured?.fixed}
                 value={bonus}
                 onChange={e => setBonus(e.target.value)}
                 placeholder={bonusPlaceholder}
+                aria-label="Situational bonus"
+                aria-invalid={!(['normal','adv','dis'] as Advantage[]).some(modeAvailable)}
                 style={inputStyle}
             />
 
@@ -193,11 +215,12 @@ export default function RollModal({
                     <ConfigRow key={field.key} label={field.label}>
                         <select
                             value={configValues[field.key]}
+                            aria-label={field.label}
                             onChange={e => setConfigValues(prev => ({ ...prev, [field.key]: e.target.value }))}
                             style={selectStyle}
                         >
                             {field.options.map(opt => (
-                                <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                <option key={opt.value} value={opt.value} disabled={opt.disabled}>{opt.label}</option>
                             ))}
                         </select>
                     </ConfigRow>
@@ -215,11 +238,12 @@ export default function RollModal({
                 </ConfigRow>
             </div>
 
+            {resolveFormula && displayedFormula !== null && !modeAvailable('adv') && <p>{configured?.fixed?'Fixed initiative uses its prepared score; advantage, disadvantage and situational bonuses do not apply.':'Advantage/disadvantage unavailable for this roll profile.'}</p>}
             {/* Advantage / Normal / Disadvantage — each submits the roll */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-sm)' }}>
-                <AdvantageButton onClick={() => submit('adv')}>Advantage</AdvantageButton>
-                <AdvantageButton onClick={() => submit('normal')} primary>Normal</AdvantageButton>
-                <AdvantageButton onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
+                <AdvantageButton primary={preparedDefaultMode === 1} disabled={!modeAvailable('adv')} onPreview={() => setHoverMode('adv')} onPreviewEnd={() => setHoverMode(undefined)} onPreviewFocus={() => setFocusMode('adv')} onPreviewBlur={() => setFocusMode(undefined)} onClick={() => submit('adv')}>Advantage</AdvantageButton>
+                <AdvantageButton disabled={!modeAvailable('normal')} onPreview={() => setHoverMode('normal')} onPreviewEnd={() => setHoverMode(undefined)} onPreviewFocus={() => setFocusMode('normal')} onPreviewBlur={() => setFocusMode(undefined)} onClick={() => submit('normal')} primary={preparedDefaultMode === 0}>Normal</AdvantageButton>
+                <AdvantageButton primary={preparedDefaultMode === -1} disabled={!modeAvailable('dis')} onPreview={() => setHoverMode('dis')} onPreviewEnd={() => setHoverMode(undefined)} onPreviewFocus={() => setFocusMode('dis')} onPreviewBlur={() => setFocusMode(undefined)} onClick={() => submit('dis')}>Disadvantage</AdvantageButton>
             </div>
         </RollModalFrame>
     );

@@ -1,0 +1,70 @@
+{
+  "checkpoint": "C95",
+  "parent": "881492f",
+  "status": "Nullable scalar source/default and falsey prepared FormulaField profiles implemented;M2/ADR open",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/03/06/27/31/34 partial",
+    "A02\u2013A06 preparation only"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "failingBefore": {
+    "implementation": "881492f",
+    "command": "Maintained nullable-scalars.test.ts with final frozen inputs on historical source snapshot in /tmp",
+    "result": "756/792 fail before;0 after",
+    "logSha256": "67f97ce588b7f0273876b5b0fa0d91c5e83aa826104b4e984793607fb855bcd5"
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;75 module suites,9 tooling suites/61 assertions",
+    "logSha256": "c468ceaf25d06420c63601a4195d193192a73d21d4bea168ee470418f12263dd"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;281 explicit module/UI/server/test/hook files",
+    "logSha256": "ee82442298b5ed9ec2fa07764bc76bf77e3975087fbe9dd8cf06f33739cf3348"
+  },
+  "native": {
+    "command": "npm run test:native-nullable-scalars -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c95-native.json",
+    "result": "PASS;12 schema defaults,720 nullable scalar phases,72 zero/text FormulaField operations",
+    "fixture": "tests/fixtures/native-6.0.6/nullable-scalars.json",
+    "fixtureSha256": "5f677b92dd276357caeb4e205326342177abe76ab758e74334c992e301579493",
+    "logSha256": "e987cb2249f35d2cb5636ab5c01029e97c3ccbea77862eac9f9749bc6c038d83"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 records,591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-nullable-scalars -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 consumers,default HP/final cache,zero formula,preview/shortcut/source-context loss and held-callback recovery;zero writes",
+    "artifact": "/tmp/dnd5e-nullable-scalars-mounted-7SNkcr/evidence.json",
+    "artifactSha256": "38209b58f09d5f91d092549513ca1c68d372802242ece8dd46843bace91cbdf4"
+  },
+  "publicHost": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;105650 accepted,3216 new,1 retained unary candidate diagnostic,1720 nonblocking tied-index diagnostics,zero native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-D8b98l/evidence.json",
+    "artifactSha256": "8382b87dead5121ad5f48fdac0add8701f6238c5e71f67256e1075e21cbf310e",
+    "limits": "Released Core0.19.3 temporary configuration/synthetic transport/controlled entropy. Existing assertions/distributions and actual serialization retained. No wider profile equivalence."
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "Module checking and isolated packaging PASS;21 files;fixtures/tests/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-0uTSOh/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "13917a4741d48261ead7229b843a73957b0d94e911d608475a99fe43aba90317"
+  },
+  "cleanup": {
+    "result": "Task-owned temporary host/synthetic endpoint/browser stopped;preexisting30000/8000/8001 untouched",
+    "beforeSha256": "f4bec9577fe9ffb5764e333697eb127149e83b10dcab4ded051a14e4f5c80454",
+    "afterSha256": "f4bec9577fe9ffb5764e333697eb127149e83b10dcab4ded051a14e4f5c80454"
+  },
+  "limits": [
+    "Actual native schema getters/primitive SchemaField cleaning,HP/AC preparation and field methods with declared constructors/entries/expand identity/literal Roll collaborators;no complete DataModel/runtime or installed/native/operator acceptance.",
+    "Only nullable ACflat/override and HPvalue/max operations and falsey numeric0/following literal text scalar compositions qualified. Malformed containers,positive numeric prepared multiply/upgrade/downgrade,broader numeric reference deltas,Item activity/condition phases remain explicit boundaries.",
+    "Source preservation and context recovery proven in regression/mounted seam;no writes,permission or native world lifecycle acceptance claimed.",
+    "Node24.21/npm11.19 local toolchain;CI Node22 unrun. Experimental0.4.1/current compatibility unchanged. E01 and wider Q00/E04/E05 remain open."
+  ],
+  "next": "Complete remaining Item/Activity final preparation and required formula/filter dependencies in current M2 exit ledger."
+}

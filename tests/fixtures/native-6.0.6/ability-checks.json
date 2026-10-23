@@ -1,0 +1,189 @@
+{
+  "evidence": "S: intermediate initialized-model arithmetic expectations; sourceExpected separately models persisted source plus verified default0, no effects",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "symbols": [
+    "CommonTemplate.prepareAbilities",
+    "CommonTemplate.calculateAbilityCheckProficiency",
+    "Proficiency.calculateMod",
+    "Proficiency.flat",
+    "BasicDie.expandAdvantage",
+    "BasicDie.advantage",
+    "AdvantageModeField.combineFields",
+    "D20RollModificationField.combineFields"
+  ],
+  "cases": [
+    {
+      "id": "wis-base",
+      "ability": "wis",
+      "score": 14,
+      "proficient": 0,
+      "levels": [
+        5
+      ],
+      "expected": {
+        "mod": 2,
+        "check": 2,
+        "save": 2
+      },
+      "sourceExpected": {
+        "mod": 2,
+        "check": 2,
+        "save": 2
+      }
+    },
+    {
+      "id": "wis-save",
+      "ability": "wis",
+      "score": 14,
+      "proficient": 1,
+      "levels": [
+        5
+      ],
+      "expected": {
+        "mod": 2,
+        "check": 2,
+        "save": 5
+      },
+      "sourceExpected": {
+        "mod": 2,
+        "check": 2,
+        "save": 5
+      }
+    },
+    {
+      "id": "check-half-and-bonuses",
+      "ability": "wis",
+      "score": 14,
+      "proficient": 1,
+      "levels": [
+        5
+      ],
+      "checkBonus": 2,
+      "globalCheckBonus": 1,
+      "checkProficiency": 0.5,
+      "saveBonus": 3,
+      "globalSaveBonus": 2,
+      "expected": {
+        "mod": 2,
+        "check": 6,
+        "save": 10
+      },
+      "sourceExpected": {
+        "mod": 2,
+        "check": 5,
+        "save": 10
+      }
+    },
+    {
+      "id": "str-negative",
+      "ability": "str",
+      "score": 8,
+      "proficient": 1,
+      "levels": [
+        1
+      ],
+      "expected": {
+        "mod": -1,
+        "check": -1,
+        "save": 1
+      },
+      "sourceExpected": {
+        "mod": -1,
+        "check": -1,
+        "save": 1
+      }
+    },
+    {
+      "id": "int-check-expert",
+      "ability": "int",
+      "score": 20,
+      "proficient": 0,
+      "levels": [
+        17
+      ],
+      "checkProficiency": 2,
+      "expected": {
+        "mod": 5,
+        "check": 17,
+        "save": 5
+      },
+      "sourceExpected": {
+        "mod": 5,
+        "check": 5,
+        "save": 5
+      }
+    },
+    {
+      "id": "dex-multiclass",
+      "ability": "dex",
+      "score": 12,
+      "proficient": 1,
+      "levels": [
+        3,
+        2
+      ],
+      "expected": {
+        "mod": 1,
+        "check": 1,
+        "save": 4
+      },
+      "sourceExpected": {
+        "mod": 1,
+        "check": 1,
+        "save": 4
+      }
+    },
+    {
+      "id": "con-global-save",
+      "ability": "con",
+      "score": 16,
+      "proficient": 0,
+      "levels": [
+        9
+      ],
+      "saveProficiency": 1,
+      "expected": {
+        "mod": 3,
+        "check": 3,
+        "save": 7
+      },
+      "sourceExpected": {
+        "mod": 3,
+        "check": 3,
+        "save": 3
+      }
+    },
+    {
+      "id": "cha-high-level",
+      "ability": "cha",
+      "score": 18,
+      "proficient": 1,
+      "levels": [
+        20
+      ],
+      "saveBonus": -1,
+      "globalSaveBonus": 2,
+      "expected": {
+        "mod": 4,
+        "check": 4,
+        "save": 11
+      },
+      "sourceExpected": {
+        "mod": 4,
+        "check": 4,
+        "save": 11
+      }
+    }
+  ],
+  "exclusions": [
+    "Effects and applied-rule filters",
+    "Conditions, cover and native flags",
+    "Equipment and encumbrance",
+    "Transformed/original saves",
+    "Optional abilities and proficiency dice",
+    "Nonconstant bonus formulas",
+    "Native die-range execution and source roll modes",
+    "SDK engine/transport, critical annotations, chat, native/operator acceptance"
+  ],
+  "attribution": "Module-authored synthetic expectations; native source specification is MIT, Foundry Gaming LLC, at the pinned commit. No native runtime or purchased content is distributed."
+}

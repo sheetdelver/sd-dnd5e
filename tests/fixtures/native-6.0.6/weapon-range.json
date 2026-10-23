@@ -1,0 +1,1150 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "cases": [
+    {
+      "id": "melee-clears-stored-range",
+      "type": "simpleM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 5,
+        "activity": 5,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": false
+    },
+    {
+      "id": "martial-clears",
+      "type": "martialM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 5,
+        "activity": 5,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": false
+    },
+    {
+      "id": "null-reach",
+      "type": "simpleM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 5,
+        "activity": 5,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": false
+    },
+    {
+      "id": "reach-property",
+      "type": "simpleM",
+      "properties": [
+        "rch"
+      ],
+      "source": {
+        "reach": null
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 10,
+        "activity": 10,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": false
+    },
+    {
+      "id": "zero-reach",
+      "type": "simpleM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 0
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 0,
+        "activity": null,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": false
+    },
+    {
+      "id": "missing-reach",
+      "type": "simpleM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": "[undefined]",
+        "activity": null,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": false
+    },
+    {
+      "id": "thrown-keeps-range",
+      "type": "simpleM",
+      "properties": [
+        "thr"
+      ],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": 5,
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded",
+          "thrown"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "ranged-clears-reach",
+      "type": "simpleR",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": null,
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "martial-ranged",
+      "type": "martialR",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": null,
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "siege-ranged",
+      "type": "siege",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": null,
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "ranged-missing-value",
+      "type": "simpleR",
+      "properties": [],
+      "source": {
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": "[undefined]",
+        "long": 60,
+        "reach": null,
+        "activity": "[undefined]",
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "ranged-null-value",
+      "type": "simpleR",
+      "properties": [],
+      "source": {
+        "value": null,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": null,
+        "long": 60,
+        "reach": null,
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "natural-range",
+      "type": "natural",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": 5,
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded",
+          "ranged"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "natural-zero",
+      "type": "natural",
+      "properties": [],
+      "source": {
+        "value": 0,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 5,
+        "activity": 5,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": false
+    },
+    {
+      "id": "improvised",
+      "type": "improv",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 5,
+        "activity": 5,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": false
+    },
+    {
+      "id": "natural-short",
+      "type": "natural",
+      "properties": [],
+      "source": {
+        "value": 2,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": 2,
+        "long": 60,
+        "reach": 5,
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "natural-unspecified-reach",
+      "type": "natural",
+      "properties": [],
+      "source": {
+        "value": 2,
+        "long": 60
+      },
+      "expected": {
+        "value": 2,
+        "long": 60,
+        "reach": "[undefined]",
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded",
+          "ranged"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "light-thrown",
+      "type": "simpleM",
+      "properties": [
+        "thr",
+        "lgt"
+      ],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": 5,
+        "activity": 60,
+        "units": "ft",
+        "modes": [
+          "oneHanded",
+          "offhand",
+          "thrown",
+          "thrown-offhand"
+        ]
+      },
+      "metric": false,
+      "hasRange": true
+    },
+    {
+      "id": "melee-clears-stored-range",
+      "type": "simpleM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 5,
+        "activity": 5,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": false
+    },
+    {
+      "id": "martial-clears",
+      "type": "martialM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 5,
+        "activity": 5,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": false
+    },
+    {
+      "id": "null-reach",
+      "type": "simpleM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 1.5,
+        "activity": 1.5,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": false
+    },
+    {
+      "id": "reach-property",
+      "type": "simpleM",
+      "properties": [
+        "rch"
+      ],
+      "source": {
+        "reach": null
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 3,
+        "activity": 3,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": false
+    },
+    {
+      "id": "zero-reach",
+      "type": "simpleM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 0
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 0,
+        "activity": null,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": false
+    },
+    {
+      "id": "missing-reach",
+      "type": "simpleM",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": "[undefined]",
+        "activity": null,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": false
+    },
+    {
+      "id": "thrown-keeps-range",
+      "type": "simpleM",
+      "properties": [
+        "thr"
+      ],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": 1.5,
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded",
+          "thrown"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "ranged-clears-reach",
+      "type": "simpleR",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": null,
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "martial-ranged",
+      "type": "martialR",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": null,
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "siege-ranged",
+      "type": "siege",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": null,
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "ranged-missing-value",
+      "type": "simpleR",
+      "properties": [],
+      "source": {
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": "[undefined]",
+        "long": 60,
+        "reach": null,
+        "activity": "[undefined]",
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "ranged-null-value",
+      "type": "simpleR",
+      "properties": [],
+      "source": {
+        "value": null,
+        "long": 60,
+        "reach": 5
+      },
+      "expected": {
+        "value": null,
+        "long": 60,
+        "reach": null,
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "natural-range",
+      "type": "natural",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": 1.5,
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded",
+          "ranged"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "natural-zero",
+      "type": "natural",
+      "properties": [],
+      "source": {
+        "value": 0,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 1.5,
+        "activity": 1.5,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": false
+    },
+    {
+      "id": "improvised",
+      "type": "improv",
+      "properties": [],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": null,
+        "long": null,
+        "reach": 1.5,
+        "activity": 1.5,
+        "units": "m",
+        "modes": [
+          "oneHanded"
+        ]
+      },
+      "metric": true,
+      "hasRange": false
+    },
+    {
+      "id": "natural-short",
+      "type": "natural",
+      "properties": [],
+      "source": {
+        "value": 2,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": 2,
+        "long": 60,
+        "reach": 1.5,
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded",
+          "ranged"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "natural-unspecified-reach",
+      "type": "natural",
+      "properties": [],
+      "source": {
+        "value": 2,
+        "long": 60
+      },
+      "expected": {
+        "value": 2,
+        "long": 60,
+        "reach": "[undefined]",
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded",
+          "ranged"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    },
+    {
+      "id": "light-thrown",
+      "type": "simpleM",
+      "properties": [
+        "thr",
+        "lgt"
+      ],
+      "source": {
+        "value": 20,
+        "long": 60,
+        "reach": null
+      },
+      "expected": {
+        "value": 20,
+        "long": 60,
+        "reach": 1.5,
+        "activity": 60,
+        "units": "m",
+        "modes": [
+          "oneHanded",
+          "offhand",
+          "thrown",
+          "thrown-offhand"
+        ]
+      },
+      "metric": true,
+      "hasRange": true
+    }
+  ],
+  "composed": [
+    {
+      "case": "melee-clears-stored-range",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 5
+      }
+    },
+    {
+      "case": "martial-clears",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 5
+      }
+    },
+    {
+      "case": "null-reach",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 5
+      }
+    },
+    {
+      "case": "reach-property",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 10
+      }
+    },
+    {
+      "case": "zero-reach",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": null
+      }
+    },
+    {
+      "case": "missing-reach",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": null
+      }
+    },
+    {
+      "case": "thrown-keeps-range",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "ranged-clears-reach",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "martial-ranged",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "siege-ranged",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "ranged-missing-value",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": "[undefined]"
+      }
+    },
+    {
+      "case": "ranged-null-value",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "natural-range",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "natural-zero",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 5
+      }
+    },
+    {
+      "case": "improvised",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 5
+      }
+    },
+    {
+      "case": "natural-short",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "natural-unspecified-reach",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "light-thrown",
+      "metric": false,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "melee-clears-stored-range",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 5
+      }
+    },
+    {
+      "case": "martial-clears",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 5
+      }
+    },
+    {
+      "case": "null-reach",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 1.5
+      }
+    },
+    {
+      "case": "reach-property",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 3
+      }
+    },
+    {
+      "case": "zero-reach",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": null
+      }
+    },
+    {
+      "case": "missing-reach",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": null
+      }
+    },
+    {
+      "case": "thrown-keeps-range",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "ranged-clears-reach",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "martial-ranged",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "siege-ranged",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "ranged-missing-value",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": "[undefined]"
+      }
+    },
+    {
+      "case": "ranged-null-value",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "natural-range",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "natural-zero",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 1.5
+      }
+    },
+    {
+      "case": "improvised",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 1.5
+      }
+    },
+    {
+      "case": "natural-short",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "natural-unspecified-reach",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    },
+    {
+      "case": "light-thrown",
+      "metric": true,
+      "expected": {
+        "proficiency": 4,
+        "remaining": 2,
+        "activity": 60
+      }
+    }
+  ],
+  "sourceHashes": {
+    "weapon": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+    "activity": "9bd175b6ae601ce275b1becc1ce571f43b2e766ce4875dec5d3673ebc88e99d5",
+    "range": "5c63cb49c291fc30e50b7bf8be91cbaa250d043b6491c7ffbf517e4bc4d9d0f5"
+  },
+  "limits": [
+    "Actual Weapon range schema,primitive/SchemaField clean AND initialize,attackType/hasRange/prepareDerivedData and BaseActivity common final execute. Actual native defaultUnits/convertLength use explicit metric setting/config.",
+    "Description/physical/mount/identification hooks and label data are declared collaborators;numeric range effects and source preservation are asserted. Further actual Item/Actor final compositions use the source-derived range and existing C91/C97 class/Actor callback/label seams. No full Item/DataModel/runtime or native/operator acceptance.",
+    "Optional numeric initialization preserves undefined;explicit null reach triggers native5ft/1.5m or10ft/3m. Non-ranged weapons clear value/long;scalar Activity absence stays null/undefined,not invented zero. Missing range metadata does not prevent the captured independent final Actor proficiency4."
+  ]
+}

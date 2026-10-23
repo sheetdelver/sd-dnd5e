@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-22",
+  "checkpoints": [
+    {
+      "checkpoint": "C59",
+      "commit": "1356212c5556af06a4070e5be3aa4b8fc98ddd35",
+      "evidence": "docs/audits/evidence/2026-10-22-c59-final-training-sets-foundation.json",
+      "evidenceSha256": "f4a2ba7ef9a07cc9497f7f7568dc71fbc43bd2faad8a73783c54a5a5b7b16cc8"
+    },
+    {
+      "checkpoint": "C60",
+      "commit": "2fa35314d21d38b052a2ca79eb5090d747fcbc5d",
+      "evidence": "docs/audits/evidence/2026-10-22-c60-final-training-sets.json",
+      "evidenceSha256": "7638c489f4bb06831abdf19532ff5c3a9bdd6728be6aa45f33287691a6ca43f0"
+    }
+  ],
+  "scope": "Local module checkpoints only;full ADR acceptance open"
+}

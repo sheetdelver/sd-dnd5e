@@ -1,0 +1,458 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Explicit initialized numeric base fields in Actor-owned initial replacementData; all filters checked before ordered changes, effect first-initial cache only. No final/Item/derived-data inference.",
+  "cases": [
+    {
+      "id": "equal-initial-score",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "not-equal-initial-score",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":16,\"o\":\"exact\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "gt13",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":13,\"o\":\"gt\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "gt14",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"gt\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "gte14",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"gte\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "gte15",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":15,\"o\":\"gte\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "lt15",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":15,\"o\":\"lt\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "lt14",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"lt\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "lte14",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"lte\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "lte13",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":13,\"o\":\"lte\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "strict-exact-string",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":\"14\",\"o\":\"exact\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "nonpersist-check",
+      "conditions": "{\"k\":\"rolls.ability.check.proficiency\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "nonpersist-save",
+      "conditions": "{\"k\":\"rolls.ability.save.proficiency\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "nonpersist-skill",
+      "conditions": "{\"k\":\"rolls.ability.skill.proficiency\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "nonpersist-tool",
+      "conditions": "{\"k\":\"rolls.ability.tool.proficiency\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "save-proficient-source",
+      "conditions": "{\"k\":\"abilities.wis.proficient\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "save-proficient-default",
+      "conditions": "{\"k\":\"abilities.wis.proficient\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "omitProficient": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "effect-initial-snapshot-before-earlier-bonus",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "scope": "effect",
+      "priorWisBonus": true,
+      "expectedScore": 18,
+      "expectedSkill": 7,
+      "expectedAbility": 4,
+      "expectedSave": 4,
+      "expectedTool": 5
+    },
+    {
+      "id": "effect-initial-snapshot-not-progressive",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":16,\"o\":\"exact\"}",
+      "truth": false,
+      "scope": "effect",
+      "priorWisBonus": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "change-initial-snapshot-before-earlier-bonus",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "scope": "change",
+      "priorWisBonus": true,
+      "expectedScore": 18,
+      "expectedSkill": 7,
+      "expectedAbility": 4,
+      "expectedSave": 4,
+      "expectedTool": 5
+    },
+    {
+      "id": "change-initial-snapshot-not-progressive",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":16,\"o\":\"exact\"}",
+      "truth": false,
+      "scope": "change",
+      "priorWisBonus": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "nested-known-initial",
+      "conditions": "{\"o\": \"AND\", \"v\": [{\"k\": \"abilities.wis.value\", \"o\": \"gte\", \"v\": 14}, {\"o\": \"NOT\", \"v\": {\"k\": \"rolls.ability.check.proficiency\", \"v\": 99}}]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "change-leaf",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "scope": "change",
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "change-leaf-false",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":16,\"o\":\"exact\"}",
+      "truth": false,
+      "scope": "change",
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "missing-score",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "score": "missing",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "null-score",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "score": null,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "malformed-score",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "score": "14",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "outside-score-profile",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "score": 38,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "Item-replacement",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "itemEffect": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "final-only-effect",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "final": true,
+      "priorWisBonus": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "final-change-filter",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "final": true,
+      "scope": "change",
+      "priorWisBonus": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "no-initial-change",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "noChanges": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "active-status",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "statuses": [
+        "poisoned"
+      ],
+      "workflowUnavailable": true
+    },
+    {
+      "id": "actor-flag",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "actorFlag": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "prepared-mod-poison",
+      "conditions": "{\"k\": \"abilities.wis.mod\", \"v\": 99, \"o\": \"exact\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "class-level-not-qualified",
+      "conditions": "{\"k\": \"details.level\", \"v\": 5, \"o\": \"gte\"}",
+      "workflowUnavailable": false,
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5,
+      "supersededBy": "C35 qualified details.level base-class field; classes namespace remains unavailable"
+    },
+    {
+      "id": "unknown-identity",
+      "conditions": "{\"k\": \"abilities.lck.value\", \"v\": 14, \"o\": \"exact\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "prototype-path",
+      "conditions": "{\"k\": \"abilities.__proto__.value\", \"v\": 14, \"o\": \"exact\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "numeric-coercion",
+      "conditions": "{\"k\": \"abilities.wis.value\", \"v\": \"14\", \"o\": \"gte\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unsupported-contains",
+      "conditions": "{\"k\": \"abilities.wis.value\", \"v\": 14, \"o\": \"contains\"}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "strict-exact-null",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":null,\"o\":\"exact\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "strict-exact-boolean",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":false,\"o\":\"exact\"}",
+      "truth": false,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "unknown-target-proven-inactive",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":16,\"o\":\"exact\"}",
+      "truth": false,
+      "unknownTarget": true,
+      "expectedScore": 14,
+      "expectedSkill": 5,
+      "expectedAbility": 2,
+      "expectedSave": 2,
+      "expectedTool": 5
+    },
+    {
+      "id": "unknown-target-active",
+      "conditions": "{\"k\":\"abilities.wis.value\",\"v\":14,\"o\":\"exact\"}",
+      "truth": true,
+      "unknownTarget": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "missing-global-container",
+      "conditions": "{\"k\":\"rolls.ability.check.proficiency\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "missingGlobal": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "null-global-container",
+      "conditions": "{\"k\":\"rolls.ability.check.proficiency\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "nullGlobal": true,
+      "workflowUnavailable": true
+    },
+    {
+      "id": "known-branch-in-OR",
+      "conditions": "{\"o\": \"OR\", \"v\": [{\"o\": \"AND\", \"v\": []}, {\"k\": \"abilities.wis.value\", \"v\": 14}]}",
+      "truth": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "unknown-branch-in-OR",
+      "conditions": "{\"o\": \"OR\", \"v\": [{\"o\": \"AND\", \"v\": []}, {\"k\": \"abilities.wis.mod\", \"v\": 99}]}",
+      "workflowUnavailable": true
+    },
+    {
+      "id": "unconditional-save-default",
+      "conditions": "{\"o\": \"AND\", \"v\": []}",
+      "truth": true,
+      "omitProficient": true,
+      "expectedScore": 16,
+      "expectedSkill": 6,
+      "expectedAbility": 3,
+      "expectedSave": 3,
+      "expectedTool": 5
+    },
+    {
+      "id": "global-floor-before-initial-effect",
+      "conditions": "{\"k\":\"rolls.ability.check.proficiency\",\"v\":0,\"o\":\"exact\"}",
+      "truth": true,
+      "priorGlobalProf": true,
+      "expectedScore": 16,
+      "expectedSkill": 9,
+      "expectedAbility": 9,
+      "expectedSave": 3,
+      "expectedTool": 8
+    }
+  ]
+}

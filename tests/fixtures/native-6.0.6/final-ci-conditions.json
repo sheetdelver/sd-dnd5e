@@ -1,0 +1,6081 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "scope": "Actual Actor queries and earlier cached check/mode/passive/reduction/init snapshots after literal final CI updates. Poisoned and modern exhaustion1-6 only,known initialized numeric profile.",
+  "expectationMethod": "Frozen independent status omission/no replay,ordered Set operations,earlier poison mode or exhaustion minus2-per-level arithmetic. Fresh query filters current CI;earlier fields and cached roll reduction stay unchanged. Not module/native capture output.",
+  "cases": [
+    {
+      "id": "poisoned/0/0/add",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/0/subtract",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/0/override",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/0/upgrade",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/0/downgrade",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/0/multiply",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/1/add",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/1/subtract",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/1/override",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/1/upgrade",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/1/downgrade",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/0/1/multiply",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/0/add",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "preparedMode": -1,
+        "skill": 5,
+        "passive": 10,
+        "combinedMode": 0,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/0/subtract",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "preparedMode": -1,
+        "skill": 5,
+        "passive": 10,
+        "combinedMode": 0,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": true
+      }
+    },
+    {
+      "id": "poisoned/1/0/override",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "preparedMode": -1,
+        "skill": 5,
+        "passive": 10,
+        "combinedMode": 0,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/0/upgrade",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "preparedMode": -1,
+        "skill": 5,
+        "passive": 10,
+        "combinedMode": 0,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/0/downgrade",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "preparedMode": -1,
+        "skill": 5,
+        "passive": 10,
+        "combinedMode": 0,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": true
+      }
+    },
+    {
+      "id": "poisoned/1/0/multiply",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": []
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "poisoned"
+        ],
+        "preparedMode": -1,
+        "skill": 5,
+        "passive": 10,
+        "combinedMode": 0,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": true
+      }
+    },
+    {
+      "id": "poisoned/1/1/add",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/1/subtract",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/1/override",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/1/upgrade",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/1/downgrade",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "poisoned/1/1/multiply",
+      "profile": {
+        "systemType": "poisoned",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "poisoned"
+        ]
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "poisoned"
+        ],
+        "afterCI": [
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/0/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 3,
+        "passive": 13,
+        "combinedMode": 1,
+        "checkSave": 0,
+        "initiative": 0,
+        "initiativeScore": 10,
+        "cachedReduction": -2,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 3,
+        "passive": 13,
+        "combinedMode": 1,
+        "checkSave": 0,
+        "initiative": 0,
+        "initiativeScore": 10,
+        "cachedReduction": -2,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 3,
+        "passive": 13,
+        "combinedMode": 1,
+        "checkSave": 0,
+        "initiative": 0,
+        "initiativeScore": 10,
+        "cachedReduction": -2,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 3,
+        "passive": 13,
+        "combinedMode": 1,
+        "checkSave": 0,
+        "initiative": 0,
+        "initiativeScore": 10,
+        "cachedReduction": -2,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 3,
+        "passive": 13,
+        "combinedMode": 1,
+        "checkSave": 0,
+        "initiative": 0,
+        "initiativeScore": 10,
+        "cachedReduction": -2,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 1
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 3,
+        "passive": 13,
+        "combinedMode": 1,
+        "checkSave": 0,
+        "initiative": 0,
+        "initiativeScore": 10,
+        "cachedReduction": -2,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-1/1/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 1
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/0/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 1,
+        "passive": 11,
+        "combinedMode": 1,
+        "checkSave": -2,
+        "initiative": -2,
+        "initiativeScore": 8,
+        "cachedReduction": -4,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 1,
+        "passive": 11,
+        "combinedMode": 1,
+        "checkSave": -2,
+        "initiative": -2,
+        "initiativeScore": 8,
+        "cachedReduction": -4,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 1,
+        "passive": 11,
+        "combinedMode": 1,
+        "checkSave": -2,
+        "initiative": -2,
+        "initiativeScore": 8,
+        "cachedReduction": -4,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 1,
+        "passive": 11,
+        "combinedMode": 1,
+        "checkSave": -2,
+        "initiative": -2,
+        "initiativeScore": 8,
+        "cachedReduction": -4,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 1,
+        "passive": 11,
+        "combinedMode": 1,
+        "checkSave": -2,
+        "initiative": -2,
+        "initiativeScore": 8,
+        "cachedReduction": -4,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 2
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": 1,
+        "passive": 11,
+        "combinedMode": 1,
+        "checkSave": -2,
+        "initiative": -2,
+        "initiativeScore": 8,
+        "cachedReduction": -4,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-2/1/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 2
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/0/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -1,
+        "passive": 9,
+        "combinedMode": 1,
+        "checkSave": -4,
+        "initiative": -4,
+        "initiativeScore": 6,
+        "cachedReduction": -6,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -1,
+        "passive": 9,
+        "combinedMode": 1,
+        "checkSave": -4,
+        "initiative": -4,
+        "initiativeScore": 6,
+        "cachedReduction": -6,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -1,
+        "passive": 9,
+        "combinedMode": 1,
+        "checkSave": -4,
+        "initiative": -4,
+        "initiativeScore": 6,
+        "cachedReduction": -6,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -1,
+        "passive": 9,
+        "combinedMode": 1,
+        "checkSave": -4,
+        "initiative": -4,
+        "initiativeScore": 6,
+        "cachedReduction": -6,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -1,
+        "passive": 9,
+        "combinedMode": 1,
+        "checkSave": -4,
+        "initiative": -4,
+        "initiativeScore": 6,
+        "cachedReduction": -6,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 3
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -1,
+        "passive": 9,
+        "combinedMode": 1,
+        "checkSave": -4,
+        "initiative": -4,
+        "initiativeScore": 6,
+        "cachedReduction": -6,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-3/1/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 3
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/0/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -3,
+        "passive": 7,
+        "combinedMode": 1,
+        "checkSave": -6,
+        "initiative": -6,
+        "initiativeScore": 4,
+        "cachedReduction": -8,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -3,
+        "passive": 7,
+        "combinedMode": 1,
+        "checkSave": -6,
+        "initiative": -6,
+        "initiativeScore": 4,
+        "cachedReduction": -8,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -3,
+        "passive": 7,
+        "combinedMode": 1,
+        "checkSave": -6,
+        "initiative": -6,
+        "initiativeScore": 4,
+        "cachedReduction": -8,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -3,
+        "passive": 7,
+        "combinedMode": 1,
+        "checkSave": -6,
+        "initiative": -6,
+        "initiativeScore": 4,
+        "cachedReduction": -8,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -3,
+        "passive": 7,
+        "combinedMode": 1,
+        "checkSave": -6,
+        "initiative": -6,
+        "initiativeScore": 4,
+        "cachedReduction": -8,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 4
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -3,
+        "passive": 7,
+        "combinedMode": 1,
+        "checkSave": -6,
+        "initiative": -6,
+        "initiativeScore": 4,
+        "cachedReduction": -8,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-4/1/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 4
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/0/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -5,
+        "passive": 5,
+        "combinedMode": 1,
+        "checkSave": -8,
+        "initiative": -8,
+        "initiativeScore": 2,
+        "cachedReduction": -10,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -5,
+        "passive": 5,
+        "combinedMode": 1,
+        "checkSave": -8,
+        "initiative": -8,
+        "initiativeScore": 2,
+        "cachedReduction": -10,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -5,
+        "passive": 5,
+        "combinedMode": 1,
+        "checkSave": -8,
+        "initiative": -8,
+        "initiativeScore": 2,
+        "cachedReduction": -10,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -5,
+        "passive": 5,
+        "combinedMode": 1,
+        "checkSave": -8,
+        "initiative": -8,
+        "initiativeScore": 2,
+        "cachedReduction": -10,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -5,
+        "passive": 5,
+        "combinedMode": 1,
+        "checkSave": -8,
+        "initiative": -8,
+        "initiativeScore": 2,
+        "cachedReduction": -10,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 5
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion"
+        ],
+        "preparedMode": 0,
+        "skill": -5,
+        "passive": 5,
+        "combinedMode": 1,
+        "checkSave": -8,
+        "initiative": -8,
+        "initiativeScore": 2,
+        "cachedReduction": -10,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-5/1/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 5
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/0/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/0/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion",
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": -7,
+        "passive": 3,
+        "combinedMode": 1,
+        "checkSave": -10,
+        "initiative": -10,
+        "initiativeScore": 0,
+        "cachedReduction": -12,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/0/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion",
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": -7,
+        "passive": 3,
+        "combinedMode": 1,
+        "checkSave": -10,
+        "initiative": -10,
+        "initiativeScore": 0,
+        "cachedReduction": -12,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/0/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion",
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": -7,
+        "passive": 3,
+        "combinedMode": 1,
+        "checkSave": -10,
+        "initiative": -10,
+        "initiativeScore": 0,
+        "cachedReduction": -12,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/0/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [
+          "exhaustion",
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": -7,
+        "passive": 3,
+        "combinedMode": 1,
+        "checkSave": -10,
+        "initiative": -10,
+        "initiativeScore": 0,
+        "cachedReduction": -12,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/0/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion",
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": -7,
+        "passive": 3,
+        "combinedMode": 1,
+        "checkSave": -10,
+        "initiative": -10,
+        "initiativeScore": 0,
+        "cachedReduction": -12,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/0/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {
+          "exhaustion": 6
+        },
+        "beforeCI": [],
+        "afterCI": [],
+        "actorStatuses": [
+          "exhaustion",
+          "dead"
+        ],
+        "preparedMode": 0,
+        "skill": -7,
+        "passive": 3,
+        "combinedMode": 1,
+        "checkSave": -10,
+        "initiative": -10,
+        "initiativeScore": 0,
+        "cachedReduction": -12,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/1/add",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "add",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion",
+          "poisoned"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/1/subtract",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "subtract",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/1/override",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "override",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/1/upgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "upgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "poisoned",
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/1/downgrade",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "downgrade",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    },
+    {
+      "id": "exhaustion-6/1/1/multiply",
+      "profile": {
+        "systemType": "exhaustion",
+        "statuses": [
+          "exhaustion"
+        ],
+        "immunities": [
+          "exhaustion"
+        ],
+        "level": 6
+      },
+      "change": {
+        "key": "system.traits.ci.value",
+        "type": "multiply",
+        "value": "[\"poisoned\", \"exhaustion\"]",
+        "phase": "final"
+      },
+      "expected": {
+        "conditionLevels": {},
+        "beforeCI": [
+          "exhaustion"
+        ],
+        "afterCI": [
+          "exhaustion"
+        ],
+        "actorStatuses": [],
+        "preparedMode": 0,
+        "skill": 5,
+        "passive": 15,
+        "combinedMode": 1,
+        "checkSave": 2,
+        "initiative": 2,
+        "initiativeScore": 12,
+        "cachedReduction": 0,
+        "freshAbilityDisadvantageQuery": false
+      }
+    }
+  ]
+}

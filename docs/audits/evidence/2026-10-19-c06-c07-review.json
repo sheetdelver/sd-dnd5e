@@ -1,0 +1,1072 @@
+{
+  "review": "RV03 independent C06/C07 review",
+  "date": "2026-10-19",
+  "moduleCommit": "a1492d812b2c5170dbf13b48049af0721b295650",
+  "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "checks": {
+    "toolingAssertions": 31,
+    "moduleSuites": 11,
+    "explicitTypeFiles": 97,
+    "nativeInventoryRecords": 2242,
+    "nativeExpressions": 591,
+    "phaseLabelledAbilityCases": 16,
+    "nativeSourceModeCases": 81,
+    "nativeDieSelections": 800,
+    "mountedTransitions": 50,
+    "mountedPreviewCases": 6,
+    "mountedFacts": 16,
+    "mountedModes": 18,
+    "moduleCheckAndPackage": "pass",
+    "publicHarnessExit": 2
+  },
+  "publicHarness": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "blocked-native-tie-selection",
+    "selectionMismatches": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "caseCount": 901,
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "histogram": {
+      "adv": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39
+      ],
+      "dis": [
+        39,
+        37,
+        35,
+        33,
+        31,
+        29,
+        27,
+        25,
+        23,
+        21,
+        19,
+        17,
+        15,
+        13,
+        11,
+        9,
+        7,
+        5,
+        3,
+        1
+      ]
+    },
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "semanticReview": {
+    "cases": 901,
+    "failures": [],
+    "keptValueAndCount": "901/901 pass",
+    "orderedInputFaces": "901/901 pass",
+    "discardConsistency": "901/901 pass",
+    "dieSpecificMetadata": "none present; only result/active/discarded",
+    "unequalPairSelection": "all exact indices match",
+    "equalPairIndexDifferences": [
+      {
+        "case": 0,
+        "faces": [
+          1,
+          1
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 1
+      },
+      {
+        "case": 21,
+        "faces": [
+          2,
+          2
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 2
+      },
+      {
+        "case": 42,
+        "faces": [
+          3,
+          3
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 3
+      },
+      {
+        "case": 63,
+        "faces": [
+          4,
+          4
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 4
+      },
+      {
+        "case": 84,
+        "faces": [
+          5,
+          5
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 5
+      },
+      {
+        "case": 105,
+        "faces": [
+          6,
+          6
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 6
+      },
+      {
+        "case": 126,
+        "faces": [
+          7,
+          7
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 7
+      },
+      {
+        "case": 147,
+        "faces": [
+          8,
+          8
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 8
+      },
+      {
+        "case": 168,
+        "faces": [
+          9,
+          9
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 9
+      },
+      {
+        "case": 189,
+        "faces": [
+          10,
+          10
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 10
+      },
+      {
+        "case": 210,
+        "faces": [
+          11,
+          11
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 11
+      },
+      {
+        "case": 231,
+        "faces": [
+          12,
+          12
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 12
+      },
+      {
+        "case": 252,
+        "faces": [
+          13,
+          13
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 13
+      },
+      {
+        "case": 273,
+        "faces": [
+          14,
+          14
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 14
+      },
+      {
+        "case": 294,
+        "faces": [
+          15,
+          15
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 15
+      },
+      {
+        "case": 315,
+        "faces": [
+          16,
+          16
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 16
+      },
+      {
+        "case": 336,
+        "faces": [
+          17,
+          17
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 17
+      },
+      {
+        "case": 357,
+        "faces": [
+          18,
+          18
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 18
+      },
+      {
+        "case": 378,
+        "faces": [
+          19,
+          19
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 19
+      },
+      {
+        "case": 399,
+        "faces": [
+          20,
+          20
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 20
+      },
+      {
+        "case": 400,
+        "faces": [
+          1,
+          1
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 1
+      },
+      {
+        "case": 421,
+        "faces": [
+          2,
+          2
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 2
+      },
+      {
+        "case": 442,
+        "faces": [
+          3,
+          3
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 3
+      },
+      {
+        "case": 463,
+        "faces": [
+          4,
+          4
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 4
+      },
+      {
+        "case": 484,
+        "faces": [
+          5,
+          5
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 5
+      },
+      {
+        "case": 505,
+        "faces": [
+          6,
+          6
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 6
+      },
+      {
+        "case": 526,
+        "faces": [
+          7,
+          7
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 7
+      },
+      {
+        "case": 547,
+        "faces": [
+          8,
+          8
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 8
+      },
+      {
+        "case": 568,
+        "faces": [
+          9,
+          9
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 9
+      },
+      {
+        "case": 589,
+        "faces": [
+          10,
+          10
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 10
+      },
+      {
+        "case": 610,
+        "faces": [
+          11,
+          11
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 11
+      },
+      {
+        "case": 631,
+        "faces": [
+          12,
+          12
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 12
+      },
+      {
+        "case": 652,
+        "faces": [
+          13,
+          13
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 13
+      },
+      {
+        "case": 673,
+        "faces": [
+          14,
+          14
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 14
+      },
+      {
+        "case": 694,
+        "faces": [
+          15,
+          15
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 15
+      },
+      {
+        "case": 715,
+        "faces": [
+          16,
+          16
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 16
+      },
+      {
+        "case": 736,
+        "faces": [
+          17,
+          17
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 17
+      },
+      {
+        "case": 757,
+        "faces": [
+          18,
+          18
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 18
+      },
+      {
+        "case": 778,
+        "faces": [
+          19,
+          19
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 19
+      },
+      {
+        "case": 799,
+        "faces": [
+          20,
+          20
+        ],
+        "nativeIndex": 0,
+        "hostIndex": 1,
+        "retainedFace": 20
+      }
+    ],
+    "finding": "DD-R05: first/second equal-die identity alone does not justify disabling this plain numeric profile",
+    "boundary": "Only homogeneous plain d20 pair selection with numeric bonuses; not rerolls, ranges, groups, die-specific identities, effects or other native rules"
+  },
+  "limitations": [
+    "No native/operator connection",
+    "Public harness uses a test-only module and silent rolls, not installed D&D actor endpoint/chat",
+    "Critical annotations/audience and wider E05 expressiveness unqualified",
+    "No source/Git/version changes; documentation only"
+  ],
+  "archive": {
+    "sha256": "428fb51ea6cb5e21c06adc94774890c05d81df3eba6fac23079ee4068c3e0ca3",
+    "reportedSha256": "dc68321ae55655d1f18808f34b0250bbfd91d660aeb407340f62a845ca11a10e",
+    "regularFiles": 15,
+    "equalRegularFiles": true
+  }
+}

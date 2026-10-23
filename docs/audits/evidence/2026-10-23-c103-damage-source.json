@@ -1,0 +1,76 @@
+{
+  "checkpoint": "C103",
+  "parent": "804cb2c",
+  "status": "Qualified DamageData initialized source/default base formulas and source-part placement;effective damage/M2/ADR open",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/11/27/31/33/34 partial",
+    "A02\u2013A06 read dependencies"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "804cb2c",
+    "result": "63/63 same final source/placement inputs fail before;0 after;63 additional inline schema-location regressions pass",
+    "beforeLogSha256": "0af5708d5b63bfa50eeec3579129c6226d1734cf258121754e773e460f974101",
+    "afterLogSha256": "7a3d6a472f86f80d53b5fe3168102d636a828564112bda306349fb25ae5f6644"
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;83 module/9 tooling suites,61 tooling assertions",
+    "logSha256": "7a3d6a472f86f80d53b5fe3168102d636a828564112bda306349fb25ae5f6644"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;307 explicit module/UI/server/test/hook files",
+    "logSha256": "3538bb136498f3c0926b3d2762f47608015d0c667a670525415a8e45771e5dbd"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 exact source records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "native": {
+    "command": "npm run test:native-damage-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c103-native-final.json",
+    "result": "PASS;21 actual DamageData schema/primitive/base-formula/zero-scaling cases and42 actual Attack final includeBase/omit-empty placement cases",
+    "logSha256": "81b351c51a85d4d21ae31d2acc53ad337d52f70465df6d8d95ceaab023012435",
+    "fixture": "tests/fixtures/native-6.0.6/damage-source.json",
+    "sha256": "0affdbf266de9064b7d9177d51a01306398d8d6278b8dcb2e4a376127ed85299"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-damage-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 action and Item base formulas,source references/modifiers/types,includeBase,empty/malformed/context recovery,independent checks,held callbacks/focus/shortcut;zero writes",
+    "artifact": "/tmp/dnd5e-damage-source-mounted-eTh9h3/evidence.json",
+    "sha256": "7682018e2386c5817e81e7d146b7959d5058fd4184757a9ff2cb877f2a2f3c4d"
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;118090 accepted,420 new independent-check requests with damage-source profiles,retained complete distributions,1 unary candidate and1880 tied-index diagnostics,zero native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-6JA2q5/evidence.json",
+    "sha256": "783c6c2d242cb9bd6ad75a2d23ebb9ec3f8c390d63d6ae174ee35697d6306365"
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;module check/isolated package;24files including retained upstream MIT notice/legal comment;test/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-umFZDC/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "e78504f34ef77420360d667b98fcb6917631204a041e5db73c33371dd4214f6f"
+  },
+  "cleanup": {
+    "result": "Task-owned host/synthetic endpoints/browser stopped;preexisting listeners untouched",
+    "beforeSha256": "eef9f4b8269ce138646349b25a9421d8d507094e6a1339ea0bd1b0c360332aed",
+    "afterSha256": "59cc627d1a3c39b3740f3fc152c2cb0ab2f5fb956c878898b3109f36eb8a124a"
+  },
+  "license": {
+    "source": "release-6.0.6 LICENSE.txt",
+    "retained": "assets/licenses/dnd5e-system-MIT.txt",
+    "sha256": "bd846b9ef9f17198de6278678eb2e848734141182dc193e9c7bcff3985fe2b26",
+    "result": "Packaged notice byte-identical to pinned upstream software license;dependency/attribution README and legal source comment retained. Full M8 license inventory remains open."
+  },
+  "limits": [
+    "Actual DamageData defineSchema,Foundry primitive/SchemaField cleaning,formula/automatic/manual/scaledFormula(0) execute with declared string-Set containers. Numeric primitive/source/default values and symbolic references stay distinct;no native DataModel/runtime boot.",
+    "Actual Attack final base insertion/omit-empty and Weapon offersBaseDamage execute separately with explicit clone/toObject,common/roll-data/damage-label/neutral-label constructor seams. Inline locations are pinned schema declarations with module regressions,not complete subtype final preparation parity.",
+    "Base formulas are initialized source/read metadata,not effective damage totals. Modifiers/manual/scaling/part bonuses are preserved,not silently dropped. No reference substitution,dice evaluation,ability/magic/ammo/critical/rule additions,automatic cantrip/upcast scaling,roll/target application or new execution support.",
+    "Empty source remains empty;old weapon damage.parts requires explicit migration qualification rather than a guessed die. Consumable/ammunition base-offer combination remains unavailable. Source formula/base/scaledFormula poison cannot override the schema-owned operands.",
+    "R/S,mounted SDK seam and isolated host remain distinct from installed/native/operator acceptance. Homogeneous plain-d20 equivalence and host serialization remain unchanged. Experimental0.4.1/Core>=0.19.3 unchanged;Node24.21/npm11.19 local,CI Node22 unrun."
+  ],
+  "next": "Qualify actual Weapon derived range cleanup/inheritance before using source range as prepared range;then remaining Item final/effect composition and A02\u2013A06 read exit comparisons. C97 parent-range captures remain initialized intermediate-model evidence,not full source phase parity."
+}

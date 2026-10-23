@@ -1,0 +1,1847 @@
+{
+  "checkpoint": "C22",
+  "precedingImplementation": "d97f34b",
+  "requirementsPartial": [
+    "M2",
+    "Q00",
+    "DD-02",
+    "DD-24",
+    "DD-27",
+    "DD-34",
+    "A02"
+  ],
+  "failingBefore": {
+    "implementation": "d97f34b",
+    "sameInputCases": [
+      "consumable-equipped-omitted",
+      "consumable-equipped-null",
+      "consumable-required-attuned-omitted",
+      "consumable-required-attuned-null",
+      "container-equipped-omitted",
+      "container-equipped-null",
+      "container-required-attuned-omitted",
+      "container-required-attuned-null",
+      "equipment-equipped-omitted",
+      "equipment-equipped-null",
+      "equipment-required-attuned-omitted",
+      "equipment-required-attuned-null",
+      "tool-equipped-omitted",
+      "tool-equipped-null",
+      "tool-required-attuned-omitted",
+      "tool-required-attuned-null",
+      "weapon-equipped-omitted",
+      "weapon-equipped-null",
+      "weapon-required-attuned-omitted",
+      "weapon-required-attuned-null",
+      "consumable-rod-no-equip",
+      "consumable-trinket-no-equip",
+      "consumable-wand-no-equip",
+      "consumable-required-attunement",
+      "background-unknown-source-poison",
+      "class-unknown-source-poison",
+      "facility-unknown-source-poison",
+      "feat-unknown-source-poison",
+      "loot-unknown-source-poison",
+      "race-unknown-source-poison",
+      "spell-unknown-source-poison",
+      "subclass-unknown-source-poison",
+      "malformed-equipped",
+      "malformed-attuned",
+      "malformed-attunement",
+      "unknown-item-type",
+      "malformed-consumable-type",
+      "suppressed-unknown-change",
+      "suppressed-dependency-flag",
+      "trimmed-required-attunement",
+      "trimmed-consumable-wand"
+    ],
+    "count": 41
+  },
+  "R": {
+    "fixtures": 75,
+    "passingAfter": true,
+    "toolingAssertions": 60,
+    "toolingSuites": 8,
+    "moduleSuites": 24,
+    "explicitTypedFiles": 136
+  },
+  "S": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": "14.367",
+    "sourceInventory": {
+      "records": 2242,
+      "candidateExpressions": 591
+    },
+    "schemaHashes": {
+      "module/data/item/consumable.mjs": "3f4bacd4fa74a55dcffa48fcc3c9eda521178e49fca6683a1c426b9e7678a00d",
+      "module/data/item/container.mjs": "ea0ed15ae90928442179e667c7af7722829737b71555acbde007c3ab8340ca0a",
+      "module/data/item/equipment.mjs": "1d34384efda647d0222e4ba3bfa7d4d905e6356fd3bd2500e9ae568875fd3c09",
+      "module/data/item/tool.mjs": "fc5e93bb34231759ff022fd2eaca4168d73d1eb3d544789bfc88f9771ff2e2a4",
+      "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+      "module/data/item/background.mjs": "dc6313e492bf6c7d1ec267924908980b4a1da499b63bd40da87fc880904f441f",
+      "module/data/item/class.mjs": "de7f04f5f868791c8174aa7558aa6741720728d0d296d7389d53236f188a47a4",
+      "module/data/item/facility.mjs": "9db7c6b5958c0a450a9dabbd2f6dde60a89cca0e7a0b5cdeb74417ca6199beaa",
+      "module/data/item/feat.mjs": "46146f7d121c1a889753856b0385b4652f404030853cdc4a504b93e85b93640a",
+      "module/data/item/loot.mjs": "8258fa656233e4aea27cedfa56e1bc0d44689f7a66ff0b621347cf9db426a818",
+      "module/data/item/race.mjs": "73f269bde89980ae136df13d06e3dbeff6e64b2a86a7fc5f6c477f00357b2ced",
+      "module/data/item/spell.mjs": "b55cd05a4ec4efefa4d783e1d7685b38461bcad9c04bf60baa35195018088335",
+      "module/data/item/subclass.mjs": "3b0e58e09790d84fc6520e4a1b23e5a73d0e370298851f4b6170eb7d6426543b"
+    },
+    "observations": [
+      {
+        "id": "consumable-equipped-omitted",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-equipped-null",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-equipped-false",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-required-attuned-omitted",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-required-attuned-null",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-required-attuned-false",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-explicit-active",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": false
+      },
+      {
+        "id": "consumable-required-attuned-true",
+        "initialized": {
+          "equipped": true,
+          "attuned": true,
+          "attunement": "required",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": false
+      },
+      {
+        "id": "container-equipped-omitted",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "container-equipped-null",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "container-equipped-false",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "container-required-attuned-omitted",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "container-required-attuned-null",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "container-required-attuned-false",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "container-explicit-active",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": false
+      },
+      {
+        "id": "container-required-attuned-true",
+        "initialized": {
+          "equipped": true,
+          "attuned": true,
+          "attunement": "required"
+        },
+        "suppressed": false
+      },
+      {
+        "id": "equipment-equipped-omitted",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "equipment-equipped-null",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "equipment-equipped-false",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "equipment-required-attuned-omitted",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "equipment-required-attuned-null",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "equipment-required-attuned-false",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "tool-equipped-omitted",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "tool-equipped-null",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "tool-equipped-false",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "tool-required-attuned-omitted",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "tool-required-attuned-null",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "tool-required-attuned-false",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "tool-explicit-active",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": false
+      },
+      {
+        "id": "tool-required-attuned-true",
+        "initialized": {
+          "equipped": true,
+          "attuned": true,
+          "attunement": "required"
+        },
+        "suppressed": false
+      },
+      {
+        "id": "weapon-equipped-omitted",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "weapon-equipped-null",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "weapon-equipped-false",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "weapon-required-attuned-omitted",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "weapon-required-attuned-null",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "weapon-required-attuned-false",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "weapon-explicit-active",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": false
+      },
+      {
+        "id": "weapon-required-attuned-true",
+        "initialized": {
+          "equipped": true,
+          "attuned": true,
+          "attunement": "required"
+        },
+        "suppressed": false
+      },
+      {
+        "id": "consumable-potion-no-equip",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "potion"
+          }
+        },
+        "suppressed": false
+      },
+      {
+        "id": "consumable-scroll-no-equip",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "scroll"
+          }
+        },
+        "suppressed": false
+      },
+      {
+        "id": "consumable-food-no-equip",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "food"
+          }
+        },
+        "suppressed": false
+      },
+      {
+        "id": "consumable-ammo-no-equip",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "ammo"
+          }
+        },
+        "suppressed": false
+      },
+      {
+        "id": "consumable-poison-no-equip",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "poison"
+          }
+        },
+        "suppressed": false
+      },
+      {
+        "id": "consumable-rod-no-equip",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "rod"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-trinket-no-equip",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "trinket"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-wand-no-equip",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "consumable-required-attunement",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "required",
+          "type": {
+            "value": "potion"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "background-non-equippable",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "background-unknown-source-poison",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "class-non-equippable",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "class-unknown-source-poison",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "facility-non-equippable",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "facility-unknown-source-poison",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "feat-non-equippable",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "feat-unknown-source-poison",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "loot-non-equippable",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "loot-unknown-source-poison",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "race-non-equippable",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "race-unknown-source-poison",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "spell-non-equippable",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "spell-unknown-source-poison",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "subclass-non-equippable",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "subclass-unknown-source-poison",
+        "initialized": {},
+        "suppressed": false
+      },
+      {
+        "id": "suppressed-unknown-change",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "suppressed-dependency-flag",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": ""
+        },
+        "suppressed": true
+      },
+      {
+        "id": "trimmed-required-attunement",
+        "initialized": {
+          "equipped": true,
+          "attuned": false,
+          "attunement": "required"
+        },
+        "suppressed": true
+      },
+      {
+        "id": "trimmed-consumable-wand",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "wand"
+          }
+        },
+        "suppressed": true
+      },
+      {
+        "id": "trimmed-consumable-potion",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": "potion"
+          }
+        },
+        "suppressed": false
+      },
+      {
+        "id": "consumable-initial-type",
+        "initialized": {
+          "equipped": false,
+          "attuned": false,
+          "attunement": "",
+          "type": {
+            "value": ""
+          }
+        },
+        "suppressed": false
+      }
+    ],
+    "preservedComparisons": {
+      "phase": 5,
+      "numeric": 20,
+      "constant": 19,
+      "mode": 25
+    },
+    "stubs": [
+      "C22 exact primitive clean/defaults and Item suppression getter; all13 Item template ownerships checked; hidden=false, parent group=false, no Item DataModel/Document/hooks or malformed coercion qualification",
+      "Explicit initialized effect defaults; no Foundry DataModel initialization",
+      "Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions",
+      "Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime",
+      "Untimed empty-condition effects only",
+      "Empty roll data; hidden/dependent/rider/antimagic absent",
+      "Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation",
+      "Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle",
+      "Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host"
+    ]
+  },
+  "I": {
+    "category": "Isolated public SDK silent rolls with synthetic auth/transport/entropy; not installed actor endpoints",
+    "artifacts": "/tmp/dnd5e-public-rolls-ziGmQy",
+    "evidenceSha256": "e43fb9fce1e2a3498aa142c015d32aa95c157dba132323dd70396dfd36b53f26",
+    "observationsSha256": "b345a690286373e494102990dd1837fd1fc90dd204a3746d7a2eadb436bd4ea7",
+    "accepted": 13634,
+    "requests": 13635,
+    "itemEffectRequests": 1656,
+    "normalRangeRequests": 9009,
+    "normalRangeDistributions": 441,
+    "rejectedUnary": 1,
+    "plainTieDiagnostics": 40,
+    "nativeWrites": 0
+  },
+  "U": {
+    "category": "Actual mounted module components/SDK presentation seam; not installed UI",
+    "artifacts": "/tmp/dnd5e-mounted-Ox5mkI",
+    "evidenceSha256": "34fd3feff559a55756c367af2bf8dc046c0082bf336ea5c537331c1f78c25ad5",
+    "itemDefaultRows": [
+      {
+        "width": 1440,
+        "id": "item-default:consumable-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-explicit-active",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-required-attuned-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:container-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:container-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:container-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:container-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:container-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:container-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:container-explicit-active",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:container-required-attuned-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:equipment-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:equipment-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:equipment-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:equipment-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:equipment-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:equipment-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:tool-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:tool-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:tool-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:tool-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:tool-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:tool-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:tool-explicit-active",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:tool-required-attuned-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:weapon-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:weapon-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:weapon-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:weapon-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:weapon-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:weapon-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:weapon-explicit-active",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:weapon-required-attuned-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-potion-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-scroll-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-food-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-ammo-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-poison-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-rod-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-trinket-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-wand-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-required-attunement",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:background-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:background-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:class-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:class-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:facility-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:facility-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:feat-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:feat-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:loot-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:loot-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:race-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:race-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:spell-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:spell-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:subclass-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:subclass-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:malformed-equipped",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:malformed-attuned",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:malformed-attunement",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:unknown-item-type",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:malformed-consumable-type",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:suppressed-unknown-change",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:suppressed-dependency-flag",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:active-dependency-flag",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:trimmed-required-attunement",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:trimmed-consumable-wand",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:trimmed-consumable-potion",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:consumable-initial-type",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "item-default:equal-total-source-default-retirement",
+        "retainedCallbackFenced": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-explicit-active",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-required-attuned-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:container-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:container-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:container-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:container-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:container-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:container-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:container-explicit-active",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:container-required-attuned-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:equipment-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:equipment-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:equipment-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:equipment-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:equipment-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:equipment-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:tool-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:tool-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:tool-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:tool-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:tool-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:tool-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:tool-explicit-active",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:tool-required-attuned-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:weapon-equipped-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:weapon-equipped-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:weapon-equipped-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:weapon-required-attuned-omitted",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:weapon-required-attuned-null",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:weapon-required-attuned-false",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:weapon-explicit-active",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:weapon-required-attuned-true",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-potion-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-scroll-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-food-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-ammo-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-poison-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-rod-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-trinket-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-wand-no-equip",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-required-attunement",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:background-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:background-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:class-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:class-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:facility-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:facility-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:feat-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:feat-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:loot-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:loot-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:race-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:race-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:spell-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:spell-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:subclass-non-equippable",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:subclass-unknown-source-poison",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:malformed-equipped",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:malformed-attuned",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:malformed-attunement",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:unknown-item-type",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:malformed-consumable-type",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:suppressed-unknown-change",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:suppressed-dependency-flag",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:active-dependency-flag",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:trimmed-required-attunement",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:trimmed-consumable-wand",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:trimmed-consumable-potion",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:consumable-initial-type",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "item-default:equal-total-source-default-retirement",
+        "retainedCallbackFenced": true
+      }
+    ],
+    "fieldRows": 254,
+    "widths": [
+      1440,
+      390
+    ],
+    "priorSuitesRetained": true
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-li5Xns/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "c90d28ed2c1d279554323cb2624e613b7911659a751cf6143b91711380778714",
+    "moduleCheck": true,
+    "managedTyping": true,
+    "bundles": true
+  },
+  "commands": [
+    "npm test -- --core <pristineCore0.19.3>",
+    "npm run typecheck -- --core <pristineCore0.19.3>",
+    "npm run test:native-source -- --core <pristineCore0.19.3> --native <release6.0.6>",
+    "npm run test:native-effects -- --core <pristineCore0.19.3> --native <release6.0.6> --foundry <static14.367> --write-evidence temp/c22-native-effects.json",
+    "npm run test:public-rolls -- --core <pristineCore0.19.3>",
+    "npm run test:mounted -- --core <pristineCore0.19.3> --browser-tools /tmp/sd-dice-preview-tools --chromium <installedChromium143>",
+    "npm run check:package -- --core <pristineCore0.19.3>"
+  ],
+  "hashes": {
+    "src/logic/preparation/item-effect-state.ts": "6ede1d85c8965f425ab331723ac4dc17d9af444eb22fe0f67600872fbf588035",
+    "src/logic/preparation/effects.ts": "f154bc7f1bfdfe67d9b3d08300735f7f6fe23a7d614f2c7990cf2e6ca661d99b",
+    "src/tests/item-effect-eligibility.test.ts": "93f79db8aa45ee586cbc38b6d9f1ce128a9ddde5434d82674064e95202286d93",
+    "src/tests/fixtures/item-effect-scenarios.ts": "5298de85351a766a73a6bf67c2957bdfe89284114e4dd0e7cd9b6206a30ac3e7",
+    "tests/fixtures/native-6.0.6/item-effect-eligibility.json": "6f16c682c10b67a471aa3f256b16f07db455d9278d3190f401c0b9229dee436f",
+    "scripts/native-effect-oracle.mjs": "73e30320e13c2db5112bb5aa949767801f186b425519b71cde1c19577357b14a",
+    "scripts/test-mounted.mjs": "0861b2bc88eccef6cdcf0fd278cff0b2832f6710c4e14a34122cbfca23ae9eb5",
+    "scripts/test-public-rolls.mjs": "abbb50dc55b4906b4f79e409ed85af2b1638d8d4c9bb1c1f56ac0eb5bc94a888"
+  },
+  "limits": [
+    "Only verified raw/default eligibility before already-qualified initial changes; no native DataModel/Document/creation hook acceptance",
+    "6 malformed/unknown cases unavailable; coercion/legacy migrations, active Item dependencies/filters/final phases remain open",
+    "DD-R01\u201306 and plain-d20 equivalence retained; bounded advantage/disadvantage/HUD still gated",
+    "No installed/native/operator acceptance or full DD/A/M gate closure; E01/wider Q00/E05 remain open",
+    "Core/siblings/native references read-only; experimental0.4.1/compatibility unchanged; task services cleaned"
+  ]
+}

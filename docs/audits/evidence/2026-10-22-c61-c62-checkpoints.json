@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-22",
+  "checkpoints": [
+    {
+      "checkpoint": "C61",
+      "commit": "af0cd18e94cf24c81148ac84472e4097068f8bb2",
+      "evidence": "docs/audits/evidence/2026-10-22-c61-final-ci-conditions-foundation.json",
+      "evidenceSha256": "b20829126fcf22c13245292a6b8c36736c5438890ac423cc92cc90d37326016d"
+    },
+    {
+      "checkpoint": "C62",
+      "commit": "6c1c6054921418f486a55ec18fd9afe3d7502e71",
+      "evidence": "docs/audits/evidence/2026-10-22-c62-final-ci-conditions.json",
+      "evidenceSha256": "2b0505b478d9b2fe9309efe9ffee597cb1b082f1d6d2545c7a5852ecaa91e03c"
+    }
+  ],
+  "scope": "Local module checkpoints only;full ADR acceptance open"
+}

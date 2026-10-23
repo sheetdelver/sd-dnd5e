@@ -1,0 +1,102 @@
+import {record} from '../native/6.0.6/source';
+import {initializeTraitSet606} from './trait-fields';
+import {deterministicFormula606,type FormulaBindings606} from './deterministic-formula';
+import type {RulesContext} from '../rules-context';
+import {prepareConsumptionReferences606,type ConsumptionPreparation606} from './consumption-references';
+import {defaultLengthUnits606 as defaultLengthUnits} from './length-units';
+import {prepareWeaponRange606,type WeaponRange606} from './weapon-range';
+export interface ActivityTemplate606 {type:string;count:number;size:number;width:number|null;height:number|null;units:string;dimensions:Partial<Record<'size'|'width'|'height',string>>}
+export interface ActivityCommon606 {
+ status:'ready'|'unavailable';reason?:string;provenance:string;
+ activation?:{type:string;value:number|null};duration?:{units:string;value:number|null};
+ range?:{units:string;value:number|null;inherited:boolean;status:'ready'|'unavailable';reason?:string};target?:{type:string|null;count:number|null;template?:ActivityTemplate606};
+ visibility?:{requireMagic:boolean;requireAttunement:boolean;requireIdentification:boolean};
+ inferredRangeValue?:string|number|null;
+ consumption?:ConsumptionPreparation606;
+}
+const provenance='release-6.0.6 BaseActivityData/SpellData schema/final and Activation/Duration/Range/Target fields;qualified utility/common read profile';
+const no=(reason:string):ActivityCommon606=>({status:'unavailable',reason,provenance});
+const areaDimensions:Record<string,ActivityTemplate606['dimensions']>={circle:{size:'Radius'},cone:{size:'Length'},cube:{size:'Width'},cylinder:{size:'Radius',height:'Height'},line:{size:'Length',width:'Width'},radius:{size:'Label'},ring:{size:'Radius',width:'Thickness',height:'Height'},sphere:{size:'Radius'},square:{size:'Width'},wall:{size:'Length',width:'Thickness',height:'Height'}};
+function prepareTemplate(raw:Record<string,unknown>,bindings:FormulaBindings606,context?:RulesContext):{template?:ActivityTemplate606;reason?:string}{
+ const type=raw.type==null?'':typeof raw.type==='string'?raw.type.trim():null;if(type==='')return {};
+ if(type===null||!Object.hasOwn(areaDimensions,type))return {reason:'Activity area template type unavailable'};
+ const dimensions=areaDimensions[type],expressions:Record<string,string|undefined>={};
+ for(const key of ['count','size','width','height']){const value=raw[key];if(value==null)expressions[key]=undefined;else if(typeof value==='string')expressions[key]=value.trim();else if(typeof value==='number'&&Number.isFinite(value)&&Math.abs(value)<=1e9)expressions[key]=String(value);else return {reason:'Activity template FormulaField source malformed: '+key};}
+ // Native fallback tests the initialized StringField operand,not a numeric
+ // value:source0 becomes truthy "0" and must not be replaced with1 or5.
+ expressions.count||='1';if(dimensions.width)expressions.width||='5';if(dimensions.height)expressions.height||='5';
+ if(!expressions.size)return {reason:'Activity template size unavailable'};
+ const values:Record<string,number|null>={};
+ for(const key of ['count','size','width','height']){values[key]=expressions[key]?deterministicFormula606(expressions[key],bindings):null;if(expressions[key]&&values[key]===null)return {reason:'Activity template expression/reference requires qualification: '+key};}
+ const unitSource=raw.units;if(unitSource!=null&&typeof unitSource!=='string')return {reason:'Activity template units source malformed'};
+ const units=(typeof unitSource==='string'?unitSource.trim():'')||defaultLengthUnits(context);
+ if(!units)return {reason:'Activity template default length units setting unavailable'};
+ if(!['ft','mi','m','km'].includes(units))return {reason:'Activity template units outside qualified profile'};
+ return {template:{type,count:values.count!,size:values.size!,width:values.width,height:values.height,units,dimensions:{...dimensions}}};
+}
+/** One detached common-field preparation. Source/defaults,inferred range and
+ * final scalar values stay separate. This does not authorize or execute an
+ * Activity,apply its effects,or resolve content/consumption references. */
+export function prepareActivityCommon606(raw:unknown,item:unknown,bindings:FormulaBindings606={},gate?:string,context?:RulesContext,actor?:unknown,preparedWeaponRange?:WeaponRange606):ActivityCommon606 {
+ if(gate)return no(gate);
+ const a=record(raw),parent=record(item),s=parent?.system===undefined?{}:record(parent.system);
+ if(!a||!s||!['utility','save'].includes(String(a.type))||!['tool','equipment','consumable','weapon','spell'].includes(String(parent?.type)))return no('Activity common final preparation requires a qualified utility/save Item');
+ if(['behaviors','effects'].some(key=>a[key]!==undefined&&(!Array.isArray(a[key])||(a[key]as unknown[]).length)))return no('Activity behaviors/effect profiles require final preparation qualification');
+ const mapping=(value:unknown)=>value===undefined?{}:record(value),visibility=mapping(a.visibility),consumption=mapping(a.consumption);
+ let activation=mapping(a.activation),duration=mapping(a.duration),range=mapping(a.range),target=mapping(a.target);
+ if(!activation||!duration||!range||!target||!visibility||!consumption)return no('Activity common source container malformed');
+ const spell=parent?.type==='spell',overrides:Record<string,boolean>={};
+ for(const [key,value]of Object.entries({activation,duration,range,target})){
+  if(value.override!=null&&typeof value.override!=='boolean')return no('Activity field override source malformed: '+key);
+  overrides[key]=value.override===true;
+ }
+ if(spell){
+  // These four fields belong to the Spell schema. Parent defaults exist even
+  // when absent from raw source. Nonpersisted overrideSet never changes intent.
+  const inherit=(key:string,child:Record<string,unknown>)=>overrides[key]?child:mapping(s[key]);
+  activation=inherit('activation',activation);duration=inherit('duration',duration);range=inherit('range',range);target=inherit('target',target);
+  if(!activation||!duration||!range||!target)return no('Spell common source container malformed');
+ }
+ const affects=mapping(target.affects),template=mapping(target.template);
+ if(!affects||!template)return no('Activity target source container malformed');
+ const references=prepareConsumptionReferences606(consumption,actor,item);if(references.status!=='ready')return no(references.reason!);
+ const string=(value:unknown,fallback:string):string|null=>value==null?fallback:typeof value==='string'?value.trim():null;
+ const bool=(value:unknown):boolean|null=>value==null?false:typeof value==='boolean'?value:null;
+ const activationType=string(activation.type,'action'),durationUnits=string(duration.units,'inst'),targetType=string(affects.type,''),override=overrides.range;
+ const requireMagic=bool(visibility.requireMagic),requireAttunement=bool(visibility.requireAttunement),requireIdentification=bool(visibility.requireIdentification);
+ if(activationType===null||!['action','bonus','reaction','minute','hour','day'].includes(activationType)||durationUnits===null||!['inst','spec','disp','dstr','perm','turn','round','second','minute','hour','day','week','month','year'].includes(durationUnits)||targetType===null||!['','self','ally','enemy','creature','object','space','creatureOrObject','any','willing'].includes(targetType)||[override,requireMagic,requireAttunement,requireIdentification].some(v=>v===null))return no('Activity common selector/Boolean source outside qualified profile');
+ const scalarActivation=['minute','hour','day'].includes(activationType),activationValue=scalarActivation?(activation.value==null?null:typeof activation.value==='number'&&Number.isInteger(activation.value)&&activation.value>=0&&activation.value<=1e9?activation.value:undefined):null;
+ if(activationValue===undefined)return no('Activity scalar activation source malformed');
+ const scalarDuration=['turn','round','minute','hour','day','month','year'].includes(durationUnits),durationValue=scalarDuration?deterministicFormula606(duration.value,bindings):null;
+ // Native does not fold an absent/blank FormulaField into a numeric zero here.
+ if(scalarDuration&&(duration.value==null||duration.value===''))return no('Activity scalar duration value unavailable');
+ if(scalarDuration&&durationValue===null)return no('Activity duration expression/reference requires qualification');
+ let rangeValue:unknown=range.value,rangeUnits=string(range.units,'self'),inherited=spell&&!override;
+ if(parent?.type==='weapon'&&!override){
+  const prepared=preparedWeaponRange??prepareWeaponRange606(parent,context);if(prepared.status!=='ready'||!prepared.values)return no(prepared.reason??'Parent weapon derived range unavailable');
+  const {value,long,reach,units}=prepared.values;rangeUnits=units;
+  rangeValue=value;inherited=true;
+  if(typeof long==='number'&&long>Number(value))rangeValue=long;else if(reach&&!rangeValue)rangeValue=reach;
+ }
+ if(rangeUnits===null||!['self','touch','spec','any','ft','mi','m','km'].includes(rangeUnits))return no('Activity range units outside qualified profile');
+ const inferredRangeValue=rangeValue==null?null:typeof rangeValue==='string'||typeof rangeValue==='number'?rangeValue:undefined;
+ if(inferredRangeValue===undefined)return no('Activity range formula source malformed');
+ const scalarRange=['ft','mi','m','km'].includes(rangeUnits),preparedRange=scalarRange?deterministicFormula606(rangeValue,bindings):null;
+ const missingRange=scalarRange&&(rangeValue==null||rangeValue==='');
+ if(scalarRange&&!missingRange&&preparedRange===null)return no('Activity range expression/reference requires qualification');
+ const scalarTarget=targetType!==''&&targetType!=='self',targetCount=scalarTarget?deterministicFormula606(affects.count,bindings):null;
+ if(scalarTarget&&(affects.count==null||affects.count===''))return no('Activity target count unavailable');
+ if(scalarTarget&&targetCount===null)return no('Activity target expression/reference requires qualification');
+ const area=prepareTemplate(template,bindings,context);if(area.reason)return no(area.reason);
+ const properties=initializeTraitSet606(s.properties),attunement=spell?'':string(s.attunement,'');
+ if(!properties||attunement===null||!['','required','optional'].includes(attunement))return no('Activity Item magic/attunement source unavailable');
+ const magic=spell||properties.includes('mgc'),currentAttunement=magic?(attunement==='required'?requireMagic!:Boolean(attunement)&&requireAttunement!):false;
+ return {status:'ready',provenance,activation:{type:activationType,value:activationValue},duration:{units:durationUnits,value:durationValue},range:{units:rangeUnits,value:missingRange?null:preparedRange,inherited,status:missingRange?'unavailable':'ready',...(missingRange?{reason:'Activity scalar range not specified'}:{})},target:{type:targetType||null,count:targetCount,...(area.template?{template:area.template}:{})},visibility:{requireMagic:spell||magic&&requireMagic!,requireAttunement:currentAttunement,requireIdentification:!spell&&requireIdentification!},inferredRangeValue,...(references.targets.length?{consumption:references}:{})};
+}
+
+/** The Spell's four intrinsic fields use the same schema/default/field fold as
+ * a child which inherits all four. No synthetic source Item or cache is created. */
+export function prepareSpellCommon606(item:unknown,bindings:FormulaBindings606={},gate?:string,context?:RulesContext,actor?:unknown):ActivityCommon606 {
+ if(record(item)?.type!=='spell')return no('Spell common fields require an exact Spell Item');
+ return prepareActivityCommon606({type:'utility'},item,bindings,gate,context,actor);
+}

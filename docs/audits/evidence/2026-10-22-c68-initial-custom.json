@@ -1,0 +1,100 @@
+{
+  "checkpoint": "C68",
+  "date": "2026-10-22",
+  "parent": "3d5f3bcb7d351cf42f58a21c3aea854e5e64fcf0",
+  "requirements": "Partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21;no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "toolchain": "Node24.21/npm11.19;CI Node22 unrun",
+  "beforeAfter": {
+    "unchangedInitialCases": 238,
+    "before": "238 fail intentional initialStringgate onC67 runtime",
+    "after": "238pass plusoriginalC28Cant String case,without rewriting its source/historical fixture",
+    "expected": "IndependentC67 frozen field/phase/cache results;originalCant label/receipt expectations explicitly asserted"
+  },
+  "implementation": [
+    "Initial Actor-owned literal custom text updates detached preparation operands before languages;finalTraitStrings stays separate. One initializer/interpreter,shared defense/training/card/UI projections.",
+    "Source/default origin captured once and retained across initial/final receipts. No source persistence,nonpersistedpoison trust,name inference,formula evaluation or duplicate cache.",
+    "HistoricalC28custom-string-not-set is explicitly superseded for qualifiedStringinput. Its Set-only capture remains unchanged; exactoriginalActor source is tested/mounted.",
+    "Context/malformed/source-change recovery and heldcallback retirement;ordinary/source/manual numeric modes,passives and normalbounds preserved."
+  ],
+  "checks": [
+    {
+      "command": "npm test -- --core <Core0.19.3>",
+      "result": "61toolingassertions/9tooling/49module suites PASS",
+      "logSha256": "33d5728082b4730c1d70a1b038ecff3f947b0de7ebd708cb1a75129111df383a"
+    },
+    {
+      "command": "npm run typecheck -- --core <Core0.19.3>",
+      "result": "208explicit source/UI/server/test/hookfiles PASS",
+      "logSha256": "b8bfc0d67add43ba243ed8626aebef8f81d01f48050e510fd7cce715fc84ec12"
+    },
+    {
+      "command": "npm run test:native-source -- --native <exactRelease>",
+      "result": "2242records/591candidate expressions PASS,not formula qualification",
+      "logSha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff"
+    },
+    {
+      "command": "npm run test:native-custom-traits -- --core <Core0.19.3> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c68-native-custom.json",
+      "result": "238initial/217retainedfinal+retainedtraitmatrices PASS",
+      "logSha256": "2c75dc7ecebe8944e506bf27e0999f8bcbff389ac1879235d75606c27fb0b29d"
+    },
+    {
+      "command": "npm run test:mounted -- --core <Core0.19.3> --browser-tools <isolatedTools> --chromium <Chromium143> --initial-custom-strings-only",
+      "result": "480states at1440/390 PASS,including originalC28Cant source,currentcategories/cache/cards,focus/Enter,shortcuts,source/context retirement",
+      "logSha256": "6978261ad2c44d36c80389f132eb86984ab04c5eb52f891ad1ca15b430d4128d"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core <Core0.19.3>",
+      "result": "270516accepted/1knowncandidate/40equalindex diagnostics/0nativewrites PASS;952initialcustomordinary/manual+238normalbounds+1historicCant",
+      "logSha256": "5271a9c3f1009b178249713f7e7eaff77857bcd3e37b07846c0b6695f7471d4a"
+    },
+    {
+      "command": "npm run check:package -- --core <Core0.19.3>",
+      "result": "isolatedmodulecheck/managedpackage PASS",
+      "logSha256": "3fa99d6de2949731ed92e70867a318532594cda52695b0e7de574b8b2eb97841"
+    }
+  ],
+  "artifacts": {
+    "src/logic/preparation/numeric-effects.ts": "78b653d6785e6295b49914ce68cd243a9d8fdb2c37f26ca5d27e08be8f4df22f",
+    "src/logic/preparation/trait-strings.ts": "052986989e23ba4463c389f71803d0be0c8af21154a5453993cea95ff97df2f3",
+    "src/tests/initial-custom-strings.test.ts": "a159411fc18f64c24f8ea2fd19d8d9bd85e3d40599d2142707a33f663d35d24b",
+    "src/tests/fixtures/initial-custom-scenarios.ts": "c9edc4fa0ad749b7d149c07cec3979ba818bb741d06ac888c275c342ecfb3420",
+    "src/tests/training-effects.test.ts": "4c4898863a783e9205914edbf57a6677a58f303cae57446c6dca13d6a877d41e",
+    "src/tests/final-custom-strings.test.ts": "57fb6e1a86fe376568c7b83dfb4c0fe8bf6ebb8487fbc22999d4a8825140f647",
+    "scripts/test-mounted.mjs": "df28446d49d949751521d9ef3a3da8da72a7955be2594e2b43af13e8e26c81e8",
+    "scripts/test-public-rolls.mjs": "f0f5c10459e794ba6c5733884cee4ab24833e08466f1a2549581cc25d7fc8738",
+    "tests/fixtures/native-6.0.6/initial-custom-strings.json": "9d621185baec700c4e56497b53f7db245e1e0cfd066d63e2e39822bf8f8e8a67",
+    "tests/fixtures/native-6.0.6/training-effects.json": "d0679dc504e7a96929f1cd27bd83a7b9568670eb2e60d7315c7ded4dea5e146d",
+    "temp/c68-before.log": "362c3abc843d71d17363b24003cbdd78e88a840a9b6c3f7624cce78d3a271fdf",
+    "temp/c68-tests.log": "f2939009d9fa159b99ace75d0160737abdce4d565d50d0beb55bcb6f1c75fe33",
+    "temp/c68-native-custom.json": "f6db72b011a7dddbceaad2131d93fb34e68e3167b788a310a57765f3c1ba43e5",
+    "/tmp/dnd5e-mounted-73QAcv/evidence.json": "bc014ebd736b7c75e72e318c6505ad5fdf65d582b9ddb041ffae54e95c95650f",
+    "/tmp/dnd5e-public-rolls-UEgw5H/evidence.json": "97c44b1c5e5d5b1edb5489222d9ef52d8f282a8f877a8842ae2c638b756f8a75",
+    "/tmp/dnd5e-package-IO8lIh/data/dist/modules/dnd5e-0.4.1.tgz": "59f21ce49c5d99a711d2f2fb1cd0408712aff28ebd12aba9f4bed9af6dd7ae79",
+    "temp/c68-listeners-after.log": "7ad2d015783641e67af9571f13132d1467b380134c291a49d602e360db71143e"
+  },
+  "nativeSourceHashes": {
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+  },
+  "foundry": {
+    "generation": 14,
+    "build": 367,
+    "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+    "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+  },
+  "limits": [
+    "Native initialized primitive/method construction and C67 dispatcher-order comparison remain separate,not full sourceDataModel/installed/native/operator acceptance.",
+    "Condition-free Actor-owned source strings/missingdefault only. Conditions,Itemorigins,null/coercions,references and broader formula interpretation remain unavailable.",
+    "Initial fullmodule suite detected historicalC28unavailableCant expectation. Only that disposition was superseded with independently expected label/receipt and originalsource consumer checks; no input rewrite/assertion weakening.",
+    "Mounted480 is isolatedSDKpresentation,notinstalledCore. Realreq.runtime.rolls uses syntheticconfig/auth/transport and preserveshostserialization; no newplain-d20 equivalence extension.",
+    "No production/liveFoundry. All task-owned hosts/browsers stopped. Corebaseline clean.",
+    "Experimental0.4.1/compatibility unchanged. E01/E02/E04/widerQ00/E05 and allfullADR/DD/A/M/nativeoperator gates open. NextC69qualifies boundedpoisoned/exhaustion String/cache/build composition."
+  ]
+}

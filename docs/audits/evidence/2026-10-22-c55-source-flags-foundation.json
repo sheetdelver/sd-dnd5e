@@ -1,0 +1,172 @@
+{
+  "checkpoint": "C55",
+  "date": "2026-10-22",
+  "parent": "7df7de3dce698183801a414f5148bbd39e19a8c1",
+  "requirements": "Partial M2/Q02a DD-02/03/27/34,A02/A04/A18/A21;no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "qualification": {
+    "profiles": 864,
+    "checkConfigurations": 5184,
+    "initiativeConfigurations": 1728,
+    "falsyDefaults": [
+      {
+        "flag": "jackOfAllTrades",
+        "raw": "[absent]",
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "jackOfAllTrades",
+        "raw": null,
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "jackOfAllTrades",
+        "raw": false,
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "jackOfAllTrades",
+        "raw": 0,
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "jackOfAllTrades",
+        "raw": "",
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "initiativeAlert",
+        "raw": "[absent]",
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "initiativeAlert",
+        "raw": null,
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "initiativeAlert",
+        "raw": false,
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "initiativeAlert",
+        "raw": 0,
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      },
+      {
+        "flag": "initiativeAlert",
+        "raw": "",
+        "skill": 2,
+        "passive": 12,
+        "initiative": 2
+      }
+    ],
+    "proficiencyDiceBoundary": [
+      {
+        "alert": false,
+        "profTerm": null,
+        "parts": [
+          "@mod"
+        ],
+        "nativePreparedTotal": 2,
+        "scope": "No initiative proficiency term;ordinary numeric initiative remains independent"
+      },
+      {
+        "alert": true,
+        "profTerm": "1d6",
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "nativePreparedTotal": 2,
+        "scope": "Nonhomogeneous dice outside qualified numeric execution;must fence until Q00"
+      }
+    ],
+    "nativeSourceHashes": {
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+      "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+      "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+      "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+    },
+    "foundrySourceHashes": {
+      "client/dice/roll.mjs": "a27f498f7b3864a1baa7cebbb1ccb611f9796720b4a4d153df779803b995c7ff",
+      "client/dice/parser.mjs": "2fe7a584106a9ac5c5b216af62ec6b7e6b4da0ab4dbdd8a64bc32320b5bce799",
+      "client/dice/terms/operator.mjs": "edb71ad0cc4b9a8dab15abcff233fa629a15bdfb668f0bfc9fa0f9a21fcb6e82",
+      "client/documents/abstract/client-document.mjs": "a007180e3cf8d465dffe43b11272f289b4cf77a9e301c7d431f48267dfad8e9e",
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+      "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+      "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+      "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5",
+      "common/abstract/data.mjs": "11bb7f848c707803607accfa9f6b946c7cbfe8b17781ff562b468bdc77b934e5"
+    }
+  },
+  "checks": [
+    {
+      "command": "npm run test:native-conditions -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c55-native-conditions.json",
+      "result": "PASS retained matrices plus864 modern flags/10falsy/2dice boundary",
+      "sha256": "847bbd3ce7a322c17643f75ca2e196505a5028809fe532476a29b0a611d53775"
+    },
+    {
+      "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS 61assertions,9tooling,43module suites",
+      "logSha256": "15acf88a97034dbd5b174d6cc670b8f0a2c45d6627926222af97a5c7bc8c4e70"
+    },
+    {
+      "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS193 explicit files",
+      "logSha256": "eb489a1523e6211db592b1074cedfe44f416a0d36687b86271f9f668a2f17ec5"
+    }
+  ],
+  "artifacts": {
+    "tests/fixtures/native-6.0.6/source-flags.json": "777b10288a035a876ef3436bc7a3eb815a11e4efc9687433d75fd48092c2ecea",
+    "scripts/native-condition-oracle.mjs": "fcba784b44f9e236c3ffa2aee105ed06fdce5c81ba31892ef9bda41d23e0f2d2"
+  },
+  "limits": [
+    "Qualification only;runtime flag gates remain until C56.",
+    "Frozen independent arithmetic precedes actual Common/Creature/Attributes/Actor builder comparisons. Source Boolean flag declarations statically asserted;actual persisted flag object read on initialized shells,not full DataModel boot.",
+    "Modern only. No class-name inference/grants,Item/effect flags,legacy expansion or arbitrary flags.",
+    "RemarkableAthlete false and absent halfling/reliable collaborators explicit;D20Roll build serializer/callback captured,not native dice evaluation.",
+    "Proficiency-dice Alert emits1d6 outside homogeneous numeric qualification;must remain unavailable. Ordinary initiative with no proficiency term independent.",
+    "No new mounted/public-host/package run for qualification-only slice;C54 evidence separate. No installed/native/operator acceptance.",
+    "Experimental0.4.1,compatibility unchanged;E01/E02/E04/widerQ00/E05 and full ADR gates open."
+  ]
+}

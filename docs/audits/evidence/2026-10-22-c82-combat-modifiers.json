@@ -1,0 +1,727 @@
+{
+  "checkpoint": "C82 shared prepared combat modifier dependencies and C81 setting correction",
+  "parent": "4d715654441bb16579a381dbb4f29da38794d622",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/04/05/11/24/27/31/34 partial",
+    "A02\u2013A06 read preparation partial"
+  ],
+  "beforeAfter": {
+    "modifier": "Same persisted bonus source lacked a shared combat modifier model;after:Actor spell attack8/DC15/mod2,first-part msak bonus4/rsak2. Raw attack/DC/spell99 poison remains ignored and source unchanged.",
+    "settingCorrection": "C81 accepted erroneous standard key and rejected released normal key;maintained same-input normal expected setting failed undefined before,passes with known26lb/150lb after. Native none/normal/variant assertion retained;no Core defect."
+  },
+  "checks": {
+    "before": {
+      "artifact": "temp/c82-before.log",
+      "sha256": "1a9ca6cf48ea58c889f798bca9ee29afae6e71c9050d5564163d5af085f12e79",
+      "result": "Same-input maintained modifier regression fails before"
+    },
+    "beforeSetting": {
+      "artifact": "temp/c82-physical-setting-before.log",
+      "sha256": "b7051c9950a236b5dc93743f41b757a028b1ff2047d76b3b5f92f4be3e4f9bc8",
+      "result": "Same-input released normal setting regression fails before"
+    },
+    "regression": {
+      "artifact": "temp/c82-tests-final.log",
+      "sha256": "3f553aa162500df747d4a9e9909a6e0506506acb0bdc91e3b104ea992ec25061",
+      "result": "61 module/9 tooling suites/61 assertions PASS"
+    },
+    "focused": {
+      "artifact": "temp/c82-after-final.log",
+      "sha256": "5faf6a0eacb498fe105b56ce233a1325d7a71a77e5b0669fb8ad7eb5a178822d",
+      "result": "Additional poisoned prepared fields and independent unqualified-expression domains PASS"
+    },
+    "typing": {
+      "artifact": "temp/c82-types-complete.log",
+      "sha256": "c9eb2d804bab0a5c4bd3b7d8cc1121a87d6742df0b61117bb87d1521751a5e22",
+      "result": "242 explicit module/UI/server/test/hook files PASS"
+    },
+    "source": {
+      "artifact": "temp/c82-source.log",
+      "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+      "result": "exact release2242 records/591 candidate expressions PASS"
+    },
+    "native": {
+      "artifact": "temp/c82-native-modifiers.json",
+      "sha256": "92f5c720a8c62b61955fc93943c191440e2aa81f99b22efa0825d5449656aa3d",
+      "result": "108 prepared ability/spell/DC/default profiles and16 actual native damage-part builds PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-modifiers-mounted-KMjrZr/evidence.json",
+      "sha256": "4de43834bb16848d8a10d9d290a4f429f2065822d65b28a99fe8d857fb706ae7",
+      "result": "1440/390 actual spell/Actions modifiers,context/source recovery and disabled Cast/zero writes PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-zYhHWw/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "7ddd7594a0cb9256dd5984d6bfd93b5e1a7cde9ec37bdd9dba5e5532b9976b19",
+      "result": "isolated check/package PASS"
+    }
+  },
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "rows": [
+      {
+        "mode": "bonus",
+        "score": 0,
+        "base": 1,
+        "attack": -1,
+        "dc": 6,
+        "mod": -5,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 0,
+        "base": 3,
+        "attack": 1,
+        "dc": 8,
+        "mod": -5,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 0,
+        "base": 6,
+        "attack": 4,
+        "dc": 11,
+        "mod": -5,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 8,
+        "base": 1,
+        "attack": 3,
+        "dc": 10,
+        "mod": -1,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 8,
+        "base": 3,
+        "attack": 5,
+        "dc": 12,
+        "mod": -1,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 8,
+        "base": 6,
+        "attack": 8,
+        "dc": 15,
+        "mod": -1,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 10,
+        "base": 1,
+        "attack": 4,
+        "dc": 11,
+        "mod": 0,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 10,
+        "base": 3,
+        "attack": 6,
+        "dc": 13,
+        "mod": 0,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 10,
+        "base": 6,
+        "attack": 9,
+        "dc": 16,
+        "mod": 0,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 14,
+        "base": 1,
+        "attack": 6,
+        "dc": 13,
+        "mod": 2,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 14,
+        "base": 3,
+        "attack": 8,
+        "dc": 15,
+        "mod": 2,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 14,
+        "base": 6,
+        "attack": 11,
+        "dc": 18,
+        "mod": 2,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 18,
+        "base": 1,
+        "attack": 8,
+        "dc": 15,
+        "mod": 4,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 18,
+        "base": 3,
+        "attack": 10,
+        "dc": 17,
+        "mod": 4,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 18,
+        "base": 6,
+        "attack": 13,
+        "dc": 20,
+        "mod": 4,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 30,
+        "base": 1,
+        "attack": 14,
+        "dc": 21,
+        "mod": 10,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 30,
+        "base": 3,
+        "attack": 16,
+        "dc": 23,
+        "mod": 10,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "bonus",
+        "score": 30,
+        "base": 6,
+        "attack": 19,
+        "dc": 26,
+        "mod": 10,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 0,
+        "base": 1,
+        "attack": -1,
+        "dc": 6,
+        "mod": -5,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 0,
+        "base": 3,
+        "attack": 1,
+        "dc": 8,
+        "mod": -5,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 0,
+        "base": 6,
+        "attack": 4,
+        "dc": 11,
+        "mod": -5,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 8,
+        "base": 1,
+        "attack": 3,
+        "dc": 10,
+        "mod": -1,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 8,
+        "base": 3,
+        "attack": 5,
+        "dc": 12,
+        "mod": -1,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 8,
+        "base": 6,
+        "attack": 8,
+        "dc": 15,
+        "mod": -1,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 10,
+        "base": 1,
+        "attack": 4,
+        "dc": 11,
+        "mod": 0,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 10,
+        "base": 3,
+        "attack": 6,
+        "dc": 13,
+        "mod": 0,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 10,
+        "base": 6,
+        "attack": 9,
+        "dc": 16,
+        "mod": 0,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 14,
+        "base": 1,
+        "attack": 6,
+        "dc": 13,
+        "mod": 2,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 14,
+        "base": 3,
+        "attack": 8,
+        "dc": 15,
+        "mod": 2,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 14,
+        "base": 6,
+        "attack": 11,
+        "dc": 18,
+        "mod": 2,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 18,
+        "base": 1,
+        "attack": 8,
+        "dc": 15,
+        "mod": 4,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 18,
+        "base": 3,
+        "attack": 10,
+        "dc": 17,
+        "mod": 4,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 18,
+        "base": 6,
+        "attack": 13,
+        "dc": 20,
+        "mod": 4,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 30,
+        "base": 1,
+        "attack": 14,
+        "dc": 21,
+        "mod": 10,
+        "fallback": {
+          "attack": 1,
+          "dc": 9,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 30,
+        "base": 3,
+        "attack": 16,
+        "dc": 23,
+        "mod": 10,
+        "fallback": {
+          "attack": 3,
+          "dc": 11,
+          "mod": 0
+        }
+      },
+      {
+        "mode": "dice",
+        "score": 30,
+        "base": 6,
+        "attack": 19,
+        "dc": 26,
+        "mod": 10,
+        "fallback": {
+          "attack": 6,
+          "dc": 14,
+          "mod": 0
+        }
+      }
+    ],
+    "damage": [
+      {
+        "actionType": "mwak",
+        "attackMode": "",
+        "index": 0,
+        "parts": [
+          "6",
+          "1",
+          "3"
+        ],
+        "expectedTotal": 10
+      },
+      {
+        "actionType": "mwak",
+        "attackMode": "",
+        "index": 1,
+        "parts": [
+          "6"
+        ],
+        "expectedTotal": 6
+      },
+      {
+        "actionType": "mwak",
+        "attackMode": "thrown",
+        "index": 0,
+        "parts": [
+          "6",
+          "2",
+          "3"
+        ],
+        "expectedTotal": 11
+      },
+      {
+        "actionType": "mwak",
+        "attackMode": "thrown",
+        "index": 1,
+        "parts": [
+          "6"
+        ],
+        "expectedTotal": 6
+      },
+      {
+        "actionType": "rwak",
+        "attackMode": "",
+        "index": 0,
+        "parts": [
+          "6",
+          "2",
+          "3"
+        ],
+        "expectedTotal": 11
+      },
+      {
+        "actionType": "rwak",
+        "attackMode": "",
+        "index": 1,
+        "parts": [
+          "6"
+        ],
+        "expectedTotal": 6
+      },
+      {
+        "actionType": "rwak",
+        "attackMode": "thrown",
+        "index": 0,
+        "parts": [
+          "6",
+          "2",
+          "3"
+        ],
+        "expectedTotal": 11
+      },
+      {
+        "actionType": "rwak",
+        "attackMode": "thrown",
+        "index": 1,
+        "parts": [
+          "6"
+        ],
+        "expectedTotal": 6
+      },
+      {
+        "actionType": "msak",
+        "attackMode": "",
+        "index": 0,
+        "parts": [
+          "6",
+          "3",
+          "3"
+        ],
+        "expectedTotal": 12
+      },
+      {
+        "actionType": "msak",
+        "attackMode": "",
+        "index": 1,
+        "parts": [
+          "6"
+        ],
+        "expectedTotal": 6
+      },
+      {
+        "actionType": "msak",
+        "attackMode": "thrown",
+        "index": 0,
+        "parts": [
+          "6",
+          "3",
+          "3"
+        ],
+        "expectedTotal": 12
+      },
+      {
+        "actionType": "msak",
+        "attackMode": "thrown",
+        "index": 1,
+        "parts": [
+          "6"
+        ],
+        "expectedTotal": 6
+      },
+      {
+        "actionType": "rsak",
+        "attackMode": "",
+        "index": 0,
+        "parts": [
+          "6",
+          "4",
+          "3"
+        ],
+        "expectedTotal": 13
+      },
+      {
+        "actionType": "rsak",
+        "attackMode": "",
+        "index": 1,
+        "parts": [
+          "6"
+        ],
+        "expectedTotal": 6
+      },
+      {
+        "actionType": "rsak",
+        "attackMode": "thrown",
+        "index": 0,
+        "parts": [
+          "6",
+          "4",
+          "3"
+        ],
+        "expectedTotal": 13
+      },
+      {
+        "actionType": "rsak",
+        "attackMode": "thrown",
+        "index": 1,
+        "parts": [
+          "6"
+        ],
+        "expectedTotal": 6
+      }
+    ],
+    "sourceHashes": {
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/activity/base-activity.mjs": "9bd175b6ae601ce275b1becc1ce571f43b2e766ce4875dec5d3673ebc88e99d5",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66"
+    },
+    "limits": [
+      "108 initialized CommonTemplate.prepareAbilities/AttributesFields.prepareSpellcastingAbility profiles;empty AppliedRules and declared numeric Roll collaborators. No full source DataModel/dice/native runtime/operator acceptance.",
+      "16 actual BaseActivity._processDamagePart constructions distinguish first part versus later parts and thrown weapon scope. Damage base formula is a declared literal6 collaborator;no damage/scaling/critical engine qualification.",
+      "Actor attribute spell defaults do not establish per-spell class ability/casting eligibility;those require current source identity/capability qualification."
+    ]
+  },
+  "commands": [
+    "npm test -- --core <released0.19.3>",
+    "npm run typecheck -- --core <released0.19.3>",
+    "npm run test:native-source -- --core <released0.19.3> --native <exactrelease>",
+    "npm run test:native-modifiers -- --core <released0.19.3> --native <exactrelease> --foundry <static14.367> --write-evidence <output>",
+    "npm run test:native-physical -- --core <released0.19.3> --native <exactrelease> --foundry <static14.367>",
+    "npm run test:mounted-modifiers -- --core <released0.19.3> --browser-tools <isolatedtools> --chromium <headless>",
+    "npm run check:package -- --core <released0.19.3>"
+  ],
+  "retainedEvidence": [
+    "C80/C79 public-roll qualification retained separately;C82 changes no roll compiler/execution path.",
+    "C81 physical method/size/conversion proof retained;released settings assertion added with correction."
+  ],
+  "limits": [
+    "Actual native initialized preparation/builders use declared empty rules,numeric Roll and literal-damage/single-type collaborators;no full DataModel,dice engine/native runtime/operator acceptance.",
+    "Actor spell attribute defaults are distinct from per-spell class/ability eligibility and activity construction. Deprecated modern root spell execution slots stay unavailable;no casting/consumption action is enabled.",
+    "Damage-scope facts retain original formulas and first-part-only applicability. Activity @mod and other unresolved references stay unavailable until qualified current activity configuration;no guessed scope combination.",
+    "Source/default/initial operands remain distinct from later effects. Effects targeting newly exposed modifier fields,broader formulas and Item-final/casting capability work remain unqualified.",
+    "Experimental0.4.1/compatibility unchanged;Node22 CI unrun. R/S/mounted SDK seam/managed evidence distinct;M2/ADR/full acceptance open."
+  ]
+}

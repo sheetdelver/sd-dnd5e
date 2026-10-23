@@ -1,0 +1,1232 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Persisted source cleaning/defaults -> exact local species reference -> embedded defaults/inheritance -> initial ability effects -> movement derived; senses separate",
+  "cases": [
+    {
+      "id": "initialized-defaults",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      }
+    },
+    {
+      "id": "explicit-source",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        }
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60
+        }
+      }
+    },
+    {
+      "id": "owned-species-inheritance",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "explicit-movement-senses-zero",
+      "expected": {
+        "movement": {
+          "walk": 40,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 40,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "40"
+        }
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 0
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "blank-walk-inherits",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": ""
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "numeric-zero-is-initialized-string",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": 0
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "string-zero-blocks-inheritance",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "0"
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "null-walk-inherits",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": null
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "species-without-stored-reference",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      }
+    },
+    {
+      "id": "explicit-selected-owned-species",
+      "expected": {
+        "movement": {
+          "walk": 35,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 35,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 90,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      },
+      "secondSpecies": {
+        "movement": {
+          "speeds": {
+            "walk": "35"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 90
+          }
+        }
+      },
+      "raceRef": "raceFixture0002"
+    },
+    {
+      "id": "species-units-metric",
+      "expected": {
+        "movement": {
+          "walk": 9,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 9,
+          "slowed": false,
+          "hover": false,
+          "units": "m"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 18,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        }
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "9"
+          },
+          "units": "m"
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 18
+          },
+          "units": "m"
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "inheritance-does-not-convert-units",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "m"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        }
+      },
+      "movement": {
+        "units": "m"
+      },
+      "senses": {
+        "units": "m"
+      },
+      "species": {
+        "movement": {
+          "speeds": {
+            "walk": "30"
+          }
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          }
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "metric-default",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "m"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "m"
+        }
+      },
+      "metric": true
+    },
+    {
+      "id": "hover-and-special",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 60,
+          "jump": 5,
+          "swim": 0,
+          "max": 60,
+          "slowed": false,
+          "hover": true,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "Actor note;Species note",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30",
+          "fly": "60"
+        },
+        "hover": false
+      },
+      "senses": {
+        "special": "Actor note"
+      },
+      "species": {
+        "movement": {
+          "hover": true
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          },
+          "special": "Species note"
+        }
+      },
+      "raceRef": "raceFixture0001"
+    },
+    {
+      "id": "constant-bonus",
+      "expected": {
+        "movement": {
+          "walk": 35,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 65,
+          "jump": 5,
+          "swim": 0,
+          "max": 65,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30",
+          "fly": "60"
+        },
+        "bonus": "5"
+      }
+    },
+    {
+      "id": "bonus-does-not-create-speed",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 35,
+          "jump": 5,
+          "swim": 0,
+          "max": 35,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "fly": "30"
+        },
+        "bonus": "5"
+      }
+    },
+    {
+      "id": "negative-bonus-clamps",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        },
+        "bonus": "-40"
+      }
+    },
+    {
+      "id": "slowed-at-half",
+      "expected": {
+        "movement": {
+          "walk": 15,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 15,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        },
+        "bonus": "-15"
+      }
+    },
+    {
+      "id": "jump-overwritten-after-max",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 100,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30",
+          "jump": "100"
+        }
+      }
+    },
+    {
+      "id": "prepared-looking-poison",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        },
+        "multiplier": 99,
+        "speed": 99,
+        "max": 99,
+        "slowed": true,
+        "fromSpecies": {
+          "walk": "99"
+        }
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60
+        }
+      }
+    },
+    {
+      "id": "armor-strength-reduction",
+      "expected": {
+        "movement": {
+          "walk": 20,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 20,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        }
+      },
+      "armorStrength": 15
+    },
+    {
+      "id": "armor-strength-satisfied",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 8,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        }
+      },
+      "armorStrength": 15,
+      "strength": 16
+    },
+    {
+      "id": "armor-reduction-metric",
+      "expected": {
+        "movement": {
+          "walk": 6,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 6,
+          "slowed": false,
+          "hover": false,
+          "units": "m"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "9"
+        },
+        "units": "m"
+      },
+      "armorStrength": 15
+    },
+    {
+      "id": "strength-effect-before-movement",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 8,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        }
+      },
+      "armorStrength": 15,
+      "strengthEffect": 16
+    },
+    {
+      "id": "missing-strength-independent-speed",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": null,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        }
+      },
+      "strength": null
+    },
+    {
+      "id": "class-unrelated-to-movement",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        }
+      },
+      "invalidClass": true
+    },
+    {
+      "id": "explicit-units-independent-setting",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 30,
+          "slowed": false,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        },
+        "units": "ft"
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60
+        },
+        "units": "ft"
+      },
+      "unavailableUnits": true
+    },
+    {
+      "id": "formula-speed-open",
+      "expected": {
+        "movement": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "1d4"
+        }
+      }
+    },
+    {
+      "id": "formula-bonus-open",
+      "expected": {
+        "movement": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        },
+        "bonus": "@abilities.dex.mod"
+      }
+    },
+    {
+      "id": "malformed-movement-open",
+      "expected": {
+        "movement": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": "30"
+    },
+    {
+      "id": "legacy-movement-open",
+      "expected": {
+        "movement": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "walk": 30
+      }
+    },
+    {
+      "id": "unknown-movement-unit",
+      "expected": {
+        "movement": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "units": "yards"
+      }
+    },
+    {
+      "id": "missing-strength-armor-open",
+      "expected": {
+        "movement": null,
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 0,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30"
+        }
+      },
+      "armorStrength": 15,
+      "strength": null
+    },
+    {
+      "id": "malformed-sense-open",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": null
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": -1
+        }
+      }
+    },
+    {
+      "id": "legacy-sense-open",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": null
+      },
+      "senses": {
+        "darkvision": 60
+      }
+    },
+    {
+      "id": "unknown-sense-unit",
+      "expected": {
+        "movement": {
+          "walk": 0,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "jump": 5,
+          "swim": 0,
+          "max": 0,
+          "slowed": true,
+          "hover": false,
+          "units": "ft"
+        },
+        "senses": null
+      },
+      "senses": {
+        "units": "yards"
+      }
+    },
+    {
+      "id": "unresolved-species-open",
+      "expected": {
+        "movement": null,
+        "senses": null
+      },
+      "raceRef": "Missing species"
+    },
+    {
+      "id": "units-setting-unavailable",
+      "expected": {
+        "movement": null,
+        "senses": null
+      },
+      "unavailableUnits": true
+    },
+    {
+      "id": "special-scalar-cleaning",
+      "expected": {
+        "movement": {
+          "walk": 30,
+          "burrow": 0,
+          "climb": 0,
+          "fly": 60,
+          "jump": 5,
+          "swim": 0,
+          "max": 60,
+          "slowed": false,
+          "hover": true,
+          "units": "ft",
+          "special": "Jump freely"
+        },
+        "senses": {
+          "blindsight": 0,
+          "darkvision": 60,
+          "tremorsense": 0,
+          "truesight": 0,
+          "special": "Actor note;Species note",
+          "units": "ft"
+        }
+      },
+      "movement": {
+        "speeds": {
+          "walk": "30",
+          "fly": "60"
+        },
+        "hover": false,
+        "special": " Jump freely "
+      },
+      "senses": {
+        "special": " Actor note "
+      },
+      "species": {
+        "movement": {
+          "hover": true
+        },
+        "senses": {
+          "ranges": {
+            "darkvision": 60
+          },
+          "special": " Species note "
+        }
+      },
+      "raceRef": "raceFixture0001"
+    }
+  ]
+}

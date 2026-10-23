@@ -3,6 +3,21 @@
 Historical entries are reconstructed from [published releases](https://github.com/sheetdelver/sd-dnd5e/releases), their tags, and merged changes. Version numbers follow the published tags; unreleased branch work is excluded.
 
 ## Unreleased
+
+- Review and manually replace or clear qualified temporary HP,with ownership checks,readback and recovery without replay.
+
+- Keep supported characters usable with native migration metadata;compact unavailable diagnostics and fix sheet grid overlap.
+
+- Continue experimental character preparation across checks, qualified conditional predicates,inventory and character readouts;unsupported rules remain explicit.
+- Preserve source data and distinguish earlier preparation from current proficiency, formula, flag and effect results;identify missing timed-effect context.
+- Share skill/tool/ability selections, previews and qualified roll execution across desktop/mobile, with context and stale-intent guards.
+- Support qualified Normal die bounds and proficiency dice and ordinary advantage/disadvantage;retain wider execution limits.
+- Preserve initialized base damage formulas and source-derived weapon ranges,including explicit missing values.
+- Prepare attunement,qualified transferred check/scalar/trait/flag effects and Item counters in native phase order.
+- Show qualified source-linked spell abilities,inherited fields,numeric attacks and Activity save DCs.
+- Share qualified utility Activity fields,template dimensions,units and owned consumption references;retire stale rolls on source changes.
+- Add exact-release fixtures, isolated verification and caller-safe content/rule context;correct bundled SRD labels.
+- Require the existing Core 0.19.3 public world/content contracts.
 - Reuse merge validation checks
 - Reuse validated release artifacts
 

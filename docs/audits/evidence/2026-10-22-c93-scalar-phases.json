@@ -1,0 +1,223 @@
+{
+  "checkpoint": "C93",
+  "parent": "5477229",
+  "status": "Bounded scalar initial/final fields implemented;M2/ADR remain open",
+  "requirements": [
+    "M2 partial",
+    "Q02a partial",
+    "DD-01\u201306/11/27/31/34 partial",
+    "A02\u2013A06 preparation only"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "failingBefore": {
+    "implementation": "5477229",
+    "command": "Same maintained scalar-phases.test.ts/new frozen fixture on read-only historical source snapshot in/tmp",
+    "result": "AC flat initial add receipt missing versus independent17",
+    "logSha256": "d6f6852d78509530ca1d7348109b6009a54be53e52fde8977a2a9b1b3f318f71"
+  },
+  "nativeComparisons": {
+    "numberCases": 432,
+    "formulaCases": 13,
+    "unsupported": [
+      {
+        "path": "attributes.ac.bonus",
+        "before": 2,
+        "type": "multiply",
+        "reason": "Native FormulaField passes numeric prepared operand to string-only Roll constructor"
+      },
+      {
+        "path": "attributes.ac.bonus",
+        "before": 2,
+        "type": "upgrade",
+        "reason": "Native FormulaField passes numeric prepared operand to string-only Roll constructor"
+      },
+      {
+        "path": "attributes.ac.bonus",
+        "before": 2,
+        "type": "downgrade",
+        "reason": "Native FormulaField passes numeric prepared operand to string-only Roll constructor"
+      },
+      {
+        "path": "attributes.ac.min",
+        "before": 15,
+        "type": "multiply",
+        "reason": "Native FormulaField passes numeric prepared operand to string-only Roll constructor"
+      },
+      {
+        "path": "attributes.ac.min",
+        "before": 15,
+        "type": "upgrade",
+        "reason": "Native FormulaField passes numeric prepared operand to string-only Roll constructor"
+      },
+      {
+        "path": "attributes.ac.min",
+        "before": 15,
+        "type": "downgrade",
+        "reason": "Native FormulaField passes numeric prepared operand to string-only Roll constructor"
+      },
+      {
+        "path": "attributes.movement.speeds.walk",
+        "before": 32,
+        "type": "multiply",
+        "reason": "Native FormulaField numeric operand requires string-only Roll constructor"
+      },
+      {
+        "path": "attributes.movement.speeds.walk",
+        "before": 32,
+        "type": "upgrade",
+        "reason": "Native FormulaField numeric operand requires string-only Roll constructor"
+      },
+      {
+        "path": "attributes.movement.speeds.walk",
+        "before": 32,
+        "type": "downgrade",
+        "reason": "Native FormulaField numeric operand requires string-only Roll constructor"
+      },
+      {
+        "path": "attributes.movement.speeds.jump",
+        "before": 5,
+        "type": "multiply",
+        "reason": "Native FormulaField numeric operand requires string-only Roll constructor"
+      },
+      {
+        "path": "attributes.movement.speeds.jump",
+        "before": 5,
+        "type": "upgrade",
+        "reason": "Native FormulaField numeric operand requires string-only Roll constructor"
+      },
+      {
+        "path": "attributes.movement.speeds.jump",
+        "before": 5,
+        "type": "downgrade",
+        "reason": "Native FormulaField numeric operand requires string-only Roll constructor"
+      }
+    ],
+    "sourceHashes": {
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/shared/movement-field.mjs": "7d44de85078342175ba22a50cae778541968c3db0ac983dac91138d07957a1b2",
+      "module/data/shared/senses-field.mjs": "16aa4b9878b456c5a8a93bffb4347834bf8bf97e462823d2846a8d9c24c80f31"
+    },
+    "artifactSha256": "e455a4bd6250f7d7174627a19e883d5551bd37d8fe414893bb1d906b8cc61634",
+    "fixture": "tests/fixtures/native-6.0.6/scalar-phases.json",
+    "fixtureSha256": "f169dca7efba671c662c4152c3f976373ff24bc7d89b9a93be9e8f06071c6fa1",
+    "limits": [
+      "Actual native NumberField applyChange/clean/validation wrappers and declared initialized operands; schema options are explicit;no full DataModel.",
+      "Actual AC and movement methods,then actual FormulaField handlers. Derived AC value/max are checked unchanged after final field changes;source does not supply prepared fields.",
+      "Numeric NumberField deltas2,2.5,-4;one deterministic final AC root-prof reference. Reference-delta NumberFields,nullable operands,broader schema/effect/Item phases remain unqualified. No dice,installed or native/operator acceptance."
+    ]
+  },
+  "mounted": {
+    "artifact": "/tmp/dnd5e-scalar-phases-mounted-op3rHX/evidence.json",
+    "sha256": "525a878a288dab769617b8084da3d4bcb62bf3aa475688fb190ab915871998d0",
+    "rows": [
+      {
+        "width": 1440,
+        "earlierArmorCurrentSave": true,
+        "previewFocusShortcutExecutionAgreement": true,
+        "nativeHpCacheAndCurrentMovementSenses": true,
+        "contextUnqualifiedSourceStaleIntentRecovery": true,
+        "zeroWrites": true
+      },
+      {
+        "width": 390,
+        "earlierArmorCurrentSave": true,
+        "previewFocusShortcutExecutionAgreement": true,
+        "nativeHpCacheAndCurrentMovementSenses": true,
+        "contextUnqualifiedSourceStaleIntentRecovery": true,
+        "zeroWrites": true
+      }
+    ],
+    "scope": "Actual module consumers with isolated SDK seam;not installed/native/operator acceptance"
+  },
+  "publicHost": {
+    "artifact": "/tmp/dnd5e-public-rolls-0EW7gY/evidence.json",
+    "sha256": "be98fcde973053364e37a8d3ac76eecbfadcb7763ce169f8e24ec09b4e1ce7e9",
+    "accepted": 57794,
+    "newCases": 1896,
+    "profile": "dependency-profile",
+    "equalIndexDiagnostics": 1200,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "writes": 0,
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "limit": "Complete new plain-d20 profiles plus Normal bounds. Wider dice/selection/reroll/range profiles unchanged;actual host serialization preserved."
+  },
+  "package": {
+    "artifact": "/tmp/dnd5e-package-4rmNcO/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "116e3424a73dc6b382972a6329f87d455c68b89a67300d6612010587ad8930c0",
+    "version": "experimental0.4.1",
+    "compatibility": "unchanged"
+  },
+  "commands": [
+    {
+      "command": "npm test -- --core <released0.19.3> (73 module/9 tooling suites)",
+      "log": "temp/c93-tests.log",
+      "sha256": "17f22eb3e25598c61a0296d763ecef2d9c6005a14c01fae2f8b42753b7eff37b",
+      "result": "PASS",
+      "qualification": "This successful 73-suite run preceded the last poison-test addition;it does not validate the final C93 committed test tree."
+    },
+    {
+      "command": "Maintained scalar-phases.test.ts final poison supplement",
+      "log": "temp/c93-focus-final.log",
+      "sha256": "5696e3b9ddf65545ac9e3c1e945590820f0451983be9336e7de6a2e0ec2b0db0",
+      "result": "FAIL (corrected C94): the raw senses container was absent in the poison fixture",
+      "originalRecordedResult": "PASS",
+      "supersededBy": "2026-10-22-c94-transferred-final.json"
+    },
+    {
+      "command": "npm run typecheck -- --core <baseline> (277 explicit module/UI/server/hook/test files)",
+      "log": "temp/c93-types-final-checkpoint.log",
+      "sha256": "850d76becc6efdfb54aaa4f271812469176f686d25ebaf8ca4d151eb79584620",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:native-source -- --core <baseline> --native <exact release repo>",
+      "log": "temp/c93-source.log",
+      "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:native-scalar-phases -- --core <baseline> --native <repo> --foundry <static14.367>",
+      "log": "temp/c93-native-final.log",
+      "sha256": "81da91e989f88c35ce93f11ee247f5b9c93b648d45b691373e0392a4954a3199",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:mounted-scalar-phases -- --core <baseline> --chromium <offline binary>",
+      "log": "temp/c93-mounted.log",
+      "sha256": "c426abf523624dfe2db3ae6db0186f7ed50dfae97131208e2be0bc042a70ebc8",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core <baseline> --dependency-profile",
+      "log": "temp/c93-public.log",
+      "sha256": "fdc57ce277480e9d419d1d311133c712ba4502971dba4524aa1cd4b4e4e9bc97",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run check:package -- --core <baseline>",
+      "log": "temp/c93-package.log",
+      "sha256": "0dfeb756632675196de02bb436719b3ca67ce50834cfd5cdb41ce8f706c84f94",
+      "result": "PASS"
+    }
+  ],
+  "remaining": [
+    "Nullable numeric operands,reference deltas for NumberFields,wider final FormulaFields and Item activity hooks remain unqualified.",
+    "Pinned method diagnostics are not installed-native fault/acceptance or new Core defect evidence.",
+    "Remaining Item/filter/formula qualification and A02\u2013A06 installed/native/operator gates keep full M2/ADR open.",
+    "No Core/sibling/native modifications,no live connections,no version/compatibility change;task-owned isolated services stopped."
+  ],
+  "verificationCorrection": {
+    "recordedAt": "C94",
+    "issue": "C93 appended a poison fixture after its successful full run. The supplemental run failed on an absent raw senses container but was recorded as PASS.",
+    "originalFailureLogSha256": "5696e3b9ddf65545ac9e3c1e945590820f0451983be9336e7de6a2e0ec2b0db0",
+    "correction": "Initialize the optional raw senses mapping in the test fixture,then run the final complete tree. No module runtime behavior changed for this correction.",
+    "supersededBy": "2026-10-22-c94-transferred-final.json"
+  },
+  "implementationCommit": "6ce43c6"
+}

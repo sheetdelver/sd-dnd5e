@@ -1,0 +1,632 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Persisted source + explicit verified defaults -> initial numeric field effects -> native derived checks -> fresh selected roll",
+  "cases": [
+    {
+      "id": "wis-add",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "add",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 6,
+        "passive": 16,
+        "tool": 4,
+        "check": 3,
+        "save": 3,
+        "combined": 6,
+        "combinedMode": 1,
+        "score": 16,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "wis-subtract",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "subtract",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 4,
+        "passive": 14,
+        "tool": 4,
+        "check": 1,
+        "save": 1,
+        "combined": 4,
+        "combinedMode": 1,
+        "score": 12,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "wis-multiply",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "multiply",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 12,
+        "passive": 22,
+        "tool": 4,
+        "check": 9,
+        "save": 9,
+        "combined": 12,
+        "combinedMode": 1,
+        "score": 28,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "wis-override",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "override",
+          "value": 18,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 7,
+        "passive": 17,
+        "tool": 4,
+        "check": 4,
+        "save": 4,
+        "combined": 7,
+        "combinedMode": 1,
+        "score": 18,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "wis-upgrade",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "upgrade",
+          "value": 18,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 7,
+        "passive": 17,
+        "tool": 4,
+        "check": 4,
+        "save": 4,
+        "combined": 7,
+        "combinedMode": 1,
+        "score": 18,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "wis-downgrade",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "downgrade",
+          "value": 12,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 4,
+        "passive": 14,
+        "tool": 4,
+        "check": 1,
+        "save": 1,
+        "combined": 4,
+        "combinedMode": 1,
+        "score": 12,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "priority-chain",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "override",
+          "value": 16,
+          "phase": "initial"
+        },
+        {
+          "key": "system.abilities.wis.value",
+          "type": "add",
+          "value": 2,
+          "phase": "initial"
+        },
+        {
+          "key": "system.abilities.wis.value",
+          "type": "multiply",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 6,
+        "passive": 16,
+        "tool": 4,
+        "check": 3,
+        "save": 3,
+        "combined": 6,
+        "combinedMode": 1,
+        "score": 16,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "skill-expertise",
+      "changes": [
+        {
+          "key": "system.skills.prc.value",
+          "type": "override",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 8,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 2,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "tool-half",
+      "changes": [
+        {
+          "key": "system.tools.thief.value",
+          "type": "override",
+          "value": 0.5,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 2,
+        "check": 2,
+        "save": 2,
+        "combined": 5,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 1,
+        "toolProficiency": 0.5
+      }
+    },
+    {
+      "id": "global-check-half",
+      "changes": [
+        {
+          "key": "system.rolls.ability.check.proficiency",
+          "type": "override",
+          "value": 0.5,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 4,
+        "check": 3,
+        "save": 2,
+        "combined": 5,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "global-check-expertise",
+      "changes": [
+        {
+          "key": "system.rolls.ability.check.proficiency",
+          "type": "override",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 7,
+        "check": 8,
+        "save": 2,
+        "combined": 8,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 2,
+        "toolProficiency": 2
+      }
+    },
+    {
+      "id": "global-skill-expertise",
+      "changes": [
+        {
+          "key": "system.rolls.ability.skill.proficiency",
+          "type": "override",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 8,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 2,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "global-tool-expertise",
+      "changes": [
+        {
+          "key": "system.rolls.ability.tool.proficiency",
+          "type": "override",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 7,
+        "check": 2,
+        "save": 2,
+        "combined": 8,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 1,
+        "toolProficiency": 2
+      }
+    },
+    {
+      "id": "global-save",
+      "changes": [
+        {
+          "key": "system.rolls.ability.save.proficiency",
+          "type": "override",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 4,
+        "check": 2,
+        "save": 5,
+        "combined": 5,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "local-save",
+      "changes": [
+        {
+          "key": "system.abilities.wis.proficient",
+          "type": "override",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 4,
+        "check": 2,
+        "save": 5,
+        "combined": 5,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "global-positive-automatic",
+      "changes": [
+        {
+          "key": "system.rolls.ability.check.proficiency",
+          "type": "override",
+          "value": 0.5,
+          "phase": "initial"
+        }
+      ],
+      "patches": {
+        "system.skills.prc.value": 0,
+        "system.tools.thief.value": 0
+      },
+      "expected": {
+        "skill": 3,
+        "passive": 13,
+        "tool": 2,
+        "check": 3,
+        "save": 2,
+        "combined": 3,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 0.5,
+        "toolProficiency": 0.5
+      }
+    },
+    {
+      "id": "skill-target-does-not-raise-independent-tool",
+      "changes": [
+        {
+          "key": "system.rolls.ability.skill.proficiency",
+          "type": "override",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {
+        "system.tools.thief.value": 0
+      },
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 1,
+        "check": 2,
+        "save": 2,
+        "combined": 8,
+        "combinedMode": 0,
+        "score": 14,
+        "skillProficiency": 2,
+        "toolProficiency": 0
+      }
+    },
+    {
+      "id": "final-score",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "add",
+          "value": 2,
+          "phase": "final"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 5,
+        "combinedMode": 1,
+        "score": 16,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "formula-delta",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "add",
+          "value": "1d4",
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": null
+    },
+    {
+      "id": "unknown-ability",
+      "changes": [
+        {
+          "key": "system.abilities.missing.value",
+          "type": "add",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": null
+    },
+    {
+      "id": "missing-tool",
+      "changes": [
+        {
+          "key": "system.tools.missing.value",
+          "type": "override",
+          "value": 1,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": null
+    },
+    {
+      "id": "global-invalid-choice",
+      "changes": [
+        {
+          "key": "system.rolls.ability.check.proficiency",
+          "type": "override",
+          "value": 1.5,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": null
+    },
+    {
+      "id": "custom-operation",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "custom",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": null
+    },
+    {
+      "id": "bonus-field",
+      "changes": [
+        {
+          "key": "system.skills.prc.roll.bonus",
+          "type": "add",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 7,
+        "passive": 17,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 7,
+        "combinedTool": 5,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "rounded-score",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "add",
+          "value": 0.5,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 5,
+        "combinedMode": 1,
+        "score": 15,
+        "skillProficiency": 1,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "tool-rounded-step",
+      "changes": [
+        {
+          "key": "system.tools.thief.value",
+          "type": "override",
+          "value": 1.25,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 5,
+        "check": 2,
+        "save": 2,
+        "combined": 6,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 1,
+        "toolProficiency": 1.5
+      }
+    },
+    {
+      "id": "clamped-expertise",
+      "changes": [
+        {
+          "key": "system.skills.prc.value",
+          "type": "multiply",
+          "value": 5,
+          "phase": "initial"
+        }
+      ],
+      "patches": {},
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 8,
+        "combinedMode": 1,
+        "score": 14,
+        "skillProficiency": 2,
+        "toolProficiency": 1
+      }
+    },
+    {
+      "id": "uninitialized-fractional-source",
+      "changes": [
+        {
+          "key": "system.abilities.wis.value",
+          "type": "add",
+          "value": 2,
+          "phase": "initial"
+        }
+      ],
+      "patches": {
+        "system.abilities.wis.value": 14.5
+      },
+      "expected": null
+    }
+  ]
+}

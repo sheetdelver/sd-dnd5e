@@ -1,0 +1,4523 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "readFlags": [
+    {
+      "key": "halflingLucky",
+      "value": true,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": false
+    },
+    {
+      "key": "elvenAccuracy",
+      "value": true,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": true
+    },
+    {
+      "key": "halflingNimbleness",
+      "value": true,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": true
+    },
+    {
+      "key": "enhancedDualWielding",
+      "value": true,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": true
+    },
+    {
+      "key": "ignoreArmorSpeedReduction",
+      "value": true,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": true
+    },
+    {
+      "key": "reliableTalent",
+      "value": true,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": true
+    },
+    {
+      "key": "weaponCriticalThreshold",
+      "value": 19,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": true
+    },
+    {
+      "key": "spellCriticalThreshold",
+      "value": 18,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": true
+    },
+    {
+      "key": "meleeCriticalDamageDice",
+      "value": 1,
+      "skill": 5,
+      "passive": 15,
+      "tool": 5,
+      "ability": 2,
+      "save": 2,
+      "initiative": 2,
+      "rollAvailable": true
+    }
+  ],
+  "reliable": [
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 2,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 2,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 13
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 2,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "17": 15,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 2,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "10": 12,
+        "17": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 2,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 2,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 13
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 2,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "17": 15,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 2,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "10": 12,
+        "17": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 12,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 12,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 3,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 3,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 13
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 3,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "18": 15,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 3,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "11": 12,
+        "18": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 3,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 3,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 13
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 3,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "18": 15,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 3,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "11": 12,
+        "18": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 13,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 13,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 15,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 13
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "21": 15,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "14": 12,
+        "21": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "16": 10,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "14": 12,
+        "16": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "21": 15,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "14": 12,
+        "21": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 13
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "21": 15,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "14": 12,
+        "21": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "16": 10,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "14": 12,
+        "16": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "21": 15,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "14": 12,
+        "21": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 13
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "21": 15,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": false,
+      "histogram": {
+        "14": 12,
+        "21": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "16": 10,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "14": 12,
+        "16": 8
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "21": 15,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1
+      }
+    },
+    {
+      "coefficient": 1.5,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 6,
+      "passive": 16,
+      "enabled": true,
+      "histogram": {
+        "14": 12,
+        "21": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 13
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "23": 15,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "16": 12,
+        "23": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "18": 10,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "16": 12,
+        "18": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "23": 15,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "16": 12,
+        "23": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 13
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "23": 15,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "16": 12,
+        "23": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "18": 10,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "16": 12,
+        "18": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "23": 15,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "16": 12,
+        "23": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 13
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": false,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "15": 10,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "15": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 5,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "20": 15,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": false,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 5,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "13": 12,
+        "20": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": null,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": null,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 13
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "23": 15,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": true,
+      "flag": false,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": false,
+      "histogram": {
+        "16": 12,
+        "23": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": null,
+      "expectedMin": 10,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "18": 10,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": null,
+      "maximum": 8,
+      "expectedMin": 10,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "16": 12,
+        "18": 8
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": null,
+      "expectedMin": 15,
+      "expectedMax": null,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "23": 15,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1
+      }
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "selected": true,
+      "flag": true,
+      "minimum": 15,
+      "maximum": 8,
+      "expectedMin": 15,
+      "expectedMax": 8,
+      "total": 8,
+      "passive": 18,
+      "enabled": true,
+      "histogram": {
+        "16": 12,
+        "23": 8
+      }
+    }
+  ],
+  "finalCases": [
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "currentValue": 0,
+      "selected": false,
+      "expectedMin": null,
+      "total": 2
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "currentValue": 0,
+      "selected": true,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "currentValue": 1,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 2
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "currentValue": 1,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "currentValue": 2,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 2
+    },
+    {
+      "coefficient": 0,
+      "kind": "skill",
+      "currentValue": 2,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "currentValue": 0,
+      "selected": false,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "currentValue": 0,
+      "selected": true,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "currentValue": 1,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "currentValue": 1,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "currentValue": 2,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0,
+      "kind": "tool",
+      "currentValue": 2,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "currentValue": 0,
+      "selected": false,
+      "expectedMin": null,
+      "total": 3
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "currentValue": 0,
+      "selected": true,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "currentValue": 1,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 3
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "currentValue": 1,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "currentValue": 2,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 3
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "skill",
+      "currentValue": 2,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "currentValue": 0,
+      "selected": false,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "currentValue": 0,
+      "selected": true,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "currentValue": 1,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "currentValue": 1,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "currentValue": 2,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 0.5,
+      "kind": "tool",
+      "currentValue": 2,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "currentValue": 0,
+      "selected": false,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "currentValue": 0,
+      "selected": true,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "currentValue": 1,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "currentValue": 1,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "currentValue": 2,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "skill",
+      "currentValue": 2,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "currentValue": 0,
+      "selected": false,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "currentValue": 0,
+      "selected": true,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "currentValue": 1,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "currentValue": 1,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "currentValue": 2,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 1,
+      "kind": "tool",
+      "currentValue": 2,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "currentValue": 0,
+      "selected": false,
+      "expectedMin": null,
+      "total": 8
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "currentValue": 0,
+      "selected": true,
+      "expectedMin": null,
+      "total": 8
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "currentValue": 1,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 8
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "currentValue": 1,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 8
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "currentValue": 2,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 8
+    },
+    {
+      "coefficient": 2,
+      "kind": "skill",
+      "currentValue": 2,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 8
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "currentValue": 0,
+      "selected": false,
+      "expectedMin": null,
+      "total": 5
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "currentValue": 0,
+      "selected": true,
+      "expectedMin": null,
+      "total": 8
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "currentValue": 1,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "currentValue": 1,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 8
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "currentValue": 2,
+      "selected": false,
+      "expectedMin": 10,
+      "total": 5
+    },
+    {
+      "coefficient": 2,
+      "kind": "tool",
+      "currentValue": 2,
+      "selected": true,
+      "expectedMin": 10,
+      "total": 8
+    }
+  ],
+  "weaponModes": [
+    {
+      "value": "simpleM",
+      "properties": [],
+      "enhanced": false,
+      "expected": [
+        "oneHanded"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "offhand"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "thr"
+      ],
+      "enhanced": false,
+      "expected": [
+        "oneHanded",
+        "thrown"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "thr"
+      ],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "offhand",
+        "thrown",
+        "thrown-offhand"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "two"
+      ],
+      "enhanced": false,
+      "expected": [
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "two"
+      ],
+      "enhanced": true,
+      "expected": [
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "ver"
+      ],
+      "enhanced": false,
+      "expected": [
+        "oneHanded",
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "ver"
+      ],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "twoHanded",
+        "offhand"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "lgt"
+      ],
+      "enhanced": false,
+      "expected": [
+        "oneHanded",
+        "offhand"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "lgt"
+      ],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "offhand"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "two",
+        "thr"
+      ],
+      "enhanced": false,
+      "expected": [
+        "twoHanded",
+        "thrown"
+      ]
+    },
+    {
+      "value": "simpleM",
+      "properties": [
+        "two",
+        "thr"
+      ],
+      "enhanced": true,
+      "expected": [
+        "twoHanded",
+        "thrown"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [],
+      "enhanced": false,
+      "expected": [
+        "oneHanded"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [],
+      "enhanced": true,
+      "expected": [
+        "oneHanded"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "thr"
+      ],
+      "enhanced": false,
+      "expected": [
+        "thrown"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "thr"
+      ],
+      "enhanced": true,
+      "expected": [
+        "thrown"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "two"
+      ],
+      "enhanced": false,
+      "expected": [
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "two"
+      ],
+      "enhanced": true,
+      "expected": [
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "ver"
+      ],
+      "enhanced": false,
+      "expected": [
+        "oneHanded",
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "ver"
+      ],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "lgt"
+      ],
+      "enhanced": false,
+      "expected": [
+        "oneHanded",
+        "offhand"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "lgt"
+      ],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "offhand"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "two",
+        "thr"
+      ],
+      "enhanced": false,
+      "expected": [
+        "thrown"
+      ]
+    },
+    {
+      "value": "simpleR",
+      "properties": [
+        "two",
+        "thr"
+      ],
+      "enhanced": true,
+      "expected": [
+        "thrown"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [],
+      "enhanced": false,
+      "expected": [
+        "oneHanded"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [],
+      "enhanced": true,
+      "expected": [
+        "oneHanded"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "thr"
+      ],
+      "enhanced": false,
+      "expected": [
+        "oneHanded",
+        "thrown"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "thr"
+      ],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "thrown"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "two"
+      ],
+      "enhanced": false,
+      "expected": [
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "two"
+      ],
+      "enhanced": true,
+      "expected": [
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "ver"
+      ],
+      "enhanced": false,
+      "expected": [
+        "oneHanded",
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "ver"
+      ],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "twoHanded"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "lgt"
+      ],
+      "enhanced": false,
+      "expected": [
+        "oneHanded",
+        "offhand"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "lgt"
+      ],
+      "enhanced": true,
+      "expected": [
+        "oneHanded",
+        "offhand"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "two",
+        "thr"
+      ],
+      "enhanced": false,
+      "expected": [
+        "twoHanded",
+        "thrown"
+      ]
+    },
+    {
+      "value": "natural",
+      "properties": [
+        "two",
+        "thr"
+      ],
+      "enhanced": true,
+      "expected": [
+        "twoHanded",
+        "thrown"
+      ]
+    }
+  ],
+  "movement": [
+    {
+      "ignore": false,
+      "units": "ft",
+      "heavy": false,
+      "expected": 30
+    },
+    {
+      "ignore": false,
+      "units": "ft",
+      "heavy": true,
+      "expected": 20
+    },
+    {
+      "ignore": false,
+      "units": "m",
+      "heavy": false,
+      "expected": 9
+    },
+    {
+      "ignore": false,
+      "units": "m",
+      "heavy": true,
+      "expected": 6
+    },
+    {
+      "ignore": true,
+      "units": "ft",
+      "heavy": false,
+      "expected": 30
+    },
+    {
+      "ignore": true,
+      "units": "ft",
+      "heavy": true,
+      "expected": 30
+    },
+    {
+      "ignore": true,
+      "units": "m",
+      "heavy": false,
+      "expected": 9
+    },
+    {
+      "ignore": true,
+      "units": "m",
+      "heavy": true,
+      "expected": 9
+    }
+  ],
+  "basis": "Independent native-method expectations established before implementation;raw source initialization,prepared models and roll construction remain distinct. No full DataModel/native acceptance."
+}

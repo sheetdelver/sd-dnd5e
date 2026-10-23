@@ -1,0 +1,169 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "LocalDocumentField raw string cleaning and exact embedded lookup; source-only identity projection, not Item rule preparation",
+  "cases": [
+    {
+      "id": "stored-second-id",
+      "ref": "speciesSecond01",
+      "expected": {
+        "status": "resolved-source",
+        "display": "Second species",
+        "id": "speciesSecond01"
+      }
+    },
+    {
+      "id": "stored-first-id",
+      "ref": "speciesFirst001",
+      "expected": {
+        "status": "resolved-source",
+        "display": "First species",
+        "id": "speciesFirst001"
+      }
+    },
+    {
+      "id": "same-name-second-id",
+      "ref": "speciesSecond01",
+      "sameName": true,
+      "expected": {
+        "status": "resolved-source",
+        "display": "Shared label",
+        "id": "speciesSecond01"
+      }
+    },
+    {
+      "id": "absent-null",
+      "ref": null,
+      "expected": {
+        "status": "absent",
+        "display": "Species not selected",
+        "id": null
+      }
+    },
+    {
+      "id": "absent-blank",
+      "ref": "",
+      "expected": {
+        "status": "absent",
+        "display": "Species not selected",
+        "id": null
+      }
+    },
+    {
+      "id": "absent-omitted",
+      "ref": null,
+      "omitRef": true,
+      "expected": {
+        "status": "absent",
+        "display": "Species not selected",
+        "id": null
+      }
+    },
+    {
+      "id": "literal-not-name-substitute",
+      "ref": "First species",
+      "expected": {
+        "status": "source-text",
+        "display": "First species",
+        "id": null
+      }
+    },
+    {
+      "id": "literal-missing-id",
+      "ref": "speciesMissing1",
+      "expected": {
+        "status": "source-text",
+        "display": "speciesMissing1",
+        "id": null
+      }
+    },
+    {
+      "id": "literal-uuid",
+      "ref": "Compendium.example.species.Item.speciesSecond01",
+      "expected": {
+        "status": "source-text",
+        "display": "Compendium.example.species.Item.speciesSecond01",
+        "id": null
+      }
+    },
+    {
+      "id": "trim-reference",
+      "ref": " speciesSecond01 ",
+      "expected": {
+        "status": "resolved-source",
+        "display": "Second species",
+        "id": "speciesSecond01"
+      }
+    },
+    {
+      "id": "invalid-object",
+      "ref": {
+        "name": "First species"
+      },
+      "expected": {
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "id": null
+      }
+    },
+    {
+      "id": "wrong-owned-type",
+      "ref": "speciesSecond01",
+      "wrongType": true,
+      "expected": {
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "id": null
+      }
+    },
+    {
+      "id": "duplicate-owned-id",
+      "ref": "speciesSecond01",
+      "duplicate": true,
+      "expected": {
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "id": null
+      }
+    },
+    {
+      "id": "foreign-item-uuid",
+      "ref": "speciesSecond01",
+      "foreignUuid": true,
+      "expected": {
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "id": null
+      }
+    },
+    {
+      "id": "malformed-owned-system",
+      "ref": "speciesSecond01",
+      "badSystem": true,
+      "expected": {
+        "status": "resolved-source",
+        "display": "Second species",
+        "id": "speciesSecond01"
+      }
+    },
+    {
+      "id": "missing-name",
+      "ref": "speciesSecond01",
+      "badName": true,
+      "expected": {
+        "status": "unavailable",
+        "display": "Species unavailable",
+        "id": null
+      }
+    },
+    {
+      "id": "independent-unqualified-class",
+      "ref": "speciesSecond01",
+      "invalidClass": true,
+      "expected": {
+        "status": "resolved-source",
+        "display": "Second species",
+        "id": "speciesSecond01"
+      }
+    }
+  ]
+}

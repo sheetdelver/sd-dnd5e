@@ -1,0 +1,331 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "foundry": {
+    "generation": 14,
+    "build": 367
+  },
+  "cases": [
+    {
+      "id": "no-op-actor",
+      "effects": [
+        {
+          "_id": "effectA",
+          "type": "base",
+          "disabled": false,
+          "system": {
+            "changes": []
+          }
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": true,
+        "decisions": [
+          "no-changes"
+        ]
+      }
+    },
+    {
+      "id": "disabled-unknown",
+      "effects": [
+        {
+          "_id": "disabled",
+          "disabled": true,
+          "changes": [
+            {
+              "mode": 2
+            }
+          ]
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": true,
+        "decisions": [
+          "disabled"
+        ]
+      }
+    },
+    {
+      "id": "unequipped-transfer",
+      "effects": [],
+      "items": [
+        {
+          "_id": "toolItem",
+          "type": "equipment",
+          "system": {
+            "equipped": false
+          },
+          "effects": [
+            {
+              "_id": "effectA",
+              "type": "base",
+              "disabled": false,
+              "system": {
+                "changes": [
+                  {
+                    "key": "system.abilities.wis.value",
+                    "value": "2",
+                    "type": "add"
+                  }
+                ]
+              },
+              "transfer": true
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "ready": true,
+        "decisions": [
+          "item-suppressed"
+        ]
+      }
+    },
+    {
+      "id": "actor-initial-final",
+      "effects": [
+        {
+          "_id": "effectA",
+          "type": "base",
+          "disabled": false,
+          "system": {
+            "changes": [
+              {
+                "key": "system.abilities.wis.value",
+                "value": "2",
+                "type": "add",
+                "priority": 20
+              },
+              {
+                "key": "system.rolls.ability.check.proficiency",
+                "value": 2,
+                "type": "override",
+                "phase": "final",
+                "priority": 50
+              }
+            ]
+          }
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": true,
+        "decisions": [
+          "eligible"
+        ],
+        "initial": [
+          "system.abilities.wis.value"
+        ],
+        "final": [
+          "system.rolls.ability.check.proficiency"
+        ],
+        "formula": "1d20+9",
+        "total": 9,
+        "passive": 16
+      }
+    },
+    {
+      "id": "stable-priorities",
+      "effects": [
+        {
+          "_id": "effectA",
+          "type": "base",
+          "disabled": false,
+          "system": {
+            "changes": [
+              {
+                "key": "one",
+                "type": "override",
+                "value": 1
+              },
+              {
+                "key": "two",
+                "type": "multiply",
+                "value": 2
+              },
+              {
+                "key": "three",
+                "type": "add",
+                "value": 3,
+                "priority": 10
+              },
+              {
+                "key": "four",
+                "type": "subtract",
+                "value": 4,
+                "priority": -1
+              }
+            ]
+          }
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": false,
+        "decisions": [
+          "eligible"
+        ],
+        "initial": [
+          "four",
+          "two",
+          "three",
+          "one"
+        ],
+        "final": []
+      }
+    },
+    {
+      "id": "nontransfer-item",
+      "effects": [],
+      "items": [
+        {
+          "_id": "classItem",
+          "type": "class",
+          "system": {
+            "levels": 1
+          },
+          "effects": [
+            {
+              "_id": "effectA",
+              "type": "base",
+              "disabled": false,
+              "system": {
+                "changes": [
+                  {
+                    "key": "system.levels",
+                    "value": 5,
+                    "type": "override"
+                  }
+                ]
+              },
+              "transfer": false
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "ready": false,
+        "decisions": [
+          "item-preparation-unavailable"
+        ]
+      }
+    },
+    {
+      "id": "conditional",
+      "effects": [
+        {
+          "_id": "effectA",
+          "type": "base",
+          "disabled": false,
+          "system": {
+            "conditions": "{\"k\":\"foo\",\"v\":true}",
+            "changes": []
+          }
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": false,
+        "decisions": [
+          "conditions-unavailable"
+        ]
+      }
+    },
+    {
+      "id": "timed",
+      "effects": [
+        {
+          "_id": "effectA",
+          "type": "base",
+          "disabled": false,
+          "system": {
+            "changes": []
+          },
+          "duration": {
+            "value": 60,
+            "units": "seconds",
+            "expiry": "turnStart"
+          }
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": false,
+        "decisions": [
+          "duration-unavailable"
+        ]
+      }
+    },
+    {
+      "id": "statuses",
+      "effects": [
+        {
+          "_id": "effectA",
+          "type": "base",
+          "disabled": false,
+          "system": {
+            "changes": []
+          },
+          "statuses": [
+            "poisoned"
+          ]
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": false,
+        "decisions": [
+          "status-unavailable"
+        ]
+      }
+    },
+    {
+      "id": "legacy-changes",
+      "effects": [
+        {
+          "_id": "effectA",
+          "type": "base",
+          "disabled": false,
+          "system": {
+            "changes": []
+          },
+          "changes": [
+            {
+              "key": "system.abilities.wis.value",
+              "mode": 2,
+              "value": "2"
+            }
+          ]
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": false,
+        "decisions": [
+          "legacy-unavailable"
+        ]
+      }
+    },
+    {
+      "id": "unknown-type",
+      "effects": [
+        {
+          "_id": "effectA",
+          "type": "custom",
+          "disabled": false,
+          "system": {
+            "changes": []
+          }
+        }
+      ],
+      "items": [],
+      "expected": {
+        "ready": false,
+        "decisions": [
+          "type-unavailable"
+        ]
+      }
+    }
+  ]
+}

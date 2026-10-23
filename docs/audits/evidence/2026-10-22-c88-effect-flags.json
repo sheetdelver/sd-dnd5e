@@ -1,0 +1,1097 @@
+{
+  "checkpoint": "C88 phase-correct Boolean flag effects and native source applicability",
+  "parent": "77b44e7c3f7b866d7b1da786dab3b09aea69415a",
+  "requirements": [
+    "M2/Q02a partial",
+    "DD-03/11/24/27/31/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "checks": {
+    "beforeFlags": {
+      "artifact": "temp/c88-flags-before.log",
+      "sha256": "e7bf1be450b4ab645dadd719aec2937f1db7f7076bae2152bb2f364d3be1e610",
+      "result": "Same unchanged flag source failed before:null prepared total vs expected2"
+    },
+    "beforeAdmission": {
+      "artifact": "temp/c88-admission-before.log",
+      "sha256": "0efd037d85b0dec87141bf75082a2e0bb1b82e733b0ee6311b9ea32e59a3b2f4",
+      "result": "Same stored nontransfer source failed before:null roll vs native independent+5"
+    },
+    "regression": {
+      "artifact": "temp/c88-tests-complete.log",
+      "sha256": "3e555e7b70cbcf5c6fe0ec65920bb609ec56d2ccab9b4892adbf2ccb66a5961b",
+      "result": "68 module/9 tooling suites,61 assertions PASS"
+    },
+    "typing": {
+      "artifact": "temp/c88-types-final.log",
+      "sha256": "f41f5729964f37cabc8c95f99c1ce08bb2c3ef58f3742f1d9b5883164c5dad49",
+      "result": "261 explicit module/UI/server/test/hook files PASS"
+    },
+    "source": {
+      "artifact": "temp/c88-source.log",
+      "sha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff",
+      "result": "2242 exact records/591 candidate expressions PASS"
+    },
+    "flagMethods": {
+      "artifact": "temp/c88-native-flag-effects-final.json",
+      "sha256": "80912ac72d3d4de09d06b680a1c8c46f6df290fda78e32e7b6df7cb7b4981a0a",
+      "result": "3024 native flag operation/default/phase profiles PASS"
+    },
+    "admissionMethods": {
+      "artifact": "temp/c88-native-effect-admission.json",
+      "sha256": "69f74ac42195a85bc4aadd1990a6ca6bf030fa3642d47cb431aa669fafa3dbf6",
+      "result": "50 initialized applicability/metadata/rider profiles plus24 permanent source-duration defaults PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-flag-effects-mounted-Kk4fAw/evidence.json",
+      "sha256": "fb4c578bedb7304d4648885f0cf403ff171207ccd8e07082f12e387576cf4e61",
+      "result": "1440/390 actual module cached passives/current checks/previews/shortcuts/stale held callbacks/context recovery;0 writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-4bFXro/evidence.json",
+      "sha256": "bdb293e5cf3b2190e937b690009853fa8ef989f9b7d5a4af3ed3671dfdd139fe",
+      "result": "29834 accepted/3440 new flag requests;1 retained unary candidate/160 bounded equal-index diagnostics;0 native writes PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-RbVbO7/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "373c64f4999221cbcf803588cdbd15d046b603bcaa7de86711808e3e1f5d06e4",
+      "result": "Isolated module check/package PASS"
+    }
+  },
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "sourceHashes": {
+    "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+    "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+    "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+    "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3"
+  },
+  "nativeAdmission": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "rows": [
+      {
+        "own": false,
+        "type": "base",
+        "transfer": false,
+        "expired": false,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": false,
+        "expired": false,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": false,
+        "expired": false,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": false,
+        "expired": true,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": false,
+        "expired": true,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": false,
+        "expired": true,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": true,
+        "expired": false,
+        "metadata": {},
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": true,
+        "expired": false,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": true,
+        "expired": false,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": true,
+        "expired": true,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": true,
+        "expired": true,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "base",
+        "transfer": true,
+        "expired": true,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": false,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": false,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": false,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": true,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": true,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": true,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": false,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 1
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": false,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 1
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": false,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 1
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": true,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": true,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": false,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": true,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": false,
+        "expired": false,
+        "metadata": {},
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": false,
+        "expired": false,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": false,
+        "expired": false,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": false,
+        "expired": true,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": false,
+        "expired": true,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": false,
+        "expired": true,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": true,
+        "expired": false,
+        "metadata": {},
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": true,
+        "expired": false,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": true,
+        "expired": false,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 1,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": true,
+        "expired": true,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": true,
+        "expired": true,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "base",
+        "transfer": true,
+        "expired": true,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": false,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": false,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": false,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": true,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": true,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": false,
+        "expired": true,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": false,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": false,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": false,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": true,
+        "metadata": {},
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": true,
+        "metadata": {
+          "sourceId": "Compendium.dnd5e.feats24.Item.ExactOrigin",
+          "advancementOrigin": "Actor.exact.Item.class.advancement",
+          "advancementRoot": "Actor.exact.Item.class"
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "own": true,
+        "type": "enchantment",
+        "transfer": true,
+        "expired": true,
+        "metadata": {
+          "riders": {
+            "effect": [],
+            "statuses": []
+          }
+        },
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "rider": true,
+        "transfer": false,
+        "actorCount": 0,
+        "itemCount": 0
+      },
+      {
+        "rider": true,
+        "transfer": true,
+        "actorCount": 0,
+        "itemCount": 0
+      }
+    ],
+    "durations": [
+      {
+        "source": {
+          "expired": false,
+          "concealed": false,
+          "start": null
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": false,
+          "start": null
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": false,
+          "start": {
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null,
+            "time": 0
+          }
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": false,
+          "start": {
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null,
+            "time": 0
+          }
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": false,
+          "start": {
+            "combat": "pastCombat",
+            "combatant": "oldTurn",
+            "initiative": 12.5,
+            "round": 2,
+            "turn": 0,
+            "time": 1000
+          }
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": false,
+          "start": {
+            "combat": "pastCombat",
+            "combatant": "oldTurn",
+            "initiative": 12.5,
+            "round": 2,
+            "turn": 0,
+            "time": 1000
+          }
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": true,
+          "start": null
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": true,
+          "start": null
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": true,
+          "start": {
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null,
+            "time": 0
+          }
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": true,
+          "start": {
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null,
+            "time": 0
+          }
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": true,
+          "start": {
+            "combat": "pastCombat",
+            "combatant": "oldTurn",
+            "initiative": 12.5,
+            "round": 2,
+            "turn": 0,
+            "time": 1000
+          }
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": false,
+          "concealed": true,
+          "start": {
+            "combat": "pastCombat",
+            "combatant": "oldTurn",
+            "initiative": 12.5,
+            "round": 2,
+            "turn": 0,
+            "time": 1000
+          }
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": false,
+          "start": null
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": false,
+          "start": null
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": false,
+          "start": {
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null,
+            "time": 0
+          }
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": false,
+          "start": {
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null,
+            "time": 0
+          }
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": false,
+          "start": {
+            "combat": "pastCombat",
+            "combatant": "oldTurn",
+            "initiative": 12.5,
+            "round": 2,
+            "turn": 0,
+            "time": 1000
+          }
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": false,
+          "start": {
+            "combat": "pastCombat",
+            "combatant": "oldTurn",
+            "initiative": 12.5,
+            "round": 2,
+            "turn": 0,
+            "time": 1000
+          }
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": true,
+          "start": null
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": true,
+          "start": null
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": true,
+          "start": {
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null,
+            "time": 0
+          }
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": true,
+          "start": {
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null,
+            "time": 0
+          }
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": true,
+          "start": {
+            "combat": "pastCombat",
+            "combatant": "oldTurn",
+            "initiative": 12.5,
+            "round": 2,
+            "turn": 0,
+            "time": 1000
+          }
+        },
+        "now": 0,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      },
+      {
+        "source": {
+          "expired": true,
+          "concealed": true,
+          "start": {
+            "combat": "pastCombat",
+            "combatant": "oldTurn",
+            "initiative": 12.5,
+            "round": 2,
+            "turn": 0,
+            "time": 1000
+          }
+        },
+        "now": 5000,
+        "preparedExpired": false,
+        "preparedIndefinite": true
+      }
+    ],
+    "sourceHashes": {
+      "module/data/active-effect/base.mjs": "ef81cf10ce61ac7aa1164b4e71853fcbab4ee063f83219738487cdc51f5e1807",
+      "module/data/active-effect/enchantment.mjs": "d13c778e6794917cec3c79eac2563afd8e839edd95aadab5d29ea61bdba19491",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79"
+    },
+    "limits": [
+      "Actual native Base/Enchantment applicability,Item.isHidden/dependentOrigin,Item/Actor collection and native/Foundry effect active/suppression getters. Primitive flags/schema expiry/transfer/defaults and empty hidden/status sets initialized explicitly.",
+      "Dependent UUID resolver only accepts absent reference and returns null;metadata sourceId/advancement fields do not resolve other content. No actual world/document lookup.",
+      "Nontransfer stored templates do not modify owner Actor or Item;Actor-owned base effects apply regardless transfer. Applied enchantment Item field changes remain separate qualification.",
+      "Expiry Boolean in collection rows is an initialized intermediate,not source parity. Actual native prepareBaseData/prepareDuration reset permanent source expired flags tofalse for both concealment states and changed start/time;No expiry/time inference is imported into module preparation. Timed sources,expiry automation and full DataModel/native/operator acceptance remain outside this profile."
+    ]
+  },
+  "fixture": {
+    "path": "tests/fixtures/native-6.0.6/flag-effects.json",
+    "sha256": "be351251da567ef361c1bd04db005ec0adb3775216c70bab5bbc06ff03db850c",
+    "profiles": 3024,
+    "flags": [
+      "diamondSoul",
+      "elvenAccuracy",
+      "enhancedDualWielding",
+      "halflingLucky",
+      "halflingNimbleness",
+      "ignoreArmorSpeedReduction",
+      "initiativeAlert",
+      "jackOfAllTrades",
+      "observantFeat",
+      "powerfulBuild",
+      "reliableTalent",
+      "remarkableAthlete",
+      "tavernBrawlerFeat",
+      "toolExpertise"
+    ],
+    "sources": [
+      "absent",
+      false,
+      true
+    ],
+    "deltas": [
+      false,
+      true,
+      "false",
+      "true",
+      0,
+      1
+    ],
+    "operations": [
+      "add",
+      "subtract",
+      "multiply",
+      "override",
+      "upgrade",
+      "downgrade"
+    ],
+    "phases": [
+      "initial",
+      "final"
+    ]
+  },
+  "commands": [
+    "npm test -- --core <Core0.19.3>",
+    "npm run typecheck -- --core <Core0.19.3>",
+    "npm run test:native-source -- --native <read-only checkout>",
+    "npm run test:native-flag-effects -- --core <Core> --native <checkout> --foundry <static14.367> --write-evidence temp/c88-native-flag-effects-final.json",
+    "npm run test:native-effect-admission -- --core <Core> --native <checkout> --foundry <static14.367> --write-evidence temp/c88-native-effect-admission.json",
+    "npm run test:mounted-flag-effects -- --core <Core> --chromium <isolated Chromium>",
+    "node scripts/test-public-rolls.mjs --core <Core> --dependency-profile",
+    "npm run check:package -- --core <Core>"
+  ],
+  "limits": [
+    "Actual native _prepareFlagChange,Foundry Boolean handlers and native/Foundry Actor initial/final dispatch run on initialized effect/Actor shells. Bridge connects those handlers with direct flag assignment;private general unguided casting is not booted. Primitive delta coercion and Boolean types are explicit.",
+    "Actual ability/skill/tool/passive/initiative preparation and fresh coefficient calculation execute between phases. Source defaults/global proficiency are explicitly initialized,not persisted source overrides.",
+    "Typed schema lookup returns real native mode fields for Athletics/initiative. Item lifecycle/flag-derived dynamic getters/complex filters/enchantment/numeric flag effects remain separate. No full DataModel/native engine or operator acceptance.",
+    "Source/prepared/current flags remain distinct;final Jack/tool flags change fresh construction without changing earlier passives/cached saves. Powerful Build thresholds use initial flag. Known rerolls retain read facts but execution is unqualified.",
+    "C12 nontransfer-item and C71 nontransfer custom-text restriction explicitly superseded;historical JSON unchanged. C25 valid start refusal now covered as supported permanent source;the unsupported-start mutation is malformed,not a hidden assumption of time support.",
+    "Initial mounted driver mistakenly rendered a Skills-only probe before checking full-sheet passives;corrected fixture navigation only. New permanent condition driver initially omitted explicit status and correctly got no inferred poison;added stored status. Failed logs retained.",
+    "Core0.19.3/90c13e5 baseline,Node24.21,CI Node22 unrun;no compatibility/version change.",
+    "Public dependency profile executes original complete plain/Normal range matrices plus recorded newer dependencies.332055 generated cases,29835 requests including1 retained candidate. Historical omitted families retain earlier evidence;no full current332055-request claim.",
+    "All task-owned host/browser services closed;preexisting services untouched. No installed/native/operator acceptance or release readiness. Full M2/ADR open."
+  ]
+}

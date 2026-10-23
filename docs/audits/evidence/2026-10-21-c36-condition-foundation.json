@@ -1,0 +1,7709 @@
+{
+  "checkpoint": "C36",
+  "date": "2026-10-21",
+  "parent": "e7d12a4",
+  "requirements": "M0/M2 Q02a,DD-05/27/34,A02/A04 qualification only",
+  "fixture": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "scope": "Controlled native ConditionData/Actor initial status aggregation/CI query/Common ability+Creature skill/tool preparation only; no module implementation or native/operator acceptance yet",
+    "profiles": [
+      {
+        "id": "active",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [],
+        "expectedStatuses": [
+          "poisoned"
+        ],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0,
+        "expectedLevel": null,
+        "effectivePoisoned": true
+      },
+      {
+        "id": "disabled",
+        "statuses": [
+          "poisoned"
+        ],
+        "disabled": true,
+        "immunities": [],
+        "expectedStatuses": [],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 1,
+        "expectedLevel": null,
+        "effectivePoisoned": false
+      },
+      {
+        "id": "immune",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "poisoned"
+        ],
+        "expectedStatuses": [],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 1,
+        "expectedLevel": null,
+        "effectivePoisoned": false
+      },
+      {
+        "id": "guard-false",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [],
+        "guard": "{\"o\":\"OR\",\"v\":[]}",
+        "expectedStatuses": [],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 1,
+        "expectedLevel": null,
+        "effectivePoisoned": false
+      },
+      {
+        "id": "empty-statuses-no-inference",
+        "statuses": [],
+        "immunities": [],
+        "expectedStatuses": [],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 1,
+        "expectedLevel": null,
+        "effectivePoisoned": false
+      },
+      {
+        "id": "missing-statuses-default",
+        "immunities": [],
+        "expectedStatuses": [],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 1,
+        "expectedLevel": null,
+        "effectivePoisoned": false
+      },
+      {
+        "id": "duplicate-active",
+        "statuses": [
+          "poisoned"
+        ],
+        "duplicate": true,
+        "immunities": [],
+        "expectedStatuses": [
+          "poisoned"
+        ],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0,
+        "expectedLevel": null,
+        "effectivePoisoned": true
+      },
+      {
+        "id": "nonleveled-source99",
+        "statuses": [
+          "poisoned"
+        ],
+        "level": 99,
+        "immunities": [],
+        "expectedStatuses": [
+          "poisoned"
+        ],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0,
+        "expectedLevel": null,
+        "effectivePoisoned": true
+      },
+      {
+        "id": "wrong-name-no-inference",
+        "statuses": [
+          "poisoned"
+        ],
+        "name": "Not a condition name",
+        "immunities": [],
+        "expectedStatuses": [
+          "poisoned"
+        ],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0,
+        "expectedLevel": null,
+        "effectivePoisoned": true
+      },
+      {
+        "id": "case-sensitive-immunity",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "Poisoned"
+        ],
+        "expectedStatuses": [
+          "poisoned"
+        ],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0,
+        "expectedLevel": null,
+        "effectivePoisoned": true
+      },
+      {
+        "id": "initial-ci-add",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [],
+        "ciChange": "add",
+        "expectedInitialStatuses": [
+          "poisoned"
+        ],
+        "expectedStatuses": [],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 1,
+        "expectedLevel": null,
+        "effectivePoisoned": false
+      },
+      {
+        "id": "initial-ci-remove-does-not-add-status",
+        "statuses": [
+          "poisoned"
+        ],
+        "immunities": [
+          "poisoned"
+        ],
+        "ciChange": "remove",
+        "expectedInitialStatuses": [],
+        "expectedStatuses": [],
+        "expectedSkill": 5,
+        "expectedCheck": 2,
+        "expectedSave": 2,
+        "expectedTool": 5,
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 1,
+        "expectedLevel": null,
+        "effectivePoisoned": false
+      }
+    ],
+    "sourceScopeOrder": [
+      "abilities.wis.check.roll.mode",
+      "skills.prc.roll.mode",
+      "rolls.ability.check.mode",
+      "rolls.ability.skill.mode"
+    ],
+    "sourceModes": [
+      {
+        "modes": [
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          -1,
+          -1,
+          0
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          -1,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          -1,
+          0,
+          -1
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          -1,
+          0,
+          0
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          -1,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          -1,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          -1,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          -1,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          -1,
+          -1
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          -1,
+          0
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          0,
+          0
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          0,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          -1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          -1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          0,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          0,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          -1,
+          1,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          -1,
+          -1
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          -1,
+          0
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          0,
+          -1
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          0,
+          0
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          -1,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          -1,
+          -1
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          -1,
+          0
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          0,
+          -1
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "expectedMode": -1,
+        "expectedPassive": 10,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          -1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          -1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          0,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          -1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          -1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          0,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          0,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          -1,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          -1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          -1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          0,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          -1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          -1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          0,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      },
+      {
+        "modes": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "expectedMode": 0,
+        "expectedPassive": 15,
+        "expectedCombinedMode": 0
+      }
+    ]
+  },
+  "controlledSource": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "schemaObservations": [
+      {
+        "raw": {
+          "type": "poisoned"
+        },
+        "initialized": {
+          "disabled": false,
+          "statuses": [],
+          "type": "poisoned",
+          "level": null
+        }
+      },
+      {
+        "raw": {
+          "type": "poisoned",
+          "disabled": null,
+          "statuses": null,
+          "level": null
+        },
+        "initialized": {
+          "disabled": false,
+          "statuses": [],
+          "type": "poisoned",
+          "level": null
+        }
+      },
+      {
+        "raw": {
+          "type": " poisoned ",
+          "disabled": false,
+          "statuses": [
+            " poisoned ",
+            "poisoned"
+          ],
+          "level": 99
+        },
+        "initialized": {
+          "disabled": false,
+          "statuses": [
+            "poisoned"
+          ],
+          "type": "poisoned",
+          "level": 99
+        }
+      }
+    ],
+    "observations": [
+      {
+        "id": "active",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "disabled",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": false,
+          "effectivePoisoned": false,
+          "initialStatuses": [],
+          "statuses": [],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "immune",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": false,
+          "effectivePoisoned": false,
+          "initialStatuses": [],
+          "statuses": [],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "guard-false",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": false,
+          "effectivePoisoned": false,
+          "initialStatuses": [],
+          "statuses": [],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "empty-statuses-no-inference",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": false,
+          "initialStatuses": [],
+          "statuses": [],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "missing-statuses-default",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": false,
+          "initialStatuses": [],
+          "statuses": [],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "duplicate-active",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "nonleveled-source99",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "wrong-name-no-inference",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "case-sensitive-immunity",
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Initialized condition/Actor model shell; native condition/status/query/mode/passive methods"
+      },
+      {
+        "id": "initial-ci-add",
+        "observed": {
+          "phaseTrace": [
+            {
+              "event": "ci-change",
+              "change": "add",
+              "statusesBefore": [
+                "poisoned"
+              ],
+              "immunitiesBefore": []
+            }
+          ],
+          "documentActiveAfterInitial": false,
+          "effectivePoisoned": false,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Declared synthetic CI change executor; native status aggregation/suppression/query/normalization only"
+      },
+      {
+        "id": "initial-ci-remove-does-not-add-status",
+        "observed": {
+          "phaseTrace": [
+            {
+              "event": "ci-change",
+              "change": "remove",
+              "statusesBefore": [],
+              "immunitiesBefore": [
+                "poisoned"
+              ]
+            }
+          ],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": false,
+          "initialStatuses": [],
+          "statuses": [],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 1,
+            "total": 5,
+            "parts": [
+              "@mod",
+              "@prof"
+            ]
+          }
+        ],
+        "scope": "Declared synthetic CI change executor; native status aggregation/suppression/query/normalization only"
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          -1,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          0,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          -1,
+          1,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          -1,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 10,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": -1,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": -1,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          -1,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          -1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          -1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          0,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": -1,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": -1,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      },
+      {
+        "sourceModes": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "observed": {
+          "phaseTrace": [],
+          "documentActiveAfterInitial": true,
+          "effectivePoisoned": true,
+          "initialStatuses": [
+            "poisoned"
+          ],
+          "statuses": [
+            "poisoned"
+          ],
+          "skill": 5,
+          "passive": 15,
+          "check": 2,
+          "save": 2,
+          "tool": 5,
+          "mode": 0,
+          "abilityMode": 0,
+          "saveMode": 0,
+          "toolMode": 0,
+          "level": null,
+          "conditionRollReduction": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "skill",
+            "selection": {
+              "skill": "prc",
+              "tool": "thief",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          },
+          {
+            "kind": "tool",
+            "selection": {
+              "tool": "thief",
+              "skill": "prc",
+              "ability": "wis"
+            },
+            "mode": 0,
+            "total": 5
+          }
+        ]
+      }
+    ],
+    "buildCount": 372,
+    "nativeSourceHashes": {
+      "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+      "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04"
+    },
+    "foundrySourceHashes": {
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+      "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+      "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+      "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5"
+    },
+    "limits": [
+      "Controlled initialized model phase qualification,not module implementation,full DataModel/native runtime/operator acceptance",
+      "Exact primitive Boolean/String/Number/Array/Set cleaning/initialization on copies; source definitions statically verified,not full DataModel validation/migration/source lifecycle",
+      "Class/proficiency and ability score fixtures are independently initialized inputs; no class grant/content resolution",
+      "Model base preparation hooks,Item/replacementData and callback constant guard are declared stubs; no arbitrary/dependent Filter qualification in this harness",
+      "No custom AppliedRules/flags,travelpace,Item/clock/origin behavior; numeric constants only,unrelated attack/AC/savecover fields explicit",
+      "CI add/remove executor is synthetic; native initial aggregation,suppression,normalization/query timing is observed,not full native field update or write acceptance",
+      "372 actual native skill/tool/combined default builds compared; D20Roll.build callback/parts serializer stubbed,not evaluated dice. Dialog/manual/alternate ability/initiative qualification remains next before exposing execution"
+    ]
+  },
+  "commands": {
+    "npm run test:native-conditions -- --core <released0.19.3> --native <exact6.0.6> --foundry <static14.367>": "PASS:3 primitive cleaning/default captures,12 status/CI profiles+81 source-mode vectors,372 native default skill/tool/combined configurations",
+    "npm test": "PASS:60 assertions/8 tooling/35 module suites",
+    "npm run typecheck": "PASS:172 explicit module/UI/server/test/hook files",
+    "npm run test:native-source": "PASS:2242 records/591 expressions at87e94db",
+    "npm run check:package": "PASS:isolated module/public-boundary/managed typing/bundles"
+  },
+  "nativeArtifactSha256": "612eafc123375c1839d9396e8e3948be1f1829072dd47ae0ef40c172a13a9179",
+  "package": {
+    "archive": "/tmp/dnd5e-package-57Kgnu/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "716e9b18da31d28ad61ca0634df6a2f28764a73ba786ec2204518c8da9a3ec5f"
+  },
+  "fileHashes": {
+    "scripts/native-condition-oracle.mjs": "625804800a2156937ab816c29556914e7a8c32c3287a7bd559bd131c6a37aa7d",
+    "tests/fixtures/native-6.0.6/poisoned-condition.json": "51b49839a227da4d43f59d2c3ee82ecc7d6faef499749c29a9d75c776fdab81b",
+    "package.json": "97c44fabb0f3e993f7fc466ab43b11a0f233ec3d8ac386936493b51df504284d"
+  },
+  "limits": [
+    "Qualification checkpoint only: no production rules/UI behavior changed; active conditions still unavailable",
+    "Controlled method/model/primitive captures are not native DataModel/runtime/installed/operator acceptance",
+    "Explicit schema/default/source initialization is separate from status aggregation and after-immunity presentation; Document.active can differ from effective status",
+    "CI change executor is deliberately synthetic; actual native aggregation/suppression/normalization/query order is compared. Native Set effect arithmetic is separately qualified by C25/C28",
+    "Constant guard callback/model-hook/AppliedRules/roll-build-parts callback/clock default and unrelated-domain stubs are explicit; no arbitrary filter/formula/flags/Item/native transport",
+    "372 default configurations are not evaluated dice. Manual dialog,alternate abilities,initiative and complete source-profile boundaries still need qualification before module integration",
+    "C35 mounted/public-host evidence retained distinctly,not rerun or enlarged by this tooling-only checkpoint",
+    "E01/E02/widerQ00/E05/fullM2/M3+ and ADR0001 remain open;experimental0.4.1/compatibility unchanged",
+    "No task-owned services started by this harness;all prior task services stopped"
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "checkpoint": "C85 conditional applied rules across prepared reads and fresh d20 configurations",
+  "parent": "c050ee4fc1db2ea1315568227cbcef5ca278dc57",
+  "requirements": [
+    "M2/Q02a partial",
+    "DD-01/02/03/04/11/24/27/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "checks": {
+    "before": {
+      "artifact": "temp/c85-before.log",
+      "sha256": "47a41643b98e527a740d01a384e27c01deb01ff89012d60a5164d60164c3e0eb",
+      "result": "Maintained same source fails before:null versus7"
+    },
+    "regression": {
+      "artifact": "temp/c85-tests-end.log",
+      "sha256": "2a3c13a2ee0e34c212cf799a3c6f0d06f268423f4ab6f028811271f4c29fcb26",
+      "result": "64 module/9 tooling suites,61 tooling assertions PASS"
+    },
+    "typing": {
+      "artifact": "temp/c85-types-recovery.log",
+      "sha256": "5da7fa3a8a62cefd9c2809f241a5ad6150096a09a0e3eaa00e8517bdb70aa0fa",
+      "result": "251 explicit module/UI/server/test/hook files PASS"
+    },
+    "native": {
+      "artifact": "temp/c85-native-applied-rules.json",
+      "sha256": "a983cd47896bec4b0ddf3b4f07442091ed3e3d394927a0d4c93cf7a2ba066b31",
+      "result": "17 native registration/filter/initial/final/ability/save/attack/skill/tool/passive/initiative/fresh-constructor profiles PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-applied-rules-mounted-aFI9uf/evidence.json",
+      "sha256": "a7409eace1084cb41da98bdae07cfa21d47e7b01881611a9a5c9e355bf767167",
+      "result": "1440/390 actual passive/check/modal/shortcut/selection/focus/bounds/stale-callback/context recovery;0 writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-tzrPJh/evidence.json",
+      "sha256": "2914a6d9d5d843a6b23cf7a6c6f56282240fc7df5832f37aa169752754f697e3",
+      "result": "11994 accepted including64 new applied-rule requests;1 retained unary candidate,40 ordinary equal-index diagnostics;0 writes PASS"
+    },
+    "exactRelease": {
+      "artifact": "temp/c85-source.log",
+      "sha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff",
+      "result": "2242 records/591 candidate expressions match pinned source inventory PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-7KhjDO/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "ffaaa2a1c1139f9a3549dd49ddd1751026bbe11eb06e0ff4e3e1f91a53631899",
+      "result": "Isolated module check/package PASS"
+    }
+  },
+  "commands": [
+    "npm test -- --core <released Core0.19.3>",
+    "npm run typecheck -- --core <released Core0.19.3>",
+    "npm run test:native-source -- --native <read-only checkout>",
+    "npm run test:native-rules -- --core <Core> --native <checkout> --foundry <static14.367> --write-evidence temp/c85-native-applied-rules.json",
+    "npm run test:mounted-rules -- --core <Core> --chromium <isolated Chromium>",
+    "node scripts/test-public-rolls.mjs --core <Core> --dependency-profile",
+    "npm run check:package -- --core <Core>"
+  ],
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "rows": [
+      {
+        "id": "check-bonus",
+        "prepared": 7,
+        "passive": 17,
+        "current": 7,
+        "expression": "2 + 3 + 2",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "d20-before-check",
+        "prepared": 8,
+        "passive": 18,
+        "current": 8,
+        "expression": "2 + 3 + 1 + 2",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "final-bonus",
+        "prepared": 7,
+        "passive": 17,
+        "current": 11,
+        "expression": "2 + 3 + 2 + 4",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "advantage",
+        "prepared": 5,
+        "passive": 20,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": true,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "source-dis-cancels",
+        "prepared": 5,
+        "passive": 15,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": true,
+        "disadvantage": true,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "suppress-dis",
+        "prepared": 5,
+        "passive": 15,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "category-override-after-d20",
+        "prepared": 5,
+        "passive": 10,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": false,
+        "disadvantage": true,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "field-override-after-rule",
+        "prepared": 5,
+        "passive": 20,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": true,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "final-mode",
+        "prepared": 5,
+        "passive": 15,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": true,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "skill-filter",
+        "prepared": 7,
+        "passive": 17,
+        "current": 7,
+        "expression": "2 + 3 + 2",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "ability-filter",
+        "prepared": 7,
+        "passive": 17,
+        "current": 7,
+        "expression": "2 + 3 + 2",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "prepared-vs-current-root",
+        "prepared": 11,
+        "passive": 21,
+        "current": 14,
+        "expression": "2 + 6 + 6",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "normal-range",
+        "prepared": 5,
+        "passive": 15,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": 7,
+        "maximum": 16
+      },
+      {
+        "id": "zero-range-ignored",
+        "prepared": 5,
+        "passive": 15,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "filtered-malformed-unused-value",
+        "prepared": 5,
+        "passive": 15,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "proficient-attack-filter",
+        "prepared": 5,
+        "passive": 15,
+        "current": 5,
+        "expression": "2 + 3",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "id": "range-before-prof-rebind",
+        "prepared": 8,
+        "passive": 18,
+        "current": 8,
+        "expression": "2 + 6",
+        "advantage": false,
+        "disadvantage": false,
+        "minimum": 10,
+        "maximum": 17
+      }
+    ],
+    "sourceHashes": {
+      "module/filter.mjs": "f80fcb3066fe319389225c6101e31ae8738a14f7f1baab56fde9c2e60b051cbf",
+      "module/documents/applied-rules.mjs": "5e578b0e6ff168d161b9ec87fbccd2120f1dbe2bdae1540cb2e1beeacf46a83a",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/activity/attack-data.mjs": "cab8fc25d84c0297bfb2e2126bc7b847b5cd31ccb420512d2a0394a21d3e9a61"
+    },
+    "limits": [
+      "Actual rule registration/collection/Filter/iterator,ability/skill/tool preparation and fresh builder run on initialized numeric models. Actor initial/final registration is explicit;full effect/DataModel source lifecycle is separate.",
+      "Native Iterator helpers and declared Map getOrInsert compatibility used. Deterministic Roll uses native replacement/Math;no native dice evaluator or runtime/operator acceptance.",
+      "Effect-level guards in these method profiles are invariant/admitted. Source eligibility,change schema defaults and current module source/poison tests are separate;no Item rule source remapping is asserted."
+    ]
+  },
+  "independentExamples": {
+    "initialBonus2": "skill7/passive17",
+    "finalBonus4": "fresh11/passive17",
+    "expertiseReference": "earlier11/passive21;fresh14",
+    "expertiseRangeBeforeRebind": "minimum @prof+7 =>10,maximum @prof+14 =>17",
+    "actorVsItemAttackFilter": "proficient=true rule gives prepared Actor attack7;Item attack5 because native does not provide that property"
+  },
+  "limits": [
+    "Core0.19.3/90c13e5e baseline;module experimental0.4.1/compatibility unchanged. Node24.21,CI Node22 unrun.",
+    "Serialized Actor/transferred rules with admitted effect first-evaluation guards. Native change conditions skip registration and evaluate per current roll. Invariant and known roll-identity/Boolean/numeric filters only;unknown snapshots/Proficiency-object comparisons stay unavailable.",
+    "Native rule Iterator helpers/registration/collection and Filter methods execute;initialized model/primitive schema/default/Map getOrInsert/empty Item rule/ammo/invariant emptiness/deterministic Roll collaborators declared. No full DataModel/source lifecycle or native dice/runtime acceptance.",
+    "Rule minimum/maximum uses pre-constructor Actor bindings;bonus formula uses current supplied proficiency. Static passives exclude final registration and bounds.",
+    "Item-local nontransfer/enchantment rule remapping,effect composition,dice expressions and broader filters remain explicitly unqualified;M2/ADR open. No new Core requirement.",
+    "Mounted actual module consumers use isolated SDK presentation seam;not installed UI/native/operator acceptance. Public host uses temporary config/synthetic transport and preserves actual serialization.",
+    "Retained missing-formula-metadata regression caught a null access during development;corrected with unavailable current context. Final64-suite result includes stale metadata protection;earlier failed logs retained.",
+    "All task-owned host/browser services closed;preexisting listeners untouched."
+  ]
+}

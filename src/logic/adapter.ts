@@ -1,5 +1,15 @@
+import {prepareCombatModifiers606} from './preparation/combat-modifiers';
+import {preparePhysical606} from './preparation/physical';
+import {prepareOwnedItems606,ownedItemProjection} from './preparation/item-facts';
+import {projectConditions606} from './preparation/conditions';
+import { prepareArmorClass606,prepareInitiative606,initiativeRoll,armorClassProjection } from './preparation/defenses';
+import { prepareHealth606, hpProjection } from './preparation/health';
+import {prepareMovement606,movementKeys,senseKeys} from './preparation/movement';
+import {prepareSpeciesIdentity606,speciesProjection,legacySpeciesIdentity} from './preparation/species-identity';
+import {prepareDefenseTraits606,defensesProjection} from './preparation/defense-traits';
+import {prepareTraining606,trainingProjection} from './preparation/training';
 import {
-    BaseSystemAdapter,
+    BaseSystemAdapter, SdkError,
     resolveImage,
     type FoundryActor,
     type ActorPreparationContext,
@@ -9,9 +19,21 @@ import {
     type ActorCardData,
     type RollData,
     type RollDataOptions,
+    type SystemAdapter,
 } from '@sheet-delver/sdk';
 
 import info from '../../info.json';
+import { resolveRulesContext } from './rules-context';
+import { callerCatalog } from '../server/content/catalog';
+import { decodeActor606 } from './native/6.0.6/source';
+import { prepareNumericSkills606, numericSkillRoll, unavailableSkillChecks, type PreparedSkill } from './preparation/skills';
+import { d20RangeReason, skillRollScopes, abilityRollScopes, numericD20Roll, independentD20Options } from './preparation/d20-configuration';
+import { prepareNumericAbilities606, type PreparedNumericAbility } from './preparation/abilities';
+import { prepareNumericTools606 } from './preparation/tools';
+import { SKILL_LABELS } from './preparation/check-identities';
+import { prepareSkillToolModel606, configureSkillToolCheck, skillToolRoll, type SkillToolModel } from './preparation/skill-tool';
+import { characterFacts606, characterFactsProjection } from './preparation/character-profile';
+import { prepareNumericEffects606 } from './preparation/numeric-effects';
 
 // ---------------------------------------------------------------------------
 // DnD5e system shape (v3.x) — internal only
@@ -66,14 +88,7 @@ const ABILITY_LABELS: Record<string, string> = {
     int: 'Intelligence', wis: 'Wisdom', cha: 'Charisma',
 };
 
-export const SKILL_LABELS: Record<string, string> = {
-    acr: 'Acrobatics',   ani: 'Animal Handling', arc: 'Arcana',
-    ath: 'Athletics',    dec: 'Deception',        his: 'History',
-    ins: 'Insight',      itm: 'Intimidation',     inv: 'Investigation',
-    med: 'Medicine',     nat: 'Nature',            prc: 'Perception',
-    prf: 'Performance',  per: 'Persuasion',        rel: 'Religion',
-    slt: 'Sleight of Hand', ste: 'Stealth',        sur: 'Survival',
-};
+export { SKILL_LABELS } from './preparation/check-identities';
 
 type RaceRecord = {
     name: string;
@@ -81,6 +96,10 @@ type RaceRecord = {
     description: string;
     _id: string;
     type: string;
+    status?:string;
+    reason?:string;
+    provenance?:string;
+    uuid?:string|null;
 }
 
 function getDescriptionValue(system: unknown): string {
@@ -113,10 +132,100 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         actor: FoundryActor,
         context: Readonly<ActorPreparationContext>,
     ): PreparedActorData {
-        return super.prepareActorData(actor, context);
+        const prepared = super.prepareActorData(actor, context);
+        const rules = resolveRulesContext(context.world);
+        const decoded = rules.status === 'supported' ? decodeActor606(actor) : null;
+        prepared.derived.lifecycle = { status: rules.status, reason: rules.reason,
+            profile: rules.profile, identity: rules.identity,
+            sourceRevision: context.sourceRevision, worldEpoch: context.worldEpoch,
+            actorCapability: decoded?.capability ?? 'unavailable',
+            sourceDiagnostics: decoded?.diagnostics ?? [],
+            // Schema context readiness does not qualify the old numeric projection.
+            preparation: 'legacy-projection-unqualified' };
+        const selectedLegacy = rules.status === 'supported' && rules.profile === 'legacy-limited';
+        const oldSpecies=selectedLegacy?this.getLegacyRaceData(actor):null;
+        const species=oldSpecies?legacySpeciesIdentity(oldSpecies.name,oldSpecies._id,oldSpecies.img,oldSpecies.description):prepareSpeciesIdentity606(actor,rules);
+        prepared.derived.speciesIdentity=species;
+        prepared.derived.race=species.name??'';
+        const effects=prepareNumericEffects606(actor,rules);
+        const combat=prepareCombatModifiers606(actor,rules,effects);
+        const owned=prepareOwnedItems606(actor,rules,effects,combat);const physical=preparePhysical606(actor,rules,owned,effects);
+        prepared.derived.physical=physical;
+        prepared.derived.combatModifiers=combat;
+        for(const [id,facts]of Object.entries(physical.items))if(owned.items[id])owned.items[id].physical=facts;
+        prepared.derived.ownedItems=owned;
+        prepared.derived.defenses=prepareDefenseTraits606(actor,rules,effects);
+        prepared.derived.conditions=projectConditions606(actor,rules,effects.conditions);
+        prepared.derived.equipmentPreparation=effects.equipment;
+        prepared.derived.effectPreparation = {...effects.plan,reason:effects.reason,proficiency:effects.proficiency,currentScalars:effects.finalScalars,sourceFlags:effects.sourceFlags,preparedFlags:effects.ruleFlags,currentFlags:effects.executionFlags,applied:effects.applied,initialized:effects.initialized,sourceInitialization:effects.sourceInitialization,formulaPreparation:effects.formulaPreparation,conditions:effects.conditions};
+        const checkModel = prepareSkillToolModel606(actor,rules,effects);
+        prepared.derived.checkConfiguration = checkModel;
+        prepared.derived.training=prepareTraining606(actor,rules,effects,checkModel);
+        const tools = prepareNumericTools606(actor,rules,checkModel);
+        prepared.derived.tools = tools.checks;
+        prepared.derived.toolPreparation = {status:tools.status,reason:tools.reason};
+        if (!selectedLegacy) {
+            prepared.derived.spellAttackBonus=null;prepared.derived.spellSaveDC=null;
+            prepared.derived.castingPreparation={status:'unavailable',reason:'M5 casting capability preparation is not implemented'};
+            prepared.derived.abilities = prepareNumericAbilities606(actor, rules,effects);
+            const skills = rules.status === 'supported' && rules.profile === '2024' ? prepareNumericSkills606(actor, rules,checkModel)
+                : unavailableSkillChecks({system:effects.system}, `Skill rules context unavailable: ${rules.reason ?? 'unknown profile'}`);
+            prepared.derived.skillChecks = skills;
+            prepared.derived.skills = Object.fromEntries(Object.entries(skills).map(([key, skill]) => [key, { ...skill, label: SKILL_LABELS[key] ?? key }]));
+            prepared.derived.passivePerception = skills.prc?.passive ?? null;
+            prepared.derived.passiveInvestigation = skills.inv?.passive ?? null;
+            prepared.derived.passiveInsight = skills.ins?.passive ?? null;
+            const facts = characterFacts606(actor, rules,effects);
+            prepared.derived.characterFacts = facts;
+            prepared.derived.level = facts.level.value;
+            prepared.derived.profBonus = facts.proficiency.value;
+            const health=prepareHealth606(actor,rules,effects);prepared.derived.hp=health.hp;prepared.derived.hitDice=health.hitDice;
+            const armor=prepareArmorClass606(actor,rules,effects),initiative=prepareInitiative606(actor,rules,effects);
+            prepared.derived.armorClass=armor;prepared.derived.ac=armor.value;prepared.derived.initiativeFacts=initiative.fact;prepared.derived.initiative=initiative.fact.value;prepared.derived.initiativeCheck=initiative.check;
+            const motion=prepareMovement606(actor,rules,effects);prepared.derived.movement=motion.movement;prepared.derived.speed=motion.movement.speeds;prepared.derived.senses=motion.senses;
+        } else {
+            const oldSpeed=prepared.derived.speed as Record<string,number>,oldSenses=prepared.derived.senses as Record<string,any>;
+            prepared.derived.movement={status:'legacy-unqualified',reason:'Selected legacy movement remains unqualified',provenance:'Selected legacy compatibility movement projection',speeds:Object.fromEntries(movementKeys.map(k=>[k,oldSpeed[k]??null])),jump:{status:'legacy-unqualified',value:null,display:'—',provenance:'Selected legacy compatibility'},units:'ft',max:null,slowed:null,hover:null,special:''};
+            prepared.derived.senses={status:'legacy-unqualified',reason:'Selected legacy senses remain unqualified',provenance:'Selected legacy compatibility senses projection',ranges:Object.fromEntries(senseKeys.map(k=>[k,oldSenses[k]??0])),units:'ft',special:oldSenses.special??''};
+            prepared.derived.armorClass={status:'legacy-unqualified',value:prepared.derived.ac,display:String(prepared.derived.ac),provenance:'Selected legacy AC compatibility projection',reason:'Legacy armor class remains unqualified'};
+            prepared.derived.initiativeFacts={status:'legacy-unqualified',value:prepared.derived.initiative,display:String(prepared.derived.initiative),ability:'',score:null,provenance:'Selected legacy initiative compatibility projection',reason:'Legacy initiative remains unqualified'};
+            const hp=prepared.derived.hp as Record<string,unknown>;
+            prepared.derived.hp={...hp,status:'legacy-unqualified',effectiveMax:hp.max,tempmax:0,provenance:'Selected legacy compatibility HP projection',reason:'Legacy HP remain unqualified'};
+            prepared.derived.characterFacts = Object.fromEntries([['level', prepared.derived.level], ['proficiency', prepared.derived.profBonus]].map(([key, value]) => [key, {
+                status: 'legacy-unqualified', value, display: key === 'proficiency' ? `+${value}` : String(value),
+                provenance: 'Selected legacy compatibility projection', reason: 'Legacy level/proficiency remain unqualified',
+            }]));
+            // Explicitly selected historical compatibility projection only.
+            // Its math remains unqualified; bounds still cannot be discarded.
+            const skills = prepared.derived.skills as Record<string, Record<string, unknown>>;
+            for (const [key, skill] of Object.entries(skills)) {
+                const reason = d20RangeReason(skillRollScopes(actor, key));
+                skill.formula = reason ? null : signBonus(skill.total as number);
+                if (reason) skill.unavailableReason = reason;
+            }
+            const abilities = prepared.derived.abilities as Record<string, Record<string, unknown>>;
+            for (const [key, ability] of Object.entries(abilities)) {
+                for (const [type, field, total] of [['check', 'check', ability.mod], ['save', 'saveRoll', ability.save]] as const) {
+                    const reason = d20RangeReason(abilityRollScopes(actor, key, type));
+                    ability[field] = { ability: key, total, formula: reason ? null : signBonus(total as number), ...(reason ? { unavailableReason: reason } : {}) };
+                }
+            }
+        }
+        const hp=hpProjection(prepared.derived),hd=prepared.derived.hitDice as any;
+        prepared.derived.combatStats={hp:hp.value!==null&&hp.effectiveMax!==null?{value:hp.value,max:hp.effectiveMax}:null,hitDice:hd?.status==='ready'?{value:hd.value,max:hd.max}:null};
+        return prepared;
+    }
+
+    async getSystemDataForUser(context: Parameters<NonNullable<SystemAdapter['getSystemDataForUser']>>[0]): Promise<unknown> {
+        return callerCatalog(context);
     }
 
     getRaceData(actor: FoundryActor): RaceRecord {
+        const species=speciesProjection((actor as PreparedActorData).derived);
+        return {name:species.name??'',_id:species.id??'',type:species.id?'race':'',img:resolveImage(species.img,this.foundryUrl),description:species.description,status:species.status,reason:species.reason,provenance:species.provenance,uuid:species.uuid};
+    }
+
+    private getLegacyRaceData(actor:FoundryActor):RaceRecord {
         const race = actor.items.filter((i: FoundryItem) => i.type === 'race');
         const description = getDescriptionValue(race[0]?.system);
 
@@ -195,6 +304,31 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         _options?: RollDataOptions,
     ): RollData | null {
         const s = actor.system as Partial<D5eSystem>;
+        const lifecycle = actor.derived.lifecycle as { status?: string; profile?: string } | undefined;
+        const selectedLegacy = lifecycle?.status === 'supported' && lifecycle.profile === 'legacy-limited';
+        if(type==='initiative'){
+            if(key!=='initiative')return null;
+            if(lifecycle?.status!=='supported'||lifecycle.profile!=='2024')return null;
+            const formula=initiativeRoll(actor.derived.initiativeCheck as any,_options);
+            return formula?{formula,label:'Initiative'}:null;
+        }
+        if (selectedLegacy && ['ability','save','skill'].includes(type) && !independentD20Options(_options)) return null;
+        if (!selectedLegacy && (type === 'skill' || type === 'tool')) {
+            if (lifecycle?.status !== 'supported' || lifecycle.profile !== '2024') return null;
+            const model = actor.derived.checkConfiguration as SkillToolModel | undefined;
+            if (!model) return null;
+            const check = configureSkillToolCheck(model,type,key,_options);
+            const formula = skillToolRoll(model,type,key,_options);
+            return formula ? {formula,label:`${check.label} Check`} : null;
+        }
+        if (['ability', 'save', 'skill'].includes(type) && !selectedLegacy
+            && (lifecycle?.status !== 'supported' || lifecycle.profile !== '2024')) return null;
+        if ((type === 'ability' || type === 'save') && !selectedLegacy) {
+            const ability = (actor.derived.abilities as Record<string, PreparedNumericAbility> | undefined)?.[key];
+            const formula = numericD20Roll(type === 'ability' ? ability?.check : ability?.saveRoll, _options);
+            return formula ? { formula, label: `${ABILITY_LABELS[key] ?? key} ${type === 'ability' ? 'Check' : 'Saving Throw'}` } : null;
+        }
+        if (selectedLegacy && (type === 'ability' || type === 'save') && d20RangeReason(abilityRollScopes(actor, key, type === 'ability' ? 'check' : 'save'))) return null;
 
         if (type === 'ability') {
             const ab = s?.abilities?.[key];
@@ -214,6 +348,13 @@ export class DnD5eAdapter extends BaseSystemAdapter {
         }
 
         if (type === 'skill') {
+            const preparedSkills = actor.derived.skillChecks as Record<string, PreparedSkill> | undefined;
+            if (preparedSkills) {
+                const formula = numericSkillRoll(preparedSkills[key], _options);
+                return formula ? { formula, label: `${SKILL_LABELS[key] ?? key} Check` } : null;
+            }
+            if (!selectedLegacy
+                || d20RangeReason(skillRollScopes(actor, key))) return null;
             const skill = s?.skills?.[key];
             if (!skill) return null;
             const total = skill.value ?? skill.total ?? 0;
@@ -224,23 +365,31 @@ export class DnD5eAdapter extends BaseSystemAdapter {
     }
 
     getInitiativeFormula(actor: PreparedActorData): string {
-        const s = actor.system as Partial<D5eSystem>;
-        const init = s?.attributes?.init?.value ?? s?.attributes?.init?.mod ?? 0;
-        return signBonus(init);
+        const lifecycle=actor.derived.lifecycle as any;
+        if(lifecycle?.status==='supported'&&lifecycle.profile==='legacy-limited'){
+            const s=actor.system as Partial<D5eSystem>;
+            const init=(s?.attributes?.init??{}) as any,ability=typeof init.ability==='string'&&init.ability?init.ability:'dex';
+            const reason=d20RangeReason([...abilityRollScopes(actor,ability,'check'),{path:'attributes.init.roll',value:init.roll}]);
+            if(reason)throw new SdkError('validation',reason);
+            return signBonus(init.value??init.mod??0);
+        }
+        const check=actor.derived.initiativeCheck as any;
+        if(lifecycle?.status!=='supported'||lifecycle.profile!=='2024'||!check?.formula||check.unavailableReason)throw new SdkError('validation',check?.unavailableReason??check?.defaultUnavailableReason??'Initiative preparation unavailable');
+        // The public HUD hook supplies only a formula, not mode restrictions.
+        // Preserve its default/override authority without exposing an unqualified
+        // bounded advantage/disadvantage request. Sheet Normal remains available.
+        if(check.range)throw new SdkError('validation','Initiative with die bounds is available from the character sheet using Normal; HUD mode restrictions are not qualified');
+        return check.formula;
     }
 
     getActorCardData(actor: PreparedActorData): ActorCardData {
         const s = actor.system as Partial<D5eSystem>;
-        const hp = s?.attributes?.hp;
-        const ac = s?.attributes?.ac?.value ?? 10;
-        const level = actor.items.filter((i: FoundryItem) => i.type === 'class')
-                    .map((c: FoundryItem) => {
-                        const sys = c.system as Record<string, any>;
-                        const lvl = sys?.levels ?? sys?.level ?? '';
-                        return lvl;
-                    })
-                    .join(' / ') || '—';      
-        const prof = s?.attributes?.prof ?? 2;
+        const hp = hpProjection(actor.derived);
+        const ac = armorClassProjection(actor.derived);
+        const facts = characterFactsProjection(actor.derived);
+        const level = facts.level.value;
+        const defenses=defensesProjection(actor.derived);
+        const training=trainingProjection(actor.derived);
 
         const classes = actor.items
             .filter((i: FoundryItem) => i.type === 'class')
@@ -251,9 +400,8 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             })
             .join(' / ');
 
-        const race = this.getRaceData(actor)?.name;
-        const numericLevel = Number.parseInt(level, 10);
-        const subtext = [Number.isFinite(numericLevel) && numericLevel > 0 ? `Level ${level}` : null, race, classes]
+        const race = speciesProjection(actor.derived).display;
+        const subtext = [level !== null ? `Level ${facts.level.display}` : 'Level unavailable', race, classes]
             .filter(Boolean)
             .join(' • ');
 
@@ -264,23 +412,28 @@ export class DnD5eAdapter extends BaseSystemAdapter {
             blocks: [
                 {
                     title: 'HP',
-                    value: hp?.value ?? 0,
-                    subValue: `/ ${hp?.max ?? 0}`,
-                    valueClass: 'text-green-400',
+                    value: hp.value ?? '—',
+                    subValue: hp.effectiveMax!==null?`/ ${hp.effectiveMax}`:hp.reason,
+                    valueClass: hp.status==='unavailable'?'text-muted-foreground':'text-green-400',
                 },
                 {
                     title: 'AC',
-                    value: ac,
-                    valueClass: 'text-blue-400',
+                    value: ac.value??'—', subValue:ac.reason,
+                    valueClass: ac.status==='unavailable'?'text-muted-foreground':'text-blue-400',
                 },
                 {
                     title: 'Level',
-                    value: level || '—',
+                    value: level ?? '—', subValue: facts.level.reason,
                 },
                 {
                     title: 'Prof',
-                    value: `+${prof}`,
+                    value: facts.proficiency.display, subValue: facts.proficiency.reason??facts.proficiency.preparationNote,
                 },
+                {title:'Defenses',value:defenses.summary,subValue:defenses.reason},
+                {title:'Training',value:training.summary,subValue:training.reason},
+                {title:'Resources',value:ownedItemProjection(actor.derived).resourceSummary},
+                ...((actor.derived.lifecycle as {profile?:string}|undefined)?.profile!=='legacy-limited'?[{title:'Attunement',value:ownedItemProjection(actor.derived).attunement?.display??'Unavailable',subValue:ownedItemProjection(actor.derived).attunement?.reason}]:[]),
+                ...((actor.derived.lifecycle as {profile?:string}|undefined)?.profile!=='legacy-limited'&&actor.items.some(item=>item.type==='spell')?[{title:'Spell default DC',value:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.value??'—',subValue:(actor.derived.combatModifiers as ReturnType<typeof prepareCombatModifiers606>|undefined)?.spell.dc.reason}]:[]),
             ],
         };
     }

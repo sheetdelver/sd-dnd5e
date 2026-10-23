@@ -1,0 +1,1669 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "cases": [
+    {
+      "id": "world-default",
+      "items": [],
+      "attribute": "wis",
+      "spell": {},
+      "expected": {
+        "available": [
+          "wis"
+        ],
+        "activity": "wis",
+        "classIdentifier": "",
+        "mod": 2
+      }
+    },
+    {
+      "id": "blank-world",
+      "items": [],
+      "attribute": "",
+      "spell": {},
+      "expected": {
+        "available": [],
+        "activity": "",
+        "classIdentifier": "",
+        "mod": 0
+      }
+    },
+    {
+      "id": "explicit",
+      "items": [],
+      "attribute": "wis",
+      "spell": {
+        "ability": "cha"
+      },
+      "expected": {
+        "available": [
+          "cha"
+        ],
+        "activity": "cha",
+        "classIdentifier": "",
+        "mod": 3
+      }
+    },
+    {
+      "id": "linked-class",
+      "items": [
+        {
+          "id": "WizardClass00001",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "int",
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "wis",
+      "spell": {
+        "sourceItem": "class:wizard"
+      },
+      "expected": {
+        "available": [
+          "int"
+        ],
+        "activity": "int",
+        "classIdentifier": "wizard",
+        "mod": 4
+      }
+    },
+    {
+      "id": "untyped-class",
+      "items": [
+        {
+          "id": "WizardClass00001",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "int",
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "wis",
+      "spell": {
+        "sourceItem": "wizard"
+      },
+      "expected": {
+        "available": [
+          "int"
+        ],
+        "activity": "int",
+        "classIdentifier": "wizard",
+        "mod": 4
+      }
+    },
+    {
+      "id": "linked-subclass",
+      "items": [
+        {
+          "id": "WizardClass00001",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "int",
+              "progression": "full"
+            }
+          }
+        },
+        {
+          "id": "SubClass00000001",
+          "type": "subclass",
+          "identifier": "scholar",
+          "system": {
+            "classIdentifier": "wizard",
+            "spellcasting": {
+              "progression": "third",
+              "ability": "cha"
+            }
+          }
+        }
+      ],
+      "attribute": "wis",
+      "spell": {
+        "sourceItem": "subclass:scholar"
+      },
+      "expected": {
+        "available": [
+          "cha"
+        ],
+        "activity": "cha",
+        "classIdentifier": "wizard",
+        "mod": 3
+      }
+    },
+    {
+      "id": "class-effective-subclass",
+      "items": [
+        {
+          "id": "WizardClass00001",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "int",
+              "progression": "full"
+            }
+          }
+        },
+        {
+          "id": "SubClass00000001",
+          "type": "subclass",
+          "identifier": "scholar",
+          "system": {
+            "classIdentifier": "wizard",
+            "spellcasting": {
+              "progression": "third",
+              "ability": "cha"
+            }
+          }
+        }
+      ],
+      "attribute": "wis",
+      "spell": {
+        "sourceItem": "wizard"
+      },
+      "expected": {
+        "available": [
+          "cha"
+        ],
+        "activity": "cha",
+        "classIdentifier": "wizard",
+        "mod": 3
+      }
+    },
+    {
+      "id": "grant-root",
+      "items": [
+        {
+          "id": "WizardClass00001",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "int",
+              "progression": "full"
+            }
+          }
+        },
+        {
+          "id": "GrantFeat0000001",
+          "type": "feat",
+          "identifier": "grant",
+          "flags": {
+            "advancementRoot": "WizardClass00001extra"
+          },
+          "system": {}
+        }
+      ],
+      "attribute": "wis",
+      "spell": {
+        "sourceItem": "feat:grant"
+      },
+      "expected": {
+        "available": [
+          "int"
+        ],
+        "activity": "int",
+        "classIdentifier": "wizard",
+        "mod": 4
+      }
+    },
+    {
+      "id": "unresolved-source",
+      "items": [
+        {
+          "id": "WizardClass00001",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "int",
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "wis",
+      "spell": {
+        "sourceItem": "missing"
+      },
+      "expected": {
+        "available": [
+          "wis"
+        ],
+        "activity": "wis",
+        "classIdentifier": "",
+        "mod": 2
+      }
+    },
+    {
+      "id": "strongest-activity",
+      "items": [
+        {
+          "id": "WizardClass00001",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "int",
+              "progression": "full"
+            }
+          }
+        },
+        {
+          "id": "cleric",
+          "type": "class",
+          "identifier": "cleric",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "wis",
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "",
+      "spell": {},
+      "expected": {
+        "available": [],
+        "activity": "int",
+        "classIdentifier": "",
+        "mod": 4
+      }
+    },
+    {
+      "id": "blank-class-ability",
+      "items": [
+        {
+          "id": "wizard",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "",
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "wis",
+      "spell": {
+        "sourceItem": "wizard"
+      },
+      "expected": {
+        "available": [],
+        "activity": "wis",
+        "classIdentifier": "wizard",
+        "mod": 2
+      }
+    },
+    {
+      "id": "missing-class-ability",
+      "items": [
+        {
+          "id": "wizard",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "wis",
+      "spell": {
+        "sourceItem": "wizard"
+      },
+      "expected": {
+        "available": [
+          "wis"
+        ],
+        "activity": "wis",
+        "classIdentifier": "wizard",
+        "mod": 2
+      }
+    },
+    {
+      "id": "subclass-activity-distinction",
+      "items": [
+        {
+          "id": "WizardClass00001",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "int",
+              "progression": "full"
+            }
+          }
+        },
+        {
+          "id": "SubClass00000001",
+          "type": "subclass",
+          "identifier": "scholar",
+          "system": {
+            "classIdentifier": "wizard",
+            "spellcasting": {
+              "progression": "third",
+              "ability": "cha"
+            }
+          }
+        }
+      ],
+      "attribute": "",
+      "spell": {},
+      "expected": {
+        "available": [],
+        "activity": "int",
+        "classIdentifier": "",
+        "mod": 4
+      }
+    },
+    {
+      "id": "same-mod-first-class",
+      "items": [
+        {
+          "id": "alpha",
+          "type": "class",
+          "identifier": "alpha",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "wis",
+              "progression": "full"
+            }
+          }
+        },
+        {
+          "id": "beta",
+          "type": "class",
+          "identifier": "beta",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "dex",
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "",
+      "spell": {},
+      "expected": {
+        "available": [],
+        "activity": "wis",
+        "classIdentifier": "",
+        "mod": 2
+      }
+    },
+    {
+      "id": "same-mod-reversed",
+      "items": [
+        {
+          "id": "beta",
+          "type": "class",
+          "identifier": "beta",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "dex",
+              "progression": "full"
+            }
+          }
+        },
+        {
+          "id": "alpha",
+          "type": "class",
+          "identifier": "alpha",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "wis",
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "",
+      "spell": {},
+      "expected": {
+        "available": [],
+        "activity": "dex",
+        "classIdentifier": "",
+        "mod": 2
+      }
+    },
+    {
+      "id": "duplicate-class-last-value",
+      "items": [
+        {
+          "id": "wizard",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "wis",
+              "progression": "full"
+            }
+          }
+        },
+        {
+          "id": "DuplicateClass01",
+          "type": "class",
+          "identifier": "wizard",
+          "system": {
+            "levels": 1,
+            "spellcasting": {
+              "ability": "cha",
+              "progression": "full"
+            }
+          }
+        }
+      ],
+      "attribute": "",
+      "spell": {},
+      "expected": {
+        "available": [],
+        "activity": "cha",
+        "classIdentifier": "",
+        "mod": 3
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "case": "world-default",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "wis",
+        "total": 16
+      }
+    },
+    {
+      "case": "world-default",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "wis",
+        "total": 17
+      }
+    },
+    {
+      "case": "world-default",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "wis",
+        "total": 16
+      }
+    },
+    {
+      "case": "world-default",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "wis",
+        "total": 17
+      }
+    },
+    {
+      "case": "world-default",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "world-default",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "world-default",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "world-default",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "blank-world",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "blank-world",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "blank-world",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "blank-world",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "blank-world",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "blank-world",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "blank-world",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "blank-world",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "explicit",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "cha",
+        "total": 17
+      }
+    },
+    {
+      "case": "explicit",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "cha",
+        "total": 18
+      }
+    },
+    {
+      "case": "explicit",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "cha",
+        "total": 17
+      }
+    },
+    {
+      "case": "explicit",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "cha",
+        "total": 18
+      }
+    },
+    {
+      "case": "explicit",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "explicit",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "explicit",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "explicit",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "linked-class",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "int",
+        "total": 18
+      }
+    },
+    {
+      "case": "linked-class",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "int",
+        "total": 19
+      }
+    },
+    {
+      "case": "linked-class",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "int",
+        "total": 18
+      }
+    },
+    {
+      "case": "linked-class",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "int",
+        "total": 19
+      }
+    },
+    {
+      "case": "linked-class",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "linked-class",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "linked-class",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "linked-class",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "untyped-class",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "int",
+        "total": 18
+      }
+    },
+    {
+      "case": "untyped-class",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "int",
+        "total": 19
+      }
+    },
+    {
+      "case": "untyped-class",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "int",
+        "total": 18
+      }
+    },
+    {
+      "case": "untyped-class",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "int",
+        "total": 19
+      }
+    },
+    {
+      "case": "untyped-class",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "untyped-class",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "untyped-class",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "untyped-class",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "linked-subclass",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "cha",
+        "total": 17
+      }
+    },
+    {
+      "case": "linked-subclass",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "cha",
+        "total": 18
+      }
+    },
+    {
+      "case": "linked-subclass",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "cha",
+        "total": 17
+      }
+    },
+    {
+      "case": "linked-subclass",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "cha",
+        "total": 18
+      }
+    },
+    {
+      "case": "linked-subclass",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "linked-subclass",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "linked-subclass",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "linked-subclass",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "class-effective-subclass",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "cha",
+        "total": 17
+      }
+    },
+    {
+      "case": "class-effective-subclass",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "cha",
+        "total": 18
+      }
+    },
+    {
+      "case": "class-effective-subclass",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "cha",
+        "total": 17
+      }
+    },
+    {
+      "case": "class-effective-subclass",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "cha",
+        "total": 18
+      }
+    },
+    {
+      "case": "class-effective-subclass",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "class-effective-subclass",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "class-effective-subclass",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "class-effective-subclass",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "grant-root",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "int",
+        "total": 18
+      }
+    },
+    {
+      "case": "grant-root",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "int",
+        "total": 19
+      }
+    },
+    {
+      "case": "grant-root",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "int",
+        "total": 18
+      }
+    },
+    {
+      "case": "grant-root",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "int",
+        "total": 19
+      }
+    },
+    {
+      "case": "grant-root",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "grant-root",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "grant-root",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "grant-root",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "unresolved-source",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "wis",
+        "total": 16
+      }
+    },
+    {
+      "case": "unresolved-source",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "wis",
+        "total": 17
+      }
+    },
+    {
+      "case": "unresolved-source",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "wis",
+        "total": 16
+      }
+    },
+    {
+      "case": "unresolved-source",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "wis",
+        "total": 17
+      }
+    },
+    {
+      "case": "unresolved-source",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "unresolved-source",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "unresolved-source",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "unresolved-source",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "strongest-activity",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "strongest-activity",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "strongest-activity",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "int",
+        "total": 18
+      }
+    },
+    {
+      "case": "strongest-activity",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "int",
+        "total": 19
+      }
+    },
+    {
+      "case": "strongest-activity",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "strongest-activity",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "strongest-activity",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "strongest-activity",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "blank-class-ability",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "blank-class-ability",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "blank-class-ability",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "wis",
+        "total": 16
+      }
+    },
+    {
+      "case": "blank-class-ability",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "wis",
+        "total": 17
+      }
+    },
+    {
+      "case": "blank-class-ability",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "blank-class-ability",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "blank-class-ability",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "blank-class-ability",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "missing-class-ability",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": "wis",
+        "total": 16
+      }
+    },
+    {
+      "case": "missing-class-ability",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": "wis",
+        "total": 17
+      }
+    },
+    {
+      "case": "missing-class-ability",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "wis",
+        "total": 16
+      }
+    },
+    {
+      "case": "missing-class-ability",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "wis",
+        "total": 17
+      }
+    },
+    {
+      "case": "missing-class-ability",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "missing-class-ability",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "missing-class-ability",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "missing-class-ability",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "subclass-activity-distinction",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "subclass-activity-distinction",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "subclass-activity-distinction",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "int",
+        "total": 18
+      }
+    },
+    {
+      "case": "subclass-activity-distinction",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "int",
+        "total": 19
+      }
+    },
+    {
+      "case": "subclass-activity-distinction",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "subclass-activity-distinction",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "subclass-activity-distinction",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "subclass-activity-distinction",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "same-mod-first-class",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "same-mod-first-class",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "same-mod-first-class",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "wis",
+        "total": 16
+      }
+    },
+    {
+      "case": "same-mod-first-class",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "wis",
+        "total": 17
+      }
+    },
+    {
+      "case": "same-mod-first-class",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "same-mod-first-class",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "same-mod-first-class",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "same-mod-first-class",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "same-mod-reversed",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "same-mod-reversed",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "same-mod-reversed",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "same-mod-reversed",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "same-mod-reversed",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "same-mod-reversed",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "same-mod-reversed",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "same-mod-reversed",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "duplicate-class-last-value",
+      "selection": "",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "duplicate-class-last-value",
+      "selection": "",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    },
+    {
+      "case": "duplicate-class-last-value",
+      "selection": "spellcasting",
+      "ranged": false,
+      "expected": {
+        "ability": "cha",
+        "total": 17
+      }
+    },
+    {
+      "case": "duplicate-class-last-value",
+      "selection": "spellcasting",
+      "ranged": true,
+      "expected": {
+        "ability": "cha",
+        "total": 18
+      }
+    },
+    {
+      "case": "duplicate-class-last-value",
+      "selection": "dex",
+      "ranged": false,
+      "expected": {
+        "ability": "dex",
+        "total": 16
+      }
+    },
+    {
+      "case": "duplicate-class-last-value",
+      "selection": "dex",
+      "ranged": true,
+      "expected": {
+        "ability": "dex",
+        "total": 17
+      }
+    },
+    {
+      "case": "duplicate-class-last-value",
+      "selection": "none",
+      "ranged": false,
+      "expected": {
+        "ability": null,
+        "total": 13
+      }
+    },
+    {
+      "case": "duplicate-class-last-value",
+      "selection": "none",
+      "ranged": true,
+      "expected": {
+        "ability": null,
+        "total": 14
+      }
+    }
+  ],
+  "scores": {
+    "str": 10,
+    "dex": 14,
+    "con": 12,
+    "int": 18,
+    "wis": 14,
+    "cha": 16
+  },
+  "sourceHashes": {
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+    "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+    "module/data/item/spell.mjs": "b55cd05a4ec4efefa4d783e1d7685b38461bcad9c04bf60baa35195018088335",
+    "module/data/item/fields/spellcasting-field.mjs": "aa37bad1b235b03899657e7e8eaf4c099203e7ae2e594a5a3e4bd023c546d552",
+    "module/data/activity/base-activity.mjs": "9bd175b6ae601ce275b1becc1ce571f43b2e766ce4875dec5d3673ebc88e99d5",
+    "module/data/activity/attack-data.mjs": "cab8fc25d84c0297bfb2e2126bc7b847b5cd31ccb420512d2a0394a21d3e9a61"
+  },
+  "limits": [
+    "Actual Actor class/caster/ability,Item class/subclass/effective spellcasting,Spell availableAbilities/classIdentifier and BaseActivity ability/getRollData methods execute. Actual native primitive and SpellcastingField source defaults execute. Actor ability mods are independently supplied initialized values,not source preparation parity.",
+    "Actual Attack final ability-Set/availableAbilities/ability execute with no-base-damage input and declared common/damage-label/neutral label-constructor seams. Actual getAttackData,D20 scope combination and BasicRoll.constructParts then execute separately with that native selected ability. Numeric local/global/action/activity bonuses are1/2/3-or4/5;proficiency is3. No ammo/effects/proficiency dice or full final composition claim.",
+    "Identity collections,explicit identifiers,Set.first and Item getRollData are declared collaborators. No name-based matching,spellcasting-slot/preparation-limit calculation,casting eligibility,Activity execution,full DataModel/runtime or native/operator acceptance."
+  ]
+}

@@ -1,44 +1,25 @@
 'use client';
 
 import React from 'react';
+import {useSheet} from '../shared/SheetContext';
+import {trainingProjection,trainingKeys,trainingLabels} from '../../../logic/preparation/training';
+import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
 
-/**
- * Proficiencies block — displays proficiency categories.
- * Armor, Weapons, Tools, and Languages rendered as labeled lists.
- *
- * STUB — static placeholder, no data wiring.
- */
-
-// STUB: Proficiency categories with placeholder values
-const CATEGORIES = [
-    { label: 'Armor', items: 'Light Armor, Medium Armor, Heavy Armor, Shields' },
-    { label: 'Weapons', items: 'Simple Weapons, Martial Weapons' },
-    { label: 'Tools', items: '—' },
-    { label: 'Languages', items: 'Common' },
-];
-
+/** Read-only source/local training facts. Effective roll coefficients and
+ * unresolved content identities remain distinct in the shared preparation. */
 export default function Proficiencies() {
-    return (
-        <div className="block-card">
-            <h2 className="block-heading">Proficiencies & Training</h2>
-            {CATEGORIES.map(cat => (
-                <div key={cat.label} style={{ marginBottom: '8px' }}>
-                    <div style={{
-                        fontSize: '11px',
-                        fontWeight: 600,
-                        color: 'var(--text-primary)',
-                        textTransform: 'uppercase' as const,
-                        letterSpacing: '0.03em',
-                        marginBottom: '2px',
-                    }}>
-                        {cat.label}
-                    </div>
-                    {/* STUB: Placeholder proficiency items */}
-                    <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-                        {cat.items}
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
+    const {actor}=useSheet(),facts=trainingProjection(actor?.derived);
+    return <div className="block-card">
+        <h2 className="block-heading">Proficiencies & Training</h2>
+        <dl data-training-status={facts.status} title={facts.provenance} style={{margin:0,fontSize:'12px',overflowWrap:'anywhere'}}>
+            {trainingKeys.map(key=>{const category=facts.categories[key];return <div key={key} style={{marginBottom:'8px'}}>
+                <dt style={{fontWeight:600,fontSize:'11px',textTransform:'uppercase',marginBottom:'2px'}}>{trainingLabels[key]}</dt>
+                <dd aria-label={`Training: ${trainingLabels[key]}`} data-status={category.status} title={unavailableTitle(category.reason)??facts.provenance} style={{margin:0,color:category.status==='unavailable'?'var(--text-muted)':'var(--text-secondary)'}}>
+                    <span data-training-value>{category.display}</span>
+                    {category.preparationNote&&<small data-training-preparation-note style={{display:'block'}}>{category.preparationNote}</small>}
+                    <UnavailableNote reason={category.reason}/>
+                </dd>
+            </div>;})}
+        </dl>
+    </div>;
 }

@@ -15,9 +15,12 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
 
 export type ModalId =
+    | 'conditions'
+    | 'defenses'
     | 'theme'
     | 'roll'
     | 'hp'
+    | 'temporary-hp'
     | 'rest'
     | 'item'
     | 'spell'

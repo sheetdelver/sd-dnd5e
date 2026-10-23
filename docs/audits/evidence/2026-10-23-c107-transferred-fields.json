@@ -1,0 +1,92 @@
+{
+  "checkpoint": "C107",
+  "parent": "3022989",
+  "status": "Qualified shared transferred final Sets/custom Strings/Boolean flags in existing empty/utility Item recipe;M2/ADR remain open",
+  "requirements": [
+    "M2/Q02a partial",
+    "DD-02/03/06/11/24/27/31/34 partial",
+    "A02–A06 read preparation/A18/A21 partial"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "3022989",
+    "result": "4327/7868 same final source profiles fail before;0 after. Suppressed profiles remain successful independent controls.",
+    "beforeArtifact": "/tmp/dnd5e-c107-before-md0krfk6",
+    "beforeLogSha256": "17862b17dc2d1c244386eb54f9a978d3dbf3fd9d525af6e822297d512e585c75",
+    "afterLogSha256": "5f5bc28bbb9e7ee2bb23a4e867ea46f69d8f03793be007434c12b5a174f95288"
+  },
+  "native": {
+    "command": "npm run test:native-transferred-fields -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c107-native-final.json",
+    "result": "PASS;7868 actual Item/Actor final/typed Set/String/Boolean flag compositions after existing independent field/schema/cache/rule oracles. Types rotate all5 equippables across4 eligibility states.",
+    "fixture": "tests/fixtures/native-6.0.6/transferred-fields.json",
+    "sha256": "abb8639319e6d9093c612efce032d2ca3ab24343126ae5a069872aa6aebe5239",
+    "logSha256": "abd610ea301596a16062a64677a11ea5c34d0a01d819a1cd3cd8a7dc5a8057ef",
+    "withoutActivities": {
+      "command": "Same command with --without-activities --write-evidence temp/c107-native-empty.json",
+      "result": "PASS;7868 empty-activity compositions;all expected field values identical to utility profile",
+      "artifactSha256": "b4e9f73a8e0202a23c601314fa750b753871202fcfbffe795d6202d10016fb85",
+      "logSha256": "abd610ea301596a16062a64677a11ea5c34d0a01d819a1cd3cd8a7dc5a8057ef"
+    }
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;87 module/9 tooling suites,61 tooling assertions. Final focused maintained test additionally verifies representative empty recipes,nonpersisted poison preserving legitimate persisted fields and context/unsupported subtype recovery.",
+    "logSha256": "766a966db17778db886c870cbca0775c8e0fe250632ad2a34c2ebb272a380e97",
+    "focusedLogSha256": "5f5bc28bbb9e7ee2bb23a4e867ea46f69d8f03793be007434c12b5a174f95288"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;317 explicit module/UI/server/test/hook files",
+    "logSha256": "811181eaf866459006ada2f335f88fc3eb486eb9b991f9c0053a80a222386f86"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-transferred-fields -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 current training/defense/custom text,earlier language/passive notes,flag totals,Reliable Talent Normal-only,Lucky unavailability,suppression/context recovery,focus/hover/shortcut/direct agreement,equal-result source changes/held callbacks;zero writes",
+    "artifact": "/tmp/dnd5e-transferred-fields-mounted-jXkcVp/evidence.json",
+    "sha256": "1a6169d1a0cb006063be6229bc644593b13822008e1cffe253a522778e9da4e7"
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;162826 accepted,31976 new;existing Lucky-gated requests rejected before host dispatch,Reliable Talent Normal bounds and full plain-d20 distributions retained;1 unary candidate,2000 tied-index diagnostics,zero native writes;serialization unchanged",
+    "artifact": "/tmp/dnd5e-public-rolls-zNC5EO/evidence.json",
+    "sha256": "774556a40520d965951eb8a3a7afc902014bf2ec34e237a7242769a7e517f218"
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;isolated module check/package,24members/17regular files,retained MIT notice byte-identical,test/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-p1dZkW/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "2b5996b4fdac3f6b5341493f51ec87234c3fafe4e6d6d8291477f2931cf224ce",
+    "logSha256": "9d31ad9176557b90b3cccfc4d7571b979ced18b930bdabd7897ae100e3405832"
+  },
+  "cleanup": {
+    "result": "Task-owned host/synthetic endpoints/browser stopped;preexisting listeners untouched",
+    "beforeSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb",
+    "afterSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb"
+  },
+  "historicalRestrictions": {
+    "result": "Only two existing minimal Tool transfer restrictions are superseded:final-training-sets and feat-custom-strings unchanged sources now use independently qualified typed Item/Actor final paths. Identity/condition/expression/unknown-subtype gates remain. Frozen native primitive expectations are unchanged.",
+    "firstFullRegressionLogSha256": "63e5d2b1083a440c8aab90f45a0f96fce75313705f910c5b9ee079439b90faca"
+  },
+  "supplementalFailures": [
+    {
+      "logSha256": "c1ce89c235a6973efdf824a98a8cd2aadcde769708ebd1b0da94d04cf5226665",
+      "reason": "Initial composition driver addressed the flat training expectedBefore dictionary as a nested object;corrected fixture lookup before module implementation."
+    },
+    {
+      "logSha256": "d7a08f4ec2ac8cd0f4932a04ff82e604612d674c014a1d7338cdac4e157628a4",
+      "reason": "Initial driver requested a desktop Proficiencies tab;the actual desktop consumer is the always-mounted sidebar. Corrected navigation only;all view/rule assertions retained."
+    }
+  ],
+  "limits": [
+    "Existing independent native field/source-default/cache/flag-rule oracles execute before actual Item/Actor dispatch. Earlier operands and schema routing remain explicit intermediates,not full DataModel source parity. Module regressions construct persisted source separately and ignore nonpersisted poison.",
+    "Native matrices include90 training,148 condition-free defense,217 custom String and1512 final Boolean flag input profiles across4 eligibility states. Actual Base utility final precedes these changes;separate empty recipes produce identical current values. Conditions/Item-local enchantments/other Activity subtypes/finite durations/broader expressions stay gated.",
+    "Source→prepared→current flag states and earlier language/passive/cache facts remain distinct. Shared handlers and facts serve cards/UI/previews/direct requests;exact owned Item identity remains in receipts. No new dice evaluator,transport,world cache,action execution,Core requirement or compatibility change.",
+    "Controlled methods,R,mounted SDK seams and isolated host remain separate from installed/native/operator acceptance. E01/widerQ00/E05 open;C105 proves existing E04 prevents full timed applicability. Experimental0.4.1/Core>=0.19.3 unchanged;Node24.21/npm11.19 local,CI Node22 unrun."
+  ],
+  "next": "Complete remaining save/ability/initiative transfer scopes and Item subtype/condition/local-effect composition using the same shared handlers;full M2/A04 timed acceptance awaits the evidenced E04 public input. Do not label unavailable scopes complete."
+}

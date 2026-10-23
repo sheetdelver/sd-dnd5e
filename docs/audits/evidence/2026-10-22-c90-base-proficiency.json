@@ -1,0 +1,190 @@
+{
+  "checkpoint": "C90 Actor proficiency effects,phase-correct references and nonarmor gear",
+  "parent": "a754d6246419949dbe22e8f1fcd67540e9ba7677",
+  "requirements": [
+    "M2/Q00/Q02a partial",
+    "DD-01/03/11/24/27/31/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "checks": {
+    "beforeProficiency": {
+      "artifact": "temp/c90-before.log",
+      "sha256": "0599ce164cb50bac7b3b0002ad8616cf04b60777dd1e2fb0a35fa35e1bfc3b4d",
+      "result": "Same initial+1 source gave unavailable instead of native4"
+    },
+    "beforeNonarmor": {
+      "artifact": "temp/c90-misc-before.log",
+      "sha256": "b61e144afd3a8f06a9586e3e1c2d1ab0f90f627a33ee86d1e309cef513f2d3fa",
+      "result": "Same equipped clothing source incorrectly gave unavailable AC instead of native12"
+    },
+    "regression": {
+      "artifact": "temp/c90-tests-final.log",
+      "sha256": "12ad051d0c6cba42c4b144957e7096399ea66a01c624a36205d5c899ce7076c8",
+      "result": "70 module/9 tooling suites,61 tooling assertions PASS"
+    },
+    "finalFocused": {
+      "artifact": "temp/c90-focus-final.log",
+      "sha256": "dd25137bff99845dae39a74ad7ded51ce610215a9f3f5dcca3f27d8bca5f9d4a",
+      "result": "192 profiles plus nonarmor/invalid-base/delta/symbolic-die/source-gear/missing-current-metadata regressions PASS"
+    },
+    "typing": {
+      "artifact": "temp/c90-types-checkpoint.log",
+      "sha256": "a2e804ad711b04e5cfb872a36be6a9193a16161640ee2b591c96cd4e1401dcf0",
+      "result": "266 explicit module/UI/server/test/hook files PASS"
+    },
+    "source": {
+      "artifact": "temp/c90-source.log",
+      "sha256": "65b037775621cd7616f34f617d9d3886abe321b5f7ba362117ca2b49fa9cd5ff",
+      "result": "2242 exact records/591 candidate expressions PASS"
+    },
+    "methods": {
+      "artifact": "temp/c90-native-checkpoint.json",
+      "sha256": "3e04064ca308c948d6abe9a4f9dfde42e60933f9e07aa81118bfbbc9d4f906a8",
+      "result": "192 native proficiency/root/attributes/cached-phase profiles and7 nonarmor AC profiles PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-base-proficiency-mounted-tGMpCC/evidence.json",
+      "sha256": "3cc8839532cc820df959f41a12812bba03cf9a1301f6f02d67af0e80ebdad222",
+      "result": "1440/390 actual current/provenance headers,earlier passives/save,root vs attributes preview,current keyboard/shortcut,SRD equipped/attuned/AC,stale callback/context recovery;0 writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-EwYML7/evidence.json",
+      "sha256": "1ce4eebf3e13583c6df379278130c09d9b6e509be2979b739350ef655191c3c8",
+      "result": "51818 accepted/15744 new requests,16 complete representative and16 Normal-bound distributions;1 retained unary candidate/960 bounded ordinary tie diagnostics;0 writes PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-1sjZee/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "ead26d47732d3756d69a756e1834cfd88b48ce1ab43696f64bf1bdd76ba82aee",
+      "result": "Isolated module check/package PASS"
+    }
+  },
+  "native": {
+    "commit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "sourceHashes": {
+      "packs/_source/equipment24/equipment/ioun-stones/ioun-stone-of-mastery.yml": "0bfe55ee69d967adda96c2802d22be70daf8f1919b40643b07dcbaee02ac1a43",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/item/equipment.mjs": "1d34384efda647d0222e4ba3bfa7d4d905e6356fd3bd2500e9ae568875fd3c09",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a"
+    },
+    "foundryEffectSha256": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+    "proficiencyProfiles": 192,
+    "miscEquipment": [
+      {
+        "type": "clothing",
+        "ac": 12,
+        "isArmor": false
+      },
+      {
+        "type": "ring",
+        "ac": 12,
+        "isArmor": false
+      },
+      {
+        "type": "rod",
+        "ac": 12,
+        "isArmor": false
+      },
+      {
+        "type": "trinket",
+        "ac": 12,
+        "isArmor": false
+      },
+      {
+        "type": "vehicle",
+        "ac": 12,
+        "isArmor": false
+      },
+      {
+        "type": "wand",
+        "ac": 12,
+        "isArmor": false
+      },
+      {
+        "type": "wondrous",
+        "ac": 12,
+        "isArmor": false
+      }
+    ],
+    "limits": [
+      "Actual Foundry unguided number casts and handlers,actual native ability/skill/tool preparation,fresh skill/tool and generic check/save construction and Item._prepareProficiency. Initial Actor base3/classlevel5 and all schema/global defaults are explicitly initialized;not raw-source model parity.",
+      "Unguided number casting uses Number(expandedText)||0,not NumberField Roll evaluation. Profile qualifies literal finite numeric deltas only. Compounds/references and out-of-profile resulting bases remain separate.",
+      "Cached Item/generic proficiency is not replayed by final Actor base changes. No full source DataModel/Item final/effect dispatcher/dice/runtime/operator acceptance."
+    ]
+  },
+  "fixture": {
+    "path": "tests/fixtures/native-6.0.6/base-proficiency-effects.json",
+    "sha256": "acaf9820aec563ecc30ea96a6b709fdf00132605c769690f74a95c82e84c5ddf",
+    "profiles": 192,
+    "base": 3,
+    "deltas": [
+      1,
+      "2"
+    ],
+    "coefficients": [
+      0,
+      0.5,
+      1,
+      2
+    ],
+    "phases": [
+      "initial",
+      "final"
+    ],
+    "bonusReferences": [
+      "@prof",
+      "@attributes.prof"
+    ]
+  },
+  "independentExamples": [
+    {
+      "effect": "final Actor base+1 at class-base3",
+      "coefficient": 2,
+      "preparedTotal": 11,
+      "passive": 21,
+      "currentRootProfTotal": 18,
+      "currentAttributesProfTotal": 14,
+      "cachedItemFlat": 6,
+      "genericRootSave": 8,
+      "genericAttributesSave": 9,
+      "currentHeader": 4
+    },
+    {
+      "source": "Minimal exact SRD Ioun Stone of Mastery type/key/ID/source/license fields",
+      "inactiveProficiency": 3,
+      "equippedAndAttunedProficiency": 4,
+      "ac": 12,
+      "passiveBeforeAfter": [
+        15,
+        16
+      ],
+      "rollBeforeAfter": [
+        "1d20+5",
+        "1d20+6"
+      ]
+    }
+  ],
+  "commands": [
+    "npm test -- --core <Core0.19.3>",
+    "npm run typecheck -- --core <Core0.19.3>",
+    "npm run test:native-source -- --native <read-only checkout>",
+    "npm run test:native-base-proficiency -- --core <Core> --native <checkout> --foundry <static14.367> --write-evidence temp/c90-native-checkpoint.json",
+    "npm run test:mounted-base-proficiency -- --core <Core> --chromium <isolated Chromium>",
+    "node scripts/test-public-rolls.mjs --core <Core> --dependency-profile",
+    "npm run check:package -- --core <Core>"
+  ],
+  "limits": [
+    "Class-base initialization/source defaults are independently qualified prerequisites;these native tests initialize that intermediate at3. Actual unguided cast/handlers run but complete DataModel/generic effect dispatcher/Item final lifecycle and dice engine are not booted.",
+    "Only finite literal deltas and resulting positive integer bases1..1e9 are admitted to the numeric profile. Unguided compound/reference deltas,nonpositive/fractional bases remain unavailable. Known earlier passives/cached save terms can remain available when current base is unqualified.",
+    "Native ActorModel shallow attributes and root Proficiency object identity are separately asserted. An attributes.prof reference is numeric,current and not rebound to the selected check. Named damage-reference-gated historical expectation is explicitly supplemented with native3;original JSON unchanged.",
+    "Known miscellaneous type registry membership makes them nonarmor. Actual native getter/AC loop executes with declared cover0/default AC inputs. Full miscellaneous Item lifecycle/native/operator acceptance is not claimed.",
+    "Wider native die sides are generated symbolically but execution remains governed by existing public compiler qualification;1d14 is visible and rejected,never omitted. No Core extension/version change is inferred.",
+    "Initial runtime implementation shadowed the phase-state name with a later regex;fixed before final runs. Initial nonarmor oracle omitted its declared cover0 collaborator;fixed fixture,not Core. Full suite exposed formerly gated attributes.prof reference;qualified native alias/root identity and supplemented only that named expectation. Development failures retained.",
+    "Public dependency profile generated354039 cases and executes51819 requests including1 retained candidate. Historical omitted families retain their earlier evidence;no full current generation execution claim. Homogeneous plain-d20 tie equivalence and Normal range gates unchanged.",
+    "Core0.19.3/90c13e5 baseline;Node24.21,CI Node22 unrun. Experimental0.4.1 and compatibility unchanged. All task-owned services closed;preexisting services untouched. No installed/native/operator/release acceptance. M2/ADR remain open."
+  ]
+}

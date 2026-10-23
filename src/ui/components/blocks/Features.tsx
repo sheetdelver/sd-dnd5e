@@ -93,6 +93,7 @@ export default function Features({ rows = [], title = 'Features' }: Props) {
                                         {row.sourceLabel ?? SOURCE_BADGE[row.source]}
                                     </span>
                                 </div>
+                                {row.usesLabel&&<div aria-label={row.name+' uses'} title={row.usesReason} style={{fontSize:'12px'}}>{row.usesLabel}</div>}
                                 {row.description && (
                                     <div style={{
                                         fontSize: '11px',

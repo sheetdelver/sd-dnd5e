@@ -1,0 +1,105 @@
+{
+  "checkpoint": "C106",
+  "parent": "3f0adbf",
+  "status": "Qualified shared transferred final scalar inventory and empty/utility Item composition;full M2/ADR open",
+  "requirements": [
+    "M2/Q02a partial",
+    "DD-01/02/03/04/06/11/27/31/34 partial",
+    "A02–A06 read preparation/A18/A21 partial"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "3f0adbf",
+    "result": "2644/4760 same final empty/utility source inputs fail before;0 after. Initial empty-only matrix1454/2644 fail before;0 after. Suppressed profiles remain independent successful controls.",
+    "beforeArtifact": "/tmp/dnd5e-c106-before-s7w5zapm",
+    "beforeLogSha256": "5f12f8e3c177baea5f6c4981c72b04d4a5a6f392e041041602ac2fab75550d33",
+    "afterLogSha256": "c954638497ae0f8dd41e9ec7bfcc20e2c0b0e7623e5d7a92e44e0068b54df848",
+    "source": "Maintained tests reuse independently qualified C92/C95 raw source/default fixtures,retain initial Actor changes,move final scalar changes to exact identified equippable Items;no native prepared-looking source overrides."
+  },
+  "native": {
+    "command": "npm run test:native-transferred-scalars -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c106-native-maintained.json",
+    "result": "PASS;2644 actual Item/Actor final typed scalar/nullable/formula/falsey compositions,including2116 actual Base utility final hooks. Independent earlier field/schema/AC/HP/movement methods run first.",
+    "fixture": "tests/fixtures/native-6.0.6/transferred-scalars.json",
+    "sha256": "839e024bd3a0c3f4964d5e5edccbe008a59bae57aed503ac473386fa729818d8",
+    "logSha256": "a3dd5181d7fef11862d0e51f1a79cba66249db0a1c652fad47ada12947fb193c",
+    "withoutActivities": {
+      "command": "Same command with --without-activities --write-evidence temp/c106-native-empty-final.json",
+      "result": "PASS;2644 empty-activity compositions;all independently expected current fields identical to utility profile",
+      "artifactSha256": "30d41b13792ef47a0bab70223040f40b5f7db5f9c55b4c04187ab0e8766afe00",
+      "logSha256": "48cccff0b846cd97179c5acf9fd0d0d44d435686c241dd605ffd2ea2d02e61f8"
+    }
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;86 module/9 tooling suites,61 tooling assertions;4760 transferred source/read/receipt/Card profiles plus source poison/context/unqualified Item gates",
+    "logSha256": "508be9c3582625194266c8367701dcce1198190b2ac455cee2343f7d43093c19"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;315 explicit module/UI/server/test/hook files",
+    "logSha256": "0be9fd4c3f04d7c784e6b09e470efdb499c974ca893a5b6cbfd3892344072630"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-transferred-scalars -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 current HP/effectiveMax/AC/save/movement/senses,suppression,focus/hover/shortcut,preview/direct agreement,malformed/context/recovery,equal-result source change and held callbacks;zero writes",
+    "artifact": "/tmp/dnd5e-transferred-scalars-mounted-2f5V6G/evidence.json",
+    "sha256": "3421b712149157ce93f5072af26349def9ca659178c9ae0e824673edfeb5983d"
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;130850 accepted,11632 new transferred scalar/check/save requests;retained complete distributions and Normal bounds,1 unary candidate,1960 tied-index diagnostics,zero native writes;serialization unchanged",
+    "artifact": "/tmp/dnd5e-public-rolls-dyewbD/evidence.json",
+    "sha256": "c5851c0456a4259ab22dda731b095e779ce17103cf2a06c7151a6bd9fb1756a1",
+    "earlierEmptyProfile": {
+      "artifact": "/tmp/dnd5e-public-rolls-idMuwr/evidence.json",
+      "sha256": "c5851c0456a4259ab22dda731b095e779ce17103cf2a06c7151a6bd9fb1756a1",
+      "result": "PASS;130850 requests before utility source fixture expansion"
+    }
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;isolated module check/package,24members/17regular files,retained MIT notice byte-identical,test/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-zj1WuU/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "2af4e50294d0ad9ff6b13f16329ed56ecf76e2ed0607a8f95361b1a2a546c89a",
+    "logSha256": "bd7b8158c5e93757abb4406dbb2f722093862c57b1f338819a49c9fc7d75789d"
+  },
+  "cleanup": {
+    "result": "Task-owned host/synthetic endpoints/browser stopped;preexisting listeners untouched",
+    "beforeSha256": "59cc627d1a3c39b3740f3fc152c2cb0ab2f5fb956c878898b3109f36eb8a124a",
+    "afterSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb"
+  },
+  "supplementalFailures": [
+    {
+      "logSha256": "4976ad541187e8861ac5dfc409b88f0e41023ac668ea7645eb41f3740fd98dba",
+      "reason": "Composition driver initially collided with prior Physical.Container VM binding;C91 test-only classes are now lexically scoped,exact method bodies/assertions unchanged."
+    },
+    {
+      "logSha256": "e710682cfa5bc26d58decbd9d377a3843a1d637100994f06804d093fb268be8b",
+      "reason": "All field comparisons executed,but artifact hash used wrong FormulaField path;corrected shared→fields path."
+    },
+    {
+      "logSha256": "2e7cd277a712769ba73969b89fc2a0a6194dcbf6325d5518f8d5609e15845dad",
+      "reason": "Draft utility used rounds instead of native singular round;actual native returnednull as expected for unknown scalar unit. Corrected fixture unit before module admission comparison."
+    },
+    {
+      "logSha256": "88c7e0549cb7d680458927a35fa9e7a675c84ebcdcaf6ccf80ca2e80a03b3af4",
+      "reason": "Initial added field read assertions compared-0 toJSON0 despite preserved native negativeZero flag. Maintained assertions now preserve that independent flag;same final driver was rerun against C105."
+    },
+    {
+      "logSha256": "b28629a86f10071266f0465a8dcd4517f26482bde9991c0a960103f53c6717b6",
+      "reason": "New fixture helper needed explicit synthetic effect typing and optional Card block narrowing;corrected before final explicit check."
+    }
+  ],
+  "limits": [
+    "Controlled native comparison uses earlier independently qualified schema/prepared operands as explicit intermediates,then actual Item/Actor final dispatch/eligibility and typed native handlers. No full raw-source DataModel/runtime parity. The module regressions separately construct persisted source and verified initial effects;nonpersisted poison is ignored.",
+    "661 field/operation/source profiles rotate all5 equippable types across4 eligibility states;separate empty/utility comparisons agree on current fields. Utility parent3/spent1→2,child capacity2/spent1→1,duration2 and explicit range5 prepare before final scalar changes. Other Activity subtypes,Item-local enchantments,conditions/timed phases and broader formulas remain gated.",
+    "Shared existing handlers now admit the qualified transferred scalar paths through the existing Item final recipe;receipts retain exact owned Item identity. Earlier effective HP maximum,AC and movement caches are not recomputed from final raw fields;fresh save/check construction uses qualified current fields. No duplicate rules/cache/evaluator or new action execution.",
+    "R/S,mounted SDK seam and isolated public-host remain distinct from installed/native/operator acceptance. E01 and wider Q00/E05 stay open;C105 proves existing E04 blocks full timed applicability. Experimental0.4.1/Core>=0.19.3 unchanged;Node24.21/npm11.19 local,CI Node22 unrun."
+  ],
+  "next": "Finish remaining independently qualifiable transferred final Sets/custom Strings/flags and broader Item/effect subtype compositions through the same existing handlers;preserve explicit unsupported filter decisions and the proven E04 timed gate. Full M2/ADR cannot close yet."
+}

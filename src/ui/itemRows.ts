@@ -1,3 +1,4 @@
+import {ownedItemProjection,type OwnedItemFacts} from '../logic/preparation/item-facts';
 import type { FoundryItem } from '@sheet-delver/sdk';
 import type {
     ActionRow,
@@ -39,6 +40,8 @@ function getActionCategory(item: FoundryItem): ActionCategory {
  * If omitted, only the magic `system.attackBonus` (when present) is shown.
  */
 export interface ActionRowsContext {
+    prepared?:OwnedItemFacts;
+    legacy?:boolean;
     abilities?: Record<string, { mod: number }>;
     profBonus?: number;
 }
@@ -146,7 +149,7 @@ function computeAttackBonus(item: FoundryItem, ctx?: ActionRowsContext): string 
     return formatBonus(total);
 }
 
-export function toActionRows(items: FoundryItem[], ctx?: ActionRowsContext): ActionRow[] {
+function legacyActionRows(items: FoundryItem[], ctx?: ActionRowsContext): ActionRow[] {
     return items.map(item => {
         const sys = item.system as Record<string, any>;
         const uses = sys?.uses;
@@ -189,7 +192,7 @@ export function toActionRows(items: FoundryItem[], ctx?: ActionRowsContext): Act
     });
 }
 
-export function toSpellRows(items: FoundryItem[]): SpellRow[] {
+function legacySpellRows(items: FoundryItem[]): SpellRow[] {
     return items.map(item => {
         const sys = item.system as Record<string, any>;
         return {
@@ -217,7 +220,7 @@ function getInventoryCategory(item: FoundryItem): InventoryCategory {
     return 'other';
 }
 
-export function toInventoryRows(items: FoundryItem[]): InventoryRow[] {
+function legacyInventoryRows(items: FoundryItem[]): InventoryRow[] {
     return items.map(item => {
         const sys = item.system as Record<string, any>;
         return {
@@ -247,7 +250,7 @@ function getFeatureSource(item: FoundryItem): FeatureSource {
     return 'feat';
 }
 
-export function toFeatureRows(items: FoundryItem[]): FeatureRow[] {
+function legacyFeatureRows(items: FoundryItem[]): FeatureRow[] {
     return items.map(item => {
         const sys = item.system as Record<string, any>;
         const source = getFeatureSource(item);
@@ -267,3 +270,28 @@ export function toFeatureRows(items: FoundryItem[]): FeatureRow[] {
         };
     });
 }
+
+/** Modern rows only format the shared prepared result. Selected legacy keeps
+ * its explicitly unqualified compatibility presentation. */
+export function toActionRows(items:FoundryItem[],ctx:ActionRowsContext={}):ActionRow[]{
+ if(ctx.legacy)return legacyActionRows(items,ctx);
+ const rows:ActionRow[]=[];
+ for(const item of items){const prepared=ctx.prepared?.items[item._id];
+  if(!prepared||prepared.activities.length===0){rows.push({key:item._id,name:item.name,category:item.type==='weapon'?'attack':'other',executionReady:false,unavailableReason:prepared?.activityReason??'No prepared native activities; activity migration/execution is unavailable',uses:prepared?.uses.status==='ready'&&prepared.uses.limited?{value:prepared.uses.remaining!,max:prepared.uses.max!}:undefined,usesStatus:prepared?.uses.status,usesReason:prepared?.uses.reason});continue;}
+  for(const activity of prepared.activities){const category:ActionCategory=activity.type==='attack'?'attack':activity.activation==='bonus'?'bonus':activity.activation==='reaction'?'reaction':activity.activation==='action'?'action':'other';
+   rows.push({key:item._id+':'+activity.id,itemId:item._id,activityId:activity.id,name:activity.name===item.name?item.name:item.name+' — '+activity.name,category,baseDamage:activity.damageSource?(activity.damageSource.status==='ready'?activity.damageSource.parts.map(part=>part.fact.value?.formula).filter(Boolean).join(' / ')||'None defined':'Unavailable'):undefined,baseDamageReason:activity.damageSource?.reason??'Before activity,ability,scaling and critical adjustments',range:activity.common?.status==='ready'?(activity.common.range!.status==='unavailable'?'Range unavailable':`${activity.common.range!.value??''} ${activity.common.range!.units}`.trim()):undefined,save:activity.save?.status==='ready'?`DC ${activity.save.value!.dc} ${activity.save.value!.targets.map(key=>key.toUpperCase()).join('/')}`.trim():activity.save?'DC unavailable':undefined,saveReason:activity.save?.reason,attackBonus:activity.attack?.value?.display,attackStatus:activity.attack?.status,attackReason:activity.attack?.reason,attackModes:prepared.attackModes.value??undefined,executionReady:false,unavailableReason:activity.reason??activity.executionReason,uses:activity.uses.status==='ready'&&activity.uses.limited?{value:activity.uses.remaining!,max:activity.uses.max!}:undefined,itemUses:prepared.uses.status==='ready'&&prepared.uses.limited?{value:prepared.uses.remaining!,max:prepared.uses.max!}:undefined,usesStatus:activity.uses.status,usesReason:activity.uses.reason,itemUsesStatus:prepared.uses.status,itemUsesReason:prepared.uses.reason});
+  }
+ }
+ return rows;
+}
+export function toInventoryRows(items:FoundryItem[],ctx:ActionRowsContext={}):InventoryRow[]{
+ if(ctx.legacy)return legacyInventoryRows(items);
+ return items.map(item=>{const p=ctx.prepared?.items[item._id],weight=p?.weight.value;return {key:item._id,name:item.name,category:getInventoryCategory(item),quantity:p?.quantity.value??undefined,weight:weight?.value,weightLabel:weight?weight.value+' '+weight.units:p?.weight.status==='unavailable'?'Unavailable':undefined,totalWeightLabel:p?.physical?.totalWeight.value!=null?p.physical.totalWeight.value+' '+p.physical.units:p?.physical?.totalWeight.reason?'Unavailable':weight&&weight.stack!==null?weight.stack+' '+weight.units:undefined,equipped:p?.equipped.value??undefined,attuned:p?.attuned.value??undefined,unavailableReason:p?.physical?.totalWeight.reason??p?.reason??(!p?'Item preparation unavailable':undefined),usesLabel:p?.uses.status==='not-applicable'?undefined:p?.uses.display??'Unavailable'};});
+}
+export function toFeatureRows(items:FoundryItem[],ctx:ActionRowsContext={}):FeatureRow[]{
+ const rows=legacyFeatureRows(items);if(ctx.legacy)return rows;
+ return rows.map(row=>{const p=ctx.prepared?.items[row.key];return {...row,usesLabel:p?.uses.status==='not-applicable'?undefined:p?.uses.display??'Unavailable',usesReason:p?.uses.reason};});
+}
+export const itemRowsContext=(derived:Record<string,any>|undefined):ActionRowsContext=>({prepared:ownedItemProjection(derived),legacy:derived?.lifecycle?.status==='supported'&&derived?.lifecycle?.profile==='legacy-limited',abilities:derived?.abilities,profBonus:derived?.profBonus});
+
+export function toSpellRows(items:FoundryItem[],ctx:ActionRowsContext={}):SpellRow[]{if(ctx.legacy)return legacySpellRows(items);return items.map(item=>{const p=ctx.prepared?.items[item._id]?.spell;return {key:item._id,name:item.name,level:p?.value?.level??null,school:p?.value?.school,concentration:p?.value?.concentration,ritual:p?.value?.ritual,unavailableReason:p?.reason??(!p?'Spell metadata preparation unavailable':undefined),executionReady:false};});}

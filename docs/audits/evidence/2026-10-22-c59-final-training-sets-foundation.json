@@ -1,0 +1,85 @@
+{
+  "checkpoint": "C59",
+  "date": "2026-10-22",
+  "parent": "1a03d876304527aa498a154734546a9a2a0f242e",
+  "requirements": "Partial M2/Q02a DD-03/27/34,A03/A04/A18/A21;no full gate closure",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "cases": 90,
+  "fields": [
+    "armorProf.value",
+    "weaponProf.value",
+    "weaponProf.mastery.value",
+    "weaponProf.mastery.bonus",
+    "languages.value"
+  ],
+  "operations": [
+    "add",
+    "subtract",
+    "override",
+    "upgrade",
+    "downgrade",
+    "multiply"
+  ],
+  "sourceProfiles": [
+    "empty",
+    "local",
+    "ALL/grouped Sets"
+  ],
+  "observations": [
+    "Frozen independent field literals/order/Set arithmetic precede actual method comparisons;no module/captured output used as expectations.",
+    "Actual prepareLanguages overwrites deliberately poisoned model labels before final Set operations. Cached labels stay earlier after current value changes;native sheet uses earlier language labels.",
+    "Native sheet armor/weapon/mastery reads current fields;mastery source choices union with current weapon keys. Bonus mastery options do not grant a mastered weapon.",
+    "Actual conditional NativeWeapon.masteryOptions reads current explicit longsword key/base sap/bonus values. This is getter membership evidence,not Item preparation/actions or inferred grants."
+  ],
+  "checks": [
+    {
+      "command": "npm run test:native-traits -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c59-native-traits.json",
+      "result": "PASS90 final training cases+196final defense+retained25defense/24initialtrainingSets/33training-language/33initialtraits",
+      "logSha256": "55a7228826a5c27a509f71f31e6e285a5dda44de41d41d9aae05836d359218c4"
+    },
+    {
+      "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS199 explicit source/UI/server/test/hook files;no runtime source changes since C58",
+      "logSha256": "bc3863e55053736c19bb536382c7e34c6ff00bf2f80dfb69164a6006383a8011"
+    }
+  ],
+  "sourceHashes": {
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+    "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+    "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+    "module/documents/actor/trait.mjs": "a638c34db4c3e4255bfbbd1952d7a3231dd9ea35038c51b9b7cc0d77658bd635",
+    "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+    "module/data/item/weapon.mjs": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+    "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+    "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200"
+  },
+  "englishSha256": "ab2545d9500f8019e0a752af4ab252073f3cdc18008c5e82bcb6ec71af5e82a4",
+  "foundry": {
+    "generation": 14,
+    "build": 367,
+    "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+    "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+  },
+  "artifacts": {
+    "tests/fixtures/native-6.0.6/final-training-sets.json": "4a977ef65a8e9d90f2c7959f5d927bf19234cede0ae33a3f3a966c8cdebd8984",
+    "scripts/native-traits-oracle.mjs": "1025fd8c796463d560bccf344e9604f4bcdc5f6eecd7415aa7a840d902ceba67",
+    "temp/c59-native-traits.json": "35027c8c2a7685eda8c77e7cd8f0f446434aa84dc4fe994f8b7bc075aba3aa1e"
+  },
+  "limits": [
+    "Qualification only;runtime final training Set gate remains until C60 shared preparation/projections/tests.",
+    "Initialized persisted Set fields,actual methods and declared phase composition. Primitive field constructors/source cleaning/defaults separately qualified;no full DataModel source boot/migration/effect lifecycle.",
+    "Model-label poison comparison is explicit method overwrite,not proof of DataModel stripping unknown raw source fields. Runtime must ignore raw prepared-looking labels.",
+    "Native registry/key-label helpers,locale/format adapters,absent content index/AppliedRules and read-only clone stub retain C27 boundaries. Unknown labels stay source keys;E01 not bypassed.",
+    "Conditional mastery getter on an explicit initialized weapon shell does not qualify Item attacks/activities or grant missing mastery/base Item data.",
+    "Language current field/earlier cached labels/caller presentation require separate provenance. Do not silently re-run preparation after final or claim native cached labels are fresh.",
+    "C58 full regression/mounted/public-host/package evidence remains unchanged and separate. No new runtime/UI/native acceptance implied.",
+    "No effects/Item/string/formula/legacy expansion. Experimental0.4.1/compatibility unchanged;E01/E02/E04/widerQ00/E05 and full ADR/DD/A/M/installed/native/operator gates open."
+  ]
+}

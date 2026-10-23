@@ -1,0 +1,64 @@
+{
+  "checkpoint": "C71",
+  "date": "2026-10-22",
+  "parent": "cba50a36ef169aa42bba7aa6f9f52b88cf0c8a00",
+  "requirements": "Qualification only; partial M0/M2 Q02a, DD-03/11/27/34, A03/A04; all full gates open",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "cases": 686,
+  "independentExpectations": "217 unchanged C67 initial-only frozen String inputs/results transferred to an eligible feat; C22 frozen source/default Item eligibility crossed with seven literal String fields;14 manually frozen Actor/two-Item priority/tie chains. Expected fields/labels/identities do not come from module or native capture. Class-level prerequisites are separate. No conditions or Item final effects.",
+  "observations": [
+    "Actor-owned effects precede transferred Item effects at equal priorities; explicit priorities order all eligible changes together. Original effect IDs and owned Item IDs remain distinct.",
+    "Eligibility initializes schema fields before native suppression; non-equippable extra equipped/attuned source fields cannot become authoritative prepared fields. Suppressed Items do not apply custom text.",
+    "Initial custom text is applied before language preparation and actual native sheet formatting; language cache equals the independently expected prepared labels. Only initial phase executes; Item final preparation is never called."
+  ],
+  "checks": [
+    {
+      "command": "npm run test:native-effects -- --core <releasedCore> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c71-native-effects.json",
+      "result": "686 Item initial custom cases plus retained 69 eligibility/5 phase/21 numeric/20 bonus/26 mode and trait/custom matrices PASS"
+    },
+    {
+      "command": "npm test -- --core <releasedCore>",
+      "result": "61 tooling assertions /9 tooling suites /50 module suites PASS"
+    },
+    {
+      "command": "npm run typecheck -- --core <releasedCore>",
+      "result": "211 explicitly typed module/UI/server/test/hook files PASS"
+    },
+    {
+      "command": "npm run test:native-source -- --core <releasedCore> --native <exactRelease>",
+      "result": "2242 records /591 candidate expressions PASS; inventory does not qualify expressions"
+    }
+  ],
+  "nativeSourceHashes": {
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+    "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+    "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+    "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f"
+  },
+  "foundrySourceHashes": {
+    "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+    "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+    "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+    "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "common/constants.mjs": "861a4a121ffb5713ab265b49282ff6ca8aa64036c5f9dad27208af98433dbdcf",
+    "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820"
+  },
+  "artifacts": {
+    "scripts/native-effect-oracle.mjs": "8543cc1befc83274b7aa562721263134eae3a70ad06343e91d3dd19005c46a30",
+    "src/tests/fixtures/item-custom-scenarios.ts": "6c9a5e5e900885489d3220b5358c99f9776c515433bdf7c40a572f700be3bf2f",
+    "tests/fixtures/native-6.0.6/item-initial-custom-strings.json": "f43ea44d3fd3c65c1a2870cf61caea6aadaf23d00e4f1068d2786cb20927b9cf",
+    "temp/c71-native-effects.json": "0cdcc1ab202fbb264d7c3304df3485f95b5f9bc35b8ce6acca28ae7be8728969",
+    "temp/c71-native-effects.log": "7d8d35ccf0a6b0b56dab6026c89796683f1d45fd438c03352f5450b3a16cde36",
+    "temp/c71-types.log": "0e4d858655fe632c7a95e0a4d7b75f9c8fb40f331865b22bfa7d8f439f580d84",
+    "temp/c71-tests.log": "a615ac628fbc4225f6bc7a390327b61aeff781396f1f487c4862edb4033722e0",
+    "temp/c71-native-source.log": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "limits": [
+    "Actual native/base Actor initial collector and dispatcher, native effect and Item suppression getters, inherited phase matcher, actual primitive String and language/sheet methods. applyChange schema-field routing is a test collaborator. No full DataModel/Document boot.",
+    "No Item prepareFinalAttributes or final phase invoked; no conditions, filters, dependency/rider/antimagic, time, Item effects or native dice/operator acceptance. Existing C12/C22 matrices remain separately preserved.",
+    "217 frozen initial String cases plus455 independently composed eligibility cases and14 Actor/two-Item priority chains; no module output used as oracle.",
+    "Runtime remains gated until C72 regressions/consumer integration. No mounted/public-host/package claim added by this qualification checkpoint.",
+    "No live service, Core/compatibility/version change or installed/native/operator acceptance. E01/E02/E04/wider Q00/E05 and ADR-0001 remain open."
+  ]
+}

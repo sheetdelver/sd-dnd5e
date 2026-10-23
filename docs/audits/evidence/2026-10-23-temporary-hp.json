@@ -1,0 +1,587 @@
+{
+  "checkpoints": {
+    "review": "7275b2e",
+    "C108": "c40684d",
+    "C109": "23eeee4",
+    "C110": "67a4a3d"
+  },
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "schema": {
+      "integer": true,
+      "initial": 0,
+      "min": 0,
+      "label": "DND5E.HitPointsTemp"
+    },
+    "grantControls": {
+      "aboveCurrent": 8,
+      "dispatches": 1,
+      "lowerThanCurrent": 2,
+      "additionalDispatches": 0
+    },
+    "hashes": {
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79"
+    },
+    "limits": [
+      "Pinned schema getter and applyTempHP method with an explicit update-recording seam;not DataModel/native/operator acceptance.",
+      "The module operation is manual replacement of the persisted field,including clearing. It deliberately does not claim native applyTempHP grant semantics,damage,healing,concentration or activity consumption. Effect-dependent temp HP is gated."
+    ]
+  },
+  "publicHost": {
+    "method": "Actual public module health routes and journal on isolated released Core,synthetic auth/world/settings/socket backend. No native/operator acceptance.",
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "observations": [
+      {
+        "case": "review-authorized-write-readback-visible-preparation-no-replay",
+        "review": {
+          "operationId": "70a1922d-04ad-438e-9354-1c2161bef2a8",
+          "actorId": "fixtureActor0001",
+          "phase": "reviewed",
+          "before": 3,
+          "after": 8,
+          "storedTemp": 3,
+          "receiptIds": []
+        },
+        "result": {
+          "operationId": "70a1922d-04ad-438e-9354-1c2161bef2a8",
+          "actorId": "fixtureActor0001",
+          "phase": "confirmed",
+          "before": 3,
+          "after": 8,
+          "storedTemp": 8,
+          "receiptIds": [
+            "Actor.fixtureActor0001"
+          ]
+        },
+        "dispatches": 1
+      },
+      {
+        "case": "current-source-change-zero-write",
+        "phase": "rejected-zero-write"
+      },
+      {
+        "case": "ownership-loss-restoration-retires-review",
+        "phase": "rejected-zero-write"
+      },
+      {
+        "case": "applied-empty-ack-fenced",
+        "result": {
+          "operationId": "0867a784-d944-4e5f-a033-a2de3f28d096",
+          "actorId": "fixtureActor0001",
+          "phase": "uncertain",
+          "before": 8,
+          "after": 10,
+          "storedTemp": 10,
+          "receiptIds": [],
+          "reason": "Step outcome unknown; inspect before any further write"
+        },
+        "dispatches": 1
+      },
+      {
+        "case": "real-post-ack-journal-storage-failure-retains-receipt",
+        "result": {
+          "operationId": "31f378ce-c2e3-43ed-bb1c-47d9734074f1",
+          "actorId": "fixtureActor0001",
+          "phase": "uncertain",
+          "before": 10,
+          "after": 11,
+          "storedTemp": 11,
+          "receiptIds": [
+            "Actor.fixtureActor0001"
+          ],
+          "reason": "Acknowledgement retained; journal persistence unavailable"
+        }
+      },
+      {
+        "case": "restart-status-never-replays-fresh-clear-confirmed",
+        "dispatches": 1
+      },
+      {
+        "case": "recovery-inspection-retires-unexecuted-intent-before-late-execute",
+        "dispatches": 0
+      }
+    ],
+    "mounted": [
+      {
+        "width": 390,
+        "reviewWrites": 0,
+        "confirmed": true,
+        "lostResponseRecoveredWithoutReplay": true,
+        "unqualifiedInspection": true,
+        "sourceAndConnectionRetired": true,
+        "freshReviewRecovered": true,
+        "lateReviewIdentityPreserved": true,
+        "dispatches": 4
+      },
+      {
+        "width": 1280,
+        "reviewWrites": 0,
+        "confirmed": true,
+        "lostResponseRecoveredWithoutReplay": true,
+        "unqualifiedInspection": true,
+        "sourceAndConnectionRetired": true,
+        "freshReviewRecovered": true,
+        "lateReviewIdentityPreserved": "covered at390",
+        "dispatches": 3
+      }
+    ],
+    "writes": [
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 8
+              }
+            ]
+          }
+        },
+        "stored": 8
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 10
+              }
+            ]
+          }
+        },
+        "stored": 10
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 11
+              }
+            ]
+          }
+        },
+        "stored": 11
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 0
+              }
+            ]
+          }
+        },
+        "stored": 0
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 12
+              }
+            ]
+          }
+        },
+        "stored": 12
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 13
+              }
+            ]
+          }
+        },
+        "stored": 13
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 15
+              }
+            ]
+          }
+        },
+        "stored": 15
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 17
+              }
+            ]
+          }
+        },
+        "stored": 17
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 20
+              }
+            ]
+          }
+        },
+        "stored": 20
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 21
+              }
+            ]
+          }
+        },
+        "stored": 21
+      },
+      {
+        "user": "fixtureplayer",
+        "request": {
+          "type": "Actor",
+          "action": "update",
+          "operation": {
+            "updates": [
+              {
+                "_id": "fixtureActor0001",
+                "system.attributes.hp.temp": 23
+              }
+            ]
+          }
+        },
+        "stored": 23
+      }
+    ],
+    "limits": [
+      "Temporary fixture manifest omits content hydration and UI,allows its synthetic adapter;module version/compatibility unchanged. Actual packaging checked separately.",
+      "No cross-native CAS: a matching field readback cannot prove no concurrent external edit. Unknown outcomes stay fenced;status never executes."
+    ]
+  },
+  "mounted": {
+    "method": "Actual Sheet with SDK presentation/cache seam,real isolated public health route;synthetic backend. Not installed/native/operator acceptance.",
+    "results": [
+      {
+        "width": 390,
+        "reviewWrites": 0,
+        "confirmed": true,
+        "lostResponseRecoveredWithoutReplay": true,
+        "unqualifiedInspection": true,
+        "sourceAndConnectionRetired": true,
+        "freshReviewRecovered": true,
+        "lateReviewIdentityPreserved": true,
+        "dispatches": 4
+      },
+      {
+        "width": 1280,
+        "reviewWrites": 0,
+        "confirmed": true,
+        "lostResponseRecoveredWithoutReplay": true,
+        "unqualifiedInspection": true,
+        "sourceAndConnectionRetired": true,
+        "freshReviewRecovered": true,
+        "lateReviewIdentityPreserved": "covered at390",
+        "dispatches": 3
+      }
+    ]
+  },
+  "workflow": {
+    "method": "Offline actual Sheet + SDK presentation seam, synthetic representative source. No native/operator acceptance.",
+    "results": [
+      {
+        "id": "martial",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "migration",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "multiclass",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "caster",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "local-unavailable",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "unknown-mechanics",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "unqualified-version",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "martial",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "migration",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "multiclass",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "caster",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "local-unavailable",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "unknown-mechanics",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "unqualified-version",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "martial",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "migration",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "multiclass",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "caster",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "local-unavailable",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "unknown-mechanics",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "unqualified-version",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "martial",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "migration",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "multiclass",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "caster",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "local-unavailable",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "unknown-mechanics",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "unqualified-version",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      }
+    ]
+  },
+  "artifactHashes": {
+    "temp/health-native.json": "1e98f89469d21cae2f0834b303a544a65444c1a0f96114170e1a47274d0c5811",
+    "/tmp/dnd5e-workflow-smoke-Er3DyP/evidence.json": "7f585a7ae577086c10d31cb031668d5c4db978148e65bc121dd904d38adc52cc",
+    "temp/health-dialog-border-before.log": "a4a7a0d5b77d2bb305d374b8e29a9269119037370b70b66572de24378a5d27ee",
+    "temp/health-unqualified-recovery-before.log": "0d369bb1c8024b80d5118913d757369205cb64a75ea297e605386edfb319590d",
+    "/tmp/dnd5e-public-health-2OaVM9/evidence.json": "92ad8fb20c4eb78c9c83ba7e807a8671d381186e1e27e7d18b6aa97e9b5acd4d",
+    "/tmp/dnd5e-public-health-2OaVM9/mounted-health.json": "63d8fc1d6b8bfd634317a8e99be4f4101208d11e738d5d59c4a4e7df3950ca4e",
+    "/tmp/dnd5e-package-d0SZBt/data/dist/modules/dnd5e-0.4.1.tgz": "88d499674c0528393ae54e10f298fa18ba33274b7b266ed62424005acfb27c39"
+  },
+  "limits": [
+    "Core primary source readback is owner-authorized,not an independent native fetch or CAS guarantee.",
+    "Synthetic source and backend,not Krusky or native/operator acceptance.",
+    "Open native dialogs are captured at viewport size.Full-page capture intermittently dismissed/displaced a dialog during harness development;not qualified as a Core/native defect. Final viewport-capture runs passed."
+  ],
+  "unqualifiedRecovery": "Maintained mounted assertion failed0 controls before correction and passes with actual adapter-projected unavailable6.0.7 context. Inspection remains reachable;effective editing stays gated.",
+  "coreCurrentCommit": "597ffbae96366fcc2be444a02c2385d468d7282b",
+  "coreCssSha256": "d4f5237d00bfaedbacc8337d15e94ee8ba089078c6fa4e1f35c64789eb7ad20a",
+  "browser": "Playwright1.56.1 family,local Chromium headless shell1200;test-only tool installation"
+}

@@ -41,13 +41,14 @@ export function run(): void {
 
     assert.equal(prepared._id, 'hero');
     assert.equal(prepared.id, 'hero');
-    assert.equal((prepared.derived.level as number), 3);
-    assert.equal((prepared.derived.hp as { value: number }).value, 17);
+    assert.equal(prepared.derived.level, null, 'Missing world context cannot qualify a source-looking level');
+    assert.equal((prepared.derived.hp as { value: number|null }).value, null, 'Unknown context cannot qualify prepared HP');
+    assert.equal((source.system.attributes as any).hp.value,17,'Source HP remains unchanged');
     assert.deepEqual(prepared.categorizedItems?.weapons.map(item => item.name), ['Quarterstaff']);
     assert.deepEqual(prepared.categorizedItems?.features.map(item => item.name), ['Wizard', 'Human']);
     assert.equal(source.items[0].name, 'Wizard');
 
-    console.log('dnd5e prepared Actor parity: PASS');
+    console.log('R: dnd5e existing synthetic prepared-Actor behavior: PASS (not native parity)');
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) run();

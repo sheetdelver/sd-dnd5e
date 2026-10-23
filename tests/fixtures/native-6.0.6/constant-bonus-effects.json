@@ -1,0 +1,430 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Source constant -> native FormulaField operation tree -> detached numeric operand; no arbitrary expression parser",
+  "cases": [
+    {
+      "id": "skill-empty-add",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": 3,
+      "before": null,
+      "expectedFormula": "3",
+      "expectedBonus": 3,
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 8,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "skill-add",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "2",
+      "expectedFormula": "2 + 3",
+      "expectedBonus": 5,
+      "expected": {
+        "skill": 10,
+        "passive": 20,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 10,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "skill-add-negative",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": -3,
+      "before": "2",
+      "expectedFormula": "2 - 3",
+      "expectedBonus": -1,
+      "expected": {
+        "skill": 4,
+        "passive": 14,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 4,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "skill-subtract",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "subtract",
+      "value": 3,
+      "before": "2",
+      "expectedFormula": "2 - (3)",
+      "expectedBonus": -1,
+      "expected": {
+        "skill": 4,
+        "passive": 14,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 4,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "skill-subtract-negative",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "subtract",
+      "value": -3,
+      "before": "2",
+      "expectedFormula": "2 - (-3)",
+      "expectedBonus": 5,
+      "expected": {
+        "skill": 10,
+        "passive": 20,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 10,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "skill-override",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "override",
+      "value": -2,
+      "before": "5",
+      "expectedFormula": "-2",
+      "expectedBonus": -2,
+      "expected": {
+        "skill": 3,
+        "passive": 13,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 3,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "skill-empty-subtract",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "subtract",
+      "value": 3,
+      "before": null,
+      "expectedFormula": "-(3)",
+      "expectedBonus": -3,
+      "expected": {
+        "skill": 2,
+        "passive": 12,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 2,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "ability-check",
+      "key": "system.abilities.wis.check.roll.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "2",
+      "expectedFormula": "2 + 3",
+      "expectedBonus": 5,
+      "expected": {
+        "skill": 10,
+        "passive": 20,
+        "tool": 4,
+        "check": 7,
+        "save": 2,
+        "combined": 10,
+        "combinedTool": 10,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "ability-save",
+      "key": "system.abilities.wis.save.roll.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "",
+      "expectedFormula": "3",
+      "expectedBonus": 3,
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 4,
+        "check": 2,
+        "save": 5,
+        "combined": 5,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "global-check",
+      "key": "system.rolls.ability.check.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "",
+      "expectedFormula": "3",
+      "expectedBonus": 3,
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 7,
+        "check": 5,
+        "save": 2,
+        "combined": 8,
+        "combinedTool": 8,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "global-save",
+      "key": "system.rolls.ability.save.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "",
+      "expectedFormula": "3",
+      "expectedBonus": 3,
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 4,
+        "check": 2,
+        "save": 5,
+        "combined": 5,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "global-skill",
+      "key": "system.rolls.ability.skill.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "",
+      "expectedFormula": "3",
+      "expectedBonus": 3,
+      "expected": {
+        "skill": 8,
+        "passive": 18,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 8,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "global-tool",
+      "key": "system.rolls.ability.tool.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "",
+      "expectedFormula": "3",
+      "expectedBonus": 3,
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 7,
+        "check": 2,
+        "save": 2,
+        "combined": 5,
+        "combinedTool": 8,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "tool-local",
+      "key": "system.tools.thief.roll.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "",
+      "expectedFormula": "3",
+      "expectedBonus": 3,
+      "expected": {
+        "skill": 5,
+        "passive": 15,
+        "tool": 7,
+        "check": 2,
+        "save": 2,
+        "combined": 5,
+        "combinedTool": 8,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "passive",
+      "key": "system.skills.prc.bonuses.passive",
+      "type": "add",
+      "value": 3,
+      "before": "",
+      "expectedFormula": "3",
+      "expectedBonus": 3,
+      "expected": {
+        "skill": 5,
+        "passive": 18,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 5,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "decimal",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": " +1.5 ",
+      "before": "-2.5",
+      "expectedFormula": "-2.5 + 1.5",
+      "expectedBonus": -1,
+      "expected": {
+        "skill": 4,
+        "passive": 14,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 4,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "multiply-open",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "multiply",
+      "value": 2,
+      "before": "2",
+      "phase": "initial",
+      "expected": null
+    },
+    {
+      "id": "expression-source",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": 2,
+      "before": "1d4",
+      "phase": "initial",
+      "expected": null
+    },
+    {
+      "id": "expression-delta",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": "@prof",
+      "before": "2",
+      "phase": "initial",
+      "expected": null
+    },
+    {
+      "id": "final-open",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": 2,
+      "before": "2",
+      "phase": "final",
+      "expected": {
+        "skill": 9,
+        "passive": 17,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 9,
+        "combinedTool": 5,
+        "combinedMode": 1
+      },
+      "expectedFormula": "2 + 2",
+      "expectedBonus": 4
+    },
+    {
+      "id": "skill-empty-add-two",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": 2,
+      "before": null,
+      "expectedFormula": "2",
+      "expectedBonus": 2,
+      "expected": {
+        "skill": 7,
+        "passive": 17,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 7,
+        "combinedTool": 5,
+        "combinedMode": 1
+      }
+    },
+    {
+      "id": "constant-operation-chain",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "add",
+      "value": 3,
+      "before": "2",
+      "expectedFormula": "2 + 3 - (1)",
+      "expectedBonus": 4,
+      "expected": {
+        "skill": 9,
+        "passive": 19,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 9,
+        "combinedTool": 5,
+        "combinedMode": 1
+      },
+      "extraChanges": [
+        {
+          "key": "system.skills.prc.roll.bonus",
+          "type": "subtract",
+          "value": 1,
+          "phase": "initial"
+        }
+      ]
+    },
+    {
+      "id": "operation-priority",
+      "key": "system.skills.prc.roll.bonus",
+      "type": "override",
+      "value": 2,
+      "before": "2",
+      "expectedFormula": "2",
+      "expectedBonus": 2,
+      "expected": {
+        "skill": 7,
+        "passive": 17,
+        "tool": 4,
+        "check": 2,
+        "save": 2,
+        "combined": 7,
+        "combinedTool": 5,
+        "combinedMode": 1
+      },
+      "extraChanges": [
+        {
+          "key": "system.skills.prc.roll.bonus",
+          "type": "add",
+          "value": 3,
+          "phase": "initial"
+        }
+      ]
+    }
+  ]
+}

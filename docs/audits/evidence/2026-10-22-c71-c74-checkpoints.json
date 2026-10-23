@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-22",
+  "startingHead": "cba50a36ef169aa42bba7aa6f9f52b88cf0c8a00",
+  "branch": "feat/adr-0001-character-lifecycle",
+  "checkpoints": [
+    {
+      "checkpoint": "C71",
+      "commit": "1dbaeefdb6918cb9ee2ab556f0df14295375ee09",
+      "record": "docs/audits/evidence/2026-10-22-c71-item-initial-custom-foundation.json",
+      "recordSha256AtCheckpoint": "ecc26b6397962c76ca9a9ce03fed99d20a8de9f15ab7affe0440828b56d06980",
+      "currentRecordSha256": "ecc26b6397962c76ca9a9ce03fed99d20a8de9f15ab7affe0440828b56d06980"
+    },
+    {
+      "checkpoint": "C72",
+      "commit": "a0be77f8ba2e816dd3ad0dad556cea4faf585eea",
+      "record": "docs/audits/evidence/2026-10-22-c72-item-initial-custom.json",
+      "recordSha256AtCheckpoint": "76be46fddcda414cbcceadd4726c610d1c03e8bdc4833798d61931d91c9ab1b8",
+      "currentRecordSha256": "9f38e3798a3a6ef21dff39fcf21e6017861dd006eaafdc9debc861cef9bb51ae"
+    },
+    {
+      "checkpoint": "C73",
+      "commit": "7865b19e8d6756e1cb74a3b2376cbf1b5521425e",
+      "record": "docs/audits/evidence/2026-10-22-c73-feat-final-foundation.json",
+      "recordSha256AtCheckpoint": "f1c7478e024bdc340290d2646a1cdd137fcd62452d3432666f464ab4be65ff2a",
+      "currentRecordSha256": "f1c7478e024bdc340290d2646a1cdd137fcd62452d3432666f464ab4be65ff2a"
+    },
+    {
+      "checkpoint": "C74",
+      "commit": "305b36e41a3e57e05b1e56d9637b5e21b7c70aec",
+      "record": "docs/audits/evidence/2026-10-22-c74-feat-final-custom.json",
+      "recordSha256AtCheckpoint": "62c19351268fe902431b0dd5c7596cdcd5a983fa2164ae452df2a0a2df98a94e",
+      "currentRecordSha256": "62c19351268fe902431b0dd5c7596cdcd5a983fa2164ae452df2a0a2df98a94e"
+    }
+  ],
+  "finalValidation": {
+    "moduleSuites": 52,
+    "toolingSuites": 9,
+    "toolingAssertions": 61,
+    "explicitTypedFiles": 215,
+    "sourceInventory": {
+      "records": 2242,
+      "candidateExpressions": 591
+    },
+    "nativeItemInitialCustomCases": 686,
+    "nativeEmptyFeatFinalCases": 434,
+    "mountedC72": {
+      "currentConsumerStates": 1374,
+      "selectedStates": 16,
+      "fullRetainedSuite": "PASS;runtime fixture at a0be77f,not C74/full installed UI"
+    },
+    "mountedC74": {
+      "currentConsumerStates": 870,
+      "selectedStates": 16
+    },
+    "publicHost": {
+      "accepted": 311776,
+      "knownCandidateRejections": 1,
+      "equalIndexDiagnostics": 40,
+      "nativeWrites": 0
+    },
+    "package": {
+      "path": "/tmp/dnd5e-package-p5xqkC/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "5353214846a1bd539149014482d01e8640e26e8dbcaca6668c15b2bc910dd1c1"
+    },
+    "cleanup": "All task-owned fixtures stopped;Core baseline clean;preexisting production :30000 untouched"
+  },
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 /90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "limits": [
+    "Source/default/initialized native-method comparisons,regression,mounted SDK seam,isolated public-host and native/operator evidence remain distinct. No installed/native/operator or release acceptance.",
+    "C72 current record supplements full retained mounted completion without recapturing C74 source as C72. C73 CLI completion logger changed to stdout in C74 after module check;historical hashes remain.",
+    "No new Core dependency/defect,version/compatibility/CI pin change,live connection or remote write. Experimental0.4.1 and ADR/full gates remain open.",
+    "Additional persisted feat system fields,configured uses/activities,broader Item final/condition/filter/formula behavior,E01/E02/E04/widerQ00/E05 and M3\u2013M9 acceptance remain open. CI Node22 unrun."
+  ],
+  "next": "Qualify bounded nonempty feat uses/default initialization and actual final collaborators before extending final Actor-field source recipe/shared projections. No resource writes while E02 conflict/receipt gate remains open."
+}

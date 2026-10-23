@@ -1,0 +1,221 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "cases": [
+    {
+      "level": 0,
+      "base": 1,
+      "coefficient": 0,
+      "term": "0",
+      "passive": 12
+    },
+    {
+      "level": 0,
+      "base": 1,
+      "coefficient": 0.5,
+      "term": "floor(1d2 / 2)",
+      "passive": 12
+    },
+    {
+      "level": 0,
+      "base": 1,
+      "coefficient": 1,
+      "term": "1d2",
+      "passive": 13
+    },
+    {
+      "level": 0,
+      "base": 1,
+      "coefficient": 2,
+      "term": "2d2",
+      "passive": 14
+    },
+    {
+      "level": 1,
+      "base": 2,
+      "coefficient": 0,
+      "term": "0",
+      "passive": 12
+    },
+    {
+      "level": 1,
+      "base": 2,
+      "coefficient": 0.5,
+      "term": "floor(1d4 / 2)",
+      "passive": 13
+    },
+    {
+      "level": 1,
+      "base": 2,
+      "coefficient": 1,
+      "term": "1d4",
+      "passive": 14
+    },
+    {
+      "level": 1,
+      "base": 2,
+      "coefficient": 2,
+      "term": "2d4",
+      "passive": 16
+    },
+    {
+      "level": 5,
+      "base": 3,
+      "coefficient": 0,
+      "term": "0",
+      "passive": 12
+    },
+    {
+      "level": 5,
+      "base": 3,
+      "coefficient": 0.5,
+      "term": "floor(1d6 / 2)",
+      "passive": 13
+    },
+    {
+      "level": 5,
+      "base": 3,
+      "coefficient": 1,
+      "term": "1d6",
+      "passive": 15
+    },
+    {
+      "level": 5,
+      "base": 3,
+      "coefficient": 2,
+      "term": "2d6",
+      "passive": 18
+    },
+    {
+      "level": 9,
+      "base": 4,
+      "coefficient": 0,
+      "term": "0",
+      "passive": 12
+    },
+    {
+      "level": 9,
+      "base": 4,
+      "coefficient": 0.5,
+      "term": "floor(1d8 / 2)",
+      "passive": 14
+    },
+    {
+      "level": 9,
+      "base": 4,
+      "coefficient": 1,
+      "term": "1d8",
+      "passive": 16
+    },
+    {
+      "level": 9,
+      "base": 4,
+      "coefficient": 2,
+      "term": "2d8",
+      "passive": 20
+    },
+    {
+      "level": 13,
+      "base": 5,
+      "coefficient": 0,
+      "term": "0",
+      "passive": 12
+    },
+    {
+      "level": 13,
+      "base": 5,
+      "coefficient": 0.5,
+      "term": "floor(1d10 / 2)",
+      "passive": 14
+    },
+    {
+      "level": 13,
+      "base": 5,
+      "coefficient": 1,
+      "term": "1d10",
+      "passive": 17
+    },
+    {
+      "level": 13,
+      "base": 5,
+      "coefficient": 2,
+      "term": "2d10",
+      "passive": 22
+    },
+    {
+      "level": 17,
+      "base": 6,
+      "coefficient": 0,
+      "term": "0",
+      "passive": 12
+    },
+    {
+      "level": 17,
+      "base": 6,
+      "coefficient": 0.5,
+      "term": "floor(1d12 / 2)",
+      "passive": 15
+    },
+    {
+      "level": 17,
+      "base": 6,
+      "coefficient": 1,
+      "term": "1d12",
+      "passive": 18
+    },
+    {
+      "level": 17,
+      "base": 6,
+      "coefficient": 2,
+      "term": "2d12",
+      "passive": 24
+    },
+    {
+      "level": 0,
+      "base": 1,
+      "coefficient": 1.5,
+      "term": "1.5d2",
+      "passive": 13,
+      "execution": "unqualified-fractional-count"
+    },
+    {
+      "level": 1,
+      "base": 2,
+      "coefficient": 1.5,
+      "term": "1.5d4",
+      "passive": 15,
+      "execution": "unqualified-fractional-count"
+    },
+    {
+      "level": 5,
+      "base": 3,
+      "coefficient": 1.5,
+      "term": "1.5d6",
+      "passive": 16,
+      "execution": "unqualified-fractional-count"
+    },
+    {
+      "level": 9,
+      "base": 4,
+      "coefficient": 1.5,
+      "term": "1.5d8",
+      "passive": 18,
+      "execution": "unqualified-fractional-count"
+    },
+    {
+      "level": 13,
+      "base": 5,
+      "coefficient": 1.5,
+      "term": "1.5d10",
+      "passive": 19,
+      "execution": "unqualified-fractional-count"
+    },
+    {
+      "level": 17,
+      "base": 6,
+      "coefficient": 1.5,
+      "term": "1.5d12",
+      "passive": 21,
+      "execution": "unqualified-fractional-count"
+    }
+  ]
+}

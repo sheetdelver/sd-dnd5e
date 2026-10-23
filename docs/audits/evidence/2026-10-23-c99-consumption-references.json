@@ -1,0 +1,70 @@
+{
+  "checkpoint": "C99",
+  "parent": "46bbcb3",
+  "status": "Qualified source-only consumption references and real Item final composition;M2/ADR open",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/03/06/09/27/31/34 partial",
+    "A02\u2013A06 read preparation"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "46bbcb3",
+    "result": "176/176 same final composition inputs fail before;0 after",
+    "beforeLogSha256": "5ef877d150fd61f9c4a53a7ff11bb811385729c482057c25fa8c076101a172d6",
+    "afterLogSha256": "8e8770f129839be67f408b0526b5ae3b85bf796ab9b14770af70e04b6e5ed1ce"
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;79 module/9 tooling suites,61 tooling assertions",
+    "logSha256": "8e8770f129839be67f408b0526b5ae3b85bf796ab9b14770af70e04b6e5ed1ce"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;293 explicit module/UI/server/test/hook files",
+    "logSha256": "4066fee9c4a281cecbf546af736239efdc6ae974ed182fbd0a286307beccb8d2"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 source records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "native": {
+    "command": "npm run test:native-consumption-references -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c99-native.json",
+    "result": "PASS;44 actual index/remap/warning cases,176 real per-type Item/Actor final compositions,schema defaults and redirect-collision diagnostic",
+    "logSha256": "d3651df8abac6439bacbb1af92aeb3b4777d7044e665c0b3f9fb950a1129c9f3",
+    "fixture": "tests/fixtures/native-6.0.6/consumption-references.json",
+    "sha256": "b01ce27d06f13c66bce3ed879d48cbd8c19eeb2d4180d3f84183e8fa63019f4c"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-consumption-references -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual desktop/mobile1440/390 live reference/order/missing/malformed details,unchanged totals,focus/shortcut,held callback retirement and recovery;zero writes",
+    "artifact": "/tmp/dnd5e-consumption-references-mounted-BD628a/evidence.json",
+    "sha256": "4bb67b9d9c2d8c25e826693cb99aecbc261bcf6971ed83c0536204962c119324"
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;116946 accepted/1544 new requests,complete retained distributions,1 retained unary candidate and1880 tied-index diagnostics;zero native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-cMOG4Q/evidence.json",
+    "sha256": "16a6957cf31c3f0d85e153256f2fddbf536ef09e55242682e9a4fcde049415eb"
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;module checking/isolated packaging;21files;test/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-Mvtr8V/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "156b699f9460742b8397aa79645cf3c12f61545f040302dfc8cb163e7363913e"
+  },
+  "cleanup": {
+    "result": "Task-owned fixtures/hosts stopped;preexisting listeners untouched",
+    "beforeSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb",
+    "afterSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb"
+  },
+  "limits": [
+    "Actual native Item base indexes,IdentifiedItemsMap/SourcedItemsMap get/set,Foundry parseUuid,ConsumptionTargetData schema/default cleaning and BaseActivity final remap/warnings execute on explicit initialized models. The array assignment,Set helpers,synthetic registry,labels and C91/C97 Actor/class callbacks are declared collaborators;no full DataModel/Document/runtime boot.",
+    "Only caller-visible owned sources participate. Bare owned ID,exact world/owned source UUID and explicit persisted identifiers/type-qualified identifiers follow native first-insertion semantics. _stats.compendiumSource precedes flags.dnd5e.sourceId. Native name-derived identifiers are unqualified;missing index entries cannot be silently skipped.",
+    "Actual compendium redirects demonstrate raw string equality can choose the wrong source. Canonical compendium consumption identity remains unqualified;this is not a newly confirmed Core defect/dependency. E01 content discovery remains separately open.",
+    "Missing known targets produce native warnings without preventing independent Actor final preparation/checks. Reference availability and common schema preparation are distinct. No resource spending,Activity execution,permissions/receipts,full spell/subtype/effect preparation,installed UI,native/operator or release acceptance.",
+    "Source/nonpersisted poison remains unchanged. Homogeneous-d20 unequal/tied identity criteria and actual host serialization are preserved. Experimental0.4.1/Core>=0.19.3 unchanged;Node24.21/npm11.19 local,CI Node22 unrun."
+  ],
+  "next": "Finish remaining Item/spell modifier and required formula/filter source preparation,then A02\u2013A06/Q02a M2 exit comparisons/unsupported decisions."
+}

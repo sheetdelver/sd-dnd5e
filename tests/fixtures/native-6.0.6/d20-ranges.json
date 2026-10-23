@@ -1,0 +1,280 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "profile": "Homogeneous plain d20 + configured scalar source min/max; no effects/flags/reroll/grouped/custom terms; exact retained identity including ties",
+  "ranges": [
+    {
+      "id": "minimum",
+      "minimum": 10,
+      "maximum": null,
+      "scopes": [
+        {
+          "min": 10
+        }
+      ],
+      "contributions": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "id": "maximum",
+      "minimum": null,
+      "maximum": 15,
+      "scopes": [
+        {
+          "max": 15
+        }
+      ],
+      "contributions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "id": "combined",
+      "minimum": 10,
+      "maximum": 15,
+      "scopes": [
+        {
+          "min": 10
+        },
+        {
+          "max": 15
+        }
+      ],
+      "contributions": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "id": "crossed",
+      "minimum": 15,
+      "maximum": 10,
+      "scopes": [
+        {
+          "min": 15
+        },
+        {
+          "max": 10
+        }
+      ],
+      "contributions": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "id": "no-op-extremes",
+      "minimum": 1,
+      "maximum": 20,
+      "scopes": [
+        {
+          "min": 1,
+          "max": 20
+        }
+      ],
+      "contributions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "id": "crossed-extremes",
+      "minimum": 20,
+      "maximum": 1,
+      "scopes": [
+        {
+          "min": 20,
+          "max": 1
+        }
+      ],
+      "contributions": [
+        20,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "same-bound",
+      "minimum": 10,
+      "maximum": 10,
+      "scopes": [
+        {
+          "min": 10,
+          "max": 10
+        }
+      ],
+      "contributions": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "id": "combined-scopes",
+      "minimum": 12,
+      "maximum": 14,
+      "scopes": [
+        {
+          "min": 10
+        },
+        {
+          "min": 12
+        },
+        {
+          "max": 15
+        },
+        {
+          "max": 14
+        }
+      ],
+      "contributions": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        13,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14
+      ]
+    }
+  ]
+}

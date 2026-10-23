@@ -1,0 +1,883 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Initialized persisted trait StringSets / constant FormulaFields -> ordered initial field effects -> separately qualified derived defense normalization. Native parser handles String/JSON before post-operation cleaning.",
+  "cases": [
+    {
+      "id": "add-plain",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "fire"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "add-json-scalar",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "\"fire\""
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "add-json-array",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "[\"fire\",\"cold\",\"fire\"]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire",
+          "cold"
+        ]
+      }
+    },
+    {
+      "id": "add-whitespace",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "[\" fire \",\"cold\"]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire",
+          "cold"
+        ]
+      }
+    },
+    {
+      "id": "subtract-exact",
+      "source": {
+        "dr": {
+          "value": [
+            "fire",
+            "cold"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "subtract",
+          "value": "fire"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "cold"
+        ]
+      }
+    },
+    {
+      "id": "subtract-before-trimming",
+      "source": {
+        "dr": {
+          "value": [
+            "fire",
+            "cold"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "subtract",
+          "value": " fire "
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire",
+          "cold"
+        ]
+      }
+    },
+    {
+      "id": "add-trim-dedup",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": " fire "
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "override",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "override",
+          "value": "[\"cold\",\"poison\"]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "cold",
+          "poison"
+        ]
+      }
+    },
+    {
+      "id": "upgrade-superset-order",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "upgrade",
+          "value": "[\"cold\",\"fire\"]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "cold",
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "upgrade-incomparable",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "upgrade",
+          "value": "cold"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "upgrade-before-trimming",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "upgrade",
+          "value": "[\" fire \",\"cold\"]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "downgrade-subset",
+      "source": {
+        "dr": {
+          "value": [
+            "fire",
+            "cold"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "downgrade",
+          "value": "cold"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "cold"
+        ]
+      }
+    },
+    {
+      "id": "downgrade-incomparable",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "downgrade",
+          "value": "cold"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "downgrade-empty",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "downgrade",
+          "value": "[]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": []
+      }
+    },
+    {
+      "id": "multiply-noop",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "multiply",
+          "value": "cold"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "all-damage-after-initial",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "ALL"
+        }
+      ],
+      "expectedDefense": {
+        "dr": [
+          "ALL"
+        ]
+      },
+      "expectedOperands": {
+        "dr.value": [
+          "fire",
+          "ALL"
+        ]
+      }
+    },
+    {
+      "id": "immunity-normalization",
+      "source": {
+        "dr": {
+          "value": [
+            "fire",
+            "cold"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.di.value",
+          "type": "add",
+          "value": "fire"
+        }
+      ],
+      "expectedDefense": {
+        "dr": [
+          "cold"
+        ],
+        "di": [
+          "fire"
+        ]
+      },
+      "expectedOperands": {
+        "dr.value": [
+          "fire",
+          "cold"
+        ],
+        "di.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "all-immunity-normalization",
+      "source": {
+        "dr": {
+          "value": [
+            "ALL"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.di.value",
+          "type": "add",
+          "value": "ALL"
+        }
+      ],
+      "expectedDefense": {
+        "dr": [],
+        "di": [
+          "ALL"
+        ]
+      },
+      "expectedOperands": {
+        "dr.value": [
+          "ALL"
+        ],
+        "di.value": [
+          "ALL"
+        ]
+      }
+    },
+    {
+      "id": "priorities",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "override",
+          "value": "fire"
+        },
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "cold"
+        }
+      ],
+      "expectedApplied": [
+        [
+          "cold"
+        ],
+        [
+          "fire"
+        ]
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "equal-priority-order",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "fire"
+        },
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "cold"
+        }
+      ],
+      "expectedApplied": [
+        [
+          "fire"
+        ],
+        [
+          "fire",
+          "cold"
+        ]
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire",
+          "cold"
+        ]
+      }
+    },
+    {
+      "id": "physical-bypass",
+      "source": {
+        "dr": {
+          "value": [
+            "bludgeoning"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.bypasses",
+          "type": "add",
+          "value": "[\"mgc\",\"sil\"]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.bypasses": [
+          "mgc",
+          "sil"
+        ]
+      }
+    },
+    {
+      "id": "condition-immunity",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.ci.value",
+          "type": "add",
+          "value": "poisoned"
+        }
+      ],
+      "expectedOperands": {
+        "ci.value": [
+          "poisoned"
+        ]
+      }
+    },
+    {
+      "id": "modifier-bypass",
+      "source": {
+        "dm": {
+          "amount": {
+            "bludgeoning": "-2"
+          }
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dm.bypasses",
+          "type": "add",
+          "value": "ada"
+        }
+      ],
+      "expectedOperands": {
+        "dm.bypasses": [
+          "ada"
+        ],
+        "dm.amount.bludgeoning": "-2"
+      },
+      "expectedAmounts": {
+        "bludgeoning": -2
+      }
+    },
+    {
+      "id": "modifier-new",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dm.amount.fire",
+          "type": "add",
+          "value": "2"
+        }
+      ],
+      "expectedFormula": "2",
+      "expectedOperands": {
+        "dm.amount.fire": 2
+      }
+    },
+    {
+      "id": "modifier-add",
+      "source": {
+        "dm": {
+          "amount": {
+            "fire": "1"
+          }
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dm.amount.fire",
+          "type": "add",
+          "value": "2.5"
+        }
+      ],
+      "expectedFormula": "1 + 2.5",
+      "expectedOperands": {
+        "dm.amount.fire": 3.5
+      }
+    },
+    {
+      "id": "modifier-subtract",
+      "source": {
+        "dm": {
+          "amount": {
+            "fire": "3"
+          }
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dm.amount.fire",
+          "type": "subtract",
+          "value": "1.5"
+        }
+      ],
+      "expectedFormula": "3 - (1.5)",
+      "expectedOperands": {
+        "dm.amount.fire": 1.5
+      }
+    },
+    {
+      "id": "modifier-override",
+      "source": {
+        "dm": {
+          "amount": {
+            "fire": "2"
+          }
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dm.amount.fire",
+          "type": "override",
+          "value": "-1"
+        }
+      ],
+      "expectedFormula": "-1",
+      "expectedOperands": {
+        "dm.amount.fire": -1
+      }
+    },
+    {
+      "id": "modifier-blank-before",
+      "source": {
+        "dm": {
+          "amount": {
+            "fire": " "
+          }
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dm.amount.fire",
+          "type": "add",
+          "value": "2"
+        }
+      ],
+      "expectedFormula": "2",
+      "expectedOperands": {
+        "dm.amount.fire": 2
+      }
+    },
+    {
+      "id": "null-container-default",
+      "source": {
+        "dr": null
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "fire"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "poison-non-schema-fields",
+      "source": {
+        "ci": {
+          "bypasses": [
+            "unknown"
+          ],
+          "labels": [
+            "ALL"
+          ]
+        },
+        "dr": {
+          "labels": [
+            "ALL"
+          ],
+          "total": 99
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.ci.value",
+          "type": "add",
+          "value": "poisoned"
+        },
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "fire"
+        }
+      ],
+      "expectedOperands": {
+        "ci.value": [
+          "poisoned"
+        ],
+        "dr.value": [
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "unavailable-raw-array-is-not-json-array",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": [
+            "fire",
+            "cold"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unavailable-reference",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "@traits.dr.value"
+        }
+      ]
+    },
+    {
+      "id": "unavailable-unknown-id",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "homebrew"
+        }
+      ]
+    },
+    {
+      "id": "unavailable-nested-json",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "[[\"fire\",\"cold\"]]"
+        }
+      ]
+    },
+    {
+      "id": "unavailable-ci-bypass-no-schema",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.ci.bypasses",
+          "type": "add",
+          "value": "mgc"
+        }
+      ]
+    },
+    {
+      "id": "unavailable-modifier-multiply",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dm.amount.fire",
+          "type": "multiply",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "unavailable-modifier-reference",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dm.amount.fire",
+          "type": "add",
+          "value": "@attributes.prof"
+        }
+      ]
+    },
+    {
+      "id": "unavailable-final",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "fire",
+          "phase": "final"
+        }
+      ]
+    },
+    {
+      "id": "unavailable-active-condition",
+      "source": {},
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "fire"
+        }
+      ],
+      "statuses": [
+        "poisoned"
+      ]
+    },
+    {
+      "id": "unavailable-malformed-base",
+      "source": {
+        "dr": {
+          "value": "fire"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "add",
+          "value": "cold"
+        }
+      ]
+    },
+    {
+      "id": "upgrade-equal-members-reorders",
+      "source": {
+        "dr": {
+          "value": [
+            "fire",
+            "cold"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "upgrade",
+          "value": "[\"cold\",\"fire\"]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "cold",
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "downgrade-equal-members-reorders",
+      "source": {
+        "dr": {
+          "value": [
+            "fire",
+            "cold"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "downgrade",
+          "value": "[\"cold\",\"fire\"]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": [
+          "cold",
+          "fire"
+        ]
+      }
+    },
+    {
+      "id": "override-empty-json",
+      "source": {
+        "dr": {
+          "value": [
+            "fire"
+          ]
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.dr.value",
+          "type": "override",
+          "value": "[]"
+        }
+      ],
+      "expectedOperands": {
+        "dr.value": []
+      }
+    }
+  ],
+  "representation": "Expected operands are detached module constants/ordered arrays; native initialized Sets and constructed FormulaField strings are captured separately, never claimed as native model snapshots."
+}

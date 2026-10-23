@@ -1,0 +1,144 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Raw Actor source -> explicit schema defaults -> source-only prepared numeric fields. Not an effect model.",
+  "scopeOrder": [
+    "tools.KEY.roll",
+    "abilities.ABILITY.check.roll",
+    "rolls.ability.check",
+    "rolls.ability.tool"
+  ],
+  "exclusions": [
+    "AppliedRules/effects/flags/conditions/encumbrance/armor",
+    "Combined skill/tool, alternate ability, pace and owned Item activities",
+    "Expressions/proficiency dice/die ranges"
+  ],
+  "cases": [
+    {
+      "id": "untrained",
+      "level": 1,
+      "key": "thief",
+      "ability": "dex",
+      "score": 8,
+      "value": 0,
+      "bonuses": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expectedTotal": -1,
+      "expectedMultiplier": 0
+    },
+    {
+      "id": "half-rounded-down",
+      "level": 5,
+      "key": "herb",
+      "ability": "int",
+      "score": 14,
+      "value": 0.5,
+      "bonuses": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expectedTotal": 3,
+      "expectedMultiplier": 0.5
+    },
+    {
+      "id": "proficient",
+      "level": 5,
+      "key": "thief",
+      "ability": "dex",
+      "score": 14,
+      "value": 1,
+      "bonuses": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expectedTotal": 5,
+      "expectedMultiplier": 1
+    },
+    {
+      "id": "one-and-half",
+      "level": 9,
+      "key": "smith",
+      "ability": "str",
+      "score": 16,
+      "value": 1.5,
+      "bonuses": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expectedTotal": 9,
+      "expectedMultiplier": 1.5
+    },
+    {
+      "id": "expert",
+      "level": 13,
+      "key": "bagpipes",
+      "ability": "cha",
+      "score": 18,
+      "value": 2,
+      "bonuses": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expectedTotal": 14,
+      "expectedMultiplier": 2
+    },
+    {
+      "id": "all-four-bonuses",
+      "level": 17,
+      "key": "navg",
+      "ability": "wis",
+      "score": 10,
+      "value": 1,
+      "bonuses": [
+        1.5,
+        -2,
+        3,
+        4
+      ],
+      "expectedTotal": 12.5,
+      "expectedMultiplier": 1
+    },
+    {
+      "id": "negative-total",
+      "level": 20,
+      "key": "water",
+      "ability": "str",
+      "score": 0,
+      "value": 0,
+      "bonuses": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "expectedTotal": -6,
+      "expectedMultiplier": 0
+    },
+    {
+      "id": "initialized-defaults",
+      "level": 5,
+      "key": "bagpipes",
+      "ability": "int",
+      "score": 14,
+      "bonuses": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expectedTotal": 2,
+      "expectedMultiplier": 0
+    }
+  ]
+}

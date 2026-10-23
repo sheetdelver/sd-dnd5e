@@ -1,0 +1,364 @@
+{
+  "checkpoint": "C04",
+  "baseCommit": "1163db4",
+  "moduleVersion": "0.4.1",
+  "experimental": true,
+  "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeEvidence": "Maintained skill-review.test.ts failed all eleven unchanged review inputs; mounted dialog retirement timed out before controller fix",
+  "corrections": [
+    {
+      "id": "DD-R01",
+      "case": "skill.min",
+      "before": {
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5"
+      },
+      "after": {
+        "total": 5,
+        "passive": 15,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R01",
+      "case": "skill.max",
+      "before": {
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5"
+      },
+      "after": {
+        "total": 5,
+        "passive": 15,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R01",
+      "case": "ability.min",
+      "before": {
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5"
+      },
+      "after": {
+        "total": 5,
+        "passive": 15,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R01",
+      "case": "ability.max",
+      "before": {
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5"
+      },
+      "after": {
+        "total": 5,
+        "passive": 15,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R01",
+      "case": "global-check.min",
+      "before": {
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5"
+      },
+      "after": {
+        "total": 5,
+        "passive": 15,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R01",
+      "case": "global-check.max",
+      "before": {
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5"
+      },
+      "after": {
+        "total": 5,
+        "passive": 15,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R01",
+      "case": "global-skill.min",
+      "before": {
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5"
+      },
+      "after": {
+        "total": 5,
+        "passive": 15,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R01",
+      "case": "global-skill.max",
+      "before": {
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5"
+      },
+      "after": {
+        "total": 5,
+        "passive": 15,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R02",
+      "case": "rules-setting-unavailable",
+      "before": {
+        "total": 1,
+        "passive": 11,
+        "formula": "1d20+1"
+      },
+      "after": {
+        "total": null,
+        "passive": null,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R02",
+      "case": "unsupported-native-version",
+      "before": {
+        "total": 1,
+        "passive": 11,
+        "formula": "1d20+1"
+      },
+      "after": {
+        "total": null,
+        "passive": null,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    },
+    {
+      "id": "DD-R02",
+      "case": "snapshot-absent",
+      "before": {
+        "total": 1,
+        "passive": 11,
+        "formula": "1d20+1"
+      },
+      "after": {
+        "total": null,
+        "passive": null,
+        "formula": null,
+        "execution": "unavailable"
+      }
+    }
+  ],
+  "additionalCases": [
+    "absent/null/default bounds",
+    "all scopes malformed bounds",
+    "combined/contradictory/neutral ranges",
+    "supported-unavailable-supported source preservation",
+    "missing prepared checks cannot select legacy",
+    "explicit selected legacy retained"
+  ],
+  "checks": {
+    "toolingAssertions": 31,
+    "moduleSuites": 8,
+    "explicitTypedFiles": 88,
+    "sourceInventoryRecords": 2242,
+    "candidateExpressions": 591,
+    "isolatedCheckPackage": "pass",
+    "node": "24.21.0",
+    "mounted": {
+      "evidence": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+      "playwright": "1.56.1",
+      "browser": "143.0.7499.4",
+      "rows": [
+        {
+          "width": 1440,
+          "id": "rules-setting-unavailable",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "unsupported-native-version",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "snapshot-absent",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-skills.prc.roll-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-skills.prc.roll-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-abilities.wis.check.roll-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-abilities.wis.check.roll-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-rolls.ability.check-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-rolls.ability.check-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-rolls.ability.skill-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 1440,
+          "id": "range-rolls.ability.skill-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "rules-setting-unavailable",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "unsupported-native-version",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "snapshot-absent",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-skills.prc.roll-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-skills.prc.roll-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-abilities.wis.check.roll-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-abilities.wis.check.roll-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-rolls.ability.check-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-rolls.ability.check-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-rolls.ability.skill-min",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        },
+        {
+          "width": 390,
+          "id": "range-rolls.ability.skill-max",
+          "staleDialogRetired": true,
+          "shortcutBlocked": true,
+          "recovery": true
+        }
+      ]
+    }
+  },
+  "package": {
+    "path": "/tmp/dnd5e-package-j6cyl7/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "a319f71833355e9d5845743af547302408b22e7d0db4117f9a6b52e06d57aee6",
+    "regularFiles": 15
+  },
+  "limits": [
+    "Configured range execution is unavailable pending Q00, not completed native rule support",
+    "Mounted tests use actual module consumers and a test SDK presentation seam; no installed Core I/U or native N/O acceptance",
+    "No service, live Foundry, external writes or new Core requirement"
+  ]
+}

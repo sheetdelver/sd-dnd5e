@@ -4,6 +4,10 @@ import React from 'react';
 import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
 import { ABILITY_FULL_NAME } from '../shared/abilityNames';
+import {rollBonusLabel} from '../shared/rollBonusLabel';
+import type { PreparedNumericD20 } from '../../../logic/preparation/d20-configuration';
+import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
+import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
 
 /**
  * Convention for `components/blocks/*`:
@@ -28,10 +32,10 @@ const ABILITY_LABEL: Record<string, string> = {
 };
 
 interface AbilityData {
-    score: number;
-    mod: number;
-    save: number;
-    saveProficient: boolean;
+    score: number | null;
+    mod: number | null;
+    scorePreparationNote?:string;
+    check?: PreparedNumericD20;
 }
 
 interface Props {
@@ -44,30 +48,30 @@ interface Props {
 export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
     const { openModal } = useModal();
     const { actor } = useSheet();
+    const { canRoll, review } = usePreparedRollIntent('ability', onRoll);
     if (!abilities) return null;
 
     const handleClick = (e: React.MouseEvent, key: string) => {
-        if (!onRoll) return;
+        const intent = review(key);
+        if (!intent) return;
         if (e.shiftKey) {
-            void onRoll('ability', key);
+            if(intent.quickAvailable)void intent.onConfirm();
             return;
         }
-        const mod = abilities[key].mod;
-        const formula = `1d20${mod >= 0 ? '+' : ''}${mod}`;
         openModal('roll', {
             rollType: 'ability',
             rollKey: key,
             label: `${ABILITY_FULL_NAME[key] ?? key} Check`,
             subtitle: actor?.name,
-            formula,
-            onConfirm: (opts: Record<string, unknown>) => onRoll('ability', key, opts),
+            formula: abilities[key].check?.formula,
+            ...intent,
         });
     };
 
     return (
-        <div style={{
+        <div data-ability-grid style={{
             display: 'grid',
-            gridTemplateColumns: `repeat(${columns}, 1fr)`,
+            gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
             gap: 'var(--space-sm)',
         }}>
             {ABILITY_ORDER.map(key => {
@@ -77,8 +81,12 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                 return (
                     <button
                         key={key}
+                        aria-label={`${ABILITY_FULL_NAME[key] ?? key} Check`}
+                        disabled={!canRoll(key)}
+                        title={unavailableTitle(ab.check?.unavailableReason??ab.check?.defaultUnavailableReason)}
                         onClick={(e) => handleClick(e, key)}
                         style={{
+                            minWidth:0,maxWidth:'100%',whiteSpace:'normal',overflowWrap:'anywhere',
                             background: 'var(--surface-card)',
                             border: 'var(--block-border-width) solid var(--theme-border)',
                             borderRadius: 'var(--block-radius)',
@@ -113,15 +121,20 @@ export default function Abilities({ abilities, onRoll, columns = 6 }: Props) {
                             lineHeight: 1,
                             marginBottom: '4px',
                         }}>
-                            {mod >= 0 ? `+${mod}` : mod}
+                            {mod === null ? '—' : mod >= 0 ? `+${mod}` : mod}
                         </div>
                         {/* Base score */}
-                        <div style={{
+                        <div aria-label={`${ABILITY_FULL_NAME[key]??key} score`} style={{
                             fontSize: '12px',
                             color: 'var(--text-muted)',
                         }}>
-                            {ab.score}
+                            {ab.score ?? '—'}
                         </div>
+                        {ab.check?.proficiencyTerm&&<small aria-label={`${ABILITY_FULL_NAME[key]??key} check bonus`}>{rollBonusLabel(ab.check)}</small>}
+                        {ab.scorePreparationNote && <small style={{display:'block'}}>{ab.scorePreparationNote}</small>}
+                        {ab.check?.total != null && <small>Check {ab.check.total >= 0 ? '+' : ''}{ab.check.total}</small>}
+                        {ab.check?.preparationNote && <small style={{display:'block'}}>{ab.check.preparationNote}</small>}
+                        <UnavailableNote reason={ab.check?.unavailableReason??ab.check?.defaultUnavailableReason}/>
                     </button>
                 );
             })}

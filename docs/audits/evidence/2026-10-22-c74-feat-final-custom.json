@@ -1,0 +1,112 @@
+{
+  "checkpoint": "C74",
+  "date": "2026-10-22",
+  "parent": "7865b19e8d6756e1cb74a3b2376cbf1b5521425e",
+  "requirements": "Partial M2/Q02a,DD-03/11/27/34,A03/A04/A18/A21; all full ADR/DD/A/M gates open",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 /90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "qualification": "2026-10-22-c73-feat-final-foundation.json",
+  "beforeAfter": {
+    "cases": 434,
+    "beforeFailures": 434,
+    "afterFailures": 0,
+    "sameSourceAndExpectationTable": "755f32f5cdd65795753863fa729e582e1cebe02181f5c58451f62460aec9b600",
+    "beforeCommand": "node <releasedCore>/node_modules/tsx/dist/cli.mjs --tsconfig <releasedCore>/tsconfig.json src/tests/feat-custom-strings.test.ts",
+    "testSetupCorrection": "Extra tool negative initially omitted equipped,so native-qualified eligibility correctly suppressed it and retained an independent roll. The boundary test now uses equipped:true. Original434 frozen inputs/expected values unchanged."
+  },
+  "behavior": [
+    "Identified unique transferred final Actor custom text from an empty condition-free feat uses existing String operations/final snapshots/projections/compiler. Receipts retain owned Item identity,source/default and prepared/final operand provenance. Source remains unchanged.",
+    "Conservative recipe:only missing/empty activities and uses with absent/0 spent, absent/blank max, absent/empty recovery. Additional persisted system fields are gated; prof/hasProficiency/proficiencyMultiplier and uses.value/label/rollRecharge are ignored prepared-looking fields. No full feat/Item preparation or configured uses support claimed.",
+    "C72 original Item-final negative input is retained and now positively asserts current text,earlier labels and final owned Item receipt. Other Item types and final field types remain gated.",
+    "Regression covers source/prepared poison,context loss/recovery,source/manual modes,combined primary scopes,normal bounds,invalid/duplicate/missing identities,activities/uses/additional persisted fields and conditions. Mounted controls retire held callbacks after recipe/identity/value/context changes;recovery requires current intent."
+  ],
+  "checks": [
+    {
+      "command": "npm test -- --core <releasedCore>",
+      "result": "61 tooling assertions /9 tooling suites /52 module suites PASS"
+    },
+    {
+      "command": "npm run typecheck -- --core <releasedCore>",
+      "result": "215 explicitly typed source/UI/server/test/hook files PASS"
+    },
+    {
+      "command": "npm run test:native-source -- --core <releasedCore> --native <exactRelease>",
+      "result": "2242 records /591 candidate expressions PASS; inventory is not evaluation support"
+    },
+    {
+      "command": "npm run test:native-feat-final -- --core <releasedCore> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c74-native-feat-final-final.json",
+      "result": "434 actual empty-feat final and686 initial Item custom plus retained effect/trait/custom matrices PASS"
+    },
+    {
+      "command": "npm run test:native-conditions -- --core <releasedCore> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c74-native-conditions.json",
+      "result": "442 condition/custom /2652 fresh checks /442 initiative configs and retained native matrices/phase order PASS"
+    },
+    {
+      "command": "npm run test:mounted -- --core <releasedCore> --browser-tools <isolatedPlaywright> --chromium <headlessChromium> --feat-final-custom-strings-only",
+      "result": "870 desktop/mobile current fields/earlier language labels/cards/preview/manual focus/Enter/shortcut/recovery states PASS",
+      "artifact": "/tmp/dnd5e-mounted-ufLM82/evidence.json"
+    },
+    {
+      "command": "npm run test:mounted -- --core <releasedCore> --browser-tools <isolatedPlaywright> --chromium <headlessChromium> --feat-final-custom-strings-representatives-only",
+      "result": "16 states including7 selected skill/tool/alternate-ability groups per layout PASS;live recipe/identity/context and held-callback fences",
+      "artifact": "/tmp/dnd5e-mounted-MCZ2eF/evidence.json"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core <releasedCore>",
+      "result": "311776 accepted /1known candidate /40equal-index diagnostics /0native writes PASS;10416 final-feat ordinary/selected/manual plus434 Normal bounds",
+      "artifact": "/tmp/dnd5e-public-rolls-H5fkrm/evidence.json"
+    },
+    {
+      "command": "npm run check:package -- --core <releasedCore>",
+      "result": "Module check/isolated managed package PASS after CLI completion log changed from direct console to process.stdout;failed first log retained. No Core change.",
+      "artifact": "/tmp/dnd5e-package-p5xqkC/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "5353214846a1bd539149014482d01e8640e26e8dbcaca6668c15b2bc910dd1c1"
+    }
+  ],
+  "artifacts": {
+    "src/logic/preparation/feat-final-profile.ts": "401ebed922748a111b812cd488320338f646fb207dee5956a2d04a5e279ddae1",
+    "src/logic/preparation/numeric-effects.ts": "e847abce402ef9d3f8d309c872fa5918cb6d2c2ee58422c4fe5ff328516ac474",
+    "src/tests/feat-custom-strings.test.ts": "c98cb1da0cb0b7e83501e075f6b0041fc19d4b9f7ab59864eafeab818bcb3a31",
+    "src/tests/fixtures/feat-custom-scenarios.ts": "4881fad5eff2993e530b4f93171b41c5660a6b7b89dbcf324b80386f1ad9e308",
+    "src/tests/item-custom-strings.test.ts": "7ac4b08f2964f97855e3020134e008250bf8044362a1e9bdf62448cd3967e1e7",
+    "scripts/native-feat-final-oracle.mjs": "01a99d32ac899c3e040ac966a74a1affb531a250e7f2812fd9c58259b1304fc9",
+    "scripts/test-mounted.mjs": "9470de3504a2daf60b08885cf517e9157b73e53fb29b9e83025fa2aa1e9f03d2",
+    "scripts/test-public-rolls.mjs": "73da83d567ebf114285da897180b957dfa46557aad79ecbf774631e6febe3055",
+    "tests/fixtures/native-6.0.6/feat-final-custom-strings.json": "755f32f5cdd65795753863fa729e582e1cebe02181f5c58451f62460aec9b600",
+    "temp/c74-before.log": "e8d88071abe46623603483d9bccc4f38a3a8903782f229d5777b526aaaeba66e",
+    "temp/c74-after-final.log": "d8f63e9e39a7ca2b3ac056877ec6813f9d21b39f3b252f3f51a1bf8989ab9047",
+    "temp/c74-tests-final.log": "dcc03be4bc185843c62e973aaeed838ba6709f989af8de16c49c9fa28ff7ae4b",
+    "temp/c74-types-final.log": "50046dcee03b707c50f676c1e45bf7edb7cb76bf00b14652bc9488e04599f7e2",
+    "temp/c74-native-source.log": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+    "temp/c74-native-feat-final-final.json": "abfa170adc953d990bfad322b25c195f22345ec69c3a08b0c61c14a5ad7b9ee9",
+    "temp/c74-native-feat-final-final.log": "68fd55f26a48b117109ae2e07a42f745a713b418bede1b1ea38948da6ac8698c",
+    "temp/c74-native-conditions.json": "1168e2a822347505d5a7e78cbdda9bbb38ae38ad0ff3ba0ddfa71374e07eb07a",
+    "temp/c74-native-conditions.log": "65af1d394eec0128820fbfd7551bcfa6645238e2515f1aac4da27479caa2d450",
+    "temp/c74-mounted.log": "6ef29f9a695e8fd7ec3db1aa4ef5d8ab13a86bf8b0f2ac39725c53ef1e0de43b",
+    "temp/c74-mounted-selected.log": "2b3c320161ce60b61f8965c34e18ff84deda7979091d1f570dc4e80f615c7dd9",
+    "temp/c74-public.log": "ece1439d797f67bba9afcc94314ee0a90eabc9f9afcd7c563a88f3974c9420be",
+    "temp/c74-package.log": "82972a5792503a904136222c5e804f53951333736eb51280365c5cc95a5fdb6b",
+    "temp/c74-package-final.log": "175ad8bb9b3520f0b99a28239bee4d2631bd7d3697f86e0fa20f8dccb298ca0d",
+    "temp/c74-listeners-before.log": "7ad2d015783641e67af9571f13132d1467b380134c291a49d602e360db71143e",
+    "/tmp/dnd5e-mounted-ufLM82/evidence.json": "75f5aee4d1aa7efb62d72b1cd42c3fca1ee10761b9423fc7ffe2d536679c82f0",
+    "/tmp/dnd5e-mounted-ufLM82/fixture.js": "f6ad00ed4c8470b93dc977664cc216969d1d9fa74adfa65bc7d55ff381df5b2f",
+    "/tmp/dnd5e-mounted-ufLM82/states.ts": "ca249875962f6689ef12610d6f139876a9fceaec78ac41c69aa8c972c626081a",
+    "/tmp/dnd5e-mounted-MCZ2eF/evidence.json": "823e9540e935cc8d4f70142e25b95b9b08e265114d77eaee4976637f8ac55a59",
+    "/tmp/dnd5e-mounted-MCZ2eF/fixture.js": "f6ad00ed4c8470b93dc977664cc216969d1d9fa74adfa65bc7d55ff381df5b2f",
+    "/tmp/dnd5e-mounted-MCZ2eF/states.ts": "fa944f186653a68f24cda67a3738724303a19668d962b935ec344fde18e74c7d",
+    "/tmp/dnd5e-public-rolls-H5fkrm/evidence.json": "11f0ed22b833e932a740726c7851067818d690f4417df37ef23056d2eb2cd9f9",
+    "temp/c74-listeners-final.log": "7ad2d015783641e67af9571f13132d1467b380134c291a49d602e360db71143e"
+  },
+  "limits": [
+    "Actual native/base Actor initial/final dispatch, native Item.prepareFinalAttributes/_prepareProficiency/_prepareLabels, feat getters/final preparation, Activities.prepareFinalActivityData, UsesField.prepareData/getStatblockLabel and primitive String/language/sheet methods.",
+    "Only empty activities and empty-capacity/recovery uses. Explicit verified spent0/default FormulaField missing/blank String initialization and empty collection shells; not full source DataModel/ActivitiesField boot. No effect/Item grants, Item target changes, activities, recharge/rest/use execution or arbitrary source schema coercion.",
+    "Item.getRollData deterministic call returns empty declared data; actual Uses.prepareData calls actual prepareFormulaValue but its absent/blank max returns before replacement/evaluation. Roll/replacement collaborators throw if called; no formula/dice equivalence claimed.",
+    "Actor spellcasting is a trace collaborator and other Item preparation is absent; this qualifies only this literal-field/empty-feat composition, not full Actor/Item preparation or native/operator acceptance. Runtime remains gated pending integration/source/consumer checks.",
+    "Bounded regression and initialized native-method evidence is not installed/native/operator acceptance. Public-host and mounted SDK seam remain distinct;actual serialization unchanged.",
+    "Equal-index diagnostics are nonblocking only for the qualified homogeneous plain-d20 profile;exact faces/entropy/retained value/count/discard/totals/distributions and unequal-index identity remain required.",
+    "Full retained mounted PASS belongs to C72 (a0be77f),recorded separately;C74 runs relevant new consumers and maintained module suites. No C74 full installed UI/native acceptance implied.",
+    "General feat data/Item final preparation,activities/configured uses/conditions/filters/expressions remain dependency-ordered work. No new Core defect/dependency;E01/E02/E04/widerQ00/E05 and all full ADR gates remain open.",
+    "Experimental0.4.1/compatibility unchanged. Node24.21/npm11.19 used;CI Node22 unrun. No production services or live Foundry."
+  ],
+  "cleanup": "All task-owned browser/isolated host processes stopped;Core baseline clean. Preexisting production :30000 untouched."
+}

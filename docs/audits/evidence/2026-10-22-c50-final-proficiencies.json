@@ -1,0 +1,2434 @@
+{
+  "checkpoint": "C50",
+  "date": "2026-10-22",
+  "parent": "68178a05b402e0a587b964060d18c89ffee9731e",
+  "requirements": "Partial M2/Q02a DD-02/03/27/34,A02/A04/A18/A21; no full acceptance gate closes",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "before": {
+    "commit": "68178a05b402e0a587b964060d18c89ffee9731e",
+    "method": "git archive into ignored module temp/c50-before; overlay unchanged final maintained test/fixture files,execute with baseline tsx",
+    "sameFinalInputs": true,
+    "failureCount": 852,
+    "cause": "Final global proficiency intentionally unavailable before admission; no Core defect alleged"
+  },
+  "after": {
+    "cases": 852,
+    "sourcePreserved": true,
+    "rawNonpersistedPoisonIgnored": true,
+    "earlierPreparedTotalsAndProficienciesPreserved": true,
+    "passiveUsesEarlierTotal": true,
+    "abilitySaveProficiencyRetained": true,
+    "freshSelectedTargets": true,
+    "automaticAdvantageUsesEarlierPreparedProficiency": true,
+    "priorityOrderAndMultipleChanges": true,
+    "numericStrings": 6,
+    "manualAndNormalBounds": true,
+    "malformedChoiceFieldItemGuardGatesRetained": true
+  },
+  "supersedes": [
+    "C49 runtime final proficiency gate for this profile only",
+    "C48 blanket final proficiency restriction; other final numeric/bonus/Item fields remain gated",
+    "effect-phases actor-initial-final unsupported expectation; corrected readiness test now checks Boolean availability separately from independent formula9/passive16"
+  ],
+  "controlledSource": {
+    "cases": 852,
+    "freshSkillToolBuilds": 3408,
+    "abilityBuilds": 1704,
+    "sourceDefaults": [
+      {
+        "scope": "check",
+        "raw": "[absent]",
+        "initialized": 0
+      },
+      {
+        "scope": "check",
+        "raw": null,
+        "initialized": 0
+      },
+      {
+        "scope": "check",
+        "raw": 0,
+        "initialized": 0
+      },
+      {
+        "scope": "check",
+        "raw": 0.5,
+        "initialized": 0
+      },
+      {
+        "scope": "check",
+        "raw": 1,
+        "initialized": 0
+      },
+      {
+        "scope": "check",
+        "raw": 2,
+        "initialized": 0
+      },
+      {
+        "scope": "check",
+        "raw": 99,
+        "initialized": 0
+      },
+      {
+        "scope": "check",
+        "raw": "poison",
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "raw": "[absent]",
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "raw": null,
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "raw": 0,
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "raw": 0.5,
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "raw": 1,
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "raw": 2,
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "raw": 99,
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "raw": "poison",
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "raw": "[absent]",
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "raw": null,
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "raw": 0,
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "raw": 0.5,
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "raw": 1,
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "raw": 2,
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "raw": 99,
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "raw": "poison",
+        "initialized": 0
+      },
+      {
+        "scope": "tool",
+        "raw": "[absent]",
+        "initialized": 0
+      },
+      {
+        "scope": "tool",
+        "raw": null,
+        "initialized": 0
+      },
+      {
+        "scope": "tool",
+        "raw": 0,
+        "initialized": 0
+      },
+      {
+        "scope": "tool",
+        "raw": 0.5,
+        "initialized": 0
+      },
+      {
+        "scope": "tool",
+        "raw": 1,
+        "initialized": 0
+      },
+      {
+        "scope": "tool",
+        "raw": 2,
+        "initialized": 0
+      },
+      {
+        "scope": "tool",
+        "raw": 99,
+        "initialized": 0
+      },
+      {
+        "scope": "tool",
+        "raw": "poison",
+        "initialized": 0
+      }
+    ],
+    "numericStrings": [
+      {
+        "type": "add",
+        "value": "0.5",
+        "finalField": 0.5,
+        "total": 3,
+        "combinedMode": 0,
+        "earlierPassive": 12
+      },
+      {
+        "type": "subtract",
+        "value": "-0.5",
+        "finalField": 0.5,
+        "total": 3,
+        "combinedMode": 0,
+        "earlierPassive": 12
+      },
+      {
+        "type": "multiply",
+        "value": "2",
+        "finalField": 0,
+        "total": 2,
+        "combinedMode": 0,
+        "earlierPassive": 12
+      },
+      {
+        "type": "override",
+        "value": " 1 ",
+        "finalField": 1,
+        "total": 5,
+        "combinedMode": 0,
+        "earlierPassive": 12
+      },
+      {
+        "type": "upgrade",
+        "value": "2",
+        "finalField": 2,
+        "total": 8,
+        "combinedMode": 0,
+        "earlierPassive": 12
+      },
+      {
+        "type": "downgrade",
+        "value": "0",
+        "finalField": 0,
+        "total": 2,
+        "combinedMode": 0,
+        "earlierPassive": 12
+      }
+    ],
+    "compoundPhaseCase": {
+      "initialAbilityScore": 14,
+      "initialChange": {
+        "type": "add",
+        "value": "2"
+      },
+      "preparedSkill": 6,
+      "passive": 16,
+      "finalGlobalCheckProficiency": 2,
+      "freshSkillRollBonus": 9,
+      "abilitySourcePreserved": 14
+    },
+    "nativeSourceHashes": {
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+      "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+      "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+      "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054",
+      "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f"
+    },
+    "foundrySourceHashes": {
+      "client/documents/abstract/client-document.mjs": "a007180e3cf8d465dffe43b11272f289b4cf77a9e301c7d431f48267dfad8e9e",
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+      "common/primitives/set.mjs": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083",
+      "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+      "common/documents/active-effect.mjs": "e8a1c26a2c84e415f814146f3e632f28fe6f3504920262e324c9ef071dfc5bf5",
+      "common/abstract/data.mjs": "11bb7f848c707803607accfa9f6b946c7cbfe8b17781ff562b468bdc77b934e5"
+    },
+    "observations": "C49 tracked foundation contains every numeric case and observation; fixture unchanged,rerun PASS"
+  },
+  "mountedFocused": {
+    "scope": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "artifactRoot": "/tmp/dnd5e-mounted-oXXm22",
+    "playwright": "1.56.1",
+    "browser": "143.0.7499.4",
+    "cases": [
+      {
+        "width": 1440,
+        "id": "0564/check/add/0/0/0",
+        "passive": 12,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0565/check/add/0/0/-1",
+        "passive": 7,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0576/check/subtract/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0577/check/subtract/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0588/check/multiply/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0589/check/multiply/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0600/check/override/0/0/0",
+        "passive": 12,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0601/check/override/0/0/-1",
+        "passive": 7,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0612/check/upgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0613/check/upgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0624/check/downgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0625/check/downgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0636/skill/add/0/0/0",
+        "passive": 12,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0637/skill/add/0/0/-1",
+        "passive": 7,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0648/skill/subtract/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0649/skill/subtract/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0660/skill/multiply/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0661/skill/multiply/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0672/skill/override/0/0/0",
+        "passive": 12,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0673/skill/override/0/0/-1",
+        "passive": 7,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0684/skill/upgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0685/skill/upgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0696/skill/downgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0697/skill/downgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0708/tool/add/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0709/tool/add/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0720/tool/subtract/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0721/tool/subtract/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0732/tool/multiply/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0733/tool/multiply/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0744/tool/override/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0745/tool/override/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0756/tool/upgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0757/tool/upgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0768/tool/downgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 2,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0769/tool/downgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 2,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0780/save/add/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0781/save/add/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0792/save/subtract/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0793/save/subtract/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0804/save/multiply/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0805/save/multiply/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0816/save/override/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0817/save/override/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0828/save/upgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0829/save/upgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0840/save/downgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0841/save/downgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0294/check/add/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0295/check/add/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0306/check/subtract/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0307/check/subtract/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0318/check/multiply/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0319/check/multiply/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0330/check/override/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0331/check/override/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0342/check/upgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0343/check/upgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0354/check/downgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0355/check/downgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0366/skill/add/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0367/skill/add/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0378/skill/subtract/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0379/skill/subtract/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0390/skill/multiply/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0391/skill/multiply/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0402/skill/override/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0403/skill/override/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0414/skill/upgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0415/skill/upgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0426/skill/downgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0427/skill/downgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0438/tool/add/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0439/tool/add/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0450/tool/subtract/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0451/tool/subtract/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0462/tool/multiply/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0463/tool/multiply/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0474/tool/override/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0475/tool/override/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0486/tool/upgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0487/tool/upgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0498/tool/downgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0499/tool/downgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0510/save/subtract/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0511/save/subtract/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0522/save/multiply/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0523/save/multiply/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0534/save/override/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0535/save/override/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0546/save/upgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0547/save/upgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0558/save/downgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "0559/save/downgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 1440,
+        "id": "live-final-proficiency-recovery",
+        "heldCallbacksRetired": true,
+        "freshIntentRequired": true
+      },
+      {
+        "width": 390,
+        "id": "0564/check/add/0/0/0",
+        "passive": 12,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0565/check/add/0/0/-1",
+        "passive": 7,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0576/check/subtract/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0577/check/subtract/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0588/check/multiply/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0589/check/multiply/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0600/check/override/0/0/0",
+        "passive": 12,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0601/check/override/0/0/-1",
+        "passive": 7,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0612/check/upgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0613/check/upgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0624/check/downgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0625/check/downgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0636/skill/add/0/0/0",
+        "passive": 12,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0637/skill/add/0/0/-1",
+        "passive": 7,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0648/skill/subtract/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0649/skill/subtract/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0660/skill/multiply/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0661/skill/multiply/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0672/skill/override/0/0/0",
+        "passive": 12,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0673/skill/override/0/0/-1",
+        "passive": 7,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0684/skill/upgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0685/skill/upgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0696/skill/downgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0697/skill/downgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0708/tool/add/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0709/tool/add/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0720/tool/subtract/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0721/tool/subtract/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0732/tool/multiply/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0733/tool/multiply/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0744/tool/override/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0745/tool/override/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0756/tool/upgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0757/tool/upgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0768/tool/downgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 2,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0769/tool/downgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 2,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0780/save/add/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0781/save/add/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0792/save/subtract/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0793/save/subtract/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0804/save/multiply/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0805/save/multiply/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0816/save/override/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0817/save/override/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0828/save/upgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0829/save/upgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0840/save/downgrade/0/0/0",
+        "passive": 12,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0841/save/downgrade/0/0/-1",
+        "passive": 7,
+        "currentSkill": 2,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0294/check/add/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0295/check/add/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0306/check/subtract/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0307/check/subtract/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0318/check/multiply/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0319/check/multiply/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0330/check/override/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0331/check/override/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0342/check/upgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0343/check/upgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0354/check/downgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0355/check/downgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0366/skill/add/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0367/skill/add/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0378/skill/subtract/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0379/skill/subtract/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0390/skill/multiply/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0391/skill/multiply/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0402/skill/override/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0403/skill/override/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0414/skill/upgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0415/skill/upgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 8,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0426/skill/downgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0427/skill/downgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0438/tool/add/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0439/tool/add/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0450/tool/subtract/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0451/tool/subtract/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0462/tool/multiply/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0463/tool/multiply/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0474/tool/override/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0475/tool/override/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0486/tool/upgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0487/tool/upgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 8,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0498/tool/downgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0499/tool/downgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0510/save/subtract/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0511/save/subtract/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0522/save/multiply/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0523/save/multiply/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0534/save/override/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0535/save/override/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0546/save/upgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0547/save/upgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0558/save/downgrade/1/1/0",
+        "passive": 15,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "0559/save/downgrade/1/1/-1",
+        "passive": 10,
+        "currentSkill": 5,
+        "currentTool": 5,
+        "earlierAbilityProfAndAutomaticAdvantage": true,
+        "notesAndIndicators": true,
+        "previewSelectionAlternateShortcutExecutionAgree": true
+      },
+      {
+        "width": 390,
+        "id": "live-final-proficiency-recovery",
+        "heldCallbacksRetired": true,
+        "freshIntentRequired": true
+      }
+    ],
+    "visual": {
+      "evidence": "Isolated SDK-seam mounted rendering,not installed UI/native acceptance",
+      "rows": [
+        {
+          "width": 1440,
+          "probe": true,
+          "path": "/tmp/dnd5e-mounted-oXXm22/final-proficiency-skill-1440.png",
+          "noHorizontalOverflow": true
+        },
+        {
+          "width": 1440,
+          "probe": "tool",
+          "path": "/tmp/dnd5e-mounted-oXXm22/final-proficiency-tool-1440.png",
+          "noHorizontalOverflow": true
+        },
+        {
+          "width": 390,
+          "probe": true,
+          "path": "/tmp/dnd5e-mounted-oXXm22/final-proficiency-skill-390.png",
+          "noHorizontalOverflow": true
+        },
+        {
+          "width": 390,
+          "probe": "tool",
+          "path": "/tmp/dnd5e-mounted-oXXm22/final-proficiency-tool-390.png",
+          "noHorizontalOverflow": true
+        }
+      ]
+    }
+  },
+  "mountedFull": {
+    "status": "PASS",
+    "artifactRoot": "/tmp/dnd5e-mounted-ehL1Nr",
+    "scope": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "playwright": "1.56.1",
+    "browser": "143.0.7499.4",
+    "counts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56,
+      "focusRows": 2,
+      "combinationRows": 80,
+      "effectRows": 22,
+      "numericEffectRows": 1172,
+      "effectModeRows": 58,
+      "healthRows": 58,
+      "defenseRows": 102,
+      "equipmentRows": 90,
+      "movementRows": 84,
+      "rangeRows": 180,
+      "speciesRows": 40,
+      "defenseTraitRows": 149,
+      "indicatorRows": 24,
+      "trainingRows": 624,
+      "focusedFilterRows": 0,
+      "classFactRows": 0,
+      "conditionRows": 0,
+      "exhaustionRows": 0,
+      "familyRows": 0,
+      "petrificationRows": 0,
+      "finalModeRows": 0,
+      "finalProficiencyRows": 0
+    }
+  },
+  "publicHost": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "qualified-plain-d20-numeric-profile",
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "finalProficiencyCases": 20448,
+    "normalRangeFinalProficiencyCases": 852,
+    "caseCount": 151807,
+    "requestCount": 151808,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "manualModeCases": 18,
+    "toolCases": 24,
+    "selectedCases": 152,
+    "effectCases": 4,
+    "numericEffectCases": 504,
+    "itemEffectCases": 1656,
+    "traitEffectCases": 792,
+    "trainingEffectCases": 576,
+    "constantFilterCases": 864,
+    "initialFilterCases": 744,
+    "finalModeCases": 42768,
+    "normalRangeFinalModeCases": 1188,
+    "fixedFinalModeCases": 1188,
+    "petrificationModeCases": 140,
+    "petrificationCases": 504,
+    "normalRangePetrificationCases": 18,
+    "fixedPetrificationCases": 18,
+    "conditionFamilyCases": 55872,
+    "normalRangeConditionFamilyCases": 1746,
+    "fixedConditionFamilyCases": 1746,
+    "exhaustionCases": 2712,
+    "normalRangeExhaustionCases": 113,
+    "exhaustionInitiativeCases": 354,
+    "conditionCases": 3000,
+    "normalRangeConditionCases": 125,
+    "conditionInitiativeCases": 4,
+    "initialClassFilterCases": 720,
+    "normalRangeInitialClassFilterCases": 30,
+    "initialCollectionFilterCases": 1392,
+    "normalRangeInitialCollectionFilterCases": 58,
+    "normalRangeInitialFilterCases": 31,
+    "normalRangeFilterCases": 36,
+    "normalRangeTrainingEffectCases": 24,
+    "indicatorCases": 46,
+    "traitFormulaCases": 5,
+    "normalRangeTraitEffectCases": 33,
+    "initiativeCases": 156,
+    "equipmentCases": 148,
+    "normalRangeCases": 13265,
+    "normalRangeMatrixCases": 8820,
+    "normalRangeScopeCases": 90,
+    "normalRangeEffectCases": 66,
+    "fixedScoreCases": 3138,
+    "modeEffectCases": 624,
+    "constantFormulaCases": 19,
+    "bonusEffectCases": 456,
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "plainD20Criteria": "Ordered faces and entropy consumption;retained value/count;active/discard consistency;totals/full distributions;exact retained index for unequal pairs.40 equal-index diagnostics only within homogeneous plain-d20 profile;actual host serialization unchanged.",
+  "package": {
+    "archive": "/tmp/dnd5e-package-iO5QBf/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "2aee6bc505c8e215b780f3082f63ba86fe28a1e249bc54eff16332fb47a15ca5",
+    "version": "experimental0.4.1",
+    "compatibilityChanged": false
+  },
+  "commands": [
+    {
+      "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS;60tooling assertions/8tooling suites/41module suites"
+    },
+    {
+      "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS;188 explicit source/UI/server/test/hook files"
+    },
+    {
+      "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+      "result": "PASS2242 records/591 expression inventory; exact release only"
+    },
+    {
+      "command": "npm run test:native-checks / test:native-effects / test:native-initial-filters -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e [--foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14]",
+      "result": "PASS retained source/method comparisons;69Item eligibility/5phase/20numeric/19FormulaField/26mode and119initial filters"
+    },
+    {
+      "command": "npm run test:native-conditions -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c50-native-conditions.json",
+      "result": "PASS retained matrices plus852 final proficiency/32defaults/6strings/compound initial-final case"
+    },
+    {
+      "command": "npm run test:mounted -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell --final-proficiencies-only",
+      "result": "PASS190states at1440/390; SDK presentation seam,not installed UI"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS151807 accepted/1candidate reject/40equal-index diagnostics/0native writes"
+    },
+    {
+      "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+      "result": "PASS isolated check/package;initial run rejected test typing,corrected and rerun"
+    },
+    {
+      "command": "npm run test:mounted -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell",
+      "result": "PASS full retained suite;counts in mountedFull. Initial failure retained in narrative;only completed corrected rerun counted."
+    }
+  ],
+  "artifacts": {
+    "src/logic/preparation/numeric-effects.ts": "16f3bfae51b2de64da67d4301a87715e99c8b5307a38ef5e546ddd14c1f50cc5",
+    "src/logic/preparation/skill-tool.ts": "622667908c130737bd5cddaca8fd001d2a8f515e3efbf03c2e70dd1b4375d584",
+    "src/logic/preparation/skills.ts": "56685d69681ceed14c1c20d41eb4d9a8f26ea0ec1949d4bd074dc55a00f5e7bf",
+    "src/logic/preparation/tools.ts": "2965d15d6432b926c6be07eebe3e1f5c45711553a863508a67d90ac44126dda8",
+    "src/ui/components/blocks/Skills.tsx": "362a42ca7cfe77a1b90f85b484b0526a68482d340c3a5de88055b3d09501e325",
+    "src/ui/components/blocks/Tools.tsx": "6c452b2fd4bb05c193b9f2f351ddf7c632b70cf74366d3a42fe72bfde133e305",
+    "src/tests/final-proficiencies.test.ts": "3e64002e35b3bd0f0d54db87941705ae47e54b3d65db8b3d27753b8ebf76c510",
+    "src/tests/fixtures/final-proficiency-scenarios.ts": "3078846cd23a6f4eac1eabab7876287ee7a4c6f9792c834963b3d1e451574dc8",
+    "src/tests/effect-phases.test.ts": "f043d6c9f06600eb6a018186ae970df844c23ca24dee2c291aa09558dfa634be",
+    "src/tests/final-modes.test.ts": "0352371a1316dafd98dab23a8efdb24dfa534e04f6a931f9eb37326ab0fb9244",
+    "tests/fixtures/native-6.0.6/final-proficiencies.json": "df0161d8bcbd8d4269774c17d779469400e22b29eaa3924c343bdc00f1ff71dc",
+    "tests/fixtures/native-6.0.6/effect-phases.json": "3bbc3664ba1eb2ae4fd72d774b0269e6cbde35eb3668504ee50d2f2f8b4de5eb",
+    "scripts/native-condition-oracle.mjs": "2e95becbe4a28a5e49165fddb08875b483cf2a865697810df08f937985b1f28d",
+    "scripts/test-mounted.mjs": "e1c403baaeb3b8e07588ec6c906509cc107c85ff3168639cb0e5f23f8fc959fd",
+    "scripts/test-public-rolls.mjs": "1713fccd3cde21614b4d24f0589ed46e60406557eb545f3f21a4cffba79ab956",
+    "temp/c50-before-final-inputs.log": "029a9118efa47081c7232752279a977931afa4a3368f7b7f0cb51769f52e3283",
+    "temp/c50-tests.log": "fc7b5ca6bcdadebcd0ae1070ff4e9a7d30e76860ca103dbec1e39e51287e330d",
+    "temp/c50-types.log": "527086e4af8834d261d9b1478e85021d92b603cf70701bc7568ef484bd3e73b1",
+    "temp/c49-source.log": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+    "temp/c50-native-conditions.json": "d9f1f510eb530d1b193bec75c0754672ee355504e97775085d581f134431e5e3",
+    "temp/c50-native-checks.log": "8644680734eedd65821933345e98a36b0cc96efcc0f8f1db9da74a561f1a6928",
+    "temp/c50-native-effects.log": "51d195453606c920c08e7e0142710b3d08b38c8f32075b6d64f34eeb500b9182",
+    "temp/c50-native-initial.log": "ad7474ebc4c107c72675cd0f6cabd7be8c3efac28d278bd399b1a447a13b97e1",
+    "temp/c50-package.log": "02cc8cb4e58154953864b3a60dc59241fed48ec13b0d3698da1688995bbd4a12",
+    "/tmp/dnd5e-mounted-oXXm22/evidence.json": "20a99ee3f38955966f20ae72a45495fdcaa05d29b61105ee502d771d4e8f29e3",
+    "/tmp/dnd5e-public-rolls-pK4Psi/evidence.json": "be4badf1aa4187933ee61be927667da6da325e934e336214083dd13c04759728",
+    "/tmp/dnd5e-package-crYTjs/data/dist/modules/dnd5e-0.4.1.tgz": "e37f3dfbbd46cce9051b3b63ea8c4a02fa7703f7c5168a9a2e1cf3cd1419551b",
+    "/tmp/dnd5e-mounted-oXXm22/visual-notes.json": "e312f6ae6681768a899035902f8c7e213006157d572232b9e4d604ad91621ff0",
+    "/tmp/dnd5e-mounted-oXXm22/final-proficiency-skill-1440.png": "e6ebc174af6b83f38020ca91d48f428f2b0595c90c070ef36bba81267899d89d",
+    "/tmp/dnd5e-mounted-oXXm22/final-proficiency-tool-1440.png": "bc61755f554b990a73ac7fa59b2467379d12181b4cbc621647f8799edfb967c7",
+    "/tmp/dnd5e-mounted-oXXm22/final-proficiency-skill-390.png": "1349088dc4ed8e0493f8bcb0a39b11cb991315a80ba173a0057e0657ff334879",
+    "/tmp/dnd5e-mounted-oXXm22/final-proficiency-tool-390.png": "36c22080a84f661ed5c7399bf7e06888b78528e819bfaa4c24febd3a0162651f",
+    "temp/c50-source.log": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+    "temp/c50-package-final.log": "0bbf84ca95d51b9b04dcb985e9fdfbd4745d87eccb888180a30fc46660876790",
+    "/tmp/dnd5e-public-rolls-pK4Psi/observed.json": "6241a520bff6a0db97944673dd651a0ab205ec578f277ec0ea1d40d144edff73",
+    "/tmp/dnd5e-public-rolls-pK4Psi/transport.json": "075effd842ecff55277048bdee4e8fe0400acef0cedcec6ecf1ab367f694e289",
+    "/tmp/dnd5e-package-iO5QBf/data/dist/modules/dnd5e-0.4.1.tgz": "2aee6bc505c8e215b780f3082f63ba86fe28a1e249bc54eff16332fb47a15ca5",
+    "temp/c50-mounted-full.log": "af0ed55a60c8d04a250591cbc3f2e896d5833b808005e2c1f3c6c4d2046f69f0",
+    "/tmp/dnd5e-mounted-ehL1Nr/evidence.json": "d79a8c072f929910c40368f56a28f00a3ce1b9dc60c44f8f2a882c4a820fab34",
+    "temp/c50-listeners-before.txt": "1aff5c022b1008a712a372f0508bc7ee89ceb1940c9bf850ca01a02565f740ef",
+    "temp/c50-listeners-final.txt": "1aff5c022b1008a712a372f0508bc7ee89ceb1940c9bf850ca01a02565f740ef"
+  },
+  "limits": [
+    "Controlled initialized model and actual extracted methods/phase traces,not complete Foundry DataModel/Document/native boot/operator acceptance. Constructors and field clean/validate/initialize wrappers and conditions/config/AppliedRules collaborators are declared restricted stubs.",
+    "Six strings use literal-only test Roll.create/evaluateSync collaborator; initial missing collaborator produced a failed harness run,then corrected and rerun. No expression evaluator/dice acceptance added.",
+    "Mounted tests exercise actual module components through SDK presentation seam and synthetic actor/context changes,not installed Core UI. Screenshots have probe styling and do not prove installed theme acceptance.",
+    "Public host uses released Core public req.runtime.rolls with isolated configuration/auth/synthetic transport and controlled dependency entropy. No live Foundry/write/native dice/chat/privacy acceptance.",
+    "Initial full mounted run exposed old expected-unavailable actor-initial-final fixture;updated independent arithmetic/native case/readiness assertion and restarted.Only completed rerun can count.",
+    "Other final numeric/bonus fields,Item final effects,dependent filters/time/flags/expressions and E01/E02/E04/widerQ00/E05/fullDD/A/M/ADR/installed/native/operator gates remain open."
+  ],
+  "environment": {
+    "node": "24.21.0",
+    "npm": "11.19",
+    "ciNode22": "not run locally",
+    "taskServices": "All public-host/browser processes closed;production listeners untouched;Core baseline clean"
+  }
+}

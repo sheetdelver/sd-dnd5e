@@ -1,10 +1,20 @@
 'use client';
 
 import React from 'react';
+import SpeciesIdentity from '../shared/SpeciesIdentity';
 import { resolveImage } from '@sheet-delver/sdk';
 import { useModal } from '../shared/useModal';
 import { useSheetSetting } from '../shared/useSheetSetting';
 import Rest from '../blocks/Rest';
+import { characterFactsProjection } from '../../../logic/preparation/character-profile';
+import CharacterFact from '../shared/CharacterFact';
+import {ArmorClassReadout} from '../blocks/ArmorClass';
+import Initiative from '../blocks/Initiative';
+import {armorClassProjection} from '../../../logic/preparation/defenses';
+import {HpReadout,HitDiceReadout} from '../shared/HealthFacts';
+import {movementProjection} from '../../../logic/preparation/movement';
+import {WalkingSpeedReadout} from '../shared/MovementFacts';
+import TemporaryHpControl from '../shared/TemporaryHpControl';
 
 /**
  * MobileHeader — compact header for the mobile character sheet view.
@@ -25,20 +35,15 @@ interface Props {
     actor: Record<string, any>;
     derived: Record<string, any>;
     foundryUrl?: string;
+    onRoll?:(type:string,key:string,options?:Record<string,unknown>)=>Promise<void>;
 }
 
-export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
+export default function MobileHeader({ actor, derived, foundryUrl,onRoll }: Props) {
     const imgSrc = resolveImage(actor.img ?? '', foundryUrl);
-    const subtitle = [derived.race, derived.classes].filter(Boolean).join(' · ');
-    const level = derived.level ?? 0;
-    const hp = derived.hp ?? { value: 0, max: 0 };
-    const profBonus = derived.profBonus ?? 2;
-    const walk = derived.speed?.walk ?? 30;
-    const initiative = derived.initiative ?? 0;
-    const ac = derived.ac ?? 10;
+    const facts = characterFactsProjection(derived);
+    const movement=movementProjection(derived);
+    const ac=armorClassProjection(derived);
     const inspiration = derived.inspiration ?? false;
-    const profFmt = profBonus >= 0 ? `+${profBonus}` : `${profBonus}`;
-    const initFmt = initiative >= 0 ? `+${initiative}` : `${initiative}`;
     const { openModal } = useModal();
     const [theme, setTheme] = useSheetSetting<string>('theme', 'paladin');
 
@@ -111,8 +116,8 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         color: 'var(--text-secondary)',
                         margin: '2px 0 0',
                     }}>
-                        {subtitle}
-                        {level > 0 && <span style={{ marginLeft: '4px' }}>Level {level}</span>}
+                        <SpeciesIdentity derived={derived} />{derived.classes?` · ${derived.classes}`:''}
+                        <span style={{ marginLeft: '4px' }}>Level <CharacterFact fact={facts.level} label="Character level" /></span>
                     </p>
                 </div>
 
@@ -152,14 +157,17 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         lineHeight: 1.1,
                         fontVariantNumeric: 'tabular-nums',
                     }}>
-                        {hp.value}<span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '14px' }}>/</span>{hp.max}
+                        <HpReadout hp={derived.hp}/>
                     </span>
+                    <span style={{fontSize:'10px'}}>TEMP: {derived.hp?.temp??'—'}</span>
+                    <TemporaryHpControl/>
                     <span style={{
                         fontSize: '8px',
                         color: inspiration ? 'var(--theme-primary)' : 'var(--text-muted)',
                         textTransform: 'uppercase' as const,
                         letterSpacing: '0.05em',
                     }}>
+                        <HitDiceReadout hitDice={derived.hitDice}/><br/>
                         {inspiration ? '★ HEROIC INSPIRATION' : 'NO INSPIRATION'}
                     </span>
                 </div>
@@ -175,17 +183,17 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                 overflowX: 'auto',
             }}>
                 {/* Stat chip: Proficiency Bonus */}
-                <StatChip label="BONUS" title="PROFICIENCY" value={profFmt} />
+                <StatChip label="BONUS" title="PROFICIENCY" value={<CharacterFact fact={facts.proficiency} label="Proficiency bonus" />} />
                 {/* Stat chip: Walking Speed */}
-                <StatChip label="SPEED" title="WALKING" value={`${walk} ft.`} />
+                <StatChip label="SPEED" title="WALKING" value={<WalkingSpeedReadout fact={movement}/>} />
                 {/* Stat chip: Initiative */}
-                <StatChip label="INITIATIVE" value={initFmt} bordered />
+                <StatChip label="INITIATIVE" value={<Initiative compact onRoll={onRoll}/>} bordered />
                 {/* Stat chip: Armor Class */}
-                <StatChip label="CLASS" title="ARMOR" value={String(ac)} />
+                <StatChip label="CLASS" title="ARMOR" value={<ArmorClassReadout fact={ac}/>} />
 
                 {/* Defenses + Conditions + Rest — stacked on the right edge */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: 'auto', flexShrink: 0, alignItems: 'flex-end' }}>
-                    <button style={{
+                    <button onClick={()=>openModal('defenses')} style={{
                         padding: '3px 8px',
                         fontSize: '9px',
                         fontWeight: 700,
@@ -196,10 +204,10 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         borderRadius: '3px',
                         color: 'var(--text-primary)',
                         cursor: 'pointer',
-                    }} disabled>
+                    }}>
                         DEFENSES
                     </button>
-                    <button style={{
+                    <button onClick={()=>openModal('conditions')} style={{
                         padding: '3px 8px',
                         fontSize: '9px',
                         fontWeight: 700,
@@ -210,7 +218,7 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
                         borderRadius: '3px',
                         color: 'var(--text-primary)',
                         cursor: 'pointer',
-                    }} disabled>
+                    }}>
                         CONDITIONS
                     </button>
                     {/* Campfire Rest button — mobile-only, opens RestModal. */}
@@ -261,7 +269,7 @@ export default function MobileHeader({ actor, derived, foundryUrl }: Props) {
 function StatChip({ title, label, value, bordered }: {
     title?: string;
     label: string;
-    value: string;
+    value: React.ReactNode;
     bordered?: boolean;
 }) {
     return (

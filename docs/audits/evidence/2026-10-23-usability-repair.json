@@ -1,0 +1,776 @@
+{
+  "reviewCheckpoint": "7275b2e",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "before": {
+    "preparation": [
+      {
+        "id": "baseline",
+        "level": 1,
+        "proficiency": 2,
+        "hp": 7,
+        "hpMax": 10,
+        "ac": 10,
+        "initiative": 0,
+        "scores": [
+          10,
+          10,
+          14,
+          10,
+          14,
+          10
+        ],
+        "readyAbilityChecks": 6,
+        "readySkillChecks": 18,
+        "reason": null,
+        "decisions": [
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "plain-effect",
+        "level": 1,
+        "proficiency": 2,
+        "hp": 7,
+        "hpMax": 10,
+        "ac": 10,
+        "initiative": 0,
+        "scores": [
+          10,
+          10,
+          14,
+          10,
+          16,
+          10
+        ],
+        "readyAbilityChecks": 6,
+        "readySkillChecks": 18,
+        "reason": null,
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "eligible",
+            "condition": {
+              "status": "ready",
+              "origin": "default",
+              "definition": "{}",
+              "matches": true
+            }
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "migration-marker",
+        "level": null,
+        "proficiency": null,
+        "hp": null,
+        "hpMax": null,
+        "ac": null,
+        "initiative": null,
+        "scores": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "readyAbilityChecks": 0,
+        "readySkillChecks": 0,
+        "reason": "Effect conditions/dependencies require Q02a qualification",
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "duration-unavailable",
+            "reason": "Effect conditions/dependencies require Q02a qualification"
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "empty-dependents",
+        "level": null,
+        "proficiency": null,
+        "hp": null,
+        "hpMax": null,
+        "ac": null,
+        "initiative": null,
+        "scores": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "readyAbilityChecks": 0,
+        "readySkillChecks": 0,
+        "reason": "Effect conditions/dependencies require Q02a qualification",
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "duration-unavailable",
+            "reason": "Effect conditions/dependencies require Q02a qualification"
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "spell-level-metadata",
+        "level": null,
+        "proficiency": null,
+        "hp": null,
+        "hpMax": null,
+        "ac": null,
+        "initiative": null,
+        "scores": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "readyAbilityChecks": 0,
+        "readySkillChecks": 0,
+        "reason": "Effect conditions/dependencies require Q02a qualification",
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "duration-unavailable",
+            "reason": "Effect conditions/dependencies require Q02a qualification"
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "real-dependency",
+        "level": null,
+        "proficiency": null,
+        "hp": null,
+        "hpMax": null,
+        "ac": null,
+        "initiative": null,
+        "scores": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "readyAbilityChecks": 0,
+        "readySkillChecks": 0,
+        "reason": "Effect conditions/dependencies require Q02a qualification",
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "duration-unavailable",
+            "reason": "Effect conditions/dependencies require Q02a qualification"
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "temporary",
+        "level": null,
+        "proficiency": null,
+        "hp": null,
+        "hpMax": null,
+        "ac": null,
+        "initiative": null,
+        "scores": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "readyAbilityChecks": 0,
+        "readySkillChecks": 0,
+        "reason": "Effect conditions/dependencies require Q02a qualification",
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "duration-unavailable",
+            "reason": "Effect conditions/dependencies require Q02a qualification"
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "explicit-nontemporary",
+        "level": 1,
+        "proficiency": 2,
+        "hp": 7,
+        "hpMax": 10,
+        "ac": 10,
+        "initiative": 0,
+        "scores": [
+          10,
+          10,
+          14,
+          10,
+          16,
+          10
+        ],
+        "readyAbilityChecks": 6,
+        "readySkillChecks": 18,
+        "reason": null,
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "eligible",
+            "condition": {
+              "status": "ready",
+              "origin": "default",
+              "definition": "{}",
+              "matches": true
+            }
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "disabled-marker",
+        "level": 1,
+        "proficiency": 2,
+        "hp": 7,
+        "hpMax": 10,
+        "ac": 10,
+        "initiative": 0,
+        "scores": [
+          10,
+          10,
+          14,
+          10,
+          14,
+          10
+        ],
+        "readyAbilityChecks": 6,
+        "readySkillChecks": 18,
+        "reason": null,
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "disabled"
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "condition-baseline",
+        "level": 1,
+        "proficiency": 2,
+        "hp": 7,
+        "hpMax": 10,
+        "ac": 10,
+        "initiative": 0,
+        "scores": [
+          10,
+          10,
+          14,
+          10,
+          14,
+          10
+        ],
+        "readyAbilityChecks": 6,
+        "readySkillChecks": 18,
+        "reason": null,
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "condition-source-qualified",
+            "condition": {
+              "status": "ready",
+              "origin": "default",
+              "definition": "{}",
+              "matches": true
+            }
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "condition-migration-marker",
+        "level": null,
+        "proficiency": null,
+        "hp": null,
+        "hpMax": null,
+        "ac": null,
+        "initiative": null,
+        "scores": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "readyAbilityChecks": 0,
+        "readySkillChecks": 0,
+        "reason": "Effect conditions/dependencies require Q02a qualification",
+        "decisions": [
+          {
+            "id": "QAEffect",
+            "status": "duration-unavailable",
+            "reason": "Effect conditions/dependencies require Q02a qualification"
+          },
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          }
+        ]
+      },
+      {
+        "id": "item-migration-marker",
+        "level": null,
+        "proficiency": null,
+        "hp": null,
+        "hpMax": null,
+        "ac": null,
+        "initiative": null,
+        "scores": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "readyAbilityChecks": 0,
+        "readySkillChecks": 0,
+        "reason": "Item dependency/rider preparation unavailable",
+        "decisions": [
+          {
+            "id": "fixtureEffect001",
+            "parentId": "fixtureSpell0001",
+            "status": "disabled"
+          },
+          {
+            "id": "QAEffect",
+            "parentId": "QAFeature",
+            "status": "item-preparation-unavailable",
+            "reason": "Item dependency/rider preparation unavailable"
+          }
+        ]
+      }
+    ],
+    "geometry": [
+      {
+        "id": "baseline",
+        "width": 390,
+        "viewport": 390,
+        "documentWidth": 390,
+        "repeatedDiagnostic": 0,
+        "abilityOverflow": 0,
+        "saveOverflow": 0,
+        "blockedButtons": 3,
+        "errors": []
+      },
+      {
+        "id": "migration-marker",
+        "width": 390,
+        "viewport": 390,
+        "documentWidth": 390,
+        "repeatedDiagnostic": 18,
+        "abilityOverflow": 96,
+        "saveOverflow": 86,
+        "blockedButtons": 16,
+        "errors": []
+      },
+      {
+        "id": "baseline",
+        "width": 1024,
+        "viewport": 1024,
+        "documentWidth": 1064,
+        "repeatedDiagnostic": 0,
+        "abilityOverflow": 0,
+        "saveOverflow": 0,
+        "blockedButtons": 5,
+        "errors": []
+      },
+      {
+        "id": "migration-marker",
+        "width": 1024,
+        "viewport": 1024,
+        "documentWidth": 1307,
+        "repeatedDiagnostic": 50,
+        "abilityOverflow": 508.171875,
+        "saveOverflow": 278,
+        "blockedButtons": 36,
+        "errors": []
+      },
+      {
+        "id": "baseline",
+        "width": 1280,
+        "viewport": 1280,
+        "documentWidth": 1280,
+        "repeatedDiagnostic": 0,
+        "abilityOverflow": 0,
+        "saveOverflow": 0,
+        "blockedButtons": 5,
+        "errors": []
+      },
+      {
+        "id": "migration-marker",
+        "width": 1280,
+        "viewport": 1280,
+        "documentWidth": 1347,
+        "repeatedDiagnostic": 50,
+        "abilityOverflow": 400,
+        "saveOverflow": 278,
+        "blockedButtons": 36,
+        "errors": []
+      },
+      {
+        "id": "baseline",
+        "width": 1440,
+        "viewport": 1440,
+        "documentWidth": 1440,
+        "repeatedDiagnostic": 0,
+        "abilityOverflow": 0,
+        "saveOverflow": 0,
+        "blockedButtons": 5,
+        "errors": []
+      },
+      {
+        "id": "migration-marker",
+        "width": 1440,
+        "viewport": 1440,
+        "documentWidth": 1440,
+        "repeatedDiagnostic": 50,
+        "abilityOverflow": 400,
+        "saveOverflow": 278,
+        "blockedButtons": 36,
+        "errors": []
+      }
+    ]
+  },
+  "after": {
+    "method": "Offline actual Sheet + SDK presentation seam, synthetic representative source. No native/operator acceptance.",
+    "results": [
+      {
+        "id": "martial",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "migration",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "multiclass",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "caster",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "local-unavailable",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "unknown-mechanics",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "unqualified-version",
+        "width": 390,
+        "documentWidth": 390,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "martial",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "migration",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "multiclass",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "caster",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "local-unavailable",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "unknown-mechanics",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "unqualified-version",
+        "width": 1024,
+        "documentWidth": 1024,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "martial",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "migration",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "multiclass",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "caster",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "local-unavailable",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "unknown-mechanics",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "unqualified-version",
+        "width": 1280,
+        "documentWidth": 1280,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "martial",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "migration",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "multiclass",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "caster",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "local-unavailable",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": true
+      },
+      {
+        "id": "unknown-mechanics",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      },
+      {
+        "id": "unqualified-version",
+        "width": 1440,
+        "documentWidth": 1440,
+        "gridOverflow": 0,
+        "cardOverlaps": 0,
+        "checkAvailable": false
+      }
+    ]
+  },
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "cases": [
+      {
+        "flags": {},
+        "active": true,
+        "temporary": false,
+        "dependency": null
+      },
+      {
+        "flags": {
+          "persistSourceMigration": true
+        },
+        "active": true,
+        "temporary": false,
+        "dependency": null
+      },
+      {
+        "flags": {
+          "dependents": []
+        },
+        "active": true,
+        "temporary": false,
+        "dependency": null
+      },
+      {
+        "flags": {
+          "persistSourceMigration": true,
+          "dependents": []
+        },
+        "active": true,
+        "temporary": false,
+        "dependency": null
+      }
+    ],
+    "controls": {
+      "migrationProducesMarker": true,
+      "temporaryFlagRemainsMechanical": true,
+      "inactiveIncomingDependencySuppresses": true
+    },
+    "hashes": {
+      "module/documents/item.mjs": "62aa74e8264c032988cbefdee7332ed3e7c2d1248ad276475a944c8136ffaa9a",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc"
+    },
+    "limits": [
+      "Actual pinned migration/applicability/temporary/dependency getters and Foundry14.367 base getters,with explicit initialized permanent duration,unconcealed owner and empty dependent registry/UUID seam. No full DataModel/native/operator acceptance.",
+      "Only known bookkeeping and empty outgoing lists are qualified. Nonempty relationships,spell-level semantics,temporary and unknown mechanics remain separately restricted. No source flags are removed."
+    ]
+  },
+  "artifactHashes": {
+    "temp/qa-metadata-before.log": "2b1136bd413b4cbc285c3a8e18da7233bb0fe62bb760b2ec6a4253008e7b1847",
+    "temp/qa-repair-before.log": "80e6d366c220d338f469107ac393da1e40dd0ec89cd39a8629ea73f320875147",
+    "/tmp/dnd5e-workflow-smoke-FyBf10/evidence.json": "7f585a7ae577086c10d31cb031668d5c4db978148e65bc121dd904d38adc52cc",
+    "temp/qa-native-metadata.json": "9eb762a06ab714b594fbc3d6a8155839623cb9c5444eef71442f7bfd3ed4da2e"
+  }
+}

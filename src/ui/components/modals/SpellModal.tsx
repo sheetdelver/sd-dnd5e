@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
-import { resolveImage } from '@sheet-delver/sdk';
+import { resolveImage,processHtmlContent } from '@sheet-delver/sdk';
+import {ownedItemProjection} from '../../../logic/preparation/item-facts';
 import BaseModal from '../shared/BaseModal';
+import SpellPreparationFacts from '../shared/SpellPreparationFacts';
 import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
 import { SPELL_FILTERS } from '../shared/filters';
@@ -52,29 +54,29 @@ const SCHOOL_LABEL: Record<string, string> = {
 export default function SpellModal({ item, onRoll, onClose }: SpellModalProps) {
     const { foundryUrl, actor } = useSheet();
     const { openModal } = useModal();
-    const sys = (item.system ?? {}) as Record<string, any>;
-    const img = resolveImage(item.img ?? '', foundryUrl);
-    const description = typeof sys?.description?.value === 'string' ? sys.description.value : '';
-    const level = typeof sys?.level === 'number' ? sys.level : 0;
-    const levelLabel = level === 0 ? 'Cantrip' : (SPELL_FILTERS[level + 1] ?? `Level ${level}`);
-    const school = typeof sys?.school === 'string' ? (SCHOOL_LABEL[sys.school] ?? sys.school) : undefined;
-    const isConcentration = Boolean(sys?.components?.concentration ?? sys?.properties?.concentration);
-    const isRitual = Boolean(sys?.components?.ritual ?? sys?.properties?.ritual);
-    const castTime = sys?.activation?.type
-        ? `${sys?.activation?.cost ?? 1} ${sys.activation.type}`
-        : undefined;
-    const range = sys?.range?.value
-        ? `${sys.range.value} ${sys.range.units ?? 'ft.'}`
-        : (sys?.range?.units === 'self' ? 'Self' : sys?.range?.units === 'touch' ? 'Touch' : undefined);
-    const components: string[] = [];
-    if (sys?.components?.vocal) components.push('V');
-    if (sys?.components?.somatic) components.push('S');
-    if (sys?.components?.material) components.push('M');
-    const duration = sys?.duration?.value && sys?.duration?.units
+    const liveItem=(actor?.items??[]).find((i:{_id:string})=>i._id===item._id);
+    const sys = (liveItem?.system ?? {}) as Record<string, any>;
+    const legacy=actor?.derived?.lifecycle?.status==='supported'&&actor?.derived?.lifecycle?.profile==='legacy-limited';
+    const preparedItem=ownedItemProjection(actor?.derived).items[item._id];
+    const prepared=preparedItem?.spell;
+    const img = resolveImage(liveItem?.img ?? '', foundryUrl);
+    const description = typeof sys.description?.value==='string'?processHtmlContent(sys.description.value,foundryUrl):'';
+    const level=legacy?(typeof sys.level==='number'?sys.level:0):prepared?.value?.level??null;
+    const levelLabel=level===null?'Level unavailable':level===0?'Cantrip':SPELL_FILTERS[level+1]??`Level ${level}`;
+    const schoolKey=legacy?sys.school:prepared?.value?.school;
+    const school=typeof schoolKey==='string'?(SCHOOL_LABEL[schoolKey]??schoolKey):undefined;
+    const isConcentration=legacy?Boolean(sys.components?.concentration??sys.properties?.concentration):prepared?.value?.concentration;
+    const isRitual=legacy?Boolean(sys.components?.ritual??sys.properties?.ritual):prepared?.value?.ritual;
+    const castTime=legacy&&typeof sys.activation?.type==='string'?sys.activation.type:undefined;
+    const range=legacy?(typeof sys.range?.value==='number'&&typeof sys.range?.units==='string'?`${sys.range.value} ${sys.range.units}`:['self','touch'].includes(sys.range?.units)?sys.range.units:undefined):undefined;
+    const components=legacy?['vocal','somatic','material'].filter(key=>sys.components?.[key]).map(key=>key[0].toUpperCase()):prepared?.value?.components??[];
+    const duration = legacy?(sys?.duration?.value && sys?.duration?.units
         ? `${sys.duration.value} ${sys.duration.units}`
-        : (sys?.duration?.units === 'inst' ? 'Instantaneous' : undefined);
+        : (sys?.duration?.units === 'inst' ? 'Instantaneous' : undefined)):undefined;
 
+    if(!liveItem)return <BaseModal open onClose={onClose}><p role="status">Spell no longer available</p><button onClick={onClose}>Close</button></BaseModal>;
     const handleCast = () => {
+        if(!legacy)return;
         onClose();
         if (!onRoll) return;
         openModal('roll', {
@@ -90,11 +92,12 @@ export default function SpellModal({ item, onRoll, onClose }: SpellModalProps) {
         <BaseModal open onClose={onClose} maxWidth={520}>
             <button type="button" aria-label="Close" onClick={onClose} style={closeButtonStyle}>×</button>
 
-            <h2 style={titleStyle}>{item.name}</h2>
+            <h2 style={titleStyle}>{liveItem.name}</h2>
             <div style={subtitleStyle}>
                 {levelLabel}{school ? ` · ${school}` : ''}
             </div>
 
+            {!legacy&&<SpellPreparationFacts item={preparedItem}/>}
             {/* Top row: image + casting metadata */}
             <div style={{ display: 'flex', gap: 'var(--space-md)', marginTop: 'var(--space-md)' }}>
                 <div style={{
@@ -127,6 +130,7 @@ export default function SpellModal({ item, onRoll, onClose }: SpellModalProps) {
                 </div>
             </div>
 
+            {!legacy&&preparedItem?.proficiency&&<p aria-label="Prepared spell Item proficiency" title={preparedItem.proficiency.reason}>{preparedItem.proficiency.status==='ready'?preparedItem.proficiency.term:'Unavailable'}</p>}
             {/* Concentration / Ritual flags */}
             {(isConcentration || isRitual) && (
                 <div style={{ display: 'flex', gap: '6px', marginTop: 'var(--space-sm)' }}>
@@ -159,7 +163,7 @@ export default function SpellModal({ item, onRoll, onClose }: SpellModalProps) {
 
             <div style={{ display: 'flex', gap: 'var(--space-sm)', justifyContent: 'flex-end', marginTop: 'var(--space-md)' }}>
                 <button type="button" onClick={onClose} style={cancelButtonStyle}>Close</button>
-                <button type="button" onClick={handleCast} style={confirmButtonStyle} disabled={!onRoll}>
+                <button type="button" onClick={handleCast} style={confirmButtonStyle} disabled={!onRoll||!legacy} title={legacy?undefined:'Casting requires the reviewed spellcasting command workflow'}>
                     Cast
                 </button>
             </div>

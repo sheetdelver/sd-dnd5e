@@ -24,7 +24,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     env:
-      CI_CORE_REF: 'v0.18.0'
+      CI_CORE_REF: 'v0.19.3'
       SHEET_DELVER_DATA: ${{ github.workspace }}/sheet-delver-core/.module-ci-data
     defaults:
       run:
@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: sheetdelver/sheetdelver
-          ref: v0.18.0
+          ref: v0.19.3
           path: sheet-delver-core
           persist-credentials: false
 
@@ -63,10 +63,6 @@ jobs:
           CI_PR_HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
         run: node scripts/ci-reuse.mjs "$RUNNER_TEMP/validated-release"
 
-      - name: Test standalone release helper
-        if: steps.reuse.outputs.reused != 'true'
-        run: node --test .module-ci-data/local/modules/dnd5e/scripts/*.test.mjs
-
       - name: Install reviewed Sheet Delver toolchain
         if: steps.reuse.outputs.reused != 'true' || steps.reuse.outputs.package == 'true'
         run: npm ci
@@ -81,9 +77,11 @@ jobs:
 
       - name: Run module regression tests
         if: steps.reuse.outputs.reused != 'true'
-        run: |
-          npx tsx ".module-ci-data/local/modules/dnd5e/src/tests/prepared-actor.test.ts"
-          npx tsx ".module-ci-data/local/modules/dnd5e/src/tests/presentation.test.ts"
+        run: node ".module-ci-data/local/modules/dnd5e/scripts/test.mjs" --core "$PWD"
+
+      - name: Explicitly type-check module source and UI
+        if: steps.reuse.outputs.reused != 'true'
+        run: node ".module-ci-data/local/modules/dnd5e/scripts/typecheck.mjs" --core "$PWD"
 
       - name: Verify distributable package
         if: steps.reuse.outputs.reused != 'true' || steps.reuse.outputs.package == 'true'

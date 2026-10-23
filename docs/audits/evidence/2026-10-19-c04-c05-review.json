@@ -1,0 +1,227 @@
+{
+  "review": "RV02 independent C04-C05 review",
+  "date": "2026-10-19",
+  "moduleCommit": "b45e144c4368dcdf0f29338b0572fef4c94e7023",
+  "branch": "feat/adr-0001-character-lifecycle",
+  "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "coreVersion": "0.19.3",
+  "moduleVersion": "0.4.1",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "checks": {
+    "toolingAssertions": 31,
+    "moduleSuites": 9,
+    "explicitTypecheckFiles": 93,
+    "nativeInventoryRecords": 2242,
+    "nativeCandidateExpressions": 591,
+    "nativePreparationCases": 8,
+    "nativeModeCases": 81,
+    "nativeDieSelections": 800,
+    "mountedTransitions": 50,
+    "mountedPreviewCases": 6,
+    "isolatedModuleCheckAndPackage": "pass",
+    "node": "v24.21.0",
+    "node22CI": "not run"
+  },
+  "archive": {
+    "freshSha256": "8394dbeff020c349cc2df131d8385f329312fa82a8ed32cab48e7bc496c97223",
+    "reportedSha256": "a7c6dcc5d9c00716b070dd4eeaa7a43e40798dd03a6445cd92ba9b0dd8e21188",
+    "regularFiles": 15,
+    "equalRegularContents": true,
+    "differences": []
+  },
+  "probes": {
+    "evidence": "offline module boundary; not native or public-host execution",
+    "cardCases": [
+      {
+        "id": "supported",
+        "profile": {
+          "status": "ready",
+          "level": 5,
+          "proficiency": 3
+        },
+        "derivedLevel": 5,
+        "derivedProf": 3,
+        "cardLevel": 5,
+        "cardProf": "+3",
+        "directSkill": {
+          "formula": "1d20+5",
+          "label": "Perception Check"
+        },
+        "subtext": "Level 5 \u2022 Class label is not a lookup 5"
+      },
+      {
+        "id": "rules-setting-unavailable",
+        "profile": {
+          "status": "unavailable",
+          "reason": "Character rules context unavailable: rules-version-unavailable"
+        },
+        "derivedLevel": 0,
+        "derivedProf": 2,
+        "cardLevel": 0,
+        "cardProf": "+2",
+        "directSkill": null,
+        "subtext": "Class label is not a lookup 5"
+      },
+      {
+        "id": "unsupported-native-version",
+        "profile": {
+          "status": "unavailable",
+          "reason": "Character rules context unavailable: unsupported-native-version"
+        },
+        "derivedLevel": 0,
+        "derivedProf": 2,
+        "cardLevel": 0,
+        "cardProf": "+2",
+        "directSkill": null,
+        "subtext": "Class label is not a lookup 5"
+      },
+      {
+        "id": "snapshot-absent",
+        "profile": {
+          "status": "unavailable",
+          "reason": "Character rules context unavailable: world-context-unavailable"
+        },
+        "derivedLevel": 0,
+        "derivedProf": 2,
+        "cardLevel": 0,
+        "cardProf": "+2",
+        "directSkill": null,
+        "subtext": "Class label is not a lookup 5"
+      },
+      {
+        "id": "unqualified-equipment",
+        "profile": {
+          "status": "unavailable",
+          "reason": "Equipped armor/item rule preparation unavailable"
+        },
+        "derivedLevel": 0,
+        "derivedProf": 2,
+        "cardLevel": 0,
+        "cardProf": "+2",
+        "directSkill": null,
+        "subtext": "Class label is not a lookup 5"
+      },
+      {
+        "id": "invalid-class-level",
+        "profile": {
+          "status": "unavailable",
+          "reason": "Class level source unavailable"
+        },
+        "derivedLevel": 0,
+        "derivedProf": 2,
+        "cardLevel": 0,
+        "cardProf": "+2",
+        "directSkill": null,
+        "subtext": "Class label is not a lookup unknown"
+      },
+      {
+        "id": "unsupported-with-stale-source",
+        "profile": {
+          "status": "unavailable",
+          "reason": "Character rules context unavailable: unsupported-native-version"
+        },
+        "derivedLevel": 99,
+        "derivedProf": 99,
+        "cardLevel": 99,
+        "cardProf": "+99",
+        "directSkill": null,
+        "subtext": "Level 99 \u2022 Class label is not a lookup 5"
+      }
+    ],
+    "nonpersistedCases": [
+      {
+        "scope": "check",
+        "injected": 2,
+        "observed": {
+          "check": 8,
+          "save": 5,
+          "skill": 8
+        },
+        "withSourceFieldOmitted": {
+          "check": 2,
+          "save": 5,
+          "skill": 5
+        },
+        "baseline": {
+          "check": 2,
+          "save": 5,
+          "skill": 5
+        }
+      },
+      {
+        "scope": "save",
+        "injected": 1,
+        "observed": {
+          "check": 2,
+          "save": 5,
+          "skill": 5
+        },
+        "withSourceFieldOmitted": {
+          "check": 2,
+          "save": 2,
+          "skill": 5
+        },
+        "baseline": {
+          "check": 2,
+          "save": 5,
+          "skill": 5
+        }
+      },
+      {
+        "scope": "skill",
+        "injected": 2,
+        "observed": {
+          "check": 2,
+          "save": 5,
+          "skill": 8
+        },
+        "withSourceFieldOmitted": {
+          "check": 2,
+          "save": 5,
+          "skill": 5
+        },
+        "baseline": {
+          "check": 2,
+          "save": 5,
+          "skill": 5
+        }
+      }
+    ]
+  },
+  "nativeFieldInitialization": {
+    "evidence": "S controlled native SchemaField.initialize with declared field stubs; no native Actor, app or transport",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundryVersion": "14.367.0",
+    "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "results": [
+      {
+        "scope": "check",
+        "suppliedSource": 2,
+        "initialized": 0
+      },
+      {
+        "scope": "save",
+        "suppliedSource": 1,
+        "initialized": 0
+      },
+      {
+        "scope": "skill",
+        "suppliedSource": 2,
+        "initialized": 0
+      }
+    ],
+    "stubs": [
+      "entries returns one field",
+      "getInitialValue returns exact system declaration initial=0",
+      "leaf initialize is identity"
+    ],
+    "declarations": "CreatureTemplate.defineSchema: rolls.ability.{check,save,skill,tool}.proficiency initial=0 persisted=false"
+  },
+  "limitations": [
+    "No live services or Foundry connection",
+    "No full native Document initialization; controlled extracted methods only",
+    "No installed public-host execution/UI acceptance",
+    "No application, version or Git mutations",
+    "Existing effects, modes, tools, formulas and E01 work remain open; no new Core defect"
+  ]
+}

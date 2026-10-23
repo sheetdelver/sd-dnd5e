@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "S606-source-boundary-01",
+  "requirements": [
+    "DD-01",
+    "DD-16",
+    "DD-30",
+    "DD-33",
+    "DD-34",
+    "DD-36"
+  ],
+  "acceptance": [
+    "A02",
+    "A17",
+    "A22",
+    "A23"
+  ],
+  "milestones": [
+    "M0",
+    "M1",
+    "M2"
+  ],
+  "evidenceClass": "S",
+  "method": "Exact-tag static source inventory and manually derived synthetic expectations; no native execution",
+  "author": "SheetDelver module implementation, independent expectations specified before decoder",
+  "captureDate": "2026-10-19",
+  "native": {
+    "systemVersion": "6.0.6",
+    "commit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundryMinimum": "14.367",
+    "observedBuild": null
+  },
+  "host": {
+    "version": "0.19.3",
+    "commit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "archiveSha256": null
+  },
+  "module": {
+    "version": "0.4.1",
+    "planningCommit": "e0fd608",
+    "archiveSha256": null
+  },
+  "profile": {
+    "rulesVersion": "modern",
+    "proficiencyModifier": "bonus"
+  },
+  "access": {
+    "kind": "synthetic",
+    "role": "owner",
+    "authorizedCatalogs": []
+  },
+  "source": {
+    "license": "module-authored synthetic; no purchased records",
+    "packUuids": [
+      "Compendium.example.options.Item.fixtureSpell0001",
+      "Compendium.other.options.Item.fixtureSpell0002"
+    ],
+    "nativePrepared": null,
+    "sourceAfter": "identical-to-source-before",
+    "exclusions": []
+  },
+  "files": {
+    "source-before.json": "fae01a9d6de2e1b11fa0edd7d23ea06aeaac5504e767a402a0a625a71f1fe99d",
+    "expected.json": "be474a442a9d464e6ce718161eed88c5236823025fd948f03fb01f7443789473",
+    "source-inventory.json": "4245e48ae69cc8206285dc672cd5fe288d3b69c6ed57361c5213216aae4db6ea",
+    "ability-checks.json": "215ec7cde509336d3d9f71a143aec1c62f2d022cd4413974b3e0ae35760bff23",
+    "skill-modes.json": "0323348b6c575beeb7ecc27da955e1b5d5347d674c7c3f17163b4b6f47883efa"
+  },
+  "extensions": [
+    {
+      "fixtureId": "S606-ability-checks-01",
+      "requirements": [
+        "DD-01",
+        "DD-02",
+        "DD-24",
+        "DD-34"
+      ],
+      "acceptance": [
+        "A02",
+        "A18"
+      ],
+      "milestones": [
+        "M0/Q00",
+        "M2"
+      ],
+      "file": "ability-checks.json",
+      "method": "Independent intermediate-model arithmetic and separate source/default expectations; no native capture",
+      "nativePrepared": null
+    },
+    {
+      "fixtureId": "S606-source-modes-01",
+      "file": "skill-modes.json",
+      "requirements": [
+        "DD-01",
+        "DD-02",
+        "DD-24",
+        "DD-27",
+        "DD-34"
+      ],
+      "acceptance": [
+        "A02",
+        "A18"
+      ],
+      "milestones": [
+        "M0/Q00",
+        "M2"
+      ],
+      "method": "Independent persisted-mode/passive arithmetic; controlled exact prepareSkill/BasicDie comparison, separate real public-host candidate execution",
+      "nativePrepared": null
+    }
+  ]
+}

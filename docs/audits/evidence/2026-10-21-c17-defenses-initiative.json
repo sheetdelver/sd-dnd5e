@@ -1,0 +1,7870 @@
+{
+  "checkpoint": "C17",
+  "precedingImplementation": "9d15b1a627fb5cfaf6a530f76fefec9090376865",
+  "native": {
+    "evidence": "S controlled exact native initialization/AC/initiative methods; not native DataModels/Documents/engine acceptance",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "observations": [
+      {
+        "id": "default",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "negative-dex",
+        "armor": {
+          "value": 8,
+          "base": 8,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": -2,
+          "score": 8,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": -2
+          },
+          "rollBonus": -2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "override-independent",
+        "armor": {
+          "value": 17,
+          "base": 0,
+          "calculation": "natural"
+        }
+      },
+      {
+        "id": "natural-independent",
+        "armor": {
+          "value": 15,
+          "base": 15,
+          "calculation": "natural"
+        }
+      },
+      {
+        "id": "flat-does-not-override",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "empty-calcs-flat",
+        "armor": {
+          "value": 17,
+          "base": 17,
+          "calculation": "natural"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "mage",
+        "armor": {
+          "value": 15,
+          "base": 15,
+          "calculation": "mage"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "monk",
+        "armor": {
+          "value": 15,
+          "base": 15,
+          "calculation": "unarmoredMonk"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "barbarian",
+        "armor": {
+          "value": 15,
+          "base": 15,
+          "calculation": "unarmoredBarb"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "bard",
+        "armor": {
+          "value": 16,
+          "base": 16,
+          "calculation": "unarmoredBard"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "equal-formula-order",
+        "armor": {
+          "value": 15,
+          "base": 15,
+          "calculation": "mage"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "custom-constant",
+        "armor": {
+          "value": 18,
+          "base": 18,
+          "calculation": "custom"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "custom-lower",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "custom-armored-filter",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "custom-shielded-filter",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "zero-override",
+        "armor": {
+          "value": 0,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "prepared-poison",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "legacy-value-open",
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "legacy-calc-open",
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "unknown-calculation",
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "custom-expression-open",
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "numeric-bonuses",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod + @ruleBonus",
+          "disposition": "qualified-initialized-model",
+          "total": 8,
+          "score": 18,
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2,
+            "ruleBonus": "2 + 1 + 3"
+          },
+          "rollBonus": 8,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "alternate-ability",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod + @ruleBonus",
+          "disposition": "qualified-initialized-model",
+          "total": 9,
+          "score": 19,
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "data": {
+            "roll": {
+              "ability": "wis",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 3,
+            "ruleBonus": "1 + 2 + 3"
+          },
+          "rollBonus": 9,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "source-mode-cancel",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 17,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "global-mode",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 1,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "tie-breaker",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod + 0.14",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod",
+            "0.14"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2.14,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "fixed-score",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "BasicRoll",
+          "nativeFormula": "17",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 17,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 17,
+          "mode": 0,
+          "fixed": true,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "fixed-tie-ignored",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "BasicRoll",
+          "nativeFormula": "12",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod",
+            "0.14"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 12,
+          "mode": 0,
+          "fixed": true,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "npc-score-PC-roll",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "check-proficiency-does-not-apply",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "proficiency-dice-independent",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "initial-init-bonus",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod + @ruleBonus",
+          "disposition": "qualified-initialized-model",
+          "total": 7,
+          "score": 17,
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2,
+            "ruleBonus": "2 + 3"
+          },
+          "rollBonus": 7,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "initial-init-mode",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 17,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 1,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "range-attributes.init.roll-min",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "unqualified-intermediate-diagnostic",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": 10,
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "range-attributes.init.roll-max",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "unqualified-intermediate-diagnostic",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": 10
+        }
+      },
+      {
+        "id": "range-abilities.dex.check.roll-min",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "unqualified-intermediate-diagnostic",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": 10,
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "range-abilities.dex.check.roll-max",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "unqualified-intermediate-diagnostic",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": 10
+        }
+      },
+      {
+        "id": "range-rolls.ability.check-min",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "unqualified-intermediate-diagnostic",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": 10,
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "range-rolls.ability.check-max",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "unqualified-intermediate-diagnostic",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": 10
+        }
+      },
+      {
+        "id": "fixed-ignores-die-bounds",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "BasicRoll",
+          "nativeFormula": "12",
+          "disposition": "qualified-initialized-model",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 12,
+          "mode": 0,
+          "fixed": true,
+          "minimum": 20,
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "malformed-range",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "unqualified-intermediate-diagnostic",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": 0,
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "legacy-init-open",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        }
+      },
+      {
+        "id": "unknown-ability",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        }
+      },
+      {
+        "id": "formula-bonus-open",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        }
+      },
+      {
+        "id": "unsupported-score-setting",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "D20Roll",
+          "nativeFormula": "1d20 + @mod",
+          "disposition": "unqualified-intermediate-diagnostic",
+          "total": 2,
+          "score": 12,
+          "parts": [
+            "@mod"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2
+          },
+          "rollBonus": 2,
+          "mode": 0,
+          "fixed": false,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      },
+      {
+        "id": "equipped-item-open"
+      },
+      {
+        "id": "equipped-override-independent"
+      },
+      {
+        "id": "fixed-score-zero",
+        "armor": {
+          "value": 12,
+          "base": 12,
+          "calculation": "unarmored"
+        },
+        "initiative": {
+          "nativeClass": "BasicRoll",
+          "nativeFormula": "0",
+          "disposition": "qualified-initialized-model",
+          "total": -10,
+          "score": 0,
+          "parts": [
+            "@mod",
+            "@ruleBonus"
+          ],
+          "data": {
+            "roll": {
+              "ability": "dex",
+              "proficient": false,
+              "type": "initiative"
+            },
+            "mod": 2,
+            "ruleBonus": "-12"
+          },
+          "rollBonus": 0,
+          "mode": 0,
+          "fixed": true,
+          "minimum": "unbounded",
+          "maximum": "unbounded"
+        }
+      }
+    ],
+    "migrations": [
+      {
+        "id": "legacy-value-open",
+        "after": {
+          "ac": {
+            "override": 15
+          },
+          "init": {}
+        }
+      },
+      {
+        "id": "legacy-calc-open",
+        "after": {
+          "ac": {
+            "flat": 17,
+            "override": 17
+          },
+          "init": {}
+        }
+      },
+      {
+        "id": "legacy-init-open",
+        "after": {
+          "ac": {},
+          "init": {
+            "value": 99,
+            "roll": {
+              "bonus": "99"
+            }
+          }
+        }
+      }
+    ],
+    "armorClasses": {
+      "natural": {
+        "label": "DND5E.ARMORCLASS.Calculation.Natural",
+        "formula": "@attributes.ac.flat"
+      },
+      "armored": {
+        "label": "DND5E.ARMORCLASS.Calculation.Armored",
+        "formula": "@attributes.ac.armor + @attributes.ac.clamped.dex",
+        "armored": true
+      },
+      "unarmored": {
+        "label": "DND5E.ARMORCLASS.Calculation.Unarmored",
+        "formula": "10 + @abilities.dex.mod",
+        "armored": false
+      },
+      "mage": {
+        "label": "DND5E.ARMORCLASS.Calculation.Mage",
+        "formula": "13 + @abilities.dex.mod",
+        "armored": false
+      },
+      "draconic": {
+        "label": "DND5E.ARMORCLASS.Calculation.Draconic",
+        "formula": "13 + @abilities.dex.mod",
+        "armored": false
+      },
+      "unarmoredMonk": {
+        "label": "DND5E.ARMORCLASS.Calculation.UnarmoredMonk",
+        "formula": "10 + @abilities.dex.mod + @abilities.wis.mod",
+        "armored": false,
+        "shielded": false
+      },
+      "unarmoredBarb": {
+        "label": "DND5E.ARMORCLASS.Calculation.UnarmoredBarbarian",
+        "formula": "10 + @abilities.dex.mod + @abilities.con.mod",
+        "armored": false
+      },
+      "unarmoredBard": {
+        "label": "DND5E.ARMORCLASS.Calculation.UnarmoredBard",
+        "formula": "10 + @abilities.dex.mod + @abilities.cha.mod",
+        "armored": false
+      }
+    },
+    "stubs": [
+      "Explicit initialized defaults/nonpersisted fields; legacy aliases separately captured, not qualified",
+      "Property binding/registry iteration; independently specified constant arithmetic lookup only; unknown formulas fail",
+      "No equipped Item interpretation; explicit override case with equipped source remains outside method capture",
+      "No conditions/flags/applied rules/cover/travel; character only; numeric initialized proficiency and modes",
+      "Initial init bonus/mode and global proficiency cases start after separately qualified effect operations",
+      "Native initiative config captured without dice; fixed scores versus d20 execution kept distinct"
+    ],
+    "sourceHashes": {
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+      "module/data/actor/fields/ac-formulas-field.mjs": "6f465c663194b73f667672f39cd6a259faf63a28d640730d8144138cec8003b3",
+      "module/settings.mjs": "6ee8c740386c23549dc9568fc9817f327b0642dbcee7f972dcd501924567abcc"
+    }
+  },
+  "failingBefore": {
+    "sourceCases": 47,
+    "currentFixtureCases": 48,
+    "hooks": {
+      "implementation": "9d15b1a",
+      "unavailableInitiative": [
+        {
+          "id": "rules-setting-unavailable",
+          "formula": "1d20+99"
+        },
+        {
+          "id": "unsupported-native-version",
+          "formula": "1d20+99"
+        },
+        {
+          "id": "snapshot-absent",
+          "formula": "1d20+99"
+        }
+      ],
+      "uuidIntentEqual": true
+    },
+    "tiebreakerFlattened": {
+      "face": 2,
+      "flattenedFormula": "1d20+2.14",
+      "observed": 4.140000000000001,
+      "nativePartsOrder": "1d20+2+0.14",
+      "expected": 4.14,
+      "correction": "Preserve trailing native part; exact assertion unchanged"
+    }
+  },
+  "regression": {
+    "toolingAssertions": 56,
+    "toolingSuites": 7,
+    "moduleSuites": 20,
+    "typedFiles": 124,
+    "sourcePreserved": true,
+    "contextRecovery": true,
+    "canonicalUuidIntentFenced": true
+  },
+  "mounted": {
+    "evidence": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "playwright": "1.56.1",
+    "browser": "143.0.7499.4",
+    "rows": [
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-skills.prc.roll-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-skills.prc.roll-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-abilities.wis.check.roll-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-abilities.wis.check.roll-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.check-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.check-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.skill-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.skill-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "check-local-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "check-local-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "check-global-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "check-global-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "save-local-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "save-local-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "save-global-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "save-global-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-skills.prc.roll-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-skills.prc.roll-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-abilities.wis.check.roll-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-abilities.wis.check.roll-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.check-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.check-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.skill-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.skill-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "check-local-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "check-local-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "check-global-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "check-global-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "save-local-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "save-local-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "save-global-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "save-global-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      }
+    ],
+    "previewRows": [
+      {
+        "width": 1440,
+        "kind": "skill",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+10+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 1440,
+        "kind": "tool",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+10+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 390,
+        "kind": "tool",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      }
+    ],
+    "factRows": [
+      {
+        "width": 1440,
+        "id": "supported",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "invalid",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "armor",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "effect",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "poison",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "supported",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "invalid",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "armor",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "effect",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "poison",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      }
+    ],
+    "modeRows": [
+      {
+        "width": 1440,
+        "kind": "skill",
+        "mode": -1,
+        "formula": "2d20kl1+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 1440,
+        "kind": "skill",
+        "mode": 0,
+        "formula": "1d20+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 1440,
+        "kind": "skill",
+        "mode": 1,
+        "formula": "2d20kh1+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "mode": -1,
+        "formula": "2d20kl1+2",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "mode": 0,
+        "formula": "1d20+2",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "mode": 1,
+        "formula": "2d20kh1+2",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "mode": -1,
+        "formula": "2d20kl1+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "mode": 0,
+        "formula": "1d20+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "mode": 1,
+        "formula": "2d20kh1+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "mode": -1,
+        "formula": "2d20kl1+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "mode": 0,
+        "formula": "1d20+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "mode": 1,
+        "formula": "2d20kh1+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "mode": -1,
+        "formula": "2d20kl1+2",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "mode": 0,
+        "formula": "1d20+2",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "mode": 1,
+        "formula": "2d20kh1+2",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "mode": -1,
+        "formula": "2d20kl1+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "mode": 0,
+        "formula": "1d20+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "mode": 1,
+        "formula": "2d20kh1+5",
+        "staleRetired": true,
+        "execution": "qualified-normal-adv-dis"
+      }
+    ],
+    "toolRows": [
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-tools.thief.roll-min",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-tools.thief.roll-max",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-abilities.dex.check.roll-min",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-abilities.dex.check.roll-max",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.check-min",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.check-max",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.tool-min",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.tool-max",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-{\"value\":\"1\"}",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-{\"ability\":\"missing\"}",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-{\"roll\":{\"bonus\":\"1d4\"}}",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-{\"roll\":{\"mode\":2}}",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "effect",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "key": "thief",
+        "total": -1,
+        "prof": 0,
+        "actualConsumer": true
+      },
+      {
+        "width": 1440,
+        "key": "herb",
+        "total": 3,
+        "prof": 0.5,
+        "actualConsumer": true
+      },
+      {
+        "width": 1440,
+        "key": "thief",
+        "total": 5,
+        "prof": 1,
+        "actualConsumer": true
+      },
+      {
+        "width": 1440,
+        "key": "smith",
+        "total": 9,
+        "prof": 1.5,
+        "actualConsumer": true
+      },
+      {
+        "width": 1440,
+        "key": "bagpipes",
+        "total": 14,
+        "prof": 2,
+        "actualConsumer": true
+      },
+      {
+        "width": 1440,
+        "key": "navg",
+        "total": 12.5,
+        "prof": 1,
+        "actualConsumer": true
+      },
+      {
+        "width": 1440,
+        "key": "water",
+        "total": -6,
+        "prof": 0,
+        "actualConsumer": true
+      },
+      {
+        "width": 1440,
+        "key": "bagpipes",
+        "total": 2,
+        "prof": 0,
+        "actualConsumer": true
+      },
+      {
+        "width": 1440,
+        "mode": -1,
+        "formula": "2d20kl1+5",
+        "buttons": true,
+        "previews": true,
+        "shortcut": true
+      },
+      {
+        "width": 1440,
+        "mode": 0,
+        "formula": "1d20+5",
+        "buttons": true,
+        "previews": true,
+        "shortcut": true
+      },
+      {
+        "width": 1440,
+        "mode": 1,
+        "formula": "2d20kh1+5",
+        "buttons": true,
+        "previews": true,
+        "shortcut": true
+      },
+      {
+        "width": 1440,
+        "retainedCallbackFencedAcrossRecovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-tools.thief.roll-min",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-tools.thief.roll-max",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-abilities.dex.check.roll-min",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-abilities.dex.check.roll-max",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.check-min",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.check-max",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.tool-min",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.tool-max",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-{\"value\":\"1\"}",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-{\"ability\":\"missing\"}",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-{\"roll\":{\"bonus\":\"1d4\"}}",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-{\"roll\":{\"mode\":2}}",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "effect",
+        "disabled": true,
+        "staleDialogRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "key": "thief",
+        "total": -1,
+        "prof": 0,
+        "actualConsumer": true
+      },
+      {
+        "width": 390,
+        "key": "herb",
+        "total": 3,
+        "prof": 0.5,
+        "actualConsumer": true
+      },
+      {
+        "width": 390,
+        "key": "thief",
+        "total": 5,
+        "prof": 1,
+        "actualConsumer": true
+      },
+      {
+        "width": 390,
+        "key": "smith",
+        "total": 9,
+        "prof": 1.5,
+        "actualConsumer": true
+      },
+      {
+        "width": 390,
+        "key": "bagpipes",
+        "total": 14,
+        "prof": 2,
+        "actualConsumer": true
+      },
+      {
+        "width": 390,
+        "key": "navg",
+        "total": 12.5,
+        "prof": 1,
+        "actualConsumer": true
+      },
+      {
+        "width": 390,
+        "key": "water",
+        "total": -6,
+        "prof": 0,
+        "actualConsumer": true
+      },
+      {
+        "width": 390,
+        "key": "bagpipes",
+        "total": 2,
+        "prof": 0,
+        "actualConsumer": true
+      },
+      {
+        "width": 390,
+        "mode": -1,
+        "formula": "2d20kl1+5",
+        "buttons": true,
+        "previews": true,
+        "shortcut": true
+      },
+      {
+        "width": 390,
+        "mode": 0,
+        "formula": "1d20+5",
+        "buttons": true,
+        "previews": true,
+        "shortcut": true
+      },
+      {
+        "width": 390,
+        "mode": 1,
+        "formula": "2d20kh1+5",
+        "buttons": true,
+        "previews": true,
+        "shortcut": true
+      },
+      {
+        "width": 390,
+        "retainedCallbackFencedAcrossRecovery": true
+      }
+    ],
+    "focusRows": [
+      {
+        "width": 1440,
+        "beforePointerLeaves": "2d20kh1+5",
+        "afterPointerLeaves": "2d20kh1+5",
+        "retainedFocus": true,
+        "submitted": "2d20kh1+5"
+      },
+      {
+        "width": 390,
+        "beforePointerLeaves": "2d20kh1+5",
+        "afterPointerLeaves": "2d20kh1+5",
+        "retainedFocus": true,
+        "submitted": "2d20kh1+5"
+      }
+    ],
+    "combinationRows": [
+      {
+        "width": 1440,
+        "id": "skill-0-0-wis",
+        "defaultPreview": "2d20kl1+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0-0-dex",
+        "defaultPreview": "2d20kh1+7",
+        "manualNormal": "1d20+7"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-0-wis",
+        "defaultPreview": "2d20kl1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-0-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0-0.5-wis",
+        "defaultPreview": "2d20kl1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0-0.5-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-0.5-wis",
+        "defaultPreview": "1d20+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-0.5-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 1440,
+        "id": "skill-1-0.5-wis",
+        "defaultPreview": "1d20+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "skill-1-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-2-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 1440,
+        "id": "skill-0.5-2-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-2-1-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 1440,
+        "id": "skill-2-1-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "skill-1.5-1-wis",
+        "defaultPreview": "1d20+16",
+        "manualNormal": "1d20+16"
+      },
+      {
+        "width": 1440,
+        "id": "skill-1.5-1-dex",
+        "defaultPreview": "2d20kh1+11",
+        "manualNormal": "1d20+11"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0-0-wis",
+        "defaultPreview": "2d20kl1+14",
+        "manualNormal": "1d20+14"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0-0-dex",
+        "defaultPreview": "2d20kh1+9",
+        "manualNormal": "1d20+9"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-0-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-0-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0-0.5-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-0.5-wis",
+        "defaultPreview": "1d20+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "tool-1-0.5-wis",
+        "defaultPreview": "1d20+17",
+        "manualNormal": "1d20+17"
+      },
+      {
+        "width": 1440,
+        "id": "tool-1-0.5-dex",
+        "defaultPreview": "2d20kh1+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-2-wis",
+        "defaultPreview": "1d20+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 1440,
+        "id": "tool-0.5-2-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-2-1-wis",
+        "defaultPreview": "1d20+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 1440,
+        "id": "tool-2-1-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "tool-1.5-1-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 1440,
+        "id": "tool-1.5-1-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 1440,
+        "id": "independent-skill-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "independent-skill-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 1440,
+        "id": "independent-tool-wis",
+        "defaultPreview": "2d20kl1+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 1440,
+        "id": "independent-tool-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 1440,
+        "id": "positive-half-zero-flat-skill",
+        "defaultPreview": "1d20+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 1440,
+        "id": "positive-half-zero-flat-tool",
+        "defaultPreview": "1d20+14",
+        "manualNormal": "1d20+14"
+      },
+      {
+        "width": 1440,
+        "kind": "skill",
+        "clearing": true,
+        "abilityPreservedWhenValid": true,
+        "recoveryFresh": true,
+        "retainedCallbackFenced": true,
+        "secondarySourceLossFenced": true
+      },
+      {
+        "width": 1440,
+        "kind": "tool",
+        "clearing": true,
+        "abilityPreservedWhenValid": true,
+        "recoveryFresh": true,
+        "retainedCallbackFenced": true,
+        "secondarySourceLossFenced": true
+      },
+      {
+        "width": 390,
+        "id": "skill-0-0-wis",
+        "defaultPreview": "2d20kl1+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 390,
+        "id": "skill-0-0-dex",
+        "defaultPreview": "2d20kh1+7",
+        "manualNormal": "1d20+7"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-0-wis",
+        "defaultPreview": "2d20kl1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-0-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 390,
+        "id": "skill-0-0.5-wis",
+        "defaultPreview": "2d20kl1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-0-0.5-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-0.5-wis",
+        "defaultPreview": "1d20+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-0.5-dex",
+        "defaultPreview": "2d20kh1+8",
+        "manualNormal": "1d20+8"
+      },
+      {
+        "width": 390,
+        "id": "skill-1-0.5-wis",
+        "defaultPreview": "1d20+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "skill-1-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-2-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 390,
+        "id": "skill-0.5-2-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-2-1-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 390,
+        "id": "skill-2-1-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "skill-1.5-1-wis",
+        "defaultPreview": "1d20+16",
+        "manualNormal": "1d20+16"
+      },
+      {
+        "width": 390,
+        "id": "skill-1.5-1-dex",
+        "defaultPreview": "2d20kh1+11",
+        "manualNormal": "1d20+11"
+      },
+      {
+        "width": 390,
+        "id": "tool-0-0-wis",
+        "defaultPreview": "2d20kl1+14",
+        "manualNormal": "1d20+14"
+      },
+      {
+        "width": 390,
+        "id": "tool-0-0-dex",
+        "defaultPreview": "2d20kh1+9",
+        "manualNormal": "1d20+9"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-0-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-0-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "tool-0-0.5-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-0-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-0.5-wis",
+        "defaultPreview": "1d20+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-0.5-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "tool-1-0.5-wis",
+        "defaultPreview": "1d20+17",
+        "manualNormal": "1d20+17"
+      },
+      {
+        "width": 390,
+        "id": "tool-1-0.5-dex",
+        "defaultPreview": "2d20kh1+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-2-wis",
+        "defaultPreview": "1d20+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 390,
+        "id": "tool-0.5-2-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-2-1-wis",
+        "defaultPreview": "1d20+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 390,
+        "id": "tool-2-1-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "tool-1.5-1-wis",
+        "defaultPreview": "1d20+18",
+        "manualNormal": "1d20+18"
+      },
+      {
+        "width": 390,
+        "id": "tool-1.5-1-dex",
+        "defaultPreview": "2d20kh1+13",
+        "manualNormal": "1d20+13"
+      },
+      {
+        "width": 390,
+        "id": "independent-skill-wis",
+        "defaultPreview": "2d20kl1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "independent-skill-dex",
+        "defaultPreview": "2d20kh1+10",
+        "manualNormal": "1d20+10"
+      },
+      {
+        "width": 390,
+        "id": "independent-tool-wis",
+        "defaultPreview": "2d20kl1+20",
+        "manualNormal": "1d20+20"
+      },
+      {
+        "width": 390,
+        "id": "independent-tool-dex",
+        "defaultPreview": "2d20kh1+15",
+        "manualNormal": "1d20+15"
+      },
+      {
+        "width": 390,
+        "id": "positive-half-zero-flat-skill",
+        "defaultPreview": "1d20+12",
+        "manualNormal": "1d20+12"
+      },
+      {
+        "width": 390,
+        "id": "positive-half-zero-flat-tool",
+        "defaultPreview": "1d20+14",
+        "manualNormal": "1d20+14"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "clearing": true,
+        "abilityPreservedWhenValid": true,
+        "recoveryFresh": true,
+        "retainedCallbackFenced": true,
+        "secondarySourceLossFenced": true
+      },
+      {
+        "width": 390,
+        "kind": "tool",
+        "clearing": true,
+        "abilityPreservedWhenValid": true,
+        "recoveryFresh": true,
+        "retainedCallbackFenced": true,
+        "secondarySourceLossFenced": true
+      }
+    ],
+    "effectRows": [
+      {
+        "width": 1440,
+        "id": "no-op-actor",
+        "ready": true,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "disabled-unknown",
+        "ready": true,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unequipped-transfer",
+        "ready": true,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "actor-initial-final",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "stable-priorities",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "nontransfer-item",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "conditional",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "timed",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "statuses",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "legacy-changes",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-type",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "no-op-actor",
+        "ready": true,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "disabled-unknown",
+        "ready": true,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unequipped-transfer",
+        "ready": true,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "actor-initial-final",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "stable-priorities",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "nontransfer-item",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "conditional",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "timed",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "statuses",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "legacy-changes",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-type",
+        "ready": false,
+        "staleRetired": true,
+        "recovery": true
+      }
+    ],
+    "numericEffectRows": [
+      {
+        "width": 1440,
+        "id": "wis-add",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "wis-subtract",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "wis-multiply",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "wis-override",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "wis-upgrade",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "wis-downgrade",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "priority-chain",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "skill-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "tool-half",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-check-half",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-check-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-skill-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-tool-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "local-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-positive-automatic",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "skill-target-does-not-raise-independent-tool",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "final-score",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "formula-delta",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-ability",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "missing-tool",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-invalid-choice",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-operation",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "bonus-field",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "rounded-score",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "tool-rounded-step",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "clamped-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "uninitialized-fractional-source",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:skill-empty-add",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:skill-add",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:skill-add-negative",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:skill-subtract",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:skill-subtract-negative",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:skill-override",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:skill-empty-subtract",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:ability-check",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:ability-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:global-check",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:global-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:global-skill",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:global-tool",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:tool-local",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:passive",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:decimal",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:multiply-open",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:expression-source",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:expression-delta",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:final-open",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:skill-empty-add-two",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:constant-operation-chain",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "constant:operation-priority",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "wis-add",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "wis-subtract",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "wis-multiply",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "wis-override",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "wis-upgrade",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "wis-downgrade",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "priority-chain",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "skill-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "tool-half",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-check-half",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-check-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-skill-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-tool-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "local-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-positive-automatic",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "skill-target-does-not-raise-independent-tool",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "final-score",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "formula-delta",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-ability",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "missing-tool",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-invalid-choice",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-operation",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "bonus-field",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rounded-score",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "tool-rounded-step",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "clamped-expertise",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "uninitialized-fractional-source",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:skill-empty-add",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:skill-add",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:skill-add-negative",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:skill-subtract",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:skill-subtract-negative",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:skill-override",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:skill-empty-subtract",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:ability-check",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:ability-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:global-check",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:global-save",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:global-skill",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:global-tool",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:tool-local",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:passive",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:decimal",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:multiply-open",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:expression-source",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:expression-delta",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:final-open",
+        "ready": false,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:skill-empty-add-two",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:constant-operation-chain",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "constant:operation-priority",
+        "ready": true,
+        "actualConsumers": true,
+        "recovery": true
+      }
+    ],
+    "effectModeRows": [
+      {
+        "width": 1440,
+        "id": "local-add-adv",
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "local-add-dis",
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "local-source-cancel",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "add-counts-cancel",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "subtract-source",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "negative-counts-cross-scope",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "local-override-last",
+        "expected": {
+          "mode": 1,
+          "passive": 10,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": -1,
+          "combinedToolMode": -1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-type-passive-last",
+        "expected": {
+          "mode": -1,
+          "passive": 20,
+          "combinedMode": -1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "normal-override",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "downgrade-zero",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "downgrade-dis",
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": -1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "upgrade-zero",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "upgrade-adv",
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "override-adv-suppressed",
+        "expected": {
+          "mode": 0,
+          "passive": 20,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "override-dis-suppressed",
+        "expected": {
+          "mode": 0,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "multiply-noop",
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-check-add",
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "ability-check-add",
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": -1,
+          "combinedToolMode": 0,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "source-poison-counts",
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-source",
+        "expected": null,
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-delta",
+        "expected": null,
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-open",
+        "expected": null,
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "final-open",
+        "expected": null,
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "tool-local-add-adv",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "tool-local-add-dis",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": 0,
+          "combinedToolMode": 0,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-tool-override",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": 0,
+          "combinedToolMode": -1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "tool-override-order",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "ability-save-add",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 1
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-save-add",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": -1
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "local-add-adv",
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "local-add-dis",
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "local-source-cancel",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "add-counts-cancel",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "subtract-source",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "negative-counts-cross-scope",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "local-override-last",
+        "expected": {
+          "mode": 1,
+          "passive": 10,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": -1,
+          "combinedToolMode": -1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-type-passive-last",
+        "expected": {
+          "mode": -1,
+          "passive": 20,
+          "combinedMode": -1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "normal-override",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "downgrade-zero",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "downgrade-dis",
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": -1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "upgrade-zero",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "upgrade-adv",
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "override-adv-suppressed",
+        "expected": {
+          "mode": 0,
+          "passive": 20,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "override-dis-suppressed",
+        "expected": {
+          "mode": 0,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "multiply-noop",
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-check-add",
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "ability-check-add",
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": -1,
+          "combinedToolMode": 0,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "source-poison-counts",
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-source",
+        "expected": null,
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-delta",
+        "expected": null,
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-open",
+        "expected": null,
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "final-open",
+        "expected": null,
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "tool-local-add-adv",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "tool-local-add-dis",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": 0,
+          "combinedToolMode": 0,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-tool-override",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": 0,
+          "combinedToolMode": -1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "tool-override-order",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "ability-save-add",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 1
+        },
+        "retired": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-save-add",
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": -1
+        },
+        "retired": true,
+        "recovery": true
+      }
+    ],
+    "healthRows": [
+      {
+        "width": 1440,
+        "id": "level-one",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 7,
+          "temp": 3,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "level-three",
+        "hp": {
+          "max": 23,
+          "effectiveMax": 23,
+          "value": 23,
+          "temp": 2,
+          "hdMax": 3,
+          "hdValue": 2,
+          "bySize": {
+            "d8": 2
+          }
+        },
+        "hitDice": {
+          "max": 3,
+          "value": 2
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "negative-con",
+        "hp": {
+          "max": 7,
+          "effectiveMax": 7,
+          "value": 5,
+          "temp": 0,
+          "hdMax": 3,
+          "hdValue": 3,
+          "bySize": {
+            "d6": 3
+          }
+        },
+        "hitDice": {
+          "max": 3,
+          "value": 3
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "multiclass",
+        "hp": {
+          "max": 27,
+          "effectiveMax": 32,
+          "value": 32,
+          "temp": 3,
+          "hdMax": 4,
+          "hdValue": 3,
+          "bySize": {
+            "d10": 2,
+            "d6": 1
+          }
+        },
+        "hitDice": {
+          "max": 4,
+          "value": 3
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "explicit-override-independent",
+        "hp": {
+          "max": 20,
+          "effectiveMax": 20,
+          "value": 8,
+          "temp": 0,
+          "hdMax": 3,
+          "hdValue": 2,
+          "bySize": {
+            "d8": 2
+          }
+        },
+        "hitDice": {
+          "max": 3,
+          "value": 2
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "negative-tempmax",
+        "hp": {
+          "max": 20,
+          "effectiveMax": 0,
+          "value": 0,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "current-null",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 0,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "current-default",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 0,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "override-zero",
+        "hp": {
+          "max": 0,
+          "effectiveMax": 0,
+          "value": 0,
+          "temp": 9,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "negative-additional",
+        "hp": {
+          "max": 24,
+          "effectiveMax": 24,
+          "value": 7,
+          "temp": 0,
+          "hdMax": 0,
+          "hdValue": 0,
+          "bySize": {
+            "d8": 0
+          }
+        },
+        "hitDice": {
+          "max": 0,
+          "value": 0
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "overspent-hd",
+        "hp": {
+          "max": 24,
+          "effectiveMax": 24,
+          "value": 7,
+          "temp": 0,
+          "hdMax": 3,
+          "hdValue": 0,
+          "bySize": {
+            "d8": 0
+          }
+        },
+        "hitDice": {
+          "max": 3,
+          "value": 0
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "hd-defaults",
+        "hp": {
+          "max": 8,
+          "effectiveMax": 8,
+          "value": 5,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d6": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "decimal-bonuses",
+        "hp": {
+          "max": 19,
+          "effectiveMax": 17,
+          "value": 17,
+          "temp": 0,
+          "hdMax": 2,
+          "hdValue": 2,
+          "bySize": {
+            "d8": 2
+          }
+        },
+        "hitDice": {
+          "max": 2,
+          "value": 2
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "missing-choice",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 2,
+          "value": 2
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "missing-con",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "duplicate-identifiers",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "formula-additional",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 5,
+          "temp": 0
+        },
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "future-choice",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "invalid-max",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "invalid-current",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "invalid-choice",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "missing-identifier",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "negative-derived-maximum",
+        "hp": {
+          "max": -90,
+          "effectiveMax": 0,
+          "value": 0,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "tempmax-null",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 7,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "maximum-default",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 7,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-con-effect",
+        "hp": {
+          "max": 11,
+          "effectiveMax": 11,
+          "value": 7,
+          "temp": 3,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "level-one",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 7,
+          "temp": 3,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "level-three",
+        "hp": {
+          "max": 23,
+          "effectiveMax": 23,
+          "value": 23,
+          "temp": 2,
+          "hdMax": 3,
+          "hdValue": 2,
+          "bySize": {
+            "d8": 2
+          }
+        },
+        "hitDice": {
+          "max": 3,
+          "value": 2
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "negative-con",
+        "hp": {
+          "max": 7,
+          "effectiveMax": 7,
+          "value": 5,
+          "temp": 0,
+          "hdMax": 3,
+          "hdValue": 3,
+          "bySize": {
+            "d6": 3
+          }
+        },
+        "hitDice": {
+          "max": 3,
+          "value": 3
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "multiclass",
+        "hp": {
+          "max": 27,
+          "effectiveMax": 32,
+          "value": 32,
+          "temp": 3,
+          "hdMax": 4,
+          "hdValue": 3,
+          "bySize": {
+            "d10": 2,
+            "d6": 1
+          }
+        },
+        "hitDice": {
+          "max": 4,
+          "value": 3
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "explicit-override-independent",
+        "hp": {
+          "max": 20,
+          "effectiveMax": 20,
+          "value": 8,
+          "temp": 0,
+          "hdMax": 3,
+          "hdValue": 2,
+          "bySize": {
+            "d8": 2
+          }
+        },
+        "hitDice": {
+          "max": 3,
+          "value": 2
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "negative-tempmax",
+        "hp": {
+          "max": 20,
+          "effectiveMax": 0,
+          "value": 0,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "current-null",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 0,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "current-default",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 0,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "override-zero",
+        "hp": {
+          "max": 0,
+          "effectiveMax": 0,
+          "value": 0,
+          "temp": 9,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "negative-additional",
+        "hp": {
+          "max": 24,
+          "effectiveMax": 24,
+          "value": 7,
+          "temp": 0,
+          "hdMax": 0,
+          "hdValue": 0,
+          "bySize": {
+            "d8": 0
+          }
+        },
+        "hitDice": {
+          "max": 0,
+          "value": 0
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "overspent-hd",
+        "hp": {
+          "max": 24,
+          "effectiveMax": 24,
+          "value": 7,
+          "temp": 0,
+          "hdMax": 3,
+          "hdValue": 0,
+          "bySize": {
+            "d8": 0
+          }
+        },
+        "hitDice": {
+          "max": 3,
+          "value": 0
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "hd-defaults",
+        "hp": {
+          "max": 8,
+          "effectiveMax": 8,
+          "value": 5,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d6": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "decimal-bonuses",
+        "hp": {
+          "max": 19,
+          "effectiveMax": 17,
+          "value": 17,
+          "temp": 0,
+          "hdMax": 2,
+          "hdValue": 2,
+          "bySize": {
+            "d8": 2
+          }
+        },
+        "hitDice": {
+          "max": 2,
+          "value": 2
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "missing-choice",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 2,
+          "value": 2
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "missing-con",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "duplicate-identifiers",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "formula-additional",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 5,
+          "temp": 0
+        },
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "future-choice",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "invalid-max",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "invalid-current",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "invalid-choice",
+        "hp": "unavailable",
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "missing-identifier",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "negative-derived-maximum",
+        "hp": {
+          "max": -90,
+          "effectiveMax": 0,
+          "value": 0,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "tempmax-null",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 7,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "maximum-default",
+        "hp": {
+          "max": 10,
+          "effectiveMax": 10,
+          "value": 7,
+          "temp": 0,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-con-effect",
+        "hp": {
+          "max": 11,
+          "effectiveMax": 11,
+          "value": 7,
+          "temp": 3,
+          "hdMax": 1,
+          "hdValue": 1,
+          "bySize": {
+            "d8": 1
+          }
+        },
+        "hitDice": {
+          "max": 1,
+          "value": 1
+        },
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "hp": "unavailable",
+        "hitDice": "unavailable",
+        "unqualifiedCommandsDisabled": true,
+        "recovery": true
+      }
+    ],
+    "defenseRows": [
+      {
+        "width": 1440,
+        "id": "default",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "negative-dex",
+        "ac": 8,
+        "initiative": -2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "override-independent",
+        "ac": 17,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "natural-independent",
+        "ac": 15,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "flat-does-not-override",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "empty-calcs-flat",
+        "ac": 17,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "mage",
+        "ac": 15,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "monk",
+        "ac": 15,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "barbarian",
+        "ac": 15,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "bard",
+        "ac": 16,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "equal-formula-order",
+        "ac": 15,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-constant",
+        "ac": 18,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-lower",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-armored-filter",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-shielded-filter",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "zero-override",
+        "ac": 0,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "prepared-poison",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "legacy-value-open",
+        "ac": null,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "legacy-calc-open",
+        "ac": null,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-calculation",
+        "ac": null,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-expression-open",
+        "ac": null,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "numeric-bonuses",
+        "ac": 12,
+        "initiative": 8,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "alternate-ability",
+        "ac": 12,
+        "initiative": 9,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "source-mode-cancel",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "global-mode",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "tie-breaker",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "fixed-score",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "fixed-tie-ignored",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "npc-score-PC-roll",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "check-proficiency-does-not-apply",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "proficiency-dice-independent",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-init-bonus",
+        "ac": 12,
+        "initiative": 7,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "initial-init-mode",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-attributes.init.roll-min",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-attributes.init.roll-max",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-abilities.dex.check.roll-min",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-abilities.dex.check.roll-max",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.check-min",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.check-max",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "fixed-ignores-die-bounds",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-range",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "legacy-init-open",
+        "ac": 12,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-ability",
+        "ac": 12,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "formula-bonus-open",
+        "ac": 12,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-score-setting",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "equipped-item-open",
+        "ac": null,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "equipped-override-independent",
+        "ac": 17,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "fixed-score-zero",
+        "ac": 12,
+        "initiative": -10,
+        "available": true,
+        "fixed": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "ac": null,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "ac": null,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "ac": null,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "default",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "negative-dex",
+        "ac": 8,
+        "initiative": -2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "override-independent",
+        "ac": 17,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "natural-independent",
+        "ac": 15,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "flat-does-not-override",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "empty-calcs-flat",
+        "ac": 17,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "mage",
+        "ac": 15,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "monk",
+        "ac": 15,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "barbarian",
+        "ac": 15,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "bard",
+        "ac": 16,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "equal-formula-order",
+        "ac": 15,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-constant",
+        "ac": 18,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-lower",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-armored-filter",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-shielded-filter",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "zero-override",
+        "ac": 0,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "prepared-poison",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "legacy-value-open",
+        "ac": null,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "legacy-calc-open",
+        "ac": null,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-calculation",
+        "ac": null,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "custom-expression-open",
+        "ac": null,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "numeric-bonuses",
+        "ac": 12,
+        "initiative": 8,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "alternate-ability",
+        "ac": 12,
+        "initiative": 9,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "source-mode-cancel",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "global-mode",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "tie-breaker",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "fixed-score",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "fixed-tie-ignored",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "npc-score-PC-roll",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "check-proficiency-does-not-apply",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "proficiency-dice-independent",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-init-bonus",
+        "ac": 12,
+        "initiative": 7,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "initial-init-mode",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-attributes.init.roll-min",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-attributes.init.roll-max",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-abilities.dex.check.roll-min",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-abilities.dex.check.roll-max",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.check-min",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.check-max",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "fixed-ignores-die-bounds",
+        "ac": 12,
+        "initiative": 2,
+        "available": true,
+        "fixed": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-range",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "legacy-init-open",
+        "ac": 12,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-ability",
+        "ac": 12,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "formula-bonus-open",
+        "ac": 12,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-score-setting",
+        "ac": 12,
+        "initiative": 2,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "equipped-item-open",
+        "ac": null,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "equipped-override-independent",
+        "ac": 17,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "fixed-score-zero",
+        "ac": 12,
+        "initiative": -10,
+        "available": true,
+        "fixed": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "ac": null,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "ac": null,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "ac": null,
+        "initiative": null,
+        "available": false,
+        "fixed": false,
+        "recovery": true
+      }
+    ]
+  },
+  "isolatedPublicHost": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "qualified-plain-d20-numeric-profile",
+    "equalIndexDiagnostics": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "selectionMismatches": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "caseCount": 2821,
+    "requestCount": 2822,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "manualModeCases": 18,
+    "toolCases": 24,
+    "selectedCases": 152,
+    "effectCases": 3,
+    "numericEffectCases": 504,
+    "initiativeCases": 144,
+    "fixedScoreCases": 8,
+    "modeEffectCases": 600,
+    "constantFormulaCases": 19,
+    "bonusEffectCases": 456,
+    "histogram": {
+      "adv": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39
+      ],
+      "dis": [
+        39,
+        37,
+        35,
+        33,
+        31,
+        29,
+        27,
+        25,
+        23,
+        21,
+        19,
+        17,
+        15,
+        13,
+        11,
+        9,
+        7,
+        5,
+        3,
+        1
+      ]
+    },
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "hashes": {
+    "info.json": "c0cf13ece88608e06f378e4b342a09a50b4798d5bab87e0cb7efe98d366118ab",
+    "tests/fixtures/native-6.0.6/defenses-initiative.json": "6c4814d75f8bdd4840c390c6f86b01d569cf80cf6365e5bac2de453c41a24587",
+    "src/logic/preparation/defenses.ts": "45269b1781ba772f78adb97b38efae3a7ced5b716baa9eaf1a9c8f01b0004e5d",
+    "src/logic/preparation/d20-configuration.ts": "a55647df18416b6e066dcf1120ca568325d427171cb19a6d70f46e5a81246dc3",
+    "src/logic/preparation/character-profile.ts": "bd183bcf06acd32aa0553f53e5a04fd1d3936af57c2b0dc15ff5f7c0c935e3eb",
+    "src/logic/preparation/numeric-effects.ts": "ca2dbeeca796970d7f28de499f80e8953931ad7d3fc26b6c20c8e7f9dc7146c8",
+    "src/logic/adapter.ts": "0eba5d8b8804a47bb42b47f5a51202d5e64e8d49e0f0758ae5fc31c0d3cd7ec3",
+    "src/tests/defenses-initiative.test.ts": "8a1e27a815f4a0fb9200ce47da8070501be522d8a66a66ffe23c738753c5bc2c",
+    "src/tests/fixtures/defense-scenarios.ts": "994277ba82e80c25c0361e7ba630a1a6a7e4fad84d0c1e8e67349bff99176a5f",
+    "src/ui/components/shared/skillIntent.ts": "8891c8d3440fe9804468f9cba364ebe653d624d72f394146f4d8a74ce6df03b2",
+    "src/ui/components/blocks/Initiative.tsx": "85b304c2de0c0d1d3d93590b3b53952c0c434d76983330e785ca464d8923668e",
+    "src/ui/components/blocks/ArmorClass.tsx": "224c928014ac1d4ff0d81c4e834ef0749a983248a53120673ba67ba58573d65a",
+    "src/ui/components/modals/RollModal.tsx": "e9a863b858c035d1ac2ed73a012e7374a0563096b41f1f8b311efb96a94967d5",
+    "scripts/native-defenses-oracle.mjs": "08b75a786f00614da47d44de3fe83f449c1ab8dfa4cace701127515e81a9b6d0",
+    "scripts/test-mounted.mjs": "13f3eab63b3a5ed90c9fb1a29c7b957b94086be5199281dfd8b51c8330758796",
+    "scripts/test-public-rolls.mjs": "ec2f91b848e4c91ffd8338c3f3709aa33ed5d0bf38b9a9918af6a1900a276a71"
+  },
+  "limits": [
+    "Controlled initialized native methods and constructor captures, not native DataModels/Documents/dice engine",
+    "No equipped Item interpretation; final override may remain independently known",
+    "Legacy migration aliases separately recorded and unavailable pending qualification",
+    "No flags/conditions/cover/formula expressions or bounded-die execution; valid bounds irrelevant only to fixed BasicRoll branch",
+    "Mounted SDK presentation seam; not installed Core combat HUD or native/operator acceptance",
+    "Core0.19.3 synthetic public-host transport; exact faces/entropy/values/counts/flags/totals/distributions; equal-value indices diagnostic only",
+    "No complete DD/A/M gate closed; ADR-0001/E01/wider Q00/E05 remain open"
+  ],
+  "archive": {
+    "path": "/tmp/dnd5e-package-K9Fflg/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "5a5faec97d3058436030274a20aaa689bb0a5cb5e56b22fc57e6410f87015e81"
+  }
+}

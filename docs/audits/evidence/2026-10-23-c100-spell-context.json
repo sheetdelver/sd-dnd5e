@@ -1,0 +1,70 @@
+{
+  "checkpoint": "C100",
+  "parent": "a6a5028",
+  "status": "Qualified source-linked spell/Activity ability contexts and numeric spell attack read preparation;M2/ADR open",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/11/12/27/31/34 partial",
+    "A02\u2013A06 read dependencies"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "a6a5028",
+    "result": "144/144 final input spell context/attack profiles fail before;0 after",
+    "beforeLogSha256": "b4de0126d433c52891e351ebe17bff53fc61a09091d2145ba0b9685cff2b9514",
+    "afterLogSha256": "01d5ca8ea1806a56908f75851e8aa85c52a8ebf4e00fb96cc159a8e92bde5870"
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;80 module/9 tooling suites,61 tooling assertions",
+    "logSha256": "5695313d1f2ac14276b7d73b99a4926e6c7be4ec3ff5fdebb62d46ce504aacb1"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;297 explicit module/UI/server/test/hook files",
+    "logSha256": "6e5a06578e5e405b3f7c9deeba317ef3dbea5cde756fb1c5ca644c81fc45034e"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 exact source records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "native": {
+    "command": "npm run test:native-spell-context -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c100-native.json",
+    "result": "PASS;16 independent class/subclass/grant/default/duplicate-order contexts and128 actual native numeric attack constructions",
+    "logSha256": "bfc226fbd201ecd672a5094870f3463b11e540ccccf2742c5f2efb8b92bdfd75",
+    "fixture": "tests/fixtures/native-6.0.6/spell-context.json",
+    "sha256": "a50d4dcc7511a3f7ae0eb639336fccbe8690f3075888140965a877d7a1c43778"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-spell-context -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 spell modal,source/subclass updates,generic-versus-attack ability,explicit spellcasting selection,unavailable/recovery,unchanged casting gate,held callbacks/focus/shortcut/zero writes",
+    "artifact": "/tmp/dnd5e-spell-context-mounted-uVFPzZ/evidence.json",
+    "sha256": "cbce3f549541fadf82a4686284f97135b284faf4bb00a9ec707ebdb7568af986"
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;117010 accepted,64 new spell-source independent-check requests,retained distributions,1 unary candidate and1880 tied-index diagnostics,zero native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-8uc8gb/evidence.json",
+    "sha256": "1d7f0397ef56af0e269fb201d48589097db1d2f25af147c728348cf0df3d1a4d"
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;module check/isolated package;21files;test/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-wMkYFP/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "d70ed022a120bc6c2d78168a60ad78772e2cffdea41fa75ed45e8c4fe0e1ef54"
+  },
+  "cleanup": {
+    "result": "Task-owned public host/synthetic endpoints/browser stopped;preexisting listeners untouched",
+    "beforeSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb",
+    "afterSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb"
+  },
+  "limits": [
+    "Native Actor class/caster/strongest-ability,Item class/subclass/effective spellcasting,Spell source/default/classIdentifier/availableAbilities and BaseActivity ability/getRollData methods execute. Primitive/SpellcastingField defaults execute with an initialized modifier snapshot;not full Actor source initialization or native runtime.",
+    "Actual Attack final ability-Set/getter path executes with explicit common/damage-label/neutral label-constructor seams. Actual native getAttackData/scope combination/BasicRoll parts then execute separately with the native selected ability. No full Activity final composition,spell proficiency-dice labels,ammo/magic/effects,slot planning,casting permissions/materials/concentration or action execution.",
+    "Generic Activity fallback to strongest class differs from default Spell attack availableAbilities. Class mapping uses last value with first key order;sourceItem uses first explicit identifier match,subclass linkage and16-character advancementRoot. No inferred names;nonpersisted maps/abilities/totals are ignored;canonical identity is checked.",
+    "An initial public-driver count used truthiness on zero-based index0 (60 vs64). Corrected to explicit definedness;all64 requests retained. Failed driver log hash: 2552944b5a4d8eea3315a17056163b0be84743fcee2a37b8eb60a371961bdb8a. No rule assertion was removed.",
+    "R/S,mounted SDK seam and isolated real host are distinct;no installed UI,native/operator or release acceptance. Homogeneous plain-d20 equivalence and actual host serialization unchanged. Experimental0.4.1/Core>=0.19.3 unchanged;Node24.21/npm11.19 local,CI Node22 unrun."
+  ],
+  "next": "Complete Q02a filter-vocabulary/operand/snapshot dispositions,remaining shared Item/spell common read preparation and M2 exit comparisons;M4/M5 execution acceptance remains separate."
+}

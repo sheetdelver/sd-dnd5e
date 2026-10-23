@@ -1,19 +1,14 @@
 'use client';
-
 import React from 'react';
+import { characterFactsProjection } from '../../../logic/preparation/character-profile';
+import CharacterFact from '../shared/CharacterFact';
 
-interface Props {
-    value?: number;
-}
-
-export default function ProficiencyBonus({ value = 2 }: Props) {
-    const formatted = value >= 0 ? `+${value}` : `${value}`;
-    return (
-        <div className="block-card" style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--text-primary)' }}>
-                {formatted}
-            </div>
-            <div className="block-heading" style={{ marginBottom: 0 }}>Proficiency Bonus</div>
+export default function ProficiencyBonus({ derived }: { derived: Record<string, any> }) {
+    const fact=characterFactsProjection(derived).proficiency;
+    return <div className="block-card" style={{ textAlign: 'center' }}>
+        <div style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--text-primary)' }}>
+            <CharacterFact fact={fact} label="Proficiency bonus" />
         </div>
-    );
+        <div className="block-heading" style={{ marginBottom: 0 }}>{fact.mode==='dice'?'Proficiency Die':'Proficiency Bonus'}</div>
+    </div>;
 }

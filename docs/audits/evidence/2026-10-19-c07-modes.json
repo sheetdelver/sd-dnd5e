@@ -1,0 +1,1573 @@
+{
+  "checkpoint": "C07",
+  "baseCommit": "f4d78f67fc26d38f2718d71feb56df16464c7958",
+  "reviewCheckpoint": "35c6abc",
+  "completedFindingCorrections": [
+    "DD-R01",
+    "DD-R02",
+    "DD-R03",
+    "DD-R04"
+  ],
+  "partialRequirements": [
+    "DD-01",
+    "DD-02",
+    "DD-24",
+    "DD-27",
+    "DD-30",
+    "DD-34"
+  ],
+  "module": "experimental0.4.1",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "before": "modes-source.test.ts failed80 of81 source readiness cases on C06",
+  "after": "81 source static modes/passives,18 ability/save combinations, malformed modes/count poison/source preservation and execution fences pass",
+  "checks": {
+    "npm test": "PASS31 tooling assertions/11 module suites",
+    "npm run typecheck": "PASS97 explicit files",
+    "npm run test:native-source -- --native ../../../../temp/dnd5e": "PASS2242 records/591 candidates",
+    "npm run test:native-checks -- --native ../../../../temp/dnd5e --write-evidence temp/c07-native.json": "PASS16 phase-labelled ability cases/81 mode+passive cases/800 native selections",
+    "npm run test:mounted -- --browser-tools /tmp/sd-dice-preview-tools --chromium /home/juvinious/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell": "PASS50 transitions/6 previews/16 facts/18 modes",
+    "npm run check:package": "PASS isolated check/package",
+    "npm run test:public-rolls": "EXIT2:901 totals/serialized faces and distributions PASS,40 native tie-index mismatches; E05 open"
+  },
+  "publicHostQualification": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "blocked-native-tie-selection",
+    "selectionMismatches": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "caseCount": 901,
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "histogram": {
+      "adv": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39
+      ],
+      "dis": [
+        39,
+        37,
+        35,
+        33,
+        31,
+        29,
+        27,
+        25,
+        23,
+        21,
+        19,
+        17,
+        15,
+        13,
+        11,
+        9,
+        7,
+        5,
+        3,
+        1
+      ]
+    },
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "minimalE05Contract": {
+    "required": "Caller-bound native-equivalent first-occurrence retention on tied d20 advantage/disadvantage, preserving ordered faces,active/discarded flags and serialized results",
+    "alternatives": "An independently qualified existing public primitive may suffice; no private import/result rewriting/evaluator workaround",
+    "disposition": "Concrete D&D equivalence gap, not a claim that generic Core keep/drop is defective; no Core modifications/floor changes authorized"
+  },
+  "controlledSource": {
+    "evidence": "S controlled exact native methods, not native/SDK engine execution",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "declarations": [
+      "check",
+      "save",
+      "skill",
+      "tool"
+    ],
+    "abilities": [
+      {
+        "id": "wis-base",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 2,
+          "check": 2,
+          "save": 2
+        }
+      },
+      {
+        "id": "wis-save",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 2,
+          "check": 2,
+          "save": 5
+        }
+      },
+      {
+        "id": "check-half-and-bonuses",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 2,
+          "check": 6,
+          "save": 10
+        }
+      },
+      {
+        "id": "str-negative",
+        "phase": "intermediate",
+        "observed": {
+          "mod": -1,
+          "check": -1,
+          "save": 1
+        }
+      },
+      {
+        "id": "int-check-expert",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 5,
+          "check": 17,
+          "save": 5
+        }
+      },
+      {
+        "id": "dex-multiclass",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 1,
+          "check": 1,
+          "save": 4
+        }
+      },
+      {
+        "id": "con-global-save",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 3,
+          "check": 3,
+          "save": 7
+        }
+      },
+      {
+        "id": "cha-high-level",
+        "phase": "intermediate",
+        "observed": {
+          "mod": 4,
+          "check": 4,
+          "save": 11
+        }
+      },
+      {
+        "id": "wis-base",
+        "phase": "source-default",
+        "observed": {
+          "mod": 2,
+          "check": 2,
+          "save": 2
+        }
+      },
+      {
+        "id": "wis-save",
+        "phase": "source-default",
+        "observed": {
+          "mod": 2,
+          "check": 2,
+          "save": 5
+        }
+      },
+      {
+        "id": "check-half-and-bonuses",
+        "phase": "source-default",
+        "observed": {
+          "mod": 2,
+          "check": 5,
+          "save": 10
+        }
+      },
+      {
+        "id": "str-negative",
+        "phase": "source-default",
+        "observed": {
+          "mod": -1,
+          "check": -1,
+          "save": 1
+        }
+      },
+      {
+        "id": "int-check-expert",
+        "phase": "source-default",
+        "observed": {
+          "mod": 5,
+          "check": 5,
+          "save": 5
+        }
+      },
+      {
+        "id": "dex-multiclass",
+        "phase": "source-default",
+        "observed": {
+          "mod": 1,
+          "check": 1,
+          "save": 4
+        }
+      },
+      {
+        "id": "con-global-save",
+        "phase": "source-default",
+        "observed": {
+          "mod": 3,
+          "check": 3,
+          "save": 3
+        }
+      },
+      {
+        "id": "cha-high-level",
+        "phase": "source-default",
+        "observed": {
+          "mod": 4,
+          "check": 4,
+          "save": 11
+        }
+      }
+    ],
+    "sourceModeCombinations": 81,
+    "orderedD20Selections": 800,
+    "range": {
+      "minimum": 12,
+      "maximum": 14
+    },
+    "stubs": [
+      "Numeric literal classification only; unknown evaluation fails",
+      "No applied rules/conditions/cover/flags",
+      "Empty ability compatibility shims",
+      "Property traversal and plain count merging"
+    ],
+    "limits": [
+      "Effects and applied-rule filters",
+      "Conditions, cover and native flags",
+      "Equipment and encumbrance",
+      "Transformed/original saves",
+      "Optional abilities and proficiency dice",
+      "Nonconstant bonus formulas",
+      "Native die-range execution and source roll modes",
+      "SDK engine/transport, critical annotations, chat, native/operator acceptance"
+    ]
+  },
+  "mountedRegression": {
+    "evidence": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "playwright": "1.56.1",
+    "browser": "143.0.7499.4",
+    "rows": [
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-skills.prc.roll-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-skills.prc.roll-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-abilities.wis.check.roll-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-abilities.wis.check.roll-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.check-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.check-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.skill-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "range-rolls.ability.skill-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "check-local-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "check-local-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "check-global-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "id": "check-global-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "save-local-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "save-local-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "save-global-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "id": "save-global-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-skills.prc.roll-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-skills.prc.roll-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-abilities.wis.check.roll-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-abilities.wis.check.roll-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.check-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.check-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.skill-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "range-rolls.ability.skill-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "check-local-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "check-local-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "check-global-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "id": "check-global-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "rules-setting-unavailable",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "unsupported-native-version",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "snapshot-absent",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "save-local-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "save-local-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "save-global-min",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "id": "save-global-max",
+        "staleDialogRetired": true,
+        "shortcutBlocked": true,
+        "recovery": true
+      }
+    ],
+    "previewRows": [
+      {
+        "width": 1440,
+        "kind": "skill",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+10+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+5+(2)",
+        "submitted": "normal with numeric2"
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "unsupported": [
+          "1d4",
+          "1+2"
+        ],
+        "preview": "1d20+10+(2)",
+        "submitted": "normal with numeric2"
+      }
+    ],
+    "factRows": [
+      {
+        "width": 1440,
+        "id": "supported",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "invalid",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "armor",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "effect",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "poison",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "supported",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "invalid",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "armor",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "effect",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "poison",
+        "cardProjection": true,
+        "mountedHeaderAndProficiency": true,
+        "recovery": true
+      }
+    ],
+    "modeRows": [
+      {
+        "width": 1440,
+        "kind": "skill",
+        "mode": -1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 1440,
+        "kind": "skill",
+        "mode": 0,
+        "formula": "1d20+5",
+        "staleRetired": true,
+        "execution": "normal-only"
+      },
+      {
+        "width": 1440,
+        "kind": "skill",
+        "mode": 1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "mode": -1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "mode": 0,
+        "formula": "1d20+2",
+        "staleRetired": true,
+        "execution": "normal-only"
+      },
+      {
+        "width": 1440,
+        "kind": "ability",
+        "mode": 1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "mode": -1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "mode": 0,
+        "formula": "1d20+5",
+        "staleRetired": true,
+        "execution": "normal-only"
+      },
+      {
+        "width": 1440,
+        "kind": "save",
+        "mode": 1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "mode": -1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "mode": 0,
+        "formula": "1d20+5",
+        "staleRetired": true,
+        "execution": "normal-only"
+      },
+      {
+        "width": 390,
+        "kind": "skill",
+        "mode": 1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "mode": -1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "mode": 0,
+        "formula": "1d20+2",
+        "staleRetired": true,
+        "execution": "normal-only"
+      },
+      {
+        "width": 390,
+        "kind": "ability",
+        "mode": 1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "mode": -1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "mode": 0,
+        "formula": "1d20+5",
+        "staleRetired": true,
+        "execution": "normal-only"
+      },
+      {
+        "width": 390,
+        "kind": "save",
+        "mode": 1,
+        "formula": null,
+        "staleRetired": true,
+        "execution": "blocked-E05"
+      }
+    ]
+  },
+  "artifactsSha256": {
+    "/tmp/dnd5e-public-rolls-4PF4Cy/evidence.json": "cadeda374165c8eb7b38d9f65fb3bd19854f0a110230d3adc81407087e848d11",
+    "/tmp/dnd5e-public-rolls-4PF4Cy/observed.json": "8220bebc6b1058ba6f1d3abae02ca635065d632528d3fce9578ecdff24343f28",
+    "/tmp/dnd5e-public-rolls-4PF4Cy/entropy.mjs": "d99f838c6bd84403852388ca9dc83407f17daac7dfbb58c87aed72d02853dfa8",
+    "/tmp/dnd5e-public-rolls-4PF4Cy/cases.ts": "7d4966c74d9a1ceb4566a442a5c5f7e3d8622ce3ea9687664ed911ef0ee7e117",
+    "temp/c07-native.json": "2695d08826ad4e2fe527a574313165fb2d8a025d4938e51480fafaa775a49168",
+    "/tmp/dnd5e-mounted-p5n08V/evidence.json": "4ec4e24f624bdfe5a37449b474fe3e3a95349bd2c504454337aae607dc4f9f5b",
+    "/tmp/dnd5e-package-zheaZo/data/dist/modules/dnd5e-0.4.1.tgz": "dc68321ae55655d1f18808f34b0250bbfd91d660aeb407340f62a845ca11a10e"
+  },
+  "package": {
+    "path": "/tmp/dnd5e-package-zheaZo/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "dc68321ae55655d1f18808f34b0250bbfd91d660aeb407340f62a845ca11a10e",
+    "regularFiles": 15
+  },
+  "cleanup": {
+    "taskListenersAbsent": true,
+    "allCoreProcessesStopped": true,
+    "nativeWrites": 0
+  },
+  "limits": [
+    "Source/default/intermediate phases remain distinct; no effect support simulated",
+    "Normal numeric path only; source/manual adv/dis fenced, larger literals unavailable",
+    "Silent public runtime in a test-only source module with synthetic transport/users and controlled dependency entropy; not full actor endpoint/installed D&D UI",
+    "No native/operator/critical/chat/audience acceptance; ranges/tools/formulas/effects remain open",
+    "E01 unchanged; E02\u2013E04 no new defect; E05 bounded mismatch documented",
+    "Node24.21.0/npm11.19.0; Node22 CI not run; ADR remains open"
+  ]
+}

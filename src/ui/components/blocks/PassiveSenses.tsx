@@ -1,35 +1,25 @@
 'use client';
 
 import React from 'react';
+import type {SensesFacts} from '../../../logic/preparation/movement';
+import {sensesProjection} from '../../../logic/preparation/movement';
+import {SensesReadout} from '../shared/MovementFacts';
 
-interface SensesData {
-    darkvision?: number;
-    blindsight?: number;
-    tremorsense?: number;
-    truesight?: number;
-    special?: string;
-}
 
 interface Props {
-    perception?: number;
-    investigation?: number;
-    insight?: number;
-    senses?: SensesData;
+    perception?: number | null;
+    investigation?: number | null;
+    insight?: number | null;
+    senses?: SensesFacts;
 }
 
-export default function PassiveSenses({ perception = 10, investigation = 10, insight = 10, senses }: Props) {
+export default function PassiveSenses({ perception, investigation, insight, senses }: Props) {
     const items = [
         { label: 'Perception', value: perception },
         { label: 'Investigation', value: investigation },
         { label: 'Insight', value: insight },
     ];
 
-    const specialSenses: string[] = [];
-    if (senses?.darkvision) specialSenses.push(`Darkvision ${senses.darkvision} ft.`);
-    if (senses?.blindsight) specialSenses.push(`Blindsight ${senses.blindsight} ft.`);
-    if (senses?.tremorsense) specialSenses.push(`Tremorsense ${senses.tremorsense} ft.`);
-    if (senses?.truesight) specialSenses.push(`Truesight ${senses.truesight} ft.`);
-    if (senses?.special) specialSenses.push(senses.special);
 
     return (
         <div className="block-card">
@@ -37,7 +27,7 @@ export default function PassiveSenses({ perception = 10, investigation = 10, ins
             <div style={{ display: 'flex', justifyContent: 'space-around', gap: '8px' }}>
                 {items.map(sense => (
                     <div key={sense.label} style={{ textAlign: 'center' }}>
-                        <div style={{
+                        <div aria-label={`Passive ${sense.label}`} style={{
                             width: '36px',
                             height: '36px',
                             borderRadius: '50%',
@@ -50,7 +40,7 @@ export default function PassiveSenses({ perception = 10, investigation = 10, ins
                             fontSize: '14px',
                             color: 'var(--text-primary)',
                         }}>
-                            {sense.value}
+                            {sense.value ?? '—'}
                         </div>
                         <div style={{ fontSize: '9px', color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }}>
                             {sense.label}
@@ -58,7 +48,8 @@ export default function PassiveSenses({ perception = 10, investigation = 10, ins
                     </div>
                 ))}
             </div>
-            {specialSenses.length > 0 && (
+            {items.some(sense => sense.value == null) && <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Unavailable passive checks require supported preparation inputs.</p>}
+            {(
                 <div style={{
                     marginTop: '8px',
                     paddingTop: '8px',
@@ -67,7 +58,7 @@ export default function PassiveSenses({ perception = 10, investigation = 10, ins
                     color: 'var(--text-secondary)',
                     textAlign: 'center',
                 }}>
-                    {specialSenses.join(' · ')}
+                    <SensesReadout fact={senses??sensesProjection({})}/>
                 </div>
             )}
         </div>

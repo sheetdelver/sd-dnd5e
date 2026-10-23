@@ -1,0 +1,71 @@
+{
+  "checkpoint": "C102",
+  "parent": "441462b",
+  "status": "Qualified shared Spell intrinsic/common fields and Activity save DC preparation;M2/ADR open",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/04/11/12/27/31/34 partial",
+    "A02\u2013A06 read dependencies"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "441462b",
+    "result": "157/157 same final input common/save DC profiles fail before;0 after",
+    "beforeLogSha256": "eb744368d5b871b9c6bae052e77a07423518bf2ba96f771009438e9417103699",
+    "afterLogSha256": "0f2df1e29dba593e8e0e4c5cb34da056697229e174cb5435c49157ddd8b96701"
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;82 module/9 tooling suites,61 tooling assertions",
+    "logSha256": "0f2df1e29dba593e8e0e4c5cb34da056697229e174cb5435c49157ddd8b96701"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;303 explicit module/UI/server/test/hook files",
+    "logSha256": "51b13a31fa4b1f3949319748a71cc8f7ddeccb0454e15f5fd09a4dd5a769fc04"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 exact source records/591 candidate expressions",
+    "logSha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "native": {
+    "command": "npm run test:native-spell-fields -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c102-native.json",
+    "result": "PASS;6 actual Spell/common inheritance/override/zero/parent-counter cases and151 native save DC/default/ability/flat/counterpart profiles",
+    "logSha256": "31db8bbf83cf8b896f2a85f62dc3b197aaceb1c91f9b9b26f6532243f8a611e6",
+    "fixture": "tests/fixtures/native-6.0.6/spell-fields.json",
+    "sha256": "f7f3eed49c36eb0fe74d4fe191cef73749315ccf0cfb94f3c016b348bbc9026f"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-spell-fields -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 Spell intrinsic/child fields,live overrides,action and Item DC15\u21920\u2192unavailable\u219215,source/context held callbacks/focus/shortcut/recovery;zero writes",
+    "artifact": "/tmp/dnd5e-spell-fields-mounted-x1ZE3t/evidence.json",
+    "sha256": "6e46b07e67ceadda3d2f67da9a0965ba4e2ed21534d38d818c93510e836881b9"
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;117670 accepted,628 new independent-check requests with these source profiles,retained complete distributions,1 unary candidate and1880 tied-index diagnostics;zero native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-jrLeaS/evidence.json",
+    "sha256": "a2b19874a9c2a004d4a907cd501c674dd5abde312f51479d61b047f79f5df4ef"
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;module checking/isolated packaging;21files;test/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-kA4TpZ/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "cee8d1b3e65cf6be92b0d4cfc6dbbb1dcf7a49ac62f0c05dda7ccef6113d73ba"
+  },
+  "cleanup": {
+    "result": "Task-owned host/synthetic endpoints/browser stopped;preexisting listeners untouched",
+    "beforeSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb",
+    "afterSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb"
+  },
+  "limits": [
+    "Actual Spell shared-field schema/default cleaning,derived mgc/concentration,final and ActivitiesTemplate hooks run with actual BaseActivity final. Description/base models,component label properties/Set.reduce,explicit casting context and Item roll-data constructors are declared collaborators. No full DataModel/runtime or class preparation-count lifecycle.",
+    "Actual Save prepareData,ability,getRollData and final DC methods execute with common/damage-label seams and earlier prepared ability DCs15/13/12. Raw save.dc.bonus is persisted:false and save.dc.value is computed;both remain ignored as source overrides. Persisted save.bonus belongs to later saving-throw construction,not the DC calculation;no saving throw execution is claimed.",
+    "Spell intrinsic fields and Activity overrides share one fold. Parent-before-child counters and initialized zero strings preserve source/default/prepared distinctions. Unsupported Activity subtypes still cannot admit transferred Actor final effects;save common read readiness is not full subtype/final-effect qualification.",
+    "Modern Spell detail summaries no longer infer casting/range/duration from raw source. Actor card now says Spell default DC to distinguish it from each Activity DC,including a legitimate flat0. Cards,action rows and details consume prepared facts;no UI formulas.",
+    "R/S,mounted SDK seam and isolated host remain distinct from installed/native/operator acceptance. No casting/slots/materials/concentration,target handling,damage/critical/ammo or save execution. Broader expressions/effects and M2 exits remain open.",
+    "One read-only verification command timed out in automatic approval review before running;a shorter permitted retry succeeded. No permission blocker remains. Experimental0.4.1/Core>=0.19.3 unchanged;Node24.21/npm11.19 local,CI Node22 unrun."
+  ],
+  "next": "Qualify remaining source damage/modifier read dependencies and Item final/effect composition,then reconcile A02\u2013A06 source/override/effect-order/multiclass comparisons against the existing M2 gate."
+}

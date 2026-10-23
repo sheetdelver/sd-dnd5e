@@ -1,9 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
-import { ABILITY_FULL_NAME, ABILITY_OPTIONS } from '../shared/abilityNames';
+import { ABILITY_FULL_NAME } from '../shared/abilityNames';
+import { usePreparedRollIntent } from '../shared/usePreparedRollIntent';
+import {rollBonusLabel} from '../shared/rollBonusLabel';
+import ProficiencyIndicator from '../shared/ProficiencyIndicator';
+import {UnavailableNote,unavailableTitle} from '../shared/PreparationDiagnostics';
 
 /**
  * Skills block — full skill list with columnar layout.
@@ -17,20 +21,16 @@ const SKILL_ORDER = [
     'inv', 'med', 'nat', 'prc', 'prf', 'per', 'rel', 'slt', 'ste', 'sur',
 ];
 
-// Proficiency multiplier → dot indicator
-const PROF_DOT: Record<string, string> = { '0': '○', '0.5': '◐', '1': '●', '2': '◉' };
-const PROF_DOT_COLOR: Record<string, string> = {
-    '0': 'var(--prof-none)',
-    '0.5': 'var(--prof-half)',
-    '1': 'var(--prof-full)',
-    '2': 'var(--prof-expert)',
-};
-
 interface SkillData {
-    total: number;
-    prof: number;
+    proficiencyTerm?:string;
+    total: number | null;
+    prof: number | null;
     ability: string;
     label: string;
+    formula?: string | null;
+    unavailableReason?: string;
+    defaultUnavailableReason?:string;
+    preparationNote?:string;
 }
 
 interface Props {
@@ -39,50 +39,30 @@ interface Props {
 }
 
 export default function Skills({ skills, onRoll }: Props) {
-    const [expanded, setExpanded] = useState(true); // default expanded in standard view
     const { openModal } = useModal();
     const { actor } = useSheet();
+    const { canRoll, review } = usePreparedRollIntent('skill', onRoll);
     if (!skills) return null;
 
     const ordered = SKILL_ORDER.filter(k => skills[k]);
 
     const handleClick = (e: React.MouseEvent, key: string) => {
-        if (!onRoll) return;
+        const skill = skills[key];
+        const intent = review(key);
+        if (!intent) return;
         if (e.shiftKey) {
-            void onRoll('skill', key);
+            if(intent.quickAvailable)void intent.onConfirm();
             return;
         }
-        const skill = skills[key];
         const abilityName = ABILITY_FULL_NAME[skill.ability] ?? skill.ability;
-
-        // Reactive formula — recomputes when the user changes the Abilities
-        // dropdown or types a situational bonus. Reads ability mods + prof
-        // bonus from the actor's derived data via SheetContext.
-        const abilitiesData = (actor?.derived?.abilities ?? {}) as Record<string, { mod: number }>;
-        const profBonus = (actor?.derived?.profBonus ?? 2) as number;
-        const computeFormula = ({ ability, situationalBonus }: Record<string, string>) => {
-            const chosen = ability ?? skill.ability;
-            const mod = abilitiesData[chosen]?.mod ?? 0;
-            const profPart = Math.floor((skill.prof || 0) * profBonus);
-            const total = mod + profPart;
-            const base = `1d20${total >= 0 ? '+' : ''}${total}`;
-            const trimmed = (situationalBonus ?? '').trim();
-            return trimmed ? `${base} + ${trimmed}` : base;
-        };
 
         openModal('roll', {
             rollType: 'skill',
             rollKey: key,
             label: `${abilityName} (${skill.label}) Check`,
             subtitle: actor?.name,
-            computeFormula,
-            configFields: [{
-                key: 'ability',
-                label: 'Abilities',
-                initialValue: skill.ability,
-                options: ABILITY_OPTIONS,
-            }],
-            onConfirm: (opts: Record<string, unknown>) => onRoll('skill', key, opts),
+            formula: skill.formula,
+            ...intent,
         });
     };
 
@@ -91,7 +71,7 @@ export default function Skills({ skills, onRoll }: Props) {
             {/* Column headers */}
             <div style={{
                 display: 'grid',
-                gridTemplateColumns: '28px 40px 1fr 48px',
+                gridTemplateColumns: `28px 40px minmax(0,1fr) ${Object.values(skills??{}).some(row=>row.proficiencyTerm)?'140px':'48px'}`,
                 alignItems: 'center',
                 padding: '8px 12px',
                 borderBottom: '1px solid var(--theme-border)',
@@ -119,16 +99,15 @@ export default function Skills({ skills, onRoll }: Props) {
             {/* Skill rows */}
             {ordered.map((key, i) => {
                 const skill = skills[key];
-                const profKey = String(skill.prof);
-                const dot = PROF_DOT[profKey] ?? '○';
-                const dotColor = PROF_DOT_COLOR[profKey] ?? 'var(--prof-none)';
                 return (
                     <button
                         key={key}
+                        disabled={!canRoll(key)}
+                        title={unavailableTitle(skill.unavailableReason??skill.defaultUnavailableReason)}
                         onClick={(e) => handleClick(e, key)}
                         style={{
                             display: 'grid',
-                            gridTemplateColumns: '28px 40px 1fr 48px',
+                            gridTemplateColumns: `28px 40px minmax(0,1fr) ${Object.values(skills??{}).some(row=>row.proficiencyTerm)?'140px':'48px'}`,
                             alignItems: 'center',
                             width: '100%',
                             padding: '6px 12px',
@@ -143,7 +122,7 @@ export default function Skills({ skills, onRoll }: Props) {
                         onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                     >
                         {/* Proficiency indicator */}
-                        <span style={{ fontSize: '12px', color: dotColor }}>{dot}</span>
+                        <span style={{fontSize:'12px'}}><ProficiencyIndicator value={skill.prof} label={`${skill.label} roll proficiency`} reason={skill.unavailableReason}/></span>
                         {/* Ability modifier */}
                         <span style={{
                             fontSize: '10px',
@@ -156,6 +135,8 @@ export default function Skills({ skills, onRoll }: Props) {
                         {/* Skill name */}
                         <span style={{ fontSize: '12px', color: 'var(--text-primary)' }}>
                             {skill.label}
+                            {skill.preparationNote && <small style={{display:'block',color:'var(--text-muted)'}}>{skill.preparationNote}</small>}
+                            <UnavailableNote reason={skill.unavailableReason??skill.defaultUnavailableReason}/>
                         </span>
                         {/* Bonus value */}
                         <span style={{
@@ -163,9 +144,9 @@ export default function Skills({ skills, onRoll }: Props) {
                             fontWeight: 600,
                             color: 'var(--text-primary)',
                             textAlign: 'right',
-                            fontVariantNumeric: 'tabular-nums',
+                            fontVariantNumeric: 'tabular-nums',overflowWrap:'anywhere',
                         }}>
-                            {skill.total >= 0 ? `+${skill.total}` : skill.total}
+                            {rollBonusLabel(skill)}
                         </span>
                     </button>
                 );

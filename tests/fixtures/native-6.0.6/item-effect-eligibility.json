@@ -1,0 +1,736 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "raw source -> verified equippable field defaults -> Item5e.areEffectsSuppressed, then initial numeric changes. Not full DataModel preparation.",
+  "cases": [
+    {
+      "id": "consumable-equipped-omitted",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-equipped-null",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        },
+        "equipped": null
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-equipped-false",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        },
+        "equipped": false
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-required-attuned-omitted",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        },
+        "equipped": true,
+        "attunement": "required"
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-required-attuned-null",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        },
+        "equipped": true,
+        "attunement": "required",
+        "attuned": null
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-required-attuned-false",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        },
+        "equipped": true,
+        "attunement": "required",
+        "attuned": false
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-explicit-active",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        },
+        "equipped": true
+      },
+      "applied": true
+    },
+    {
+      "id": "consumable-required-attuned-true",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        },
+        "equipped": true,
+        "attunement": "required",
+        "attuned": true
+      },
+      "applied": true
+    },
+    {
+      "id": "container-equipped-omitted",
+      "type": "container",
+      "system": {},
+      "applied": false
+    },
+    {
+      "id": "container-equipped-null",
+      "type": "container",
+      "system": {
+        "equipped": null
+      },
+      "applied": false
+    },
+    {
+      "id": "container-equipped-false",
+      "type": "container",
+      "system": {
+        "equipped": false
+      },
+      "applied": false
+    },
+    {
+      "id": "container-required-attuned-omitted",
+      "type": "container",
+      "system": {
+        "equipped": true,
+        "attunement": "required"
+      },
+      "applied": false
+    },
+    {
+      "id": "container-required-attuned-null",
+      "type": "container",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": null
+      },
+      "applied": false
+    },
+    {
+      "id": "container-required-attuned-false",
+      "type": "container",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": false
+      },
+      "applied": false
+    },
+    {
+      "id": "container-explicit-active",
+      "type": "container",
+      "system": {
+        "equipped": true
+      },
+      "applied": true
+    },
+    {
+      "id": "container-required-attuned-true",
+      "type": "container",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": true
+      },
+      "applied": true
+    },
+    {
+      "id": "equipment-equipped-omitted",
+      "type": "equipment",
+      "system": {
+        "type": {
+          "value": "natural"
+        },
+        "armor": {
+          "value": 10
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "equipment-equipped-null",
+      "type": "equipment",
+      "system": {
+        "equipped": null,
+        "type": {
+          "value": "natural"
+        },
+        "armor": {
+          "value": 10
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "equipment-equipped-false",
+      "type": "equipment",
+      "system": {
+        "equipped": false,
+        "type": {
+          "value": "natural"
+        },
+        "armor": {
+          "value": 10
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "equipment-required-attuned-omitted",
+      "type": "equipment",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "type": {
+          "value": "natural"
+        },
+        "armor": {
+          "value": 10
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "equipment-required-attuned-null",
+      "type": "equipment",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": null,
+        "type": {
+          "value": "natural"
+        },
+        "armor": {
+          "value": 10
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "equipment-required-attuned-false",
+      "type": "equipment",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": false,
+        "type": {
+          "value": "natural"
+        },
+        "armor": {
+          "value": 10
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "tool-equipped-omitted",
+      "type": "tool",
+      "system": {},
+      "applied": false
+    },
+    {
+      "id": "tool-equipped-null",
+      "type": "tool",
+      "system": {
+        "equipped": null
+      },
+      "applied": false
+    },
+    {
+      "id": "tool-equipped-false",
+      "type": "tool",
+      "system": {
+        "equipped": false
+      },
+      "applied": false
+    },
+    {
+      "id": "tool-required-attuned-omitted",
+      "type": "tool",
+      "system": {
+        "equipped": true,
+        "attunement": "required"
+      },
+      "applied": false
+    },
+    {
+      "id": "tool-required-attuned-null",
+      "type": "tool",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": null
+      },
+      "applied": false
+    },
+    {
+      "id": "tool-required-attuned-false",
+      "type": "tool",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": false
+      },
+      "applied": false
+    },
+    {
+      "id": "tool-explicit-active",
+      "type": "tool",
+      "system": {
+        "equipped": true
+      },
+      "applied": true
+    },
+    {
+      "id": "tool-required-attuned-true",
+      "type": "tool",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": true
+      },
+      "applied": true
+    },
+    {
+      "id": "weapon-equipped-omitted",
+      "type": "weapon",
+      "system": {},
+      "applied": false
+    },
+    {
+      "id": "weapon-equipped-null",
+      "type": "weapon",
+      "system": {
+        "equipped": null
+      },
+      "applied": false
+    },
+    {
+      "id": "weapon-equipped-false",
+      "type": "weapon",
+      "system": {
+        "equipped": false
+      },
+      "applied": false
+    },
+    {
+      "id": "weapon-required-attuned-omitted",
+      "type": "weapon",
+      "system": {
+        "equipped": true,
+        "attunement": "required"
+      },
+      "applied": false
+    },
+    {
+      "id": "weapon-required-attuned-null",
+      "type": "weapon",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": null
+      },
+      "applied": false
+    },
+    {
+      "id": "weapon-required-attuned-false",
+      "type": "weapon",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": false
+      },
+      "applied": false
+    },
+    {
+      "id": "weapon-explicit-active",
+      "type": "weapon",
+      "system": {
+        "equipped": true
+      },
+      "applied": true
+    },
+    {
+      "id": "weapon-required-attuned-true",
+      "type": "weapon",
+      "system": {
+        "equipped": true,
+        "attunement": "required",
+        "attuned": true
+      },
+      "applied": true
+    },
+    {
+      "id": "consumable-potion-no-equip",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "potion"
+        }
+      },
+      "applied": true
+    },
+    {
+      "id": "consumable-scroll-no-equip",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "scroll"
+        }
+      },
+      "applied": true
+    },
+    {
+      "id": "consumable-food-no-equip",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "food"
+        }
+      },
+      "applied": true
+    },
+    {
+      "id": "consumable-ammo-no-equip",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "ammo"
+        }
+      },
+      "applied": true
+    },
+    {
+      "id": "consumable-poison-no-equip",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "poison"
+        }
+      },
+      "applied": true
+    },
+    {
+      "id": "consumable-rod-no-equip",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "rod"
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-trinket-no-equip",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "trinket"
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-wand-no-equip",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "wand"
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "consumable-required-attunement",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": "potion"
+        },
+        "attunement": "required"
+      },
+      "applied": false
+    },
+    {
+      "id": "background-non-equippable",
+      "type": "background",
+      "system": {},
+      "applied": true
+    },
+    {
+      "id": "background-unknown-source-poison",
+      "type": "background",
+      "system": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required"
+      },
+      "applied": true
+    },
+    {
+      "id": "class-non-equippable",
+      "type": "class",
+      "system": {
+        "levels": 0
+      },
+      "applied": true
+    },
+    {
+      "id": "class-unknown-source-poison",
+      "type": "class",
+      "system": {
+        "levels": 0,
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required"
+      },
+      "applied": true
+    },
+    {
+      "id": "facility-non-equippable",
+      "type": "facility",
+      "system": {},
+      "applied": true
+    },
+    {
+      "id": "facility-unknown-source-poison",
+      "type": "facility",
+      "system": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required"
+      },
+      "applied": true
+    },
+    {
+      "id": "feat-non-equippable",
+      "type": "feat",
+      "system": {},
+      "applied": true
+    },
+    {
+      "id": "feat-unknown-source-poison",
+      "type": "feat",
+      "system": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required"
+      },
+      "applied": true
+    },
+    {
+      "id": "loot-non-equippable",
+      "type": "loot",
+      "system": {},
+      "applied": true
+    },
+    {
+      "id": "loot-unknown-source-poison",
+      "type": "loot",
+      "system": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required"
+      },
+      "applied": true
+    },
+    {
+      "id": "race-non-equippable",
+      "type": "race",
+      "system": {},
+      "applied": true
+    },
+    {
+      "id": "race-unknown-source-poison",
+      "type": "race",
+      "system": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required"
+      },
+      "applied": true
+    },
+    {
+      "id": "spell-non-equippable",
+      "type": "spell",
+      "system": {},
+      "applied": true
+    },
+    {
+      "id": "spell-unknown-source-poison",
+      "type": "spell",
+      "system": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required"
+      },
+      "applied": true
+    },
+    {
+      "id": "subclass-non-equippable",
+      "type": "subclass",
+      "system": {},
+      "applied": true
+    },
+    {
+      "id": "subclass-unknown-source-poison",
+      "type": "subclass",
+      "system": {
+        "equipped": false,
+        "attuned": false,
+        "attunement": "required"
+      },
+      "applied": true
+    },
+    {
+      "id": "malformed-equipped",
+      "type": "tool",
+      "system": {
+        "equipped": "true"
+      },
+      "applied": false,
+      "reason": "Item effect eligibility source malformed or migrated"
+    },
+    {
+      "id": "malformed-attuned",
+      "type": "tool",
+      "system": {
+        "equipped": true,
+        "attuned": "true"
+      },
+      "applied": false,
+      "reason": "Item effect eligibility source malformed or migrated"
+    },
+    {
+      "id": "malformed-attunement",
+      "type": "tool",
+      "system": {
+        "equipped": true,
+        "attunement": 1
+      },
+      "applied": false,
+      "reason": "Item effect eligibility source malformed or migrated"
+    },
+    {
+      "id": "unknown-item-type",
+      "type": "unknown",
+      "system": {},
+      "applied": false,
+      "reason": "Item effect eligibility type unavailable"
+    },
+    {
+      "id": "malformed-consumable-type",
+      "type": "consumable",
+      "system": {
+        "type": 42
+      },
+      "applied": false,
+      "reason": "Item effect eligibility consumable type malformed"
+    },
+    {
+      "id": "suppressed-unknown-change",
+      "type": "tool",
+      "system": {},
+      "applied": false,
+      "effect": {
+        "changes": [
+          {
+            "key": "unqualified.field",
+            "value": "1d6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "suppressed-dependency-flag",
+      "type": "tool",
+      "system": {},
+      "applied": false,
+      "flags": {
+        "dnd5e": {
+          "unknownDependency": true
+        }
+      }
+    },
+    {
+      "id": "active-dependency-flag",
+      "type": "tool",
+      "system": {
+        "equipped": true
+      },
+      "applied": false,
+      "reason": "Item dependency/rider preparation unavailable",
+      "flags": {
+        "dnd5e": {
+          "unknownDependency": true
+        }
+      }
+    },
+    {
+      "id": "trimmed-required-attunement",
+      "type": "tool",
+      "system": {
+        "equipped": true,
+        "attunement": " required "
+      },
+      "applied": false
+    },
+    {
+      "id": "trimmed-consumable-wand",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": " wand "
+        }
+      },
+      "applied": false
+    },
+    {
+      "id": "trimmed-consumable-potion",
+      "type": "consumable",
+      "system": {
+        "type": {
+          "value": " potion "
+        }
+      },
+      "applied": true
+    },
+    {
+      "id": "consumable-initial-type",
+      "type": "consumable",
+      "system": {},
+      "applied": true
+    }
+  ]
+}

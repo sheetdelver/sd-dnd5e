@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {DnD5eAdapter} from '../logic/adapter';
+import {scalarCases,scalarSource,scalarContext} from './fixtures/scalar-effect-scenarios';
+import {unavailableContexts} from './fixtures/skill-scenarios';
+const adapter=new DnD5eAdapter();
+for(const row of scalarCases){const source=scalarSource(row),before=structuredClone(source),actor=adapter.prepareActorData(source,scalarContext()),d=actor.derived as any;
+ const value=row.domain==='ac'?d.armorClass.value:row.domain==='hp'?d.hp.max:row.domain==='movement'?d.movement.speeds.walk:row.domain==='combat'?row.path==='bonuses.spell.dc'?d.combatModifiers.spell.dc.value:d.combatModifiers.spell.attack.value:row.domain==='damage'?d.combatModifiers.damage[row.path.split('.')[2]].bonus.value!+6:{...d.physical.encumbrance.value?.thresholds,mod:d.physical.encumbrance.value?.mod};
+ assert.deepEqual(value,row.expected,row.id+'/'+row.type+': '+JSON.stringify(d.numericEffects?.reason));assert.equal(adapter.getRollData(actor,'skill','prc')?.formula,'1d20+5');assert.deepEqual(source,before);
+ for(const {context}of unavailableContexts()){const lost=adapter.prepareActorData(source,context);assert.equal(adapter.getRollData(lost,'skill','prc'),null);assert.equal((adapter.prepareActorData(source,scalarContext()).derived as any).skills.prc.total,5);}
+}
+process.stdout.write('R:126 scalar FormulaField/native domain expectations,source preservation and context recovery PASS\n');
+// The same combined source has independent requirements; no UI arithmetic.
+for(const own of [undefined,0,20])for(const type of ['add','override']){
+ const source=scalarSource(scalarCases[0]),s=source.system as any;s.attributes.ac={};s.attributes.movement={speeds:{...(own===undefined?{}:{walk:own})}};s.attributes.senses={special:'Own sense'};s.details={race:'scalarSpecies'};source.items!.push({_id:'scalarSpecies',name:'No name lookup',type:'race',system:{movement:{speeds:{walk:30},hover:true,units:'ft'},senses:{ranges:{darkvision:60},special:'Species sense',units:'ft'}}}as any);source.effects=[{_id:'Embedded',system:{changes:[{key:'system.attributes.movement.speeds.walk',type,value:type==='add'?2:0}]}}as any];const before=structuredClone(source),d=adapter.prepareActorData(source,scalarContext()).derived as any;assert.equal(d.movement.speeds.walk,type==='add'?(own??30)+2:0);assert.equal(d.senses.ranges.darkvision,60);assert.equal(d.senses.special,'Own sense;Species sense');assert.deepEqual(source,before);
+}
+for(const row of scalarCases){const source=scalarSource(row),s=source.system as any;s.attributes.ac={...s.attributes.ac,bonus:99,min:99};s.attributes.encumbrance={bonuses:{overall:99},multipliers:{overall:99}};s.attributes.movement.multiplier=99;const before=structuredClone(source),a=adapter.prepareActorData(source,scalarContext()),baseline=adapter.prepareActorData(scalarSource(row),scalarContext());for(const key of ['armorClass','physical','movement','hp','combatModifiers'])assert.deepEqual(a.derived[key],baseline.derived[key],row.id+'/'+key);assert.deepEqual(source,before);}
+for(const value of ['@missing','1d4',{},true,null,'']){const source=scalarSource(scalarCases[0]);(source.effects![0]as any).system.changes.at(-1).value=value;const a=adapter.prepareActorData(source,scalarContext());assert.equal((a.derived as any).armorClass.value,null,JSON.stringify(value));if(typeof value==='string'&&['@missing','1d4','1/3'].includes(value))assert.equal(adapter.getRollData(a,'skill','prc')?.formula,'1d20+5');else assert.equal(adapter.getRollData(a,'skill','prc'),null,JSON.stringify(value));}
+process.stdout.write('R:species-before-initial,derived poison invariance and malformed formula boundaries PASS\n');

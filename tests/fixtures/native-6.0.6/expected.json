@@ -1,0 +1,13 @@
+{
+  "decode": {
+    "actorUuid": "Actor.fixtureActor0001",
+    "firstSpellUuid": "Actor.fixtureActor0001.Item.fixtureSpell0001",
+    "firstSpellSourceUuid": "Compendium.example.options.Item.fixtureSpell0001",
+    "firstSpellEdition": "2014",
+    "secondSpellEdition": "2024",
+    "advancementIds": ["fixtureGrant0001"]
+  },
+  "skill": { "abilityModifier": 2, "proficiencyBonus": 3, "proficiencyMultiplier": 1, "total": 5, "passive": 15, "formula": "1d20+5" },
+  "action": { "intent": "decode-and-project", "writes": [], "sourceAfter": "identical-to-source-before" },
+  "nativePrepared": null
+}

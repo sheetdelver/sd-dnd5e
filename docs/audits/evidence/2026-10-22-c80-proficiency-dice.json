@@ -1,0 +1,591 @@
+{
+  "checkpoint": "C80 source proficiency dice and qualified Normal execution",
+  "parent": "648a32688b3042fb06bf30c0c992dcf0ba4a98c8",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "coreVersion": "0.19.3",
+  "requirements": [
+    "M2/Q00 partial",
+    "DD-02/24/27/31/34 partial",
+    "A02/A18/A21 partial"
+  ],
+  "beforeAfter": "Same source setting Dice:previous skill/check execution and proficiency fact unavailable;now known base3/display1d6,skill subtotal2/passive15,Normal1d20+2+1d6. Dice-bearing fresh @prof formulas remain unavailable rather than using prepared flat3.",
+  "checks": {
+    "regression": {
+      "artifact": "temp/c80-tests-final.log",
+      "sha256": "96a68120c443245a25f0df2eb1b7ea804ab7799b1defd95ebb475b0f6183084c",
+      "result": "59 module/9 tooling suites/61 tooling assertions PASS"
+    },
+    "typing": {
+      "artifact": "temp/c80-types-final.log",
+      "sha256": "b2dc9ad5c376325d68c56481c3fad775448f3ba16aaf0b0f7c956cf6116eef44",
+      "result": "234 explicit module/UI/server/test/hook files PASS"
+    },
+    "source": {
+      "artifact": "temp/c80-source.log",
+      "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+      "result": "exact release2242 records/591 candidate expressions PASS"
+    },
+    "native": {
+      "artifact": "temp/c80-native-proficiency.json",
+      "sha256": "f997fbd776ebf8980f4f06ab735777179b8c240203ddc9801a685e729044f2d2",
+      "result": "30 independent profiles through actual native initialized preparation and fresh builder PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-proficiency-mounted-bduslM/evidence.json",
+      "sha256": "95f19ca50a807275671adbaa6f12c76277eeaee610f59aaba5baf90a5e05bbe6",
+      "result": "1440/390 prof die/passive,half/expertise,combined/manual Normal,bounds,shortcuts,preview,context recovery and stale callbacks/zero writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-proficiency-DL8R51/evidence.json",
+      "sha256": "9da4c40c319295712ab94dd21be051759cc484525a8c47cf6721e827af38fc29",
+      "result": "120 actual module compiler profiles/45400 requests/all120 complete distributions PASS;800 UNQUALIFIED adv/dis diagnostic probes/40 tied-index observations;0 native writes"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-wp3CwL/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "03c468140977a29e4467aa0f7dfe6cce70bac8aa603d3328b24aef48e9c70300",
+      "result": "isolated module check/package PASS"
+    }
+  },
+  "commands": [
+    "npm test -- --core <released0.19.3>",
+    "npm run typecheck -- --core <released0.19.3>",
+    "npm run test:native-source -- --core <released0.19.3> --native <exactrelease>",
+    "npm run test:native-proficiency -- --native <exactrelease> --foundry <static14.367> --write-evidence <output>",
+    "npm run test:mounted-proficiency -- --core <released0.19.3> --browser-tools <isolatedtools> --chromium <headless>",
+    "npm run test:public-proficiency -- --core <released0.19.3>",
+    "npm run check:package -- --core <released0.19.3>"
+  ],
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "rows": [
+      {
+        "level": 0,
+        "base": 1,
+        "coefficient": 0,
+        "term": "0",
+        "passive": 12,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 11,
+        "parts": [
+          "@mod"
+        ],
+        "profData": "1d2",
+        "deterministicActorProf": "1"
+      },
+      {
+        "level": 0,
+        "base": 1,
+        "coefficient": 0.5,
+        "term": "floor(1d2 / 2)",
+        "passive": 12,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 11,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "floor(1d2 / 2)",
+        "deterministicActorProf": "1"
+      },
+      {
+        "level": 0,
+        "base": 1,
+        "coefficient": 1,
+        "term": "1d2",
+        "passive": 13,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 11,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1d2",
+        "deterministicActorProf": "1"
+      },
+      {
+        "level": 0,
+        "base": 1,
+        "coefficient": 2,
+        "term": "2d2",
+        "passive": 14,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 11,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "2d2",
+        "deterministicActorProf": "1"
+      },
+      {
+        "level": 1,
+        "base": 2,
+        "coefficient": 0,
+        "term": "0",
+        "passive": 12,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 12,
+        "parts": [
+          "@mod"
+        ],
+        "profData": "1d4",
+        "deterministicActorProf": "2"
+      },
+      {
+        "level": 1,
+        "base": 2,
+        "coefficient": 0.5,
+        "term": "floor(1d4 / 2)",
+        "passive": 13,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 12,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "floor(1d4 / 2)",
+        "deterministicActorProf": "2"
+      },
+      {
+        "level": 1,
+        "base": 2,
+        "coefficient": 1,
+        "term": "1d4",
+        "passive": 14,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 12,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1d4",
+        "deterministicActorProf": "2"
+      },
+      {
+        "level": 1,
+        "base": 2,
+        "coefficient": 2,
+        "term": "2d4",
+        "passive": 16,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 12,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "2d4",
+        "deterministicActorProf": "2"
+      },
+      {
+        "level": 5,
+        "base": 3,
+        "coefficient": 0,
+        "term": "0",
+        "passive": 12,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 13,
+        "parts": [
+          "@mod"
+        ],
+        "profData": "1d6",
+        "deterministicActorProf": "3"
+      },
+      {
+        "level": 5,
+        "base": 3,
+        "coefficient": 0.5,
+        "term": "floor(1d6 / 2)",
+        "passive": 13,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 13,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "floor(1d6 / 2)",
+        "deterministicActorProf": "3"
+      },
+      {
+        "level": 5,
+        "base": 3,
+        "coefficient": 1,
+        "term": "1d6",
+        "passive": 15,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 13,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1d6",
+        "deterministicActorProf": "3"
+      },
+      {
+        "level": 5,
+        "base": 3,
+        "coefficient": 2,
+        "term": "2d6",
+        "passive": 18,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 13,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "2d6",
+        "deterministicActorProf": "3"
+      },
+      {
+        "level": 9,
+        "base": 4,
+        "coefficient": 0,
+        "term": "0",
+        "passive": 12,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 14,
+        "parts": [
+          "@mod"
+        ],
+        "profData": "1d8",
+        "deterministicActorProf": "4"
+      },
+      {
+        "level": 9,
+        "base": 4,
+        "coefficient": 0.5,
+        "term": "floor(1d8 / 2)",
+        "passive": 14,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 14,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "floor(1d8 / 2)",
+        "deterministicActorProf": "4"
+      },
+      {
+        "level": 9,
+        "base": 4,
+        "coefficient": 1,
+        "term": "1d8",
+        "passive": 16,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 14,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1d8",
+        "deterministicActorProf": "4"
+      },
+      {
+        "level": 9,
+        "base": 4,
+        "coefficient": 2,
+        "term": "2d8",
+        "passive": 20,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 14,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "2d8",
+        "deterministicActorProf": "4"
+      },
+      {
+        "level": 13,
+        "base": 5,
+        "coefficient": 0,
+        "term": "0",
+        "passive": 12,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 15,
+        "parts": [
+          "@mod"
+        ],
+        "profData": "1d10",
+        "deterministicActorProf": "5"
+      },
+      {
+        "level": 13,
+        "base": 5,
+        "coefficient": 0.5,
+        "term": "floor(1d10 / 2)",
+        "passive": 14,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 15,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "floor(1d10 / 2)",
+        "deterministicActorProf": "5"
+      },
+      {
+        "level": 13,
+        "base": 5,
+        "coefficient": 1,
+        "term": "1d10",
+        "passive": 17,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 15,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1d10",
+        "deterministicActorProf": "5"
+      },
+      {
+        "level": 13,
+        "base": 5,
+        "coefficient": 2,
+        "term": "2d10",
+        "passive": 22,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 15,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "2d10",
+        "deterministicActorProf": "5"
+      },
+      {
+        "level": 17,
+        "base": 6,
+        "coefficient": 0,
+        "term": "0",
+        "passive": 12,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 16,
+        "parts": [
+          "@mod"
+        ],
+        "profData": "1d12",
+        "deterministicActorProf": "6"
+      },
+      {
+        "level": 17,
+        "base": 6,
+        "coefficient": 0.5,
+        "term": "floor(1d12 / 2)",
+        "passive": 15,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 16,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "floor(1d12 / 2)",
+        "deterministicActorProf": "6"
+      },
+      {
+        "level": 17,
+        "base": 6,
+        "coefficient": 1,
+        "term": "1d12",
+        "passive": 18,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 16,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1d12",
+        "deterministicActorProf": "6"
+      },
+      {
+        "level": 17,
+        "base": 6,
+        "coefficient": 2,
+        "term": "2d12",
+        "passive": 24,
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 16,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "2d12",
+        "deterministicActorProf": "6"
+      },
+      {
+        "level": 0,
+        "base": 1,
+        "coefficient": 1.5,
+        "term": "1.5d2",
+        "passive": 13,
+        "execution": "unqualified-fractional-count",
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 11,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1.5d2",
+        "deterministicActorProf": "1"
+      },
+      {
+        "level": 1,
+        "base": 2,
+        "coefficient": 1.5,
+        "term": "1.5d4",
+        "passive": 15,
+        "execution": "unqualified-fractional-count",
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 12,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1.5d4",
+        "deterministicActorProf": "2"
+      },
+      {
+        "level": 5,
+        "base": 3,
+        "coefficient": 1.5,
+        "term": "1.5d6",
+        "passive": 16,
+        "execution": "unqualified-fractional-count",
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 13,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1.5d6",
+        "deterministicActorProf": "3"
+      },
+      {
+        "level": 9,
+        "base": 4,
+        "coefficient": 1.5,
+        "term": "1.5d8",
+        "passive": 18,
+        "execution": "unqualified-fractional-count",
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 14,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1.5d8",
+        "deterministicActorProf": "4"
+      },
+      {
+        "level": 13,
+        "base": 5,
+        "coefficient": 1.5,
+        "term": "1.5d10",
+        "passive": 19,
+        "execution": "unqualified-fractional-count",
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 15,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1.5d10",
+        "deterministicActorProf": "5"
+      },
+      {
+        "level": 17,
+        "base": 6,
+        "coefficient": 1.5,
+        "term": "1.5d12",
+        "passive": 21,
+        "execution": "unqualified-fractional-count",
+        "total": 2,
+        "tool": 2,
+        "save": 2,
+        "dc": 16,
+        "parts": [
+          "@mod",
+          "@prof"
+        ],
+        "profData": "1.5d12",
+        "deterministicActorProf": "6"
+      }
+    ],
+    "fixtureSha256": "13682ac657b548f5f216c15e523a1f6aa8b20bbbe115a772d9ef6a7d49fa28e4",
+    "sourceHashes": {
+      "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04"
+    },
+    "limits": [
+      "Actual native proficiency/check/save/tool preparation and fresh skill builder run on initialized models with empty rules/conditions. Source initialization/default/effect provenance remains covered separately.",
+      "No dice engine evaluation/native/operator acceptance;independent distributions and real public-host entropy/serialization require separate qualification. Deterministic Actor roll data uses flat proficiency,while fresh roll data/proficiency terms can carry dice."
+    ]
+  },
+  "limits": [
+    "Native initialized-model/extracted method evidence is not full source DataModel/native runtime/operator acceptance. Native preparation-runtime experiment remains parked.",
+    "Normal profile validates ordered observed faces,exact entropy,retained value/count,active/discard flags,bounds,total and complete distributions;host serialization unchanged. No extension of DD-R05 equivalence to proficiency/grouped dice.",
+    "Adv/dis proficiency terms,1.5 dice counts,broader expressions,proficiency-dependent Item attacks/Alert and effect/expression composition remain unqualified. Untrained Dice checks without a term retain existing plain-d20 qualification.",
+    "C79 context correction and DD-R01\u201307 retained;source unchanged,no production settings/connections. Experimental0.4.1/compatibility unchanged. Node22 CI not run. Full M2/ADR/native/operator acceptance remain open."
+  ]
+}

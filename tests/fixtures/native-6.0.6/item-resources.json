@@ -1,0 +1,2274 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "expectationMethod": "Manually specified capacity cases0/2.5/4/5 with remaining=max(0,capacity-spent), explicitly frozen0/2/6spent. Limited uses depends on initialized source formula presence, including string0. Six independent recovery metadata scopes; no module/native output populates expectations.",
+  "cases": [
+    {
+      "id": "absent/0/none",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison"
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": null
+      }
+    },
+    {
+      "id": "absent/0/lr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "absent/0/sr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "absent/0/dawn",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "absent/0/dusk",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "absent/0/recharge",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "absent/2/none",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison"
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": null
+      }
+    },
+    {
+      "id": "absent/2/lr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "absent/2/sr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "absent/2/dawn",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "absent/2/dusk",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "absent/2/recharge",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "absent/6/none",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison"
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": null
+      }
+    },
+    {
+      "id": "absent/6/lr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "absent/6/sr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "absent/6/dawn",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "absent/6/dusk",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "absent/6/recharge",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "blank/0/none",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": ""
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": null
+      }
+    },
+    {
+      "id": "blank/0/lr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "blank/0/sr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "blank/0/dawn",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "blank/0/dusk",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "blank/0/recharge",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "blank/2/none",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": ""
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": null
+      }
+    },
+    {
+      "id": "blank/2/lr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "blank/2/sr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "blank/2/dawn",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "blank/2/dusk",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "blank/2/recharge",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "blank/6/none",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": ""
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": null
+      }
+    },
+    {
+      "id": "blank/6/lr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "blank/6/sr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "blank/6/dawn",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "blank/6/dusk",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "blank/6/recharge",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": false,
+        "display": "No limited uses",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "zero/0/none",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "0"
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": null
+      }
+    },
+    {
+      "id": "zero/0/lr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "zero/0/sr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "zero/0/dawn",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "zero/0/dusk",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "zero/0/recharge",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 0,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "zero/2/none",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "0"
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": null
+      }
+    },
+    {
+      "id": "zero/2/lr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "zero/2/sr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "zero/2/dawn",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "zero/2/dusk",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "zero/2/recharge",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 2,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "zero/6/none",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "0"
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": null
+      }
+    },
+    {
+      "id": "zero/6/lr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "zero/6/sr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "zero/6/dawn",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "zero/6/dusk",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "zero/6/recharge",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "0",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 0,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/0",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "five/0/none",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "5"
+      },
+      "expected": {
+        "max": 5,
+        "spent": 0,
+        "remaining": 5,
+        "limited": true,
+        "display": "5/5",
+        "period": null
+      }
+    },
+    {
+      "id": "five/0/lr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 0,
+        "remaining": 5,
+        "limited": true,
+        "display": "5/5",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "five/0/sr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 0,
+        "remaining": 5,
+        "limited": true,
+        "display": "5/5",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "five/0/dawn",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 0,
+        "remaining": 5,
+        "limited": true,
+        "display": "5/5",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "five/0/dusk",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 0,
+        "remaining": 5,
+        "limited": true,
+        "display": "5/5",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "five/0/recharge",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 0,
+        "remaining": 5,
+        "limited": true,
+        "display": "5/5",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "five/2/none",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "5"
+      },
+      "expected": {
+        "max": 5,
+        "spent": 2,
+        "remaining": 3,
+        "limited": true,
+        "display": "3/5",
+        "period": null
+      }
+    },
+    {
+      "id": "five/2/lr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 2,
+        "remaining": 3,
+        "limited": true,
+        "display": "3/5",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "five/2/sr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 2,
+        "remaining": 3,
+        "limited": true,
+        "display": "3/5",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "five/2/dawn",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 2,
+        "remaining": 3,
+        "limited": true,
+        "display": "3/5",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "five/2/dusk",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 2,
+        "remaining": 3,
+        "limited": true,
+        "display": "3/5",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "five/2/recharge",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 2,
+        "remaining": 3,
+        "limited": true,
+        "display": "3/5",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "five/6/none",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "5"
+      },
+      "expected": {
+        "max": 5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/5",
+        "period": null
+      }
+    },
+    {
+      "id": "five/6/lr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/5",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "five/6/sr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/5",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "five/6/dawn",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/5",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "five/6/dusk",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/5",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "five/6/recharge",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "5",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/5",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "decimal/0/none",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5"
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 0,
+        "remaining": 2.5,
+        "limited": true,
+        "display": "2.5/2.5",
+        "period": null
+      }
+    },
+    {
+      "id": "decimal/0/lr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 0,
+        "remaining": 2.5,
+        "limited": true,
+        "display": "2.5/2.5",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "decimal/0/sr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 0,
+        "remaining": 2.5,
+        "limited": true,
+        "display": "2.5/2.5",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "decimal/0/dawn",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 0,
+        "remaining": 2.5,
+        "limited": true,
+        "display": "2.5/2.5",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "decimal/0/dusk",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 0,
+        "remaining": 2.5,
+        "limited": true,
+        "display": "2.5/2.5",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "decimal/0/recharge",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 0,
+        "remaining": 2.5,
+        "limited": true,
+        "display": "2.5/2.5",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "decimal/2/none",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5"
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 2,
+        "remaining": 0.5,
+        "limited": true,
+        "display": "0.5/2.5",
+        "period": null
+      }
+    },
+    {
+      "id": "decimal/2/lr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 2,
+        "remaining": 0.5,
+        "limited": true,
+        "display": "0.5/2.5",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "decimal/2/sr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 2,
+        "remaining": 0.5,
+        "limited": true,
+        "display": "0.5/2.5",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "decimal/2/dawn",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 2,
+        "remaining": 0.5,
+        "limited": true,
+        "display": "0.5/2.5",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "decimal/2/dusk",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 2,
+        "remaining": 0.5,
+        "limited": true,
+        "display": "0.5/2.5",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "decimal/2/recharge",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 2,
+        "remaining": 0.5,
+        "limited": true,
+        "display": "0.5/2.5",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "decimal/6/none",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5"
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/2.5",
+        "period": null
+      }
+    },
+    {
+      "id": "decimal/6/lr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/2.5",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "decimal/6/sr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/2.5",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "decimal/6/dawn",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/2.5",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "decimal/6/dusk",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/2.5",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "decimal/6/recharge",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": "2.5",
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 2.5,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/2.5",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "number/0/none",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": 4
+      },
+      "expected": {
+        "max": 4,
+        "spent": 0,
+        "remaining": 4,
+        "limited": true,
+        "display": "4/4",
+        "period": null
+      }
+    },
+    {
+      "id": "number/0/lr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 0,
+        "remaining": 4,
+        "limited": true,
+        "display": "4/4",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "number/0/sr",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 0,
+        "remaining": 4,
+        "limited": true,
+        "display": "4/4",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "number/0/dawn",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 0,
+        "remaining": 4,
+        "limited": true,
+        "display": "4/4",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "number/0/dusk",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 0,
+        "remaining": 4,
+        "limited": true,
+        "display": "4/4",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "number/0/recharge",
+      "source": {
+        "spent": 0,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 0,
+        "remaining": 4,
+        "limited": true,
+        "display": "4/4",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "number/2/none",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": 4
+      },
+      "expected": {
+        "max": 4,
+        "spent": 2,
+        "remaining": 2,
+        "limited": true,
+        "display": "2/4",
+        "period": null
+      }
+    },
+    {
+      "id": "number/2/lr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 2,
+        "remaining": 2,
+        "limited": true,
+        "display": "2/4",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "number/2/sr",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 2,
+        "remaining": 2,
+        "limited": true,
+        "display": "2/4",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "number/2/dawn",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 2,
+        "remaining": 2,
+        "limited": true,
+        "display": "2/4",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "number/2/dusk",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 2,
+        "remaining": 2,
+        "limited": true,
+        "display": "2/4",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "number/2/recharge",
+      "source": {
+        "spent": 2,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 2,
+        "remaining": 2,
+        "limited": true,
+        "display": "2/4",
+        "period": "recharge"
+      }
+    },
+    {
+      "id": "number/6/none",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": 4
+      },
+      "expected": {
+        "max": 4,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/4",
+        "period": null
+      }
+    },
+    {
+      "id": "number/6/lr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "lr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/4",
+        "period": "lr"
+      }
+    },
+    {
+      "id": "number/6/sr",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "sr"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/4",
+        "period": "sr"
+      }
+    },
+    {
+      "id": "number/6/dawn",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "dawn"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/4",
+        "period": "dawn"
+      }
+    },
+    {
+      "id": "number/6/dusk",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "dusk"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/4",
+        "period": "dusk"
+      }
+    },
+    {
+      "id": "number/6/recharge",
+      "source": {
+        "spent": 6,
+        "value": 99,
+        "label": "poison",
+        "max": 4,
+        "recovery": [
+          {
+            "period": "recharge"
+          }
+        ]
+      },
+      "expected": {
+        "max": 4,
+        "spent": 6,
+        "remaining": 0,
+        "limited": true,
+        "display": "0/4",
+        "period": "recharge"
+      }
+    }
+  ]
+}

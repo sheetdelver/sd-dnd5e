@@ -1,0 +1,34 @@
+import {nativeFormula606} from './native-formula-oracle.mjs';
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {join} from 'node:path';
+import {createRequire} from 'node:module';
+import {sourceFields606} from './native-source-initialization-oracle.mjs';
+import {effectOracle606} from './native-effect-oracle.mjs';
+import {moduleRoot,coreRoot,option} from './lib/toolchain.mjs';
+import {nativeCommit,sha256} from './lib/native-release.mjs';
+const args=process.argv.slice(2),{files,n}=effectOracle606,ts=createRequire(join(coreRoot(args),'package.json'))('typescript');
+const scalePath='module/documents/advancement/scale-value.mjs',dataPath='module/data/advancement/scale-value-data.mjs',itemPath='module/documents/item.mjs',modelPath='module/data/abstract/actor-data-model.mjs';
+const box={NumberField:sourceFields606.NumberField,foundry:{utils:{isEmpty:value=>Object.keys(value).length===0}},dnd5e:{settings:{proficiencyModifier:'bonus'}}};
+vm.runInNewContext(`class ScaleValueType {constructor(data){this.value=this.constructor.defineSchema().value.clean(data.value,{migrate:false,sanitize:false});}toString(){return this.formula;}}
+class ScaleValueTypeNumber extends ScaleValueType {${['defineSchema','formula'].map(key=>n(dataPath,'ScaleValueTypeNumber',key)).join('\n')}}ScaleValueTypeNumber.schema={fields:ScaleValueTypeNumber.defineSchema()};
+class NativeScale {static TYPES={number:ScaleValueTypeNumber};${['valueForLevel','identifier'].map(key=>n(scalePath,'ScaleValueAdvancement',key)).join('\n')}}
+class NativeItem {${['scaleValues','isOriginalClass','class'].map(key=>n(itemPath,'Item5e',key)).join('\n')}}
+${files.get('module/documents/actor/proficiency.mjs').replace('export default class','class')}
+class NativeModel {${['_prepareScaleValues','getRollData'].map(key=>n(modelPath,'ActorDataModel',key)).join('\n')}}
+class CreatureModel extends NativeModel {${n('module/data/actor/templates/creature.mjs','CreatureTemplate','getRollData')}}
+globalThis.scaleOracle={NativeScale,NativeItem,NativeModel,CreatureModel};`,box);
+const fixture=JSON.parse(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/numeric-scales.json'),'utf8'));assert.equal(fixture.nativeCommit,nativeCommit);
+const {NativeScale,NativeItem,CreatureModel}=box.scaleOracle,observations=[];
+const cls=ts.createSourceFile('class',files.get('module/data/item/class.mjs'),ts.ScriptTarget.Latest,true,ts.ScriptKind.JS),definition=cls.statements.find(n=>ts.isClassDeclaration(n)&&n.name?.text==='ClassData').members.find(n=>n.name?.getText(cls)==='defineSchema');let levelField;
+function find(n){if(ts.isPropertyAssignment(n)&&n.name.getText(cls)==='levels')levelField=n.initializer;ts.forEachChild(n,find);}find(definition);assert.ok(levelField);const levelOptions=vm.runInNewContext('('+levelField.arguments[0].getText(cls)+')');
+const initializedLevel=new sourceFields606.NumberField(levelOptions).clean(undefined,{migrate:false,sanitize:false});assert.equal(initializedLevel,1);
+for(const row of fixture.cases){const actor={system:{details:{originalClass:'class-id'}},items:[],classes:{}},advancement=Object.assign(new NativeScale(),{configuration:{identifier:'uses',type:'number',scale:structuredClone(fixture.scale)}}),item=Object.assign(new NativeItem(),{id:'class-id',type:'class',identifier:'fighter',system:{levels:row.level,hd:{denomination:'d8'}},parent:actor,isEmbedded:true,advancement:{byType:{ScaleValue:[advancement]}}});item.advancementRootItem=item;actor.items=[item];actor.classes.fighter=item;
+ const model=Object.assign(new CreatureModel(),{parent:actor,attributes:{prof:3}});model._prepareScaleValues();const data=model.getRollData({deterministic:true}),value=data.scale.fighter.uses;
+ assert.equal(value===null?null:Number(value.formula),row.expected,'level'+row.level);assert.equal(data.classes.fighter.levels,row.level);assert.equal(model.scale.fighter.uses,value);if(row.expected!==null)assert.equal(nativeFormula606.replaceFormulaData('@scale.fighter.uses + @classes.fighter.levels',data),String(row.expected)+' + '+row.level);observations.push({level:row.level,scale:row.expected,classReference:data.classes.fighter.levels});
+ for(const [restriction,original,expected]of [['primary','class-id',true],['primary','different',false],['primary','',false],['secondary','class-id',false],['secondary','different',true],['secondary','',true]]){advancement.classRestriction=restriction;actor.system.details.originalClass=original;assert.equal(Object.hasOwn(item.scaleValues,'uses'),expected);}
+}
+// Actual subclass lookup uses its linked class level3,not Actor total8.
+const actor={system:{details:{originalClass:'class-id',level:8}},items:[],classes:{}},parentClass=Object.assign(new NativeItem(),{id:'class-id',type:'class',identifier:'fighter',system:{levels:3,hd:{denomination:'d8'}},parent:actor,isEmbedded:true,advancement:{byType:{}}}),subAdv=Object.assign(new NativeScale(),{configuration:{identifier:'uses',type:'number',scale:structuredClone(fixture.scale)}}),sub=Object.assign(new NativeItem(),{id:'subclass-id',type:'subclass',identifier:'champion',system:{classIdentifier:'fighter'},parent:actor,isEmbedded:true,advancement:{byType:{ScaleValue:[subAdv]}}});parentClass.advancementRootItem=parentClass;sub.advancementRootItem=sub;actor.items=[parentClass,sub];actor.classes.fighter=parentClass;const subclassModel=Object.assign(new CreatureModel(),{parent:actor,attributes:{prof:3}});subclassModel._prepareScaleValues();assert.equal(Number(subclassModel.scale.champion.uses.formula),2);assert.equal(sub.class,parentClass);
+const evidence={subclass:{classLevel:3,actorLevel:8,scale:2},nativeCommit,observations,classDefaultLevel:initializedLevel,restrictionCases:fixture.cases.length*6,sourceHashes:Object.fromEntries([scalePath,dataPath,itemPath,modelPath,'module/data/actor/templates/creature.mjs','module/data/item/class.mjs'].map(path=>[path,sha256(files.get(path))])),fixtureSha256:sha256(readFileSync(join(moduleRoot,'tests/fixtures/native-6.0.6/numeric-scales.json'))),limits:['Actual numeric schema cleaning,ScaleValue.valueForLevel,Item.scaleValues/isOriginalClass,Actor embedded scale map and Creature roll-data class namespace execute on declared initialized source/advancement collections.','Explicit persisted identifiers only for module support;native name fallback,duplicate identifiers,non-number scales,grant roots,Item effects and general Actor/Item initialization remain outside this source profile. No native/operator or advancement-write acceptance.']};const out=option(args,'--write-evidence');if(out)writeFileSync(out,JSON.stringify(evidence,null,2)+'\n');process.stdout.write('S:21 numeric scale levels/126 class restrictions,source class default1 and native scale/class roll-data namespaces PASS\n');

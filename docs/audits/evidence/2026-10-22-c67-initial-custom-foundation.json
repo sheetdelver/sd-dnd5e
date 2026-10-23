@@ -1,0 +1,106 @@
+{
+  "checkpoint": "C67",
+  "date": "2026-10-22",
+  "parent": "4e1d029bf4fedf6049dafac8b34623b3ee31c2fc",
+  "requirements": "Qualification only;partial M0/M2 Q02a,DD-03/11/27/34,A03/A04",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "core": "0.19.3 / 90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "independentInitialCases": 238,
+  "retainedFinalCases": 217,
+  "expectationMethod": "217 C65/C66 manually frozen String results scheduled initial before language preparation,plus21 separately frozen initial/final/priority chains. No module/captured outputs supply expected values.",
+  "documentPhaseOrder": [
+    "model-base",
+    "actor-base",
+    "embedded",
+    "initial",
+    "model-derived",
+    "actor-derived",
+    "final"
+  ],
+  "characterPhaseOrder": [
+    "prepareExhaustionLevel",
+    "prepareAbilities",
+    "prepareCurrency",
+    "prepareSkills",
+    "prepareTools",
+    "prepareSpellcastingAbility",
+    "prepareArmorClass",
+    "prepareConcentration",
+    "prepareEncumbrance",
+    "prepareInitiative",
+    "prepareMovement",
+    "prepareLanguages",
+    "prepareResistImmune",
+    "prepareHitPoints"
+  ],
+  "observations": [
+    "Initial custom operations precede native language labels. Final operations retain that earlier cache while current custom fields and a distinct current-label formatting shell reflect final text.",
+    "Explicit priority chains consume the preceding current field. Source/default cleaning,initialized inputs,prepared text and final text remain separate.",
+    "Primitive field/trait/sheet methods execute against initialized shells. Scheduling is explicit; the native document/Character order is independently compared by the condition oracle. Full source DataModel/dispatcher acceptance is absent."
+  ],
+  "checks": [
+    {
+      "command": "npm run test:native-custom-traits -- --core <releasedCore> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c67-native-custom.json",
+      "result": "238initial+217final+retained trait matrices PASS",
+      "logSha256": "57e8ca9bd94c511e199de56618a38efd4a164e9b4ed5d52b542700573e7f8b31"
+    },
+    {
+      "command": "npm run test:native-conditions -- --core <releasedCore> --native <exactRelease> --foundry <static14.367> --write-evidence temp/c67-native-conditions.json",
+      "result": "Actual document/Character phase order and all retained native condition/numeric matrices PASS",
+      "logSha256": "3ae68e630284bc5549632c2de5de99004da6699f390fbee3459992d4767ffcbb"
+    },
+    {
+      "command": "npm run typecheck -- --core <releasedCore>",
+      "result": "206explicit module source/UI/server/test/hookfiles PASS",
+      "logSha256": "97167f5deccafffeec44899aa24b7fe1c574bae709a2934a48c3d5e4310b73c8"
+    }
+  ],
+  "artifacts": {
+    "scripts/native-custom-traits-oracle.mjs": "b811b6fb2015bb5be943ed417979f004377f02fb07dbad3557d82e9f7d5af931",
+    "tests/fixtures/native-6.0.6/initial-custom-strings.json": "9d621185baec700c4e56497b53f7db245e1e0cfd066d63e2e39822bf8f8e8a67",
+    "temp/c67-native-custom.json": "f6db72b011a7dddbceaad2131d93fb34e68e3167b788a310a57765f3c1ba43e5",
+    "temp/c67-native-conditions.json": "c67fa3960b84e1b4a3d3537c7fa82a2dce61ac718dba64ec7828f25d3e1c18f4"
+  },
+  "nativeSourceHashes": {
+    "module/data/actor/templates/traits.mjs": "6cbf635d04e5996c9b86a8aaa0fb5e63f10b6155c6bd74be15e13c38003b5478",
+    "module/applications/actor/api/base-actor-sheet.mjs": "2f27c74c75c5fb7ef08248fc70800f6ae1a862742820a9b575d5897ec9fc7200",
+    "module/data/actor/fields/simple-trait-field.mjs": "01ff6163aa8ee65ca897cbc971cca3f649c319d753479c416a57cedc4c3c3d2e",
+    "module/data/actor/fields/damage-trait-field.mjs": "3bd7d77dffe83c64f48368f1d72b03317ab71b6b75b73f2650e6add810a63d36",
+    "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134",
+    "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+    "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8",
+    "module/data/shared/roll-config-field.mjs": "5d38a364c9ebc3ab45f1573557569f3decbb1f27223f0de7c0a0d472c7a80e25",
+    "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+    "module/data/active-effect/condition.mjs": "6f34d1dc6cc95e34c793b73b24fef3c5be56dab84e0f5a90630827db0e6f5a9b",
+    "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+    "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+    "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+    "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+    "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+    "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+    "module/documents/actor/proficiency.mjs": "e6f232cabcd01b2580109574f58d1a1f5f26b90b51b5b4baca66b8b1d6325360",
+    "module/data/shared/d20-roll-modification-field.mjs": "d90aeb6a0921018d71bea057a7c38338d00a59c89d784d38bb486cdaecc6ecbe",
+    "module/dice/basic-roll.mjs": "03bdecbaac90d22f3417cef26e871dfc1ff5284f80d4e95901d6d73c860afb04",
+    "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+    "module/applications/dice/d20-configuration-dialog.mjs": "494966cec5b65f72811634f42215c5ae9c3302786a4659a33d1685d2ee3850b8",
+    "module/data/fields/mapping-field.mjs": "be0f0371123ceed3b6c3f3b8b6c1b9555cd132194fbf34e5ac70ca4c174ba054"
+  },
+  "foundry": {
+    "generation": 14,
+    "build": 367,
+    "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+    "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0",
+    "setPrimitivesSha256": "016305ae3fea3acbffe720eee3b054469a7192cba0e4d0a06a9af09e40c14083"
+  },
+  "limits": [
+    "Source strings and verified missing default only; null/coercions,reference expansion and expression interpretation not qualified.",
+    "Actual primitive field methods on initialized shells; declared primitive constructors/validation wrapper inherited from maintained trait oracle,not full DataModel source boot.",
+    "Actual sheet on empty Sets plus seven canonical-value compositions and exact selected trait config entries. Labels use pinned registries already checked by the maintained trait oracle. Identity deepClone is read-only. Unknown keys/ranges,conditions,Item phases and full dispatcher remain outside this profile.",
+    "C67 initial/final scheduling is explicit on initialized field shells; actual primitive methods and language/sheet methods execute. Full source DataModel/Actor dispatcher acceptance is absent. Native phase-order comparisons remain separate in the condition oracle.",
+    "Language cache prepared once after initial and before final changes,with poisoned labels overwritten by actual method. Current labels use a separate formatting shell,not Actor phase replay.",
+    "This driver alone does not establish module/dice/installed/native/operator acceptance. Bounded runtime integration is verified separately in C66 regressions and consumer/public-host evidence.",
+    "C67 qualification only. Initial custom String runtime remains gated untilC68. C66 module/mounted/public/package evidence is separate;no new runtime acceptance here.",
+    "Condition-free Actor-owned source strings/missing default only. Conditions,Item origins,null/coercions,references and broader expression evaluation remain unqualified.",
+    "No service started. Experimental0.4.1/compatibility unchanged;E01/E02/E04/widerQ00/E05 and fullADR/native/operator gates open."
+  ]
+}

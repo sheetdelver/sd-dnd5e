@@ -1,0 +1,1716 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "common": [
+    {
+      "id": "defaults",
+      "parent": {},
+      "activity": {},
+      "expected": {
+        "parent": {
+          "activation": "action",
+          "duration": null,
+          "range": null,
+          "count": null
+        },
+        "activity": {
+          "activation": "action",
+          "duration": null,
+          "range": null,
+          "count": null
+        }
+      }
+    },
+    {
+      "id": "inherit",
+      "parent": {
+        "activation": {
+          "type": "bonus"
+        },
+        "duration": {
+          "units": "minute",
+          "value": "@prof + 1"
+        },
+        "range": {
+          "units": "ft",
+          "value": "@abilities.wis.mod * 10"
+        },
+        "target": {
+          "affects": {
+            "type": "creature",
+            "count": "2"
+          }
+        }
+      },
+      "activity": {},
+      "expected": {
+        "parent": {
+          "activation": "bonus",
+          "duration": 4,
+          "range": 20,
+          "count": 2
+        },
+        "activity": {
+          "activation": "bonus",
+          "duration": 4,
+          "range": 20,
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "child-source-does-not-override",
+      "parent": {
+        "activation": {
+          "type": "bonus"
+        },
+        "duration": {
+          "units": "minute",
+          "value": "@prof + 1"
+        },
+        "range": {
+          "units": "ft",
+          "value": "@abilities.wis.mod * 10"
+        },
+        "target": {
+          "affects": {
+            "type": "creature",
+            "count": "2"
+          }
+        }
+      },
+      "activity": {
+        "activation": {
+          "type": "minute",
+          "value": 9
+        },
+        "duration": {
+          "units": "round",
+          "value": "99"
+        },
+        "range": {
+          "units": "ft",
+          "value": "99"
+        },
+        "target": {
+          "affects": {
+            "type": "object",
+            "count": "99"
+          }
+        }
+      },
+      "expected": {
+        "parent": {
+          "activation": "bonus",
+          "duration": 4,
+          "range": 20,
+          "count": 2
+        },
+        "activity": {
+          "activation": "bonus",
+          "duration": 4,
+          "range": 20,
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "all-overrides",
+      "parent": {
+        "activation": {
+          "type": "bonus"
+        },
+        "duration": {
+          "units": "minute",
+          "value": "@prof + 1"
+        },
+        "range": {
+          "units": "ft",
+          "value": "@abilities.wis.mod * 10"
+        },
+        "target": {
+          "affects": {
+            "type": "creature",
+            "count": "2"
+          }
+        }
+      },
+      "activity": {
+        "activation": {
+          "override": true,
+          "type": "minute",
+          "value": 2
+        },
+        "duration": {
+          "override": true,
+          "units": "round",
+          "value": "@mod+1"
+        },
+        "range": {
+          "override": true,
+          "units": "ft",
+          "value": "45"
+        },
+        "target": {
+          "override": true,
+          "affects": {
+            "type": "object",
+            "count": "3"
+          }
+        }
+      },
+      "expected": {
+        "parent": {
+          "activation": "bonus",
+          "duration": 4,
+          "range": 20,
+          "count": 2
+        },
+        "activity": {
+          "activation": "minute",
+          "duration": 3,
+          "range": 45,
+          "count": 3
+        }
+      }
+    },
+    {
+      "id": "zero",
+      "parent": {
+        "activation": {
+          "type": "action"
+        },
+        "duration": {
+          "units": "minute",
+          "value": 0
+        },
+        "range": {
+          "units": "ft",
+          "value": 0
+        },
+        "target": {
+          "affects": {
+            "type": "creature",
+            "count": 0
+          }
+        }
+      },
+      "activity": {},
+      "expected": {
+        "parent": {
+          "activation": "action",
+          "duration": 0,
+          "range": 0,
+          "count": 0
+        },
+        "activity": {
+          "activation": "action",
+          "duration": 0,
+          "range": 0,
+          "count": 0
+        }
+      }
+    },
+    {
+      "id": "counter-after-parent",
+      "parent": {
+        "duration": {
+          "units": "minute",
+          "value": "@item.uses.value"
+        }
+      },
+      "activity": {
+        "duration": {
+          "override": true,
+          "units": "minute",
+          "value": "@item.uses.value + @mod"
+        }
+      },
+      "expected": {
+        "parent": {
+          "activation": "action",
+          "duration": 2,
+          "range": null,
+          "count": null
+        },
+        "activity": {
+          "activation": "action",
+          "duration": 4,
+          "range": null,
+          "count": null
+        }
+      }
+    }
+  ],
+  "saves": [
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": null,
+      "targets": [],
+      "expected": 0,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "0",
+      "targets": [],
+      "expected": 0,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "13",
+      "targets": [],
+      "expected": 13,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 13,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 10,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 10,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "initial",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 9,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": null,
+      "targets": [],
+      "expected": 0,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "0",
+      "targets": [],
+      "expected": 0,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "13",
+      "targets": [],
+      "expected": 13,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 13,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 10,
+      "ability": null
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 10,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 9,
+      "ability": "str"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": null,
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "0",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "13",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "spellcasting",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": null,
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "0",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "13",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "wis",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": null,
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "0",
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "13",
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": false,
+      "calculation": "dex",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": null,
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "0",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "13",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "initial",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": null,
+      "targets": [],
+      "expected": 0,
+      "ability": null
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "str"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "0",
+      "targets": [],
+      "expected": 0,
+      "ability": null
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 0,
+      "ability": "str"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "13",
+      "targets": [],
+      "expected": 13,
+      "ability": null
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "str"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 13,
+      "ability": null
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "str"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 10,
+      "ability": null
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 10,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 9,
+      "ability": "str"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": null,
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "0",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "13",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": null,
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "0",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "13",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "wis",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 15,
+      "ability": "wis"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": null,
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": null,
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": null,
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "0",
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "0",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "0",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "13",
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "13",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "13",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "@prof + 10",
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "@prof + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "@prof + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "@mod + 10",
+      "targets": [],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "@mod + 10",
+      "targets": [
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "dex",
+      "formula": "@mod + 10",
+      "targets": [
+        "str",
+        "dex"
+      ],
+      "expected": 13,
+      "ability": "dex"
+    },
+    {
+      "isSpell": true,
+      "calculation": "spellcasting",
+      "formula": null,
+      "targets": [],
+      "expected": 11,
+      "ability": "",
+      "noCaster": true
+    }
+  ],
+  "sourceHashes": {
+    "module/data/item/spell.mjs": "b55cd05a4ec4efefa4d783e1d7685b38461bcad9c04bf60baa35195018088335",
+    "module/data/activity/save-data.mjs": "5d94e6acb771acd3ba20fa938ad52fe3a6d6d851864d47bc8998ddf08a79697b",
+    "module/data/activity/base-activity.mjs": "9bd175b6ae601ce275b1becc1ce571f43b2e766ce4875dec5d3673ebc88e99d5",
+    "module/data/item/templates/activities.mjs": "03d69007dfbd2598c7b8d195b654f7c6414dafff9e0c6a7616ed05d8972cec11"
+  },
+  "limits": [
+    "Actual Spell schema shared field constructors/cleaning,derived mgc/concentration and final/Activity-template hooks,BaseActivity common final execute. No-op description/base model,labels/valid component properties,explicit caster and deterministic Item roll data are declared collaborators. No full source DataModel/runtime or class preparation-count lifecycle.",
+    "Actual Save prepareData/calculation normalization,ability/final DC methods execute with common/damage-label and roll-data seams and earlier prepared native ability DC values15/13. No save roll,target application or damage execution.",
+    "Source/save DC bonus/value are nonpersisted and are not source overrides. Prepared effects on these fields remain separately unqualified."
+  ]
+}

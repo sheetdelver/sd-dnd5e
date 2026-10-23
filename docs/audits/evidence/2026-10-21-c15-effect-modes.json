@@ -1,0 +1,3642 @@
+{
+  "checkpoint": "C15",
+  "precedingImplementation": "c6339efc26d2e10be6d4330f871cb55add61f1e5",
+  "native": {
+    "modeObservations": [
+      {
+        "id": "local-add-adv",
+        "observed": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "local-add-dis",
+        "observed": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "local-source-cancel",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "add-counts-cancel",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "subtract-source",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "negative-counts-cross-scope",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "local-override-last",
+        "observed": {
+          "mode": 1,
+          "passive": 10,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": -1,
+          "combinedToolMode": -1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "global-type-passive-last",
+        "observed": {
+          "mode": -1,
+          "passive": 20,
+          "combinedMode": -1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "normal-override",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "downgrade-zero",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "downgrade-dis",
+        "observed": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": -1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "upgrade-zero",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "upgrade-adv",
+        "observed": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "override-adv-suppressed",
+        "observed": {
+          "mode": 0,
+          "passive": 20,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "override-dis-suppressed",
+        "observed": {
+          "mode": 0,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "multiply-noop",
+        "observed": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "global-check-add",
+        "observed": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "ability-check-add",
+        "observed": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": -1,
+          "combinedToolMode": 0,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "source-poison-counts",
+        "observed": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "tool-local-add-adv",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "tool-local-add-dis",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": 0,
+          "combinedToolMode": 0,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "global-tool-override",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": 0,
+          "combinedToolMode": -1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "tool-override-order",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "ability-save-add",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 1
+        }
+      },
+      {
+        "id": "global-save-add",
+        "observed": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": -1
+        }
+      }
+    ],
+    "constantObservations": [
+      {
+        "id": "skill-empty-add",
+        "formula": "3",
+        "independentExpectedNumeric": 3
+      },
+      {
+        "id": "skill-add",
+        "formula": "2 + 3",
+        "independentExpectedNumeric": 5
+      },
+      {
+        "id": "skill-add-negative",
+        "formula": "2 - 3",
+        "independentExpectedNumeric": -1
+      },
+      {
+        "id": "skill-subtract",
+        "formula": "2 - (3)",
+        "independentExpectedNumeric": -1
+      },
+      {
+        "id": "skill-subtract-negative",
+        "formula": "2 - (-3)",
+        "independentExpectedNumeric": 5
+      },
+      {
+        "id": "skill-override",
+        "formula": "-2",
+        "independentExpectedNumeric": -2
+      },
+      {
+        "id": "skill-empty-subtract",
+        "formula": "-(3)",
+        "independentExpectedNumeric": -3
+      },
+      {
+        "id": "ability-check",
+        "formula": "2 + 3",
+        "independentExpectedNumeric": 5
+      },
+      {
+        "id": "ability-save",
+        "formula": "3",
+        "independentExpectedNumeric": 3
+      },
+      {
+        "id": "global-check",
+        "formula": "3",
+        "independentExpectedNumeric": 3
+      },
+      {
+        "id": "global-save",
+        "formula": "3",
+        "independentExpectedNumeric": 3
+      },
+      {
+        "id": "global-skill",
+        "formula": "3",
+        "independentExpectedNumeric": 3
+      },
+      {
+        "id": "global-tool",
+        "formula": "3",
+        "independentExpectedNumeric": 3
+      },
+      {
+        "id": "tool-local",
+        "formula": "3",
+        "independentExpectedNumeric": 3
+      },
+      {
+        "id": "passive",
+        "formula": "3",
+        "independentExpectedNumeric": 3
+      },
+      {
+        "id": "decimal",
+        "formula": "-2.5 + 1.5",
+        "independentExpectedNumeric": -1
+      },
+      {
+        "id": "skill-empty-add-two",
+        "formula": "2",
+        "independentExpectedNumeric": 2
+      },
+      {
+        "id": "constant-operation-chain",
+        "formula": "2 + 3 - (1)",
+        "independentExpectedNumeric": 4
+      },
+      {
+        "id": "operation-priority",
+        "formula": "2",
+        "independentExpectedNumeric": 2
+      }
+    ],
+    "numericObservations": [
+      {
+        "id": "wis-add",
+        "applied": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": 16
+          }
+        ],
+        "observed": {
+          "skill": 6,
+          "passive": 16,
+          "tool": 4,
+          "check": 3,
+          "save": 3,
+          "score": 16,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 6,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 3,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 3,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "wis-subtract",
+        "applied": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": 12
+          }
+        ],
+        "observed": {
+          "skill": 4,
+          "passive": 14,
+          "tool": 4,
+          "check": 1,
+          "save": 1,
+          "score": 12,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 4,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 1,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 1,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "wis-multiply",
+        "applied": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": 28
+          }
+        ],
+        "observed": {
+          "skill": 12,
+          "passive": 22,
+          "tool": 4,
+          "check": 9,
+          "save": 9,
+          "score": 28,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 12,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 9,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 9,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "wis-override",
+        "applied": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": 18
+          }
+        ],
+        "observed": {
+          "skill": 7,
+          "passive": 17,
+          "tool": 4,
+          "check": 4,
+          "save": 4,
+          "score": 18,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 7,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 4,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 4,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "wis-upgrade",
+        "applied": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": 18
+          }
+        ],
+        "observed": {
+          "skill": 7,
+          "passive": 17,
+          "tool": 4,
+          "check": 4,
+          "save": 4,
+          "score": 18,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 7,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 4,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 4,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "wis-downgrade",
+        "applied": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": 12
+          }
+        ],
+        "observed": {
+          "skill": 4,
+          "passive": 14,
+          "tool": 4,
+          "check": 1,
+          "save": 1,
+          "score": 12,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 4,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 1,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 1,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "priority-chain",
+        "applied": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": 28
+          },
+          {
+            "key": "system.abilities.wis.value",
+            "value": 30
+          },
+          {
+            "key": "system.abilities.wis.value",
+            "value": 16
+          }
+        ],
+        "observed": {
+          "skill": 6,
+          "passive": 16,
+          "tool": 4,
+          "check": 3,
+          "save": 3,
+          "score": 16,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 6,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 3,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 3,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "skill-expertise",
+        "applied": [
+          {
+            "key": "system.skills.prc.value",
+            "value": 2
+          }
+        ],
+        "observed": {
+          "skill": 8,
+          "passive": 18,
+          "tool": 4,
+          "check": 2,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 2,
+          "toolProficiency": 1,
+          "combined": 8,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "tool-half",
+        "applied": [
+          {
+            "key": "system.tools.thief.value",
+            "value": 0.5
+          }
+        ],
+        "observed": {
+          "skill": 5,
+          "passive": 15,
+          "tool": 2,
+          "check": 2,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 1,
+          "toolProficiency": 0.5,
+          "combined": 5,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "global-check-half",
+        "applied": [
+          {
+            "key": "system.rolls.ability.check.proficiency",
+            "value": 0.5
+          }
+        ],
+        "observed": {
+          "skill": 5,
+          "passive": 15,
+          "tool": 4,
+          "check": 3,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 5,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "global-check-expertise",
+        "applied": [
+          {
+            "key": "system.rolls.ability.check.proficiency",
+            "value": 2
+          }
+        ],
+        "observed": {
+          "skill": 8,
+          "passive": 18,
+          "tool": 7,
+          "check": 8,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 2,
+          "toolProficiency": 2,
+          "combined": 8,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "global-skill-expertise",
+        "applied": [
+          {
+            "key": "system.rolls.ability.skill.proficiency",
+            "value": 2
+          }
+        ],
+        "observed": {
+          "skill": 8,
+          "passive": 18,
+          "tool": 4,
+          "check": 2,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 2,
+          "toolProficiency": 1,
+          "combined": 8,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "global-tool-expertise",
+        "applied": [
+          {
+            "key": "system.rolls.ability.tool.proficiency",
+            "value": 2
+          }
+        ],
+        "observed": {
+          "skill": 5,
+          "passive": 15,
+          "tool": 7,
+          "check": 2,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 1,
+          "toolProficiency": 2,
+          "combined": 8,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "global-save",
+        "applied": [
+          {
+            "key": "system.rolls.ability.save.proficiency",
+            "value": 1
+          }
+        ],
+        "observed": {
+          "skill": 5,
+          "passive": 15,
+          "tool": 4,
+          "check": 2,
+          "save": 5,
+          "score": 14,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 5,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "local-save",
+        "applied": [
+          {
+            "key": "system.abilities.wis.proficient",
+            "value": 1
+          }
+        ],
+        "observed": {
+          "skill": 5,
+          "passive": 15,
+          "tool": 4,
+          "check": 2,
+          "save": 5,
+          "score": 14,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 5,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "global-positive-automatic",
+        "applied": [
+          {
+            "key": "system.rolls.ability.check.proficiency",
+            "value": 0.5
+          }
+        ],
+        "observed": {
+          "skill": 3,
+          "passive": 13,
+          "tool": 2,
+          "check": 3,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 0.5,
+          "toolProficiency": 0.5,
+          "combined": 3,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": false,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "1",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": false,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "1",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "skill-target-does-not-raise-independent-tool",
+        "applied": [
+          {
+            "key": "system.rolls.ability.skill.proficiency",
+            "value": 2
+          }
+        ],
+        "observed": {
+          "skill": 8,
+          "passive": 18,
+          "tool": 1,
+          "check": 2,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 2,
+          "toolProficiency": 0,
+          "combined": 8,
+          "combinedMode": 0
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 0
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 0
+          }
+        ]
+      },
+      {
+        "id": "rounded-score",
+        "applied": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": 15
+          }
+        ],
+        "observed": {
+          "skill": 5,
+          "passive": 15,
+          "tool": 4,
+          "check": 2,
+          "save": 2,
+          "score": 15,
+          "skillProficiency": 1,
+          "toolProficiency": 1,
+          "combined": 5,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "3",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "tool-rounded-step",
+        "applied": [
+          {
+            "key": "system.tools.thief.value",
+            "value": 1.5
+          }
+        ],
+        "observed": {
+          "skill": 5,
+          "passive": 15,
+          "tool": 5,
+          "check": 2,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 1,
+          "toolProficiency": 1.5,
+          "combined": 6,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "4",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "4",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      },
+      {
+        "id": "clamped-expertise",
+        "applied": [
+          {
+            "key": "system.skills.prc.value",
+            "value": 2
+          }
+        ],
+        "observed": {
+          "skill": 8,
+          "passive": 18,
+          "tool": 4,
+          "check": 2,
+          "save": 2,
+          "score": 14,
+          "skillProficiency": 2,
+          "toolProficiency": 1,
+          "combined": 8,
+          "combinedMode": 1
+        },
+        "builds": [
+          {
+            "kind": "skill",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "skill": "prc",
+                "type": "skill"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          },
+          {
+            "kind": "tool",
+            "parts": [
+              "@mod",
+              "@prof"
+            ],
+            "data": {
+              "roll": {
+                "ability": "wis",
+                "proficient": true,
+                "tool": "thief",
+                "type": "tool"
+              },
+              "mod": 2,
+              "prof": "6",
+              "abilityId": "wis"
+            },
+            "mode": 1
+          }
+        ]
+      }
+    ],
+    "evidence": "S controlled static Foundry14.367 / exact native6.0.6 phase methods; not native Documents/operator acceptance",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "foundry": {
+      "generation": 14,
+      "channel": "stable",
+      "suffix": "Stable",
+      "build": 367,
+      "node_version": 24
+    },
+    "observations": [
+      {
+        "id": "no-op-actor",
+        "initial": [
+          "embedded"
+        ],
+        "final": [
+          "spellcasting"
+        ]
+      },
+      {
+        "id": "disabled-unknown",
+        "initial": [
+          "embedded"
+        ],
+        "final": [
+          "spellcasting"
+        ]
+      },
+      {
+        "id": "unequipped-transfer",
+        "initial": [
+          "embedded"
+        ],
+        "final": [
+          "item-final",
+          "spellcasting"
+        ]
+      },
+      {
+        "id": "actor-initial-final",
+        "initial": [
+          "embedded",
+          "system.abilities.wis.value"
+        ],
+        "final": [
+          "spellcasting",
+          "system.rolls.ability.check.proficiency"
+        ]
+      },
+      {
+        "id": "stable-priorities",
+        "initial": [
+          "embedded",
+          "four",
+          "two",
+          "three",
+          "one"
+        ],
+        "final": [
+          "spellcasting"
+        ]
+      }
+    ],
+    "priorities": {
+      "custom": 0,
+      "multiply": 10,
+      "add": 20,
+      "subtract": 20,
+      "downgrade": 30,
+      "upgrade": 40,
+      "override": 50
+    },
+    "foundrySources": {
+      "client/documents/actor.mjs": "e82580bf9cef39d934c972dee859a3b9ba7ab5f3ebdc7502319dfed1bc214bb3",
+      "client/documents/active-effect.mjs": "7eacad67767aaa9840a6249dcd55098d62279fad5cc2bf3fa6d28da4455236b8",
+      "common/data/active-effect.mjs": "d15b7279756b40ce25c7739fa5292fc142b53e9bf948f52f6881f7ca3d2dbc54",
+      "common/data/fields.mjs": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01",
+      "common/constants.mjs": "861a4a121ffb5713ab265b49282ff6ca8aa64036c5f9dad27208af98433dbdcf",
+      "common/primitives/number.mjs": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820"
+    },
+    "stubs": [
+      "Explicit initialized effect defaults; no Foundry DataModel initialization",
+      "Numeric field clean/validate/initialize wrappers, exact operations/rounding; numeric-literal-only Roll stub; no references/expressions",
+      "Exact native derived methods with empty applied rules/flags/conditions and source mode defaults; no Document/runtime",
+      "Untimed empty-condition effects only",
+      "Empty roll data; hidden/dependent/rider/antimagic absent",
+      "Phase-order capture traces changes only; numeric cases separately execute static NumberField operations; no hooks/token-size/spellcasting/Item derivation",
+      "Exact skill/tool dispatch and builder capture with numeric initialized model; no dice evaluation or native Document lifecycle",
+      "Constant FormulaField casts and add/subtract/override string operations only; no native Roll validation or expression evaluation; expected constant reduction separately verified through public host"
+    ]
+  },
+  "fixture": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "phase": "Initialized source modes -> initial native AdvantageModeField counts -> distinct passive and dispatch scope combination",
+    "cases": [
+      {
+        "id": "local-add-adv",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "local-add-dis",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "local-source-cancel",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": 1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "add-counts-cancel",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          },
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          },
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "subtract-source",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": 1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "subtract",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "negative-counts-cross-scope",
+        "sourceModes": {
+          "system.rolls.ability.check.mode": 1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "subtract",
+            "value": 1,
+            "phase": "initial"
+          },
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "subtract",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "local-override-last",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "override",
+            "value": 1,
+            "phase": "initial"
+          },
+          {
+            "key": "system.rolls.ability.check.mode",
+            "type": "override",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 1,
+          "passive": 10,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": -1,
+          "combinedToolMode": -1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "global-type-passive-last",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "override",
+            "value": -1,
+            "phase": "initial"
+          },
+          {
+            "key": "system.rolls.ability.skill.mode",
+            "type": "override",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": -1,
+          "passive": 20,
+          "combinedMode": -1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "normal-override",
+        "sourceModes": {
+          "system.rolls.ability.check.mode": 1,
+          "system.skills.prc.roll.mode": -1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "override",
+            "value": 0,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "downgrade-zero",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": 1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "downgrade",
+            "value": 0,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "downgrade-dis",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": 1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "downgrade",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": -1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "upgrade-zero",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": -1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "upgrade",
+            "value": 0,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "upgrade-adv",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": -1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "upgrade",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "override-adv-suppressed",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "override",
+            "value": 1,
+            "phase": "initial"
+          },
+          {
+            "key": "system.rolls.ability.skill.mode",
+            "type": "downgrade",
+            "value": 0,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 20,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "override-dis-suppressed",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "override",
+            "value": -1,
+            "phase": "initial"
+          },
+          {
+            "key": "system.rolls.ability.skill.mode",
+            "type": "upgrade",
+            "value": 0,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "multiply-noop",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": -1
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "multiply",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "global-check-add",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.rolls.ability.check.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 1,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "ability-check-add",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.abilities.wis.check.roll.mode",
+            "type": "add",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": -1,
+          "passive": 10,
+          "combinedMode": 0,
+          "toolMode": 0,
+          "abilityMode": -1,
+          "combinedToolMode": 0,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "source-poison-counts",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": 0
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 1,
+          "passive": 20,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "malformed-source",
+        "sourceModes": {
+          "system.skills.prc.roll.mode": 2
+        },
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": null
+      },
+      {
+        "id": "unsupported-delta",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": 2,
+            "phase": "initial"
+          }
+        ],
+        "expected": null
+      },
+      {
+        "id": "custom-open",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "custom",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": null
+      },
+      {
+        "id": "final-open",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.skills.prc.roll.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "final"
+          }
+        ],
+        "expected": null
+      },
+      {
+        "id": "tool-local-add-adv",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.tools.thief.roll.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "tool-local-add-dis",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.tools.thief.roll.mode",
+            "type": "add",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": 0,
+          "combinedToolMode": 0,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "global-tool-override",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.rolls.ability.tool.mode",
+            "type": "override",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": -1,
+          "abilityMode": 0,
+          "combinedToolMode": -1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "tool-override-order",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.tools.thief.roll.mode",
+            "type": "override",
+            "value": 1,
+            "phase": "initial"
+          },
+          {
+            "key": "system.rolls.ability.tool.mode",
+            "type": "override",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 1,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 0
+        }
+      },
+      {
+        "id": "ability-save-add",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.abilities.wis.save.roll.mode",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": 1
+        }
+      },
+      {
+        "id": "global-save-add",
+        "sourceModes": {},
+        "changes": [
+          {
+            "key": "system.rolls.ability.save.mode",
+            "type": "add",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "expected": {
+          "mode": 0,
+          "passive": 15,
+          "combinedMode": 1,
+          "toolMode": 0,
+          "abilityMode": 0,
+          "combinedToolMode": 1,
+          "saveMode": -1
+        }
+      }
+    ]
+  },
+  "failingBefore": [
+    "local-add-adv",
+    "local-add-dis",
+    "local-source-cancel",
+    "add-counts-cancel",
+    "subtract-source",
+    "negative-counts-cross-scope",
+    "local-override-last",
+    "global-type-passive-last",
+    "normal-override",
+    "downgrade-zero",
+    "downgrade-dis",
+    "upgrade-zero",
+    "upgrade-adv",
+    "override-adv-suppressed",
+    "override-dis-suppressed",
+    "multiply-noop",
+    "global-check-add",
+    "ability-check-add",
+    "source-poison-counts"
+  ],
+  "passingAfter": {
+    "supported": 25,
+    "explicitUnavailable": 4
+  },
+  "checks": {
+    "toolingAssertions": 56,
+    "toolingSuites": 7,
+    "moduleSuites": 18,
+    "typecheckedFiles": 117,
+    "mountedModeCases": 58,
+    "priorMountedFieldCases": 102,
+    "sourceRecords": 2242,
+    "sourceCandidateExpressions": 591,
+    "isolatedCheckPackage": "passed"
+  },
+  "publicHost": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "qualified-plain-d20-numeric-profile",
+    "equalIndexDiagnostics": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "selectionMismatches": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "caseCount": 2677,
+    "requestCount": 2678,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "manualModeCases": 18,
+    "toolCases": 24,
+    "selectedCases": 152,
+    "effectCases": 3,
+    "numericEffectCases": 504,
+    "modeEffectCases": 600,
+    "constantFormulaCases": 19,
+    "bonusEffectCases": 456,
+    "histogram": {
+      "adv": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39
+      ],
+      "dis": [
+        39,
+        37,
+        35,
+        33,
+        31,
+        29,
+        27,
+        25,
+        23,
+        21,
+        19,
+        17,
+        15,
+        13,
+        11,
+        9,
+        7,
+        5,
+        3,
+        1
+      ]
+    },
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "hashes": {
+    "tests/fixtures/native-6.0.6/effect-modes.json": "8f63544553f3e224f15df516f89856aff14999508a24dfc287c130a2197b0d70",
+    "src/logic/preparation/mode-effects.ts": "aa62b52ad59df2464c5aade3c03983092b4d5ddb086c2d22e4f600b64bf1872e",
+    "src/logic/preparation/numeric-effects.ts": "37790c2269550a3c29cfd0757bf59967668a2906de13ba5f13b11f9095af86b4",
+    "src/logic/preparation/d20-configuration.ts": "e7f4fb2d98bcd10b32e551d9dc5ed1ee26c50471b8db38d6fdc7e4c9aaafb0de",
+    "src/logic/preparation/skill-tool.ts": "1c3ca506e33db870808c8c0060c72d7af1abfe9733d0d29ca4f25c60957cbed4",
+    "src/logic/preparation/skills.ts": "def047c944375539b3809eb08d1fb0fb7295c01e002fdcb0ff073678f6069650",
+    "src/logic/preparation/abilities.ts": "a3e61bdaec34cf27ba3417e90761896fe328cc7ddc743668513cb5de42f41eac",
+    "src/tests/effect-modes.test.ts": "995d51fd848391b9edd37fc44ddcaf56b1af139f1c73633fce69b62bc0d1c667",
+    "src/tests/fixtures/mode-effect-scenarios.ts": "e064f8409fbc19df00f38bd202642551e13cf20d8e4b64b53b76b4d2e19bfa29",
+    "scripts/native-effect-oracle.mjs": "ea20a9d1d9a3e36a9bd87f082ff6353a78fbcbd444917c9836b9eb97c6a0fca9",
+    "scripts/test-mounted.mjs": "6adf1ced743ce4ed4cf88b31bd5091003c6a16dccc1b6c6c3bbb2ebe9f65b4d0",
+    "scripts/test-public-rolls.mjs": "81385cd80f16952a3899c936b1432dd86c276b63d3ac88ed00505d8d0b25eec1"
+  },
+  "archive": {
+    "path": "/tmp/dnd5e-package-0nB2eb/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "c5f99dbe41e5a0241011968b934f74219b10987d2f3f75085ce45149428459bb"
+  },
+  "limits": [
+    "Initialized plain models, empty rules/flags/conditions; exact field/prepareSkill/dispatch methods, not native Documents/DataModel or engine acceptance",
+    "Initial literal deltas-1/0/1 only; final/custom/filters/time/Item phases open",
+    "Mounted SDK presentation seam, not installed UI",
+    "Public Core synthetic auth/transport; host serialization retained",
+    "No full DD/A/M gate closes; E01/wider Q00/E05/native/operator remain open"
+  ]
+}

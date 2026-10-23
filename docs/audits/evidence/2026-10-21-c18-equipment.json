@@ -1,0 +1,2885 @@
+{
+  "checkpoint": "C18",
+  "precedingImplementation": "0106422",
+  "failingBefore": {
+    "implementation": "0106422",
+    "cases": [
+      "light-unlimited",
+      "medium-cap",
+      "heavy-no-dex",
+      "negative-dex",
+      "shield-only",
+      "armor-shield",
+      "natural-equipped",
+      "null-value-default",
+      "missing-fields-default",
+      "dex-cap-zero",
+      "dex-cap-negative",
+      "magic-no-attunement",
+      "magic-required-unattuned",
+      "magic-required-attuned",
+      "magic-optional-unattuned",
+      "bonus-without-magic",
+      "first-armor-source-order",
+      "first-shield-source-order",
+      "unarmored-formula-excluded",
+      "monk-with-shield-excluded",
+      "barbarian-with-shield",
+      "custom-armored-selected",
+      "custom-unarmored-excluded",
+      "override-still-armor-stealth",
+      "stealth-disadvantage-after-passive",
+      "source-advantage-cancels-armor",
+      "source-disadvantage-with-armor",
+      "global-advantage-cancels-armor",
+      "combined-automatic-cancels-armor",
+      "effect-override-persists-after-armor",
+      "effect-suppression-persists-after-armor",
+      "unequipped-no-armor",
+      "prepared-looking-item-poison",
+      "same-display-name-preserved"
+    ],
+    "qualifiedCaseCount": 34,
+    "unavailableCasesAlreadyGated": 11,
+    "limits": "Unequipped case failed absent shared provenance; remaining qualified inputs failed numeric availability or AC/roll facts"
+  },
+  "native": {
+    "fieldDefaults": {
+      "armorValue": null,
+      "dexCap": null,
+      "equipped": false,
+      "attuned": false,
+      "attunement": "",
+      "properties": [],
+      "magicalBonus": "undefined"
+    },
+    "foundry": {
+      "generation": 14,
+      "build": 367,
+      "fieldsSha256": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01"
+    },
+    "evidence": "S exact release Item base/derived and Actor skill-before-armor methods; explicit defaults/empty rules and no native DataModels/engine/operator acceptance",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "observations": [
+      {
+        "id": "light-unlimited",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "medium-cap",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 14,
+            "base": 14,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 16,
+        "base": 16,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "heavy-no-dex",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 18,
+            "base": 18,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 18,
+        "base": 18,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "negative-dex",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 14,
+            "base": 14,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 12,
+        "base": 12,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 1,
+        "passive": 11,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "shield-only",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 2,
+            "base": 2,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 14,
+        "base": 12,
+        "calculation": "unarmored",
+        "armorId": null,
+        "shieldId": "equipment0",
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "armor-shield",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 18,
+            "base": 18,
+            "magicAvailable": false
+          },
+          {
+            "id": "equipment1",
+            "value": 2,
+            "base": 2,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 20,
+        "base": 18,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": "equipment1",
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "natural-equipped",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 13,
+            "base": 13,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 15,
+        "base": 15,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "null-value-default",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 0,
+            "base": 0,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 2,
+        "base": 2,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "missing-fields-default",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 0,
+            "base": 0,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 2,
+        "base": 2,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "dex-cap-zero",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 11,
+        "base": 11,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "dex-cap-negative",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 14,
+            "base": 14,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "magic-no-attunement",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 12,
+            "base": 11,
+            "magicAvailable": true
+          }
+        ],
+        "ac": 14,
+        "base": 14,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "magic-required-unattuned",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "magic-required-attuned",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 12,
+            "base": 11,
+            "magicAvailable": true
+          }
+        ],
+        "ac": 14,
+        "base": 14,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "magic-optional-unattuned",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 12,
+            "base": 11,
+            "magicAvailable": true
+          }
+        ],
+        "ac": 14,
+        "base": 14,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "bonus-without-magic",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "first-armor-source-order",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          },
+          {
+            "id": "equipment1",
+            "value": 18,
+            "base": 18,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": [
+          "DND5E.WarnMultipleArmor"
+        ]
+      },
+      {
+        "id": "first-shield-source-order",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 2,
+            "base": 2,
+            "magicAvailable": false
+          },
+          {
+            "id": "equipment1",
+            "value": 3,
+            "base": 3,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 14,
+        "base": 12,
+        "calculation": "unarmored",
+        "armorId": null,
+        "shieldId": "equipment0",
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": [
+          "DND5E.WarnMultipleShields"
+        ]
+      },
+      {
+        "id": "unarmored-formula-excluded",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 0,
+        "base": 0,
+        "calculation": "natural",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "monk-with-shield-excluded",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 2,
+            "base": 2,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 2,
+        "base": 0,
+        "calculation": "natural",
+        "armorId": null,
+        "shieldId": "equipment0",
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "barbarian-with-shield",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 2,
+            "base": 2,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 16,
+        "base": 14,
+        "calculation": "unarmoredBarb",
+        "armorId": null,
+        "shieldId": "equipment0",
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "custom-armored-selected",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 20,
+        "base": 20,
+        "calculation": "custom",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "custom-unarmored-excluded",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "override-still-armor-stealth",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 17,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": -1,
+        "warnings": []
+      },
+      {
+        "id": "stealth-disadvantage-after-passive",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": -1,
+        "warnings": []
+      },
+      {
+        "id": "source-advantage-cancels-armor",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 20,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "source-disadvantage-with-armor",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 10,
+        "freshMode": -1,
+        "warnings": []
+      },
+      {
+        "id": "global-advantage-cancels-armor",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 20,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "combined-automatic-cancels-armor",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": -1,
+        "warnings": [],
+        "combinedSkillMode": 0,
+        "combinedToolMode": 1,
+        "alternateTotal": 6
+      },
+      {
+        "id": "effect-override-persists-after-armor",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 20,
+        "freshMode": 1,
+        "warnings": []
+      },
+      {
+        "id": "effect-suppression-persists-after-armor",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "unequipped-no-armor",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 18,
+            "base": 18,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 12,
+        "base": 12,
+        "calculation": "unarmored",
+        "armorId": null,
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": []
+      },
+      {
+        "id": "prepared-looking-item-poison",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": -1,
+        "warnings": []
+      },
+      {
+        "id": "same-display-name-preserved",
+        "items": [
+          {
+            "id": "equipment0",
+            "value": 11,
+            "base": 11,
+            "magicAvailable": false
+          },
+          {
+            "id": "equipment1",
+            "value": 18,
+            "base": 18,
+            "magicAvailable": false
+          }
+        ],
+        "ac": 13,
+        "base": 13,
+        "calculation": "armored",
+        "armorId": "equipment0",
+        "shieldId": null,
+        "skill": 5,
+        "passive": 15,
+        "freshMode": 0,
+        "warnings": [
+          "DND5E.WarnMultipleArmor"
+        ]
+      }
+    ],
+    "unavailable": [
+      "malformed-type",
+      "unknown-equipped-type",
+      "legacy-attunement",
+      "malformed-armor",
+      "formula-magic",
+      "malformed-cap",
+      "malformed-properties",
+      "legacy-item-stealth",
+      "item-native-flag",
+      "malformed-equipment-identity",
+      "duplicate-equipment-identity"
+    ],
+    "stubs": [
+      "Exact Foundry defaults/getInitialValue with option-merging constructor stub; schema validation/model boot absent",
+      "No-op Item description/identity/price/mount phases; exact property/magic getters",
+      "Closed independently defined integer armor-expression vocabulary only; unknown arithmetic fails",
+      "Empty conditions/flags/applied rules, prof3 initialized; no Item effects or final phases",
+      "Mode setMode invokes exact field operations through schema dispatcher; selected scopes/counts already qualified in C11/C15"
+    ],
+    "sourceHashes": {
+      "module/data/item/equipment.mjs": "1d34384efda647d0222e4ba3bfa7d4d905e6356fd3bd2500e9ae568875fd3c09",
+      "module/data/item/templates/equippable-item.mjs": "c281a334b5660dc9d00f585c17c69c04610204dec24f0f39e86b3a56ef006d95",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/fields/advantage-mode-field.mjs": "cc5b00640c485fc90d421623d5926ff30ea21227070304dcbf6017cc72ed32ce",
+      "module/data/item/templates/item-description.mjs": "4c8bbbd26f60c24ee28cf516a3120f4406fefcfb4a2661467673a73a2d206b63",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134"
+    }
+  },
+  "regression": {
+    "toolingAssertions": 56,
+    "toolingSuites": 7,
+    "moduleSuites": 21,
+    "typedFiles": 127,
+    "sourcePreserved": true,
+    "contextRecovery": true,
+    "preparedFieldPoisonInvariant": true
+  },
+  "mounted": {
+    "evidence": "Isolated mounted module R; SDK presentation seam; not installed Core U/I or native N/O",
+    "playwright": "1.56.1",
+    "browser": "143.0.7499.4",
+    "rows": [
+      {
+        "width": 1440,
+        "id": "light-unlimited",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "medium-cap",
+        "ac": 16,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "heavy-no-dex",
+        "ac": 18,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "negative-dex",
+        "ac": 12,
+        "skill": 1,
+        "passive": 11,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "shield-only",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "armor-shield",
+        "ac": 20,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "natural-equipped",
+        "ac": 15,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "null-value-default",
+        "ac": 2,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "missing-fields-default",
+        "ac": 2,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "dex-cap-zero",
+        "ac": 11,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "dex-cap-negative",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "magic-no-attunement",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "magic-required-unattuned",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "magic-required-attuned",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "magic-optional-unattuned",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "bonus-without-magic",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "first-armor-source-order",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "first-shield-source-order",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "unarmored-formula-excluded",
+        "ac": 0,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "monk-with-shield-excluded",
+        "ac": 2,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "barbarian-with-shield",
+        "ac": 16,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-armored-selected",
+        "ac": 20,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "custom-unarmored-excluded",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "override-still-armor-stealth",
+        "ac": 17,
+        "skill": 5,
+        "passive": 15,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "stealth-disadvantage-after-passive",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "source-advantage-cancels-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 20,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "source-disadvantage-with-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 10,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "global-advantage-cancels-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 20,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "combined-automatic-cancels-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "effect-override-persists-after-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 20,
+        "mode": 1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "effect-suppression-persists-after-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "unequipped-no-armor",
+        "ac": 12,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "prepared-looking-item-poison",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "same-display-name-preserved",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-type",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "unknown-equipped-type",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "legacy-attunement",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-armor",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "formula-magic",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-cap",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-properties",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "legacy-item-stealth",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "item-native-flag",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-equipment-identity",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 1440,
+        "id": "duplicate-equipment-identity",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "light-unlimited",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "medium-cap",
+        "ac": 16,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "heavy-no-dex",
+        "ac": 18,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "negative-dex",
+        "ac": 12,
+        "skill": 1,
+        "passive": 11,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "shield-only",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "armor-shield",
+        "ac": 20,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "natural-equipped",
+        "ac": 15,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "null-value-default",
+        "ac": 2,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "missing-fields-default",
+        "ac": 2,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "dex-cap-zero",
+        "ac": 11,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "dex-cap-negative",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "magic-no-attunement",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "magic-required-unattuned",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "magic-required-attuned",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "magic-optional-unattuned",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "bonus-without-magic",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "first-armor-source-order",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "first-shield-source-order",
+        "ac": 14,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "unarmored-formula-excluded",
+        "ac": 0,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "monk-with-shield-excluded",
+        "ac": 2,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "barbarian-with-shield",
+        "ac": 16,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "custom-armored-selected",
+        "ac": 20,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "custom-unarmored-excluded",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "override-still-armor-stealth",
+        "ac": 17,
+        "skill": 5,
+        "passive": 15,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "stealth-disadvantage-after-passive",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "source-advantage-cancels-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 20,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "source-disadvantage-with-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 10,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "global-advantage-cancels-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 20,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "combined-automatic-cancels-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "effect-override-persists-after-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 20,
+        "mode": 1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "effect-suppression-persists-after-armor",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "unequipped-no-armor",
+        "ac": 12,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "prepared-looking-item-poison",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": -1,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "same-display-name-preserved",
+        "ac": 13,
+        "skill": 5,
+        "passive": 15,
+        "mode": 0,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-type",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "unknown-equipped-type",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "legacy-attunement",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-armor",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "formula-magic",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-cap",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-properties",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "legacy-item-stealth",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "item-native-flag",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-equipment-identity",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      },
+      {
+        "width": 390,
+        "id": "duplicate-equipment-identity",
+        "ac": null,
+        "skill": null,
+        "passive": null,
+        "mode": null,
+        "sharedPreviewAndShortcut": true
+      }
+    ],
+    "previousRegressionCounts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56,
+      "focusRows": 2,
+      "combinationRows": 80,
+      "effectRows": 22,
+      "numericEffectRows": 102,
+      "effectModeRows": 58,
+      "healthRows": 58,
+      "defenseRows": 102
+    },
+    "actualSourceRepreparedIdentityFence": true,
+    "artifactRoot": "/tmp/dnd5e-mounted-SpYoq8"
+  },
+  "isolatedPublicHost": {
+    "evidence": "Isolated real public host SDK silent rolls; synthetic transport/auth and controlled dependency entropy, not native/operator acceptance",
+    "result": "qualified-plain-d20-numeric-profile",
+    "equalIndexDiagnostics": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "selectionMismatches": [
+      {
+        "case": 0,
+        "formula": "2d20kl1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 21,
+        "formula": "2d20kl1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 42,
+        "formula": "2d20kl1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 63,
+        "formula": "2d20kl1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 84,
+        "formula": "2d20kl1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 105,
+        "formula": "2d20kl1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 126,
+        "formula": "2d20kl1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 147,
+        "formula": "2d20kl1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 168,
+        "formula": "2d20kl1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 189,
+        "formula": "2d20kl1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 210,
+        "formula": "2d20kl1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 231,
+        "formula": "2d20kl1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 252,
+        "formula": "2d20kl1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 273,
+        "formula": "2d20kl1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 294,
+        "formula": "2d20kl1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 315,
+        "formula": "2d20kl1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 336,
+        "formula": "2d20kl1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 357,
+        "formula": "2d20kl1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 378,
+        "formula": "2d20kl1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 399,
+        "formula": "2d20kl1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 400,
+        "formula": "2d20kh1+5",
+        "faces": [
+          1,
+          1
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 421,
+        "formula": "2d20kh1+5",
+        "faces": [
+          2,
+          2
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 442,
+        "formula": "2d20kh1+5",
+        "faces": [
+          3,
+          3
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 463,
+        "formula": "2d20kh1+5",
+        "faces": [
+          4,
+          4
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 484,
+        "formula": "2d20kh1+5",
+        "faces": [
+          5,
+          5
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 505,
+        "formula": "2d20kh1+5",
+        "faces": [
+          6,
+          6
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 526,
+        "formula": "2d20kh1+5",
+        "faces": [
+          7,
+          7
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 547,
+        "formula": "2d20kh1+5",
+        "faces": [
+          8,
+          8
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 568,
+        "formula": "2d20kh1+5",
+        "faces": [
+          9,
+          9
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 589,
+        "formula": "2d20kh1+5",
+        "faces": [
+          10,
+          10
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 610,
+        "formula": "2d20kh1+5",
+        "faces": [
+          11,
+          11
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 631,
+        "formula": "2d20kh1+5",
+        "faces": [
+          12,
+          12
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 652,
+        "formula": "2d20kh1+5",
+        "faces": [
+          13,
+          13
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 673,
+        "formula": "2d20kh1+5",
+        "faces": [
+          14,
+          14
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 694,
+        "formula": "2d20kh1+5",
+        "faces": [
+          15,
+          15
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 715,
+        "formula": "2d20kh1+5",
+        "faces": [
+          16,
+          16
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 736,
+        "formula": "2d20kh1+5",
+        "faces": [
+          17,
+          17
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 757,
+        "formula": "2d20kh1+5",
+        "faces": [
+          18,
+          18
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 778,
+        "formula": "2d20kh1+5",
+        "faces": [
+          19,
+          19
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      },
+      {
+        "case": 799,
+        "formula": "2d20kh1+5",
+        "faces": [
+          20,
+          20
+        ],
+        "expectedKept": [
+          0
+        ],
+        "observedKept": [
+          1
+        ]
+      }
+    ],
+    "coreVersion": "0.19.3",
+    "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+    "caseCount": 2969,
+    "requestCount": 2970,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "controlledPairs": 800,
+    "normalFaces": 20,
+    "sourceModeCases": 81,
+    "manualModeCases": 18,
+    "toolCases": 24,
+    "selectedCases": 152,
+    "effectCases": 3,
+    "numericEffectCases": 504,
+    "initiativeCases": 144,
+    "equipmentCases": 148,
+    "fixedScoreCases": 8,
+    "modeEffectCases": 600,
+    "constantFormulaCases": 19,
+    "bonusEffectCases": 456,
+    "histogram": {
+      "adv": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39
+      ],
+      "dis": [
+        39,
+        37,
+        35,
+        33,
+        31,
+        29,
+        27,
+        25,
+        23,
+        21,
+        19,
+        17,
+        15,
+        13,
+        11,
+        9,
+        7,
+        5,
+        3,
+        1
+      ]
+    },
+    "numericLiteralBoundaryRejected": true,
+    "nativeWrites": 0,
+    "limits": [
+      "Test-only module invokes req.runtime.rolls; not full actor endpoint or installed D&D UI",
+      "Exact faces and entropy consumption verified; no critical annotations/chat audience/native/operator acceptance"
+    ]
+  },
+  "hashes": {
+    "tests/fixtures/native-6.0.6/equipment.json": "22ae1df5009c8430818be36deceec5f86fc8074bb55d7994ff13320281196a72",
+    "src/logic/preparation/equipment.ts": "71fb8f5c20f58a91606f99f5c00a0961660b182575d490e77ec1c88b7007f91d",
+    "src/logic/preparation/defenses.ts": "388eddcec9e6c014019ddd0801a883dc734b0c87bcad57eebbbd94e95679fa0b",
+    "src/logic/preparation/skill-tool.ts": "6f26f55b18d5fae80f27d40fd02a8cb13470e580f07b9e7bf1e732b72e607ee0",
+    "src/logic/preparation/numeric-effects.ts": "297be22d4da2addec827a2dadcadc5c7e5d4c8c290cb9cf20abaa04b35320281",
+    "src/logic/preparation/character-profile.ts": "ae51285673c329e2da3b6f6bf7c0d21f37b9edc106b6c702ae118e0443867c75",
+    "src/logic/adapter.ts": "e217425c5cdd3ac6905e8c7e1f43de995bf243b3ae752776ce9ebe796e68a30b",
+    "src/tests/equipment.test.ts": "bac4a22248b6e4ec930e9a3658afb479940a694b897aad1385a58a2c549f0e95",
+    "src/tests/fixtures/equipment-scenarios.ts": "c9be2376d47856484b1e90f52ad9d4238ef8c7d48b8d77683bc76d8e4dffef9d",
+    "src/ui/components/blocks/ArmorClass.tsx": "1cb5725b2996d781aed2869eb20208ecb561294581361a146ecfb22e62f4be37",
+    "src/ui/components/page/MobileHeader.tsx": "ffb38e4314ec4d4d65b9d8621cdc2db81303dc2018309363fff85b1a8c386fb0",
+    "src/ui/components/shared/skillIntent.ts": "6ddc475f1a44e301c985c4fa45eb6509a3bcc4068e77e24915c8d14c69e87081",
+    "scripts/native-equipment-oracle.mjs": "61fef55b56135b07cfe4dfaa95036074420639557aad1ee84f65c4b5377287b6",
+    "scripts/test-mounted.mjs": "bf103aba1aa65cfcae0c2bab9f87cb1aafac50f4c7b8d089d5a6b27382b11e31",
+    "scripts/test-public-rolls.mjs": "29a432e5e8d8d11353b1d05e2696c46f50fb40fecfba622a4144e3225e722dcd"
+  },
+  "archive": {
+    "path": "/tmp/dnd5e-package-P9OOtK/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "ed5c72a848d3d490754822baeca26e8fe9957d4c7792de2517d18dadbf3dfb24"
+  },
+  "limits": [
+    "Exact initialized Item/Actor methods and static Foundry defaults with explicit stubs, not native Documents/DataModels/engine/operator acceptance",
+    "Only source equipped armor registry types/numeric magic and initial qualified Actor effects; Item effects/flags/migrations/final/activity phases unqualified",
+    "Canonical world Actor/owned Item identities; no names or same-name lookup and no source writes",
+    "Passive arithmetic qualified R/S; mounted checks actual AC/control/preview/manual/shortcut/selection and stale callbacks",
+    "Synthetic Core0.19.3 public rolls with exact faces/entropy/value/count/flags/totals/distributions; equal-value indices remain diagnostics only",
+    "No complete DD/A/M gate closed; ADR-0001/E01/wider Q00/E05/native/operator acceptance remain open"
+  ]
+}

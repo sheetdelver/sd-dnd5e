@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-22",
+  "checkpoints": [
+    {
+      "checkpoint": "C57",
+      "commit": "9f2f7455fe5e7319959573ca038a0880b247ba27",
+      "evidence": "docs/audits/evidence/2026-10-22-c57-final-defense-sets-foundation.json",
+      "evidenceSha256": "97a00aaf2991f8e3b78b56d67ed7196b8152d2fea769b9635941abe635d3f680"
+    },
+    {
+      "checkpoint": "C58",
+      "commit": "1a03d876304527aa498a154734546a9a2a0f242e",
+      "evidence": "docs/audits/evidence/2026-10-22-c58-final-defense-sets.json",
+      "evidenceSha256": "3e27d2e98db52257dbabe23bd553e8619c1bce6766cda8cc9f8f587e026396f8"
+    }
+  ],
+  "scope": "Local module checkpoints only;full ADR acceptance open"
+}

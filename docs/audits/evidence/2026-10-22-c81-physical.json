@@ -1,0 +1,338 @@
+{
+  "checkpoint": "C81 shared embedded physical preparation",
+  "parent": "2e9edb6912cf2c684d8869b661318db70162ec0a",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirements": [
+    "M2 partial",
+    "DD-03/06/09/11/24/27/31/34 partial",
+    "A02\u2013A06 read preparation partial"
+  ],
+  "beforeAfter": {
+    "sameInput": "26lb nested/currency fixture",
+    "before": "No shared physical projection (assertion undefined versus26)",
+    "after": "26lb;outer18lb/inner6kg/count3;weightless13.5lb;metric9.7kg;coins-off20.5lb",
+    "source": "src/tests/fixtures/physical-scenarios.ts"
+  },
+  "checks": {
+    "before": {
+      "artifact": "temp/c81-before.log",
+      "sha256": "04a626609b73ea68b66068a023d9d0e98cce400d9785f321ac64fca75256f3e5",
+      "result": "Maintained independent expectation fails against C80 adapter"
+    },
+    "regression": {
+      "artifact": "temp/c81-tests-final.log",
+      "sha256": "67d09be36714f9fd13d34581af39afed145a56188f11819a4fefff089f99bf5e",
+      "result": "60 module/9 tooling suites/61 assertions PASS"
+    },
+    "typing": {
+      "artifact": "temp/c81-types-complete.log",
+      "sha256": "56e6b6ea82e8052ab8da3a12cc54b6a9fec81f13259b856b06e92bcef42a6176",
+      "result": "238 explicit module/UI/server/test/hook files PASS"
+    },
+    "native": {
+      "artifact": "temp/c81-native-physical.json",
+      "sha256": "b5ba2e6b090b439536cd4f030d5f5ffd1f0d0fce7ae3f8f43d13502b2a249e19",
+      "result": "4 nested physical/currency/metric/weightless profiles,12 size/Powerful Build thresholds,16 conversions PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-physical-mounted-i9Z8ak/evidence.json",
+      "sha256": "fb27d5fcc5fae18429ba4895956e090530a6e0856851eb709879e24c793aea2e",
+      "result": "1440/390 actual inventory/details/nested totals/currency/metric/context/source recovery/zero writes PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-pXxcYw/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "b290d33381072dee6b76d0c8ab5157979666cf404d39992d3d50ca5ab6e3b196",
+      "result": "isolated check/package PASS"
+    }
+  },
+  "commands": [
+    "npm test -- --core <released0.19.3>",
+    "npm run typecheck -- --core <released0.19.3>",
+    "npm run test:native-physical -- --core <released0.19.3> --native <exactrelease> --foundry <static14.367> --write-evidence <output>",
+    "npm run test:mounted-physical -- --core <released0.19.3> --browser-tools <isolatedtools> --chromium <headless>",
+    "npm run check:package -- --core <released0.19.3>"
+  ],
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "rows": [
+      {
+        "id": "imperial",
+        "actorWeight": 26,
+        "outerWeight": 18,
+        "innerWeight": 6,
+        "capacities": [
+          {
+            "max": 5,
+            "value": 3,
+            "units": "DND5E.Items",
+            "hidden": true,
+            "pct": 60
+          },
+          {
+            "max": 20,
+            "value": 5,
+            "units": "DND5E.UNITS.WEIGHT.Pound.Label",
+            "hidden": true,
+            "pct": 25
+          }
+        ],
+        "thresholds": {
+          "encumbered": 50,
+          "heavilyEncumbered": 100,
+          "maximum": 150
+        }
+      },
+      {
+        "id": "no-coins",
+        "actorWeight": 20.5,
+        "outerWeight": 14.5,
+        "innerWeight": 5,
+        "capacities": [
+          {
+            "max": 5,
+            "value": 3,
+            "units": "DND5E.Items",
+            "hidden": true,
+            "pct": 60
+          },
+          {
+            "max": 20,
+            "value": 4,
+            "units": "DND5E.UNITS.WEIGHT.Pound.Label",
+            "hidden": true,
+            "pct": 20
+          }
+        ],
+        "thresholds": {
+          "encumbered": 50,
+          "heavilyEncumbered": 100,
+          "maximum": 150
+        }
+      },
+      {
+        "id": "metric",
+        "actorWeight": 9.7,
+        "outerWeight": 16.09090909090909,
+        "innerWeight": 5.454545454545454,
+        "capacities": [
+          {
+            "max": 5,
+            "value": 3,
+            "units": "DND5E.Items",
+            "hidden": true,
+            "pct": 60
+          },
+          {
+            "max": 20,
+            "value": 4.5,
+            "units": "DND5E.UNITS.WEIGHT.Pound.Label",
+            "hidden": true,
+            "pct": 22.5
+          }
+        ],
+        "thresholds": {
+          "encumbered": 25,
+          "heavilyEncumbered": 50,
+          "maximum": 75
+        }
+      },
+      {
+        "id": "weightless",
+        "actorWeight": 13.5,
+        "outerWeight": 5.5,
+        "innerWeight": 1,
+        "capacities": [
+          {
+            "max": 5,
+            "value": 3,
+            "units": "DND5E.Items",
+            "hidden": true,
+            "pct": 60
+          },
+          {
+            "max": 20,
+            "value": 5,
+            "units": "DND5E.UNITS.WEIGHT.Pound.Label",
+            "hidden": true,
+            "pct": 25
+          }
+        ],
+        "thresholds": {
+          "encumbered": 50,
+          "heavilyEncumbered": 100,
+          "maximum": 150
+        }
+      }
+    ],
+    "conversions": [
+      {
+        "from": "lb",
+        "to": "lb",
+        "value": 7
+      },
+      {
+        "from": "lb",
+        "to": "kg",
+        "value": 2.8
+      },
+      {
+        "from": "lb",
+        "to": "tn",
+        "value": 0.0035
+      },
+      {
+        "from": "lb",
+        "to": "Mg",
+        "value": 0.0028
+      },
+      {
+        "from": "kg",
+        "to": "lb",
+        "value": 17.5
+      },
+      {
+        "from": "kg",
+        "to": "kg",
+        "value": 7
+      },
+      {
+        "from": "kg",
+        "to": "tn",
+        "value": 0.00875
+      },
+      {
+        "from": "kg",
+        "to": "Mg",
+        "value": 0.007
+      },
+      {
+        "from": "tn",
+        "to": "lb",
+        "value": 14000
+      },
+      {
+        "from": "tn",
+        "to": "kg",
+        "value": 5600
+      },
+      {
+        "from": "tn",
+        "to": "tn",
+        "value": 7
+      },
+      {
+        "from": "tn",
+        "to": "Mg",
+        "value": 5.6
+      },
+      {
+        "from": "Mg",
+        "to": "lb",
+        "value": 17500
+      },
+      {
+        "from": "Mg",
+        "to": "kg",
+        "value": 7000
+      },
+      {
+        "from": "Mg",
+        "to": "tn",
+        "value": 8.75
+      },
+      {
+        "from": "Mg",
+        "to": "Mg",
+        "value": 7
+      }
+    ],
+    "thresholds": [
+      {
+        "size": "tiny",
+        "powerfulBuild": false,
+        "max": 75
+      },
+      {
+        "size": "tiny",
+        "powerfulBuild": true,
+        "max": 150
+      },
+      {
+        "size": "sm",
+        "powerfulBuild": false,
+        "max": 150
+      },
+      {
+        "size": "sm",
+        "powerfulBuild": true,
+        "max": 150
+      },
+      {
+        "size": "med",
+        "powerfulBuild": false,
+        "max": 150
+      },
+      {
+        "size": "med",
+        "powerfulBuild": true,
+        "max": 300
+      },
+      {
+        "size": "lg",
+        "powerfulBuild": false,
+        "max": 300
+      },
+      {
+        "size": "lg",
+        "powerfulBuild": true,
+        "max": 600
+      },
+      {
+        "size": "huge",
+        "powerfulBuild": false,
+        "max": 600
+      },
+      {
+        "size": "huge",
+        "powerfulBuild": true,
+        "max": 1200
+      },
+      {
+        "size": "grg",
+        "powerfulBuild": false,
+        "max": 1200
+      },
+      {
+        "size": "grg",
+        "powerfulBuild": true,
+        "max": 1200
+      }
+    ],
+    "foundryNumberSha256": "0836b2ef195b5cda47b4b30344de850423e5553f3225a9c9b63f0ad49702f820",
+    "sourceHashes": {
+      "module/data/item/templates/physical-item.mjs": "cee6fcbcfc67fbc06ff84a10be78c5a9c34f676e2d9dcae730a0c1f344dfe483",
+      "module/data/item/container.mjs": "ea0ed15ae90928442179e667c7af7722829737b71555acbde007c3ab8340ca0a",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/utils.mjs": "49688587e11301e66dd058905f1fe8ea29355d2c94dc5686588aeb68910e1f1f",
+      "module/data/shared/currency.mjs": "a5889f9e1f7f93084897e47c3a9b2e55b77a3ecd017697c6ad8e3e0bd4ee3be1",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134"
+    },
+    "limits": [
+      "Actual native getters/capacity/encumbrance/currency methods on declared initialized embedded collection shells. Unit/size config constants are separately pinned-source assertions,not full DataModel/runtime acceptance.",
+      "Container currencyWeight is added in the container weight units as native implements,even when those differ from global metric setting. Capacity numeric weight uses contentsWeight in Item weight units while label comes from capacity units. These behaviors are preserved,not silently repaired.",
+      "No compendium transport,visibility/caller authority,auto status writes or native/operator acceptance."
+    ]
+  },
+  "retainedEvidence": {
+    "sourceInventory": "C80 exact release2242 records/591 candidates PASS;no native source changes",
+    "publicRoll": "C80 public45400 Normal proficiency requests/120 distributions plus800 UNQUALIFIED probes;C79 plain-d20 dependency run retained. No dice compiler/execution change in C81."
+  },
+  "limits": [
+    "Controlled exact-source/native initialized getters use declared embedded Collection shells and static Foundry toNearest;no full DataModel/native runtime,compendium transport or operator acceptance.",
+    "Raw source encumbrance is nonpersisted and ignored. Only proven default threshold bonuses0/multipliers1;unsupported effect writes remain unavailable.",
+    "No automatic encumbrance status writes or guessed movement/check penalties. Non-none encumbrance execution still gated until status-effect qualification.",
+    "Unidentified contents/count/capacity conservatively unavailable regardless of role;visible total follows native aggregate. Caller-aware container administration belongs to later workflow scope.",
+    "Dangling/cyclic/malformed source and Item-target effects remain explicit unavailable states,not repair or full Item-effect preparation. Other M2 Item/filter/formula/modifier gates remain open.",
+    "R/S/mounted SDK seam/managed evidence distinct. No live services or production settings used. Experimental0.4.1/compatibility unchanged;Node22 CI unrun;M2/ADR/full acceptance remain open."
+  ]
+}

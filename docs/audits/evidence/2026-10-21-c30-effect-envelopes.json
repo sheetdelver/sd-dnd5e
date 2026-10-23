@@ -1,0 +1,252 @@
+{
+  "checkpoint": "C30",
+  "precedingImplementation": "24c6bad",
+  "requirementsPartial": [
+    "M2",
+    "Q02a",
+    "DD-02",
+    "DD-05",
+    "DD-27",
+    "DD-34",
+    "A02",
+    "A04",
+    "A21"
+  ],
+  "failingBefore": {
+    "sourceContracts": [
+      {
+        "id": "false-effect-priority-envelope-gated",
+        "conditions": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "badEnvelope": "priority",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "false-effect-phase-envelope-gated",
+        "conditions": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "badEnvelope": "phase",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "false-effect-type-envelope-gated",
+        "conditions": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "badEnvelope": "type",
+        "workflowUnavailable": true
+      },
+      {
+        "id": "false-effect-entry-envelope-gated",
+        "conditions": "{\"o\": \"OR\", \"v\": []}",
+        "truth": false,
+        "badEnvelope": "entry",
+        "workflowUnavailable": true
+      }
+    ],
+    "implementation": "24c6bad",
+    "observed": "Four false whole-effect guards bypassed change-envelope gates and enabled baseline1d20+5",
+    "expected": "Unavailable source envelope with explicit reason",
+    "failures": 4,
+    "exit": 1,
+    "maintainedLogSha256": "e1c146c3b1089a793d04b0defef5c6f2164fb9730db3fae3c90cf0ead529d175"
+  },
+  "passingAfter": {
+    "contracts": 58,
+    "qualifiedWorkflows": 34,
+    "unavailableBoundaries": 24,
+    "reason": "Key/phase/type/priority validated once before effect suppression; normalized envelope reused for later condition/priority/order steps",
+    "sourcePreservation": true
+  },
+  "checks": {
+    "npm test": {
+      "toolingAssertions": 60,
+      "toolingSuites": 8,
+      "moduleSuites": 31,
+      "result": "PASS"
+    },
+    "typecheck": {
+      "explicitModuleUiServerTestHookFiles": 161,
+      "result": "PASS"
+    },
+    "test:native-source": {
+      "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+      "records": 2242,
+      "expressions": 591,
+      "result": "PASS"
+    },
+    "test:native-filters": {
+      "observations": 44,
+      "sourceBoundariesIncludedAsGuardOnly": 10,
+      "propertyReads": 0,
+      "newGuardObservations": [
+        {
+          "id": "false-effect-priority-envelope-gated",
+          "definition": "{\"o\": \"OR\", \"v\": []}",
+          "truth": false,
+          "shouldApplyChange": false,
+          "effectReplacementCalls": 1,
+          "workflow": "Module boundary; only filter truth compared"
+        },
+        {
+          "id": "false-effect-phase-envelope-gated",
+          "definition": "{\"o\": \"OR\", \"v\": []}",
+          "truth": false,
+          "shouldApplyChange": false,
+          "effectReplacementCalls": 1,
+          "workflow": "Module boundary; only filter truth compared"
+        },
+        {
+          "id": "false-effect-type-envelope-gated",
+          "definition": "{\"o\": \"OR\", \"v\": []}",
+          "truth": false,
+          "shouldApplyChange": false,
+          "effectReplacementCalls": 1,
+          "workflow": "Module boundary; only filter truth compared"
+        },
+        {
+          "id": "false-effect-entry-envelope-gated",
+          "definition": "{\"o\": \"OR\", \"v\": []}",
+          "truth": false,
+          "shouldApplyChange": false,
+          "effectReplacementCalls": 1,
+          "workflow": "Module boundary; only filter truth compared"
+        }
+      ],
+      "sourceHashes": {
+        "module/filter.mjs": "f80fcb3066fe319389225c6101e31ae8738a14f7f1baab56fde9c2e60b051cbf",
+        "module/data/fields/filters-field.mjs": "51d68d61bf4dba27ec81f4392b8f85ad6e9cf894b44e265e087600e16073a256",
+        "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+        "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+        "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79"
+      },
+      "foundry": {
+        "generation": 14,
+        "build": 367,
+        "helpersSha256": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0"
+      },
+      "sha256": "7367fc322d454856410cacffe1196f950dee2a1c103b72b33417eeb44ac37655",
+      "limits": [
+        "Exact Filter functions, FiltersField.initialize/default schema assertion, effect evaluateCondition/cache reset and document shouldApplyChange methods only",
+        "Primitive field initialization receives persisted JSON strings/default{} explicitly; no DataModel source cleaning/validation boot",
+        "Property reads throw; supported trees must be snapshot-invariant even with changed snapshots; data-dependent/unknown/malformed branches not qualified",
+        "Document superclass eligibility returns true, no replacement-source Item and changeTypes.add skipConditions=false; module eligibility/phase tests remain separate",
+        "Replacement-data adapter is identity; no claim that raw source/current derived values equal native initial/final getRollData",
+        "Cache/fresh-change callback probes establish method lifetime only, not data-dependent filters, statuses/rider lifecycle, clocks, native engine or operator acceptance"
+      ],
+      "result": "PASS; guard truth alone never qualifies malformed source"
+    },
+    "test:mounted --filters-only": {
+      "artifacts": "/tmp/dnd5e-mounted-ZZ1jRe",
+      "sha256": "aa6a31adea72b8dd9f86228541b5006704e04c17ab938c9f080a3e9883ce6860",
+      "states": 116,
+      "newStates": [
+        {
+          "width": 1440,
+          "id": "constant-filter:false-effect-priority-envelope-gated",
+          "ready": false,
+          "actualSkillToolTrainingConsumers": true,
+          "previewExecutionAgreement": true,
+          "recovery": true,
+          "retainedCallbackFenced": false
+        },
+        {
+          "width": 1440,
+          "id": "constant-filter:false-effect-phase-envelope-gated",
+          "ready": false,
+          "actualSkillToolTrainingConsumers": true,
+          "previewExecutionAgreement": true,
+          "recovery": true,
+          "retainedCallbackFenced": false
+        },
+        {
+          "width": 1440,
+          "id": "constant-filter:false-effect-type-envelope-gated",
+          "ready": false,
+          "actualSkillToolTrainingConsumers": true,
+          "previewExecutionAgreement": true,
+          "recovery": true,
+          "retainedCallbackFenced": false
+        },
+        {
+          "width": 1440,
+          "id": "constant-filter:false-effect-entry-envelope-gated",
+          "ready": false,
+          "actualSkillToolTrainingConsumers": true,
+          "previewExecutionAgreement": true,
+          "recovery": true,
+          "retainedCallbackFenced": false
+        },
+        {
+          "width": 390,
+          "id": "constant-filter:false-effect-priority-envelope-gated",
+          "ready": false,
+          "actualSkillToolTrainingConsumers": true,
+          "previewExecutionAgreement": true,
+          "recovery": true,
+          "retainedCallbackFenced": false
+        },
+        {
+          "width": 390,
+          "id": "constant-filter:false-effect-phase-envelope-gated",
+          "ready": false,
+          "actualSkillToolTrainingConsumers": true,
+          "previewExecutionAgreement": true,
+          "recovery": true,
+          "retainedCallbackFenced": false
+        },
+        {
+          "width": 390,
+          "id": "constant-filter:false-effect-type-envelope-gated",
+          "ready": false,
+          "actualSkillToolTrainingConsumers": true,
+          "previewExecutionAgreement": true,
+          "recovery": true,
+          "retainedCallbackFenced": false
+        },
+        {
+          "width": 390,
+          "id": "constant-filter:false-effect-entry-envelope-gated",
+          "ready": false,
+          "actualSkillToolTrainingConsumers": true,
+          "previewExecutionAgreement": true,
+          "recovery": true,
+          "retainedCallbackFenced": false
+        }
+      ],
+      "result": "PASS, actual desktop/mobile skill/tool/training controls, preview/execution/recovery/fences; focused mode not full-suite claim"
+    },
+    "test:public-rolls": {
+      "artifacts": "/tmp/dnd5e-public-rolls-hA5rcn",
+      "sha256": "0c84aa7280c6bbf616c9dd034387d6ed1b3a67ab5944768d52b88456ce5757f0",
+      "coreVersion": "0.19.3",
+      "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+      "accepted": 15960,
+      "normalRangeRequests": 9101,
+      "normalRangeDistributions": 441,
+      "candidateRejections": 1,
+      "plainEqualIndexDiagnostics": 40,
+      "nativeWrites": 0,
+      "result": "PASS, unchanged qualification and actual serialization"
+    },
+    "check:package": {
+      "archive": "/tmp/dnd5e-package-QqNJR3/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "d697a40168896e89832422ea5feab794e559ceb7ad5e5eccfb7c20bbf65543c8",
+      "result": "isolated module/public-boundary check, managed typing and bundles PASS"
+    }
+  },
+  "fileHashes": {
+    "src/logic/preparation/effects.ts": "b5a172dc70d0147f86e6dbb4480242c7b096c0ae5283bcd1b7005cef35cf03d0",
+    "src/tests/constant-filters.test.ts": "f42eac9b996742074e8d9d9a4cb7f4fb41ca782e039be4b545aa486a4aa48ad7",
+    "src/tests/fixtures/filter-scenarios.ts": "a9d808d133b82c6505c609e77798edce81e37a1c2caf9e2f7c17e0062771b727",
+    "tests/fixtures/native-6.0.6/constant-filters.json": "a15169b68a5cc8161244c22bb7d8af7327d6458cb888dbe25ab773d84b2c17a1"
+  },
+  "limits": [
+    "This is a module availability correction, not native schema rejection/coercion parity",
+    "Supported false guards still prove valid unknown targets inactive; malformed/unknown envelope is separately unavailable",
+    "Root regression covers all prior suites; focused mounted run covers all58 filter workflows, prior C29 full mounted evidence retained",
+    "Controlled methods/public-host/mounted SDK seam are not installed/native/operator acceptance",
+    "No new Core dependency, evaluator, cache, source persistence or broader rule support",
+    "E01/wider Q00/E05 and ADR-0001 remain open; experimental0.4.1/compatibility unchanged",
+    "Task-owned services stopped; production listeners untouched"
+  ]
+}

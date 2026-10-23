@@ -1,0 +1,40 @@
+{
+  "_id": "fixtureActor0001",
+  "name": "Synthetic source boundary",
+  "type": "character",
+  "system": {
+    "abilities": { "wis": { "value": 14, "proficient": 0 } },
+    "skills": { "prc": { "value": 1, "ability": "wis", "bonuses": { "check": "", "passive": "" } } },
+    "attributes": { "hp": { "value": 15, "max": null, "temp": 0 } }
+  },
+  "items": [
+    {
+      "_id": "fixtureClass0001", "name": "Class label is not a lookup", "type": "class",
+      "system": {
+        "levels": 5, "hd": { "denomination": "d8", "spent": 0, "additional": "" },
+        "source": { "rules": "2024", "license": "synthetic", "revision": 1 },
+        "advancement": [{ "_id": "fixtureGrant0001", "type": "ItemGrant", "configuration": { "items": [{ "uuid": "Compendium.example.options.Item.fixtureSpell0001", "optional": false }] }, "value": {}, "level": 1 }]
+      }
+    },
+    {
+      "_id": "fixtureSpell0001", "name": "Duplicate name", "type": "spell",
+      "system": {
+        "source": { "rules": "2014", "book": "Synthetic", "license": "synthetic", "revision": 2 },
+        "method": "spell", "prepared": 1, "properties": ["concentration", "ritual", "vocal"],
+        "activities": { "fixtureAct000001": { "_id": "fixtureAct000001", "type": "utility", "consumption": { "targets": [] } } },
+        "unknownExtension": { "preserve": [1, { "two": true }] }
+      },
+      "_stats": { "compendiumSource": "Compendium.example.options.Item.fixtureSpell0001" },
+      "flags": { "dnd5e": { "advancementOrigin": "fixtureClass0001.fixtureGrant0001", "advancementRoot": "fixtureClass0001" } },
+      "effects": [{ "_id": "fixtureEffect001", "disabled": true, "system": { "unknown": { "preserve": "yes" } } }]
+    },
+    {
+      "_id": "fixtureSpell0002", "name": "Duplicate name", "type": "spell",
+      "system": { "source": { "rules": "2024" }, "method": "spell", "prepared": 0, "properties": [] },
+      "_stats": { "compendiumSource": "Compendium.other.options.Item.fixtureSpell0002" }
+    }
+  ],
+  "effects": [{ "_id": "actorEffect00001", "disabled": true, "changes": [{ "key": "system.abilities.wis.value", "mode": 2, "value": "2", "priority": 20 }] }],
+  "ownership": { "default": 0, "fixtureOwner": 3 },
+  "_stats": { "systemId": "dnd5e", "systemVersion": "6.0.6" }
+}

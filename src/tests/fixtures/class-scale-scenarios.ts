@@ -1,0 +1,3 @@
+import fixture from '../../../tests/fixtures/native-6.0.6/numeric-scales.json';
+import {formulaSource} from './formula-scenarios';
+export function scaleSource606(level:number){const source=formulaSource(),cls=source.items.find(i=>i.type==='class')!;Object.assign(cls.system,{levels:level,identifier:'fighter'});(cls.system as any).advancement.push({_id:'scale-uses',type:'ScaleValue',configuration:{identifier:'uses',type:'number',scale:structuredClone(fixture.scale)},value:{}});(source.items.find(i=>i._id==='counter')!.system as any).uses.max='@scale.fighter.uses';(source.system as any).scale={fighter:{uses:99}};return source;}

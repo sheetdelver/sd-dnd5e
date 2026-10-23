@@ -1,0 +1,1079 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "cases": [
+    {
+      "id": "absent",
+      "source": {},
+      "formula": "",
+      "initialized": {
+        "number": "[undefined]",
+        "denomination": "[undefined]",
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "count-null",
+      "source": {
+        "number": null,
+        "denomination": 8
+      },
+      "formula": "",
+      "initialized": {
+        "number": null,
+        "denomination": 8,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "count-absent",
+      "source": {
+        "denomination": 8,
+        "bonus": "2"
+      },
+      "formula": "2",
+      "initialized": {
+        "number": "[undefined]",
+        "denomination": 8,
+        "bonus": "2",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "count-zero",
+      "source": {
+        "number": 0,
+        "denomination": 8
+      },
+      "formula": "",
+      "initialized": {
+        "number": 0,
+        "denomination": 8,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "denomination-zero",
+      "source": {
+        "number": 1,
+        "denomination": 0,
+        "bonus": 3
+      },
+      "formula": "3",
+      "initialized": {
+        "number": 1,
+        "denomination": 0,
+        "bonus": "3",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "automatic",
+      "source": {
+        "number": 1,
+        "denomination": 8,
+        "types": [
+          "piercing"
+        ]
+      },
+      "formula": "1d8",
+      "initialized": {
+        "number": 1,
+        "denomination": 8,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [
+          "piercing"
+        ],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "automatic-bonus",
+      "source": {
+        "number": 2,
+        "denomination": 6,
+        "bonus": "@mod + 2",
+        "types": [
+          "fire",
+          "fire",
+          "cold"
+        ]
+      },
+      "formula": "2d6 + @mod + 2",
+      "initialized": {
+        "number": 2,
+        "denomination": 6,
+        "bonus": "@mod + 2",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [
+          "fire",
+          "cold"
+        ],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "numeric-source",
+      "source": {
+        "number": "2",
+        "denomination": "6",
+        "bonus": 0
+      },
+      "formula": "2d6 + 0",
+      "initialized": {
+        "number": 2,
+        "denomination": 6,
+        "bonus": "0",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "bonus-zero",
+      "source": {
+        "bonus": 0
+      },
+      "formula": "0",
+      "initialized": {
+        "number": "[undefined]",
+        "denomination": "[undefined]",
+        "bonus": "0",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "bonus-only",
+      "source": {
+        "bonus": "@prof"
+      },
+      "formula": "@prof",
+      "initialized": {
+        "number": "[undefined]",
+        "denomination": "[undefined]",
+        "bonus": "@prof",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "manual",
+      "source": {
+        "number": 99,
+        "denomination": 99,
+        "custom": {
+          "enabled": true,
+          "formula": "2d6 + @mod"
+        }
+      },
+      "formula": "2d6 + @mod",
+      "initialized": {
+        "number": 99,
+        "denomination": 99,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": true,
+          "formula": "2d6 + @mod"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "manual-empty",
+      "source": {
+        "number": 1,
+        "denomination": 8,
+        "custom": {
+          "enabled": true
+        }
+      },
+      "formula": "",
+      "initialized": {
+        "number": 1,
+        "denomination": 8,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": true,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "manual-zero",
+      "source": {
+        "custom": {
+          "enabled": true,
+          "formula": 0
+        }
+      },
+      "formula": "0",
+      "initialized": {
+        "number": "[undefined]",
+        "denomination": "[undefined]",
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": true,
+          "formula": "0"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "automatic-modifiers",
+      "source": {
+        "number": 1,
+        "denomination": 8,
+        "modifiers": [
+          "min2",
+          "r1"
+        ]
+      },
+      "formula": "1d8min2r1",
+      "initialized": {
+        "number": 1,
+        "denomination": 8,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [
+          "min2",
+          "r1"
+        ],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "manual-first-die",
+      "source": {
+        "custom": {
+          "enabled": true,
+          "formula": "1d6 + 1d4"
+        },
+        "modifiers": [
+          "min2"
+        ]
+      },
+      "formula": "1d6min2 + 1d4",
+      "initialized": {
+        "number": "[undefined]",
+        "denomination": "[undefined]",
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": true,
+          "formula": "1d6 + 1d4"
+        },
+        "types": [],
+        "modifiers": [
+          "min2"
+        ],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "manual-scalar",
+      "source": {
+        "custom": {
+          "enabled": true,
+          "formula": "3"
+        },
+        "modifiers": [
+          "min2"
+        ]
+      },
+      "formula": "3",
+      "initialized": {
+        "number": "[undefined]",
+        "denomination": "[undefined]",
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": true,
+          "formula": "3"
+        },
+        "types": [],
+        "modifiers": [
+          "min2"
+        ],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "disabled-manual",
+      "source": {
+        "number": 1,
+        "denomination": 8,
+        "custom": {
+          "enabled": false,
+          "formula": "99d100"
+        }
+      },
+      "formula": "1d8",
+      "initialized": {
+        "number": 1,
+        "denomination": 8,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": false,
+          "formula": "99d100"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "zero-step-scaling",
+      "source": {
+        "number": 1,
+        "denomination": 8,
+        "scaling": {
+          "mode": "whole",
+          "number": 2,
+          "formula": "1d4"
+        }
+      },
+      "formula": "1d8",
+      "initialized": {
+        "number": 1,
+        "denomination": 8,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "whole",
+          "number": 2,
+          "formula": "1d4"
+        }
+      }
+    },
+    {
+      "id": "half-zero-scaling",
+      "source": {
+        "number": 1,
+        "denomination": 8,
+        "scaling": {
+          "mode": "half",
+          "number": 2,
+          "formula": "1d4"
+        }
+      },
+      "formula": "1d8",
+      "initialized": {
+        "number": 1,
+        "denomination": 8,
+        "bonus": "[undefined]",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "half",
+          "number": 2,
+          "formula": "1d4"
+        }
+      }
+    },
+    {
+      "id": "trimmed",
+      "source": {
+        "number": " 2 ",
+        "denomination": "6",
+        "bonus": " 2 ",
+        "types": [
+          " fire ",
+          "fire"
+        ],
+        "modifiers": [
+          " min2 ",
+          "min2"
+        ]
+      },
+      "formula": "2d6min2 + 2",
+      "initialized": {
+        "number": 2,
+        "denomination": 6,
+        "bonus": "2",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [
+          "fire"
+        ],
+        "modifiers": [
+          "min2"
+        ],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    },
+    {
+      "id": "blank-bonus",
+      "source": {
+        "number": 1,
+        "denomination": 8,
+        "bonus": "   "
+      },
+      "formula": "1d8",
+      "initialized": {
+        "number": 1,
+        "denomination": 8,
+        "bonus": "",
+        "custom": {
+          "enabled": false,
+          "formula": "[undefined]"
+        },
+        "types": [],
+        "modifiers": [],
+        "scaling": {
+          "mode": "[undefined]",
+          "number": 1,
+          "formula": "[undefined]"
+        }
+      }
+    }
+  ],
+  "placements": [
+    {
+      "case": "absent",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "absent",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "count-null",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "count-null",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "count-absent",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "count-absent",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "2"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "count-zero",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "count-zero",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "denomination-zero",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "denomination-zero",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "3"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "automatic",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "automatic",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "1d8"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "automatic-bonus",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "automatic-bonus",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "2d6 + @mod + 2"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "numeric-source",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "numeric-source",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "2d6 + 0"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "bonus-zero",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "bonus-zero",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "0"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "bonus-only",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "bonus-only",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "@prof"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "2d6 + @mod"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual-empty",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual-empty",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual-zero",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual-zero",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "0"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "automatic-modifiers",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "automatic-modifiers",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "1d8min2r1"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual-first-die",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual-first-die",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "1d6min2 + 1d4"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual-scalar",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "manual-scalar",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "3"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "disabled-manual",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "disabled-manual",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "1d8"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "zero-step-scaling",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "zero-step-scaling",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "1d8"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "half-zero-scaling",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "half-zero-scaling",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "1d8"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "trimmed",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "trimmed",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "2d6min2 + 2"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "blank-bonus",
+      "includeBase": false,
+      "expected": [
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    },
+    {
+      "case": "blank-bonus",
+      "includeBase": true,
+      "expected": [
+        {
+          "role": "base",
+          "formula": "1d8"
+        },
+        {
+          "role": "additional",
+          "formula": "1d4"
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "damage": "6c12cac5f76f8e34ee9c4f152ddbc750695bea65ffea3ea2b9ff10da1f7805cd",
+    "attack": "cab8fc25d84c0297bfb2e2126bc7b847b5cd31ccb420512d2a0394a21d3e9a61",
+    "weapon": "c97fa1054eed1265a8e848415e673a6059ee04a33718ce92958ffb0cd88b1a3f"
+  },
+  "limits": [
+    "Actual DamageData schema,Foundry primitive/SchemaField cleaning,formula/_automaticFormula/_manualFormula/scaledFormula(0) execute. Set containers/string cleaning use the already qualified string-Set source profile as a declared collaborator. No DataModel constructor/runtime boot.",
+    "Actual Attack final includeBase/omit-empty insertion and Weapon offersBaseDamage execute separately with clone/toObject,common/roll-data/damage-label/neutral-label constructor seams. This does not qualify full Activity final preparation or damage execution.",
+    "Only base formula construction and zero scaling are compared. References remain symbolic;no dice evaluation,Actor/current damage totals,automatic cantrip/upcast scaling,mod/weapon/ammo/critical/rule bonuses or damage application is qualified.",
+    "Source nonpersisted formula/base/scaledFormula fields do not replace the native getter;modifiers/custom/scaling are persisted metadata and must be preserved rather than silently discarded."
+  ]
+}

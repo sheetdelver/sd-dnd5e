@@ -1,0 +1,374 @@
+{
+  "reviewedUtc": "2026-10-19T23:37:42.905019+00:00",
+  "moduleCommit": "6189dcd262c0d35abab97308f47d3d65619e2e3a",
+  "coreCommit": "90c13e5e57d88913cd3bae6bf6b9e6f0b995bad1",
+  "moduleVersion": "0.4.1",
+  "coreVersion": "0.19.3",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "checks": {
+    "toolingAssertions": 31,
+    "moduleSuites": 7,
+    "typecheckedFiles": 82,
+    "sourceInventoryRecords": 2242,
+    "candidateExpressions": 591,
+    "moduleCheck": "pass",
+    "package": "pass",
+    "node": "24.21.0",
+    "nativeAcceptance": "not run",
+    "publicHostIntegration": "not run"
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-BWUIuH/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "13fb02734430e2561ba0cb19da7c882c987e4b07f0acc819d1283de1653490bb",
+    "files": 15,
+    "sameFileContentsAsReportedArchive": true,
+    "entries": {
+      "LICENSE": "08ff80867f8a6a6ace3c6070c8dc4bcded415f7a9e4e7e9798fafe47ccc8c493",
+      "README.md": "b1c03fc54b388fcda7f71008a5ca7dfcb3c8137bfd8edcaa3b1fd53d6318deb0",
+      "info.json": "94f0cc12abaee5bc977a8224a748570dab347c6100142db911ad40617e72ef26",
+      "assets/dnd5e.css": "f5d38c61b4779db4aaa95f149519fcb3e7efcb0be8287b2d6e51826dad582f79",
+      "assets/dnd5e.tailwind.css": "fde19410091969a8577c784e105549e729ec8831db12edce4a6c58b869d7bd47",
+      "dist/logic.js": "ba4c849c3ba5a2b6e5a7c17b2a99f735685f84e9cb2c3fcc96d676c4549fe81d",
+      "dist/server.js": "ec693ebfcdc4c7fe388f71311324b510afa27ec476351c2970bd87106c4a3cca",
+      "dist/ui.js": "43515ccc143b3bbdd59b0ad56ecbf54496a972cdc36fda5d6c46345aa30c81ef",
+      "assets/fonts/README.md": "fed8ab76384aeb58989b2b5df122742a10f9a154bf73ddf679da8b881f4901e7",
+      "assets/fonts/roboto/OFL.txt": "061402327a96aadb0bfb694a960ed289ecd38d383e396243831ab81feb109c41",
+      "assets/fonts/roboto/Roboto-Variable.ttf": "d7598e12c5dbef095ff8272cfc55da0250bd07fbdecbac8a530b9b277872a134",
+      "assets/fonts/roboto-mono/OFL.txt": "50ab8dd54680d3473f649c9db86fece88434d097c7834475c1c72d2f8c429215",
+      "assets/fonts/roboto-mono/RobotoMono-Variable.ttf": "66a80e79d17e4c7cabd162e2916578a4cc08fd19eef6e2a643305eae9c567b2b",
+      "assets/fonts/roboto-slab/LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "assets/fonts/roboto-slab/RobotoSlab-Variable.ttf": "786ae192477447d33c6672c3055fba7cbfe45184c9a79e77a14f15716ca05b16"
+    }
+  },
+  "reproductions": [
+    {
+      "id": "DD-R01",
+      "scope": "skill",
+      "field": "min",
+      "value": 10,
+      "actualRoll": {
+        "formula": "1d20+5",
+        "label": "Perception Check"
+      },
+      "actualSkill": {
+        "ability": "wis",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5",
+        "label": "Perception"
+      },
+      "expected": "Apply the native range or declare this roll unavailable before execution"
+    },
+    {
+      "id": "DD-R01",
+      "scope": "skill",
+      "field": "max",
+      "value": 10,
+      "actualRoll": {
+        "formula": "1d20+5",
+        "label": "Perception Check"
+      },
+      "actualSkill": {
+        "ability": "wis",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5",
+        "label": "Perception"
+      },
+      "expected": "Apply the native range or declare this roll unavailable before execution"
+    },
+    {
+      "id": "DD-R01",
+      "scope": "ability",
+      "field": "min",
+      "value": 10,
+      "actualRoll": {
+        "formula": "1d20+5",
+        "label": "Perception Check"
+      },
+      "actualSkill": {
+        "ability": "wis",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5",
+        "label": "Perception"
+      },
+      "expected": "Apply the native range or declare this roll unavailable before execution"
+    },
+    {
+      "id": "DD-R01",
+      "scope": "ability",
+      "field": "max",
+      "value": 10,
+      "actualRoll": {
+        "formula": "1d20+5",
+        "label": "Perception Check"
+      },
+      "actualSkill": {
+        "ability": "wis",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5",
+        "label": "Perception"
+      },
+      "expected": "Apply the native range or declare this roll unavailable before execution"
+    },
+    {
+      "id": "DD-R01",
+      "scope": "global-check",
+      "field": "min",
+      "value": 10,
+      "actualRoll": {
+        "formula": "1d20+5",
+        "label": "Perception Check"
+      },
+      "actualSkill": {
+        "ability": "wis",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5",
+        "label": "Perception"
+      },
+      "expected": "Apply the native range or declare this roll unavailable before execution"
+    },
+    {
+      "id": "DD-R01",
+      "scope": "global-check",
+      "field": "max",
+      "value": 10,
+      "actualRoll": {
+        "formula": "1d20+5",
+        "label": "Perception Check"
+      },
+      "actualSkill": {
+        "ability": "wis",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5",
+        "label": "Perception"
+      },
+      "expected": "Apply the native range or declare this roll unavailable before execution"
+    },
+    {
+      "id": "DD-R01",
+      "scope": "global-skill",
+      "field": "min",
+      "value": 10,
+      "actualRoll": {
+        "formula": "1d20+5",
+        "label": "Perception Check"
+      },
+      "actualSkill": {
+        "ability": "wis",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5",
+        "label": "Perception"
+      },
+      "expected": "Apply the native range or declare this roll unavailable before execution"
+    },
+    {
+      "id": "DD-R01",
+      "scope": "global-skill",
+      "field": "max",
+      "value": 10,
+      "actualRoll": {
+        "formula": "1d20+5",
+        "label": "Perception Check"
+      },
+      "actualSkill": {
+        "ability": "wis",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "formula": "1d20+5",
+        "label": "Perception"
+      },
+      "expected": "Apply the native range or declare this roll unavailable before execution"
+    },
+    {
+      "id": "DD-R02",
+      "case": "rules-setting-unavailable",
+      "actualLifecycle": {
+        "status": "unavailable",
+        "reason": "rules-version-unavailable",
+        "profile": null,
+        "identity": {
+          "instanceId": "review",
+          "worldId": "offline",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "foundryGeneration": 14,
+          "foundryBuild": "367",
+          "runtimeEpoch": 1,
+          "contextRevision": 1
+        },
+        "actorCapability": "unavailable",
+        "sourceDiagnostics": [],
+        "preparation": "legacy-projection-unqualified"
+      },
+      "actualSkill": {
+        "total": 1,
+        "prof": 0,
+        "ability": "wis",
+        "label": "Perception"
+      },
+      "actualPassive": 11,
+      "staticControlEnabled": true,
+      "actualRoll": {
+        "formula": "1d20+1",
+        "label": "Perception Check"
+      },
+      "expected": "No fallthrough to the old multiplier-as-total formula while context is unavailable/unsupported"
+    },
+    {
+      "id": "DD-R02",
+      "case": "unsupported-native-version",
+      "actualLifecycle": {
+        "status": "unsupported",
+        "reason": "unsupported-native-version",
+        "profile": "2024",
+        "identity": {
+          "instanceId": "review",
+          "worldId": "offline",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.7",
+          "foundryGeneration": 14,
+          "foundryBuild": "367",
+          "runtimeEpoch": 1,
+          "contextRevision": 1
+        },
+        "actorCapability": "unavailable",
+        "sourceDiagnostics": [],
+        "preparation": "legacy-projection-unqualified"
+      },
+      "actualSkill": {
+        "total": 1,
+        "prof": 0,
+        "ability": "wis",
+        "label": "Perception"
+      },
+      "actualPassive": 11,
+      "staticControlEnabled": true,
+      "actualRoll": {
+        "formula": "1d20+1",
+        "label": "Perception Check"
+      },
+      "expected": "No fallthrough to the old multiplier-as-total formula while context is unavailable/unsupported"
+    },
+    {
+      "id": "DD-R02",
+      "case": "snapshot-absent",
+      "actualLifecycle": {
+        "status": "unavailable",
+        "reason": "world-context-unavailable",
+        "profile": null,
+        "identity": null,
+        "actorCapability": "unavailable",
+        "sourceDiagnostics": [],
+        "preparation": "legacy-projection-unqualified"
+      },
+      "actualSkill": {
+        "total": 1,
+        "prof": 0,
+        "ability": "wis",
+        "label": "Perception"
+      },
+      "actualPassive": 11,
+      "staticControlEnabled": true,
+      "actualRoll": {
+        "formula": "1d20+1",
+        "label": "Perception Check"
+      },
+      "expected": "No fallthrough to the old multiplier-as-total formula while context is unavailable/unsupported"
+    }
+  ],
+  "nativeRangeOracle": {
+    "class": "S controlled exact native method; no rules iterator or runtime boot",
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "path": "module/data/shared/d20-roll-modification-field.mjs",
+    "stubs": [
+      "data field base constructors (not instantiated)",
+      "getProperty path traversal",
+      "neutral advantage combiner; no effect rules"
+    ],
+    "rows": [
+      {
+        "field": "min",
+        "key": "skills.prc.roll",
+        "observed": {
+          "minimum": 10,
+          "maximum": null
+        }
+      },
+      {
+        "field": "min",
+        "key": "abilities.wis.check.roll",
+        "observed": {
+          "minimum": 10,
+          "maximum": null
+        }
+      },
+      {
+        "field": "min",
+        "key": "rolls.ability.check",
+        "observed": {
+          "minimum": 10,
+          "maximum": null
+        }
+      },
+      {
+        "field": "min",
+        "key": "rolls.ability.skill",
+        "observed": {
+          "minimum": 10,
+          "maximum": null
+        }
+      },
+      {
+        "field": "max",
+        "key": "skills.prc.roll",
+        "observed": {
+          "minimum": null,
+          "maximum": 10
+        }
+      },
+      {
+        "field": "max",
+        "key": "abilities.wis.check.roll",
+        "observed": {
+          "minimum": null,
+          "maximum": 10
+        }
+      },
+      {
+        "field": "max",
+        "key": "rolls.ability.check",
+        "observed": {
+          "minimum": null,
+          "maximum": 10
+        }
+      },
+      {
+        "field": "max",
+        "key": "rolls.ability.skill",
+        "observed": {
+          "minimum": null,
+          "maximum": 10
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "R/S plus static render and package verification only; no mounted UI or native/operator acceptance.",
+    "No live services, Foundry connections, source fixes, Git mutations or Core/sibling/native-reference writes.",
+    "E01 remains a previously documented external contract requirement; neither new finding establishes another Core dependency."
+  ]
+}

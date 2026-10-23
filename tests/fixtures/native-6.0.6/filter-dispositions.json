@@ -1,0 +1,247 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "comparisons": [
+    "exact",
+    "contains",
+    "icontains",
+    "startswith",
+    "istartswith",
+    "endswith",
+    "iendswith",
+    "empty",
+    "has",
+    "hasany",
+    "hasall",
+    "subsetof",
+    "in",
+    "gt",
+    "gte",
+    "lt",
+    "lte"
+  ],
+  "operators": [
+    "AND",
+    "NAND",
+    "OR",
+    "NOR",
+    "XOR",
+    "NOT"
+  ],
+  "cases": [
+    {
+      "id": "exact",
+      "operation": "exact",
+      "kind": "number",
+      "operand": 14,
+      "literal": 14,
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "contains",
+      "operation": "contains",
+      "kind": "number",
+      "operand": 14,
+      "literal": "4",
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "icontains",
+      "operation": "icontains",
+      "kind": "scalar",
+      "operand": "Wisdom",
+      "literal": "wis",
+      "native": true,
+      "moduleStatus": "unavailable",
+      "decision": "Case-insensitive predicates require qualified caller locale;do not assume en or process locale"
+    },
+    {
+      "id": "startswith",
+      "operation": "startswith",
+      "kind": "scalar",
+      "operand": "skill",
+      "literal": "sk",
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "istartswith",
+      "operation": "istartswith",
+      "kind": "scalar",
+      "operand": "Wisdom",
+      "literal": "WIS",
+      "native": true,
+      "moduleStatus": "unavailable",
+      "decision": "Case-insensitive predicates require qualified caller locale;do not assume en or process locale"
+    },
+    {
+      "id": "endswith",
+      "operation": "endswith",
+      "kind": "scalar",
+      "operand": "skill",
+      "literal": "ill",
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "iendswith",
+      "operation": "iendswith",
+      "kind": "scalar",
+      "operand": "Wisdom",
+      "literal": "DOM",
+      "native": true,
+      "moduleStatus": "unavailable",
+      "decision": "Case-insensitive predicates require qualified caller locale;do not assume en or process locale"
+    },
+    {
+      "id": "empty",
+      "operation": "empty",
+      "kind": "set",
+      "operand": [],
+      "literal": true,
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "has",
+      "operation": "has",
+      "kind": "set",
+      "operand": [
+        "fire"
+      ],
+      "literal": "fire",
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "hasany",
+      "operation": "hasany",
+      "kind": "set",
+      "operand": [
+        "fire"
+      ],
+      "literal": [
+        "cold",
+        "fire"
+      ],
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "hasall",
+      "operation": "hasall",
+      "kind": "set",
+      "operand": [
+        "fire"
+      ],
+      "literal": [
+        "fire"
+      ],
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "subsetof",
+      "operation": "subsetof",
+      "kind": "set",
+      "operand": [
+        "fire"
+      ],
+      "literal": [
+        "fire",
+        "cold"
+      ],
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "in",
+      "operation": "in",
+      "kind": "number",
+      "operand": 14,
+      "literal": [
+        12,
+        14
+      ],
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "gt",
+      "operation": "gt",
+      "kind": "number",
+      "operand": 14,
+      "literal": 13,
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "gte",
+      "operation": "gte",
+      "kind": "number",
+      "operand": 14,
+      "literal": 14,
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "lt",
+      "operation": "lt",
+      "kind": "number",
+      "operand": 14,
+      "literal": 15,
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "lte",
+      "operation": "lte",
+      "kind": "number",
+      "operand": 14,
+      "literal": 14,
+      "native": true,
+      "moduleStatus": "ready",
+      "decision": "Qualified scalar/Set operand and literal profile only;unknown snapshot reads remain unavailable"
+    },
+    {
+      "id": "nested-has",
+      "operation": "has",
+      "kind": "unqualified-collection",
+      "operand": [
+        {
+          "score": 14
+        }
+      ],
+      "literal": {
+        "k": "score",
+        "o": "gte",
+        "v": 14
+      },
+      "native": true,
+      "moduleStatus": "unavailable",
+      "decision": "Native Array/object traversal requires an independently initialized collection snapshot;string Set membership is not equivalent"
+    }
+  ],
+  "sourceHashes": {
+    "filter": "f80fcb3066fe319389225c6101e31ae8738a14f7f1baab56fde9c2e60b051cbf",
+    "foundryHelpers": "8f309e7d8c4ace883990bac828aaa156f78b4f22ff4cc35007cfbfed38d8d0c0"
+  },
+  "limits": [
+    "Actual release Filter/comparison/boolean functions and static Foundry helper types execute on declared initialized scalar/Array snapshots. English locale is explicit for the three native case-insensitive examples,not a module default.",
+    "This comparison does not qualify native replacement-data phase/collection/effect caches,all snapshot paths,locale access or installed/native/operator behavior. These remain separate from the predicate vocabulary decision."
+  ]
+}

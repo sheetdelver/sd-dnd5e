@@ -1,0 +1,826 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "phase": "Persisted HP override/advancement selections and class HD defaults -> derived health facts; no write/rest acceptance",
+  "cases": [
+    {
+      "id": "level-one",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 7,
+        "max": null,
+        "temp": 3,
+        "tempmax": 0
+      },
+      "con": 14,
+      "expected": {
+        "max": 10,
+        "effectiveMax": 10,
+        "value": 7,
+        "temp": 3,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      }
+    },
+    {
+      "id": "level-three",
+      "classes": [
+        {
+          "levels": 3,
+          "die": "d8",
+          "spent": 1,
+          "additional": "",
+          "choices": {
+            "1": "max",
+            "2": "avg",
+            "3": 4
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 30,
+        "max": null,
+        "temp": 2
+      },
+      "con": 14,
+      "expected": {
+        "max": 23,
+        "effectiveMax": 23,
+        "value": 23,
+        "temp": 2,
+        "hdMax": 3,
+        "hdValue": 2,
+        "bySize": {
+          "d8": 2
+        }
+      }
+    },
+    {
+      "id": "negative-con",
+      "classes": [
+        {
+          "levels": 3,
+          "die": "d6",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max",
+            "2": "avg",
+            "3": 1
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": 6,
+      "expected": {
+        "max": 7,
+        "effectiveMax": 7,
+        "value": 5,
+        "temp": 0,
+        "hdMax": 3,
+        "hdValue": 3,
+        "bySize": {
+          "d6": 3
+        }
+      }
+    },
+    {
+      "id": "multiclass",
+      "classes": [
+        {
+          "levels": 2,
+          "die": "d10",
+          "spent": 1,
+          "additional": "1",
+          "choices": {
+            "1": "max",
+            "2": "avg"
+          },
+          "identifier": "class-a"
+        },
+        {
+          "levels": 1,
+          "die": "d6",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "avg"
+          },
+          "identifier": "class-b"
+        }
+      ],
+      "hp": {
+        "value": 40,
+        "max": null,
+        "temp": 3,
+        "tempmax": 5,
+        "bonuses": {
+          "level": "1",
+          "overall": "-2"
+        }
+      },
+      "con": 14,
+      "expected": {
+        "max": 27,
+        "effectiveMax": 32,
+        "value": 32,
+        "temp": 3,
+        "hdMax": 4,
+        "hdValue": 3,
+        "bySize": {
+          "d10": 2,
+          "d6": 1
+        }
+      }
+    },
+    {
+      "id": "explicit-override-independent",
+      "classes": [
+        {
+          "levels": 3,
+          "die": "d8",
+          "spent": 1,
+          "additional": "",
+          "choices": {},
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 8,
+        "max": 20,
+        "bonuses": {
+          "level": "@unknown",
+          "overall": "1d4"
+        }
+      },
+      "con": null,
+      "expected": {
+        "max": 20,
+        "effectiveMax": 20,
+        "value": 8,
+        "temp": 0,
+        "hdMax": 3,
+        "hdValue": 2,
+        "bySize": {
+          "d8": 2
+        }
+      }
+    },
+    {
+      "id": "negative-tempmax",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 10,
+        "max": 20,
+        "tempmax": -30
+      },
+      "con": 14,
+      "expected": {
+        "max": 20,
+        "effectiveMax": 0,
+        "value": 0,
+        "temp": 0,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      }
+    },
+    {
+      "id": "current-null",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": null,
+        "max": null
+      },
+      "con": 14,
+      "expected": {
+        "max": 10,
+        "effectiveMax": 10,
+        "value": 0,
+        "temp": 0,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      }
+    },
+    {
+      "id": "current-default",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "max": null
+      },
+      "con": 14,
+      "expected": {
+        "max": 10,
+        "effectiveMax": 10,
+        "value": 0,
+        "temp": 0,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      }
+    },
+    {
+      "id": "override-zero",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 10,
+        "max": 0,
+        "temp": 9
+      },
+      "con": 14,
+      "expected": {
+        "max": 0,
+        "effectiveMax": 0,
+        "value": 0,
+        "temp": 9,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      }
+    },
+    {
+      "id": "negative-additional",
+      "classes": [
+        {
+          "levels": 3,
+          "die": "d8",
+          "spent": 1,
+          "additional": "-5",
+          "choices": {
+            "1": "max",
+            "2": "avg",
+            "3": "avg"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 7,
+        "max": null
+      },
+      "con": 14,
+      "expected": {
+        "max": 24,
+        "effectiveMax": 24,
+        "value": 7,
+        "temp": 0,
+        "hdMax": 0,
+        "hdValue": 0,
+        "bySize": {
+          "d8": 0
+        }
+      }
+    },
+    {
+      "id": "overspent-hd",
+      "classes": [
+        {
+          "levels": 3,
+          "die": "d8",
+          "spent": 9,
+          "additional": "",
+          "choices": {
+            "1": "max",
+            "2": "avg",
+            "3": "avg"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 7,
+        "max": null
+      },
+      "con": 14,
+      "expected": {
+        "max": 24,
+        "effectiveMax": 24,
+        "value": 7,
+        "temp": 0,
+        "hdMax": 3,
+        "hdValue": 0,
+        "bySize": {
+          "d8": 0
+        }
+      }
+    },
+    {
+      "id": "hd-defaults",
+      "classes": [
+        {
+          "levels": 1,
+          "die": null,
+          "spent": null,
+          "additional": null,
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": 14,
+      "expected": {
+        "max": 8,
+        "effectiveMax": 8,
+        "value": 5,
+        "temp": 0,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d6": 1
+        }
+      }
+    },
+    {
+      "id": "decimal-bonuses",
+      "classes": [
+        {
+          "levels": 2,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max",
+            "2": "avg"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 20,
+        "max": null,
+        "tempmax": -2,
+        "bonuses": {
+          "level": ".5",
+          "overall": "1.5"
+        }
+      },
+      "con": 14,
+      "expected": {
+        "max": 19,
+        "effectiveMax": 17,
+        "value": 17,
+        "temp": 0,
+        "hdMax": 2,
+        "hdValue": 2,
+        "bySize": {
+          "d8": 2
+        }
+      }
+    },
+    {
+      "id": "missing-choice",
+      "classes": [
+        {
+          "levels": 2,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": 14,
+      "expected": null,
+      "hpUnavailable": true,
+      "hdUnavailable": false,
+      "availableHd": {
+        "max": 2,
+        "value": 2
+      }
+    },
+    {
+      "id": "missing-con",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": null,
+      "expected": null,
+      "hpUnavailable": true,
+      "hdUnavailable": false,
+      "availableHd": {
+        "max": 1,
+        "value": 1
+      }
+    },
+    {
+      "id": "duplicate-identifiers",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        },
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": 14,
+      "expected": null,
+      "hpUnavailable": true,
+      "hdUnavailable": true
+    },
+    {
+      "id": "formula-additional",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "1+1",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": 14,
+      "expected": null,
+      "hpUnavailable": false,
+      "hdUnavailable": true,
+      "availableHp": {
+        "max": 10,
+        "effectiveMax": 10,
+        "value": 5,
+        "temp": 0
+      }
+    },
+    {
+      "id": "future-choice",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max",
+            "2": "avg"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": 14,
+      "expected": null,
+      "hpUnavailable": true,
+      "hdUnavailable": false,
+      "availableHd": {
+        "max": 1,
+        "value": 1
+      }
+    },
+    {
+      "id": "invalid-max",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": "20"
+      },
+      "con": 14,
+      "expected": null,
+      "hpUnavailable": true,
+      "hdUnavailable": false,
+      "availableHd": {
+        "max": 1,
+        "value": 1
+      }
+    },
+    {
+      "id": "invalid-current",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": -1,
+        "max": 10
+      },
+      "con": 14,
+      "expected": null,
+      "hpUnavailable": true,
+      "hdUnavailable": false,
+      "availableHd": {
+        "max": 1,
+        "value": 1
+      }
+    },
+    {
+      "id": "invalid-choice",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": 0
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": 14,
+      "expected": null,
+      "hpUnavailable": true,
+      "hdUnavailable": false,
+      "availableHd": {
+        "max": 1,
+        "value": 1
+      }
+    },
+    {
+      "id": "missing-identifier",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": ""
+        }
+      ],
+      "hp": {
+        "value": 5,
+        "max": null
+      },
+      "con": 14,
+      "expected": null,
+      "hpUnavailable": true,
+      "hdUnavailable": true
+    },
+    {
+      "id": "negative-derived-maximum",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 7,
+        "max": null,
+        "bonuses": {
+          "overall": "-100"
+        }
+      },
+      "con": 14,
+      "expected": {
+        "max": -90,
+        "effectiveMax": 0,
+        "value": 0,
+        "temp": 0,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      }
+    },
+    {
+      "id": "tempmax-null",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 7,
+        "max": null,
+        "tempmax": null
+      },
+      "con": 14,
+      "expected": {
+        "max": 10,
+        "effectiveMax": 10,
+        "value": 7,
+        "temp": 0,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      }
+    },
+    {
+      "id": "maximum-default",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 7
+      },
+      "con": 14,
+      "expected": {
+        "max": 10,
+        "effectiveMax": 10,
+        "value": 7,
+        "temp": 0,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      }
+    },
+    {
+      "id": "initial-con-effect",
+      "classes": [
+        {
+          "levels": 1,
+          "die": "d8",
+          "spent": 0,
+          "additional": "",
+          "choices": {
+            "1": "max"
+          },
+          "identifier": "class-a"
+        }
+      ],
+      "hp": {
+        "value": 7,
+        "max": null,
+        "temp": 3,
+        "tempmax": 0
+      },
+      "con": 14,
+      "expected": {
+        "max": 11,
+        "effectiveMax": 11,
+        "value": 7,
+        "temp": 3,
+        "hdMax": 1,
+        "hdValue": 1,
+        "bySize": {
+          "d8": 1
+        }
+      },
+      "effectCon": 2,
+      "initializedCon": 16
+    }
+  ]
+}

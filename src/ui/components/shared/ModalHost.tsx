@@ -1,14 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useModal } from './useModal';
+import { useSheet } from './SheetContext';
+import { rollIntentSignature, type PreparedRollKind } from './skillIntent';
 import ThemeModal, { type ThemeModalProps } from '../modals/ThemeModal';
 import RollModal, { type RollModalProps } from '../modals/RollModal';
 import HPModal, { type HPModalProps } from '../modals/HPModal';
+import TemporaryHpModal,{type TemporaryHpModalProps} from '../modals/TemporaryHpModal';
 import RestModal, { type RestModalProps } from '../modals/RestModal';
 import ItemModal, { type ItemModalProps } from '../modals/ItemModal';
 import SpellModal, { type SpellModalProps } from '../modals/SpellModal';
 import RichTextModal, { type RichTextModalProps } from '../modals/RichTextModal';
+import ConditionsModal from '../modals/ConditionsModal';
+import DefensesModal from '../modals/DefensesModal';
 
 /**
  * ModalHost — single mount point for the active modal.
@@ -19,10 +24,22 @@ import RichTextModal, { type RichTextModalProps } from '../modals/RichTextModal'
  */
 export default function ModalHost() {
     const { activeId, activeProps, closeModal } = useModal();
+    const { actor } = useSheet();
+    const kind = ['skill', 'ability', 'save', 'tool','initiative'].includes(String(activeProps.rollType)) ? activeProps.rollType as PreparedRollKind : null;
+    const currentSignature = kind ? rollIntentSignature(actor, kind) : null;
+    const staleRoll = activeId === 'roll' && kind !== null
+        && (!currentSignature || activeProps.preparedIntentSignature !== currentSignature);
+    useEffect(() => { if (staleRoll) closeModal(); }, [staleRoll, closeModal]);
+    if (staleRoll) return null;
 
     if (activeId === null) return null;
 
     switch (activeId) {
+        case 'temporary-hp':return <TemporaryHpModal {...activeProps as Omit<TemporaryHpModalProps,'onClose'>} onClose={closeModal}/>;
+        case 'conditions':
+            return <ConditionsModal onClose={closeModal} />;
+        case 'defenses':
+            return <DefensesModal onClose={closeModal} />;
         case 'theme':
             return (
                 <ThemeModal

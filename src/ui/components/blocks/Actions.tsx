@@ -25,7 +25,7 @@ export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props)
     const { openModal } = useModal();
 
     const handleClick = (e: React.MouseEvent, row: ActionRow) => {
-        if (!onRoll) return;
+        if (!onRoll||row.executionReady===false) return;
         if (e.shiftKey) {
             void onRoll('item', row.key);
             return;
@@ -77,7 +77,10 @@ export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props)
                         <button
                             key={row.key}
                             onClick={(e) => handleClick(e, row)}
-                            disabled={!onRoll}
+                            disabled={!onRoll||row.executionReady===false}
+                            title={row.unavailableReason}
+                            data-activity-id={row.activityId}
+                            data-item-id={row.itemId??row.key}
                             style={{
                                 display: 'grid',
                                 gridTemplateColumns: '1fr auto auto auto',
@@ -88,7 +91,7 @@ export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props)
                                 border: 'none',
                                 borderBottom: i < rows.length - 1 ? '1px solid var(--theme-border)' : 'none',
                                 textAlign: 'left',
-                                cursor: onRoll ? 'pointer' : 'default',
+                                cursor: onRoll&&row.executionReady!==false ? 'pointer' : 'default',
                                 color: 'var(--text-primary)',
                                 transition: 'background 0.15s',
                             }}
@@ -102,6 +105,8 @@ export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props)
                                     {row.range && ` · ${row.range}`}
                                 </div>
                             </div>
+                            {row.attackStatus==='unavailable'&&<span title={row.attackReason} style={{fontSize:'11px'}}>Attack unavailable</span>}
+                            {row.usesStatus==='unavailable'&&<span title={row.usesReason} style={{fontSize:'11px'}}>Uses unavailable</span>}
                             {row.attackBonus && (
                                 <span style={{ fontSize: '12px', fontVariantNumeric: 'tabular-nums', color: 'var(--theme-primary)' }}>
                                     {row.attackBonus}
@@ -112,14 +117,17 @@ export default function Actions({ rows = [], onRoll, title = 'Actions' }: Props)
                                     {row.damage}
                                 </span>
                             )}
+                            {row.baseDamage&&<span title={row.baseDamageReason} style={{fontSize:'11px'}}>Base: {row.baseDamage}</span>}
                             {row.save && (
-                                <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                                <span title={row.saveReason} style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                                     {row.save}
                                 </span>
                             )}
+                            {row.itemUses&&<span style={{fontSize:'11px'}}>Item uses {row.itemUses.value}/{row.itemUses.max}</span>}
+                            {row.itemUsesStatus==='unavailable'&&<span title={row.itemUsesReason}>Item uses unavailable</span>}
                             {row.uses && (
                                 <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                                    {row.uses.value}/{row.uses.max}
+                                    Activity uses {row.uses.value}/{row.uses.max}
                                 </span>
                             )}
                         </button>

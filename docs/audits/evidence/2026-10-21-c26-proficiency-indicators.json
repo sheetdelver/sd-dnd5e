@@ -1,0 +1,566 @@
+{
+  "checkpoint": "C26",
+  "precedingImplementation": "7e147f2",
+  "requirementsPartial": [
+    "M2",
+    "DD-02",
+    "DD-06",
+    "DD-27",
+    "DD-34",
+    "A02",
+    "A21"
+  ],
+  "failingBefore": {
+    "implementation": "7e147f2 UI",
+    "maintainedDiagnosticMode": "--indicator-diagnostics; reports observations/mismatches only, never qualification PASS",
+    "artifacts": "/tmp/dnd5e-mounted-T5q0ui",
+    "evidenceSha256": "aa59d8ca73ae8740f2866c4674ec9342399f203a45b06e36f5230ae8321fc939",
+    "rows": [
+      {
+        "width": 1440,
+        "id": "one-and-half",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "1\u00bd\u00d7",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 1440,
+        "id": "none",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u25cb",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 1440,
+        "id": "half",
+        "observedSkill": "\u25d0",
+        "expectedSkill": "\u25d0",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 1440,
+        "id": "single",
+        "observedSkill": "\u25cf",
+        "expectedSkill": "\u25cf",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 1440,
+        "id": "double",
+        "observedSkill": "\u25c9",
+        "expectedSkill": "\u25c9",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 1440,
+        "id": "save-proficient",
+        "observedSkill": "\u25cf",
+        "expectedSkill": "\u25cf",
+        "observedSave": "\u25cf",
+        "expectedSave": "\u25cf"
+      },
+      {
+        "width": 1440,
+        "id": "malformed-fraction",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 1440,
+        "id": "malformed-string",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 1440,
+        "id": "bounded-default-unqualified",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "1\u00bd\u00d7",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u2014"
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u2014"
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u2014"
+      },
+      {
+        "width": 390,
+        "id": "one-and-half",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "1\u00bd\u00d7",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 390,
+        "id": "none",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u25cb",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 390,
+        "id": "half",
+        "observedSkill": "\u25d0",
+        "expectedSkill": "\u25d0",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 390,
+        "id": "single",
+        "observedSkill": "\u25cf",
+        "expectedSkill": "\u25cf",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 390,
+        "id": "double",
+        "observedSkill": "\u25c9",
+        "expectedSkill": "\u25c9",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 390,
+        "id": "save-proficient",
+        "observedSkill": "\u25cf",
+        "expectedSkill": "\u25cf",
+        "observedSave": "\u25cf",
+        "expectedSave": "\u25cf"
+      },
+      {
+        "width": 390,
+        "id": "malformed-fraction",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 390,
+        "id": "malformed-string",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 390,
+        "id": "bounded-default-unqualified",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "1\u00bd\u00d7",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u25cb"
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u2014"
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u2014"
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "observedSkill": "\u25cb",
+        "expectedSkill": "\u2014",
+        "observedSave": "\u25cb",
+        "expectedSave": "\u2014"
+      }
+    ],
+    "skillMismatchCells": 14,
+    "saveMismatchCells": 6,
+    "mismatchingRows": 14
+  },
+  "R": {
+    "toolingAssertions": 60,
+    "toolingSuites": 8,
+    "moduleSuites": 28,
+    "explicitTypedFiles": 151,
+    "sourceProfiles": 9,
+    "malformedProfilesUnavailable": 2,
+    "sourceAndPoisonPreserved": true,
+    "arithmeticAndExecutionUnchanged": true
+  },
+  "S": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "indicatorObservations": [
+      {
+        "id": "one-and-half",
+        "prof": 1.5,
+        "total": 6,
+        "passive": 16,
+        "saveProf": 0,
+        "save": 2
+      },
+      {
+        "id": "none",
+        "prof": 0,
+        "total": 2,
+        "passive": 12,
+        "saveProf": 0,
+        "save": 2
+      },
+      {
+        "id": "half",
+        "prof": 0.5,
+        "total": 3,
+        "passive": 13,
+        "saveProf": 0,
+        "save": 2
+      },
+      {
+        "id": "single",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "saveProf": 0,
+        "save": 2
+      },
+      {
+        "id": "double",
+        "prof": 2,
+        "total": 8,
+        "passive": 18,
+        "saveProf": 0,
+        "save": 2
+      },
+      {
+        "id": "save-proficient",
+        "prof": 1,
+        "total": 5,
+        "passive": 15,
+        "saveProf": 1,
+        "save": 5
+      },
+      {
+        "id": "bounded-default-unqualified",
+        "prof": 1.5,
+        "total": 6,
+        "passive": 21,
+        "saveProf": 0,
+        "save": 2
+      }
+    ],
+    "preservedComparisons": {
+      "abilityIntermediateAndSourceDefault": 16,
+      "sourceModes": 81,
+      "orderedD20": 800,
+      "tools": 8,
+      "selectedRequests": 38,
+      "selectedModes": 324
+    },
+    "stubs": [
+      "Numeric literal classification only; unknown evaluation fails",
+      "No applied rules/conditions/cover/flags",
+      "Empty ability compatibility shims; Remarkable Athlete false",
+      "Tool defaults checked as schema syntax then explicitly initialized; no Foundry DataModel construction",
+      "Property traversal and plain count merging",
+      "Actor build capture with no dice evaluation or hooks; no travel, transformations or flags",
+      "Native skill dialog context uses empty base context and a StringField options stub; not a DOM/DataModel",
+      "Native in-place ability form changes retain process mode; module configures fresh selected requests"
+    ],
+    "limits": [
+      "Effects and applied-rule filters",
+      "Conditions, cover and native flags",
+      "Equipment and encumbrance",
+      "Transformed/original saves",
+      "Optional abilities and proficiency dice",
+      "Nonconstant bonus formulas",
+      "Native die-range execution and source roll modes",
+      "SDK engine/transport, critical annotations, chat, native/operator acceptance"
+    ]
+  },
+  "U": {
+    "category": "Actual complete-sheet skill/save consumers at1440/390 in SDK presentation seam; no installed/native UI acceptance",
+    "artifacts": "/tmp/dnd5e-mounted-RTBOOA",
+    "evidenceSha256": "5d22a9bce7a1135c5eba78d17540102fc90a942f16b5df7fabf1f58a542c8ca0",
+    "indicatorRows": [
+      {
+        "width": 1440,
+        "id": "one-and-half",
+        "skillMarker": "1\u00bd\u00d7",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "none",
+        "skillMarker": "\u25cb",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "half",
+        "skillMarker": "\u25d0",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "single",
+        "skillMarker": "\u25cf",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "double",
+        "skillMarker": "\u25c9",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "save-proficient",
+        "skillMarker": "\u25cf",
+        "saveMarker": "\u25cf",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-fraction",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "malformed-string",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "bounded-default-unqualified",
+        "skillMarker": "1\u00bd\u00d7",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "rules-setting-unavailable",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u2014",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "unsupported-native-version",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u2014",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 1440,
+        "id": "snapshot-absent",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u2014",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "one-and-half",
+        "skillMarker": "1\u00bd\u00d7",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "none",
+        "skillMarker": "\u25cb",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "half",
+        "skillMarker": "\u25d0",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "single",
+        "skillMarker": "\u25cf",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "double",
+        "skillMarker": "\u25c9",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "save-proficient",
+        "skillMarker": "\u25cf",
+        "saveMarker": "\u25cf",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-fraction",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "malformed-string",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "bounded-default-unqualified",
+        "skillMarker": "1\u00bd\u00d7",
+        "saveMarker": "\u25cb",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "rules-setting-unavailable",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u2014",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "unsupported-native-version",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u2014",
+        "actualConsumers": true,
+        "recovery": true
+      },
+      {
+        "width": 390,
+        "id": "snapshot-absent",
+        "skillMarker": "\u2014",
+        "saveMarker": "\u2014",
+        "actualConsumers": true,
+        "recovery": true
+      }
+    ],
+    "priorSuitesRetained": true,
+    "columnFitAndAccessibleLabels": true
+  },
+  "I": {
+    "category": "Synthetic public Core0.19.3 primitive regression, not native engine/installed endpoints",
+    "artifacts": "/tmp/dnd5e-public-rolls-36Dsfl",
+    "evidenceSha256": "859ccff8b3b14bcdacd2f6eef57ee36baf879516b2915c71d55df15708116ec0",
+    "accepted": 14510,
+    "indicatorCases": 46,
+    "normalRangeCases": 9043,
+    "normalRangeDistributions": 441,
+    "plainTieDiagnostics": 40,
+    "unaryRejected": 1,
+    "nativeWrites": 0
+  },
+  "sourceInventory": {
+    "records": 2242,
+    "expressions": 591
+  },
+  "package": {
+    "archive": "/tmp/dnd5e-package-w8TkOb/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "8b1691cf3b6c393f4627e12dea940245c1eb92d9a381e361a915c8a38908df17",
+    "moduleCheck": true,
+    "managedTyping": true,
+    "bundles": true
+  },
+  "hashes": {
+    "src/ui/components/shared/ProficiencyIndicator.tsx": "57257a33ea3c566ae147d0f9c8b72958db6d5f4c77eeaef22d616714ac106605",
+    "src/ui/components/blocks/Skills.tsx": "8e4c80f2846072e8436d640b00a9d95458097303f1a8c588b567f4b8b3de9390",
+    "src/ui/components/blocks/SavingThrows.tsx": "45ed2b060ef234eedcb55287b5501ffd0d9bd640db7d05f1a39c9eabf8f1002f",
+    "src/tests/proficiency-indicators.test.ts": "1d56d3b2f09da80f01c26c39ee83baf8e8ecd7b633f9acad1609a56b25590ec3",
+    "src/tests/fixtures/proficiency-indicator-scenarios.ts": "c5ec91dfb260f42382811c95371d68ec9598c6e045f17223add4d87db0cf2cda",
+    "tests/fixtures/native-6.0.6/proficiency-indicators.json": "63e40e24e524e7bcb9a04742a78144d99d9590b54583c1f2e98011ed000fa2f4",
+    "scripts/native-check-oracle.mjs": "8ac3724b4383a38cc12ddec9345b6758244ae60090f2e0222fd5f30da7677b7d",
+    "scripts/test-mounted.mjs": "5ed5612e8401a908cd6a461063277a806600e4b70bc093e06bbd9dcfaa750422",
+    "scripts/test-public-rolls.mjs": "7c8a9b1b00f685d1b629a525dd599eaa07f74c0ead722f3f5de5d67396389a44"
+  },
+  "commands": [
+    "npm test -- --core <pristineCore0.19.3>",
+    "npm run typecheck -- --core <pristineCore0.19.3>",
+    "npm run test:native-source -- --core <pristineCore0.19.3> --native <release6.0.6>",
+    "npm run test:native-checks -- --core <pristineCore0.19.3> --native <release6.0.6> --write-evidence temp/c26-native-checks.json",
+    "npm run test:mounted -- --core <pristineCore0.19.3> --browser-tools /tmp/sd-dice-preview-tools --chromium <installedChromium143> [--indicator-diagnostics before correction]",
+    "npm run test:public-rolls -- --core <pristineCore0.19.3>",
+    "npm run check:package -- --core <pristineCore0.19.3>"
+  ],
+  "limits": [
+    "Presentation of effective prepared roll coefficients only, not source training or actor proficiency bonus; no rule/execution/serialization changes",
+    "2 malformed source profiles are explicit module boundaries, not native schema coercion acceptance;7 numeric method comparisons are controlled initialized source-default phases",
+    "Larger Proficiencies/language/mastery panel and unqualified rules remain open",
+    "No installed/native/operator/full DD/A/M acceptance; E01/wider Q00/E05/ADR open",
+    "Experimental0.4.1/compatibility unchanged; no Core/sibling/native writes or live Foundry; task services cleaned"
+  ]
+}

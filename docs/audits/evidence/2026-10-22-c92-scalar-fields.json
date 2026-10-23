@@ -1,0 +1,180 @@
+{
+  "checkpoint": "C92",
+  "parent": "5cd067f",
+  "status": "Initial scalar-effect/read preparation implemented;full M2/ADR acceptance open",
+  "requirements": [
+    "M2 partial",
+    "Q02a partial",
+    "DD-01\u201306/11/27/31/34 partial",
+    "A02\u2013A06 preparation only"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "failingBefore": {
+    "implementation": "5cd067f",
+    "command": "Exact maintained scalar-effects.test.ts and frozen fixture copied to a task-owned ignored historical source snapshot",
+    "result": "Assertion failure: ac-bonus/add null !=16",
+    "logSha256": "3cf8c4852eb83137b2ecb45f1e4c00301e8668ac31cdf53fa454b3170f84d3f8",
+    "snapshot": "Removed after recording reproduction;historical implementation remains in Git"
+  },
+  "sourceComparisons": {
+    "cases": 126,
+    "embeddedBeforeInitial": [
+      {
+        "own": "absent",
+        "type": "add",
+        "inherited": "30",
+        "walk": 32,
+        "darkvision": 60,
+        "special": "Own sense;Species sense"
+      },
+      {
+        "own": "absent",
+        "type": "override",
+        "inherited": "30",
+        "walk": 0,
+        "darkvision": 60,
+        "special": "Own sense;Species sense"
+      },
+      {
+        "own": 0,
+        "type": "add",
+        "inherited": "0",
+        "walk": 2,
+        "darkvision": 60,
+        "special": "Own sense;Species sense"
+      },
+      {
+        "own": 0,
+        "type": "override",
+        "inherited": "0",
+        "walk": 0,
+        "darkvision": 60,
+        "special": "Own sense;Species sense"
+      },
+      {
+        "own": 20,
+        "type": "add",
+        "inherited": "20",
+        "walk": 22,
+        "darkvision": 60,
+        "special": "Own sense;Species sense"
+      },
+      {
+        "own": 20,
+        "type": "override",
+        "inherited": "20",
+        "walk": 0,
+        "darkvision": 60,
+        "special": "Own sense;Species sense"
+      }
+    ],
+    "sourceHashes": {
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/data/actor/character.mjs": "34f89aeec4993a22ac256bb536891ce51759d4bee26c2470cbb4c2376dbd4e2d",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/shared/movement-field.mjs": "7d44de85078342175ba22a50cae778541968c3db0ac983dac91138d07957a1b2",
+      "module/data/fields/formula-field.mjs": "6050391af11b7a0eb1f375b48938ceb976dcc31f02a456c3b86b085f3b3517e8"
+    },
+    "observedArtifactSha256": "50d6ac7aaeb0a2d3d7a823bfc9616da1a2c0c94bf48b0569b4f3aeed5bce9217",
+    "fixture": "tests/fixtures/native-6.0.6/scalar-effects.json",
+    "fixtureSha256": "47a2ec82b9543e9c748447a1f644a2e12119ebc310f4b5257972cfe189c8a491",
+    "limits": [
+      "Actual native FormulaField handlers and AC,HP branch,Movement,Encumbrance,Common ability/spell and damage-part methods on declared initialized models. Old standalone source/default qualifications run first.",
+      "Only fixed deterministic source/seed values and literal deltas2 in this matrix;new Roll collaborators delegate deterministic text to actual native replacement/Foundry safeEval. No native parser/dice/DataModel or full Actor lifecycle acceptance.",
+      "AC/nonpersisted carrying seeds are legitimate earlier-effect intermediates,not persisted raw overrides. Module source tests must use real ordered effects and ignore poison. Species-before-initial,NumberField/Boolean source initialization and final scalar operands require additional qualification."
+    ]
+  },
+  "mounted": {
+    "rows": [
+      {
+        "width": 1440,
+        "acHpMovementCapacitySpellDamageConsumers": true,
+        "contextSourceStaleIntentRecovery": true,
+        "independentUnknownAcDoesNotFabricateValue": true,
+        "zeroWrites": true
+      },
+      {
+        "width": 390,
+        "acHpMovementCapacitySpellDamageConsumers": true,
+        "contextSourceStaleIntentRecovery": true,
+        "independentUnknownAcDoesNotFabricateValue": true,
+        "zeroWrites": true
+      }
+    ],
+    "artifact": "/tmp/dnd5e-scalars-mounted-sWgmX8/evidence.json",
+    "sha256": "ecf43b06b825d169194d20dd2682e8dd6eea09e55f9ad38406ae112769aa9eac",
+    "scope": "Actual consumers on isolated SDK seam;not installed-host/native acceptance"
+  },
+  "publicRoll": {
+    "artifact": "/tmp/dnd5e-public-rolls-sg1ez7/evidence.json",
+    "sha256": "aabc61590861ba4c4040e49120857981dcd908f317a38788f379afd8d534e0d8",
+    "accepted": 55898,
+    "equalIndexDiagnostics": 1120,
+    "candidateRejections": [
+      {
+        "formula": "1d20+(-(3))",
+        "message": "Invalid or unsupported dice formula.",
+        "adaptation": "Known constant operation compiles to numeric -3; binary-zero expression separately qualified"
+      }
+    ],
+    "profile": "dependency-profile",
+    "nativeWrites": 0,
+    "note": "Preserved execution regression;scalar read cases do not expand dice qualification"
+  },
+  "package": {
+    "artifact": "/tmp/dnd5e-package-GMFSnS/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "5bb77cd275d64fb677275f177671d14609246ac5f1fc0ff5f76b0d69fa9c3380",
+    "version": "experimental0.4.1",
+    "compatibility": "unchanged"
+  },
+  "commands": [
+    {
+      "command": "npm test -- --core <released Core0.19.3>",
+      "log": "temp/c92-tests-complete.log",
+      "sha256": "ade17895964539f3415cf5bd1093c6412fbbb73943c392a8e5d99f4dd7d14b99",
+      "result": "PASS:9 tooling/72 module suites"
+    },
+    {
+      "command": "npm run typecheck -- --core <baseline> (274 explicit module files)",
+      "log": "temp/c92-types-checkpoint.log",
+      "sha256": "405d34898f5095bcfd4bf22b896975c9056e9c69faf6c3a4da80a52530b12c80",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:native-source -- --core <baseline> --native <read-only exact release repo>",
+      "log": "temp/c92-source.log",
+      "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:native-scalars -- --core <baseline> --native <repo> --foundry <static14.367>",
+      "log": "temp/c92-native-scalars.log",
+      "sha256": "fa5aabbdc2a516bd9add472b440584348eeb71ea74a43eef0ad509ae8d06ea8b",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:mounted-scalars -- --core <baseline> --chromium <offline headless binary>",
+      "log": "temp/c92-mounted.log",
+      "sha256": "4dcffe4bb10f577d8a25915c7e26c24ea40f04b51c265786bdb72d56d7300776",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:public-rolls -- --core <baseline> --dependency-profile",
+      "log": "temp/c92-public.log",
+      "sha256": "51250216e9bcdf61f8653309831afeb6e4e693fa448e14f82f8db937b39fd8de",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run check:package -- --core <baseline>",
+      "log": "temp/c92-package-checkpoint.log",
+      "sha256": "ac847114dfd1fe3fe47e8b470a7001d89324e863495279018730901dc753e170",
+      "result": "PASS"
+    }
+  ],
+  "limits": [
+    "No native DataModel/Document boot,installed UI,operator/live world or release acceptance.",
+    "Final scalar and wider Item activity/filter/formula phases remain dependency-ordered work. Unknown scalar expressions unavailable;independent facts remain visible where qualified.",
+    "Core/sibling/native repositories read-only;temporary isolated settings/synthetic endpoints only;owned services stopped."
+  ]
+}

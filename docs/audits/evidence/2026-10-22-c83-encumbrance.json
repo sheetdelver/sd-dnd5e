@@ -1,0 +1,174 @@
+{
+  "checkpoint": "C83 stored encumbrance source statuses,modes,passives and movement",
+  "parent": "1b66f54bbe7d72a29f7054c63a58de57e3d0949c",
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/03/24/27/31/34 partial",
+    "A02\u2013A06/A18/A21 partial"
+  ],
+  "beforeAfter": {
+    "before": "Non-none settings or base status effects rejected ordinary checks;maintained same-input formula expected1d20+5 receivedundefined",
+    "after": "All3 released settings use qualified stored source effects;heavy physical toolDis+5/AthDis+0/passive5,PerceptionNormal+5/passive15,walk20ft,combined WisAdv+5/StrNormal+3. Exceeding capacity walk5/fly0;disabled base effect walk40."
+  },
+  "checks": {
+    "before": {
+      "artifact": "temp/c83-before.log",
+      "sha256": "b81c4fba3d6f46b84fb1e29120ed7020c12fc475863b2eaa6a93fef7086ab165",
+      "result": "Maintained independent source regression fails before"
+    },
+    "regression": {
+      "artifact": "temp/c83-tests-final.log",
+      "sha256": "432db220225cbe01956b94d9a3809b13b393a00eec81f65a45f7a621d2b8de3c",
+      "result": "62 module/9 tooling suites/61 tooling assertions PASS;420 source/order/context profiles and malformed/range/cancellation regressions"
+    },
+    "typing": {
+      "artifact": "temp/c83-types-final.log",
+      "sha256": "765f57634d41e0204a108bc2fc05026bf0db4c8fd00b3c3b9f601a7223099877",
+      "result": "245 explicit module/UI/server/test/hook files PASS"
+    },
+    "native": {
+      "artifact": "temp/c83-native-encumbrance.json",
+      "sha256": "94e9c9263a9705904f60ea439dd986a00d687a6744b0569e86026a87845461ae",
+      "result": "140 independent native/Foundry initial status,physical mode/passive/movement and current combined configurations PASS"
+    },
+    "mounted": {
+      "artifact": "/tmp/dnd5e-encumbrance-mounted-MXNSmb/evidence.json",
+      "sha256": "e097f30d6ddc454fdd4ec4c341fd75815a1e2099c33c621b9aa22451c99406e6",
+      "result": "1440/390 real condition/movement/skill/tool controls,selected ability/cancellation,manual focus,Normal range,source/context and held-callback recovery/zero writes PASS"
+    },
+    "public": {
+      "artifact": "/tmp/dnd5e-public-rolls-aOsx4E/evidence.json",
+      "sha256": "ce72c82c516cc1efa8ea334cc64206e8078d0de94f1e7438e8add3ef1cf7120e",
+      "result": "11930 accepted including2052 new profiles;1 retained rejected unary candidate,40 existing tied-index diagnostics,0 native writes PASS"
+    },
+    "managed": {
+      "artifact": "/tmp/dnd5e-package-c76oKU/data/dist/modules/dnd5e-0.4.1.tgz",
+      "sha256": "6e777f7ed25c72a2a52bbbbd462577977af0373a035db31789f595792827901c",
+      "result": "isolated module check/package PASS"
+    }
+  },
+  "native": {
+    "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+    "sourceHashes": {
+      "module/documents/actor/actor.mjs": "3944afafb4282800db3d80de81ab1f442c3a882954a6731c15292d4559a75c79",
+      "module/documents/active-effect.mjs": "b8d199efb32632bab95564f416c055855d3937d5a5ba27cf59fadce21874a2bc",
+      "module/data/abstract/active-effect-data-model.mjs": "5181ba3cdb5097e0401d9c25d1adcb0f4e621344bcfa545f1ce11a12c026ef5f",
+      "module/data/actor/templates/common.mjs": "22c859bcc8e9d5d3a17f0dd87b2da364f2f44285d634fe48b2d2b1be1a84e05a",
+      "module/data/actor/templates/creature.mjs": "01d14bf7821c3f12c17c9d63b3d91ee9841f2d447dcc1f94bb6092b9bff86c66",
+      "module/data/actor/templates/attributes.mjs": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+      "module/config.mjs": "2d36ae984b48cb4d48bb54d0e41ac6a1123ab2b9ac5f975c72ed0022c9922134"
+    },
+    "limits": [
+      "Actual native/Foundry initial status admission,suppression,ability/skill/tool/passive/movement preparation and fresh configurations run on initialized embedded model shells. Base status effects have no changes,flags,duration or dependent filters;typed Poisoned/Exhaustion1/Prone sources compose in both source orders.",
+      "Stored source statuses determine effects;Actor weight does not generate statuses during read preparation. Setting none does not itself remove a stored effect. Native updateEncumbrance synchronization is separate write work.",
+      "No full source DataModel,runtime boot,actual native dice evaluation,installed/native/operator acceptance. Numeric Roll/empty rules and fields are declared collaborators."
+    ],
+    "caseCount": 140,
+    "caseMatrix": "2 units \u00d75 stored status sets \u00d72 base enabled states \u00d7(no typed condition or3 typed conditions in2 source orders)=140",
+    "representativeRows": [
+      {
+        "units": "ft",
+        "statuses": [
+          "heavilyEncumbered"
+        ],
+        "enabled": true,
+        "extra": "none",
+        "extraFirst": false,
+        "actorStatuses": [
+          "heavilyEncumbered"
+        ],
+        "physicalMode": -1,
+        "athPassive": 5,
+        "perceptionPassive": 15,
+        "walk": 20,
+        "fly": 20,
+        "independentToolMode": -1,
+        "combinedWisMode": 1,
+        "combinedStrMode": 0
+      },
+      {
+        "units": "ft",
+        "statuses": [
+          "heavilyEncumbered"
+        ],
+        "enabled": true,
+        "extra": "poisoned",
+        "extraFirst": false,
+        "actorStatuses": [
+          "heavilyEncumbered",
+          "poisoned"
+        ],
+        "physicalMode": -1,
+        "athPassive": 5,
+        "perceptionPassive": 10,
+        "walk": 20,
+        "fly": 20,
+        "independentToolMode": -1,
+        "combinedWisMode": 0,
+        "combinedStrMode": 0
+      },
+      {
+        "units": "ft",
+        "statuses": [
+          "heavilyEncumbered"
+        ],
+        "enabled": true,
+        "extra": "exhaustion",
+        "extraFirst": false,
+        "actorStatuses": [
+          "heavilyEncumbered",
+          "exhaustion"
+        ],
+        "physicalMode": -1,
+        "athPassive": 3,
+        "perceptionPassive": 13,
+        "walk": 15,
+        "fly": 15,
+        "independentToolMode": -1,
+        "combinedWisMode": 1,
+        "combinedStrMode": 0
+      },
+      {
+        "units": "ft",
+        "statuses": [
+          "heavilyEncumbered"
+        ],
+        "enabled": true,
+        "extra": "prone",
+        "extraFirst": false,
+        "actorStatuses": [
+          "heavilyEncumbered",
+          "prone"
+        ],
+        "physicalMode": -1,
+        "athPassive": 5,
+        "perceptionPassive": 15,
+        "walk": 20,
+        "fly": 0,
+        "independentToolMode": -1,
+        "combinedWisMode": 1,
+        "combinedStrMode": 0
+      }
+    ]
+  },
+  "commands": [
+    "npm test -- --core <released0.19.3>",
+    "npm run typecheck -- --core <released0.19.3>",
+    "npm run test:native-encumbrance -- --core <released0.19.3> --native <exactrelease> --foundry <static14.367> --write-evidence <output>",
+    "npm run test:mounted-encumbrance -- --core <released0.19.3> --browser-tools <isolatedtools> --chromium <headless>",
+    "npm run test:public-rolls -- --core <released0.19.3> --dependency-profile",
+    "npm run check:package -- --core <released0.19.3>"
+  ],
+  "retainedEvidence": [
+    "C82 exact source inventory2242/591 PASS;native checkout unchanged and every new comparator verifies the exact release commit.",
+    "C80 Normal proficiency-dice distributions retained separately;C83 does not extend their adv/dis or DD-R05 equivalence."
+  ],
+  "limits": [
+    "Controlled actual native/Foundry methods use initialized shells,static version14.367,numeric Roll/empty rules collaborators;not full source model/installed/native/operator acceptance.",
+    "Base source profile is Actor-owned,encumbrance statuses only,no changes/riders/magic/expiry/dependent filters. Arbitrary status grants and wider Item/condition/effect phases remain unqualified.",
+    "Preparation does not infer status from current weight or synchronize status documents. That requires later reviewed commands/revalidation/outcomes.",
+    "Public dependency profile retains complete plain-d20 and441 Normal-bound distributions;unexecuted historical phase families remain disclosed. C77 full311995 run stays separate.",
+    "Experimental0.4.1/compatibility unchanged;Node22 CI unrun. E01/E02/E04/widerQ00/E05 and full M2/ADR acceptance remain open."
+  ]
+}

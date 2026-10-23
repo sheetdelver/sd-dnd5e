@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import {DnD5eAdapter} from '../logic/adapter';
+import {featCustomCases,featCustomSource} from './fixtures/feat-custom-scenarios';
+import {skillContext,unavailableContexts} from './fixtures/skill-scenarios';
+import {preparedRollFormula,rollIntentSignature} from '../ui/components/shared/skillIntent';
+const adapter=new DnD5eAdapter(),failures:string[]=[];
+for(const row of featCustomCases){
+ const source=featCustomSource(row),before=structuredClone(source),actor=adapter.prepareActorData(source,skillContext()),d=actor.derived as any,key=row.field.split('.')[0];
+ assert.deepEqual(source,before);
+ if(adapter.getRollData(actor,'skill','prc')?.formula!=='1d20+5'){failures.push(row.id);continue;}
+ const training=key==='armorProf'?'armor':key==='weaponProf'?'weapons':'languages';
+ if(['dr','di','dv','ci'].includes(key))assert.deepEqual(d.defenses.categories[key].custom,row.expectedCustomLabels??row.expectedCurrentLabels,row.id+'/current defense custom');
+ else assert.deepEqual(d.training.categories[training].entries.map((entry:any)=>entry.label),row.expectedCurrentLabels,row.id+'/current training custom');
+ assert.deepEqual(d.training.categories.languages.preparedSpoken,key==='languages'?row.expectedPreparedLabels:[],row.id+'/earlier labels');
+ assert.deepEqual(d.training.categories.languages.spoken,key==='languages'?row.expectedCurrentLabels:[],row.id+'/current labels');
+ const receipt=d.effectPreparation.applied.find((entry:any)=>entry.effectId==='finalCustom');assert.equal(receipt.before,row.expectedBefore);assert.equal(receipt.value,row.expectedAfter);assert.equal(receipt.phase,'final');assert.equal(receipt.operandPhase,'prepared');assert.equal(receipt.itemId,'finalFeat');
+ for(const [advantage,prefix]of [['normal','1d20'],['adv','2d20kh1'],['dis','2d20kl1']]as const){const options={advantage,situationalBonus:'2.5'};assert.equal(adapter.getRollData(actor,'skill','prc',options)?.formula,prefix+'+5+(2.5)');assert.equal(preparedRollFormula(actor,'skill','prc',options),prefix+'+5+(2.5)');}
+ assert.equal(d.skills.prc.passive,15);const card=adapter.getActorCardData(actor);assert.equal(card.blocks?.find(block=>block.title==='Defenses')?.value,d.defenses.summary);assert.equal(card.blocks?.find(block=>block.title==='Training')?.value,d.training.summary);
+ for(const {context}of unavailableContexts()){assert.equal(adapter.getRollData(adapter.prepareActorData(source,context),'skill','prc'),null);assert.equal(adapter.getRollData(adapter.prepareActorData(source,skillContext()),'skill','prc')?.formula,'1d20+5');}
+ const poisoned=structuredClone(source);(poisoned.system as any).rolls={ability:Object.fromEntries(['check','save','skill','tool'].map(key=>[key,{proficiency:99}]))};const poisonBefore=structuredClone(poisoned),again=adapter.prepareActorData(poisoned,skillContext());assert.deepEqual((again.derived as any).training,d.training);assert.deepEqual((again.derived as any).defenses,d.defenses);assert.equal(adapter.getRollData(again,'skill','prc')?.formula,'1d20+5');assert.deepEqual(poisoned,poisonBefore);
+ const changed=structuredClone(source);changed.items.at(-1)!._id='differentFeat';assert.notEqual(rollIntentSignature(actor,'skill'),rollIntentSignature(adapter.prepareActorData(changed,skillContext()),'skill'));assert.deepEqual(source,before);
+}
+console.log('Empty-feat final custom String failing-before:',failures.length,'of',featCustomCases.length,failures.slice(0,4));assert.deepEqual(failures,[]);
+
+const live=()=>featCustomSource(featCustomCases.find(row=>row.id==='default/duplicates/languages.custom/override')!);
+for(const patch of [{activities:{activity:{type:'utility'}}},{uses:{max:'3'}},{uses:{spent:1}},{uses:{recovery:[{period:'lr'}]}},{description:{value:'unqualified persisted field'}},{activities:[]},{uses:null}]){const source=live();Object.assign(source.items.at(-1)!.system,patch);const before=structuredClone(source);assert.equal(adapter.getRollData(adapter.prepareActorData(source,skillContext()),'skill','prc'),null,JSON.stringify(patch));assert.deepEqual(source,before);}
+for(const scope of ['tool','condition','missing-id','empty-id','duplicate-id','reference','non-string','malformed-source']){const source=live(),item=source.items.at(-1)as any;if(scope==='tool'){item.type='tool';item.system.equipped=true;}if(scope==='condition')source.effects!.push({_id:'poisoned',type:'condition',statuses:['poisoned'],system:{type:'poisoned'}}as any);if(scope==='missing-id')delete item._id;if(scope==='empty-id')item._id='';if(scope==='duplicate-id')source.items.push(structuredClone(item));if(scope==='reference')item.effects[0].system.changes[0].value='@abilities.wis.mod';if(scope==='non-string')item.effects[0].system.changes[0].value=3;if(scope==='malformed-source')(source.system as any).traits.languages.custom=null;const before=structuredClone(source),actor=adapter.prepareActorData(source,skillContext());
+ // C107's actual Item/Actor String composition supersedes only the original
+ // empty-Tool restriction. All unrelated identity/condition/expression gates stay.
+ assert.equal(adapter.getRollData(actor,'skill','prc')?.formula??null,scope==='tool'?'1d20+5':null,scope);assert.deepEqual(source,before);}
+{const source=live(),actor=adapter.prepareActorData(source,skillContext()),poisoned=structuredClone(source),item=poisoned.items.at(-1)as any;Object.assign(item.system,{prof:{flat:99,multiplier:99},hasProficiency:false,proficiencyMultiplier:99,uses:{value:99,label:'poison',rollRecharge:99}});const before=structuredClone(poisoned),again=adapter.prepareActorData(poisoned,skillContext());assert.deepEqual((again.derived as any).training,(actor.derived as any).training);assert.equal(adapter.getRollData(again,'tool','thief')?.formula,'1d20+5');assert.deepEqual(poisoned,before);}
+{const source=live();(source.system as any).skills.prc.roll={mode:-1,bonus:'2',min:10};const actor=adapter.prepareActorData(source,skillContext());assert.equal(adapter.getRollData(actor,'skill','prc'),null);assert.equal(adapter.getRollData(actor,'skill','prc',{advantage:'normal'})?.formula,'1d20min10+7');assert.equal(adapter.getRollData(actor,'skill','prc',{advantage:'adv'}),null);assert.equal((actor.derived as any).skills.prc.passive,12);}
+
+for(const mode of [-1,0,1]){const source=live();(source.system as any).skills.prc.roll={mode,bonus:'2'};const actor=adapter.prepareActorData(source,skillContext());assert.equal(adapter.getRollData(actor,'skill','prc')?.formula,(mode===1?'2d20kh1':mode===-1?'2d20kl1':'1d20')+'+7');assert.equal((actor.derived as any).skills.prc.passive,17+5*mode);assert.equal(adapter.getRollData(actor,'skill','prc',{tool:'thief'})?.formula,(mode===-1?'1d20':'2d20kh1')+'+7');assert.equal(adapter.getRollData(actor,'tool','thief',{skill:'prc',ability:'wis'})?.formula,'2d20kh1+5');}

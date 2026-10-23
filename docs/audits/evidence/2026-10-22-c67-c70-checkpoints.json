@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-22",
+  "branch": "feat/adr-0001-character-lifecycle",
+  "startingHead": "4e1d029bf4fedf6049dafac8b34623b3ee31c2fc",
+  "checkpoints": [
+    {
+      "checkpoint": "C67 initial custom String qualification",
+      "commit": "3d5f3bcb7d351cf42f58a21c3aea854e5e64fcf0",
+      "record": "docs/audits/evidence/2026-10-22-c67-initial-custom-foundation.json",
+      "recordAtCommitSha256": "9d0e7ce31cea70a5718e43412af8cb3ff874924ffb5e8956573340d859093855",
+      "currentRecordSha256": "9d0e7ce31cea70a5718e43412af8cb3ff874924ffb5e8956573340d859093855"
+    },
+    {
+      "checkpoint": "C68 initial custom text integration",
+      "commit": "2cc643b7bb1a11acbd3db2344b7f071d3e79f568",
+      "record": "docs/audits/evidence/2026-10-22-c68-initial-custom.json",
+      "recordAtCommitSha256": "f6f6d1743aa6fc7d52d2552b297990494cf21eb42c82f9c3421fde2c536ca099",
+      "currentRecordSha256": "f6f6d1743aa6fc7d52d2552b297990494cf21eb42c82f9c3421fde2c536ca099"
+    },
+    {
+      "checkpoint": "C69 condition/custom String qualification",
+      "commit": "3d1eb95e937456a77ec28da5aa1f95f4190ec17c",
+      "record": "docs/audits/evidence/2026-10-22-c69-condition-custom-foundation.json",
+      "recordAtCommitSha256": "d2ec4fa580ee9ed891bb663f9355d45097cfa30f2dfd6e19a9d63218a5229150",
+      "currentRecordSha256": "d2ec4fa580ee9ed891bb663f9355d45097cfa30f2dfd6e19a9d63218a5229150"
+    },
+    {
+      "checkpoint": "C70 condition/custom text integration",
+      "commit": "ca91613fd4553e02ae11b9dfa6d361fd0d4bd0d2",
+      "record": "docs/audits/evidence/2026-10-22-c70-condition-custom.json",
+      "recordAtCommitSha256": "52ae6c5c3d9fe0cc77a2e00c0de2e2fbdbbd2d734be4c23a3dd68ce585a08598",
+      "currentRecordSha256": "ae0dba6b9b5766eff314d37f654ba0fc6dc302fd3d0700fa1b9dbf354ded6ae9"
+    }
+  ],
+  "validatedRuntimeHead": "ca91613fd4553e02ae11b9dfa6d361fd0d4bd0d2",
+  "packageSha256": "6df931a8b9c54b7d013249b90073e8e9295066f517eb75ca1c417de2247ddee6",
+  "fullMountedEvidence": {
+    "result": "PASS,all retained desktop/mobile consumers and intent fences",
+    "artifact": "/tmp/dnd5e-mounted-is7McI/evidence.json",
+    "sha256": "c07d4c0361aaa532d951ef5ee51eadcf70fb3fa68146ea1181bb9bdb7d9bc6b9",
+    "logSha256": "4fa0943b85ce4e6afbd34b22abbce6bf360b3b5f8f7d969230a7de3cf3285fc9",
+    "generatedStateSha256": "70bf435a2c0e5465207749a51641804d03daad42d4eabfe8ce77e06b02e5b77b",
+    "browserFixtureSha256": "f6ad00ed4c8470b93dc977664cc216969d1d9fa74adfa65bc7d55ff381df5b2f",
+    "counts": {
+      "rows": 50,
+      "previewRows": 8,
+      "factRows": 16,
+      "modeRows": 18,
+      "toolRows": 56,
+      "focusRows": 2,
+      "combinationRows": 80,
+      "effectRows": 22,
+      "numericEffectRows": 1172,
+      "effectModeRows": 58,
+      "healthRows": 58,
+      "defenseRows": 102,
+      "equipmentRows": 90,
+      "movementRows": 84,
+      "rangeRows": 180,
+      "speciesRows": 40,
+      "defenseTraitRows": 149,
+      "indicatorRows": 24,
+      "trainingRows": 624
+    },
+    "note": "Runtime files match C70. Full command started before the additional focused condition-transition assertion; final focused886 separately verifies that assertion. Full and focused artifacts remain distinct."
+  },
+  "status": "Partial M2/Q02a only;all fullADR/DD/A/M gates open;experimental0.4.1/compatibility unchanged;no native/operator/release acceptance.",
+  "nextExecutableWork": "C71 bounded transferred Item Actor-target initial custom-field qualification,using existing Item eligibility/default and Actor effect-phase evidence; final/general Item preparation remains gated. E01/E02/E04/widerQ00/E05 remain open."
+}
