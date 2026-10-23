@@ -67,6 +67,15 @@ DD-01/24/27/34, A02/A03/A18 work, not completed M2/M7 or native/operator accepta
 Next: proportional test entry points/native upgrade decision and a complete bounded
 M3 operation. The former transferred-field matrix queue remains superseded.
 
+### Proportional checks and native updates
+
+DD-QA05: CI no longer invokes tooling tests separately before the same deep runner.
+Explicit smoke/affected/deep entry points preserve maintained regressions; new
+targeted native helpers are inert. Historical cross-oracle imports remain for
+incremental migration when affected. [Native-data/upgrade decision](../plans/native-upgrades.md)
+bounds DD-QA06 without loosening version gates or copying installed content.
+Next delivery remains an M3 operation, not further test refactoring.
+
 ## Context and outcome
 
 The experimental 0.4.1 module has a substantial sheet layout but incomplete rules and persistence. Basic check rendering does not establish a usable character lifecycle. Modern spells, activities, source identity, effects, resting and advancement require integrated behavior, not isolated UI patches. This plan uses the current **Foundry-installable** release, not upstream development HEAD. C02 adopted the documented Core0.19.3/module-api1.5 floors; module release metadata remains0.4.1/experimental.

@@ -63,10 +63,6 @@ jobs:
           CI_PR_HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
         run: node scripts/ci-reuse.mjs "$RUNNER_TEMP/validated-release"
 
-      - name: Test standalone release helper
-        if: steps.reuse.outputs.reused != 'true'
-        run: node --test .module-ci-data/local/modules/dnd5e/scripts/*.test.mjs
-
       - name: Install reviewed Sheet Delver toolchain
         if: steps.reuse.outputs.reused != 'true' || steps.reuse.outputs.package == 'true'
         run: npm ci

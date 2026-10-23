@@ -44,6 +44,13 @@ target, not a new compatibility claim for module 0.4.1. See the
 [native source map](reference/native-6.0.6.md) for exact release provenance and
 [verification matrix](plans/0001-verification.md) for completion evidence.
 
+## Native data and maintenance
+
+The [bounded upgrade decision](plans/native-upgrades.md) separates authorized native
+content, source defaults and executable preparation. Exact6.0.6 qualification stays
+in place. Representative workflow smoke, selected affected suites and deep
+interpreter comparisons are distinct entry points; CI tooling runs once.
+
 ## Current executable boundaries
 
 Latest bounded M2 behavior includes C73/C74 empty-feat final Actor custom text and

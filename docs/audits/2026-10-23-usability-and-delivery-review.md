@@ -41,6 +41,11 @@ focused regressions, controlled pinned native methods, mounted SDK-seam renderin
 and packaging. The exact offending source on Krusky remains unknown.
 No live native/operator acceptance is claimed; ADR-0001 remains open.
 
+DD-QA05: duplicate standalone tooling CI step removed; explicit smoke/affected/deep
+entry points added without discarding tests. Legacy executable oracle imports are
+retained for affected-only migration. DD-QA06: [bounded native-data and upgrade
+decision](../plans/native-upgrades.md) recorded; exact version qualification remains.
+
 ## Baseline and quantified progress
 
 - Module HEAD `5b52545`, branch `feat/adr-0001-character-lifecycle`; latest runtime

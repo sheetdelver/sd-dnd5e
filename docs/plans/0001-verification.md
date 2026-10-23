@@ -43,6 +43,16 @@ cover the unchanged synthetic reproducer, focused pinned native symbols and actu
 mounted sheet at390/1024/1280/1440px. This adds regression/offline mounted evidence;
 it does not establish installed/native/operator acceptance or close A01–A24.
 
+## Proportional execution
+
+Use [smoke/affected/deep entry points and upgrade procedure](native-upgrades.md).
+CI runs the maintained tooling collection once through the deep runner. Explicit
+affected selection fails on missing/foreign paths; no oracle is imported by the
+selection helper. This removes confirmed DD-QA05 duplication without deleting
+regression evidence. Smoke6 suites, explicit affected player-corpus suite and3 toolchain selection/CI
+regressions PASS (October23). Repair checkpoint `c40684d`; review `7275b2e`.
+Full M2 and native/operator gates remain open.
+
 ## Fixture format and acquisition
 
 M0 should create module-owned `tests/fixtures/native-6.0.6/` and a provenance index. Each fixture records:
