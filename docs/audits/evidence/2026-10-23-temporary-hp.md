@@ -12,6 +12,10 @@ inspection is explicit before a fresh review.
 This completes one bounded M3 operation,not M3 or the character lifecycle. It
 advances DD-04/25/26/34/35 and A16/A18 partially. ADR-0001 stays open.
 
+Implementation checkpoint: `67a4a3d`;review `7275b2e`,usability `c40684d`,test/upgrade
+decision `23eeee4`. The archive below packages the C110 runtime. The subsequent
+README/audit-index update is documentation-only;no release artifact is published.
+
 ## Scope and shared path
 
 - Shared health preparation supplies source/default/effective edit eligibility.

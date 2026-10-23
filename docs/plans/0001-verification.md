@@ -64,8 +64,7 @@ public host,mounted SDK-seam UI and package checks. Matching Core readback does 
 close E02 or establish independent native acceptance. All full M gates remain open.
 
 Checkpoint identities: review `7275b2e`; C108 usability repair `c40684d`; C109
-proportional test/upgrade decision `23eeee4`; C110 implementation identity recorded
-at the next documentation checkpoint. Player outcomes and artifact identities are
+proportional test/upgrade decision `23eeee4`; C110 manual temporary-HP implementation `67a4a3d`. Player outcomes and artifact identities are
 self-contained in the linked evidence,not dependent on ignored handoff files.
 
 ## Fixture format and acquisition

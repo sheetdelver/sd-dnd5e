@@ -8,6 +8,8 @@ Support is still in development.
 - Character sheets with abilities, equipment and spells.
 - Basic check dialogs and initiative integration.
 - Combat HUD initiative rolling.
+- Reviewed manual temporary HP edits with status recovery for the qualified 2024 profile.
+- Compact unavailable diagnostics and responsive desktop/mobile grids.
 
 Requires **SheetDelver Core 0.19.3 or later** (native world context and caller-safe content contracts).
 
@@ -17,7 +19,7 @@ See the [releases](https://github.com/sheetdelver/sd-dnd5e/releases),
 
 The module is not yet a complete character lifecycle implementation. Weapon and
 spell execution, resting, advancement and several sheet sections have confirmed
-gaps. The current [audit](docs/audits/2026-10-19-character-lifecycle.md) and
+gaps. The current [audit](docs/audits/2026-10-23-usability-and-delivery-review.md) and
 [ADR-0001](docs/adr/0001-complete-character-lifecycle.md) define the work
 for complete 2024 support against Foundry's released D&D system 6.0.6. Its
 6.0.6/Foundry 14.367 target is a plan, not a present native-parity claim.

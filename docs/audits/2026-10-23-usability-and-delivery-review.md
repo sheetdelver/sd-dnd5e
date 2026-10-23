@@ -53,6 +53,10 @@ Core source readback -> visible result -> reconnect/status inspection without re
 inventory,attack/damage,casting/resource and rest workflows remain incomplete.
 The baseline table below is the historical review state,not the new route inventory.
 
+Local checkpoints: review `7275b2e`;C108 repairs `c40684d`;C109 proportional tests/
+upgrade decision `23eeee4`;C110 player temp-HP operation `67a4a3d`. These advance
+bounded requirements while preserving every full milestone gate as open.
+
 ## Baseline and quantified progress
 
 - Module HEAD `5b52545`, branch `feat/adr-0001-character-lifecycle`; latest runtime
