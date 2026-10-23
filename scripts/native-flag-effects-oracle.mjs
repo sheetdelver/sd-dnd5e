@@ -4,7 +4,7 @@ import {effectOracle606} from './native-effect-oracle.mjs';import {option} from 
 const {sandbox,files,n,MathModel}=formulaRollOracle606,{f,NActor,NEffect}=effectOracle606;
 const configuration=files.get('module/config.mjs'),flagConfig=configuration.slice(configuration.indexOf('DND5E.characterFlags ='),configuration.indexOf('preLocalize("characterFlags"'));
 sandbox.NEFlag=NEffect;
-vm.runInNewContext(`const DND5E=CONFIG.DND5E;${flagConfig}
+vm.runInNewContext(`{const DND5E=CONFIG.DND5E;${flagConfig}
 class FlagOps {${['_applyChangeAdd','_applyChangeSubtract','_applyChangeMultiply','_applyChangeOverride','_applyChangeUpgrade'].map(key=>f('client/documents/active-effect.mjs','ActiveEffect',key)).join('\n')}}
 class FlagEffect extends NEFlag {${n('module/documents/active-effect.mjs','ActiveEffect5e','_prepareFlagChange')}}
 class FlagBridge extends FlagOps {static _shimChanges(){} static CHANGE_PHASES={initial:{},final:{}};static applyChange(actor,change){const normalized=change.effect._prepareFlagChange(actor,{...change}),current=foundry.utils.getProperty(actor,change.key),changes={};this['_applyChange'+({add:'Add',subtract:'Subtract',multiply:'Multiply',override:'Override',upgrade:'Upgrade',downgrade:'Upgrade'}[change.type])](actor,normalized,current,normalized.value,changes);for(const [key,value]of Object.entries(changes))foundry.utils.setProperty(actor,key,value);return changes;}}
@@ -12,7 +12,7 @@ class FlagMode extends numeric.AdvantageModeField {${n('module/data/fields/advan
 numeric.AdvantageModeField.setMode=FlagMode.setMode;
 class FlagActor extends formulaContext.MathActor {getFlag(scope,key){return this.flags[scope]?.[key];}}
 class FlagAttributes {${n('module/data/actor/templates/attributes.mjs','AttributesFields','prepareInitiative')}}
-globalThis.flagEffectOracle={FlagEffect,FlagBridge,FlagActor,FlagAttributes};`,sandbox);
+globalThis.flagEffectOracle={FlagEffect,FlagBridge,FlagActor,FlagAttributes};}`,sandbox);
 sandbox.CONFIG.DND5E.defaultAbilities={initiative:'dex'};
 const get=(obj,path)=>path.split('.').reduce((v,key)=>v?.[key],obj),oldImpl=sandbox.foundry.documents.ActiveEffect.implementation;sandbox.foundry.documents.ActiveEffect.implementation=sandbox.flagEffectOracle.FlagBridge;
 const boolKeys=['jackOfAllTrades','initiativeAlert','diamondSoul','toolExpertise','observantFeat','remarkableAthlete','powerfulBuild','tavernBrawlerFeat','halflingLucky','reliableTalent','elvenAccuracy','halflingNimbleness','ignoreArmorSpeedReduction','enhancedDualWielding'];

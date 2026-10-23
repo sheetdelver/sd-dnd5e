@@ -1772,3 +1772,11 @@ Initial/prepared/current operands and earlier HP/AC/movement caches remain
 distinct;utilities prepare before these final changes. No consumer recalculates
 the results or bypasses unresolved Item/time/condition gates.
 [C106 evidence](audits/evidence/2026-10-23-c106-transferred-scalars.json).
+
+
+Transferred final training/defense Sets,custom text and Boolean flags share the
+existing typed handlers after qualified Item final preparation. Current flags
+drive fresh check configuration;earlier language/passive preparation remains
+visible separately. Exact owned Item identity stays in receipts. Unqualified
+condition/time/subtype/local-effect combinations cannot use this admission.
+[C107 evidence](audits/evidence/2026-10-23-c107-transferred-fields.json).

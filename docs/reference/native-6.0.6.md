@@ -1648,3 +1648,12 @@ non-container cases execute actual Base utility final before the field changes.
 Explicit prepared intermediates/routing/calendar-free callbacks are declared;
 module source/default regressions are separate from full DataModel acceptance.
 [C106 evidence](../audits/evidence/2026-10-23-c106-transferred-scalars.json).
+
+
+C107 composes existing independent Set/String/flag expectations with actual
+Actor/Item final dispatch and actual primitive/_prepareFlagChange/Boolean
+handlers.7868 utility and7868 empty comparisons preserve earlier/current field
+distinctions. Schema routing,initialized operands and prior C91/C97 collaborators
+remain explicit. Test-only flag oracle names are scoped;native bodies/assertions
+are unchanged. This does not establish full raw DataModel/native acceptance.
+[C107 evidence](../audits/evidence/2026-10-23-c107-transferred-fields.json).

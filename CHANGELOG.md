@@ -9,7 +9,7 @@ Historical entries are reconstructed from [published releases](https://github.co
 - Share skill/tool/ability selections, previews and qualified roll execution across desktop/mobile, with context and stale-intent guards.
 - Support qualified Normal die bounds and proficiency dice and ordinary advantage/disadvantage;retain wider execution limits.
 - Preserve initialized base damage formulas and source-derived weapon ranges,including explicit missing values.
-- Prepare attunement,qualified transferred check/scalar effects,independent Item counters and scalar readouts in native phase order.
+- Prepare attunement,qualified transferred check/scalar/trait/flag effects and Item counters in native phase order.
 - Show qualified source-linked spell abilities,inherited fields,numeric attacks and Activity save DCs.
 - Share qualified utility Activity fields,template dimensions,units and owned consumption references;retire stale rolls on source changes.
 - Add exact-release fixtures, isolated verification and caller-safe content/rule context;correct bundled SRD labels.

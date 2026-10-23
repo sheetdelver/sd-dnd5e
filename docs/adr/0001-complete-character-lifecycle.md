@@ -3449,3 +3449,33 @@ work is transferred final Sets/custom Strings/flags and broader Item/effect
 subtype composition. M2/ADR stay open;unavailable states are not completion.
 
 [C106 evidence](../audits/evidence/2026-10-23-c106-transferred-scalars.json) records commands,hashes,failed-before inputs and phase limits.
+
+
+### C107 — transferred final trait and flag fields (2026-10-23)
+
+C106 is `3022989`. Qualified final training/defense Sets,custom Strings and Boolean
+flags now use the existing shared handlers after the qualified Item final recipe.
+Receipts retain exact owned Item identities. Source,earlier preparation,current
+flags/fields and earlier language/passive caches remain distinct. Cards and both
+layouts use these facts;Lucky execution and Reliable Talent bounds retain their
+existing gates. No new dice,transport,cache or action implementation is introduced.
+
+7868 actual native compositions cover90 training,148 condition-free defense,
+217 custom String and1512 final flag inputs across4 eligibility states;the separate
+7868 empty-activity comparisons produce identical current fields. Actual utility
+final/counters precede Actor field changes.4327/7868 unchanged source inputs fail
+C106 and0 after. Only the two earlier minimal Tool transfer restrictions are
+superseded;unrelated identity/condition/expression/subtype rejection stays intact.
+87 module/9 tooling suites (61 assertions),317 explicit typed files,2242/591 exact
+source verification,mounted1440/390 training/defense/custom/flag/read/passive/bounds/
+stale-intent recovery,162826 public-host requests (31976 new) and isolated
+check/package PASS.1 unary candidate and2000 tie diagnostics remain;serialization
+is unchanged. Task-owned services stopped.
+
+Controlled prepared operands/methods,source regressions,mounted seams and public
+host remain distinct from full DataModel/installed/native/operator acceptance.
+Conditions,Item-local effects,other subtypes and broader formulas stay gated.
+M2/ADR remain open,including the proven E04 timed-input gap. Next finish remaining
+save/ability/initiative transfer scopes and Item subtype/condition composition.
+
+[C107 evidence](../audits/evidence/2026-10-23-c107-transferred-fields.json) records commands,hashes,historical restrictions and phase limits.

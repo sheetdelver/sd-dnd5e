@@ -92,6 +92,8 @@
     "test:public-effect-time": "node scripts/test-public-effect-time.mjs",
     "test:mounted-effect-time": "node scripts/test-mounted-effect-time.mjs",
     "test:native-transferred-scalars": "node scripts/native-transferred-scalars-oracle.mjs",
-    "test:mounted-transferred-scalars": "node scripts/test-mounted-transferred-scalars.mjs"
+    "test:mounted-transferred-scalars": "node scripts/test-mounted-transferred-scalars.mjs",
+    "test:native-transferred-fields": "node scripts/native-transferred-fields-oracle.mjs",
+    "test:mounted-transferred-fields": "node scripts/test-mounted-transferred-fields.mjs"
   }
 }

@@ -250,11 +250,12 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     const snapshot=scalarPaths.length&&context?preparedScalarOperands606(actor,context,{proficiency,movementInitialization,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,checkExecutionReason,initialized,equipment},scalarPaths):undefined;
     for(const change of plan.final){
         if(change.type.startsWith('dnd5e.'))continue;
-        if(change.key.startsWith('flags.')){const itemReason=change.itemId!==undefined?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):undefined;if(itemReason){reason??=itemReason;continue;}const result=applyBooleanFlag606(executionFlags,change);if('reason'in result)reason??=result.reason;else applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'final',...result});continue;}
-        const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         const scalarOwner=typeof change.itemId==='string'?{itemId:change.itemId}:{};
+        const equippableOwner=typeof change.itemId==='string'&&plan.equippable&&Object.hasOwn(plan.equippable.items,change.itemId);
+        if(change.key.startsWith('flags.')){const itemReason=change.itemId!==undefined?equippableOwner?equippableActorFinalReason606(change.itemId,plan.equippable!,Boolean(plan.conditions?.length||plan.baseStatuses?.length)):featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):undefined;if(itemReason){reason??=itemReason;continue;}const result=applyBooleanFlag606(executionFlags,change);if('reason'in result)reason??=result.reason;else applied.push({effectId:change.effectId,...scalarOwner,key:change.key,phase:'final',...result});continue;}
+        const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
         if(change.itemId!==undefined){
-            const itemReason=(change.key==='system.attributes.prof'||transferredFinalCheckPath606(change.key)||scalarPaths.includes(change.key))&&plan.equippable?equippableActorFinalReason606(change.itemId,plan.equippable,Boolean(plan.conditions?.length||plan.baseStatuses?.length)):field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
+            const itemReason=(change.key==='system.attributes.prof'||transferredFinalCheckPath606(change.key)||scalarPaths.includes(change.key)||field?.set||field?.string&&equippableOwner)&&plan.equippable?equippableActorFinalReason606(change.itemId,plan.equippable,Boolean(plan.conditions?.length||plan.baseStatuses?.length)):field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
             if(itemReason){reason??=itemReason;continue;}
         }
         if(scalarPaths.includes(change.key)){
@@ -288,7 +289,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
             const result=before?applyTraitSet606(before,change.type,raw,training):null;
             if(!before||!result){reason??=`Final training Set operation/source/value requires qualification: ${change.key}`;continue;}
             finalTrainingSets[change.key]=result.value;
-            applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:[...before],value:[...result.value],delta:result.delta,initializedFrom:origins[change.key]});
+            applied.push({effectId:change.effectId,...scalarOwner,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:[...before],value:[...result.value],delta:result.delta,initializedFrom:origins[change.key]});
             continue;
         }
         if(/^system\.traits\.(?:(?:dr|di|dv|ci)\.value|(?:dr|di|dv|dm)\.bypasses)$/.test(change.key)&&field?.set&&field.valid){
@@ -305,7 +306,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
             if(!result){reason??=`Final defense Set operation/value requires qualification: ${change.key}`;continue;}
             if(conditional&&change.key==='system.traits.ci.value'&&[...before,...result.delta,...result.value].some(value=>!(petrified?['poisoned','diseased','stunned']:['poisoned','exhaustion']).includes(value.trim()))){reason??='Final CI with these condition/immunity identities requires qualification';continue;}
             finalDefenseSets[change.key]=result.value;
-            applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:changedDefenseSets.has(change.key)?'final':'prepared',before:[...before],value:[...result.value],delta:result.delta});
+            applied.push({effectId:change.effectId,...scalarOwner,key:change.key,phase:'final',operandPhase:changedDefenseSets.has(change.key)?'final':'prepared',before:[...before],value:[...result.value],delta:result.delta});
             changedDefenseSets.add(change.key);continue;
         }
         if(change.key==='system.attributes.prof'&&field){
