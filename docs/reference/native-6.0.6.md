@@ -1518,3 +1518,14 @@ The declared schema router uses already qualified field methods;Item activities,
 uses,conditions/time,spellcasting callback and full schema/Document boot remain
 outside this capture. Existing source/default prerequisites are separate evidence;
 no intermediate proficiency map is reclassified as persisted source. [C94](../audits/evidence/2026-10-22-c94-transferred-final.json).
+
+
+C95 captures actual armorClass/hitPoints schema getters and Foundry14.367 primitive/
+SchemaField default cleaning for absent parents/leaves and explicit null. Declared
+constructors/entries and no-dot expansion identity replace infrastructure only.
+720 nullable operations use actual NumberField handlers and earlier native HP/AC
+methods. Upgrade/downgrade compare before cleaning and can retain null.72 prepared
+zero/text FormulaField cases distinguish numeric0 from string"0";no new parser or
+native preparation runtime is introduced. Positive numeric string-constructor
+diagnostics remain unsupported. [C95](../audits/evidence/2026-10-23-c95-nullable-scalars.json)
+keeps these controlled-method comparisons separate from native/operator acceptance.

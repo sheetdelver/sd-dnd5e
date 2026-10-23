@@ -1,0 +1,7818 @@
+{
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "defaults": [
+    {
+      "path": "attributes.ac.flat",
+      "input": "missing-parent",
+      "expected": null
+    },
+    {
+      "path": "attributes.ac.override",
+      "input": "missing-parent",
+      "expected": null
+    },
+    {
+      "path": "attributes.hp.value",
+      "input": "missing-parent",
+      "expected": null
+    },
+    {
+      "path": "attributes.hp.max",
+      "input": "missing-parent",
+      "expected": null
+    },
+    {
+      "path": "attributes.ac.flat",
+      "input": "missing-leaf",
+      "expected": null
+    },
+    {
+      "path": "attributes.ac.override",
+      "input": "missing-leaf",
+      "expected": null
+    },
+    {
+      "path": "attributes.hp.value",
+      "input": "missing-leaf",
+      "expected": null
+    },
+    {
+      "path": "attributes.hp.max",
+      "input": "missing-leaf",
+      "expected": null
+    },
+    {
+      "path": "attributes.ac.flat",
+      "input": "null",
+      "expected": null
+    },
+    {
+      "path": "attributes.ac.override",
+      "input": "null",
+      "expected": null
+    },
+    {
+      "path": "attributes.hp.value",
+      "input": "null",
+      "expected": null
+    },
+    {
+      "path": "attributes.hp.max",
+      "input": "null",
+      "expected": null
+    }
+  ],
+  "numberRows": [
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.flat",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.ac.override",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.value",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 0,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 44,
+      "expected": 46,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 47,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 44,
+      "expected": 46,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 45,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 44,
+      "expected": 88,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 110,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 44,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 44,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-parent",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 44,
+      "expected": 46,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 47,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 44,
+      "expected": 46,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 45,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 44,
+      "expected": 88,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 110,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 44,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 44,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "missing-leaf",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "add",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": null,
+      "expected": 1,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "subtract",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "multiply",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "override",
+      "delta": 0,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2,
+      "before": null,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "upgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -2,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": null,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "initial",
+      "type": "downgrade",
+      "delta": 0,
+      "before": null,
+      "expected": null,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 2,
+      "before": 44,
+      "expected": 46,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": -2,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 47,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "add",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -2,
+      "before": 44,
+      "expected": 46,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 42,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 45,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "subtract",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2,
+      "before": 44,
+      "expected": 88,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 110,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "multiply",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 2,
+      "before": 44,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "override",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -2,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "upgrade",
+      "delta": 0,
+      "before": 44,
+      "expected": 44,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2,
+      "before": 44,
+      "expected": 2,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -2,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 2.5,
+      "before": 44,
+      "expected": 3,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": -0.5,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    },
+    {
+      "path": "attributes.hp.max",
+      "source": "null",
+      "phase": "final",
+      "type": "downgrade",
+      "delta": 0,
+      "before": 44,
+      "expected": 0,
+      "negativeZero": false
+    }
+  ],
+  "zeroRows": [
+    {
+      "path": "attributes.ac.bonus",
+      "type": "add",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "add",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "-(2)",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "subtract",
+      "delta": "-2",
+      "expression": "-(-2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "multiply",
+      "delta": "2",
+      "expression": 0,
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "multiply",
+      "delta": "-2",
+      "expression": 0,
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "override",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "upgrade",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "type": "downgrade",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "add",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "add",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "-(2)",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "subtract",
+      "delta": "-2",
+      "expression": "-(-2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "multiply",
+      "delta": "2",
+      "expression": 0,
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "multiply",
+      "delta": "-2",
+      "expression": 0,
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "override",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "upgrade",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "type": "downgrade",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "add",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "add",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "-(2)",
+      "expected": -2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "subtract",
+      "delta": "-2",
+      "expression": "-(-2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "multiply",
+      "delta": "2",
+      "expression": 0,
+      "expected": 0
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "multiply",
+      "delta": "-2",
+      "expression": 0,
+      "expected": 0
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "override",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "upgrade",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "type": "downgrade",
+      "delta": "-2",
+      "expression": "-2",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "0",
+      "type": "add",
+      "delta": "2",
+      "expression": "0 + 2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "0",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "0 - (2)",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "0",
+      "type": "multiply",
+      "delta": "2",
+      "expression": "0 * 2",
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "0",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "0",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "max(0, 2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "0",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "min(0, 2)",
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "2",
+      "type": "add",
+      "delta": "2",
+      "expression": "2 + 2",
+      "expected": 4
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "2",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "2 - (2)",
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "2",
+      "type": "multiply",
+      "delta": "2",
+      "expression": "2 * 2",
+      "expected": 4
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "2",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "2",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "max(2, 2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.bonus",
+      "prefix": "2",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "min(2, 2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "0",
+      "type": "add",
+      "delta": "2",
+      "expression": "0 + 2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "0",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "0 - (2)",
+      "expected": -2
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "0",
+      "type": "multiply",
+      "delta": "2",
+      "expression": "0 * 2",
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "0",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "0",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "max(0, 2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "0",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "min(0, 2)",
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "2",
+      "type": "add",
+      "delta": "2",
+      "expression": "2 + 2",
+      "expected": 4
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "2",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "2 - (2)",
+      "expected": 0
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "2",
+      "type": "multiply",
+      "delta": "2",
+      "expression": "2 * 2",
+      "expected": 4
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "2",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "2",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "max(2, 2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.ac.min",
+      "prefix": "2",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "min(2, 2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "0",
+      "type": "add",
+      "delta": "2",
+      "expression": "0 + 2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "0",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "0 - (2)",
+      "expected": -2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "0",
+      "type": "multiply",
+      "delta": "2",
+      "expression": "0 * 2",
+      "expected": 0
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "0",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "0",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "max(0, 2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "0",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "min(0, 2)",
+      "expected": 0
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "2",
+      "type": "add",
+      "delta": "2",
+      "expression": "2 + 2",
+      "expected": 4
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "2",
+      "type": "subtract",
+      "delta": "2",
+      "expression": "2 - (2)",
+      "expected": 0
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "2",
+      "type": "multiply",
+      "delta": "2",
+      "expression": "2 * 2",
+      "expected": 4
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "2",
+      "type": "override",
+      "delta": "2",
+      "expression": "2",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "2",
+      "type": "upgrade",
+      "delta": "2",
+      "expression": "max(2, 2)",
+      "expected": 2
+    },
+    {
+      "path": "attributes.movement.speeds.burrow",
+      "prefix": "2",
+      "type": "downgrade",
+      "delta": "2",
+      "expression": "min(2, 2)",
+      "expected": 2
+    }
+  ],
+  "sourceHashes": {
+    "attributes": "41a88dcef73fe4db9aa108af8fe279b08188d88634b6f2de8d9dfeb2f70708b3",
+    "fields": "efa8e3ccdf553ca826580e60bfbfc97db57bdeadaa954a50f6a55e0ab52c3e01"
+  },
+  "limits": [
+    "Actual released schema getters and Foundry14.367 primitive/SchemaField cleaning; constructor/entries and unrelated field classes are declared collaborators. No full DataModel boot.",
+    "Actual native HP/AC methods establish final operands; NumberField applyChange uses already declared validation/literal Roll seam. Initial and final source phases remain distinct.",
+    "Falsey prepared zero FormulaField captures only;positive numeric multiply/max/min still gated. Fixed deltas only;no broader numeric reference/effect lifecycle or installed/operator acceptance."
+  ]
+}

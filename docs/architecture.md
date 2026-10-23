@@ -1654,3 +1654,14 @@ selected secondary checks contribute their qualified proficiency,not their bonus
 or modes. Actor/context/source changes retire current dialogs even when totals stay
 equal. Unknown Item hooks/fields/identities and conditions still gate the workflow.
 [C94 evidence](audits/evidence/2026-10-22-c94-transferred-final.json).
+
+
+Scalar schema defaults are initialized separately from source and prepared operands.
+Absent HP/AC parents and nullable leaves use pinned defaults;malformed containers
+stay unavailable. Receipts preserve null and source/default provenance. A final
+nullable effect uses the earlier prepared operand,including HPmax and ACflat.
+Native non-improving upgrade/downgrade can leave null unchanged. Prepared numeric
+zero uses falsey FormulaField semantics;after a text override,the string "0" uses
+ordinary expression composition. Earlier HP/armor caches remain unchanged. Positive
+numeric prepared multiply/max/min and wider phases retain their explicit gates.
+[C95 evidence](audits/evidence/2026-10-23-c95-nullable-scalars.json).

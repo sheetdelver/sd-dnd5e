@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C94)
+### Current M2 exit state (updated C95)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3255,7 +3255,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Existing M2 obligation | Implemented/evidenced | Remaining to the full gate |
 | --- | --- | --- |
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
-| Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92/C93 qualify check,initial scalar and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
+| Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
 | Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;wider Item/effect final preparation remains |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;per-Item casting/activity references,DC/damage construction and effect profiles remain unqualified |
@@ -3609,3 +3609,24 @@ run,and its supplemental command was incorrectly recorded as PASS. The original
 failed log hash is preserved in the corrected C93 record;the C94 record supersedes
 that final-tree claim with the initialized fixture and a complete final-tree run.
 Other C93 arithmetic/native-method/public-host evidence is not relabeled.
+
+
+### C95 — nullable scalar initialization and prepared zero (2026-10-23)
+
+The shared scalar initializer now supplies schema-proven absent HP/AC parents and
+nullable leaves without overwriting malformed containers or source. Effect receipts
+retain the actual null operand and source/default origin. Native non-improving
+upgrade/downgrade may retain null;other qualified operations clean numeric results.
+Final operands use earlier HP/AC preparation,not raw null. Cached effective HP and
+armor are not recomputed by later field changes. Numeric prepared zero remains
+distinct from text "0" in FormulaField operations and ordered composition. Positive
+numeric prepared multiply/upgrade/downgrade stays explicitly unqualified.
+
+[C95 evidence](../audits/evidence/2026-10-23-c95-nullable-scalars.json) records
+756/792 same-input historical failures and0 after,12 native schema-default captures,
+720 NumberField phases and72 numeric-zero/text cases.75 module/9 tooling suites,
+281 explicit typed files,exact2242/591 source comparison,mounted1440/390 checks,
+105650 accepted public-host requests (3216 new) and isolated check/package PASS.
+Regression,controlled native methods,mounted SDK seam and synthetic public-host
+evidence remain separate;no installed/native/operator acceptance. M2/ADR stay open.
+Next:remaining Item/Activity final and formula/filter dependencies in the exit ledger.

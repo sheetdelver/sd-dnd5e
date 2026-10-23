@@ -27,7 +27,7 @@ import {initializeTraitSet606,applyTraitSet606} from './trait-fields';
 import {trainingSetField606} from './training-fields';
 import {checkProficiency606,saveProficiency606,sourceCheckCoefficient606} from './proficiency';
 export interface NumericEffects {
-    finalScalars?:Record<string,number>;finalScalarExpressions?:Record<string,string>;
+    finalScalars?:Record<string,number|null>;finalScalarExpressions?:Record<string,string>;
     movementInitialization?:MovementInitialization606;
     proficiency?:{base:number|null;prepared:number|null;current:number|null};formulaPreparation?:FormulaPreparation606;finalFormulaExpressions?:Record<string,string>;
     sourceInitialization:SourceInitialization606;
@@ -37,7 +37,7 @@ export interface NumericEffects {
     finalTraitStrings?:Record<string,string>;
     ruleFlags:SourceRuleFlags606;executionFlags?:SourceRuleFlags606;sourceFlags?:SourceRuleFlags606;system:Record<string,unknown>;conditions:ConditionPreparation606;globals:Record<string,Record<string,unknown>>;executionGlobals:Record<string,Record<string,unknown>>;equipment:EquipmentPreparation;
     initialized:Array<{key:string;value:number;origin:'schema-default'}>;plan:EffectPlan;reason?:string;modes:Record<string,EffectModeState>;executionModes:Record<string,EffectModeState>;executionBonuses:Record<string,number>;finalNumbers:Record<string,number>;checkExecutionReason?:string;
-    applied:Array<{effectId:string;itemId?:string;key:string;phase:'initial'|'final';before:number|string|string[]|boolean;value:number|string|string[]|boolean;formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
+    applied:Array<{effectId:string;itemId?:string;key:string;phase:'initial'|'final';before:number|string|string[]|boolean|null;value:number|string|string[]|boolean|null;formula?:string;delta?:string[];initializedFrom?:'source'|'default'|'null-cleaned';operandPhase?:'prepared'|'final'}>;
 }
 /** Qualified initial numeric/defense/training trait fields. This detached initialized operand
  * set is never persisted or passed back as raw source. Global proficiency
@@ -51,7 +51,7 @@ export interface NumericEffects {
 export function prepareNumericEffects606(actor:unknown,context?:RulesContext):NumericEffects {
     const source=record(actor)??{},initializedSource=initializeCheckSource606(source.system),system=initializedSource.system,sourceInitialization=initializedSource.initialization,plan=planEffects606(actor);
     if(system.attributes===undefined)system.attributes={};
-    initializeScalarFields606(system);
+    const scalarOrigins=initializeScalarFields606(system);
     const movementInitialization=initializeMovement606(actor,system,context);
     const classes=initializeClassFacts606(actor),base=classes.status==='ready'?classes.proficiency:null,proficiency={base,prepared:base,current:base},attributes=record(system.attributes);
     if(attributes)attributes.prof=base;
@@ -67,9 +67,9 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     const sourceFlags=sourceRuleFlags606(actor),ruleFlags={...sourceFlags};
     let reason=plan.reason??ruleFlags.reason;
     const formulas:Record<string,string>={},modes:Record<string,EffectModeState>={};
-    const origins:Record<string,'source'|'default'|'null-cleaned'>={};
+    const origins:Record<string,'source'|'default'|'null-cleaned'>={...scalarOrigins};
     const customConditionReason=customStringConditionReason606(actor,plan.conditions??[],[...plan.initial,...plan.final]);
-    function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];formula?:boolean;mode?:boolean;set?:boolean;string?:boolean;valid?:(value:string)=>boolean}|null {
+    function target(change:Pick<EffectChange,'key'>):{object:Record<string,unknown>;field:string;integer?:boolean;min?:number;max?:number;step?:number;choices?:number[];nullable?:boolean;formula?:boolean;mode?:boolean;set?:boolean;string?:boolean;valid?:(value:string)=>boolean}|null {
         const keys=change.key.split('.');if(keys[0]!=='system')return null;
         if(change.key==='system.attributes.prof'&&attributes)return {object:attributes,field:'prof'};
         if(scalarNumberPath606(change.key))return scalarNumberTarget606(system,change.key);
@@ -172,6 +172,11 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
             field.object[field.field]=expression;formulas[change.key]=expression;
             applied.push({effectId:change.effectId,key:change.key,phase:'initial',before:typeof operand==='number'?operand:String(operand??''),value:expression,formula:expression});continue;
         }
+        if(field?.nullable&&before===null&&delta!==null&&Math.abs(delta)<=1e9){
+            const result=applyNullableScalarChange(delta,change.type,field);
+            if(!result){reason??='Nullable scalar operation/result outside qualified profile: '+change.key;continue;}
+            field.object[field.field]=result.value;applied.push({effectId:change.effectId,key:change.key,phase:'initial',before:null,value:result.value,initializedFrom:origins[change.key]});continue;
+        }
         if(!field||typeof before!=='number'||!Number.isFinite(before)||delta===null||Math.abs(delta)>1_000_000_000){reason??=`Initial numeric effect target/value requires qualification: ${change.key}`;continue;}
         if(field.mode){
             const state=modes[change.key]??initializedModeState(operand);
@@ -194,7 +199,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         const value=applyNumericFieldChange(before,delta,change.type,field);
         if(value===null){reason??=`Effect operation/result outside qualified numeric field choices: ${change.key}`;continue;}
         field.object[field.field]=value;if(formula!==undefined)formulas[change.key]=formula;
-        applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(formula!==undefined?{formula}:{})});
+        applied.push({effectId:change.effectId,key:change.key,phase:'initial',before,value,...(origins[change.key]?{initializedFrom:origins[change.key]}:{}),...(formula!==undefined?{formula}:{})});
     }
     proficiency.prepared=typeof attributes?.prof==='number'?attributes.prof:null;proficiency.current=proficiency.prepared;
     // Native Diamond Soul assigns save proficiency during ability preparation,
@@ -240,7 +245,7 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
     if(equipment.armor?.stealthDisadvantage&&Object.hasOwn(record(system.skills)??{},'ste')&&!addExecutionMode('system.skills.ste.roll.mode',-1))checkExecutionReason='Equipped armor Stealth mode source malformed';
     for(const modifier of conditions.modes)if(modifier.phase==='initiative')addExecutionMode(modifier.path,modifier.mode);
     if(ruleFlags.remarkableAthlete&&!addExecutionMode('system.attributes.init.roll.mode',1))checkExecutionReason??='Remarkable Athlete initiative mode preparation unavailable';
-    const finalScalars:Record<string,number>={},finalScalarExpressions:Record<string,string>={};
+    const finalScalars:Record<string,number|null>={},finalScalarExpressions:Record<string,string>={};
     const scalarPaths=plan.final.filter(change=>scalarNumberPath606(change.key)||/^system\.attributes\.(ac\.(bonus|min)|movement\.speeds\.(walk|burrow|climb|fly|jump|swim))$/.test(change.key)).map(change=>change.key);
     const snapshot=scalarPaths.length&&context?preparedScalarOperands606(actor,context,{proficiency,movementInitialization,sourceInitialization,sourceFlags,ruleFlags,executionFlags,system,conditions,globals,executionGlobals,plan,applied,modes,executionModes,executionBonuses,finalNumbers,checkExecutionReason,initialized,equipment},scalarPaths):undefined;
     for(const change of plan.final){
@@ -252,17 +257,21 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
             if(itemReason){reason??=itemReason;continue;}
         }
         if(scalarPaths.includes(change.key)){
-            const previous=Object.hasOwn(finalScalars,change.key)||Object.hasOwn(finalScalarExpressions,change.key),before=finalScalars[change.key]??snapshot?.values[change.key];
+            const previous=Object.hasOwn(finalScalars,change.key)||Object.hasOwn(finalScalarExpressions,change.key),before=Object.hasOwn(finalScalars,change.key)?finalScalars[change.key]:snapshot?.values[change.key];
+            if(!snapshot?.reason&&field?.nullable&&before===null&&delta!==null&&Math.abs(delta)<=1e9){const result=applyNullableScalarChange(delta,change.type,field);if(!result){reason??='Nullable final scalar operation/result outside qualified profile: '+change.key;continue;}finalScalars[change.key]=result.value;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:null,value:result.value,initializedFrom:origins[change.key]});continue;}
             if(snapshot?.reason||typeof before!=='number'||!Number.isFinite(before)){reason??=snapshot?.reason??'Prepared scalar operand unavailable: '+change.key;continue;}
             let value:number|null=null;
             if(field?.formula){
-                if(!['add','subtract','override'].includes(change.type)){reason??='Native numeric prepared FormulaField operation requires string-only Roll qualification: '+change.key;continue;}
-                const operand=finalScalarExpressions[change.key]??before,expression=composeFormulaEffect606(operand,raw,change.type);
+                const operand=Object.hasOwn(finalScalarExpressions,change.key)?finalScalarExpressions[change.key]:before;
+                if(typeof operand==='number'&&operand!==0&&!['add','subtract','override'].includes(change.type)){reason??='Native numeric prepared FormulaField operation requires string-only Roll qualification: '+change.key;continue;}
+                // Native treats numeric zero as falsey;string "0" stays text.
+                if(operand===0&&change.type==='multiply'){if(delta===null||Math.abs(delta)>1e9){reason??='Falsey prepared FormulaField delta outside qualified literal profile: '+change.key;continue;}finalScalars[change.key]=0;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:0,value:0});continue;}
+                const expression=composeFormulaEffect606(operand===0?undefined:operand,raw,change.type);
                 if(expression===null){reason??='Final scalar FormulaField source/delta requires qualification: '+change.key;continue;}
                 finalScalarExpressions[change.key]=expression;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:operand,value:expression,formula:expression});continue;
             }else if(field&&delta!==null)value=applyNumericFieldChange(before,delta,change.type,field);
             if(value===null||!Number.isFinite(value)||Math.abs(value)>1e9){reason??='Final scalar value/expression outside qualified profile: '+change.key;continue;}
-            finalScalars[change.key]=value;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before,value});continue;
+            finalScalars[change.key]=value;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before,value,...(origins[change.key]?{initializedFrom:origins[change.key]}:{})});continue;
         }
         if(field?.string){
             if(conditions.status!=='ready'||customConditionReason){reason??=customConditionReason??'Final custom String condition preparation unavailable';continue;}
@@ -361,6 +370,12 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
 
 /** Shared finite NumberField operations; schema choices and cleaning are qualified
  * separately from source initialization and native preparation timing. */
+/** Native comparison operations can retain a nullable operand unchanged. Only
+ * the qualified nullable scalar schema calls this;null never becomes a source0. */
+function applyNullableScalarChange(delta:number,type:string,field:{integer?:boolean;min?:number}):{value:number|null}|null {
+    if(type==='upgrade'&&delta<=0||type==='downgrade'&&delta>=0)return {value:null};
+    const value=applyNumericFieldChange(0,delta,type,field);return value===null?null:{value};
+}
 function applyNumericFieldChange(before:number,delta:number,type:string,field:{integer?:boolean;min?:number;max?:number;step?:number;choices?:number[]}):number|null {
     let value:number;
     switch(type){
