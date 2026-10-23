@@ -366,7 +366,7 @@ Critical path: **M0 → M1 → M2 → M3 → M4 → M5 → M6 → M8 → M9**. M
 | --- | --- | --- |
 | M0 | In progress: C01 foundation plus C05 numeric/source-mode/d20-selection S comparisons; full Q00 open | `tests/fixtures/native-6.0.6/`, maintained scripts, verification C01/C05 |
 | M1 | In progress: C02 detached schemas/context and caller metadata; E01/Q01/installed gates open | Settings/catalog/source/closure tests; verification C02 |
-| M2 | In progress: shared source/default Actor rules, qualified checks/combined selections, typed initial/final effects and conditions; C75 Item reads, C76 mappings, C77–C79 formulas/class references, C80 Normal proficiency dice, C81 physical reads,C82 combat modifiers,C83 stored encumbrance and C84 Item proficiency/resource/reference phases. Full exit work is tracked in the verification ledger; earlier C06–C74 evidence remains below. | RV01–RV04 and C06–C78 preserve separate regression/controlled-source/mounted/public-host evidence; full acceptance open |
+| M2 | In progress: shared source/default Actor rules, qualified checks/combined selections, typed initial/final effects and conditions; C75 Item reads, C76 mappings, C77–C79 formulas/class references, C80 Normal proficiency dice, C81 physical reads,C82 combat modifiers,C83 stored encumbrance,C84–C104 Item/spell/read phases and C106 transferred final scalar composition. C105 qualifies the existing E04 timed-context read limitation. Full exit work is tracked in the verification ledger; earlier C06–C74 evidence remains below. | RV01–RV04 and C06–C78 preserve separate regression/controlled-source/mounted/public-host evidence; full acceptance open |
 | M3 | C32 Q02 public qualification; C33 journal/admission/Actor queue and read-only status foundation | No domain review/execute routes; native ID/concurrency and acceptance remain open |
 | M4 | Not started | Activity/rest/action source deltas |
 | M5 | Not started | Casting/preparation/slot/concentration matrix |
@@ -3417,3 +3417,35 @@ installed/native/operator acceptance. M2/ADR stay open. Next:qualify transferred
 final scalar effects together through shared Item/Actor preparation.
 
 [C105 evidence](../audits/evidence/2026-10-23-c105-effect-time.json) records reproduction,contract,gates,commands,hashes and limits.
+
+
+### C106 — transferred final scalar inventory (2026-10-23)
+
+C105 is `3f0adbf`. Qualified transferred final scalar fields now enter the existing
+shared handlers after Item final preparation. HP,AC fields,movement,senses,
+nullable/falsey operands and deterministic FormulaFields retain earlier/current
+phase distinctions;receipts preserve the owned Item identity. Earlier effective
+HP maximum,AC and movement caches are never rebuilt from later field changes.
+Cards,desktop/mobile readouts,previews and fresh saves/checks share these facts.
+Condition/timed/unqualified subtype/Item-enchantment/formula gates remain intact.
+
+2644 actual native empty-activity compositions and2644 utility compositions verify
+the inventory against earlier independent schema/prepared operands.2116 cases run
+actual Base utility final:parent3/spent1 prepares2,child capacity2/spent1 prepares1,
+duration2 and explicit range5 remain independent of later scalar changes.4760
+maintained source profiles cover both applicable forms;2644 fail unchanged C105
+and0 after.86 module/9 tooling suites (61 assertions),315 explicit typed files,
+2242/591 exact source verification,mounted1440/390 read/current-save/suppression/
+context/stale-intent recovery,130850 public-host requests (11632 new) and isolated
+check/package PASS.1 unary candidate and1960 tie diagnostics stay recorded;host
+serialization is unchanged. Test-only VM names are scoped to avoid cross-oracle
+collisions;native method bodies and existing assertions are unchanged.
+
+Task-owned services stopped. Controlled methods/intermediate operands,source
+regressions,mounted seams and public-host evidence remain separate from full
+DataModel/installed/native/operator acceptance. E01/widerQ00/E05 remain open and
+C105's proven E04 timed gate prevents full M2 completion. Independent remaining
+work is transferred final Sets/custom Strings/flags and broader Item/effect
+subtype composition. M2/ADR stay open;unavailable states are not completion.
+
+[C106 evidence](../audits/evidence/2026-10-23-c106-transferred-scalars.json) records commands,hashes,failed-before inputs and phase limits.

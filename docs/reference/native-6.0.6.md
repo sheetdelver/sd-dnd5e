@@ -1639,3 +1639,12 @@ and explicit concealment. Future remaining time clears source expired=true;at/af
 expiry that persisted flag remains,so source alone cannot decide applicability.
 Registry expiry/calendar/permission/native runtime acceptance is separate.
 [C105 native/public input evidence](../audits/evidence/2026-10-23-c105-effect-time.json).
+
+
+C106 composes the earlier independent C92/C95 scalar/schema/prepared operand
+expectations with actual Actor/Item final dispatch,suppression and typed field
+handlers.2644 empty and2644 utility cases agree on current scalar values;2116
+non-container cases execute actual Base utility final before the field changes.
+Explicit prepared intermediates/routing/calendar-free callbacks are declared;
+module source/default regressions are separate from full DataModel acceptance.
+[C106 evidence](../audits/evidence/2026-10-23-c106-transferred-scalars.json).

@@ -11,7 +11,7 @@ assert.match(n('module/data/actor/templates/attributes.mjs','AttributesFields','
 const start=config.indexOf('DND5E.validProperties = {');vm.runInNewContext('const DND5E=CONFIG.DND5E;'+config.slice(start,config.indexOf('\n};',start)+3),box);
 box.foundry.utils.getDefiningClass=(target,key)=>{assert.ok(target instanceof NEffect);assert.ok(['_applyAdd','_applyMultiply','_applyOverride','_applyUpgrade'].includes(key));return unguided;};
 box.PhaseActorBase=NActor;box.PhaseItemBase=NItem;box.PhaseEffectBase=NEffect;box.phaseUnguided=unguided;
-vm.runInNewContext(`class PhaseActor extends PhaseActorBase {${n('module/documents/actor/actor.mjs','Actor5e','getRollData')}}
+vm.runInNewContext(`{class PhaseActor extends PhaseActorBase {${n('module/documents/actor/actor.mjs','Actor5e','getRollData')}}
 class PhaseItem extends PhaseItemBase {${['_prepareProficiency','prepareFinalAttributes','_prepareLabels','getRollData'].map(key=>n('module/documents/item.mjs','Item5e',key)).join('\n')} getFlag(){return undefined;}}
 class ModelBase {${n('module/data/abstract/item-data-model.mjs','ItemDataModel','getRollData')}${n('module/data/abstract/item-data-model.mjs','ItemDataModel','hasProficiency')}${n('module/data/item/templates/item-description.mjs','ItemDescriptionTemplate','validProperties')}${n('module/data/item/templates/equippable-item.mjs','EquippableItemTemplate','prepareFinalEquippableData')}${n('module/data/item/templates/activities.mjs','ActivitiesTemplate','prepareFinalActivityData')}}
 class Tool extends ModelBase {${['hasProficiency','proficiencyMultiplier','prepareFinalData'].map(key=>n('module/data/item/tool.mjs','ToolData',key)).join('\n')}}
@@ -20,7 +20,7 @@ class Consumable extends ModelBase {${['hasProficiency','proficiencyMultiplier',
 class Container extends ModelBase {${n('module/data/item/container.mjs','ContainerData','prepareFinalData')}}
 class Weapon extends ModelBase {${['hasProficiency','proficiencyMultiplier','prepareFinalData','hasRange','attackType'].map(key=>n('module/data/item/weapon.mjs','WeaponData',key)).join('\n')}}
 class PhaseBridge {static CHANGE_PHASES={initial:{},final:{}};static _shimChanges(){}static applyChange(actor,change){const changes={};phaseUnguided._applyChangeUnguided(actor,change,changes,{modifyTarget:false});for(const [key,value]of Object.entries(changes))foundry.utils.setProperty(actor,key,value);return changes;}}
-globalThis.equippableFinal={PhaseActor,PhaseItem,Tool,Equipment,Consumable,Container,Weapon,PhaseBridge};`,box);
+globalThis.equippableFinal={PhaseActor,PhaseItem,Tool,Equipment,Consumable,Container,Weapon,PhaseBridge};}`,box);
 // Uses-only preparation here has NO activities. Actual per-type final hooks and
 // Item labels/proficiency execute;full activity/schema/Item base preparation does not.
 box.UsesField=box.itemFinalOracle.UsesField;box.defaultUnits=()=> 'ft';box.formatLength=(value,units)=>value+' '+units;

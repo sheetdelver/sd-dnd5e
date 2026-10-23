@@ -252,26 +252,27 @@ export function prepareNumericEffects606(actor:unknown,context?:RulesContext):Nu
         if(change.type.startsWith('dnd5e.'))continue;
         if(change.key.startsWith('flags.')){const itemReason=change.itemId!==undefined?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):undefined;if(itemReason){reason??=itemReason;continue;}const result=applyBooleanFlag606(executionFlags,change);if('reason'in result)reason??=result.reason;else applied.push({effectId:change.effectId,...(typeof change.itemId==='string'?{itemId:change.itemId}:{}),key:change.key,phase:'final',...result});continue;}
         const field=target(change),raw=change.value,delta=(typeof raw==='number'||typeof raw==='string'&&raw.trim()!=='')?numericConstant(raw):null;
+        const scalarOwner=typeof change.itemId==='string'?{itemId:change.itemId}:{};
         if(change.itemId!==undefined){
-            const itemReason=(change.key==='system.attributes.prof'||transferredFinalCheckPath606(change.key))&&plan.equippable?equippableActorFinalReason606(change.itemId,plan.equippable,Boolean(plan.conditions?.length||plan.baseStatuses?.length)):field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
+            const itemReason=(change.key==='system.attributes.prof'||transferredFinalCheckPath606(change.key)||scalarPaths.includes(change.key))&&plan.equippable?equippableActorFinalReason606(change.itemId,plan.equippable,Boolean(plan.conditions?.length||plan.baseStatuses?.length)):field?.string?featFinalCustomReason606(actor,change.itemId,Boolean(plan.conditions?.length)):'Transferred Item final phase requires qualification';
             if(itemReason){reason??=itemReason;continue;}
         }
         if(scalarPaths.includes(change.key)){
             const previous=Object.hasOwn(finalScalars,change.key)||Object.hasOwn(finalScalarExpressions,change.key),before=Object.hasOwn(finalScalars,change.key)?finalScalars[change.key]:snapshot?.values[change.key];
-            if(!snapshot?.reason&&field?.nullable&&before===null&&delta!==null&&Math.abs(delta)<=1e9){const result=applyNullableScalarChange(delta,change.type,field);if(!result){reason??='Nullable final scalar operation/result outside qualified profile: '+change.key;continue;}finalScalars[change.key]=result.value;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:null,value:result.value,initializedFrom:origins[change.key]});continue;}
+            if(!snapshot?.reason&&field?.nullable&&before===null&&delta!==null&&Math.abs(delta)<=1e9){const result=applyNullableScalarChange(delta,change.type,field);if(!result){reason??='Nullable final scalar operation/result outside qualified profile: '+change.key;continue;}finalScalars[change.key]=result.value;applied.push({effectId:change.effectId,...scalarOwner,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:null,value:result.value,initializedFrom:origins[change.key]});continue;}
             if(snapshot?.reason||typeof before!=='number'||!Number.isFinite(before)){reason??=snapshot?.reason??'Prepared scalar operand unavailable: '+change.key;continue;}
             let value:number|null=null;
             if(field?.formula){
                 const operand=Object.hasOwn(finalScalarExpressions,change.key)?finalScalarExpressions[change.key]:before;
                 if(typeof operand==='number'&&operand!==0&&!['add','subtract','override'].includes(change.type)){reason??='Native numeric prepared FormulaField operation requires string-only Roll qualification: '+change.key;continue;}
                 // Native treats numeric zero as falsey;string "0" stays text.
-                if(operand===0&&change.type==='multiply'){if(delta===null||Math.abs(delta)>1e9){reason??='Falsey prepared FormulaField delta outside qualified literal profile: '+change.key;continue;}finalScalars[change.key]=0;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:0,value:0});continue;}
+                if(operand===0&&change.type==='multiply'){if(delta===null||Math.abs(delta)>1e9){reason??='Falsey prepared FormulaField delta outside qualified literal profile: '+change.key;continue;}finalScalars[change.key]=0;applied.push({effectId:change.effectId,...scalarOwner,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:0,value:0});continue;}
                 const expression=composeFormulaEffect606(operand===0?undefined:operand,raw,change.type);
                 if(expression===null){reason??='Final scalar FormulaField source/delta requires qualification: '+change.key;continue;}
-                finalScalarExpressions[change.key]=expression;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:operand,value:expression,formula:expression});continue;
+                finalScalarExpressions[change.key]=expression;applied.push({effectId:change.effectId,...scalarOwner,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before:operand,value:expression,formula:expression});continue;
             }else if(field&&delta!==null)value=applyNumericFieldChange(before,delta,change.type,field);
             if(value===null||!Number.isFinite(value)||Math.abs(value)>1e9){reason??='Final scalar value/expression outside qualified profile: '+change.key;continue;}
-            finalScalars[change.key]=value;applied.push({effectId:change.effectId,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before,value,...(origins[change.key]?{initializedFrom:origins[change.key]}:{})});continue;
+            finalScalars[change.key]=value;applied.push({effectId:change.effectId,...scalarOwner,key:change.key,phase:'final',operandPhase:previous?'final':'prepared',before,value,...(origins[change.key]?{initializedFrom:origins[change.key]}:{})});continue;
         }
         if(field?.string){
             if(conditions.status!=='ready'||customConditionReason){reason??=customConditionReason??'Final custom String condition preparation unavailable';continue;}

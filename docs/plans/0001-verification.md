@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C105)
+### Current M2 exit state (updated C106)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3257,7 +3257,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;C105 proves existing E04 blocks the full timed-effect profile;wider filters and Item final composition remain;C101 records every predicate/operand and unknown-snapshot unsupported fixture/decision for Q02a;this does not complete unsupported rules support |
-| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;C104 corrects source-derived Weapon range cleanup/inheritance/modes and separates missing metadata from independent Actor readiness;C99 adds qualified owned consumption references;remaining canonical compendium references/spell parents/subtypes and wider Item/effect final preparation remain |
+| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;C104 corrects source-derived Weapon range cleanup/inheritance/modes and separates missing metadata from independent Actor readiness;C99 adds qualified owned consumption references;C106 admits the existing final scalar inventory through qualified empty/utility Item phases;remaining canonical compendium references/spell parents/subtypes and wider Item/effect final preparation remain |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;C100 adds exact per-spell class/subclass/Activity ability contexts and numeric spell attack read construction;C102 adds Spell intrinsic/common inheritance/overrides and Activity save DCs;C103 adds initialized base damage formulas/part roles;effective damage construction and wider Item/effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
 
@@ -3949,3 +3949,35 @@ installed/native/operator acceptance. M2/ADR stay open. Next:qualify transferred
 final scalar effects together through shared Item/Actor preparation.
 
 [C105 evidence](../audits/evidence/2026-10-23-c105-effect-time.json) records reproduction,contract,gates,commands,hashes and limits.
+
+
+### C106 — transferred final scalar inventory (2026-10-23)
+
+C105 is `3f0adbf`. Qualified transferred final scalar fields now enter the existing
+shared handlers after Item final preparation. HP,AC fields,movement,senses,
+nullable/falsey operands and deterministic FormulaFields retain earlier/current
+phase distinctions;receipts preserve the owned Item identity. Earlier effective
+HP maximum,AC and movement caches are never rebuilt from later field changes.
+Cards,desktop/mobile readouts,previews and fresh saves/checks share these facts.
+Condition/timed/unqualified subtype/Item-enchantment/formula gates remain intact.
+
+2644 actual native empty-activity compositions and2644 utility compositions verify
+the inventory against earlier independent schema/prepared operands.2116 cases run
+actual Base utility final:parent3/spent1 prepares2,child capacity2/spent1 prepares1,
+duration2 and explicit range5 remain independent of later scalar changes.4760
+maintained source profiles cover both applicable forms;2644 fail unchanged C105
+and0 after.86 module/9 tooling suites (61 assertions),315 explicit typed files,
+2242/591 exact source verification,mounted1440/390 read/current-save/suppression/
+context/stale-intent recovery,130850 public-host requests (11632 new) and isolated
+check/package PASS.1 unary candidate and1960 tie diagnostics stay recorded;host
+serialization is unchanged. Test-only VM names are scoped to avoid cross-oracle
+collisions;native method bodies and existing assertions are unchanged.
+
+Task-owned services stopped. Controlled methods/intermediate operands,source
+regressions,mounted seams and public-host evidence remain separate from full
+DataModel/installed/native/operator acceptance. E01/widerQ00/E05 remain open and
+C105's proven E04 timed gate prevents full M2 completion. Independent remaining
+work is transferred final Sets/custom Strings/flags and broader Item/effect
+subtype composition. M2/ADR stay open;unavailable states are not completion.
+
+[C106 evidence](../audits/evidence/2026-10-23-c106-transferred-scalars.json) records commands,hashes,failed-before inputs and phase limits.

@@ -1764,3 +1764,11 @@ native prepared applicability when worldTime changes. Neither local wall time no
 raw native-looking duration metadata supplies the missing public host input.
 Source/context changes retire open roll intents;recovery requires a fresh intent.
 [C105 contract/evidence](audits/evidence/2026-10-23-c105-effect-time.json).
+
+
+Transferred final scalar fields share the existing scalar handlers after the
+qualified Item final recipe. Exact owned Item identity stays in effect receipts.
+Initial/prepared/current operands and earlier HP/AC/movement caches remain
+distinct;utilities prepare before these final changes. No consumer recalculates
+the results or bypasses unresolved Item/time/condition gates.
+[C106 evidence](audits/evidence/2026-10-23-c106-transferred-scalars.json).
