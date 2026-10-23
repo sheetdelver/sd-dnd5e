@@ -1,0 +1,7 @@
+import fixture from '../../../tests/fixtures/native-6.0.6/activity-targets.json';
+import {activityCommonSource} from './activity-common-scenarios';
+import {skillWorld,skillContext} from './skill-scenarios';
+export const activityTargetCases=fixture.cases,activityAreaTransferred=fixture.transferred,activityRangeDefaults=fixture.rangeDefaults,activityUnitDefaults=fixture.unitDefaults;
+export function activityTargetContext(metric=false,unitsAvailable=true){const world=skillWorld();return skillContext({...world,identity:{...world.identity,contextRevision:metric?2:1},settings:{...world.settings,'dnd5e.metricLengthUnits':unitsAvailable?{status:'world',value:metric}:{status:'unavailable',reason:'not-ready'}}});}
+export function activityTargetSource(row:{source:Record<string,unknown>;type?:string},transfer=false){const type=row.type&&['tool','equipment','consumable','weapon'].includes(row.type)?row.type:'tool',source=activityCommonSource({...row,type,item:{magic:false,attunement:'required'}},transfer),item=source.items.at(-1)as any;item.system.activities={AreaUtility:item.system.activities.ExactUtility};return source;}
+export function targetUnitSource(input:'absent'|'null'|'blank'|string,weapon=false){const unit=input==='null'?null:input==='blank'?'':undefined,source=activityTargetSource({source:{_id:'AreaUtility',type:'utility',name:'Area utility',...(weapon?{}:{target:{template:{type:'cone',size:20,units:unit}}})},...(weapon?{type:'weapon'}:{})});if(weapon)(source.items.at(-1)!.system as any).range={value:20,units:unit};return source;}

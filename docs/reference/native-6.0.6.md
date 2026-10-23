@@ -1556,3 +1556,15 @@ Absent versus null parent range yields native reach5 versus long60 in controlled
 override cases. No native parser,full Document/DataModel boot,spell/other subtype,
 nonempty consumption,area template or operator acceptance is established.
 [C97](../audits/evidence/2026-10-23-c97-activity-common.json) retains hashes and limits.
+
+
+C98 uses actual TargetField.prepareData/templateDimensions and source cleaning for
+10 config-defined shapes × metric2 × default/zero/arithmetic/blank4. Independent
+expected dimension/numeric tables cover80 profiles;320 more execute real per-type
+Item/Actor final composition. Actual defaultUnits plus the Weapon schema getter
+verify12 missing/null/blank unit defaults. Radius/emanation has no config sizes
+array and retains native generic Size,not an inferred Radius label. Nonpersisted
+input dimensions cannot override these roles. Labels/empty-array infrastructure/
+Actor callbacks retain C97's declared seams. No canvas,consumption,full DataModel,
+native runtime/operator or installed UI acceptance follows.
+[C98](../audits/evidence/2026-10-23-c98-activity-targets.json) retains hashes/limits.

@@ -73,6 +73,8 @@
     "test:native-equippable-uses": "node scripts/native-equippable-uses-oracle.mjs",
     "test:mounted-equippable-uses": "node scripts/test-mounted-equippable-uses.mjs",
     "test:native-activity-common": "node scripts/native-activity-common-oracle.mjs",
-    "test:mounted-activity-common": "node scripts/test-mounted-activity-common.mjs"
+    "test:mounted-activity-common": "node scripts/test-mounted-activity-common.mjs",
+    "test:native-activity-targets": "node scripts/native-activity-targets-oracle.mjs",
+    "test:mounted-activity-targets": "node scripts/test-mounted-activity-targets.mjs"
   }
 }

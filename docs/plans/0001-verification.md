@@ -3247,7 +3247,7 @@ No complete source DataModel,installed UI,native/operator or advancement-write
 acceptance follows. Partial M2/Q00 only;ADR-0001 remains open.
 
 
-### Current M2 exit state (updated C97)
+### Current M2 exit state (updated C98)
 
 This reconciles the existing M2 gate;it does not reduce the selected 2024 target.
 Unavailable profiles are boundaries,not completed rules support.
@@ -3257,7 +3257,7 @@ Unavailable profiles are boundaries,not completed rules support.
 | Actor facts and checks | Shared class/default and initial/current Actor proficiency facts,standard ability/skill initialization,selected tools/abilities,qualified conditions and numeric stats | C80 qualifies Normal proficiency-dice;adv/dis and other Q00 profiles remain gated;full source/override comparisons still required |
 | Formula dependencies | Bounded deterministic operators/functions,phase-correct numeric Actor/class/scale bindings | C89/C92–C95 qualify check,initial scalar,nullable defaults and bounded final scalar composition;broader/dice-dependent terms,recursive/dependent references and remaining field profiles |
 | Initial/final effects and applied rules | Qualified typed fields,eligibility/phase/priority,recognized conditions and bounded predicates with receipts | C85 adds conditional d20 rules;C88 adds Boolean flag phases and permanent/template applicability;wider filters and Item final composition remain;Q02a requires explicit unsupported fixtures/decisions for remaining filters |
-| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97 adds bounded real utility Activity common/final composition;remaining Activity references/fields/subtypes and wider Item/effect final preparation remain |
+| Item/physical preparation | Shared counters,recovery metadata,quantity/unit weight,numeric attacks and live details | C81 adds nested contents/currency/units/source-only thresholds;C83 qualifies stored base-status/physical mode/movement interactions;C91/C94 add equippable cleanup/counting and no-activity eligibility/typed check-field composition;C96 adds qualified independent parent Uses;C97/C98 add bounded real utility Activity common/target/unit final composition;remaining Activity references/spell parents/subtypes and wider Item/effect final preparation remain |
 | Spell/damage dependencies | Canonical spell metadata and qualified numeric damage adjustments | C82 prepares Actor spell/ability/damage-scope dependencies;per-Item casting/activity references,DC/damage construction and effect profiles remain unqualified |
 | Consumers and acceptance | Cards/desktop/mobile/details/previews/direct requests share qualified paths;R/S/mounted/public-host/package evidence retained | Complete A02–A06 read-preparation comparisons plus installed/native/operator evidence;no full DD/A/M gate closes |
 
@@ -3694,3 +3694,33 @@ files,exact2242/591 source comparison,all three relevant mounted harnesses at144
 113282 accepted public-host requests (2952 new) and isolated check/package PASS.
 The retained unary candidate and1800 tied-index diagnostics remain visible;no host
 serialization is rewritten. Task-owned services stopped;version/compatibility unchanged.
+
+
+### C98 — target-template preparation and captured length units (2026-10-23)
+
+C97 committed as `b6c64fd`. The shared utility Activity path now prepares all10
+release-defined template shapes,dimension roles,count and size/width/height values.
+Native count1/width5/height5 defaults apply to initialized strings;source numeric0
+cleans to truthy "0" and remains0. Missing required size and unknown expressions/
+shapes/units stay unavailable. Clearing the template returns to the independent
+nonarea metadata. No template is placed or applied.
+
+Rules context now passes through the existing effect/equippable preparation path
+so final admission and owned-Item reads share the captured metric setting. Missing,
+null or blank weapon-range units use this verified default instead of hardcoded
+feet. Explicit units remain independently known when the default setting is not
+available. Original source and nonpersisted dimension/label/scalar poison remain
+unchanged. C97's blanket area-metadata restriction is superseded only for this
+qualified read/final-composition profile;canvas and Activity execution stay open.
+
+[C98 evidence](../audits/evidence/2026-10-23-c98-activity-targets.json) records
+80 actual native target profiles,320 real per-type Item/Actor final compositions
+and12 native unit defaults.410/412 same final inputs fail C97 and0 after.78 module/
+9 tooling suites (61 assertions),290 explicit typed files,exact2242/591 source
+comparison,mounted1440/390 dimensions/metric/zero/source-context recovery,115402
+accepted public-host requests (2120 new) and isolated check/package PASS. The
+unary candidate and1840 tied-index diagnostics stay recorded;host serialization
+is unchanged. Task-owned services stopped. These evidence classes remain separate
+from full DataModel/runtime,installed UI,native/operator or release acceptance.
+M2/ADR remain open;next qualify owned consumption-reference indexes/remapping,then
+remaining Activity/spell/formula/filter dependencies in the existing exit ledger.

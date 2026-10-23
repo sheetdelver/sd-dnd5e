@@ -49,7 +49,7 @@ export interface NumericEffects {
  * constant roll bonuses, persisted numeric fields and literal custom Strings. Earlier
  * prepared proficiency/passive operands never change; other final/Item fields stay gated. */
 export function prepareNumericEffects606(actor:unknown,context?:RulesContext):NumericEffects {
-    const source=record(actor)??{},initializedSource=initializeCheckSource606(source.system),system=initializedSource.system,sourceInitialization=initializedSource.initialization,plan=planEffects606(actor);
+    const source=record(actor)??{},initializedSource=initializeCheckSource606(source.system),system=initializedSource.system,sourceInitialization=initializedSource.initialization,plan=planEffects606(actor,context);
     if(system.attributes===undefined)system.attributes={};
     const scalarOrigins=initializeScalarFields606(system);
     const movementInitialization=initializeMovement606(actor,system,context);

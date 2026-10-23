@@ -13,5 +13,9 @@ export default function ActivityCommonFacts({fact}:{fact?:ActivityCommon606}){
   <p aria-label="Activity duration">Duration: {duration.value===null?'':duration.value+' '}{duration.units==='inst'?'Instantaneous':unit(duration.units,duration.value)}</p>
   <p aria-label="Activity range">Range: {range.value===null?'':range.value+' '}{range.units==='self'?'Self':range.units==='touch'?'Touch':range.units}</p>
   <p aria-label="Activity target">Target: {target.count===null?'':target.count+' '}{targetLabel}</p>
+  {target.template&&<div aria-label="Activity area">
+   <p>Area: {target.template.count} × {target.template.type==='radius'?'Emanation':target.template.type}</p>
+   {Object.entries(target.template.dimensions).map(([key,label])=><p key={key} aria-label={'Area '+key}>{label==='Label'?'Size':label}: {target.template![key as 'size'|'width'|'height']??'—'} {target.template!.units}</p>)}
+  </div>}
  </div>;
 }

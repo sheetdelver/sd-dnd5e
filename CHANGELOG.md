@@ -9,7 +9,7 @@ Historical entries are reconstructed from [published releases](https://github.co
 - Share skill/tool/ability selections, previews and qualified roll execution across desktop/mobile, with context and stale-intent guards.
 - Support qualified Normal die bounds and proficiency dice and ordinary advantage/disadvantage;retain wider execution limits.
 - Prepare attunement,qualified transferred check effects,independent Item counters and scalar readouts in native phase order.
-- Share qualified utility Activity defaults/readouts and retire stale rolls on source changes.
+- Share qualified utility Activity fields,template dimensions and units;retire stale rolls on source changes.
 - Add exact-release fixtures, isolated verification and caller-safe content/rule context;correct bundled SRD labels.
 - Require the existing Core 0.19.3 public world/content contracts.
 - Reuse merge validation checks

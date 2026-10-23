@@ -2367,3 +2367,33 @@ files,exact2242/591 source comparison,all three relevant mounted harnesses at144
 113282 accepted public-host requests (2952 new) and isolated check/package PASS.
 The retained unary candidate and1800 tied-index diagnostics remain visible;no host
 serialization is rewritten. Task-owned services stopped;version/compatibility unchanged.
+
+
+### C98 — target-template preparation and captured length units (2026-10-23)
+
+C97 committed as `b6c64fd`. The shared utility Activity path now prepares all10
+release-defined template shapes,dimension roles,count and size/width/height values.
+Native count1/width5/height5 defaults apply to initialized strings;source numeric0
+cleans to truthy "0" and remains0. Missing required size and unknown expressions/
+shapes/units stay unavailable. Clearing the template returns to the independent
+nonarea metadata. No template is placed or applied.
+
+Rules context now passes through the existing effect/equippable preparation path
+so final admission and owned-Item reads share the captured metric setting. Missing,
+null or blank weapon-range units use this verified default instead of hardcoded
+feet. Explicit units remain independently known when the default setting is not
+available. Original source and nonpersisted dimension/label/scalar poison remain
+unchanged. C97's blanket area-metadata restriction is superseded only for this
+qualified read/final-composition profile;canvas and Activity execution stay open.
+
+[C98 evidence](evidence/2026-10-23-c98-activity-targets.json) records
+80 actual native target profiles,320 real per-type Item/Actor final compositions
+and12 native unit defaults.410/412 same final inputs fail C97 and0 after.78 module/
+9 tooling suites (61 assertions),290 explicit typed files,exact2242/591 source
+comparison,mounted1440/390 dimensions/metric/zero/source-context recovery,115402
+accepted public-host requests (2120 new) and isolated check/package PASS. The
+unary candidate and1840 tied-index diagnostics stay recorded;host serialization
+is unchanged. Task-owned services stopped. These evidence classes remain separate
+from full DataModel/runtime,installed UI,native/operator or release acceptance.
+M2/ADR remain open;next qualify owned consumption-reference indexes/remapping,then
+remaining Activity/spell/formula/filter dependencies in the existing exit ledger.

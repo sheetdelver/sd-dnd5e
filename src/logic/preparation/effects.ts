@@ -1,4 +1,5 @@
 import {prepareEquippableItems606,type EquippableItems606} from './equippable-final';
+import type {RulesContext} from '../rules-context';
 import {itemEffectMetadata606,permanentEffectReason606} from './effect-admission';
 import {baseStatusSource606,type BaseStatusSource606} from './base-statuses';
 import {conditionSource606,type ConditionSource606} from './conditions';
@@ -14,11 +15,11 @@ const priorities:Readonly<Record<string,number>>={custom:0,multiply:10,add:20,su
  * No Item preparation, snapshot-dependent filters, statuses or time are fabricated. Item-targeted
  * effects stay blocked because prepared Items can feed Actor class/rule data.
  * Field/phase qualification is handled separately by numeric-effects. */
-export function planEffects606(actor:unknown):EffectPlan {
+export function planEffects606(actor:unknown,context?:RulesContext):EffectPlan {
     const source=record(actor)??{},initial:EffectChange[]=[],final:EffectChange[]=[],decisions:EffectDecision[]=[];
     const conditions:ConditionSource606[]=[],baseStatuses:BaseStatusSource606[]=[];
     let reason:string|undefined,order=0;
-    const initialRead=initialFilterData606(actor),equippable=prepareEquippableItems606(actor);
+    const initialRead=initialFilterData606(actor),equippable=prepareEquippableItems606(actor,context);
     const fail=(id:string,status:string,message:string,parentId?:string)=>{reason??=message;decisions.push({id,parentId,status,reason:message});};
     function collect(list:unknown,item?:Record<string,unknown>){
         if(list===undefined)return;

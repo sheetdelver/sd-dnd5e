@@ -1,0 +1,71 @@
+{
+  "checkpoint": "C98",
+  "parent": "b6c64fd",
+  "status": "Qualified target-template metadata/default units and real Item final composition;M2/ADR open",
+  "requirements": [
+    "M2 partial",
+    "DD-01/02/03/06/27/31/34 partial",
+    "A02\u2013A06 preparation only"
+  ],
+  "nativeCommit": "87e94dbd9f930135e0694cd7e7d49f210603cd2c",
+  "beforeAfter": {
+    "implementation": "b6c64fd",
+    "result": "Same final maintained inputs:410/412 fail before;0 after. Two imperial weapon-range defaults already matched.",
+    "beforeLogSha256": "4671dec0fe5972c6843200c88f437ee3ad336e65fb654074a2b056c339a42b7a",
+    "afterLogSha256": "7082e53dcecbe7664d1cbac044608e8acd8df65bf5e4a01f3b2569550de1821f"
+  },
+  "regression": {
+    "command": "npm test -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;78 module/9 tooling suites,61 tooling assertions",
+    "sha256": "62ee52e95dde8e081cc79b88b873e123451895716c85f46ce674ae0deae31fe2"
+  },
+  "typing": {
+    "command": "npm run typecheck -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;290 explicit module/UI/server/test/hook files",
+    "sha256": "46d231683f112fe3388409e84eb764d74ee8cd40c345d35f1045352738fd6df0"
+  },
+  "native": {
+    "command": "npm run test:native-activity-targets -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e --foundry /home/juvinious/projects/foundryvtt/foundryvtt-v14 --write-evidence temp/c98-native.json",
+    "result": "PASS;80 template profiles,320 real per-type Item/Actor area compositions,6 target-unit and6 weapon-range-unit defaults",
+    "fixture": "tests/fixtures/native-6.0.6/activity-targets.json",
+    "sha256": "1c065eb62de592bc7c10baba1a336735889066fdb0920bd4ac7e25618e5ea885",
+    "logSha256": "37a08cd0ab9683822936b8e8adb299345194ce1d70d1f7a61f2c8e8b997a0cea"
+  },
+  "source": {
+    "command": "npm run test:native-source -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --native ../../../../temp/dnd5e",
+    "result": "PASS;2242 records,591 candidate expressions",
+    "sha256": "cf117bbc840b77ab57152d64778f2d2aeabf7b6e0ec7fabf30284a5db772c968"
+  },
+  "mounted": {
+    "command": "npm run test:mounted-activity-targets -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --browser-tools /tmp/sd-dice-preview-tools --chromium <local headless Chromium>",
+    "result": "PASS;actual1440/390 dimensions/defaults/zero,current unit-context changes,unqualified/missing units,source/context held callbacks and recovery;preview/focus/shortcut execution agree;zero writes",
+    "artifact": "/tmp/dnd5e-activity-targets-mounted-Fm9KkP/evidence.json",
+    "sha256": "b4af3817708c73565e37fe16cc75fb4e5cd346272ebdd56d52e87a9c8714c1b9"
+  },
+  "public": {
+    "command": "npm run test:public-rolls -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core --dependency-profile",
+    "result": "PASS;115402 accepted,2120 new,1 retained unary candidate diagnostic,1840 tied-index diagnostics,zero native writes",
+    "artifact": "/tmp/dnd5e-public-rolls-DX7SMp/evidence.json",
+    "sha256": "98bde0731b290cca0a98353253c44d8e33727a0f48a3a49e6b634a897b3fbaf0",
+    "limits": "Temporary Core0.19.3 data/config,synthetic endpoints/auth and controlled entropy;existing distributions/serialization assertions preserved. No wider dice equivalence or native/operator acceptance."
+  },
+  "package": {
+    "command": "npm run check:package -- --core /tmp/dnd5e-core-baseline-iDcWjQ/core",
+    "result": "PASS;module checking and isolated packaging;21files;fixtures/tests/temp/browser tools excluded",
+    "artifact": "/tmp/dnd5e-package-FgP0Tb/data/dist/modules/dnd5e-0.4.1.tgz",
+    "sha256": "17ba04b3c9142779cb52d7cf2addced377efadecce43ed5fd50c181196c4307a"
+  },
+  "cleanup": {
+    "result": "Task-owned public host/synthetic endpoints/browser stopped;existing30000/8000/8001 untouched",
+    "beforeSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb",
+    "afterSha256": "13d3fb1644079f2ce26784ba24bd7c7b3c1ec117a436d160177d796f8b0a7bdb"
+  },
+  "limits": [
+    "Actual native schema/Base final/TargetField/defaultUnits and Weapon schema range getter execute with explicit C97 constructor/array/label/Actor embedded and spellcasting collaborators. Native target dimensions/numeric fields are checked against independent literal expected tables;not against module output.",
+    "Raw numeric0 cleans to truthy string0 and blocks count1/width5/height5 fallback. Blank/null/absent unit defaults use the explicit public metricLengthUnits snapshot. Source preserves original fields;nonpersisted dimensions/labels/scalar poison is ignored.",
+    "Only metadata preparation and recorded Item/Actor composition qualify. No canvas placement,area application/collision,Activity execution,nonempty consumption,spell/other subtypes,full DataModel/Document runtime,installed UI or native/operator acceptance.",
+    "A fixture type collision (shape key versus owned Item type) and readonly snapshot construction were corrected before final historical-input reproduction/full checks. These were test-driver corrections,not native or Core defects.",
+    "Experimental0.4.1/Core>=0.19.3 unchanged. Node24.21/npm11.19 local;CI Node22 unrun. E01,E04 and wider Q00/E05 remain open."
+  ],
+  "next": "Qualify exact owned consumption-reference remapping and related source indexes,then remaining Activity/spell/modifier/formula/filter preparation and A02\u2013A06 exit work."
+}

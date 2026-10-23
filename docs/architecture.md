@@ -1692,3 +1692,14 @@ and held callbacks even when the prepared roll stays equal. The signature remain
 ephemeral UI intent,not a revision/permission authority. Native/operator acceptance
 and broader M8 performance/accessibility qualification remain open.
 [C97 evidence](audits/evidence/2026-10-23-c97-activity-common.json).
+
+
+Utility template facts share the common Activity path. One pinned dimension map
+and deterministic expression fold prepare count/size/width/height;UI only formats
+those facts. Source0 becomes initialized string"0" before falsey fallbacks,so it
+never becomes1/5. Template units and missing/null/blank weapon-range units use the
+captured length setting passed through effect/equippable preparation. Explicit
+units remain independent of that setting;missing required defaults are unavailable.
+Nonpersisted dimensions/labels never override source or computed results. These
+are read facts,not canvas placement/collision/application or Activity execution.
+[C98 evidence](audits/evidence/2026-10-23-c98-activity-targets.json).
