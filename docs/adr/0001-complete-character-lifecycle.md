@@ -3223,3 +3223,36 @@ full DataModel/installed/native/operator acceptance. M2/ADR remain open;next fin
 remaining Item/spell/formula/filter obligations and A02–A06/Q02a exit comparisons.
 
 [C99 evidence](../audits/evidence/2026-10-23-c99-consumption-references.json) records commands,hashes,declared collaborators and limits.
+
+
+### C100 — source-linked spell ability and numeric attack readouts (2026-10-23)
+
+C99 is `a6a5028`. Shared owned-Item preparation now resolves exact persisted
+spell ability/sourceItem,class/subclass identities and advancement-root links.
+Native class mapping retains last value/first key order;source indexes retain
+first-match order. No name inference or prepared-looking maps supply an override.
+The generic Activity fallback may use the Actor's strongest class ability,while
+a default Spell attack can legitimately have no ability modifier. Effective
+subclass ability and explicit attack/spellcasting/none choices stay distinct.
+Numeric spell attacks share the existing Item compiler and ability/global/msak/rsak
+scopes;source proficiency and spell proficiency-dice labels remain separately gated.
+Both layouts format the same current Item/Spell facts;casting stays unavailable
+until the reviewed M4/M5 workflow. No source writes or second preparation cache.
+
+16 actual native source/default/getter contexts and128 actual attack constructions
+use independently asserted expectations. Native final ability-Set/getters execute
+with declared common/damage-label/neutral label seams;construction is compared
+separately,not claimed as full Activity or Actor source preparation parity. All144
+final maintained inputs fail C99 and pass after. Poison/identity/malformed/context
+recovery,live spell details and stale callbacks are covered.
+
+80 module/9 tooling suites (61 assertions),297 explicitly typed files,exact2242/591
+source verification,mounted1440/390,117010 accepted public-host requests (64 new
+independent skill checks with spell-source graphs) and isolated check/package PASS.
+One unary candidate and1880 tied-index diagnostics remain;host serialization is
+unchanged. Task-owned services stopped. No installed/native/operator,slot/casting
+execution or release acceptance follows. M2/ADR remain open. Next complete Q02a's
+filter vocabulary/snapshot dispositions and remaining shared Item/spell common
+read preparation,then the existing M2 source/override/effect-order exit comparisons.
+
+[C100 evidence](../audits/evidence/2026-10-23-c100-spell-context.json) records commands,hashes and limits.

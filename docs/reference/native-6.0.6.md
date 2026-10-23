@@ -1580,3 +1580,14 @@ executable evidence against raw compendium string matching. Set helpers,registry
 array attachment,labels and C91/C97 callbacks remain declared seams;no consumption
 or full DataModel/runtime/operator acceptance follows.
 [C99 evidence](../audits/evidence/2026-10-23-c99-consumption-references.json).
+
+
+C100 compares Actor classes/spellcastingClasses/spellcastingAbility,Item effective
+spellcasting/class/subclass,Spell classIdentifier/availableAbilities and BaseActivity
+ability/getRollData. Source field cleaning is separate from initialized modifiers.
+16 independent contexts distinguish class maps from first-match source indexes,
+empty versus missing class ability,subclass effective ability and grant-root links.
+128 actual native Attack final ability-Set/getter and numeric constructor cases
+retain explicit common/damage-label/neutral-label seams. These are separate method
+comparisons,not a full final pipeline or casting acceptance.
+[C100 evidence](../audits/evidence/2026-10-23-c100-spell-context.json).

@@ -4,6 +4,7 @@ import React from 'react';
 import { resolveImage,processHtmlContent } from '@sheet-delver/sdk';
 import {ownedItemProjection} from '../../../logic/preparation/item-facts';
 import BaseModal from '../shared/BaseModal';
+import SpellPreparationFacts from '../shared/SpellPreparationFacts';
 import { useModal } from '../shared/useModal';
 import { useSheet } from '../shared/SheetContext';
 import { SPELL_FILTERS } from '../shared/filters';
@@ -96,6 +97,7 @@ export default function SpellModal({ item, onRoll, onClose }: SpellModalProps) {
                 {levelLabel}{school ? ` · ${school}` : ''}
             </div>
 
+            {!legacy&&<SpellPreparationFacts item={preparedItem}/>}
             {/* Top row: image + casting metadata */}
             <div style={{ display: 'flex', gap: 'var(--space-md)', marginTop: 'var(--space-md)' }}>
                 <div style={{

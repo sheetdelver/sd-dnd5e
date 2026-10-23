@@ -1713,3 +1713,12 @@ references warn without blocking independent checks;unknown canonical identity d
 not select another Item. UI formats the shared result in both layouts. No secondary
 index cache or consumption write is added.
 [C99 evidence](audits/evidence/2026-10-23-c99-consumption-references.json).
+
+
+Owned spell preparation resolves source ability and class/subclass/grant identities
+once with caller-owned Items. Generic Activity ability and default attack ability
+are separate native semantics. Item and Spell details format this shared context
+and numeric attack result;neither enables casting. Unknown identities,malformed
+abilities,unqualified Item effects and contexts keep explicit reasons. Source
+availableAbilities/classIdentifier and old attack totals never override the model.
+[C100 evidence](audits/evidence/2026-10-23-c100-spell-context.json).

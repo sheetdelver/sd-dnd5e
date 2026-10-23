@@ -10,6 +10,7 @@ import type {RulesContext} from '../rules-context';
 import {numericCharacterProfile} from './character-profile';
 import {numericAbilityValue,numericConstant} from './numeric';
 import {initializeTraitSet606} from './trait-fields';
+import {prepareSpellContexts606,type SpellContext606} from './spell-context';
 import type {ItemFact} from './item-facts';
 const provenance='release-6.0.6 WeaponData.attackModes/availableAbilities/proficiencyMultiplier; AttackData.getAttackData';
 const no=<T>(reason:string):ItemFact<T>=>({status:'unavailable',value:null,reason,origin:'prepared',provenance});
@@ -29,7 +30,7 @@ export function weaponModes606(raw:unknown,reason?:string,enhancedDualWielding=f
 }
 /** Read-only attack numbers; execution/consumption belongs to M4. Source
  * total/toHit/prof/attack.abilities cannot replace the qualified calculation. */
-export function itemAttack606(actor:unknown,item:unknown,activity:unknown,context:RulesContext,effects:NumericEffects,preparedProficiency?:ItemProficiency606,preparedItemBindings?:FormulaBindings606):ItemFact<AttackFacts> {
+export function itemAttack606(actor:unknown,item:unknown,activity:unknown,context:RulesContext,effects:NumericEffects,preparedProficiency?:ItemProficiency606,preparedItemBindings?:FormulaBindings606,preparedCasting?:SpellContext606):ItemFact<AttackFacts> {
  const raw=record(item)??{},s=record(raw.system)??{},a=record(activity)??{},attack=a.attack===undefined?{}:record(a.attack);
  if(!attack)return no('Attack source mapping malformed');
  if(context.status!=='supported'||context.profile!=='2024')return no('Attack rules context unavailable');
@@ -42,17 +43,23 @@ export function itemAttack606(actor:unknown,item:unknown,activity:unknown,contex
  const profile=numericCharacterProfile(actor,context,effects);if(profile.status!=='ready')return no(profile.reason);
  const attackType=record(attack.type)??{},weaponType=record(s.type)??{},typeKey=weaponType.value??'simpleM',properties=initializeTraitSet606(s.properties);
  if(!properties)return no('Item properties source malformed');
- if(attackType.classification==='spell'||attack.ability==='spellcasting')return no('Spell attack requires qualified casting capability preparation');
- if(!['weapon','feat'].includes(String(raw.type)))return no('Item attack construction requires qualification for this Item type');
+ const spell=raw.type==='spell'&&(!attackType.classification||attackType.classification==='spell');
+ if(!spell&&(attackType.classification==='spell'||attack.ability==='spellcasting'))return no('Nonspell Item spell attack requires qualified casting capability preparation');
+ if(!['weapon','feat','spell'].includes(String(raw.type))||raw.type==='spell'&&!spell)return no('Item attack construction requires qualification for this Item type/classification');
+ const casting=spell?preparedCasting??prepareSpellContexts606(actor,context,effects)[String(raw._id)]:undefined;
+ if(spell&&casting?.status!=='ready')return no(casting?.reason??'Spell casting context unavailable');
+ if(spell&&itemProficiency.mode==='dice')return no('Spell attack proficiency-dice read formula requires qualification');
  let choices:string[];
  if(attack.ability==='none')choices=[];
+ else if(spell&&attack.ability==='spellcasting')choices=casting!.activityAbility?[casting!.activityAbility]:[];
  else if(typeof attack.ability==='string'&&attack.ability)choices=[attack.ability];
  else if(attack.ability!=null&&attack.ability!=='')return no('Attack ability source malformed');
+ else if(spell)choices=casting!.availableAbilities!;
  else if(raw.type==='weapon')choices=properties.includes('fin')||typeKey==='natural'?['str','dex']:types[String(typeKey)]?[types[String(typeKey)]==='melee'?'str':'dex']:[];
  else if(['melee','ranged'].includes(String(attackType.value)))choices=[attackType.value==='ranged'?'dex':'str'];
  else return no('Attack ability/type requires explicit qualified source');
  const abilities=record(effects.system.abilities)??{};let ability:string|null=null,mod=0;
- if(attack.ability!=='none'&&!choices.length)return no('Attack ability requires explicit supported source');
+ if(!spell&&attack.ability!=='none'&&!choices.length)return no('Attack ability requires explicit supported source');
  for(const key of choices){if(!['str','dex','con','int','wis','cha'].includes(key))return no('Unsupported attack ability');const value=numericAbilityValue(record(abilities[key])?.value);if(!value)return no('Attack ability score unavailable');if(ability===null||value.mod>mod){ability=key;mod=value.mod;}}
  if(itemProficiency.status!=='ready'||itemProficiency.multiplier===null)return no(itemProficiency.reason??'Item attack proficiency unavailable');
  const coefficient=itemProficiency.multiplier;
@@ -61,7 +68,7 @@ export function itemAttack606(actor:unknown,item:unknown,activity:unknown,contex
  // Item proficiency and current Actor reference values must remain distinct.
  bindings.prof=itemProficiency.flat!;bindings.mod=mod;
  const bonus=deterministicFormula606(attack.bonus,bindings);if(bonus===null)return no('Attack bonus expression/reference requires qualification');
- const actionType=(attackType.value==='ranged'||!attackType.value&&types[String(typeKey)]==='ranged'?'r':'m')+'wak';
+ const actionType=(attackType.value==='ranged'||!attackType.value&&types[String(typeKey)]==='ranged'?'r':'m')+(spell?'sak':'wak');
  const globals=record(record(effects.system.rolls)?.attack)??{},scopes=[{path:`abilities.${ability??''}.attack.roll`,value:record(record(abilities[ability??''])?.attack)?.roll},{path:'rolls.attack',value:globals},{path:`rolls.attack.${actionType}`,value:globals[actionType]}],bonuses:number[]=[];
  const expressions=Object.fromEntries((effects.formulaPreparation?.receipts??[]).map(row=>['system.'+row.path,row.source]));
  for(const scope of scopes){const raw=record(scope.value)?.bonus;if(typeof raw==='string'&&numericConstant(raw)===null&&!expressions['system.'+scope.path+'.bonus'])expressions['system.'+scope.path+'.bonus']=raw;}
